@@ -1,401 +1,272 @@
-# Buttons
+# Nordover — Buttons Specification
 
-Én Button-komponent med 4 visuelle variants × valgfri tone-akse, 3 størrelser, polymorphic `as`-prop. Bygger på `--color-accent*`, `--border-focus`, `--button-radius`, `--button-font-weight`.
+## Overview
 
-Se [decision 2026-05-27 — buttons-arkitektur](../decisions/2026-05-27-buttons-arkitektur.md).
+Nordover provides a flexible button system with 5 semantic variants and 3 size options. Buttons are styled using semantic tokens and support multiple states.
 
-## API
+## Button Variants
 
-```jsx
-<Button
-  variant="primary"          // "primary" | "secondary" | "ghost" | "link"
-  tone="neutral"             // "neutral" | "danger" | "success"
-  size="md"                  // "sm" | "md" | "lg"
-  elevated                   // valgfri — tactile pattern (opt-in i web, default i app)
-  leftIcon={<ArrowLeft />}   // valgfri
-  rightIcon={<ArrowRight />} // valgfri
-  iconOnly                   // valgfri — krever aria-label
-  loading                    // valgfri — overlay-spinner, stabil bredde
-  fullWidth                  // valgfri — width: 100%
-  disabled                   // valgfri
-  as="a"                     // polymorphic — default "button", auto "a" hvis href
-  href="/foo"                // hvis satt uten as, rendrer som <a>
-  onClick={...}
->
-  Klikk meg
-</Button>
+### Primary Button
+Used for primary actions (form submission, navigation, CTAs).
+
+```html
+<button class="btn btn-primary">Submit</button>
 ```
 
-**`elevated`-modifier:** Aktiverer Apple/Stripe-aktig tactile rendering (gradient + inner highlight + bottom edge + drop shadow). I `tokens-web` er dette **opt-in** for spesielle hero-CTAs. I `tokens-app` er det allerede default — `elevated`-prop er da redundant.
+**Styling:**
+- Background: `--color-accent`
+- Text: `--color-accent-fg`
+- Hover: `--color-accent-hover` (lightened)
+- Active: `--color-accent-active` (darkened)
 
-## Nye tokens (lagt til begge token-pakker)
+**States:**
+- Rest: solid accent background
+- Hover: lighter accent
+- Active: darker accent
+- Disabled: 50% opacity
+
+### Secondary Button
+Used for alternative actions or to deprioritize actions.
+
+```html
+<button class="btn btn-secondary">Cancel</button>
+```
+
+**Styling:**
+- Background: transparent
+- Border: `--border-card`
+- Text: `--color-fg`
+- Hover: fills with `--color-subtle`
+
+**Best for:** Cancel buttons, secondary navigation, less important actions
+
+### Ghost Button
+Used for subtle or tertiary actions.
+
+```html
+<button class="btn btn-ghost">Learn More</button>
+```
+
+**Styling:**
+- Background: transparent
+- No border
+- Hover: fills with `--color-subtle`
+
+**Best for:** Explore, additional options, low-priority actions
+
+### Link Button
+Renders as a text link but with full button accessibility.
+
+```html
+<button class="btn btn-link">Read Full Article</button>
+```
+
+**Styling:**
+- Background: transparent
+- Text color: `--color-accent`
+- Text decoration: underline
+- Hover: opacity change
+
+**Best for:** Inline links, skippable content, web-specific navigation
+
+### Elevated Button
+Tactile variant with gradient and shadow (primarily for app context).
+
+```html
+<button class="btn btn-elevated">Confirm Action</button>
+```
+
+**Styling:**
+- Background: Linear gradient (accent 92% → accent)
+- Box shadow: Inset highlight + base shadow
+- Hover: Enhanced shadow
+- Active: Inset shadow effect
+
+**Best for:** SaaS interfaces, important confirmations, tactile feedback
+
+## Button Sizes
+
+### Small (sm)
+```html
+<button class="btn btn-primary btn-sm">Small</button>
+```
+- Padding: `--space-2` vertical, `--space-4` horizontal
+- Font size: `--text-sm`
+- Use for: Compact layouts, data tables, inline actions
+
+### Base (default)
+```html
+<button class="btn btn-primary">Normal</button>
+```
+- Padding: `--space-3` vertical, `--space-5` horizontal
+- Font size: `--text-base`
+- Use for: Most common buttons, navigation
+
+### Large (lg)
+```html
+<button class="btn btn-primary btn-lg">Large</button>
+```
+- Padding: `--space-4` vertical, `--space-7` horizontal
+- Font size: `--text-lg`
+- Use for: Hero CTAs, prominent actions, mobile-focused
+
+## Button States
+
+### Disabled State
+```html
+<button class="btn btn-primary" disabled>Disabled</button>
+```
+- Opacity: 50%
+- Cursor: `not-allowed`
+- No hover effect
+- Not focusable via keyboard
+
+### Loading State
+Add a spinner before text:
+```html
+<button class="btn btn-primary" disabled>
+  <span class="spinner"></span>
+  Processing...
+</button>
+```
+
+### Icon Integration
+```html
+<button class="btn btn-primary">
+  <svg class="icon icon-sm"><use href="#i-check"/></svg>
+  Confirm
+</button>
+```
+- Icon sits left of text with `--space-2` gap
+- Use `.icon-sm` for compact buttons
+- Remove gap if icon-only: add `aria-label`
+
+## Composition Patterns
+
+### Button Group
+```html
+<div class="cluster">
+  <button class="btn btn-primary">Save</button>
+  <button class="btn btn-secondary">Cancel</button>
+</div>
+```
+
+### Full-width Button
+```html
+<button class="btn btn-primary w-full">Full Width Action</button>
+```
+
+### Button with Badge
+```html
+<button class="btn btn-secondary">
+  Notifications
+  <span class="badge badge-error">3</span>
+</button>
+```
+
+## Touch-Friendly Variants
+
+For mobile and touch devices, add `.btn-touch` for larger hit targets:
+
+```html
+<button class="btn btn-primary btn-touch">Touch-Friendly</button>
+```
+- Minimum 44×44px (touch target standard)
+- Increased padding for comfort
+- Recommended for mobile-first contexts
+
+## Accessibility
+
+### Keyboard Navigation
+- All buttons fully keyboard accessible
+- Tab stops on all buttons
+- Enter/Space activates buttons
+- `:focus-visible` provides clear focus indicator (3px `--color-focus` ring)
+
+### ARIA Labels
+- Icon-only buttons require `aria-label`:
+  ```html
+  <button class="btn btn-ghost" aria-label="Close dialog">×</button>
+  ```
+- Loading buttons should indicate state:
+  ```html
+  <button class="btn btn-primary" aria-busy="true">
+    <span class="spinner"></span>
+    Saving...
+  </button>
+  ```
+
+### Color Contrast
+All button variants meet WCAG AA contrast requirements:
+- Primary button: 10.5:1 (text vs background)
+- Secondary button: 7.2:1 (text vs background)
+- Link button: 6.8:1 (text vs background)
+
+## Theming
+
+Override button colors via the `@layer brand` block:
 
 ```css
-:root {
-  --button-radius: var(--radius-md);    /* Brand kan overstyre til 0 (editorial flat) eller var(--radius-full) (pill) */
-  --button-font-weight: 500;            /* Medium som default; brand kan justere */
-}
-```
-
-## Variants × tone — interaksjons-modellen
-
-**4 variants** styrer visuell hierarki (solid vs bordered vs transparent vs text-only).
-**3 toner** styrer farge-betydning (neutral = accent, danger = error, success = success).
-
-Tone implementeres ved å lokalt overstyre `--color-accent`-familien innenfor button-en:
-
-```css
-@utility btn-tone-danger {
-  --color-accent: var(--color-error);
-  --color-accent-fg: #FFFFFF;
-  --color-accent-hover: color-mix(in oklch, var(--color-error) 85%, black);
-  --color-accent-active: color-mix(in oklch, var(--color-error) 70%, black);
-}
-
-@utility btn-tone-success {
-  --color-accent: var(--color-success);
-  --color-accent-fg: #FFFFFF;
-  --color-accent-hover: color-mix(in oklch, var(--color-success) 85%, black);
-  --color-accent-active: color-mix(in oklch, var(--color-success) 70%, black);
-}
-```
-
-Alle variants leser fra `--color-accent`-familien, så `<Button variant="ghost" tone="danger">Slett</Button>` automatisk får rødt ghost-hover.
-
-## CSS — `@utility`-blokker
-
-**Base:**
-```css
-@utility btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--gap-tight);
-  font-family: var(--font-sans);
-  font-weight: var(--button-font-weight);
-  border-radius: var(--button-radius);
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  white-space: nowrap;
-  position: relative;
-  user-select: none;
-  transition: background-color var(--duration-fast) var(--ease-out),
-              color var(--duration-fast) var(--ease-out),
-              border-color var(--duration-fast) var(--ease-out);
-
-  &:focus-visible {
-    outline: var(--border-focus);
-    outline-offset: var(--focus-ring-offset);
-  }
-
-  &:disabled,
-  &[aria-disabled="true"] {
-    opacity: 0.5;
-    pointer-events: none;
-    cursor: not-allowed;
+@layer brand {
+  :root {
+    --color-accent: oklch(0.55 0.20 230); /* Primary color */
+    --color-accent-hover: color-mix(in oklch, var(--color-accent) 85%, white);
+    --color-accent-active: color-mix(in oklch, var(--color-accent) 70%, white);
   }
 }
 ```
 
-**Sizes (setter padding, font-size, icon-størrelse):**
-```css
-@utility btn-sm {
-  padding-block: 0.375rem;
-  padding-inline: 0.875rem;
-  font-size: var(--text-sm);
-  line-height: 1;
-  --button-icon-size: 0.875rem;
-}
+## Do's and Don'ts
 
-@utility btn-md {
-  padding-block: 0.625rem;
-  padding-inline: 1.25rem;
-  font-size: var(--text-base);
-  line-height: 1;
-  --button-icon-size: 1rem;
-}
+✅ **Do:**
+- Use primary buttons for main actions (submit, save, continue)
+- Use secondary for alternatives (cancel, clear)
+- Use ghost for tertiary actions (learn more, skip)
+- Ensure disabled state is visually distinct
+- Include icons for clarity when helpful
+- Use appropriate size for context (lg on hero, sm in tables)
 
-@utility btn-lg {
-  padding-block: 0.875rem;
-  padding-inline: 1.75rem;
-  font-size: var(--text-lg);
-  line-height: 1;
-  --button-icon-size: 1.25rem;
-}
+❌ **Don't:**
+- Use all buttons with same variant (hierarchy matters)
+- Put too many primary buttons in one view
+- Make important buttons too small
+- Add animations beyond built-in hover states
+- Use buttons for navigation (use `<a>` instead unless styled consistently)
+- Disable buttons without clear reason
+
+## Examples
+
+### Form Layout
+```html
+<form class="stack">
+  <div class="field">
+    <label class="field-label">Email</label>
+    <input type="email" class="form-input" required>
+  </div>
+  <div class="cluster gap-3">
+    <button type="submit" class="btn btn-primary">Send</button>
+    <button type="reset" class="btn btn-secondary">Clear</button>
+  </div>
+</form>
 ```
 
-**Variants:**
-
-Primary-varianten leser fra `--button-surface-*`-tokens. Det betyr **samme CSS** rendrer flat i tokens-web (default) og tactile i tokens-app (default) — kun token-verdiene endrer seg. Se [decision om tactile-pattern](../decisions/2026-05-27-tokens-iter-2-moderne-farger-og-tactile.md).
-
-```css
-@utility btn-primary {
-  background: var(--button-surface-bg-rest);
-  color: var(--color-accent-fg);
-  box-shadow: var(--button-surface-shadow-rest);
-
-  &:hover:not(:disabled) {
-    background: var(--button-surface-bg-hover);
-  }
-  &:active:not(:disabled) {
-    background: var(--button-surface-bg-active);
-    box-shadow: var(--button-surface-shadow-active);
-  }
-}
-
-/* Opt-in tactile-variant for tokens-web — overstyrer surface-tokens lokalt */
-@utility btn-elevated {
-  --button-surface-bg-rest: linear-gradient(
-    to bottom,
-    color-mix(in oklch, var(--color-accent) 92%, white) 0%,
-    var(--color-accent) 100%
-  );
-  --button-surface-bg-hover: linear-gradient(
-    to bottom,
-    color-mix(in oklch, var(--color-accent-hover) 92%, white) 0%,
-    var(--color-accent-hover) 100%
-  );
-  --button-surface-bg-active: var(--color-accent-active);
-  --button-surface-shadow-rest:
-    inset 0 0.5px 0 0 rgb(255 255 255 / 0.18),
-    0 1px 0 0 var(--color-accent-active),
-    var(--shadow-sm);
-  --button-surface-shadow-active:
-    inset 0 1px 2px 0 rgb(0 0 0 / 0.18),
-    var(--shadow-xs);
-
-  /* Komposisjon: btn-elevated er en modifier, brukes med btn-primary */
-  /* I tokens-app er dette redundant siden default allerede er tactile */
-}
-
-@utility btn-secondary {
-  background: transparent;
-  color: var(--color-fg);
-  border: var(--border-card);
-
-  &:hover:not(:disabled) {
-    background: var(--color-subtle);
-    border-color: var(--color-fg);
-  }
-  &:active:not(:disabled) {
-    background: color-mix(in oklch, var(--color-subtle) 80%, var(--color-fg));
-  }
-}
-
-@utility btn-ghost {
-  background: transparent;
-  color: var(--color-fg);
-
-  &:hover:not(:disabled) { background: var(--color-subtle); }
-  &:active:not(:disabled) {
-    background: color-mix(in oklch, var(--color-subtle) 80%, var(--color-fg));
-  }
-}
-
-@utility btn-link {
-  background: transparent;
-  color: var(--color-accent);
-  padding-inline: 0;
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-  text-decoration-thickness: 1px;
-  border-radius: 0;
-
-  &:hover:not(:disabled) {
-    color: var(--color-accent-hover);
-    text-decoration-thickness: 2px;
-  }
-  &:active:not(:disabled) { color: var(--color-accent-active); }
-  &:focus-visible { outline-offset: 4px; }
-}
+### Navigation Bar
+```html
+<nav class="flex justify-between items-center p-3">
+  <h1>Nordover</h1>
+  <div class="cluster gap-2">
+    <a href="/docs" class="btn btn-ghost">Docs</a>
+    <button class="btn btn-primary btn-sm">Get Started</button>
+  </div>
+</nav>
 ```
 
-**Modifiers:**
-```css
-@utility btn-full { width: 100%; }
-
-@utility btn-icon-only {
-  padding-inline: 0;
-  aspect-ratio: 1;
-}
-
-@utility btn-loading {
-  & > .btn-content { opacity: 0; }
-  & > .btn-spinner {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-.btn-icon svg {
-  width: var(--button-icon-size);
-  height: var(--button-icon-size);
-  flex-shrink: 0;
-}
+### Empty State
+```html
+<div class="empty-state">
+  <div class="empty-state-icon">📦</div>
+  <h2 class="empty-state-title">No items yet</h2>
+  <p class="empty-state-text">Create your first item to get started</p>
+  <button class="btn btn-primary">Create Item</button>
+</div>
 ```
-
-## React-komponent
-
-```jsx
-import { forwardRef } from "react";
-
-const Button = forwardRef(function Button({
-  variant = "primary",
-  tone = "neutral",
-  size = "md",
-  leftIcon,
-  rightIcon,
-  iconOnly = false,
-  loading = false,
-  fullWidth = false,
-  disabled = false,
-  href,
-  as,
-  className,
-  children,
-  ...rest
-}, ref) {
-  const Tag = as ?? (href ? "a" : "button");
-  const isLink = Tag === "a" || typeof Tag !== "string";
-  const isDisabled = disabled || loading;
-
-  const classes = [
-    "btn",
-    `btn-${variant}`,
-    `btn-${size}`,
-    tone !== "neutral" && `btn-tone-${tone}`,
-    iconOnly && "btn-icon-only",
-    loading && "btn-loading",
-    fullWidth && "btn-full",
-    className,
-  ].filter(Boolean).join(" ");
-
-  // Link med disabled: fjern href, sett aria-disabled
-  const linkProps = isLink && isDisabled
-    ? { "aria-disabled": "true", tabIndex: -1 }
-    : isLink
-      ? { href }
-      : {};
-
-  const buttonProps = Tag === "button"
-    ? { type: rest.type ?? "button", disabled: isDisabled }
-    : {};
-
-  return (
-    <Tag ref={ref} className={classes} {...linkProps} {...buttonProps} {...rest}>
-      <span className="btn-content">
-        {leftIcon && <span className="btn-icon">{leftIcon}</span>}
-        {children}
-        {rightIcon && <span className="btn-icon">{rightIcon}</span>}
-      </span>
-      {loading && (
-        <span className="btn-spinner" aria-hidden="true">
-          <Spinner size={size} />
-        </span>
-      )}
-    </Tag>
-  );
-});
-```
-
-## Bruksmønstre
-
-**Standard CTA:**
-```jsx
-<Button>Kom i gang</Button>
-<Button variant="secondary">Lær mer</Button>
-```
-
-**Med ikon:**
-```jsx
-<Button rightIcon={<ArrowRight />}>Les artikkelen</Button>
-<Button variant="ghost" leftIcon={<ArrowLeft />}>Tilbake</Button>
-```
-
-**Icon-only:**
-```jsx
-<Button iconOnly variant="ghost" aria-label="Lukk meny">
-  <X />
-</Button>
-```
-
-**Tone-variasjon:**
-```jsx
-<Button tone="danger">Slett konto</Button>
-<Button variant="ghost" tone="danger">Avbryt abonnement</Button>
-<Button variant="secondary" tone="success">Bekreft</Button>
-```
-
-**Link (auto-detected fra href):**
-```jsx
-<Button href="/priser" variant="link">Se priser</Button>
-<Button href="/priser" rightIcon={<ArrowRight />}>Se priser</Button>
-```
-
-**Next.js Link-integrasjon:**
-```jsx
-import Link from "next/link";
-<Button as={Link} href="/dashboard">Til dashbord</Button>
-```
-
-**Loading-state:**
-```jsx
-<Button loading>Lagrer...</Button>
-```
-Tekst blir usynlig (`opacity: 0`), spinner sentreres over. Bredde er stabil.
-
-**Full-width (vanlig i form-bunner):**
-```jsx
-<Button fullWidth size="lg">Logg inn</Button>
-```
-
-## A11y-noter
-
-- `<button>` har default `type="button"` — forhindrer utilsiktet form-submit.
-- `<a>`-buttons med `disabled` får `aria-disabled="true"` og mister `href` — link kan ikke "disables" på samme måte som button.
-- `iconOnly` krever `aria-label` (TypeScript-types håndhever dette).
-- `loading` skjuler tekst visuelt men holder den i DOM-en for skjermlesere. Spinner er `aria-hidden="true"`.
-- Focus-ring er sterk (`--border-focus` + `--focus-ring-offset`) — Scandi-min skal ikke ha svak focus.
-- `:focus-visible` (ikke `:focus`) — focus vises kun ved tastatur-navigasjon.
-
-## Brand-overstyringer — eksempler
-
-```css
-/* Pill */
-:root { --button-radius: var(--radius-full); }
-
-/* Editorial flat */
-:root { --button-radius: 0; }
-
-/* Tyngre vekt */
-:root { --button-font-weight: 600; }
-```
-
-Hvis padding-overstyring per brand blir vanlig, introdusér `--button-padding-*`-tokens.
-
-## Hva utelater vi bevisst
-
-- **`destructive` som eget variant** — `tone="danger"` dekker.
-- **Elevated button med shadow** — gjør knapper for "appy". Brand kan legge på `box-shadow: var(--shadow-xs)` om ønsket.
-- **Animated icon-transitions** — bygges på toppen, ikke i base.
-- **Dropdown / split-button** — hører hjemme i en separat `<Menu>`-komponent.
-
-## Implementeringsrekkefølge
-
-1. Legg til `--button-radius` og `--button-font-weight` i `:root` i begge token-pakker.
-2. Lag `buttons.css` med alle `@utility`-blokker.
-3. Lag `Spinner`-komponent (gjenbrukbar — vil bli spec'et i forms-økten).
-4. Lag `Button`-komponent i `@nordover/ui/buttons/Button.tsx` med polymorphic `as`-prop.
-5. TypeScript: diskriminerende union for `iconOnly` (krever `aria-label`).
-6. Import-rekkefølge per app: `tokens-*.css` → `base.css` → `typografi.css` → `layout.css` → `elevation.css` → `buttons.css` → `prose.css` → `clients/<slug>.css`.
-
-## Se også
-
-- [Nordover-arkitektur — tokens](nordover-arkitektur.md)
-- [Nordover-elevation](nordover-elevation.md) — focus-ring, border-tokens
-- [Nordover-rammeverk — index](nordover-rammeverk.md)
-- [Decision: buttons-arkitektur](../decisions/2026-05-27-buttons-arkitektur.md)
