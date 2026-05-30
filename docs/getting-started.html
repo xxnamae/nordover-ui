@@ -9,305 +9,136 @@
 <link rel="stylesheet" href="./visual/tokens/tokens-web.css">
 <link rel="stylesheet" href="./visual/components/components-web.css">
 <style>
-  .lang-controls { position: fixed; top: var(--space-4); right: var(--space-4); z-index: 1000; display: flex; gap: var(--space-2); }
-  .lang-btn { background: var(--color-subtle); border: var(--border-card); padding: var(--space-2) var(--space-3); border-radius: var(--radius-md); cursor: pointer; font-weight: 600; transition: all 150ms ease-out; }
-  .lang-btn.active { background: var(--color-accent); color: var(--color-accent-fg); }
-  .lang-section { display: none; }
-  .lang-section.active { display: block; }
-  .page { max-width: 64rem; margin: 0 auto; padding: clamp(1.5rem, 4vw, 2rem); }
-  .code-block { background: var(--color-subtle); border: var(--border-card); border-radius: var(--radius-md); padding: var(--space-4); overflow-x: auto; font-family: monospace; font-size: var(--text-sm); line-height: 1.5; }
-  .toc { background: var(--color-subtle); border-radius: var(--radius-md); padding: var(--space-4); margin: var(--space-4) 0; }
-  .toc ol { margin: 0; padding-left: var(--space-4); }
-  .toc a { color: var(--color-accent); text-decoration: none; }
-  section { margin-bottom: var(--space-8); padding-bottom: var(--space-4); border-bottom: var(--border-divider); }
-  h2 { margin-top: 0; }
+.lang-controls{position:fixed;top:var(--space-4);right:var(--space-4);z-index:1000;display:flex;gap:var(--space-2);}
+.lang-btn{background:var(--color-subtle);border:var(--border-card);padding:var(--space-2) var(--space-3);border-radius:var(--radius-md);cursor:pointer;font-weight:600;transition:all 150ms ease-out;}
+.lang-btn.active{background:var(--color-accent);color:var(--color-accent-fg);}
+.lang-btn:hover{border-color:var(--color-accent);}
+.lang-section{display:none;}
+.lang-section.active{display:block;}
+.page{max-width:64rem;margin:0 auto;padding:clamp(1.5rem,4vw,2rem);}
+.code-block{background:var(--color-subtle);border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-4);overflow-x:auto;font-family:monospace;font-size:var(--text-sm);margin:var(--space-3) 0;line-height:1.5;}
+.warning-box{background:color-mix(in oklch,var(--warning) 10%,var(--color-bg));border-left:4px solid var(--warning);padding:var(--space-4);border-radius:var(--radius-md);margin:var(--space-4) 0;}
+.success-box{background:color-mix(in oklch,var(--success) 10%,var(--color-bg));border-left:4px solid var(--success);padding:var(--space-4);border-radius:var(--radius-md);margin:var(--space-4) 0;}
+.token-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));gap:var(--space-4);margin:var(--space-4) 0;}
+.token-card{border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-4);}
+.token-card h4{margin:0 0 var(--space-2) 0;font-size:var(--text-sm);font-weight:600;color:var(--color-accent);}
+.token-card ul{list-style:none;padding:0;margin:0;}
+.token-card li{font-size:var(--text-xs);color:var(--color-muted);margin:var(--space-2) 0;font-family:monospace;}
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));gap:var(--space-4);margin:var(--space-4) 0;}
+.feature-box{border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-4);background:var(--color-subtle);}
+.feature-box:hover{border-color:var(--color-fg);}
+.feature-box h3{margin:0 0 var(--space-2) 0;font-size:var(--text-lg);}
+.feature-box p{color:var(--color-muted);font-size:var(--text-sm);margin:0;}
+.breakpoint-table{width:100%;border-collapse:collapse;margin:var(--space-4) 0;font-size:var(--text-sm);}
+.breakpoint-table th,.breakpoint-table td{border:var(--border-card);padding:var(--space-3);text-align:left;}
+.breakpoint-table th{background:var(--color-subtle);font-weight:600;}
+.demo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:var(--space-4);margin:var(--space-4) 0;}
+.demo-label{font-size:var(--text-xs);color:var(--color-muted);text-transform:uppercase;letter-spacing:var(--tracking-widest);font-weight:600;margin-bottom:var(--space-2);}
+.browser-compat{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:var(--space-4);margin:var(--space-4) 0;}
+.browser-card{border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-4);}
+.browser-card strong{display:block;margin-bottom:var(--space-2);}
+.browser-card ul{list-style:none;padding:0;margin:0;font-size:var(--text-sm);}
+.browser-card li{color:var(--color-muted);margin:var(--space-1) 0;}
+.browser-card li::before{content:"✓ ";color:var(--color-success);font-weight:600;}
+.checklist li{display:flex;align-items:flex-start;gap:var(--space-2);margin:var(--space-2) 0;font-size:var(--text-sm);}
+.checklist li::before{content:"☐";flex-shrink:0;}
+.class-example{background:var(--color-subtle);border-left:3px solid var(--color-accent);padding:var(--space-3);margin:var(--space-3) 0;border-radius:var(--radius-sm);font-family:monospace;font-size:var(--text-sm);}
+.section-time{display:inline-block;background:color-mix(in oklch,var(--info) 15%,transparent);padding:var(--space-1) var(--space-2);border-radius:var(--radius-sm);font-size:var(--text-xs);font-weight:600;margin-left:var(--space-2);}
+.toc{background:var(--color-subtle);border-radius:var(--radius-md);padding:var(--space-4);margin:var(--space-4) 0;}
+.toc ol{margin:0;padding-left:var(--space-4);}
+.toc a{color:var(--color-accent);text-decoration:none;}
+.toc a:hover{text-decoration:underline;}
+section{margin-bottom:var(--space-8);padding-bottom:var(--space-4);border-bottom:var(--border-divider);}
+section:last-child{border-bottom:none;}
+h2{margin-top:0;margin-bottom:var(--space-3);}
+h3{margin-top:var(--space-4);margin-bottom:var(--space-2);}
+p{margin:var(--space-3) 0;}
+@media (max-width:48rem){.lang-controls{position:static;margin-bottom:var(--space-4);}}
 </style>
 </head>
 <body>
 <input type="checkbox" id="dark" class="sr-only" role="switch" aria-label="Toggle dark mode">
-<div class="lang-controls">
-  <button class="lang-btn active" onclick="switchLang('no')">Norsk</button>
-  <button class="lang-btn" onclick="switchLang('en')">English</button>
-</div>
+<div class="lang-controls"><button class="lang-btn active" onclick="setLang('no')">Norsk</button><button class="lang-btn" onclick="setLang('en')">English</button></div>
 
-<!-- NORSK -->
 <div class="lang-section active" id="lang-no">
 <div class="page">
-<p class="t-eyebrow">Nordover Design System</p>
-<h1 class="t-display-md">Kom i gang</h1>
-<p style="color: var(--color-muted);">Dokumentasjon og veiledning for Nordover rammeverket. 40+ komponenter dokumentert med live-eksempler og kodesnippets.</p>
-<label for="dark" style="cursor: pointer; font-size: 2rem;">🌙</label>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-6);"><div><p class="t-eyebrow">Nordover Design System</p><h1 class="t-display-md">Kom i gang</h1><p style="color:var(--color-muted);max-width:50ch;">Alt du trenger for å implementere Nordover i ditt prosjekt.</p></div><label for="dark" style="cursor:pointer;font-size:1.5rem;">🌙</label></div>
 
-<div class="toc">
-<h3>Innholdsfortegnelse</h3>
-<ol>
-<li><a href="#qs-no">1. Quick Start (5 min)</a></li>
-<li><a href="#tokens-no">2. Token System (10 min)</a></li>
-<li><a href="#classes-no">3. CSS Klasse-konvensjoner (5 min)</a></li>
-<li><a href="#darkmode-no">4. Dark Mode (3 min)</a></li>
-<li><a href="#responsive-no">5. Responsive Design (5 min)</a></li>
-<li><a href="#accessibility-no">6. Accessibility WCAG AA (5 min)</a></li>
-<li><a href="#troubleshooting-no">7. Troubleshooting</a></li>
-</ol>
-</div>
+<div class="toc"><h3>Innholdsfortegnelse</h3><ol><li><a href="#qs-no">1. Quick Start</a></li><li><a href="#tokens-no">2. Token System</a></li><li><a href="#classes-no">3. CSS Klasse-konvensjoner</a></li><li><a href="#darkmode-no">4. Dark Mode</a></li><li><a href="#responsive-no">5. Responsive Design</a></li><li><a href="#accessibility-no">6. Accessibility WCAG AA</a></li><li><a href="#troubleshooting-no">7. Troubleshooting</a></li><li><a href="#browser-no">8. Browser Compatibility</a></li></ol></div>
 
-<section id="qs-no">
-<h2>1. Quick Start (5 min)</h2>
-<p>Nordover er en ren CSS-framework. Inkluder bare CSS-filene:</p>
-<div class="code-block">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-  &lt;link rel="stylesheet" href="path/to/tokens-web.css"&gt;
-  &lt;link rel="stylesheet" href="path/to/components-web.css"&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;button class="btn btn-primary"&gt;Klikk meg&lt;/button&gt;
-  &lt;input class="form-input" type="text" placeholder="Skriv her"&gt;
-&lt;/body&gt;
-&lt;/html&gt;</div>
-<p>Det er det! Du har nå tilgang til alle 40+ komponenter. Se styleguides for alle eksempler.</p>
-</section>
+<section id="qs-no"><h2>1. Quick Start <span class="section-time">5 min</span></h2><p><strong>Steg 1:</strong> Inkluder CSS-filene:</p><div class="code-block">&lt;link rel="stylesheet" href="https://rsms.me/inter/inter.css"&gt;
+&lt;link rel="stylesheet" href="tokens-web.css"&gt;
+&lt;link rel="stylesheet" href="components-web.css"&gt;</div><p><strong>Steg 2:</strong> Lag din første knapp:</p><div class="code-block">&lt;button class="btn btn-primary"&gt;Klikk meg&lt;/button&gt;</div><div class="demo-grid"><div><div class="demo-label">Primær</div><button class="btn btn-primary" style="padding:var(--space-3) var(--space-5);">Klikk</button></div><div><div class="demo-label">Sekundær</div><button class="btn btn-secondary" style="padding:var(--space-3) var(--space-5);">Klikk</button></div><div><div class="demo-label">Ghost</div><button class="btn btn-ghost" style="padding:var(--space-3) var(--space-5);">Klikk</button></div></div><div class="success-box"><strong>Ferdig!</strong> Du har nå Nordover oppe og kjørende.</div></section>
 
-<section id="tokens-no">
-<h2>2. Token System (10 min)</h2>
-<p>Nordover bruker CSS-variabler (custom properties) for farger, spacing, typography, osv.</p>
-<h3>Farger</h3>
-<p>Gråskala: <code>--gray-50</code> til <code>--gray-950</code></p>
-<p>Semantiske: <code>--color-accent</code>, <code>--color-success</code>, <code>--color-error</code>, <code>--color-warning</code></p>
-<h3>Spacing</h3>
-<p><code>--space-1</code> (8px) til <code>--space-8</code> (64px)</p>
-<h3>Typography</h3>
-<p><code>--text-sm</code>, <code>--text-base</code>, <code>--text-lg</code>, <code>--text-2xl</code>, osv.</p>
-<p>Alle variabler er definert i <code>tokens-web.css</code>. Du kan overstyre dem i ditt CSS:</p>
-<div class="code-block">:root {
-  --color-accent: #ff0000; /* Rød istedet for svart */
-  --space-4: 20px; /* Større spacing */
-}</div>
-</section>
+<section id="tokens-no"><h2>2. Token System <span class="section-time">10 min</span></h2><p>Alle farger, spacing og typografi styres av CSS-variabler:</p><div class="code-block">button {
+  background: var(--color-accent);
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-md);
+}</div><h3>Token-kategorier:</h3><div class="token-grid"><div class="token-card"><h4>Farger</h4><ul><li>--color-bg</li><li>--color-accent</li><li>--color-muted</li><li>--error, --success</li></ul></div><div class="token-card"><h4>Spacing</h4><ul><li>--space-1 til --space-48</li><li>--gap-tight (8px)</li><li>--gap-component (24px)</li></ul></div><div class="token-card"><h4>Typografi</h4><ul><li>--text-xs til --text-8xl</li><li>--fw-display til --fw-caption</li><li>--font-sans, --font-display</li></ul></div></div><div class="success-box"><strong>Pro:</strong> Endre en token for å påvirke hele nettsiden.</div></section>
 
-<section id="classes-no">
-<h2>3. CSS Klasse-konvensjoner (5 min)</h2>
-<p><strong>Komponenter:</strong> <code>.btn</code>, <code>.btn-primary</code>, <code>.btn-sm</code></p>
-<p><strong>Format:</strong> komponent-variant-size</p>
-<p>Eksempler:</p>
-<ul style="line-height: 1.8;">
-<li><code>.btn .btn-primary .btn-sm</code> = liten primær knapp</li>
-<li><code>.form-input</code> = tekstinput</li>
-<li><code>.badge .badge-success</code> = grønt badge</li>
-<li><code>.btn .btn-primary .btn-elevated</code> = knapp med skygge</li>
-</ul>
-<p><strong>Modifikators:</strong> Kombiner multiple klasser for ønsket resultat.</p>
-</section>
+<section id="classes-no"><h2>3. CSS Klasse-konvensjoner <span class="section-time">5 min</span></h2><p>Mønster: <strong>komponent-variant-størrelse</strong></p><div class="class-example">.btn              /* base */
+.btn-primary     /* variant */
+.btn-lg          /* størrelse */
+class="btn btn-primary btn-lg"</div><div class="feature-grid"><div class="feature-box"><h3>Komponenter</h3><p>.btn, .field, .form-input</p></div><div class="feature-box"><h3>Varianter</h3><p>.btn-primary, .btn-secondary, .btn-ghost</p></div><div class="feature-box"><h3>Modifikatorer</h3><p>.btn-lg, .btn-sm, .stack, .cluster</p></div></div></section>
 
-<section id="darkmode-no">
-<h2>4. Dark Mode (3 min)</h2>
-<p>Nordover har innebygd dark mode via CSS custom properties.</p>
-<p>Toggling settes opp med checkbox-input:</p>
-<div class="code-block">&lt;input type="checkbox" id="dark" class="sr-only"&gt;
-&lt;label for="dark" style="cursor: pointer;"&gt;🌙&lt;/label&gt;</div>
-<p>CSS automatically swapper farger basert på checkbox-state:</p>
-<div class="code-block">:root:has(#dark:checked) {
-  --color-bg: #1a1a1a;
-  --color-fg: #ffffff;
-  /* og mer... */
-}</div>
-<p>Theme persistes automatisk til localStorage. Test: Klikk på 🌙 øverst på siden!</p>
-</section>
+<section id="darkmode-no"><h2>4. Dark Mode <span class="section-time">3 min</span></h2><p>Dark mode bruker `:root:has(#dark:checked)`:</p><div class="code-block">&lt;input type="checkbox" id="dark"&gt;
+&lt;label for="dark"&gt;🌙 Dark&lt;/label&gt;</div><div class="code-block">:root { --color-bg: #FFF; --color-fg: #1a1a1a; }
+:root:has(#dark:checked) { --color-bg: #0a0a0a; --color-fg: #f5f5f5; }</div><div class="warning-box"><strong>Viktig:</strong> Checkboxen må ha `id="dark"` og være i DOM.</div></section>
 
-<section id="responsive-no">
-<h2>5. Responsive Design (5 min)</h2>
-<p><strong>Mobile-first:</strong> CSS is optimized for small screens by default.</p>
-<p><strong>Breakpoints:</strong></p>
-<ul style="line-height: 1.8;">
-<li><code>36rem</code> (576px) = mobilcompressed</li>
-<li><code>48rem</code> (768px) = tablet</li>
-<li><code>60rem</code> (960px) = desktop</li>
-</ul>
-<p><strong>Responsive utilities:</strong></p>
-<div class="code-block">.btn { padding: var(--space-3) var(--space-5); }
-@media (max-width: 48rem) {
-  .btn { padding: var(--space-2) var(--space-4); } /* Mindre padding på mobil */
-}</div>
-<p><strong>Touch targets:</strong> Minimum 44px × 44px for alle interactive elements.</p>
-</section>
+<section id="responsive-no"><h2>5. Responsive Design <span class="section-time">5 min</span></h2><p>Mobile-first. Breakpoints:</p><table class="breakpoint-table"><tr><th>Størrelse</th><th>Breakpoint</th></tr><tr><td>Mobile</td><td>0–36rem</td></tr><tr><td>Tablet</td><td>36rem–48rem</td></tr><tr><td>Desktop</td><td>48rem–60rem</td></tr><tr><td>Wide</td><td>60rem+</td></tr></table><p><strong>Eksempel:</strong></p><div class="code-block">.hero { padding: var(--space-4); }
+@media (min-width: 48rem) { .hero { padding: var(--space-8); } }</div><p><strong>Touch-mål:</strong> 44×44px minimum.</p></section>
 
-<section id="accessibility-no">
-<h2>6. Accessibility WCAG AA (5 min)</h2>
-<p>Nordover har WCAG AA compliance innebygd:</p>
-<ul style="line-height: 1.8;">
-<li><strong>Keyboard navigation:</strong> Tab gjennom alle elementer, Enter/Space for aktivering, Escape for lukkinger</li>
-<li><strong>Focus states:</strong> 3px ring rundt fokusert element</li>
-<li><strong>Color contrast:</strong> Alle farger oppfyller minimum 4.5:1 for normal text</li>
-<li><strong>Dark mode:</strong> Samme kontrast i dark som light mode</li>
-<li><strong>Motion:</strong> Respektes <code>prefers-reduced-motion</code> system setting</li>
-<li><strong>Semantic HTML:</strong> Alle form inputs har labels, buttons har aria-labels, osv.</li>
-</ul>
-<p><strong>Testing:</strong> Bruk WAVE browser extension for accessibility audit.</p>
-</section>
+<section id="accessibility-no"><h2>6. Accessibility WCAG AA <span class="section-time">5 min</span></h2><div class="feature-grid"><div class="feature-box"><h3>Keyboard</h3><p>Tab, Enter, Escape fungerer automatisk.</p></div><div class="feature-box"><h3>Dark Mode</h3><p>Respekterer prefers-color-scheme.</p></div><div class="feature-box"><h3>Fokus</h3><p>2px blå fokus-ring på alle elementer.</p></div></div><h3>Test:</h3><ul class="checklist"><li>Tabb gjennom alle knapper</li><li>Slå på/av dark mode</li><li>Test fargekontrast med axe</li><li>Kjør screenreader</li></ul></section>
 
-<section id="troubleshooting-no">
-<h2>7. Troubleshooting</h2>
-<h3>Farger ser feil ut</h3>
-<p>Sjekk at du har linket begge CSS-filer. Hvis dark mode er på, kan det se annerledes ut. Klikk 🌙 for light mode.</p>
+<section id="troubleshooting-no"><h2>7. Troubleshooting <span class="section-time">5 min</span></h2><div style="display:grid;gap:var(--space-4);"><div><h4>Farger endres ikke i dark mode</h4><ul style="margin:0;padding-left:var(--space-4);"><li>Sjekk at &lt;input id="dark"&gt; er i DOM</li><li>Bruk var(--color-*), ikke hardkodet farger</li></ul></div><div><h4>Spacing ser rart ut</h4><ul style="margin:0;padding-left:var(--space-4);"><li>Bruk gap: for flexbox</li><li>Bruk .stack/.cluster primitiver</li></ul></div><div><h4>Komponent ødelagt</h4><ul style="margin:0;padding-left:var(--space-4);"><li>Verifiser CSS-filer er linket</li><li>Inspiser i DevTools</li></ul></div></div></section>
 
-<h3>Komponenter ser merkelige ut</h3>
-<p>Verifiser at du bruker korrekt CSS-klassifiering. Bruk styleguiden som referanse.</p>
-
-<h3>Spacing virker rart</h3>
-<p>Husk at Nordover bruker <code>gap</code>, <code>margin</code>, og <code>padding</code> fra token-systemet. Overstyr ikke disse med inline styles.</p>
-
-<h3>Dark mode persisteres ikke</h3>
-<p>localStorage må være aktivert i nettleseren din. Sjekk browserinstillinger.</p>
-</section>
-
-<div style="padding-top: var(--space-6); border-top: var(--border-divider); text-align: center; color: var(--color-muted); font-size: var(--text-sm); margin-top: var(--space-8);">
-<p>For flere eksempler, se <strong>styleguide-web.html</strong> og <strong>styleguide-app.html</strong></p>
-<p style="margin-top: var(--space-3);">Nordover Design System v1.0 · MIT License · May 2026</p>
-</div>
-
+<section id="browser-no"><h2>8. Browser Compatibility</h2><div class="browser-compat"><div class="browser-card"><strong>Chrome 111+</strong><ul><li>CSS Custom Properties</li><li>:has() selector</li><li>OKLCH colors</li></ul></div><div class="browser-card"><strong>Firefox 113+</strong><ul><li>CSS Custom Properties</li><li>:has() selector</li><li>OKLCH colors</li></ul></div><div class="browser-card"><strong>Safari 15.4+</strong><ul><li>CSS Custom Properties</li><li>:has() selector</li><li>OKLCH colors</li></ul></div><div class="browser-card"><strong>Edge 111+</strong><ul><li>CSS Custom Properties</li><li>:has() selector</li><li>OKLCH colors</li></ul></div></div></section>
 </div>
 </div>
 
-<!-- ====== ENGLISH VERSION ====== -->
 <div class="lang-section" id="lang-en">
 <div class="page">
-<p class="t-eyebrow">Nordover Design System</p>
-<h1 class="t-display-md">Getting Started</h1>
-<p style="color: var(--color-muted);">Documentation and guide for implementing Nordover. 40+ components documented with live examples and code snippets.</p>
-<label for="dark" style="cursor: pointer; font-size: 2rem;">🌙</label>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-6);"><div><p class="t-eyebrow">Nordover Design System</p><h1 class="t-display-md">Getting Started</h1><p style="color:var(--color-muted);max-width:50ch;">Everything you need to implement Nordover in your project.</p></div><label for="dark" style="cursor:pointer;font-size:1.5rem;">🌙</label></div>
 
-<div class="toc">
-<h3>Table of Contents</h3>
-<ol>
-<li><a href="#qs-en">1. Quick Start (5 min)</a></li>
-<li><a href="#tokens-en">2. Token System (10 min)</a></li>
-<li><a href="#classes-en">3. CSS Class Conventions (5 min)</a></li>
-<li><a href="#darkmode-en">4. Dark Mode (3 min)</a></li>
-<li><a href="#responsive-en">5. Responsive Design (5 min)</a></li>
-<li><a href="#accessibility-en">6. Accessibility WCAG AA (5 min)</a></li>
-<li><a href="#troubleshooting-en">7. Troubleshooting</a></li>
-</ol>
-</div>
+<div class="toc"><h3>Table of Contents</h3><ol><li><a href="#qs-en">1. Quick Start</a></li><li><a href="#tokens-en">2. Token System</a></li><li><a href="#classes-en">3. CSS Class Conventions</a></li><li><a href="#darkmode-en">4. Dark Mode</a></li><li><a href="#responsive-en">5. Responsive Design</a></li><li><a href="#accessibility-en">6. Accessibility WCAG AA</a></li><li><a href="#troubleshooting-en">7. Troubleshooting</a></li><li><a href="#browser-en">8. Browser Compatibility</a></li></ol></div>
 
-<section id="qs-en">
-<h2>1. Quick Start (5 min)</h2>
-<p>Nordover is a pure CSS framework. Just link the CSS files:</p>
-<div class="code-block">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-  &lt;link rel="stylesheet" href="path/to/tokens-web.css"&gt;
-  &lt;link rel="stylesheet" href="path/to/components-web.css"&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;button class="btn btn-primary"&gt;Click me&lt;/button&gt;
-  &lt;input class="form-input" type="text" placeholder="Type here"&gt;
-&lt;/body&gt;
-&lt;/html&gt;</div>
-<p>That's it! You now have access to 40+ components. See the styleguides for all examples and code snippets.</p>
-</section>
+<section id="qs-en"><h2>1. Quick Start <span class="section-time">5 min</span></h2><p><strong>Step 1:</strong> Include the CSS files:</p><div class="code-block">&lt;link rel="stylesheet" href="https://rsms.me/inter/inter.css"&gt;
+&lt;link rel="stylesheet" href="tokens-web.css"&gt;
+&lt;link rel="stylesheet" href="components-web.css"&gt;</div><p><strong>Step 2:</strong> Create your first button:</p><div class="code-block">&lt;button class="btn btn-primary"&gt;Click me&lt;/button&gt;</div><div class="demo-grid"><div><div class="demo-label">Primary</div><button class="btn btn-primary" style="padding:var(--space-3) var(--space-5);">Click</button></div><div><div class="demo-label">Secondary</div><button class="btn btn-secondary" style="padding:var(--space-3) var(--space-5);">Click</button></div><div><div class="demo-label">Ghost</div><button class="btn btn-ghost" style="padding:var(--space-3) var(--space-5);">Click</button></div></div><div class="success-box"><strong>Done!</strong> Nordover is now running.</div></section>
 
-<section id="tokens-en">
-<h2>2. Token System (10 min)</h2>
-<p>Nordover uses CSS custom properties (variables) for colors, spacing, typography, and more.</p>
-<h3>Colors</h3>
-<p>Grayscale: <code>--gray-50</code> through <code>--gray-950</code></p>
-<p>Semantic: <code>--color-accent</code>, <code>--color-success</code>, <code>--color-error</code>, <code>--color-warning</code></p>
-<h3>Spacing</h3>
-<p><code>--space-1</code> (8px) through <code>--space-8</code> (64px)</p>
-<h3>Typography</h3>
-<p><code>--text-sm</code>, <code>--text-base</code>, <code>--text-lg</code>, <code>--text-2xl</code>, and more</p>
-<p>All variables are defined in <code>tokens-web.css</code>. Override them in your own CSS:</p>
-<div class="code-block">:root {
-  --color-accent: #0066ff; /* Change primary color */
-  --space-4: 20px; /* Larger spacing */
-}</div>
-</section>
+<section id="tokens-en"><h2>2. Token System <span class="section-time">10 min</span></h2><p>All colors, spacing, and typography are controlled by CSS variables:</p><div class="code-block">button {
+  background: var(--color-accent);
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-md);
+}</div><h3>Token categories:</h3><div class="token-grid"><div class="token-card"><h4>Colors</h4><ul><li>--color-bg</li><li>--color-accent</li><li>--color-muted</li><li>--error, --success</li></ul></div><div class="token-card"><h4>Spacing</h4><ul><li>--space-1 to --space-48</li><li>--gap-tight (8px)</li><li>--gap-component (24px)</li></ul></div><div class="token-card"><h4>Typography</h4><ul><li>--text-xs to --text-8xl</li><li>--fw-display to --fw-caption</li><li>--font-sans, --font-display</li></ul></div></div><div class="success-box"><strong>Pro:</strong> Change one token to affect your entire site.</div></section>
 
-<section id="classes-en">
-<h2>3. CSS Class Conventions (5 min)</h2>
-<p><strong>Components:</strong> <code>.btn</code>, <code>.btn-primary</code>, <code>.btn-sm</code></p>
-<p><strong>Format:</strong> component-variant-size</p>
-<p>Examples:</p>
-<ul style="line-height: 1.8;">
-<li><code>.btn .btn-primary .btn-sm</code> = small primary button</li>
-<li><code>.form-input</code> = text input</li>
-<li><code>.badge .badge-success</code> = green badge</li>
-<li><code>.btn .btn-primary .btn-elevated</code> = button with shadow</li>
-</ul>
-<p><strong>Modifiers:</strong> Combine multiple classes to achieve your desired result.</p>
-</section>
+<section id="classes-en"><h2>3. CSS Class Conventions <span class="section-time">5 min</span></h2><p>Pattern: <strong>component-variant-size</strong></p><div class="class-example">.btn              /* base */
+.btn-primary     /* variant */
+.btn-lg          /* size */
+class="btn btn-primary btn-lg"</div><div class="feature-grid"><div class="feature-box"><h3>Components</h3><p>.btn, .field, .form-input</p></div><div class="feature-box"><h3>Variants</h3><p>.btn-primary, .btn-secondary, .btn-ghost</p></div><div class="feature-box"><h3>Modifiers</h3><p>.btn-lg, .btn-sm, .stack, .cluster</p></div></div></section>
 
-<section id="darkmode-en">
-<h2>4. Dark Mode (3 min)</h2>
-<p>Nordover has built-in dark mode using CSS custom properties.</p>
-<p>Toggle with a checkbox:</p>
-<div class="code-block">&lt;input type="checkbox" id="dark" class="sr-only"&gt;
-&lt;label for="dark"&gt;🌙&lt;/label&gt;</div>
-<p>CSS automatically swaps colors based on checkbox state:</p>
-<div class="code-block">:root:has(#dark:checked) {
-  --color-bg: #1a1a1a;
-  --color-fg: #ffffff;
-  /* and more... */
-}</div>
-<p>Theme persists to localStorage automatically. Try it: Click the 🌙 at the top!</p>
-</section>
+<section id="darkmode-en"><h2>4. Dark Mode <span class="section-time">3 min</span></h2><p>Dark mode uses `:root:has(#dark:checked)`:</p><div class="code-block">&lt;input type="checkbox" id="dark"&gt;
+&lt;label for="dark"&gt;🌙 Dark&lt;/label&gt;</div><div class="code-block">:root { --color-bg: #FFF; --color-fg: #1a1a1a; }
+:root:has(#dark:checked) { --color-bg: #0a0a0a; --color-fg: #f5f5f5; }</div><div class="warning-box"><strong>Important:</strong> The checkbox must have `id="dark"` and be in the DOM.</div></section>
 
-<section id="responsive-en">
-<h2>5. Responsive Design (5 min)</h2>
-<p><strong>Mobile-first:</strong> CSS is optimized for small screens by default.</p>
-<p><strong>Breakpoints:</strong></p>
-<ul style="line-height: 1.8;">
-<li><code>36rem</code> (576px) = mobile compact</li>
-<li><code>48rem</code> (768px) = tablet</li>
-<li><code>60rem</code> (960px) = desktop</li>
-</ul>
-<p><strong>Responsive utilities:</strong> Components adjust automatically at breakpoints.</p>
-<p><strong>Touch targets:</strong> Minimum 44px × 44px for all interactive elements.</p>
-</section>
+<section id="responsive-en"><h2>5. Responsive Design <span class="section-time">5 min</span></h2><p>Mobile-first. Breakpoints:</p><table class="breakpoint-table"><tr><th>Size</th><th>Breakpoint</th></tr><tr><td>Mobile</td><td>0–36rem</td></tr><tr><td>Tablet</td><td>36rem–48rem</td></tr><tr><td>Desktop</td><td>48rem–60rem</td></tr><tr><td>Wide</td><td>60rem+</td></tr></table><p><strong>Example:</strong></p><div class="code-block">.hero { padding: var(--space-4); }
+@media (min-width: 48rem) { .hero { padding: var(--space-8); } }</div><p><strong>Touch targets:</strong> 44×44px minimum.</p></section>
 
-<section id="accessibility-en">
-<h2>6. Accessibility WCAG AA (5 min)</h2>
-<p>Nordover has WCAG AA compliance built-in:</p>
-<ul style="line-height: 1.8;">
-<li><strong>Keyboard navigation:</strong> Tab through elements, Enter/Space to activate, Escape to close</li>
-<li><strong>Focus states:</strong> 3px ring around focused element</li>
-<li><strong>Color contrast:</strong> All colors meet minimum 4.5:1 for normal text</li>
-<li><strong>Dark mode:</strong> Same contrast in dark as in light mode</li>
-<li><strong>Motion:</strong> Respects <code>prefers-reduced-motion</code> system setting</li>
-<li><strong>Semantic HTML:</strong> Form inputs have labels, buttons have aria-labels, etc.</li>
-</ul>
-<p><strong>Testing:</strong> Use WAVE browser extension for accessibility audits.</p>
-</section>
+<section id="accessibility-en"><h2>6. Accessibility WCAG AA <span class="section-time">5 min</span></h2><div class="feature-grid"><div class="feature-box"><h3>Keyboard</h3><p>Tab, Enter, Escape work automatically.</p></div><div class="feature-box"><h3>Dark Mode</h3><p>Respects prefers-color-scheme.</p></div><div class="feature-box"><h3>Focus</h3><p>2px blue focus ring on all elements.</p></div></div><h3>Testing:</h3><ul class="checklist"><li>Tab through all buttons</li><li>Toggle dark mode</li><li>Test color contrast with axe</li><li>Run screenreader</li></ul></section>
 
-<section id="troubleshooting-en">
-<h2>7. Troubleshooting</h2>
-<h3>Colors look wrong</h3>
-<p>Make sure both CSS files are linked. If dark mode is on, colors will look different. Click 🌙 for light mode.</p>
+<section id="troubleshooting-en"><h2>7. Troubleshooting <span class="section-time">5 min</span></h2><div style="display:grid;gap:var(--space-4);"><div><h4>Colors don't change in dark mode</h4><ul style="margin:0;padding-left:var(--space-4);"><li>Check that &lt;input id="dark"&gt; is in the DOM</li><li>Use var(--color-*), not hardcoded colors</li></ul></div><div><h4>Spacing looks weird</h4><ul style="margin:0;padding-left:var(--space-4);"><li>Use gap: for flexbox</li><li>Use .stack/.cluster primitives</li></ul></div><div><h4>Component looks broken</h4><ul style="margin:0;padding-left:var(--space-4);"><li>Verify CSS files are linked</li><li>Inspect in DevTools</li></ul></div></div></section>
 
-<h3>Components look weird</h3>
-<p>Verify you're using the correct CSS class names. Use the styleguide as reference.</p>
-
-<h3>Spacing seems odd</h3>
-<p>Remember that Nordover uses token values for gap, margin, and padding. Don't override with inline styles.</p>
-
-<h3>Dark mode doesn't persist</h3>
-<p>LocalStorage must be enabled in your browser. Check your browser settings.</p>
-</section>
-
-<div style="padding-top: var(--space-6); border-top: var(--border-divider); text-align: center; color: var(--color-muted); font-size: var(--text-sm); margin-top: var(--space-8);">
-<p>For more examples, see <strong>styleguide-web.html</strong> and <strong>styleguide-app.html</strong></p>
-<p style="margin-top: var(--space-3);">Nordover Design System v1.0 · MIT License · May 2026</p>
-</div>
-
+<section id="browser-en"><h2>8. Browser Compatibility</h2><div class="browser-compat"><div class="browser-card"><strong>Chrome 111+</strong><ul><li>CSS Custom Properties</li><li>:has() selector</li><li>OKLCH colors</li></ul></div><div class="browser-card"><strong>Firefox 113+</strong><ul><li>CSS Custom Properties</li><li>:has() selector</li><li>OKLCH colors</li></ul></div><div class="browser-card"><strong>Safari 15.4+</strong><ul><li>CSS Custom Properties</li><li>:has() selector</li><li>OKLCH colors</li></ul></div><div class="browser-card"><strong>Edge 111+</strong><ul><li>CSS Custom Properties</li><li>:has() selector</li><li>OKLCH colors</li></ul></div></div></section>
 </div>
 </div>
 
 <script>
-function switchLang(lang) {
-  document.querySelectorAll('.lang-section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+function setLang(lang) {
+  document.querySelectorAll('.lang-section').forEach(el => el.classList.remove('active'));
   document.getElementById('lang-' + lang).classList.add('active');
-  document.querySelector('[onclick="switchLang(\'' + lang + '\')"]').classList.add('active');
+  document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
+  event.target.classList.add('active');
+  document.documentElement.lang = lang;
 }
 </script>
 </body>
