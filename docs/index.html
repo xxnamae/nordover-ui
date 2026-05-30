@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="nb">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nordover Design System</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f5f5f5;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1 { margin-bottom: 1rem; color: #333; }
+    p { color: #666; margin-bottom: 1.5rem; }
+    .guides {
+      display: grid;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .guide {
+      padding: 1.5rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .guide:hover {
+      border-color: #2563EB;
+      background: #f9fafb;
+      transform: translateY(-2px);
+    }
+    .guide h3 {
+      color: #2563EB;
+      margin-bottom: 0.5rem;
+    }
+    .guide p { font-size: 0.9rem; margin: 0; }
+    .docs-link {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #f3f4f6;
+      border-radius: 4px;
+      text-decoration: none;
+      color: #2563EB;
+      margin-right: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .docs-link:hover { background: #e5e7eb; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Nordover Design System</h1>
+    <p>Et CSS-rammeverk og komponentbibliotek for nordiske nettsider og SaaS-apper.</p>
+
+    <h2 style="margin-top: 2rem; margin-bottom: 1rem;">Styleguides</h2>
+    <div class="guides">
+      <a href="visual/styleguide-app.html" class="guide">
+        <h3>📱 App Styleguide</h3>
+        <p>Dark-first design for SaaS dashboards og arbeidsverktøy. Tactile buttons, compact spacing.</p>
+      </a>
+      <a href="visual/styleguide-web.html" class="guide">
+        <h3>🌐 Web Styleguide</h3>
+        <p>Light-first design for marketing-nettsider. Fluid typography, editorial focus.</p>
+      </a>
+    </div>
+
+    <h2 style="margin-bottom: 1rem;">Dokumentasjon</h2>
+    <div style="color: #666; line-height: 1.8;">
+      <p>
+        <a href="handoff/README.md" class="docs-link">Handoff (implementørguidanse)</a>
+        <a href="handoff/monorepo-bootstrap.md" class="docs-link">Monorepo bootstrap</a>
+      </p>
+      <p>
+        <a href="https://github.com/xxnamae/nordover-ui/tree/main/docs/wiki/topics" class="docs-link">Component topics (15 filer)</a>
+        <a href="https://github.com/xxnamae/nordover-ui/tree/main/docs/wiki/decisions" class="docs-link">ADRs (21 avgjørelser)</a>
+      </p>
+      <p>
+        <a href="wiki/glossary.md" class="docs-link">Glossar</a>
+        <a href="https://github.com/xxnamae/nordover-ui" class="docs-link">GitHub Repository</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>
