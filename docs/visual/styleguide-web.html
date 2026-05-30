@@ -191,6 +191,26 @@
             <div class="cluster cluster-tight"><button class="btn btn-primary btn-elevated">Elevated CTA</button><button class="btn btn-primary btn-elevated btn-lg">Elevated Large</button></div>
             <div class="cluster cluster-tight"><button class="btn btn-primary" disabled>Disabled</button><button class="btn btn-secondary" disabled>Disabled Secondary</button></div>
           </div>
+          <div class="doc-sub">HTML & CSS</div>
+          <div style="background:var(--color-subtle);border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-4);overflow-x:auto;font-family:monospace;font-size:var(--text-sm);line-height:1.5;margin-bottom:var(--space-4)"><code style="color:var(--color-fg)">&lt;!-- Primary button --&gt;
+&lt;button class="btn btn-primary"&gt;Click me&lt;/button&gt;
+
+&lt;!-- Size variants --&gt;
+&lt;button class="btn btn-primary btn-sm"&gt;Small&lt;/button&gt;
+&lt;button class="btn btn-primary"&gt;Default&lt;/button&gt;
+&lt;button class="btn btn-primary btn-lg"&gt;Large&lt;/button&gt;
+
+&lt;!-- All variants --&gt;
+&lt;button class="btn btn-primary"&gt;Primary&lt;/button&gt;
+&lt;button class="btn btn-secondary"&gt;Secondary&lt;/button&gt;
+&lt;button class="btn btn-ghost"&gt;Ghost&lt;/button&gt;
+&lt;a class="btn btn-link"&gt;Link&lt;/a&gt;
+
+&lt;!-- Elevated (with shadow) --&gt;
+&lt;button class="btn btn-primary btn-elevated"&gt;Elevated&lt;/button&gt;
+
+&lt;!-- Disabled state --&gt;
+&lt;button class="btn btn-primary" disabled&gt;Disabled&lt;/button&gt;</code></div>
         </section>
 
         <!-- FORMS -->
@@ -228,6 +248,38 @@
               <input type="checkbox" class="form-toggle" id="toggle1">
             </div>
           </div>
+          <div class="doc-sub">HTML & CSS</div>
+          <div style="background:var(--color-subtle);border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-4);overflow-x:auto;font-family:monospace;font-size:var(--text-sm);line-height:1.5;margin-bottom:var(--space-4)"><code style="color:var(--color-fg)">&lt;!-- Text input --&gt;
+&lt;div class="field"&gt;
+  &lt;label class="field-label"&gt;Email&lt;/label&gt;
+  &lt;input class="form-input" type="email" placeholder="your@email.com"&gt;
+  &lt;p class="field-help"&gt;We'll never share your email&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- Textarea --&gt;
+&lt;div class="field"&gt;
+  &lt;label class="field-label"&gt;Message&lt;/label&gt;
+  &lt;textarea class="form-input" rows="4" placeholder="Your message..."&gt;&lt;/textarea&gt;
+&lt;/div&gt;
+
+&lt;!-- Checkbox --&gt;
+&lt;input type="checkbox" class="form-checkbox" id="cb1"&gt;
+&lt;label for="cb1"&gt;I agree&lt;/label&gt;
+
+&lt;!-- Radio button --&gt;
+&lt;input type="radio" name="option" class="form-radio" id="r1"&gt;
+&lt;label for="r1"&gt;Option 1&lt;/label&gt;
+
+&lt;!-- Toggle switch --&gt;
+&lt;input type="checkbox" class="form-toggle" id="t1"&gt;
+&lt;label for="t1"&gt;Enable feature&lt;/label&gt;
+
+&lt;!-- Select dropdown --&gt;
+&lt;select class="form-select"&gt;
+  &lt;option&gt;Choose one&lt;/option&gt;
+  &lt;option&gt;Option A&lt;/option&gt;
+  &lt;option&gt;Option B&lt;/option&gt;
+&lt;/select&gt;</code></div>
         </section>
 
         <!-- BADGES -->
@@ -449,6 +501,39 @@
               </div>
             </div>
           </div>
+          <div class="doc-sub">HTML & CSS</div>
+          <div style="background:var(--color-subtle);border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-4);overflow-x:auto;font-family:monospace;font-size:var(--text-sm);line-height:1.5;margin-bottom:var(--space-4)"><code style="color:var(--color-fg)">&lt;!-- Date picker structure --&gt;
+&lt;div class="date-picker"&gt;
+  &lt;input class="form-input" type="text" placeholder="Pick date..." readonly&gt;
+  &lt;div class="date-picker-calendar"&gt;
+    &lt;div class="date-picker-header"&gt;
+      &lt;button class="date-picker-nav"&gt;←&lt;/button&gt;
+      &lt;span&gt;May 2026&lt;/span&gt;
+      &lt;button class="date-picker-nav"&gt;→&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="date-picker-weekdays"&gt;
+      &lt;div class="date-picker-weekday"&gt;Mo&lt;/div&gt;
+      &lt;!-- ... more weekdays ... --&gt;
+    &lt;/div&gt;
+    &lt;div class="date-picker-days"&gt;
+      &lt;!-- Days from previous month (class="other-month") --&gt;
+      &lt;button class="date-picker-day other-month"&gt;28&lt;/button&gt;
+      &lt;!-- Days of current month --&gt;
+      &lt;button class="date-picker-day"&gt;1&lt;/button&gt;
+      &lt;!-- Selected day --&gt;
+      &lt;button class="date-picker-day selected"&gt;16&lt;/button&gt;
+      &lt;!-- Days of next month --&gt;
+      &lt;button class="date-picker-day other-month"&gt;1&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- CSS Classes Used: --&gt;
+&lt;!-- .date-picker: Container --&gt;
+&lt;!-- .date-picker-calendar: Calendar widget (hidden by default, shown on focus) --&gt;
+&lt;!-- .date-picker-day: Individual day button --&gt;
+&lt;!-- .date-picker-day.selected: Currently selected day --&gt;
+&lt;!-- .date-picker-day.other-month: Days from adjacent months --&gt;</code></div>
         </section>
 
         <!-- STEPPER -->
@@ -528,6 +613,29 @@
               </div>
             </div>
           </div>
+          <div class="doc-sub">HTML & CSS</div>
+          <div style="background:var(--color-subtle);border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-4);overflow-x:auto;font-family:monospace;font-size:var(--text-sm);line-height:1.5;margin-bottom:var(--space-4)"><code style="color:var(--color-fg)">&lt;!-- Search bar with results --&gt;
+&lt;div class="search-bar"&gt;
+  &lt;input class="search-input" type="text" placeholder="Search..." value="button"&gt;
+  &lt;div class="search-results"&gt;
+    &lt;div class="search-result"&gt;
+      &lt;div class="search-result-title"&gt;Button Component&lt;/div&gt;
+      &lt;div class="search-result-excerpt"&gt;5 variants, 3 sizes, all states&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="search-result"&gt;
+      &lt;div class="search-result-title"&gt;Badge Component&lt;/div&gt;
+      &lt;div class="search-result-excerpt"&gt;Color variants: success, error, warning&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- CSS Classes Used: --&gt;
+&lt;!-- .search-bar: Container --&gt;
+&lt;!-- .search-input: Text input field --&gt;
+&lt;!-- .search-results: Results dropdown (hidden by default) --&gt;
+&lt;!-- .search-result: Individual result item --&gt;
+&lt;!-- .search-result-title: Result title text --&gt;
+&lt;!-- .search-result-excerpt: Result description --&gt;</code></div>
         </section>
 
         <!-- EMPTY STATES -->
@@ -548,6 +656,27 @@
               <p class="t-body-sm" style="color:var(--color-muted);max-width:30ch;margin:var(--space-3) auto">Try adjusting your search filters or keywords.</p>
             </div>
           </div>
+          <div class="doc-sub">HTML & CSS</div>
+          <div style="background:var(--color-subtle);border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-4);overflow-x:auto;font-family:monospace;font-size:var(--text-sm);line-height:1.5;margin-bottom:var(--space-4)"><code style="color:var(--color-fg)">&lt;!-- Empty state pattern --&gt;
+&lt;div class="empty-state"&gt;
+  &lt;!-- Icon (emoji or SVG) --&gt;
+  &lt;div style="font-size:3rem;margin-bottom:var(--space-4)"&gt;📭&lt;/div&gt;
+
+  &lt;!-- Heading --&gt;
+  &lt;h3 class="t-heading-sm"&gt;No messages yet&lt;/h3&gt;
+
+  &lt;!-- Description --&gt;
+  &lt;p class="t-body-sm" style="color:var(--color-muted)"&gt;When someone sends a message, it will appear here.&lt;/p&gt;
+
+  &lt;!-- Optional CTA button --&gt;
+  &lt;button class="btn btn-secondary btn-sm" style="margin-top:var(--space-4)"&gt;Invite people&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- CSS Classes Used: --&gt;
+&lt;!-- .empty-state: Container (text-center, padding, centered layout) --&gt;
+&lt;!-- .t-heading-sm: Title typography --&gt;
+&lt;!-- .t-body-sm: Description typography --&gt;
+&lt;!-- .btn .btn-secondary: CTA button --&gt;</code></div>
         </section>
 
         <!-- HERO -->
