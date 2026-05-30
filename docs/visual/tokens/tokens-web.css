@@ -189,7 +189,7 @@
     --gap-component: var(--space-5);      /* 24px — mellom komponenter */
     --gap-section: var(--space-8);        /* 48px — mellom seksjoner */
     --spacing-section: clamp(var(--space-12), 12vw, var(--space-20));  /* 96 → 160px */
-    --page-padding: clamp(var(--space-5), 4vw, var(--space-8));        /* 24 → 48px */
+    --page-padding: clamp(var(--space-6), 4vw, var(--space-8));        /* 32 → 48px */
 
     /* === Radius (px — dekorativt, skal ikke skalere med tekst) === */
     --radius-xs: 2px; --radius-sm: 4px; --radius-md: 8px; --radius-lg: 12px;
