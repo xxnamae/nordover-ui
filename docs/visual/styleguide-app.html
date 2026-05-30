@@ -52,7 +52,15 @@
     <a class="app-nav-item" href="#alerts"><svg class="icon"><use href="#i-info"/></svg> Alerts</a>
     <a class="app-nav-item" href="#table"><svg class="icon"><use href="#i-inbox"/></svg> Data Table</a>
     <a class="app-nav-item" href="#pagination"><svg class="icon"><use href="#i-chart"/></svg> Pagination</a>
+    <a class="app-nav-item" href="#date-picker"><svg class="icon"><use href="#i-edit"/></svg> Date Picker</a>
+    <a class="app-nav-item" href="#stepper"><svg class="icon"><use href="#i-check"/></svg> Stepper</a>
+    <a class="app-nav-item" href="#file-upload"><svg class="icon"><use href="#i-copy"/></svg> File Upload</a>
+    <a class="app-nav-item" href="#search-bar"><svg class="icon"><use href="#i-search"/></svg> Search Bar</a>
+    <a class="app-nav-item" href="#empty-states"><svg class="icon"><use href="#i-info"/></svg> Empty States</a>
     <a class="app-nav-item" href="#overlays"><svg class="icon"><use href="#i-info"/></svg> Modal & Toast</a>
+    <div class="app-sidebar-section">App Patterns</div>
+    <a class="app-nav-item" href="#dashboard-pattern"><svg class="icon"><use href="#i-chart"/></svg> Dashboard</a>
+    <a class="app-nav-item" href="#form-pattern"><svg class="icon"><use href="#i-edit"/></svg> Forms</a>
     <a class="app-nav-item" href="#utilities"><svg class="icon"><use href="#i-sparkles"/></svg> Utilities</a>
   </aside>
 
@@ -228,6 +236,134 @@
             <a href="#" class="pagination-item">3</a>
             <a href="#" class="pagination-item">→</a>
           </nav>
+        </section>
+
+        <!-- DATE PICKER (App variant - compact) -->
+        <section class="doc-section" id="date-picker">
+          <h2 class="doc-section-title">Date Picker</h2>
+          <p class="doc-section-desc">Compact date picker for app interfaces. Keyboard accessible (tab, arrow keys, enter, escape).</p>
+          <div class="chips"><span class="chip">.date-picker</span><span class="chip">.date-picker-day.selected</span></div>
+          <div class="doc-demo" style="max-width:18rem">
+            <div class="date-picker">
+              <input class="form-input" type="text" placeholder="Pick date..." readonly style="cursor:pointer;font-size:var(--text-sm)">
+              <div class="date-picker-calendar" style="display:block;position:static;background:var(--color-surface);border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-3)">
+                <div class="date-picker-header" style="margin-bottom:var(--space-2)">
+                  <button class="date-picker-nav">←</button>
+                  <span style="font-weight:600;font-size:var(--text-sm)">May 2026</span>
+                  <button class="date-picker-nav">→</button>
+                </div>
+                <div class="date-picker-weekdays" style="gap:var(--space-1);margin-bottom:var(--space-1)">
+                  <div class="date-picker-weekday">M</div><div class="date-picker-weekday">T</div><div class="date-picker-weekday">W</div><div class="date-picker-weekday">T</div><div class="date-picker-weekday">F</div><div class="date-picker-weekday">S</div><div class="date-picker-weekday">S</div>
+                </div>
+                <div class="date-picker-days" style="gap:var(--space-1)">
+                  <button class="date-picker-day other-month">28</button><button class="date-picker-day other-month">29</button><button class="date-picker-day other-month">30</button><button class="date-picker-day">1</button><button class="date-picker-day">2</button><button class="date-picker-day">3</button><button class="date-picker-day">4</button>
+                  <button class="date-picker-day">5</button><button class="date-picker-day">6</button><button class="date-picker-day">7</button><button class="date-picker-day">8</button><button class="date-picker-day">9</button><button class="date-picker-day">10</button><button class="date-picker-day">11</button>
+                  <button class="date-picker-day">12</button><button class="date-picker-day">13</button><button class="date-picker-day">14</button><button class="date-picker-day selected">16</button><button class="date-picker-day">17</button><button class="date-picker-day">18</button><button class="date-picker-day">19</button>
+                  <button class="date-picker-day">20</button><button class="date-picker-day">21</button><button class="date-picker-day">22</button><button class="date-picker-day">23</button><button class="date-picker-day">24</button><button class="date-picker-day">25</button><button class="date-picker-day">26</button>
+                  <button class="date-picker-day">27</button><button class="date-picker-day">28</button><button class="date-picker-day">29</button><button class="date-picker-day">30</button><button class="date-picker-day">31</button><button class="date-picker-day other-month">1</button><button class="date-picker-day other-month">2</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- STEPPER (App variant) -->
+        <section class="doc-section" id="stepper">
+          <h2 class="doc-section-title">Stepper / Multi-Step</h2>
+          <p class="doc-section-desc">Progress indicator for app onboarding or multi-step workflows. Compact, horizontal layout.</p>
+          <div class="chips"><span class="chip">.stepper</span><span class="chip">.stepper-step.active</span></div>
+          <div class="doc-demo stack" style="gap:var(--space-3)">
+            <div class="stepper" style="gap:var(--space-2)">
+              <div class="stepper-step completed"><div class="stepper-circle" style="font-size:var(--text-sm)">✓</div><div class="stepper-label">Setup</div></div>
+              <div class="stepper-step active"><div class="stepper-circle" style="font-size:var(--text-sm)">2</div><div class="stepper-label">Profile</div></div>
+              <div class="stepper-step"><div class="stepper-circle" style="font-size:var(--text-sm)">3</div><div class="stepper-label">Integrate</div></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FILE UPLOAD (App variant) -->
+        <section class="doc-section" id="file-upload">
+          <h2 class="doc-section-title">File Upload</h2>
+          <p class="doc-section-desc">Compact drag-drop for app interfaces. Highlights on dragover.</p>
+          <div class="chips"><span class="chip">.file-upload</span><span class="chip">.file-upload.dragover</span></div>
+          <div class="doc-demo" style="max-width:18rem">
+            <div class="file-upload" style="padding:var(--space-4)">
+              <div class="file-upload-icon" style="font-size:1.5rem">📄</div>
+              <input type="file" id="file-input-app" aria-label="Choose file">
+              <p class="file-upload-text" style="font-size:var(--text-sm)">Upload CSV or Excel</p>
+              <p class="file-upload-hint">Max 5MB</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- SEARCH BAR (App variant) -->
+        <section class="doc-section" id="search-bar">
+          <h2 class="doc-section-title">Search Bar</h2>
+          <p class="doc-section-desc">Searchable input with filtered results. Compact for app header or sidebar.</p>
+          <div class="chips"><span class="chip">.search-bar</span><span class="chip">.search-results</span></div>
+          <div class="doc-demo" style="max-width:20rem">
+            <div class="search-bar">
+              <input class="search-input" type="text" placeholder="Search..." value="user" style="font-size:var(--text-sm)">
+              <div class="search-results" style="max-height:12rem">
+                <div class="search-result" style="padding:var(--space-2) var(--space-3)">
+                  <div class="search-result-title" style="font-size:var(--text-sm)">User Settings</div>
+                </div>
+                <div class="search-result" style="padding:var(--space-2) var(--space-3)">
+                  <div class="search-result-title" style="font-size:var(--text-sm)">Active Users</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- EMPTY STATES (App variant) -->
+        <section class="doc-section" id="empty-states">
+          <h2 class="doc-section-title">Empty States</h2>
+          <p class="doc-section-desc">Placeholder for no data. Compact version for app interfaces.</p>
+          <div class="chips"><span class="chip">.empty-state</span></div>
+          <div class="doc-demo" style="text-align:center;padding:var(--space-8) var(--space-4)">
+            <div style="font-size:2rem;margin-bottom:var(--space-3)">📊</div>
+            <h3 class="t-heading-sm">No data available</h3>
+            <p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-2)">Create your first entry to get started</p>
+          </div>
+        </section>
+
+        <!-- APP PATTERNS - DASHBOARD -->
+        <section class="doc-section" id="dashboard-pattern">
+          <h2 class="doc-section-title">Dashboard Pattern</h2>
+          <p class="doc-section-desc">Typical SaaS dashboard layout. Data cards in responsive grid, compact styling.</p>
+          <div class="doc-demo">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(12rem,1fr));gap:var(--space-3)">
+              <div style="border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-4);background:var(--color-subtle)">
+                <p class="t-caption" style="margin-bottom:var(--space-2)">Active Users</p>
+                <p style="font-size:1.75rem;font-weight:600">2,491</p>
+                <p class="t-caption" style="color:var(--color-success);margin-top:var(--space-2)">↑ 12% today</p>
+              </div>
+              <div style="border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-4);background:var(--color-subtle)">
+                <p class="t-caption" style="margin-bottom:var(--space-2)">Revenue</p>
+                <p style="font-size:1.75rem;font-weight:600">$12.5K</p>
+                <p class="t-caption" style="color:var(--color-success);margin-top:var(--space-2)">↑ 8% week</p>
+              </div>
+              <div style="border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-4);background:var(--color-subtle)">
+                <p class="t-caption" style="margin-bottom:var(--space-2)">Conversion</p>
+                <p style="font-size:1.75rem;font-weight:600">3.2%</p>
+                <p class="t-caption" style="color:var(--color-error);margin-top:var(--space-2)">↓ 2% month</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- APP PATTERNS - COMPACT FORM -->
+        <section class="doc-section" id="form-pattern">
+          <h2 class="doc-section-title">Form Pattern (Compact)</h2>
+          <p class="doc-section-desc">Inline form layout for app dialogs and modals. Space-efficient.</p>
+          <div class="doc-demo" style="max-width:20rem">
+            <div class="stack-tight">
+              <div class="field"><label class="field-label" style="font-size:var(--text-sm)">Email</label><input class="form-input" type="email" style="font-size:var(--text-sm);padding:var(--space-2) var(--space-3)"></div>
+              <div class="field"><label class="field-label" style="font-size:var(--text-sm)">Role</label><select class="form-select" style="font-size:var(--text-sm);padding:var(--space-2) var(--space-3)"><option>Admin</option><option>Editor</option><option>Viewer</option></select></div>
+              <div class="cluster cluster-tight" style="justify-content:flex-end;gap:var(--space-2);margin-top:var(--space-3)"><button class="btn btn-ghost btn-sm" style="font-size:var(--text-sm)">Cancel</button><button class="btn btn-primary btn-sm" style="font-size:var(--text-sm)">Save</button></div>
+            </div>
+          </div>
         </section>
 
         <!-- UTILITIES -->

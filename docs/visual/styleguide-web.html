@@ -44,6 +44,11 @@
     <a class="app-nav-item" href="#modals">Modals</a>
     <a class="app-nav-item" href="#accordion">Accordion</a>
     <a class="app-nav-item" href="#tags">Tags</a>
+    <a class="app-nav-item" href="#date-picker">Date Picker</a>
+    <a class="app-nav-item" href="#stepper">Stepper</a>
+    <a class="app-nav-item" href="#file-upload">File Upload</a>
+    <a class="app-nav-item" href="#search-bar">Search Bar</a>
+    <a class="app-nav-item" href="#empty-states">Empty States</a>
     <a class="app-nav-item" href="#utilities">Utilities</a>
     <div class="app-sidebar-section">Patterns</div>
     <a class="app-nav-item" href="#hero">Hero</a>
@@ -373,6 +378,174 @@
               <span class="badge">css</span>
               <span class="badge badge-success">frontend</span>
               <span class="badge badge-info">web</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- DATE PICKER -->
+        <section class="doc-section" id="date-picker">
+          <h2 class="doc-section-title">Date Picker</h2>
+          <p class="doc-section-desc">Interactive calendar for date selection. Opens dropdown with calendar grid, month/year navigation. Full keyboard support: tab to navigate, enter to select, escape to close.</p>
+          <div class="chips"><span class="chip">.date-picker</span><span class="chip">.date-picker-calendar</span><span class="chip">.date-picker-day.selected</span></div>
+          <div class="doc-demo stack">
+            <div style="max-width:20rem">
+              <label class="field-label">Velg dato</label>
+              <div class="date-picker">
+                <input class="form-input" type="text" placeholder="Choose date..." readonly style="cursor:pointer">
+                <div class="date-picker-calendar" style="display:block;position:static;background:var(--color-surface);border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-4)">
+                  <div class="date-picker-header">
+                    <button class="date-picker-nav">←</button>
+                    <span style="font-weight:600">May 2026</span>
+                    <button class="date-picker-nav">→</button>
+                  </div>
+                  <div class="date-picker-weekdays">
+                    <div class="date-picker-weekday">Mo</div>
+                    <div class="date-picker-weekday">Tu</div>
+                    <div class="date-picker-weekday">We</div>
+                    <div class="date-picker-weekday">Th</div>
+                    <div class="date-picker-weekday">Fr</div>
+                    <div class="date-picker-weekday">Sa</div>
+                    <div class="date-picker-weekday">Su</div>
+                  </div>
+                  <div class="date-picker-days">
+                    <button class="date-picker-day other-month">28</button>
+                    <button class="date-picker-day other-month">29</button>
+                    <button class="date-picker-day other-month">30</button>
+                    <button class="date-picker-day">1</button>
+                    <button class="date-picker-day">2</button>
+                    <button class="date-picker-day">3</button>
+                    <button class="date-picker-day">4</button>
+                    <button class="date-picker-day">5</button>
+                    <button class="date-picker-day">6</button>
+                    <button class="date-picker-day">7</button>
+                    <button class="date-picker-day">8</button>
+                    <button class="date-picker-day">9</button>
+                    <button class="date-picker-day">10</button>
+                    <button class="date-picker-day">11</button>
+                    <button class="date-picker-day">12</button>
+                    <button class="date-picker-day">13</button>
+                    <button class="date-picker-day">14</button>
+                    <button class="date-picker-day">15</button>
+                    <button class="date-picker-day selected">16</button>
+                    <button class="date-picker-day">17</button>
+                    <button class="date-picker-day">18</button>
+                    <button class="date-picker-day">19</button>
+                    <button class="date-picker-day">20</button>
+                    <button class="date-picker-day">21</button>
+                    <button class="date-picker-day">22</button>
+                    <button class="date-picker-day">23</button>
+                    <button class="date-picker-day">24</button>
+                    <button class="date-picker-day">25</button>
+                    <button class="date-picker-day">26</button>
+                    <button class="date-picker-day">27</button>
+                    <button class="date-picker-day">28</button>
+                    <button class="date-picker-day">29</button>
+                    <button class="date-picker-day">30</button>
+                    <button class="date-picker-day">31</button>
+                    <button class="date-picker-day other-month">1</button>
+                    <button class="date-picker-day other-month">2</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- STEPPER -->
+        <section class="doc-section" id="stepper">
+          <h2 class="doc-section-title">Stepper / Multi-Step Form</h2>
+          <p class="doc-section-desc">Visual progress indicator for multi-step processes. Shows current step, completed steps, and upcoming steps. Mobile-responsive, stacks vertically on small screens.</p>
+          <div class="chips"><span class="chip">.stepper</span><span class="chip">.stepper-step.active</span><span class="chip">.stepper-step.completed</span></div>
+          <div class="doc-demo stack">
+            <div class="stepper">
+              <div class="stepper-step completed">
+                <div class="stepper-circle">✓</div>
+                <div class="stepper-label">Personal Info</div>
+              </div>
+              <div class="stepper-step active">
+                <div class="stepper-circle">2</div>
+                <div class="stepper-label">Address</div>
+              </div>
+              <div class="stepper-step">
+                <div class="stepper-circle">3</div>
+                <div class="stepper-label">Payment</div>
+              </div>
+              <div class="stepper-step">
+                <div class="stepper-circle">4</div>
+                <div class="stepper-label">Confirm</div>
+              </div>
+            </div>
+            <div style="padding:var(--space-6);background:var(--color-subtle);border-radius:var(--radius-md);margin-top:var(--space-4)">
+              <h3 class="t-heading-sm">Step 2: Address</h3>
+              <p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-2)">Enter your shipping address</p>
+              <div class="stack-tight" style="margin-top:var(--space-4)">
+                <div class="field"><label class="field-label">Street</label><input class="form-input" type="text" placeholder="123 Main St"></div>
+                <div class="field"><label class="field-label">City</label><input class="form-input" type="text" placeholder="Oslo"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FILE UPLOAD -->
+        <section class="doc-section" id="file-upload">
+          <h2 class="doc-section-title">File Upload</h2>
+          <p class="doc-section-desc">Drag-and-drop file upload area. Highlights on hover/dragover. Shows file name after selection. Keyboard accessible (space/enter to activate, tab to navigate).</p>
+          <div class="chips"><span class="chip">.file-upload</span><span class="chip">.file-upload.dragover</span></div>
+          <div class="doc-demo stack">
+            <div class="file-upload" style="max-width:24rem">
+              <div class="file-upload-icon">📁</div>
+              <input type="file" id="file-input" aria-label="Choose file to upload">
+              <p class="file-upload-text">Drag files here or click to browse</p>
+              <p class="file-upload-hint">Supported: PDF, DOC, XLS (max 10MB)</p>
+            </div>
+            <div style="padding:var(--space-4);background:var(--color-subtle);border-radius:var(--radius-md);font-size:var(--text-sm)">
+              <strong>Dragover state:</strong> Border color changes to accent, background lightens to indicate drop zone is active
+            </div>
+          </div>
+        </section>
+
+        <!-- SEARCH BAR -->
+        <section class="doc-section" id="search-bar">
+          <h2 class="doc-section-title">Search Bar</h2>
+          <p class="doc-section-desc">Searchable input with dropdown results. Opens results on focus or as user types. Keyboard navigation: arrow keys to move through results, enter to select, escape to close.</p>
+          <div class="chips"><span class="chip">.search-bar</span><span class="chip">.search-results</span><span class="chip">.search-result</span></div>
+          <div class="doc-demo stack">
+            <div class="search-bar" style="max-width:28rem">
+              <input class="search-input" type="text" placeholder="Search components..." value="button">
+              <div class="search-results">
+                <div class="search-result">
+                  <div class="search-result-title">Button</div>
+                  <div class="search-result-excerpt">5 variants × 3 sizes (primary, secondary, ghost, link, elevated)</div>
+                </div>
+                <div class="search-result">
+                  <div class="search-result-title">Badge</div>
+                  <div class="search-result-excerpt">Inline status indicators with color variants</div>
+                </div>
+                <div class="search-result">
+                  <div class="search-result-title">Breadcrumbs</div>
+                  <div class="search-result-excerpt">Navigation trail showing page hierarchy</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- EMPTY STATES -->
+        <section class="doc-section" id="empty-states">
+          <h2 class="doc-section-title">Empty States</h2>
+          <p class="doc-section-desc">Placeholder content when no data exists. Centered layout with icon, heading, description, and optional CTA. Guides users on what to do next.</p>
+          <div class="chips"><span class="chip">.empty-state</span></div>
+          <div class="doc-demo stack">
+            <div class="empty-state">
+              <div style="font-size:3rem;margin-bottom:var(--space-4)">📭</div>
+              <h3 class="t-heading-sm">No messages yet</h3>
+              <p class="t-body-sm" style="color:var(--color-muted);max-width:30ch;margin:var(--space-3) auto">When someone sends you a message, it will appear here.</p>
+              <button class="btn btn-secondary btn-sm" style="margin-top:var(--space-4)">Invite people</button>
+            </div>
+            <div class="empty-state">
+              <div style="font-size:3rem;margin-bottom:var(--space-4)">🔍</div>
+              <h3 class="t-heading-sm">No results found</h3>
+              <p class="t-body-sm" style="color:var(--color-muted);max-width:30ch;margin:var(--space-3) auto">Try adjusting your search filters or keywords.</p>
             </div>
           </div>
         </section>
