@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nordover — Design System</title>
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 16px; }
+    body {
+      font-family: "Inter Variable", system-ui, sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #ffffff;
+      padding: 2rem;
+    }
+    .container { max-width: 64rem; margin: 0 auto; }
+    h1 { font-size: 2.5rem; margin-bottom: 1rem; font-weight: 400; letter-spacing: -0.02em; }
+    p { font-size: 1.125rem; margin-bottom: 2rem; color: #666; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 2rem; margin: 3rem 0; }
+    .card {
+      padding: 2rem;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      transition: all 150ms ease-out;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      border-color: #000;
+      background: #f5f5f5;
+      text-decoration: none;
+    }
+    .card h2 { font-size: 1.25rem; margin-bottom: 0.5rem; font-weight: 500; }
+    .card p { font-size: 0.875rem; color: #888; margin-bottom: 1rem; flex: 1; }
+    .card-link { color: #0066FF; font-weight: 500; text-decoration: none; font-size: 0.875rem; }
+    .card-link:hover { text-decoration: underline; }
+    section { margin: 3rem 0; }
+    section h2 { font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: 500; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Nordover Design System</h1>
+    <p>Production-ready component library for web and app interfaces. Built with CSS, WCAG AA accessible, mobile-first.</p>
+
+    <section>
+      <h2>📖 Stilguider</h2>
+      <div class="grid">
+        <a href="visual/styleguide-web.html" class="card">
+          <h2>Web Styleguide</h2>
+          <p>Editorial layout, flat buttons, generous spacing. Ideal for content-rich websites and landing pages.</p>
+          <span class="card-link">View →</span>
+        </a>
+        <a href="visual/styleguide-app.html" class="card">
+          <h2>App Styleguide</h2>
+          <p>SaaS dashboards, data-dense interfaces, compact spacing. Optimized for productivity applications.</p>
+          <span class="card-link">View →</span>
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <h2>📚 Dokumentasjon</h2>
+      <div class="grid">
+        <a href="handoff/README.md" class="card">
+          <h2>Handoff Guide</h2>
+          <p>How to consume Nordover in your project. Quick-start, token usage, theme override.</p>
+          <span class="card-link">Read →</span>
+        </a>
+        <a href="handoff/real-world-examples.md" class="card">
+          <h2>Real-World Examples</h2>
+          <p>Integration examples for Next.js, Vue 3, React, Svelte, plain HTML, and monorepos.</p>
+          <span class="card-link">Read →</span>
+        </a>
+        <a href="wiki/README.md" class="card">
+          <h2>Wiki & Specs</h2>
+          <p>Component specifications, architecture decisions, system guides (color, typography, spacing, motion).</p>
+          <span class="card-link">Browse →</span>
+        </a>
+        <a href="https://github.com/xxnamae/nordover-ui" class="card">
+          <h2>GitHub Repository</h2>
+          <p>Source code, issues, pull requests, and project management on GitHub.</p>
+          <span class="card-link">Visit →</span>
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <h2>✨ Features</h2>
+      <ul style="list-style: none; font-size: 1.125rem; line-height: 1.8;">
+        <li>✓ <strong>40+ components</strong> (buttons, forms, tables, modals, cards, etc.)</li>
+        <li>✓ <strong>Dual packages</strong> (web + app with design-appropriate defaults)</li>
+        <li>✓ <strong>WCAG AA accessible</strong> (keyboard navigation, focus management, screen readers)</li>
+        <li>✓ <strong>Dark mode support</strong> (via CSS :has() selector)</li>
+        <li>✓ <strong>Responsive design</strong> (mobile-first, touch targets 44px+)</li>
+        <li>✓ <strong>Motion accessible</strong> (respects prefers-reduced-motion)</li>
+        <li>✓ <strong>Semantic tokens</strong> (colors, spacing, typography, motion)</li>
+        <li>✓ <strong>Production-ready</strong> (~50KB total, 380 selectors)</li>
+      </ul>
+    </section>
+
+    <section style="border-top: 1px solid #e0e0e0; padding-top: 2rem; margin-top: 4rem; color: #888; font-size: 0.875rem;">
+      <p>Nordover is MIT-licensed and open-source. Maintained by the design system team.</p>
+      <p><strong>Version:</strong> v1.0.0 (Production Ready)</p>
+      <p><strong>Last updated:</strong> May 30, 2026</p>
+    </section>
+  </div>
+</body>
+</html>
