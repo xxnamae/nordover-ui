@@ -49,6 +49,14 @@
     <a class="app-nav-item" href="#file-upload">File Upload</a>
     <a class="app-nav-item" href="#search-bar">Search Bar</a>
     <a class="app-nav-item" href="#empty-states">Empty States</a>
+    <a class="app-nav-item" href="#layout-primitives">Layout Primitives</a>
+    <a class="app-nav-item" href="#breadcrumbs">Breadcrumbs</a>
+    <a class="app-nav-item" href="#section-dividers">Section Dividers</a>
+    <a class="app-nav-item" href="#cta-cards">CTA Cards</a>
+    <a class="app-nav-item" href="#pricing-cards">Pricing Cards</a>
+    <a class="app-nav-item" href="#form-groups">Form Groups</a>
+    <a class="app-nav-item" href="#advanced-icons">Advanced Icons</a>
+    <a class="app-nav-item" href="#mobile-patterns">Mobile Patterns</a>
     <a class="app-nav-item" href="#utilities">Utilities</a>
     <div class="app-sidebar-section">Patterns</div>
     <a class="app-nav-item" href="#hero">Hero</a>
@@ -60,7 +68,6 @@
     <a class="app-nav-item" href="#testimonials">Testimonials</a>
     <a class="app-nav-item" href="#timeline">Timeline</a>
     <a class="app-nav-item" href="#footer">Footer</a>
-    <a class="app-nav-item" href="#breadcrumbs">Breadcrumbs</a>
   </aside>
 
   <div class="app-main">
@@ -1051,8 +1058,267 @@
           </div>
         </section>
 
+        <!-- LAYOUT PRIMITIVES -->
+        <section class="doc-section" id="layout-primitives">
+          <h2 class="doc-section-title">Layout Primitives</h2>
+          <p class="doc-section-desc">Fundamental layout components for composition. Stack for vertical, cluster for horizontal with wrap.</p>
+          <div class="chips"><span class="chip">.stack</span><span class="chip">.stack-tight</span><span class="chip">.cluster</span><span class="chip">.cluster-tight</span><span class="chip">.grid-auto</span><span class="chip">.page</span></div>
+          <div class="doc-demo">
+            <div class="doc-sub">Vertical Stack (gap-component)</div>
+            <div class="stack" style="border:var(--border-card);border-radius:var(--radius-md);overflow:hidden">
+              <div style="padding:var(--space-4);background:var(--color-subtle);border-bottom:var(--border-divider)">Item 1</div>
+              <div style="padding:var(--space-4);background:var(--color-subtle);border-bottom:var(--border-divider)">Item 2</div>
+              <div style="padding:var(--space-4);background:var(--color-subtle)">Item 3</div>
+            </div>
+          </div>
+          <div class="doc-demo">
+            <div class="doc-sub">Horizontal Cluster (with wrap)</div>
+            <div class="cluster" style="border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-4)">
+              <button class="btn btn-sm btn-secondary">Btn 1</button>
+              <button class="btn btn-sm btn-secondary">Btn 2</button>
+              <button class="btn btn-sm btn-secondary">Btn 3</button>
+              <button class="btn btn-sm btn-secondary">Btn 4</button>
+            </div>
+          </div>
+          <div class="doc-demo">
+            <div class="doc-sub">Tight Spacing Variants</div>
+            <div class="flex gap-4">
+              <div style="flex:1">
+                <p class="t-eyebrow">stack-tight</p>
+                <div class="stack-tight" style="border:var(--border-card);border-radius:var(--radius-md);overflow:hidden">
+                  <div style="padding:var(--space-2);background:var(--color-subtle);border-bottom:var(--border-divider)">Tight 1</div>
+                  <div style="padding:var(--space-2);background:var(--color-subtle)">Tight 2</div>
+                </div>
+              </div>
+              <div style="flex:1">
+                <p class="t-eyebrow">cluster-tight</p>
+                <div class="cluster-tight" style="border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-2)">
+                  <span class="badge">Tag 1</span>
+                  <span class="badge">Tag 2</span>
+                  <span class="badge">Tag 3</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="doc-demo">
+            <div class="doc-sub">Auto-fit Grid</div>
+            <div class="grid-auto" style="border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-4)">
+              <div style="padding:var(--space-4);background:var(--color-subtle);border-radius:var(--radius-md)">Card 1</div>
+              <div style="padding:var(--space-4);background:var(--color-subtle);border-radius:var(--radius-md)">Card 2</div>
+              <div style="padding:var(--space-4);background:var(--color-subtle);border-radius:var(--radius-md)">Card 3</div>
+              <div style="padding:var(--space-4);background:var(--color-subtle);border-radius:var(--radius-md)">Card 4</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- BREADCRUMBS -->
+        <section class="doc-section" id="breadcrumbs">
+          <h2 class="doc-section-title">Breadcrumbs</h2>
+          <p class="doc-section-desc">Navigation aid showing document hierarchy. Use semantic nav with aria-label.</p>
+          <div class="chips"><span class="chip">.breadcrumbs</span><span class="chip">.breadcrumb-item</span></div>
+          <div class="doc-demo">
+            <nav class="breadcrumbs" aria-label="Breadcrumb">
+              <a class="breadcrumb-item" href="#">Home</a>
+              <span style="color:var(--color-muted)"> / </span>
+              <a class="breadcrumb-item" href="#">Products</a>
+              <span style="color:var(--color-muted)"> / </span>
+              <a class="breadcrumb-item" href="#">Electronics</a>
+              <span style="color:var(--color-muted)"> / </span>
+              <span class="breadcrumb-item" aria-current="page" style="color:var(--color-fg);pointer-events:none">Laptop</span>
+            </nav>
+          </div>
+        </section>
+
+        <!-- SECTION DIVIDERS -->
+        <section class="doc-section" id="section-dividers">
+          <h2 class="doc-section-title">Section Dividers</h2>
+          <p class="doc-section-desc">Visual dividers between content sections. Optional icon/text in center.</p>
+          <div class="chips"><span class="chip">.section-divider</span><span class="chip">.section-divider-icon</span></div>
+          <div class="doc-demo stack">
+            <div>
+              <p class="t-body-sm" style="margin-bottom:var(--space-4)">Content above</p>
+              <div class="section-divider"></div>
+              <p class="t-body-sm" style="margin-top:var(--space-4)">Content below</p>
+            </div>
+            <div style="border-top:var(--border-divider);padding-top:var(--space-4)">
+              <div class="section-divider-icon">
+                <div style="font-size:0.875rem;color:var(--color-accent);font-weight:600">OR</div>
+              </div>
+              <p class="t-body-sm">Alternative content</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- CTA CARDS -->
+        <section class="doc-section" id="cta-cards">
+          <h2 class="doc-section-title">CTA Cards</h2>
+          <p class="doc-section-desc">Call-to-action containers. Elevated emphasis for promotional or key actions.</p>
+          <div class="chips"><span class="chip">.cta-card</span></div>
+          <div class="doc-demo stack">
+            <div class="cta-card">
+              <div style="margin-bottom:var(--space-4)">
+                <h3 class="t-heading-md">Ready to get started?</h3>
+                <p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-2)">Join thousands of teams using Nordover design system.</p>
+              </div>
+              <button class="btn btn-primary">Get Started Free</button>
+            </div>
+            <div class="cta-card" style="border-left:4px solid var(--color-success);background:color-mix(in oklch, var(--color-success) 5%, var(--color-bg))">
+              <h3 class="t-heading-sm" style="color:var(--color-success)">Exclusive offer</h3>
+              <p class="t-body-sm" style="margin-top:var(--space-2)">Save 30% on annual plans this month only</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- PRICING CARDS -->
+        <section class="doc-section" id="pricing-cards">
+          <h2 class="doc-section-title">Pricing Cards</h2>
+          <p class="doc-section-desc">Product tier display. Feature lists with highlights.</p>
+          <div class="chips"><span class="chip">.price-card</span><span class="chip">.price-val</span><span class="chip">.price-features</span></div>
+          <div class="doc-demo">
+            <div class="pricing-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-5)">
+              <div class="price-card">
+                <div style="margin-bottom:var(--space-4)">
+                  <div class="t-eyebrow">Starter</div>
+                  <div class="price-val" style="font-size:2rem;font-weight:600;margin-top:var(--space-2)">$29<span style="font-size:0.875rem;color:var(--color-muted)">/mo</span></div>
+                </div>
+                <ul class="price-features" style="list-style:none;padding:0;gap:var(--space-3);display:flex;flex-direction:column;margin-bottom:var(--space-4)">
+                  <li style="color:var(--color-muted)">5 projects</li>
+                  <li style="color:var(--color-muted)">Community support</li>
+                  <li style="color:var(--color-muted)">1GB storage</li>
+                </ul>
+                <button class="btn btn-secondary w-full">Choose Plan</button>
+              </div>
+              <div class="price-card" style="border:2px solid var(--color-accent);transform:scale(1.05)">
+                <div style="margin-bottom:var(--space-4)">
+                  <div class="t-eyebrow" style="color:var(--color-accent)">Popular</div>
+                  <div class="price-val" style="font-size:2rem;font-weight:600;margin-top:var(--space-2)">$79<span style="font-size:0.875rem;color:var(--color-muted)">/mo</span></div>
+                </div>
+                <ul class="price-features" style="list-style:none;padding:0;gap:var(--space-3);display:flex;flex-direction:column;margin-bottom:var(--space-4)">
+                  <li>Unlimited projects</li>
+                  <li>Priority support</li>
+                  <li>50GB storage</li>
+                  <li style="color:var(--color-success)">API access</li>
+                </ul>
+                <button class="btn btn-primary w-full">Choose Plan</button>
+              </div>
+              <div class="price-card">
+                <div style="margin-bottom:var(--space-4)">
+                  <div class="t-eyebrow">Enterprise</div>
+                  <div class="price-val" style="font-size:2rem;font-weight:600;margin-top:var(--space-2)">Custom</div>
+                </div>
+                <ul class="price-features" style="list-style:none;padding:0;gap:var(--space-3);display:flex;flex-direction:column;margin-bottom:var(--space-4)">
+                  <li style="color:var(--color-muted)">Everything in Pro +</li>
+                  <li style="color:var(--color-muted)">Dedicated manager</li>
+                  <li style="color:var(--color-muted)">Custom limits</li>
+                </ul>
+                <button class="btn btn-ghost w-full">Contact Sales</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FORM GROUPS -->
+        <section class="doc-section" id="form-groups">
+          <h2 class="doc-section-title">Form Groups</h2>
+          <p class="doc-section-desc">Grouped form controls (checkboxes, radios) for selections.</p>
+          <div class="chips"><span class="chip">.form-group</span><span class="chip">.form-group-item</span></div>
+          <div class="doc-demo stack" style="max-width:28rem">
+            <div>
+              <p class="t-eyebrow">Multiple Selections</p>
+              <div class="form-group">
+                <div class="form-group-item">
+                  <input type="checkbox" id="opt1" class="form-checkbox" checked>
+                  <label for="opt1">Option A - Description here</label>
+                </div>
+                <div class="form-group-item">
+                  <input type="checkbox" id="opt2" class="form-checkbox">
+                  <label for="opt2">Option B - Another choice</label>
+                </div>
+                <div class="form-group-item">
+                  <input type="checkbox" id="opt3" class="form-checkbox">
+                  <label for="opt3">Option C - Third option</label>
+                </div>
+              </div>
+            </div>
+            <div style="border-top:var(--border-divider);padding-top:var(--space-4)">
+              <p class="t-eyebrow">Single Selection (Radio)</p>
+              <div class="form-group">
+                <div class="form-group-item">
+                  <input type="radio" name="single" id="rad1" class="form-radio" checked>
+                  <label for="rad1">Radio option 1</label>
+                </div>
+                <div class="form-group-item">
+                  <input type="radio" name="single" id="rad2" class="form-radio">
+                  <label for="rad2">Radio option 2</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ADVANCED ICONS -->
+        <section class="doc-section" id="advanced-icons">
+          <h2 class="doc-section-title">Icon System (Advanced)</h2>
+          <p class="doc-section-desc">Icon variants, animations, and semantic colors beyond basics.</p>
+          <div class="chips"><span class="chip">.icon-bounce</span><span class="chip">.icon-muted</span><span class="chip">.icon-subtle</span></div>
+          <div class="doc-demo stack">
+            <div>
+              <p class="t-eyebrow">Semantic Color Variants</p>
+              <div class="cluster cluster-tight" style="gap:var(--space-6)">
+                <div style="text-align:center">
+                  <svg class="icon icon-warning" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+                  <p class="t-caption">warning</p>
+                </div>
+                <div style="text-align:center">
+                  <svg class="icon icon-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+                  <p class="t-caption">info</p>
+                </div>
+                <div style="text-align:center">
+                  <svg class="icon icon-muted" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+                  <p class="t-caption">muted</p>
+                </div>
+                <div style="text-align:center">
+                  <svg class="icon icon-subtle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+                  <p class="t-caption">subtle</p>
+                </div>
+              </div>
+            </div>
+            <div style="border-top:var(--border-divider);padding-top:var(--space-4)">
+              <p class="t-eyebrow">Animated Icons</p>
+              <div class="cluster cluster-tight" style="gap:var(--space-6)">
+                <div style="text-align:center">
+                  <svg class="icon icon-bounce" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="currentColor"/></svg>
+                  <p class="t-caption">bounce</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- MOBILE PATTERNS -->
+        <section class="doc-section" id="mobile-patterns">
+          <h2 class="doc-section-title">Mobile Patterns</h2>
+          <p class="doc-section-desc">Touch-friendly components. Min 44px touch targets, tactile padding.</p>
+          <div class="chips"><span class="chip">.btn-touch</span><span class="chip">.mobile-nav-trigger</span><span class="chip">.touch-area</span></div>
+          <div class="doc-demo stack">
+            <div>
+              <p class="t-eyebrow">Touch-Friendly Button</p>
+              <button class="btn btn-primary btn-touch">Tap-friendly button (44px min)</button>
+            </div>
+            <div style="border-top:var(--border-divider);padding-top:var(--space-4)">
+              <p class="t-eyebrow">Touch Target Guidelines</p>
+              <div style="background:var(--color-subtle);border:2px dashed var(--color-border);border-radius:var(--radius-md);padding:var(--space-6);text-align:center">
+                <div style="width:44px;height:44px;background:var(--color-accent);border-radius:var(--radius-md);margin:0 auto;display:flex;align-items:center;justify-content:center">
+                  <span style="color:white;font-weight:600">44×44</span>
+                </div>
+                <p class="t-caption" style="margin-top:var(--space-3)">Minimum touch target on mobile</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <footer style="padding:var(--space-8) 0 var(--space-6);text-align:center;color:var(--color-muted);font-family:var(--font-mono);font-size:var(--text-xs)">
-          Nordover Web Styleguide · Complete Component Library · 2026-05-30<br>40+ production-ready components documented and live
+          Nordover Web Styleguide · Complete Component Library · 2026-05-30<br>60+ production-ready components documented and live
         </footer>
       </div>
     </main>

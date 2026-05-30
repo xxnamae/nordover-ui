@@ -58,6 +58,9 @@
     <a class="app-nav-item" href="#search-bar"><svg class="icon"><use href="#i-search"/></svg> Search Bar</a>
     <a class="app-nav-item" href="#empty-states"><svg class="icon"><use href="#i-info"/></svg> Empty States</a>
     <a class="app-nav-item" href="#overlays"><svg class="icon"><use href="#i-info"/></svg> Modal & Toast</a>
+    <a class="app-nav-item" href="#layout-primitives"><svg class="icon"><use href="#i-chart"/></svg> Layout Primitives</a>
+    <a class="app-nav-item" href="#breadcrumbs"><svg class="icon"><use href="#i-edit"/></svg> Breadcrumbs</a>
+    <a class="app-nav-item" href="#dividers"><svg class="icon"><use href="#i-chart"/></svg> Dividers</a>
     <div class="app-sidebar-section">App Patterns</div>
     <a class="app-nav-item" href="#dashboard-pattern"><svg class="icon"><use href="#i-chart"/></svg> Dashboard</a>
     <a class="app-nav-item" href="#form-pattern"><svg class="icon"><use href="#i-edit"/></svg> Forms</a>
@@ -366,35 +369,112 @@
           </div>
         </section>
 
+        <!-- LAYOUT PRIMITIVES -->
+        <section class="doc-section" id="layout-primitives">
+          <h2 class="doc-section-title">Layout Primitives</h2>
+          <p class="doc-section-desc">Fundamental layout composites. Stack for vertical, cluster for horizontal layouts.</p>
+          <div class="chips"><span class="chip">.stack</span><span class="chip">.stack-tight</span><span class="chip">.cluster</span><span class="chip">.cluster-tight</span><span class="chip">.grid-auto</span></div>
+          <div class="doc-demo">
+            <div class="stack-tight" style="border:var(--border-card);border-radius:var(--radius-md);overflow:hidden">
+              <div style="padding:var(--space-3);background:var(--color-subtle);border-bottom:var(--border-divider);font-size:var(--text-sm)">List item 1</div>
+              <div style="padding:var(--space-3);background:var(--color-subtle);border-bottom:var(--border-divider);font-size:var(--text-sm)">List item 2</div>
+              <div style="padding:var(--space-3);background:var(--color-subtle);font-size:var(--text-sm)">List item 3</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- BREADCRUMBS & NAVIGATION -->
+        <section class="doc-section" id="breadcrumbs">
+          <h2 class="doc-section-title">Breadcrumbs</h2>
+          <p class="doc-section-desc">Navigation hierarchy for app pages.</p>
+          <div class="chips"><span class="chip">.breadcrumbs</span><span class="chip">.breadcrumb-item</span></div>
+          <nav class="breadcrumbs" aria-label="Breadcrumb" style="margin-bottom:var(--space-4);font-size:var(--text-sm)">
+            <a class="breadcrumb-item" href="#">Dashboard</a>
+            <span style="color:var(--color-muted)"> / </span>
+            <a class="breadcrumb-item" href="#">Projects</a>
+            <span style="color:var(--color-muted)"> / </span>
+            <span class="breadcrumb-item" aria-current="page" style="color:var(--color-fg);pointer-events:none">Details</span>
+          </nav>
+        </section>
+
+        <!-- DIVIDERS -->
+        <section class="doc-section" id="dividers">
+          <h2 class="doc-section-title">Dividers</h2>
+          <p class="doc-section-desc">Visual separators for content sections.</p>
+          <div class="doc-demo" style="gap:var(--space-6);display:flex;flex-direction:column">
+            <div>
+              <p class="t-body-sm" style="margin-bottom:var(--space-3)">Content area 1</p>
+              <div style="height:1px;background:var(--color-border)"></div>
+              <p class="t-body-sm" style="margin-top:var(--space-3)">Content area 2</p>
+            </div>
+          </div>
+        </section>
+
         <!-- UTILITIES -->
         <section class="doc-section" id="utilities">
           <h2 class="doc-section-title">Utilities</h2>
-          <p class="doc-section-desc">Low-level composition utilities for layout, spacing, typography, and effects. See web styleguide for complete utilities reference.</p>
-          <p class="doc-sub">Display & Layout</p>
-          <div class="cluster cluster-tight" style="gap:var(--space-4)">
-            <button class="flex gap-2 items-center justify-center" style="padding:var(--space-3);border:var(--border-card);border-radius:var(--radius-md);">.flex</button>
-            <button class="block" style="padding:var(--space-3);border:var(--border-card);border-radius:var(--radius-md);">.block</button>
-            <button style="padding:var(--space-3);border:var(--border-card);border-radius:var(--radius-md);">.hidden</button>
+          <p class="doc-section-desc">Low-level composition utilities for layout, spacing, typography, and effects.</p>
+
+          <div class="doc-sub">Display & Layout</div>
+          <div class="chips"><span class="chip">.flex</span><span class="chip">.flex-col</span><span class="chip">.flex-wrap</span><span class="chip">.block</span><span class="chip">.inline</span><span class="chip">.hidden</span><span class="chip">.items-center</span><span class="chip">.justify-center</span></div>
+          <div class="cluster cluster-tight" style="gap:var(--space-4);margin-bottom:var(--space-4)">
+            <button class="flex gap-2 items-center justify-center" style="padding:var(--space-3);border:var(--border-card);border-radius:var(--radius-md);cursor:default">.flex</button>
+            <button class="block" style="padding:var(--space-3);border:var(--border-card);border-radius:var(--radius-md);cursor:default">.block</button>
+            <button style="padding:var(--space-3);border:var(--border-card);border-radius:var(--radius-md);cursor:default">.hidden</button>
           </div>
-          <p class="doc-sub">Spacing</p>
-          <div class="cluster cluster-tight">
-            <div class="mx-auto" style="width:6rem;height:2rem;background:var(--color-accent);border-radius:var(--radius-md)"></div>
+
+          <div class="doc-sub">Spacing (Gap, Margin, Padding)</div>
+          <div class="chips"><span class="chip">.gap-1</span><span class="chip">.gap-2</span><span class="chip">.gap-3</span><span class="chip">.m-auto</span><span class="chip">.mx-auto</span><span class="chip">.p-2</span><span class="chip">.p-3</span></div>
+          <div style="margin-bottom:var(--space-4)">
+            <div class="mx-auto" style="width:8rem;height:2rem;background:var(--color-accent);border-radius:var(--radius-md)"></div>
+            <p class="t-caption" style="text-align:center;margin-top:var(--space-2)">mx-auto</p>
           </div>
-          <p class="doc-sub">Typography</p>
-          <div class="flex gap-4">
-            <span class="text-center">text-center</span>
-            <span class="font-bold">font-bold</span>
-            <span class="truncate" style="max-width:12rem">truncate text</span>
+
+          <div class="doc-sub">Typography & Text</div>
+          <div class="chips"><span class="chip">.text-center</span><span class="chip">.text-left</span><span class="chip">.text-right</span><span class="chip">.font-bold</span><span class="chip">.font-medium</span><span class="chip">.uppercase</span><span class="chip">.truncate</span></div>
+          <div class="flex gap-4 flex-wrap" style="margin-bottom:var(--space-4)">
+            <span class="text-center" style="flex:1;min-width:8rem;background:var(--color-subtle);padding:var(--space-2);border-radius:var(--radius-md);font-size:var(--text-sm)">text-center</span>
+            <span class="font-bold" style="background:var(--color-subtle);padding:var(--space-2);border-radius:var(--radius-md);font-size:var(--text-sm)">font-bold</span>
+            <span class="truncate" style="max-width:12rem;background:var(--color-subtle);padding:var(--space-2);border-radius:var(--radius-md);font-size:var(--text-sm)">truncate text</span>
           </div>
-          <p class="doc-sub">Colors</p>
-          <div class="flex gap-2">
+
+          <div class="doc-sub">Colors - Text</div>
+          <div class="chips"><span class="chip">.text-accent</span><span class="chip">.text-fg</span><span class="chip">.text-muted</span><span class="chip">.text-success</span><span class="chip">.text-error</span></div>
+          <div class="flex gap-2 flex-wrap" style="margin-bottom:var(--space-4)">
             <span class="text-accent">text-accent</span>
-            <span class="bg-subtle p-2" style="border-radius:var(--radius-md)">bg-subtle</span>
+            <span class="text-fg">text-fg</span>
+            <span class="text-muted">text-muted</span>
+            <span class="text-success">text-success</span>
+            <span class="text-error">text-error</span>
           </div>
-          <p class="doc-sub">Animations & Transitions</p>
-          <div class="flex gap-2">
+
+          <div class="doc-sub">Colors - Background</div>
+          <div class="chips"><span class="chip">.bg-subtle</span><span class="chip">.bg-accent</span></div>
+          <div class="flex gap-2 flex-wrap" style="margin-bottom:var(--space-4)">
+            <span class="bg-subtle p-2" style="border-radius:var(--radius-md);font-size:var(--text-sm)">bg-subtle</span>
+            <span class="bg-accent p-2" style="border-radius:var(--radius-md);font-size:var(--text-sm);color:var(--color-accent-fg)">bg-accent</span>
+          </div>
+
+          <div class="doc-sub">Borders & Radius</div>
+          <div class="chips"><span class="chip">.border</span><span class="chip">.border-b</span><span class="chip">.rounded</span><span class="chip">.rounded-lg</span></div>
+          <div class="flex gap-3 flex-wrap" style="margin-bottom:var(--space-4)">
+            <div class="border p-2" style="border-radius:var(--radius-md);font-size:var(--text-sm)">border</div>
+            <div class="border-b p-2" style="font-size:var(--text-sm)">border-b</div>
+            <div class="rounded p-2" style="background:var(--color-subtle);font-size:var(--text-sm)">rounded</div>
+            <div class="rounded-lg p-2" style="background:var(--color-subtle);font-size:var(--text-sm)">rounded-lg</div>
+          </div>
+
+          <div class="doc-sub">Position</div>
+          <div class="chips"><span class="chip">.relative</span><span class="chip">.absolute</span><span class="chip">.fixed</span></div>
+
+          <div class="doc-sub">Visibility & Opacity</div>
+          <div class="chips"><span class="chip">.hidden</span><span class="chip">.invisible</span><span class="chip">.opacity-50</span><span class="chip">.sr-only</span></div>
+
+          <div class="doc-sub">Animations & Transitions</div>
+          <div class="chips"><span class="chip">.fade-in</span><span class="chip">.slide-in-up</span><span class="chip">.scale-in</span><span class="chip">.bounce-in</span><span class="chip">.transition-fast</span><span class="chip">.transition-base</span></div>
+          <div class="flex gap-2 flex-wrap" style="margin-bottom:var(--space-4)">
             <div class="fade-in" style="width:3rem;height:3rem;background:var(--color-accent);border-radius:var(--radius-md)"></div>
-            <button class="transition-base" style="padding:var(--space-2) var(--space-4);background:var(--color-accent);color:white;border:none;border-radius:var(--radius-md);cursor:pointer" onmouseover="this.style.background='var(--color-error)'" onmouseout="this.style.background='var(--color-accent)'">Hover</button>
+            <button class="transition-base" style="padding:var(--space-2) var(--space-4);background:var(--color-accent);color:white;border:none;border-radius:var(--radius-md);cursor:pointer;font-size:var(--text-sm)" onmouseover="this.style.background='var(--color-error)'" onmouseout="this.style.background='var(--color-accent)'">Hover me</button>
           </div>
         </section>
 
