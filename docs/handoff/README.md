@@ -11,7 +11,9 @@
 | Denne fila (handoff) | `https://raw.githubusercontent.com/xxnamae/nordover-ui/main/docs/handoff/README.md` |
 | Monorepo-bootstrap | `https://raw.githubusercontent.com/xxnamae/nordover-ui/main/docs/handoff/monorepo-bootstrap.md` |
 | Tokens-app CSS | `https://raw.githubusercontent.com/xxnamae/nordover-ui/main/docs/visual/tokens/tokens-app.css` |
+| Components-app CSS | `https://raw.githubusercontent.com/xxnamae/nordover-ui/main/docs/visual/components/components-app.css` |
 | Tokens-web CSS | `https://raw.githubusercontent.com/xxnamae/nordover-ui/main/docs/visual/tokens/tokens-web.css` |
+| Components-web CSS | `https://raw.githubusercontent.com/xxnamae/nordover-ui/main/docs/visual/components/components-web.css` |
 | Wiki-topics | `https://raw.githubusercontent.com/xxnamae/nordover-ui/main/docs/wiki/topics/nordover-<navn>.md` |
 
 **Modell:** Les wiki on-demand via `WebFetch`. **Kopier kun tokens-CSS-en** inn i prosjektet (én fil, ~20KB). Aldri kopier wikien lokalt — den drifter ut av sync.
@@ -22,11 +24,11 @@
 
 Nordover er et CSS-fundament + et katalogisert pattern-bibliotek (i spec-form). Det leverer:
 
-- **Tokens** (`@layer tokens`) — alle CSS-variabler for type, farger, spacing, radius, shadow, motion, button-surface, input.
-- **Reset** (`@layer reset`) — Inter-fallback med `size-adjust` (null CLS), `prefers-reduced-motion`-garanti, box-sizing.
+- **Tokens** (`@layer tokens`) — alle CSS-variabler for type, farger, spacing, radius, shadow, motion, button-surface, input. Ligger i `tokens-{web,app}.css`.
+- **Reset** (`@layer reset`) — Inter-fallback med `size-adjust` (null CLS), `prefers-reduced-motion`-garanti, box-sizing. Ligger i `tokens-{web,app}.css`.
+- **Komponenter** (`@layer primitives, components, utilities`) — knapper, forms, section patterns, `.t-*`-typeklasser, `.cluster`/`.stack`, motion-utilities, a11y. Ligger i `components-{web,app}.css` — den andre halvdelen av rammeverket, lastes ETTER tokens.
 - **Universell a11y** — global `:focus-visible`, `.sr-only`.
-- **Motion-system** — keyframes + `.animate-*`-utilities + `.stagger`.
-- **Mønstre** — spec'et i wiki, ikke koden ennå. Du implementerer dem etter behov i ditt prosjekt.
+- **Mønstre** — section patterns (Hero, Feature Grid, CTA, Pricing, FAQ, Footer) ligger ferdig i `components-web.css`. Dypere spec i wiki.
 
 Det finnes **to pakker** med samme arkitektur, ulike defaults:
 
@@ -43,27 +45,31 @@ Hvis du er i tvil: bygger du noe **du leser** (artikler, info, presentasjon) →
 
 ## 2. Quick-start (5 steg)
 
-### Steg 1: hent tokens-fila
+### Steg 1: hent CSS-filene (to per plattform)
 
-Via `WebFetch` (anbefalt — null setup, alltid nyeste):
+Rammeverket er to halvdeler som alltid lastes sammen: tokens FØRST,
+komponenter ETTER. Via `WebFetch` (anbefalt — null setup, alltid nyeste):
 
 ```
 # For app-prosjekt:
-WebFetch https://raw.githubusercontent.com/xxnamae/nordover-ui/main/docs/visual/tokens/tokens-app.css
-→ skriv til styles/nordover-tokens.css
+WebFetch .../docs/visual/tokens/tokens-app.css          → styles/nordover-tokens.css
+WebFetch .../docs/visual/components/components-app.css   → styles/nordover-components.css
 
 # For nettside-prosjekt:
-WebFetch https://raw.githubusercontent.com/xxnamae/nordover-ui/main/docs/visual/tokens/tokens-web.css
-→ skriv til styles/nordover-tokens.css
+WebFetch .../docs/visual/tokens/tokens-web.css          → styles/nordover-tokens.css
+WebFetch .../docs/visual/components/components-web.css   → styles/nordover-components.css
 ```
 
-Header-kommentaren i CSS-fila inneholder commit-hash for sync-sporing.
+(Full raw-base: `https://raw.githubusercontent.com/xxnamae/nordover-ui/main`)
+
+Header-kommentaren i CSS-filene inneholder commit-hash for sync-sporing.
 
 ### Steg 2: importér i app-entry
 
 ```ts
 // app/layout.tsx
-import "./styles/nordover-tokens.css";
+import "./styles/nordover-tokens.css";       // tokens + reset (FØRST)
+import "./styles/nordover-components.css";    // primitives + components + utilities
 import "./styles/brand.css";   // legges på TOPPEN av Nordover
 ```
 
