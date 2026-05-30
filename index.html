@@ -1,241 +1,206 @@
 <!DOCTYPE html>
 <html lang="nb">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nordover — Design System for Nordic Web & Apps</title>
-  <link rel="preconnect" href="https://rsms.me/">
-  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-  <link rel="stylesheet" href="docs/visual/tokens/tokens-web.css">
-  <style>
-    @layer brand {
-      .site-nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: var(--space-4) var(--page-padding);
-        border-bottom: var(--border-divider);
-        position: sticky;
-        top: 0;
-        background: var(--color-bg);
-        z-index: var(--z-sticky);
-      }
-      .site-nav-brand {
-        font-family: var(--font-display);
-        font-size: var(--text-lg);
-        font-weight: var(--fw-semibold);
-        letter-spacing: var(--tracking-tight);
-      }
-      .site-nav-actions { display: flex; gap: var(--space-2); align-items: center; }
-
-      section { padding: var(--spacing-section) var(--page-padding); }
-      .section-inner { max-width: 70rem; margin: 0 auto; }
-      .section-header { margin-bottom: var(--space-8); }
-
-      @media (max-width: 48rem) {
-        .footer-grid { grid-template-columns: 1fr 1fr !important; }
-      }
-      @media (max-width: 30rem) {
-        .footer-grid { grid-template-columns: 1fr !important; }
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nordover — Designsystem for nordiske nettsider og apper</title>
+<link rel="preconnect" href="https://rsms.me/">
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+<!-- Konsumerer kanonisk shippbar CSS — samme filer som styleguidene bruker. -->
+<link rel="stylesheet" href="docs/visual/tokens/tokens-web.css">
+<link rel="stylesheet" href="docs/visual/components/components-web.css">
+<style>
+@layer brand {
+  .site-nav { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding: var(--space-4) var(--page-padding); border-bottom: var(--border-divider); position: sticky; top: 0; background: color-mix(in oklch, var(--color-bg) 85%, transparent); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); z-index: var(--z-sticky); }
+  .site-nav-brand { font-family: var(--font-display); font-weight: var(--fw-heading-md); font-size: var(--text-lg); letter-spacing: var(--tracking-tight); }
+  .page { max-width: 72rem; margin: 0 auto; padding: 0 var(--page-padding); }
+  .page-section { padding: var(--spacing-section) 0; }
+  .section-head { max-width: 60ch; margin-bottom: var(--space-8); }
+}
+</style>
 </head>
 <body>
-  <input type="checkbox" id="dark" class="sr-only" role="switch" aria-label="Aktiver mørk modus">
+<input type="checkbox" id="dark" class="sr-only" role="switch" aria-label="Aktiver mørk modus">
 
-  <svg style="display:none"><defs>
-    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
-    <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="8" y1="21" x2="16" y2="21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="12" y1="17" x2="12" y2="21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
-    <symbol id="i-phone" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="12" y1="18" x2="12.01" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
-    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" stroke="currentColor" stroke-width="1.5" fill="none"/></symbol>
-    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="14" y="3" width="7" height="7" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="3" y="14" width="7" height="7" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="14" y="14" width="7" height="7" stroke="currentColor" stroke-width="1.5" fill="none"/></symbol>
-    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s-8-4-8-12V5l8-3 8 3v5c0 8-8 12-8 12z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-type" viewBox="0 0 24 24"><polyline points="4 7 4 4 20 4 20 7" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><line x1="9" y1="20" x2="15" y2="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="12" y1="4" x2="12" y2="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
-    <symbol id="i-sun-moon" viewBox="0 0 24 24"><path d="M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8z" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="12" y1="2" x2="12" y2="4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="12" y1="20" x2="12" y2="22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="2" y1="12" x2="4" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="20" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
-  </defs></svg>
+<svg style="display:none"><defs>
+<symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 17 14 18 21 12 17 6 21 7 14 2 9 9 9" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s-8-4-8-12V5l8-3 8 3v5c0 8-8 12-8 12z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/><polyline points="2 17 12 22 22 17" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><polyline points="2 12 12 17 22 12" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-type" viewBox="0 0 24 24"><polyline points="4 7 4 4 20 4 20 7" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><line x1="9" y1="20" x2="15" y2="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="12" y1="4" x2="12" y2="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+<symbol id="i-contrast" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 2 A10 10 0 0 1 12 22 Z" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="8" y1="21" x2="16" y2="21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="12" y1="17" x2="12" y2="21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="12" y1="18" x2="12.01" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" stroke="currentColor" stroke-width="1.5" fill="none"/></symbol>
+<symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="14" y="3" width="7" height="7" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="3" y="14" width="7" height="7" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="14" y="14" width="7" height="7" stroke="currentColor" stroke-width="1.5" fill="none"/></symbol>
+<symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</defs></svg>
 
-  <nav class="site-nav">
-    <div class="site-nav-brand">Nordover</div>
-    <div class="site-nav-actions">
-      <a href="#styleguides" class="btn btn-ghost btn-sm">Styleguides</a>
-      <a href="#docs" class="btn btn-ghost btn-sm">Docs</a>
-      <button class="theme-toggle" onclick="document.getElementById('dark').click()">
-        <svg class="icon t-moon"><use href="#i-moon"/></svg>
-        <svg class="icon t-sun"><use href="#i-sun"/></svg>
-      </button>
-    </div>
+<header class="site-nav">
+  <span class="site-nav-brand">Nordover</span>
+  <nav class="cluster cluster-tight">
+    <a class="btn btn-ghost btn-sm" href="#styleguides">Styleguides</a>
+    <a class="btn btn-ghost btn-sm" href="#docs">Docs</a>
+    <label class="theme-toggle" for="dark" title="Bytt tema">
+      <svg class="icon t-moon"><use href="#i-moon"/></svg>
+      <svg class="icon t-sun"><use href="#i-sun"/></svg>
+    </label>
   </nav>
+</header>
 
-  <main>
+<main>
 
-    <!-- Hero -->
-    <section>
-      <div class="section-inner">
-        <div class="hero-centered">
-          <p class="t-eyebrow" style="margin-bottom: var(--space-5);">Designsystem · MIT-lisensiert</p>
-          <h1 class="t-display-lg">Nordover</h1>
-          <p class="t-body-lg" style="color: var(--color-muted); max-width: 48ch; margin: var(--space-6) auto 0;">
-            Et CSS-rammeverk for nordiske nettsider og apper. Skandinavisk minimalisme, fluid typografi, mørk og lys modus innebygd.
-          </p>
-          <div class="cluster" style="justify-content: center; margin-top: var(--space-8);">
-            <a href="#styleguides" class="btn btn-primary btn-lg">Utforsk styleguides</a>
-            <a href="https://github.com/xxnamae/nordover-ui" class="btn btn-secondary btn-lg">GitHub</a>
-          </div>
-        </div>
+  <!-- HERO -->
+  <section class="page page-section">
+    <div class="hero-centered">
+      <p class="t-eyebrow" style="margin-bottom:var(--space-4)">Designsystem · MIT-lisensiert</p>
+      <h1 class="t-display-lg" style="max-width:16ch;margin:0 auto">Skandinavisk minimalisme, komponert i tokens.</h1>
+      <p class="t-body-lg muted" style="max-width:50ch;margin:var(--space-5) auto 0">
+        Et komplett CSS-rammeverk for nordiske nettsider og apper. Fluid typografi, OKLCH-farger, mørk og lys modus — bygd på @layer-arkitektur.
+      </p>
+      <div class="cluster cluster-tight" style="justify-content:center;margin-top:var(--space-6)">
+        <a class="btn btn-primary btn-elevated btn-lg" href="#styleguides">Utforsk styleguides</a>
+        <a class="btn btn-secondary btn-lg" href="https://github.com/xxnamae/nordover-ui">GitHub</a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Styleguides -->
-    <section id="styleguides" style="background: var(--color-subtle);">
-      <div class="section-inner">
-        <div class="section-header">
-          <h2 class="t-heading-lg">Styleguides</h2>
-          <p class="t-body-lg" style="color: var(--color-muted); margin-top: var(--space-2);">Interaktive referanser for alle komponenter og tokens.</p>
-        </div>
-        <div class="feature-grid">
-          <a href="docs/visual/styleguide-web.html" class="feature-card" style="text-decoration: none;">
-            <svg class="feature-card-icon icon-lg" style="width:2rem;height:2rem;color:var(--color-accent);margin-bottom:var(--space-3);stroke:currentColor;stroke-width:1.5;fill:none;"><use href="#i-monitor"/></svg>
-            <h3 class="t-heading-sm">Web Styleguide</h3>
-            <p class="t-body-sm" style="color: var(--color-muted); margin-top: var(--space-2);">Light-first design for marketing-nettsider. Fluid editorial typografi, romslige seksjoner, section patterns.</p>
-          </a>
-          <a href="docs/visual/styleguide-app.html" class="feature-card" style="text-decoration: none;">
-            <svg class="feature-card-icon icon-lg" style="width:2rem;height:2rem;color:var(--color-accent);margin-bottom:var(--space-3);stroke:currentColor;stroke-width:1.5;fill:none;"><use href="#i-phone"/></svg>
-            <h3 class="t-heading-sm">App Styleguide</h3>
-            <p class="t-body-sm" style="color: var(--color-muted); margin-top: var(--space-2);">Dark-first design for SaaS dashboards og arbeidsverktøy. Kompakt spacing, taktile knapper.</p>
-          </a>
-        </div>
+  <!-- STYLEGUIDES -->
+  <section class="page page-section" id="styleguides">
+    <div class="section-head">
+      <h2 class="t-heading-lg">Styleguides</h2>
+      <p class="t-body-lg muted" style="margin-top:var(--space-2)">Interaktive referanser. Hver guide viser alle komponenter, tokens og mønstre i bruk.</p>
+    </div>
+    <div class="feature-grid">
+      <a class="feature-card" href="docs/visual/styleguide-web.html">
+        <svg class="feature-card-icon"><use href="#i-monitor"/></svg>
+        <h3 class="t-heading-sm">Web Styleguide</h3>
+        <p class="muted t-body-sm" style="margin-top:var(--space-2)">Light-first for marketing-nettsider. Fluid editorial typografi, generøs luft, section patterns.</p>
+      </a>
+      <a class="feature-card" href="docs/visual/styleguide-app.html">
+        <svg class="feature-card-icon"><use href="#i-phone"/></svg>
+        <h3 class="t-heading-sm">App Styleguide</h3>
+        <p class="muted t-body-sm" style="margin-top:var(--space-2)">Dark-first for SaaS-dashboards. Kompakt spacing, taktile knapper, fullt komponentbibliotek.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="page page-section">
+    <div class="section-head">
+      <h2 class="t-heading-lg">Hva er inkludert</h2>
+    </div>
+    <div class="feature-grid">
+      <article class="feature-card">
+        <svg class="feature-card-icon"><use href="#i-type"/></svg>
+        <h3 class="t-heading-sm">Fluid typografi</h3>
+        <p class="muted t-body-sm" style="margin-top:var(--space-2)">CSS clamp() skaler fra mobil til desktop uten breakpoints. xs til 8xl, variable fontvekter.</p>
+      </article>
+      <article class="feature-card">
+        <svg class="feature-card-icon"><use href="#i-contrast"/></svg>
+        <h3 class="t-heading-sm">Light & dark mode</h3>
+        <p class="muted t-body-sm" style="margin-top:var(--space-2)">Én mekanisme via CSS :has() og ett checkbox. localStorage-persistens og system-preferanse.</p>
+      </article>
+      <article class="feature-card">
+        <svg class="feature-card-icon"><use href="#i-shield"/></svg>
+        <h3 class="t-heading-sm">Accessibility first</h3>
+        <p class="muted t-body-sm" style="margin-top:var(--space-2)">WCAG AA-kontrast. Fokus-ringer, reduced-motion og keyboard-navigasjon innebygd.</p>
+      </article>
+      <article class="feature-card">
+        <svg class="feature-card-icon"><use href="#i-layers"/></svg>
+        <h3 class="t-heading-sm">@layer-arkitektur</h3>
+        <p class="muted t-body-sm" style="margin-top:var(--space-2)">Tokens, reset, primitives, components, utilities, brand — forutsigbar kaskade, trygg overstyring.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- DOCS -->
+  <section class="page page-section" id="docs">
+    <div class="section-head">
+      <h2 class="t-heading-lg">Dokumentasjon</h2>
+      <p class="t-body-lg muted" style="margin-top:var(--space-2)">Alt for å ta rammeverket i bruk og bygge videre.</p>
+    </div>
+    <div class="feature-grid">
+      <a class="feature-card" href="docs/handoff/README.md">
+        <svg class="feature-card-icon"><use href="#i-book"/></svg>
+        <h3 class="t-heading-sm">Framework Handoff</h3>
+        <p class="muted t-body-sm" style="margin-top:var(--space-2)">Implementørguidanse. Hvordan konsumere tokens og komponenter i ditt prosjekt.</p>
+      </a>
+      <a class="feature-card" href="docs/handoff/monorepo-bootstrap.md">
+        <svg class="feature-card-icon"><use href="#i-grid"/></svg>
+        <h3 class="t-heading-sm">Monorepo Bootstrap</h3>
+        <p class="muted t-body-sm" style="margin-top:var(--space-2)">Next.js + Payload CMS + Supabase i et pnpm-monorepo med Nordover.</p>
+      </a>
+      <a class="feature-card" href="https://github.com/xxnamae/nordover-ui/tree/main/docs/wiki/topics">
+        <svg class="feature-card-icon"><use href="#i-file"/></svg>
+        <h3 class="t-heading-sm">Component Topics</h3>
+        <p class="muted t-body-sm" style="margin-top:var(--space-2)">Spesifikasjoner for patterns, typografi, farger, spacing og motion.</p>
+      </a>
+      <a class="feature-card" href="https://github.com/xxnamae/nordover-ui/tree/main/docs/wiki/decisions">
+        <svg class="feature-card-icon"><use href="#i-star"/></svg>
+        <h3 class="t-heading-sm">Architecture Decisions</h3>
+        <p class="muted t-body-sm" style="margin-top:var(--space-2)">ADR-er med begrunnelse for design-valgene i rammeverket.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="page page-section">
+    <div class="cta-card">
+      <h2 class="t-display-md" style="max-width:18ch;margin:0 auto">Klar til å bygge?</h2>
+      <p class="muted t-body-lg" style="max-width:44ch;margin:var(--space-4) auto 0">Les implementørguidansen og integrer Nordover i ditt neste prosjekt.</p>
+      <div class="cluster cluster-tight" style="justify-content:center;margin-top:var(--space-6)">
+        <a class="btn btn-primary btn-elevated btn-lg" href="docs/handoff/README.md">Les dokumentasjonen</a>
+        <a class="btn btn-secondary btn-lg" href="https://github.com/xxnamae/nordover-ui">Se på GitHub</a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Features -->
-    <section>
-      <div class="section-inner">
-        <div class="section-header">
-          <h2 class="t-heading-lg">Hva er inkludert</h2>
-        </div>
-        <div class="feature-grid">
-          <div class="feature-card">
-            <svg style="width:2rem;height:2rem;color:var(--color-accent);margin-bottom:var(--space-3);stroke:currentColor;stroke-width:1.5;fill:none;"><use href="#i-type"/></svg>
-            <h3 class="t-heading-sm">Fluid typografi</h3>
-            <p class="t-body-sm" style="color: var(--color-muted); margin-top: var(--space-2);">CSS clamp() skaler fra mobil til desktop. 9 trinn fra xs til 8xl, variable fontvekter.</p>
-          </div>
-          <div class="feature-card">
-            <svg style="width:2rem;height:2rem;color:var(--color-accent);margin-bottom:var(--space-3);stroke:currentColor;stroke-width:1.5;fill:none;"><use href="#i-sun-moon"/></svg>
-            <h3 class="t-heading-sm">Light & Dark mode</h3>
-            <p class="t-body-sm" style="color: var(--color-muted); margin-top: var(--space-2);">Tema-toggle via CSS :has() og ett checkbox. localStorage-persistens og system-preferanse.</p>
-          </div>
-          <div class="feature-card">
-            <svg style="width:2rem;height:2rem;color:var(--color-accent);margin-bottom:var(--space-3);stroke:currentColor;stroke-width:1.5;fill:none;"><use href="#i-shield"/></svg>
-            <h3 class="t-heading-sm">Accessibility first</h3>
-            <p class="t-body-sm" style="color: var(--color-muted); margin-top: var(--space-2);">WCAG AA-kontrastforhold. Fokus-ringer, reduced-motion og keyboard-navigasjon innebygd.</p>
-          </div>
-          <div class="feature-card">
-            <svg style="width:2rem;height:2rem;color:var(--color-accent);margin-bottom:var(--space-3);stroke:currentColor;stroke-width:1.5;fill:none;"><use href="#i-grid"/></svg>
-            <h3 class="t-heading-sm">Section patterns</h3>
-            <p class="t-body-sm" style="color: var(--color-muted); margin-top: var(--space-2);">Hero, Feature Grid, CTA, Pricing, FAQ, Service List, Footer — klare til bruk.</p>
-          </div>
-        </div>
+  <!-- FOOTER -->
+  <footer class="page" style="border-top:var(--border-divider);padding-top:var(--space-8);padding-bottom:var(--space-8)">
+    <div class="footer-grid">
+      <div>
+        <strong class="site-nav-brand">Nordover</strong>
+        <p class="t-body-sm muted" style="margin-top:var(--space-2);max-width:28ch">CSS-rammeverk for nordiske digitale produkter. MIT-lisensiert.</p>
       </div>
-    </section>
-
-    <!-- Docs -->
-    <section id="docs" style="background: var(--color-subtle);">
-      <div class="section-inner">
-        <div class="section-header">
-          <h2 class="t-heading-lg">Dokumentasjon</h2>
-          <p class="t-body-lg" style="color: var(--color-muted); margin-top: var(--space-2);">Alt for å komme i gang og bygge videre.</p>
-        </div>
-        <div class="feature-grid">
-          <a href="docs/handoff/README.md" class="feature-card" style="text-decoration: none;">
-            <svg style="width:2rem;height:2rem;color:var(--color-accent);margin-bottom:var(--space-3);stroke:currentColor;stroke-width:1.5;fill:none;"><use href="#i-book"/></svg>
-            <h3 class="t-heading-sm">Framework Handoff</h3>
-            <p class="t-body-sm" style="color: var(--color-muted); margin-top: var(--space-2);">Implementørguidanse. Slik bruker du tokens, brand-overstyringer og monorepo-oppsett.</p>
-          </a>
-          <a href="docs/handoff/monorepo-bootstrap.md" class="feature-card" style="text-decoration: none;">
-            <svg style="width:2rem;height:2rem;color:var(--color-accent);margin-bottom:var(--space-3);stroke:currentColor;stroke-width:1.5;fill:none;"><use href="#i-grid"/></svg>
-            <h3 class="t-heading-sm">Monorepo Bootstrap</h3>
-            <p class="t-body-sm" style="color: var(--color-muted); margin-top: var(--space-2);">Struktur Next.js + Payload CMS + Supabase med Nordover i et pnpm-monorepo.</p>
-          </a>
-          <a href="https://github.com/xxnamae/nordover-ui/tree/main/docs/wiki/topics" class="feature-card" style="text-decoration: none;">
-            <svg style="width:2rem;height:2rem;color:var(--color-accent);margin-bottom:var(--space-3);stroke:currentColor;stroke-width:1.5;fill:none;"><use href="#i-book"/></svg>
-            <h3 class="t-heading-sm">Component Topics</h3>
-            <p class="t-body-sm" style="color: var(--color-muted); margin-top: var(--space-2);">15+ spesifikasjoner for patterns, typografi, farger, spacing og motion.</p>
-          </a>
-          <a href="https://github.com/xxnamae/nordover-ui/tree/main/docs/wiki/decisions" class="feature-card" style="text-decoration: none;">
-            <svg style="width:2rem;height:2rem;color:var(--color-accent);margin-bottom:var(--space-3);stroke:currentColor;stroke-width:1.5;fill:none;"><use href="#i-book"/></svg>
-            <h3 class="t-heading-sm">Architecture Decisions</h3>
-            <p class="t-body-sm" style="color: var(--color-muted); margin-top: var(--space-2);">21+ ADRs med begrunnelse for alle design-valg i rammeverket.</p>
-          </a>
-        </div>
+      <div>
+        <p class="footer-col-title">Styleguides</p>
+        <a class="footer-link" href="docs/visual/styleguide-web.html">Web</a>
+        <a class="footer-link" href="docs/visual/styleguide-app.html">App</a>
       </div>
-    </section>
-
-    <!-- CTA -->
-    <section>
-      <div class="section-inner">
-        <div class="cta-card">
-          <h2 class="t-heading-lg" style="margin-bottom: var(--space-3);">Klar til å komme i gang?</h2>
-          <p class="t-body-lg" style="color: var(--color-muted); max-width: 44ch; margin: 0 auto var(--space-7);">
-            Les implementørguidansen og integrer Nordover i ditt neste prosjekt.
-          </p>
-          <div class="cluster" style="justify-content: center;">
-            <a href="docs/handoff/README.md" class="btn btn-primary">Les dokumentasjonen</a>
-            <a href="https://github.com/xxnamae/nordover-ui" class="btn btn-secondary">Se på GitHub</a>
-          </div>
-        </div>
+      <div>
+        <p class="footer-col-title">Docs</p>
+        <a class="footer-link" href="docs/handoff/README.md">Handoff</a>
+        <a class="footer-link" href="docs/handoff/monorepo-bootstrap.md">Monorepo</a>
+        <a class="footer-link" href="docs/wiki/glossary.md">Glossar</a>
       </div>
-    </section>
-
-    <!-- Footer -->
-    <footer style="border-top: var(--border-divider); padding: var(--space-10) var(--page-padding);">
-      <div class="section-inner">
-        <div class="footer-grid">
-          <div>
-            <div class="footer-col-title">Nordover</div>
-            <p style="font-size: var(--text-sm); color: var(--color-muted); margin-top: var(--space-2); max-width: 28ch; line-height: var(--leading-relaxed);">
-              CSS-rammeverk for nordiske digitale produkter. MIT-lisensiert.
-            </p>
-          </div>
-          <div>
-            <div class="footer-col-title">Styleguides</div>
-            <a href="docs/visual/styleguide-web.html" class="footer-link">Web Styleguide</a>
-            <a href="docs/visual/styleguide-app.html" class="footer-link">App Styleguide</a>
-          </div>
-          <div>
-            <div class="footer-col-title">Dokumentasjon</div>
-            <a href="docs/handoff/README.md" class="footer-link">Handoff Guide</a>
-            <a href="docs/handoff/monorepo-bootstrap.md" class="footer-link">Monorepo</a>
-            <a href="docs/wiki/glossary.md" class="footer-link">Glossar</a>
-          </div>
-          <div>
-            <div class="footer-col-title">Repository</div>
-            <a href="https://github.com/xxnamae/nordover-ui" class="footer-link">GitHub</a>
-            <a href="https://github.com/xxnamae/nordover-ui/tree/main/docs/wiki/decisions" class="footer-link">ADRs</a>
-            <a href="https://github.com/xxnamae/nordover-ui/blob/main/LICENSE" class="footer-link">MIT License</a>
-          </div>
-        </div>
+      <div>
+        <p class="footer-col-title">Repository</p>
+        <a class="footer-link" href="https://github.com/xxnamae/nordover-ui">GitHub</a>
+        <a class="footer-link" href="https://github.com/xxnamae/nordover-ui/blob/main/LICENSE">MIT License</a>
       </div>
-    </footer>
+    </div>
+  </footer>
 
-  </main>
+</main>
 
-  <script>
-    (function() {
-      var key = 'nordover-theme';
-      var input = document.getElementById('dark');
-      if (!input) return;
-      try {
-        var saved = localStorage.getItem(key);
-        if (saved === 'dark') input.checked = true;
-        else if (saved === 'light') input.checked = false;
-        else if (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) input.checked = true;
-        input.addEventListener('change', function() {
-          localStorage.setItem(key, this.checked ? 'dark' : 'light');
-        });
-      } catch(e) {}
-    })();
-  </script>
+<script>
+// Tema-persistens — samme mønster som styleguidene. Setter bare checkbox.checked.
+(function() {
+  var key = 'nordover-theme';
+  var input = document.getElementById('dark');
+  if (!input) return;
+  try {
+    var saved = localStorage.getItem(key);
+    if (saved === 'dark') input.checked = true;
+    else if (saved === 'light') input.checked = false;
+    else if (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) input.checked = true;
+    input.addEventListener('change', function() {
+      localStorage.setItem(key, this.checked ? 'dark' : 'light');
+    });
+  } catch (e) { /* private mode failsafe */ }
+})();
+</script>
 </body>
 </html>

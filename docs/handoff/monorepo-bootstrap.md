@@ -34,11 +34,13 @@ nordover-monorepo/
     ├── tokens-web/                    ← framework-pakke for nettsider
     │   ├── package.json               ({"name": "@nordover/tokens-web", "main": "index.css"})
     │   ├── index.css                  ← KOPI av xxnamae/nordover-ui/docs/visual/tokens/tokens-web.css
+    │   ├── components.css             ← KOPI av .../docs/visual/components/components-web.css
     │   └── README.md                  ← peker til nordover-ui wiki for spec
     │
     ├── tokens-app/                    ← framework-pakke for apper
     │   ├── package.json               ({"name": "@nordover/tokens-app", ...})
     │   ├── index.css                  ← KOPI av xxnamae/nordover-ui/docs/visual/tokens/tokens-app.css
+    │   ├── components.css             ← KOPI av .../docs/visual/components/components-app.css
     │   └── README.md
     │
     ├── ui-web/                        ← felles React-komponenter for nettsider (vokser organisk)
@@ -95,8 +97,9 @@ nordover-monorepo/
 
 ```ts
 // apps/nordover-site/app/layout.tsx
-import "@nordover/tokens-web/index.css";
-import "../styles/brand.css";   // alltid ETTER tokens — overstyrer
+import "@nordover/tokens-web/index.css";        // tokens + reset
+import "@nordover/tokens-web/components.css";    // primitives + components + utilities
+import "../styles/brand.css";   // alltid ETTER tokens+components — overstyrer
 
 import { Inter } from "next/font/google";  // eller selvhostet variant — se Steg 4
 
@@ -211,10 +214,12 @@ Når tokens endres i `xxnamae/nordover-ui/docs/visual/tokens/*.css`:
 
 2. **Les decision-filer** datert nyere enn forrige sync for å forstå hva som endret seg.
 
-3. **Kopier CSS**:
+3. **Kopier CSS** (BÅDE tokens og komponenter — de er to halvdeler av samme rammeverk):
    ```sh
    cp path/til/nordover-ui/docs/visual/tokens/tokens-web.css packages/tokens-web/index.css
+   cp path/til/nordover-ui/docs/visual/components/components-web.css packages/tokens-web/components.css
    cp path/til/nordover-ui/docs/visual/tokens/tokens-app.css packages/tokens-app/index.css
+   cp path/til/nordover-ui/docs/visual/components/components-app.css packages/tokens-app/components.css
    ```
 
 4. **Header-kommentar i index.css** oppdateres med nordover-ui-commit-hash:

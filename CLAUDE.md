@@ -13,7 +13,7 @@ This repository contains the **shippable framework specification** for the Nordo
 
 Framework content for public consumption:
 - Consumption guides for implementers (`docs/handoff/`)
-- Canonical shippable CSS (`docs/visual/tokens/*.css`)
+- Canonical shippable CSS (`docs/visual/tokens/*.css` + `docs/visual/components/*.css`)
 - Rendered reference styleguides
 - Component family specifications (`docs/wiki/topics/nordover-*.md`)
 - Architecture Decision Records (`docs/wiki/decisions/`)
@@ -34,4 +34,5 @@ Keep in the private `xxnamae/notater` repository:
 - **Published ADRs are immutable**: Record reversals in new ADRs rather than editing old ones
 - **WCAG compliance required**: Color token changes must maintain WCAG AA contrast standards
 - **Language**: Norwegian Bokmål for wiki/decisions; English for code comments
-- **Mirroring**: Changes to token values must be applied to both `tokens-web.css` and `tokens-app.css` in the same commit
+- **Mirroring**: Changes to token values must be applied to both `tokens-web.css` and `tokens-app.css` in the same commit. The same applies to shared component structure across `components-web.css` and `components-app.css`
+- **Component classes are contracts**: Class names in `components-*.css` are public contracts (like token names). They live there as the single source of truth — never re-embed component CSS inside styleguide HTML; the styleguides must link the shippable files
