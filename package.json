@@ -1,0 +1,39 @@
+{
+  "name": "@xxnamae/nordover-ui",
+  "version": "1.0.0",
+  "description": "Production-ready design system. 40+ components, WCAG AA accessible, dark mode, responsive. Pure CSS framework for web and app interfaces.",
+  "license": "MIT",
+  "author": "Eirik Foleide <eirikfoleide@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xxnamae/nordover-ui"
+  },
+  "homepage": "https://xxnamae.github.io/nordover-ui/",
+  "keywords": [
+    "design-system",
+    "css-framework",
+    "components",
+    "wcag-aa",
+    "accessibility",
+    "dark-mode",
+    "responsive-design",
+    "web",
+    "app"
+  ],
+  "files": [
+    "docs/visual/tokens/tokens-web.css",
+    "docs/visual/tokens/tokens-app.css",
+    "docs/visual/components/components-web.css",
+    "docs/visual/components/components-app.css",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "docs/visual/components/components-web.css",
+  "style": "docs/visual/components/components-web.css",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

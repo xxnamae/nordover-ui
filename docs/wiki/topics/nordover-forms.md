@@ -1,624 +1,376 @@
-# Forms
+# Nordover — Forms & Inputs Specification
 
-Skjema-primitiver: Input, Textarea, Select, Checkbox, Radio, Switch + komposisjons-wrappers Field og Form. Pluggbar validering (ingen intern logikk), top-labels med "(valgfritt)"-marking, native input + custom visuelt lag for checkbox/radio, custom Switch.
+## Overview
 
-Se [decision 2026-05-27 — forms-arkitektur](../decisions/2026-05-27-forms-arkitektur.md).
+Nordover provides a comprehensive form control system with standardized styling, validation states, and accessibility features. All form elements use consistent sizing and token-based theming.
 
-## Komponentsett
+## Form Structure
 
-| Komponent | Underliggende | Notater |
-|---|---|---|
-| `Input` | `<input>` | text, email, password, number, tel, url, search |
-| `Textarea` | `<textarea>` | resize: vertical, min-height |
-| `Select` | `<select>` | native, custom chevron via background-image |
-| `Checkbox` | `<input type="checkbox">` + visuelt lag | `appearance: none` på native, custom checkmark |
-| `Radio` | `<input type="radio">` + visuelt lag | samme mønster som checkbox |
-| `Switch` | Custom (checkbox semantisk) | `role="switch"`, ingen native ekvivalent |
-| `Field` | div-wrapper med slots | komposisjons-API for label/help/error |
-| `Form` | `<form>`-wrapper | `noValidate`, optional density-prop |
+### Basic Field Group
+```html
+<div class="field">
+  <label class="field-label" for="email">Email Address</label>
+  <input type="email" id="email" class="form-input" required>
+  <span class="field-help">We'll never share your email</span>
+</div>
+```
 
-**Bevisst utenfor:** Datepicker, Combobox, MultiSelect, FileUpload, Slider, RichTextEditor. Disse bygges på primitivene som **patterns** senere, eventuelt via Radix UI når behov dukker opp.
+**Components:**
+- `.field`: Container for label + input + help text
+- `.field-label`: Label text, bold weight
+- `.form-input`: Standard input field
+- `.field-help`: Help text below input, muted color
+- `.field-error`: Error message, red color
 
-## Nye tokens (lagt til begge token-pakker)
+## Input Types
+
+All inputs support:
+- Focus: 3px `--color-focus` ring with 15% opacity
+- Disabled: 50% opacity, `--color-subtle` background
+- Placeholder: muted color
+
+### Text Input
+```html
+<input type="text" class="form-input" placeholder="Enter text">
+```
+
+### Email Input
+```html
+<input type="email" class="form-input" required>
+```
+
+### Password Input
+```html
+<input type="password" class="form-input" minlength="8">
+```
+
+### Number Input
+```html
+<input type="number" class="form-input" min="0" max="100">
+```
+
+### Textarea
+```html
+<textarea class="form-textarea" rows="4" placeholder="Enter message"></textarea>
+```
+
+**Styling:**
+- Minimum height: 6rem
+- Resizable: vertical only
+- Same focus/disabled states as input
+
+## Checkboxes & Radios
+
+### Checkbox
+```html
+<label class="cluster gap-2">
+  <input type="checkbox" class="form-checkbox">
+  <span>I agree to the terms</span>
+</label>
+```
+
+**States:**
+- Unchecked: bordered, empty
+- Checked: filled with accent color, checkmark icon
+- Disabled: 50% opacity
+- Focus: 3px focus ring
+
+### Radio
+```html
+<fieldset class="stack">
+  <legend>Choose an option</legend>
+  <label class="cluster gap-2">
+    <input type="radio" name="choice" class="form-radio" value="a">
+    <span>Option A</span>
+  </label>
+  <label class="cluster gap-2">
+    <input type="radio" name="choice" class="form-radio" value="b">
+    <span>Option B</span>
+  </label>
+</fieldset>
+```
+
+**Styling:**
+- Circular, same sizing as checkbox
+- Custom radio dot appears when checked
+- Group with `<fieldset>` and `<legend>`
+
+### Checkbox Groups
+```html
+<fieldset class="stack">
+  <legend>Preferences</legend>
+  <label class="cluster gap-2">
+    <input type="checkbox" class="form-checkbox" name="prefs" value="email">
+    <span>Email notifications</span>
+  </label>
+  <label class="cluster gap-2">
+    <input type="checkbox" class="form-checkbox" name="prefs" value="sms">
+    <span>SMS notifications</span>
+  </label>
+</fieldset>
+```
+
+## Select & Dropdown
+
+### Select List
+```html
+<div class="field">
+  <label class="field-label" for="country">Country</label>
+  <select id="country" class="form-select">
+    <option value="">Select a country</option>
+    <option value="us">United States</option>
+    <option value="uk">United Kingdom</option>
+  </select>
+</div>
+```
+
+**Styling:**
+- CSS-only arrow overlay
+- Hover state on background
+- Same focus ring as input
+
+### Multi-select
+For multiple selections, use checkboxes grouped in a fieldset or consider a custom component:
+
+```html
+<fieldset class="form-group">
+  <legend class="field-label">Interests</legend>
+  <div class="form-group-item">
+    <input type="checkbox" id="design" class="form-checkbox" value="design">
+    <label for="design">Design</label>
+  </div>
+  <div class="form-group-item">
+    <input type="checkbox" id="code" class="form-checkbox" value="code">
+    <label for="code">Code</label>
+  </div>
+</fieldset>
+```
+
+## Toggles & Switches
+
+### Toggle (Binary State)
+```html
+<label class="cluster gap-2">
+  <input type="checkbox" class="form-toggle">
+  <span>Enable notifications</span>
+</label>
+```
+
+**Styling:**
+- Pill-shaped toggle switch
+- Width: 2.5rem, height: 1.5rem
+- Animated transition on check
+
+### Switch (App-specific)
+```html
+<label class="cluster gap-2">
+  <input type="checkbox" class="form-switch">
+  <span>Dark mode</span>
+</label>
+```
+
+**Styling:**
+- Similar to toggle but with app-specific colors
+- Success color when active
+
+## Range Slider
+
+```html
+<div class="field">
+  <label class="field-label" for="volume">Volume</label>
+  <input type="range" id="volume" class="form-input" min="0" max="100">
+</div>
+```
+
+**Note:** Browser-native range styling varies. Custom styling planned for Fase 2.
+
+## Form Validation
+
+### Valid State
+```html
+<input type="email" class="form-input" value="user@example.com">
+```
+
+### Invalid State
+```html
+<div class="field">
+  <input type="email" class="form-input" value="not-an-email">
+  <span class="field-error">Please enter a valid email</span>
+</div>
+```
+
+**Styling:**
+- Error text in `--color-error`
+- Add red border (optional, via custom style)
+- Inline error message below input
+
+## Form Layouts
+
+### Vertical Stack
+```html
+<form class="stack">
+  <div class="field">
+    <label class="field-label">First Name</label>
+    <input type="text" class="form-input">
+  </div>
+  <div class="field">
+    <label class="field-label">Last Name</label>
+    <input type="text" class="form-input">
+  </div>
+  <button class="btn btn-primary w-full">Submit</button>
+</form>
+```
+
+### Two-Column Layout
+```html
+<form class="grid" style="grid-template-columns: 1fr 1fr; gap: var(--gap-component)">
+  <div class="field">
+    <label class="field-label">First Name</label>
+    <input type="text" class="form-input">
+  </div>
+  <div class="field">
+    <label class="field-label">Last Name</label>
+    <input type="text" class="form-input">
+  </div>
+</form>
+```
+
+### Inline Form
+```html
+<form class="cluster gap-2">
+  <input type="text" class="form-input" placeholder="Search">
+  <button class="btn btn-primary">Search</button>
+</form>
+```
+
+## Accessibility
+
+### Label Association
+Every input must have an associated label:
+```html
+<label for="email" class="field-label">Email</label>
+<input type="email" id="email" class="form-input">
+```
+
+### Required Fields
+```html
+<label class="field-label">Email <span aria-label="required">*</span></label>
+<input type="email" class="form-input" required aria-required="true">
+```
+
+### Error Association
+```html
+<input 
+  type="email" 
+  class="form-input" 
+  aria-describedby="email-error"
+  aria-invalid="true"
+>
+<span id="email-error" class="field-error">Invalid email format</span>
+```
+
+### Focus Management
+- All inputs support `:focus-visible` with clear focus indicator
+- Tab order follows document flow
+- Form can be submitted with Enter key
+
+### ARIA Attributes
+- `aria-label`: For unlabeled inputs
+- `aria-describedby`: Links to help/error text
+- `aria-required="true"`: For required fields
+- `aria-invalid="true"`: For validation errors
+
+## Disabled & Read-only States
+
+### Disabled Input
+```html
+<input type="text" class="form-input" disabled>
+```
+- 50% opacity
+- `not-allowed` cursor
+- Cannot be focused
+
+### Read-only Input
+```html
+<input type="text" class="form-input" readonly value="Fixed value">
+```
+- Appears editable but cannot change
+- Can be focused and tabbed
+- Use for display of computed/auto-filled values
+
+## Custom Styling
+
+Override form element colors:
 
 ```css
-:root {
-  --input-radius: var(--radius-md);
-  --input-border-color: var(--color-border);
-  --input-border-color-focus: var(--color-focus);
-  --input-border-color-error: var(--color-error);
-  --input-bg: var(--color-bg);
-  --input-bg-disabled: var(--color-subtle);
-}
-```
-
-## Field — composer-API
-
-**Primær API (props-basert):**
-```jsx
-<Field label="E-post" help="Vi sender aldri spam" error={errors.email?.message}>
-  <Input name="email" type="email" />
-</Field>
-```
-
-Field genererer:
-- `id` for input (eller bruker `id`-prop).
-- `htmlFor` på label.
-- `aria-describedby` knytter input til help + error.
-- `aria-invalid="true"` på input når error er satt.
-- "(valgfritt)"-suffiks på label hvis ikke `required`.
-- `aria-required="true"` på input hvis `required`.
-
-**Render-prop (spesialtilfeller):**
-```jsx
-<Field label="Telefon">
-  {({ id, describedBy }) => (
-    <Cluster gap="tight">
-      <Input placeholder="+47" className="w-16" />
-      <Input id={id} aria-describedby={describedBy} className="flex-1" />
-    </Cluster>
-  )}
-</Field>
-```
-
-**Implementasjon via React-context:**
-```jsx
-import { createContext, useContext, useId } from "react";
-
-const FieldContext = createContext(null);
-
-function Field({
-  label,
-  help,
-  error,
-  success,
-  required = false,
-  optional = true,
-  children,
-  id: providedId,
-  className,
-  ...rest
-}) {
-  const generatedId = useId();
-  const id = providedId ?? generatedId;
-  const helpId = help ? `${id}-help` : undefined;
-  const errorId = error ? `${id}-error` : undefined;
-  const describedBy = [helpId, errorId].filter(Boolean).join(" ") || undefined;
-  const invalid = Boolean(error);
-
-  const optionalLabel = !required && optional
-    ? <span className="field-label-optional"> (valgfritt)</span>
-    : null;
-
-  const renderedChild = typeof children === "function"
-    ? children({ id, describedBy, invalid })
-    : children;
-
-  return (
-    <FieldContext.Provider value={{ id, describedBy, invalid, required }}>
-      <div className={`field ${className ?? ""}`.trim()} {...rest}>
-        <label htmlFor={id} className="field-label">
-          {label}{optionalLabel}
-        </label>
-        {renderedChild}
-        {help && <p id={helpId} className="field-help">{help}</p>}
-        {error && <p id={errorId} className="field-error" role="alert">{error}</p>}
-      </div>
-    </FieldContext.Provider>
-  );
-}
-
-function useField() {
-  return useContext(FieldContext) ?? {};
-}
-```
-
-Input/Textarea/Select leser fra `useField()` for å automatisk få `id`, `aria-describedby`, `aria-invalid`, `aria-required`.
-
-## Validation — pluggbar
-
-Field har **ingen intern valideringslogikk**. Den viser `error` som blir gitt til den. Integrasjon med form-libraries:
-
-**react-hook-form:**
-```jsx
-const { register, formState: { errors } } = useForm();
-
-<Field label="E-post" error={errors.email?.message}>
-  <Input {...register("email", { required: "Påkrevd" })} />
-</Field>
-```
-
-**Conform / native FormData:**
-```jsx
-<Form action={action}>
-  <Field label="E-post" error={state.errors?.email}>
-    <Input name="email" type="email" />
-  </Field>
-</Form>
-```
-
-**Egen state:**
-```jsx
-const [email, setEmail] = useState("");
-const error = email && !isValidEmail(email) ? "Ugyldig adresse" : undefined;
-
-<Field label="E-post" error={error}>
-  <Input value={email} onChange={(e) => setEmail(e.target.value)} />
-</Field>
-```
-
-## Sizing — sm/md/lg + Form-density
-
-Default `md`. Form-wrapper kan sette `density` som internt setter alle nested inputs til `sm`:
-
-```jsx
-<Form density="compact">
-  {/* Alle Field/Input/Select arver size="sm" via context */}
-  <Field label="Navn"><Input /></Field>
-  <Field label="E-post"><Input type="email" /></Field>
-</Form>
-```
-
-Padding-skala:
-
-| Size | Padding-block | Padding-inline | Type |
-|---|---|---|---|
-| sm | 0.375rem | 0.625rem | --text-sm |
-| md | 0.625rem | 0.875rem | --text-base |
-| lg | 0.875rem | 1.125rem | --text-lg |
-
-## CSS — `@utility`-blokker
-
-**Field-wrapper:**
-```css
-@utility field {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gap-tight);
-}
-
-@utility field-label {
-  font-size: var(--text-sm);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-fg);
-}
-
-@utility field-label-optional {
-  color: var(--color-muted);
-  font-weight: var(--font-weight-normal);
-}
-
-@utility field-help {
-  font-size: var(--text-sm);
-  font-weight: var(--font-weight-medium);   /* 500 — UI-hjelpetekst leser bedre i medium */
-  color: var(--color-muted);
-}
-
-@utility field-error {
-  font-size: var(--text-sm);
-  font-weight: var(--font-weight-medium);   /* 500 */
-  color: var(--color-error);
-}
-```
-
-**Input (delte stiler for Input, Textarea, Select):**
-```css
-@utility form-input {
-  width: 100%;
-  font-family: var(--font-sans);
-  font-size: var(--text-base);
-  line-height: 1.5;
-  color: var(--color-fg);
-  background: var(--input-bg);
-  border: var(--border-width-thin) solid var(--input-border-color);
-  border-radius: var(--input-radius);
-  padding-block: 0.625rem;
-  padding-inline: 0.875rem;
-  transition: border-color var(--duration-fast) var(--ease-out),
-              background var(--duration-fast) var(--ease-out);
-
-  &::placeholder { color: var(--color-muted); }
-
-  &:hover:not(:disabled):not([aria-invalid="true"]) {
-    border-color: var(--color-fg);
-  }
-
-  &:focus-visible {
-    outline: var(--border-focus);
-    outline-offset: 1px;
-    border-color: var(--input-border-color-focus);
-  }
-
-  &[aria-invalid="true"] {
-    border-color: var(--input-border-color-error);
-  }
-
-  &:disabled {
-    background: var(--input-bg-disabled);
-    color: var(--color-muted);
-    cursor: not-allowed;
-  }
-
-  &:read-only:not(:disabled) {
-    background: var(--color-subtle);
-  }
-}
-
-@utility form-input-sm {
-  font-size: var(--text-sm);
-  padding-block: 0.375rem;
-  padding-inline: 0.625rem;
-}
-
-@utility form-input-lg {
-  font-size: var(--text-lg);
-  padding-block: 0.875rem;
-  padding-inline: 1.125rem;
-}
-```
-
-**Textarea (legger til på form-input):**
-```css
-@utility form-textarea {
-  resize: vertical;
-  min-height: 6rem;
-  line-height: 1.6;
-}
-```
-
-**Select (legger til på form-input):**
-```css
-@utility form-select {
-  appearance: none;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path d='M2 4l4 4 4-4' stroke='currentColor' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
-  background-repeat: no-repeat;
-  background-position: right 0.875rem center;
-  background-size: 0.75rem;
-  padding-inline-end: 2.5rem;
-}
-```
-
-**Checkbox + Radio (native + visuelt lag):**
-```css
-@utility form-checkbox {
-  appearance: none;
-  width: 1.25rem;
-  height: 1.25rem;
-  border: var(--border-width-thin) solid var(--input-border-color);
-  border-radius: var(--radius-sm);
-  background: var(--input-bg);
-  cursor: pointer;
-  display: inline-grid;
-  place-content: center;
-  flex-shrink: 0;
-  transition: background var(--duration-fast) var(--ease-out),
-              border-color var(--duration-fast) var(--ease-out);
-
-  &::before {
-    content: "";
-    width: 0.75rem;
-    height: 0.75rem;
-    background: var(--color-accent-fg);
-    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-    transform: scale(0);
-    transition: transform var(--duration-fast) var(--ease-out);
-  }
-
-  &:checked {
-    background: var(--color-accent);
-    border-color: var(--color-accent);
-  }
-
-  &:checked::before { transform: scale(1); }
-
-  &:focus-visible {
-    outline: var(--border-focus);
-    outline-offset: 2px;
-  }
-
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-}
-
-@utility form-radio {
-  appearance: none;
-  width: 1.25rem;
-  height: 1.25rem;
-  border: var(--border-width-thin) solid var(--input-border-color);
-  border-radius: var(--radius-full);
-  background: var(--input-bg);
-  cursor: pointer;
-  display: inline-grid;
-  place-content: center;
-  flex-shrink: 0;
-  transition: border-color var(--duration-fast) var(--ease-out);
-
-  &::before {
-    content: "";
-    width: 0.625rem;
-    height: 0.625rem;
-    background: var(--color-accent);
-    border-radius: var(--radius-full);
-    transform: scale(0);
-    transition: transform var(--duration-fast) var(--ease-out);
-  }
-
-  &:checked {
-    border-color: var(--color-accent);
-  }
-
-  &:checked::before { transform: scale(1); }
-
-  &:focus-visible {
-    outline: var(--border-focus);
-    outline-offset: 2px;
-  }
-
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+@layer brand {
+  :root {
+    --input-radius: var(--radius-md);
+    --color-focus: #0066FF;
   }
 }
 ```
 
-**Switch:**
-```css
-@utility form-switch {
-  appearance: none;
-  width: 2.5rem;
-  height: 1.5rem;
-  background: var(--color-muted);
-  border-radius: var(--radius-full);
-  cursor: pointer;
-  position: relative;
-  flex-shrink: 0;
-  transition: background var(--duration-fast) var(--ease-out);
+## Do's and Don'ts
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 2px;
-    inset-inline-start: 2px;
-    width: calc(1.5rem - 4px);
-    height: calc(1.5rem - 4px);
-    background: #FFFFFF;
-    border-radius: var(--radius-full);
-    transition: transform var(--duration-fast) var(--ease-out);
-  }
+✅ **Do:**
+- Always use `<label>` with `for` attribute
+- Group related checkboxes with `<fieldset>`
+- Show required field indicator clearly
+- Provide help text for complex fields
+- Use appropriate input type (email, number, etc.)
+- Show validation errors inline and clearly
+- Ensure labels are visible, not just placeholders
 
-  &:checked { background: var(--color-accent); }
-  &:checked::before { transform: translateX(1rem); }
+❌ **Don't:**
+- Rely on placeholder as label
+- Disable form submission button without feedback
+- Submit forms on blur
+- Use all-caps for form labels
+- Hide required field indicators
+- Change focus order from document flow
+- Assume all browsers support all input types
 
-  &:focus-visible {
-    outline: var(--border-focus);
-    outline-offset: 2px;
-  }
+## Examples
 
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-}
+### Login Form
+```html
+<form class="stack" style="max-width: 24rem">
+  <div class="field">
+    <label for="username" class="field-label">Username</label>
+    <input type="text" id="username" class="form-input" required>
+  </div>
+  <div class="field">
+    <label for="password" class="field-label">Password</label>
+    <input type="password" id="password" class="form-input" required>
+  </div>
+  <label class="cluster gap-2">
+    <input type="checkbox" class="form-checkbox">
+    <span>Remember me</span>
+  </label>
+  <button class="btn btn-primary w-full">Sign In</button>
+</form>
 ```
 
-## React-komponenter (stubs)
-
-**Input/Textarea/Select** leser context fra Field:
-
-```jsx
-function Input({ size, className, ...rest }) {
-  const { id, describedBy, invalid, required } = useField();
-  const formCtx = useFormContext();
-  const effectiveSize = size ?? formCtx?.density === "compact" ? "sm" : "md";
-  const sizeClass = effectiveSize !== "md" ? `form-input-${effectiveSize}` : "";
-
-  return (
-    <input
-      id={id}
-      aria-describedby={describedBy}
-      aria-invalid={invalid || undefined}
-      aria-required={required || undefined}
-      className={`form-input ${sizeClass} ${className ?? ""}`.trim()}
-      {...rest}
-    />
-  );
-}
-
-function Textarea({ size, className, rows = 4, ...rest }) {
-  // Same pattern as Input, adds form-textarea class
-}
-
-function Select({ size, className, children, ...rest }) {
-  // Same pattern, adds form-select class
-}
+### Contact Form
+```html
+<form class="stack">
+  <div class="field">
+    <label for="name" class="field-label">Full Name</label>
+    <input type="text" id="name" class="form-input" required>
+  </div>
+  <div class="field">
+    <label for="email" class="field-label">Email Address</label>
+    <input type="email" id="email" class="form-input" required>
+  </div>
+  <div class="field">
+    <label for="message" class="field-label">Message</label>
+    <textarea id="message" class="form-textarea" required></textarea>
+    <span class="field-help">Min 10 characters</span>
+  </div>
+  <div class="cluster gap-2">
+    <button type="submit" class="btn btn-primary">Send</button>
+    <button type="reset" class="btn btn-secondary">Clear</button>
+  </div>
+</form>
 ```
-
-**Checkbox/Radio/Switch** brukes ofte uten Field-wrapper (siden de har label til høyre, ikke over):
-
-```jsx
-function Checkbox({ label, help, error, className, id: providedId, ...rest }) {
-  const generatedId = useId();
-  const id = providedId ?? generatedId;
-  const helpId = help ? `${id}-help` : undefined;
-  const errorId = error ? `${id}-error` : undefined;
-
-  return (
-    <div className={`field-toggle ${className ?? ""}`.trim()}>
-      <Cluster gap="tight" align="start">
-        <input
-          id={id}
-          type="checkbox"
-          className="form-checkbox"
-          aria-describedby={[helpId, errorId].filter(Boolean).join(" ") || undefined}
-          aria-invalid={Boolean(error) || undefined}
-          {...rest}
-        />
-        <label htmlFor={id} className="field-toggle-label">
-          {label}
-          {help && <span id={helpId} className="field-help">{help}</span>}
-        </label>
-      </Cluster>
-      {error && <p id={errorId} className="field-error" role="alert">{error}</p>}
-    </div>
-  );
-}
-
-// Radio og Switch følger samme pattern, bare med .form-radio og .form-switch
-// Switch får role="switch" på input
-```
-
-**Form:**
-```jsx
-const FormContext = createContext({});
-
-function Form({
-  density = "default",          // "default" | "compact"
-  requiredMarking = "optional", // "optional" | "asterisk"
-  className,
-  children,
-  ...rest
-}) {
-  return (
-    <FormContext.Provider value={{ density, requiredMarking }}>
-      <form noValidate className={`form ${className ?? ""}`.trim()} {...rest}>
-        {children}
-      </form>
-    </FormContext.Provider>
-  );
-}
-
-function useFormContext() {
-  return useContext(FormContext);
-}
-```
-
-## Bruksmønstre
-
-**Standard kontakt-skjema:**
-```jsx
-<Form action={submitContact}>
-  <Stack gap="component">
-    <Field label="Navn" required>
-      <Input name="name" />
-    </Field>
-    <Field label="E-post" required help="Vi sender bekreftelse hit">
-      <Input name="email" type="email" />
-    </Field>
-    <Field label="Melding" required>
-      <Textarea name="message" rows={6} />
-    </Field>
-    <Cluster justify="end">
-      <Button type="submit">Send</Button>
-    </Cluster>
-  </Stack>
-</Form>
-```
-
-**SaaS-skjema med density="compact" + validation:**
-```jsx
-<Form density="compact" onSubmit={handleSubmit}>
-  <Stack gap="component">
-    <Field label="Borettslag" required error={errors.org?.message}>
-      <Select {...register("org")}>
-        <option value="">Velg...</option>
-        {orgs.map(o => <option key={o.id} value={o.id}>{o.name}</option>)}
-      </Select>
-    </Field>
-    <Field label="Adresse">
-      <Input {...register("address")} />
-    </Field>
-    <Checkbox label="Send rapport på e-post" {...register("emailReport")} />
-    <Switch label="Aktiver påminnelser" {...register("reminders")} />
-    <Cluster justify="end">
-      <Button variant="ghost" type="button">Avbryt</Button>
-      <Button type="submit" loading={isSubmitting}>Lagre</Button>
-    </Cluster>
-  </Stack>
-</Form>
-```
-
-**Radio-gruppe:**
-```jsx
-<Fieldset legend="Frekvens">
-  <Stack gap="tight">
-    <Radio name="freq" value="daily" label="Daglig" />
-    <Radio name="freq" value="weekly" label="Ukentlig" defaultChecked />
-    <Radio name="freq" value="monthly" label="Månedlig" />
-  </Stack>
-</Fieldset>
-```
-
-(`<Fieldset>` er en tynn wrapper rundt native `<fieldset>` + `<legend>` for semantisk gruppering.)
-
-## A11y-noter
-
-- **Labels alltid synlige.** Floating labels skip pga lavere skannbarhet og a11y-issues.
-- **`htmlFor` + `id`** auto-koblet av Field/Checkbox/Radio.
-- **`aria-describedby`** kobler help og error til input.
-- **`aria-invalid`** settes på input når error er satt.
-- **`aria-required`** settes når `required={true}`.
-- **`role="alert"`** på error-meldinger — skjermlesere annonserer feil umiddelbart.
-- **`noValidate` på `<form>`** — vi bruker custom error-rendering. Browser-default-meldinger er stygge og engelske.
-- **Native `<select>` med custom chevron** — full a11y bevart inklusive tastatur-navigasjon og IME.
-- **Native checkbox/radio** med `appearance: none` — visuelt custom, men keyboard, screen reader, og form-submission fungerer som native.
-- **Switch får `role="switch"`** — kommuniserer toggle-natur til skjermlesere.
-
-## Required vs optional
-
-Default-pattern: alt er required med mindre annet er sagt. Optional-felt får "(valgfritt)"-suffiks i label.
-
-```jsx
-<Field label="E-post" required>      {/* ingen suffiks, required */}
-<Field label="Telefon">              {/* "(valgfritt)" suffiks */}
-```
-
-For complianse-kontekster (juridiske skjemaer der "required" er kontraktsbegrep) kan utvikleren bytte til asterisk-marking:
-```jsx
-<Form requiredMarking="asterisk">
-  <Field label="E-post" required>     {/* viser "E-post *" */}
-</Form>
-```
-
-## Brand-overstyringer — eksempler
-
-```css
-/* Sharp editorial inputs */
-:root { --input-radius: 0; }
-
-/* Subtilere borders (hairline) */
-:root { --input-border-color: color-mix(in oklch, var(--color-border) 50%, transparent); }
-
-/* Fylte inputs i stedet for bordered */
-:root {
-  --input-bg: var(--color-subtle);
-  --input-border-color: transparent;
-}
-```
-
-## Hva utelater vi bevisst
-
-- **Datepicker** — native `input[type="date"]` for enkle cases; Radix UI for komplekse. Egen pattern senere.
-- **Combobox / Autocomplete** — Radix Combobox eller egen pattern. Krever egen drodling.
-- **MultiSelect** — komplekst. Egen pattern.
-- **FileUpload** — krever drag/drop, progress, preview. Egen pattern.
-- **Slider / Range** — Radix Slider eller native. Sjelden i Nordover-prosjekter.
-- **RichTextEditor** — Payload sin egen, eller TipTap.
-
-## Implementeringsrekkefølge
-
-1. Legg til `--input-*`-tokens i `:root` i begge token-pakker.
-2. Lag `forms.css` med alle `@utility`-blokker.
-3. Lag `FieldContext` + `FormContext` i `@nordover/ui/forms/contexts.ts`.
-4. Lag komponentene i denne rekkefølgen: `Form` → `Field` → `Input`/`Textarea`/`Select` → `Checkbox`/`Radio`/`Switch` → `Fieldset`.
-5. TypeScript: diskriminerende unions for `iconOnly`-lignende constraints (eks. `Checkbox` krever enten `label` eller `aria-label`).
-6. Import-rekkefølge per app: `tokens-*.css` → `base.css` → `typografi.css` → `layout.css` → `elevation.css` → `buttons.css` → `forms.css` → `prose.css` → `clients/<slug>.css`.
-
-## Se også
-
-- [Nordover-arkitektur — tokens](nordover-arkitektur.md)
-- [Nordover-buttons](nordover-buttons.md) — variants, tone, sizes
-- [Nordover-elevation](nordover-elevation.md) — focus-ring
-- [Nordover-rammeverk — index](nordover-rammeverk.md)
-- [Decision: forms-arkitektur](../decisions/2026-05-27-forms-arkitektur.md)
