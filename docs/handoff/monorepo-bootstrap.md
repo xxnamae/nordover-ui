@@ -14,7 +14,7 @@ nordover-monorepo/
 ├── tsconfig.base.json                 (strict, alle pakker arver)
 ├── biome.json                         (lint + format — eller eslint+prettier)
 ├── CLAUDE.md                          (agent-regler for monorepoet — se § 6)
-├── README.md                          (kort: peker til notater for spec)
+├── README.md                          (kort: peker til nordover-ui for spec)
 │
 ├── apps/
 │   ├── nordover-site/                 ← byrå-sida (første ut)
@@ -33,12 +33,12 @@ nordover-monorepo/
 └── packages/
     ├── tokens-web/                    ← framework-pakke for nettsider
     │   ├── package.json               ({"name": "@nordover/tokens-web", "main": "index.css"})
-    │   ├── index.css                  ← KOPI av xxnamae/notater/docs/visual/tokens/tokens-web.css
-    │   └── README.md                  ← peker til notater wiki for spec
+    │   ├── index.css                  ← KOPI av xxnamae/nordover-ui/docs/visual/tokens/tokens-web.css
+    │   └── README.md                  ← peker til nordover-ui wiki for spec
     │
     ├── tokens-app/                    ← framework-pakke for apper
     │   ├── package.json               ({"name": "@nordover/tokens-app", ...})
-    │   ├── index.css                  ← KOPI av xxnamae/notater/docs/visual/tokens/tokens-app.css
+    │   ├── index.css                  ← KOPI av xxnamae/nordover-ui/docs/visual/tokens/tokens-app.css
     │   └── README.md
     │
     ├── ui-web/                        ← felles React-komponenter for nettsider (vokser organisk)
@@ -200,35 +200,35 @@ Inter Fallback med `size-adjust` ligger allerede i `@nordover/tokens-web/index.c
 
 **Aldri** overstyr `--gray-*` direkte (bryter WCAG-validert kontrast). Endre `--neutral-h` (hue) for tone-shift.
 
-## 5. Sync fra notater til monorepoet
+## 5. Sync fra nordover-ui til monorepoet
 
-Når tokens endres i `xxnamae/notater/docs/visual/tokens/*.css`:
+Når tokens endres i `xxnamae/nordover-ui/docs/visual/tokens/*.css`:
 
 1. **Diff først** mot forrige sync:
    ```sh
-   git -C path/til/notater log --oneline docs/visual/tokens/tokens-web.css
+   git -C path/til/nordover-ui log --oneline docs/visual/tokens/tokens-web.css
    ```
 
 2. **Les decision-filer** datert nyere enn forrige sync for å forstå hva som endret seg.
 
 3. **Kopier CSS**:
    ```sh
-   cp path/til/notater/docs/visual/tokens/tokens-web.css packages/tokens-web/index.css
-   cp path/til/notater/docs/visual/tokens/tokens-app.css packages/tokens-app/index.css
+   cp path/til/nordover-ui/docs/visual/tokens/tokens-web.css packages/tokens-web/index.css
+   cp path/til/nordover-ui/docs/visual/tokens/tokens-app.css packages/tokens-app/index.css
    ```
 
-4. **Header-kommentar i index.css** oppdateres med notater-commit-hash:
+4. **Header-kommentar i index.css** oppdateres med nordover-ui-commit-hash:
    ```css
    /*
-    * @nordover/tokens-web — synced fra xxnamae/notater
-    * Notater commit: <hash>
+    * @nordover/tokens-web — synced fra xxnamae/nordover-ui
+    * Nordover-ui commit: <hash>
     * Sync-dato: YYYY-MM-DD
     */
    ```
 
 5. **Commit i monorepoet**:
    ```
-   chore(tokens-web): sync fra notater <hash>
+   chore(tokens-web): sync fra nordover-ui <hash>
    ```
 
 6. **Test alle apps visuelt** — særlig dark mode, focus-rings, knapper.
@@ -246,14 +246,14 @@ Det nye monorepoet bør ha sin egen `CLAUDE.md` med regler. Inkluder minimum:
 Next.js 15 (App Router) + Payload CMS 3 + Supabase. pnpm + Turborepo. TypeScript strict.
 
 ## Rammeverk
-UI-fundament: Nordover (`@nordover/tokens-{web,app}`). Spec lever i xxnamae/notater.
-Les xxnamae/notater/docs/handoff/README.md før du rører UI. Les
-xxnamae/notater/docs/handoff/monorepo-bootstrap.md for denne monorepo-strukturen.
+UI-fundament: Nordover (`@nordover/tokens-{web,app}`). Spec lever i xxnamae/nordover-ui.
+Les xxnamae/nordover-ui/docs/handoff/README.md før du rører UI. Les
+xxnamae/nordover-ui/docs/handoff/monorepo-bootstrap.md for denne monorepo-strukturen.
 
 ## Regler
 - Aldri overstyr tokens på komponent-nivå. Brand-overstyringer kun i apps/<app>/styles/brand.css.
-- Ikke patch tokens-pakkene lokalt — endringer går i notater, så syncs.
-- Hvis pattern mangler eller token er feil: åpne issue i xxnamae/notater, ikke fix her.
+- Ikke patch tokens-pakkene lokalt — endringer går i nordover-ui, så syncs.
+- Hvis pattern mangler eller token er feil: åpne issue i xxnamae/nordover-ui, ikke fix her.
 - Per skjerm / per feature = egen commit. Norsk bokmål.
 - Test både light og dark mode + a11y (tab, reduced-motion) før PR-ferdig.
 
@@ -263,7 +263,7 @@ xxnamae/notater/docs/handoff/monorepo-bootstrap.md for denne monorepo-strukturen
 
 ## 7. Payload Blocks som matcher Nordover-section-patterns
 
-Når dere bygger Payload-blocks for kundesider, map dem direkte til Nordover-section-patterns (fra `docs/wiki/topics/nordover-section-patterns.md` og `nordover-patterns-utvidelser-2.md` i notater):
+Når dere bygger Payload-blocks for kundesider, map dem direkte til Nordover-section-patterns (fra `docs/wiki/topics/nordover-section-patterns.md` og `nordover-patterns-utvidelser-2.md` i nordover-ui):
 
 ```ts
 // packages/payload-blocks/src/HeroCenteredBlock.ts
@@ -321,7 +321,7 @@ For å unngå over-engineering ved oppstart:
 ## 10. Hvis du sitter fast
 
 - Generisk framework-spørsmål → [`docs/handoff/README.md`](README.md)
-- Spec-detalj på en pattern → `xxnamae/notater/docs/wiki/topics/nordover-*.md`
-- Token-detalj → `xxnamae/notater/docs/wiki/topics/nordover-arkitektur.md`
-- Hvorfor noe er som det er → `xxnamae/notater/docs/wiki/decisions/`
+- Spec-detalj på en pattern → `xxnamae/nordover-ui/docs/wiki/topics/nordover-*.md`
+- Token-detalj → `xxnamae/nordover-ui/docs/wiki/topics/nordover-arkitektur.md`
+- Hvorfor noe er som det er → `xxnamae/nordover-ui/docs/wiki/decisions/`
 - Strategi-spørsmål for monorepoet (stack-valg, arkitektur, content-model) → spør Eirik
