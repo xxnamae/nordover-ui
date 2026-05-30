@@ -140,6 +140,49 @@
   .form-checkbox:checked { background: var(--color-accent); border-color: var(--color-accent); }
   .form-radio:checked { border-color: var(--color-accent); }
   .form-checkbox:checked::before, .form-radio:checked::before { transform: scale(1); }
+  .form-checkbox:focus-visible, .form-radio:focus-visible { outline: var(--bw-medium) solid var(--color-focus); outline-offset: 2px; }
+  .form-checkbox:disabled, .form-radio:disabled { opacity: 0.5; cursor: not-allowed; }
+  .checkbox-group, .radio-group { display: flex; flex-direction: column; gap: var(--gap-tight); }
+  .checkbox-item, .radio-item { display: flex; align-items: center; gap: var(--space-2); }
+
+  /* Textarea */
+  .form-textarea { width: 100%; font-size: var(--text-base); color: var(--color-fg); background: var(--color-surface); border: var(--border-card); border-radius: var(--input-radius); padding: var(--space-2) var(--space-3); font-family: var(--font-sans); line-height: var(--leading-normal); resize: vertical; transition: border-color var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out); }
+  .form-textarea:hover { border-color: var(--color-fg); }
+  .form-textarea:focus-visible { outline: none; border-color: var(--color-focus); box-shadow: 0 0 0 3px color-mix(in oklch, var(--color-focus) 15%, transparent); }
+  .form-textarea[aria-invalid="true"] { border-color: var(--error); }
+  .form-textarea:disabled { background: var(--color-subtle); opacity: 0.6; cursor: not-allowed; }
+
+  /* Select */
+  .form-select { width: 100%; font-size: var(--text-base); color: var(--color-fg); background: var(--color-surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") no-repeat right var(--space-2) center; background-size: 1.25em; padding: var(--space-2) var(--space-10) var(--space-2) var(--space-3); border: var(--border-card); border-radius: var(--input-radius); appearance: none; cursor: pointer; font-family: var(--font-sans); transition: border-color var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out); }
+  .form-select:hover { border-color: var(--color-fg); }
+  .form-select:focus-visible { outline: none; border-color: var(--color-focus); box-shadow: 0 0 0 3px color-mix(in oklch, var(--color-focus) 15%, transparent); }
+  .form-select[aria-invalid="true"] { border-color: var(--error); }
+  .form-select:disabled { background-color: var(--color-subtle); opacity: 0.6; cursor: not-allowed; }
+
+  /* Toggle switch (alias for form-switch) */
+  .form-toggle { appearance: none; width: 2.25em; height: 1.375em; background: var(--color-muted); border-radius: var(--radius-full); cursor: pointer; position: relative; flex-shrink: 0; transition: background var(--duration-fast) var(--ease-out); border: none; }
+  .form-toggle::before { content: ""; position: absolute; top: 2px; left: 2px; width: calc(1.375em - 4px); height: calc(1.375em - 4px); background: var(--color-bg); border-radius: var(--radius-full); transition: transform var(--duration-base) var(--ease-spring); }
+  .form-toggle:checked { background: var(--color-accent); }
+  .form-toggle:checked::before { transform: translateX(0.875em); }
+  .form-toggle:focus-visible { outline: var(--bw-medium) solid var(--color-focus); outline-offset: 2px; }
+  .form-toggle:disabled { opacity: 0.5; cursor: not-allowed; }
+  .toggle-item { display: flex; align-items: center; gap: var(--space-3); }
+  .toggle-item .form-toggle { margin-top: 2px; }
+
+  /* Range slider */
+  .form-range { width: 100%; height: 0.375em; accent-color: var(--color-accent); border-radius: var(--radius-full); background: var(--color-border); cursor: pointer; -webkit-appearance: none; appearance: none; }
+  .form-range::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 1rem; height: 1rem; background: var(--color-accent); border: var(--bw-thin) solid var(--color-accent); border-radius: 50%; cursor: pointer; transition: box-shadow var(--duration-fast) var(--ease-out); }
+  .form-range::-moz-range-thumb { width: 1rem; height: 1rem; background: var(--color-accent); border: var(--bw-thin) solid var(--color-accent); border-radius: 50%; cursor: pointer; transition: box-shadow var(--duration-fast) var(--ease-out); }
+  .form-range:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 3px color-mix(in oklch, var(--color-focus) 15%, transparent); outline: var(--bw-medium) solid var(--color-focus); }
+  .form-range:focus-visible::-moz-range-thumb { box-shadow: 0 0 0 3px color-mix(in oklch, var(--color-focus) 15%, transparent); outline: var(--bw-medium) solid var(--color-focus); }
+  .form-range:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  /* Fieldset + Legend */
+  .form-fieldset { border: var(--border-card); border-radius: var(--radius-md); padding: var(--space-3); margin: var(--space-3) 0; }
+  .form-fieldset:disabled { opacity: 0.6; }
+  .form-legend { font-weight: var(--fw-medium); font-size: var(--text-sm); color: var(--color-fg); margin-bottom: var(--space-2); padding: 0 var(--space-2); }
+
+  /* Form switch (legacy, keep for backwards compat) */
   .form-switch { appearance: none; width: 2.25em; height: 1.375em; background: var(--color-muted); border-radius: var(--radius-full); cursor: pointer; position: relative; flex-shrink: 0; transition: background var(--duration-fast) var(--ease-out); }
   .form-switch::before { content: ""; position: absolute; top: 2px; left: 2px; width: calc(1.375em - 4px); height: calc(1.375em - 4px); background: #fff; border-radius: var(--radius-full); transition: transform var(--duration-base) var(--ease-spring); }
   .form-switch:checked { background: var(--color-accent); }
