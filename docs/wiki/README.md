@@ -12,9 +12,9 @@ Welcome to the Nordover design system documentation. This wiki contains comprehe
 ### 🎨 Component Specifications
 - **[Buttons](topics/nordover-buttons.md)** - Button variants, sizes, states, accessibility
 - **[Forms](topics/nordover-forms.md)** - Inputs, validation, accessibility, layouts
-- **[Data Display](#)** (Coming soon) - Tables, pagination, lists
-- **[Patterns](#)** (Coming soon) - Section patterns, layouts
-- **[Icons & Motion](#)** (Coming soon) - Icon system, animations
+- **[Data Display](topics/nordover-data-display.md)** - Tables, pagination, badges, alerts, modals
+- **[Icons](topics/nordover-icon-system.md)** - Icon sizing, color variants, animations
+- **[Motion](topics/nordover-motion.md)** - Animation keyframes, transitions, entrance/exit effects
 
 ### 🏗️ Architecture & Decisions
 - **[Component Library ADR](decisions/2026-05-30-comprehensive-component-library.md)** - Architecture of canonical CSS components
@@ -24,10 +24,10 @@ Welcome to the Nordover design system documentation. This wiki contains comprehe
 
 ### 🔍 Reference
 - **[Glossary](glossary.md)** - Terminology and concepts
-- **[Color System](#)** (Coming soon) - OKLCH palette, contrast ratios
-- **[Typography System](#)** (Coming soon) - Font scales, weights, line heights
-- **[Spacing System](#)** (Coming soon) - Spacing scale and utilities
-- **[Motion System](#)** (Coming soon) - Animation tokens and utilities
+- **[Color System](topics/nordover-colors.md)** - OKLCH palette, semantic colors, dark mode, brand override
+- **[Typography System](topics/nordover-typography.md)** - Font scales, weights, line heights, fluid sizing
+- **[Spacing System](topics/nordover-spacing.md)** - Spacing scale, responsive gaps, touch targets
+- **[Motion System](topics/nordover-motion.md)** - Animation tokens, transitions, entrance effects
 
 ### 🧪 Quality & Testing
 - **[Testing Strategy](decisions/2026-05-30-testing-strategy.md)** - Accessibility, visual regression, performance
@@ -83,8 +83,8 @@ Welcome to the Nordover design system documentation. This wiki contains comprehe
 **Fase 4: Component Specifications**
 - ✅ Button specifications (variants, sizes, states, accessibility)
 - ✅ Form specifications (inputs, validation, accessibility)
-- ⬜ Data display specifications (TBD)
-- ⬜ Pattern specifications (TBD)
+- ✅ Data display specifications (tables, pagination, badges, alerts, modals)
+- ✅ Icon & Motion specifications (sizing, colors, animations, accessibility)
 
 **Fase 2: Variant System**
 - ✅ Documented three-tier variant system
@@ -113,28 +113,37 @@ Welcome to the Nordover design system documentation. This wiki contains comprehe
 
 ### 🔲 Pending Phases
 
-**Fase 2: Variant System Implementation**
-- Loading/loading variants
-- Emphasis variants (outline, block)
-- Color variants
-- Responsive variants
+**Fase 3: Documentation Completion (IN PROGRESS)**
+- ✅ Data display specifications (tables, pagination, badges, alerts, modals)
+- ✅ Icon system documentation (sizing, colors, animations)
+- ✅ Color system guide (OKLCH, semantic colors, dark mode, brand override)
+- ✅ Typography system guide (scales, weights, fluidity)
+- ✅ Spacing system guide (scales, responsive gaps, touch targets)
+- ✅ Motion system guide (animations, transitions, accessibility)
+- ⬜ Pattern specifications (section patterns, layouts, navigation)
+- ⬜ Accessibility deep-dive (keyboard navigation, ARIA patterns, testing)
+- ⬜ Advanced patterns guide (composite components, variants combinations)
 
-**Data Display Specifications**
-- Table patterns and best practices
-- Pagination strategies
-- List item patterns
-- Grid layouts
+**Fase 4: Real-World Integration (NEXT)**
+- [ ] Validate in Next.js project
+- [ ] Validate in Vue 3 project
+- [ ] Validate in React project
+- [ ] Validate in Svelte project
+- [ ] Validate in plain HTML project
+- [ ] Performance profiling (CSS coverage, paint times)
+- [ ] Browser compatibility testing (Chrome, Firefox, Safari, Edge)
+- [ ] Screen reader testing (NVDA, VoiceOver)
+- [ ] Interactive component testing (date picker, file upload, stepper)
 
-**Pattern Specifications**
-- Section patterns (hero, feature, CTA, pricing)
-- Layout patterns (sidebar, main, footer)
-- Navigation patterns
-
-**Icon & Color Systems**
-- Icon library definition
-- Icon naming conventions
-- Color palette documentation
-- Contrast ratio verification
+**Fase 5: Release Preparation (THEN)**
+- [ ] Version numbering (v1.0.0)
+- [ ] CHANGELOG.md
+- [ ] Release notes
+- [ ] Contributing guidelines (CONTRIBUTING.md)
+- [ ] Code review checklist
+- [ ] Issue templates (bug, feature request, documentation)
+- [ ] npm package publishing
+- [ ] CDN hosting
 
 ## Component Implementation Status
 
