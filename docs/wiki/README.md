@@ -15,6 +15,7 @@ Welcome to the Nordover design system documentation. This wiki contains comprehe
 - **[Data Display](topics/nordover-data-display.md)** - Tables, pagination, badges, alerts, modals
 - **[Icons](topics/nordover-icon-system.md)** - Icon sizing, color variants, animations
 - **[Motion](topics/nordover-motion.md)** - Animation keyframes, transitions, entrance/exit effects
+- **[Patterns](topics/nordover-patterns.md)** - Section patterns (hero, features, pricing, CTA), layout patterns
 
 ### 🏗️ Architecture & Decisions
 - **[Component Library ADR](decisions/2026-05-30-comprehensive-component-library.md)** - Architecture of canonical CSS components
@@ -28,10 +29,11 @@ Welcome to the Nordover design system documentation. This wiki contains comprehe
 - **[Typography System](topics/nordover-typography.md)** - Font scales, weights, line heights, fluid sizing
 - **[Spacing System](topics/nordover-spacing.md)** - Spacing scale, responsive gaps, touch targets
 - **[Motion System](topics/nordover-motion.md)** - Animation tokens, transitions, entrance effects
+- **[Accessibility](topics/nordover-accessibility.md)** - WCAG AA compliance, keyboard navigation, screen reader testing
 
 ### 🧪 Quality & Testing
 - **[Testing Strategy](decisions/2026-05-30-testing-strategy.md)** - Accessibility, visual regression, performance
-- **[Accessibility Guidelines](#)** (Coming soon) - WCAG compliance, best practices
+- **[Accessibility Guidelines](topics/nordover-accessibility.md)** - WCAG AA compliance, keyboard navigation, best practices
 - **[Performance Budgets](#)** (Coming soon) - CSS file sizes, metrics
 
 ## Framework Status
@@ -113,16 +115,15 @@ Welcome to the Nordover design system documentation. This wiki contains comprehe
 
 ### 🔲 Pending Phases
 
-**Fase 3: Documentation Completion (IN PROGRESS)**
+**Fase 3: Documentation Completion (COMPLETE)**
 - ✅ Data display specifications (tables, pagination, badges, alerts, modals)
 - ✅ Icon system documentation (sizing, colors, animations)
 - ✅ Color system guide (OKLCH, semantic colors, dark mode, brand override)
 - ✅ Typography system guide (scales, weights, fluidity)
 - ✅ Spacing system guide (scales, responsive gaps, touch targets)
 - ✅ Motion system guide (animations, transitions, accessibility)
-- ⬜ Pattern specifications (section patterns, layouts, navigation)
-- ⬜ Accessibility deep-dive (keyboard navigation, ARIA patterns, testing)
-- ⬜ Advanced patterns guide (composite components, variants combinations)
+- ✅ Pattern specifications (section patterns, layouts, footer)
+- ✅ Accessibility deep-dive (keyboard navigation, ARIA patterns, WCAG AA testing)
 
 **Fase 4: Real-World Integration (NEXT)**
 - [ ] Validate in Next.js project
