@@ -46,9 +46,14 @@
     <div class="app-sidebar-section">Komponenter</div>
     <a class="app-nav-item" href="#buttons"><svg class="icon"><use href="#i-check"/></svg> Buttons</a>
     <a class="app-nav-item" href="#forms"><svg class="icon"><use href="#i-edit"/></svg> Forms</a>
-    <div class="app-sidebar-section">App-mønstre</div>
+    <a class="app-nav-item" href="#icons"><svg class="icon"><use href="#i-sparkles"/></svg> Icons</a>
+    <div class="app-sidebar-section">Data & Feedback</div>
+    <a class="app-nav-item" href="#badges"><svg class="icon"><use href="#i-check"/></svg> Badges & Status</a>
+    <a class="app-nav-item" href="#alerts"><svg class="icon"><use href="#i-info"/></svg> Alerts</a>
     <a class="app-nav-item" href="#table"><svg class="icon"><use href="#i-inbox"/></svg> Data Table</a>
+    <a class="app-nav-item" href="#pagination"><svg class="icon"><use href="#i-chart"/></svg> Pagination</a>
     <a class="app-nav-item" href="#overlays"><svg class="icon"><use href="#i-info"/></svg> Modal & Toast</a>
+    <a class="app-nav-item" href="#utilities"><svg class="icon"><use href="#i-sparkles"/></svg> Utilities</a>
   </aside>
 
   <div class="app-main">
@@ -165,6 +170,95 @@
                 <tr><td>SAK-140</td><td>Bytte lyspære</td><td>Done</td><td>Per</td></tr>
               </tbody>
             </table>
+          </div>
+        </section>
+
+        <!-- ICONS -->
+        <section class="doc-section" id="icons">
+          <h2 class="doc-section-title">Icons</h2>
+          <p class="doc-section-desc">SVG icons with semantic sizing and colors. Inherit color via currentColor. Supports spin/pulse animations.</p>
+          <p class="doc-sub">Sizing</p>
+          <div class="cluster cluster-tight" style="gap:var(--space-4)">
+            <div style="text-align:center"><svg style="width:var(--size-icon-sm);height:var(--size-icon-sm);stroke:currentColor;stroke-width:1.5;fill:none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg><p class="t-caption">sm</p></div>
+            <div style="text-align:center"><svg style="width:var(--size-icon);height:var(--size-icon);stroke:currentColor;stroke-width:1.5;fill:none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg><p class="t-caption">default</p></div>
+            <div style="text-align:center"><svg style="width:var(--size-icon-lg);height:var(--size-icon-lg);stroke:currentColor;stroke-width:1.5;fill:none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg><p class="t-caption">lg</p></div>
+          </div>
+          <p class="doc-sub">Colors</p>
+          <div class="cluster cluster-tight" style="gap:var(--space-4)">
+            <div style="text-align:center;color:var(--color-accent)"><svg style="width:var(--size-icon);height:var(--size-icon);stroke:currentColor;stroke-width:1.5;fill:none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg><p class="t-caption">primary</p></div>
+            <div style="text-align:center;color:var(--color-success)"><svg style="width:var(--size-icon);height:var(--size-icon);stroke:currentColor;stroke-width:1.5;fill:none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg><p class="t-caption">success</p></div>
+            <div style="text-align:center;color:var(--color-error)"><svg style="width:var(--size-icon);height:var(--size-icon);stroke:currentColor;stroke-width:1.5;fill:none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg><p class="t-caption">error</p></div>
+            <div style="text-align:center;color:var(--color-warning)"><svg style="width:var(--size-icon);height:var(--size-icon);stroke:currentColor;stroke-width:1.5;fill:none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg><p class="t-caption">warning</p></div>
+          </div>
+        </section>
+
+        <!-- BADGES -->
+        <section class="doc-section" id="badges">
+          <h2 class="doc-section-title">Badges & Status</h2>
+          <p class="doc-section-desc">Inline status indicators. Color variants: neutral, success, error, warning, info.</p>
+          <div class="cluster cluster-tight">
+            <span class="badge badge-neutral">Neutral</span>
+            <span class="badge badge-success">Success</span>
+            <span class="badge badge-error">Error</span>
+            <span class="badge badge-warning">Warning</span>
+            <span class="badge badge-info">Info</span>
+          </div>
+        </section>
+
+        <!-- ALERTS -->
+        <section class="doc-section" id="alerts">
+          <h2 class="doc-section-title">Alerts</h2>
+          <p class="doc-section-desc">Feedback messages. Variants: success, error, warning, info. Use role="alert" for screen readers.</p>
+          <div class="stack-tight">
+            <div class="alert alert-success" role="alert">Success! Your changes have been saved.</div>
+            <div class="alert alert-error" role="alert">Error! Something went wrong. Please try again.</div>
+            <div class="alert alert-warning" role="alert">Warning: This action cannot be undone.</div>
+            <div class="alert alert-info" role="alert">Info: New features are now available.</div>
+          </div>
+        </section>
+
+        <!-- PAGINATION -->
+        <section class="doc-section" id="pagination">
+          <h2 class="doc-section-title">Pagination</h2>
+          <p class="doc-section-desc">Navigate between data pages. Use aria-current="page" for current page.</p>
+          <nav class="pagination" aria-label="Pagination">
+            <a href="#" class="pagination-item">←</a>
+            <a href="#" class="pagination-item">1</a>
+            <a href="#" class="pagination-item" aria-current="page">2</a>
+            <a href="#" class="pagination-item">3</a>
+            <a href="#" class="pagination-item">→</a>
+          </nav>
+        </section>
+
+        <!-- UTILITIES -->
+        <section class="doc-section" id="utilities">
+          <h2 class="doc-section-title">Utilities</h2>
+          <p class="doc-section-desc">Low-level composition utilities for layout, spacing, typography, and effects. See web styleguide for complete utilities reference.</p>
+          <p class="doc-sub">Display & Layout</p>
+          <div class="cluster cluster-tight" style="gap:var(--space-4)">
+            <button class="flex gap-2 items-center justify-center" style="padding:var(--space-3);border:var(--border-card);border-radius:var(--radius-md);">.flex</button>
+            <button class="block" style="padding:var(--space-3);border:var(--border-card);border-radius:var(--radius-md);">.block</button>
+            <button style="padding:var(--space-3);border:var(--border-card);border-radius:var(--radius-md);">.hidden</button>
+          </div>
+          <p class="doc-sub">Spacing</p>
+          <div class="cluster cluster-tight">
+            <div class="mx-auto" style="width:6rem;height:2rem;background:var(--color-accent);border-radius:var(--radius-md)"></div>
+          </div>
+          <p class="doc-sub">Typography</p>
+          <div class="flex gap-4">
+            <span class="text-center">text-center</span>
+            <span class="font-bold">font-bold</span>
+            <span class="truncate" style="max-width:12rem">truncate text</span>
+          </div>
+          <p class="doc-sub">Colors</p>
+          <div class="flex gap-2">
+            <span class="text-accent">text-accent</span>
+            <span class="bg-subtle p-2" style="border-radius:var(--radius-md)">bg-subtle</span>
+          </div>
+          <p class="doc-sub">Animations & Transitions</p>
+          <div class="flex gap-2">
+            <div class="fade-in" style="width:3rem;height:3rem;background:var(--color-accent);border-radius:var(--radius-md)"></div>
+            <button class="transition-base" style="padding:var(--space-2) var(--space-4);background:var(--color-accent);color:white;border:none;border-radius:var(--radius-md);cursor:pointer" onmouseover="this.style.background='var(--color-error)'" onmouseout="this.style.background='var(--color-accent)'">Hover</button>
           </div>
         </section>
 

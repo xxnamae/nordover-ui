@@ -35,3 +35,4 @@ Keep in the private `xxnamae/notater` repository:
 - **WCAG compliance required**: Color token changes must maintain WCAG AA contrast standards
 - **Language**: Norwegian Bokmål for wiki/decisions; English for code comments
 - **Mirroring**: Changes to token values must be applied to both `tokens-web.css` and `tokens-app.css` in the same commit
+- **Styleguides are authoritative**: Styleguides must always reflect 100% of components in framework. If a component exists in CSS but not in styleguide, it doesn't exist for users. See `docs/visual/STYLEGUIDE-MAINTENANCE.md`
