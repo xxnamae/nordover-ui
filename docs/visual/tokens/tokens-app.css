@@ -1,0 +1,299 @@
+/* ============================================================
+   @nordover/tokens-app · v3 — kanonisk kildekode
+   ----------------------------------------------------------
+   SaaS-applikasjoner (Omhu, framtidige produkter).
+   Statisk type-skala. Kompakt body (14px). Tactile knapper.
+   Dark default (for SaaS-vibe — light tilgjengelig via toggle).
+
+   Bruksområde: import som basis i @nordover/tokens-app npm-pakke.
+   Konsument: import "@nordover/tokens-app";  // i app entry
+
+   Bygges fra: docs/visual/styleguide-app.html (handoff-source).
+   Sannhetskilde for endringer: oppdater BÅDE styleguide-app.html
+   OG denne fila samtidig. Endringer logges i docs/log.md.
+
+   Mekanisme-krav: samme som tokens-web (se den fila).
+
+   Forskjell vs tokens-web (bevisst):
+   - Type-skala statisk (ikke fluid clamp) — kompakthet > visuell flyt
+   - Body 14px (tokens-web: 16px) — info-tetthet
+   - Tactile knapper default (tokens-web: flate default)
+   - Dark default for SaaS-feel
+   - --gap-component: 1rem (tokens-web: 1.5rem) — tettere UI
+   - Accent: brand-blå (tokens-web: nøytral svart)
+   - Status-farger og priority-farger (workflow-konsepter, ikke relevant for web)
+   ============================================================ */
+
+@layer tokens, reset, primitives, components, utilities, brand;
+
+/* ---------- RESET (font-fallback + reduced-motion + box-sizing) ---------- */
+@layer reset {
+  @font-face {
+    font-family: "Inter Fallback";
+    src: local("Arial");
+    size-adjust: 107%;
+    ascent-override: 90%;
+    descent-override: 22.5%;
+    line-gap-override: 0%;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    color: var(--color-fg);
+    background: var(--color-bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-variant-numeric: lining-nums;
+  }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; font-size: inherit; }
+  img, svg { display: block; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-delay: -1ms !important;
+      animation-duration: 1ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0s !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Universell a11y — alle interaktive elementer arver dette uten ekstra arbeid */
+  :focus-visible {
+    outline: var(--bw-medium, 2px) solid var(--color-focus, currentColor);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm, 4px);
+  }
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+}
+
+/* ---------- TOKENS ---------- */
+@layer tokens {
+  :root {
+    /* === Font-stacks === */
+    --font-sans: "Inter Variable", "Inter Fallback", system-ui, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Menlo", "Cascadia Code", monospace;
+
+    /* === Type-skala — statisk, kompakt, 14px base === */
+    --text-2xs: 0.625rem;   /* 10px */
+    --text-xs:  0.6875rem;  /* 11px */
+    --text-sm:  0.8125rem;  /* 13px */
+    --text-base: 0.875rem;  /* 14px */
+    --text-md:  1rem;       /* 16px — content-view (artikler, lange tekster) */
+    --text-lg:  1.125rem;   /* 18px */
+    --text-xl:  1.25rem;    /* 20px */
+    --text-2xl: 1.5rem;     /* 24px */
+    --text-3xl: 1.875rem;   /* 30px */
+    --text-4xl: 2.25rem;    /* 36px */
+    --text-5xl: 3rem;       /* 48px */
+
+    /* === Vekter === */
+    --fw-normal: 400; --fw-medium: 500; --fw-semibold: 600; --fw-bold: 700;
+
+    /* === Line-height-skala (unitless) === */
+    --leading-none: 1; --leading-tight: 1.2; --leading-snug: 1.35;
+    --leading-normal: 1.5; --leading-relaxed: 1.625; --leading-loose: 1.8;
+
+    /* === Letter-spacing-skala === */
+    --tracking-tighter: -0.04em; --tracking-tight: -0.02em; --tracking-normal: 0;
+    --tracking-wide: 0.01em; --tracking-wider: 0.04em; --tracking-widest: 0.08em;
+
+    /* === Nøytral OKLCH-gråskala === */
+    --neutral-h: 250; --neutral-c: 0.005;
+    --gray-50:  oklch(0.985 var(--neutral-c) var(--neutral-h));
+    --gray-100: oklch(0.96  var(--neutral-c) var(--neutral-h));
+    --gray-200: oklch(0.92  var(--neutral-c) var(--neutral-h));
+    --gray-300: oklch(0.87  var(--neutral-c) var(--neutral-h));
+    --gray-400: oklch(0.72  var(--neutral-c) var(--neutral-h));
+    --gray-500: oklch(0.50  var(--neutral-c) var(--neutral-h));
+    --gray-600: oklch(0.44  var(--neutral-c) var(--neutral-h));
+    --gray-700: oklch(0.31  var(--neutral-c) var(--neutral-h));
+    --gray-800: oklch(0.19  var(--neutral-c) var(--neutral-h));
+    --gray-900: oklch(0.13  var(--neutral-c) var(--neutral-h));
+    --gray-950: oklch(0.09  var(--neutral-c) var(--neutral-h));
+
+    /* === Semantiske farger (LIGHT default — brand-blå accent) === */
+    --color-bg: var(--gray-50);
+    --color-surface: #FFFFFF;
+    --color-fg: var(--gray-900);
+    --color-muted: var(--gray-500);
+    --color-subtle: var(--gray-100);
+    --color-border: var(--gray-200);
+    --color-accent: #2563EB;          /* Tailwind blue-600 — WCAG AA på lys bg (4.95) og med hvit tekst (5.17) */
+    --color-accent-fg: #FFFFFF;
+    --color-accent-hover: color-mix(in oklch, var(--color-accent) 88%, black);
+    --color-accent-active: color-mix(in oklch, var(--color-accent) 76%, black);
+    --color-focus: var(--color-accent);
+
+    /* === Semantiske tripletter (subtle / base / strong) === */
+    --error: oklch(0.62 0.23 25);
+    --error-subtle: color-mix(in oklch, var(--error) 12%, var(--color-bg));
+    --error-strong: color-mix(in oklch, var(--error) 70%, black);
+    --success: oklch(0.66 0.18 155);
+    --success-subtle: color-mix(in oklch, var(--success) 12%, var(--color-bg));
+    --success-strong: color-mix(in oklch, var(--success) 62%, black);
+    --warning: oklch(0.74 0.18 65);
+    --warning-subtle: color-mix(in oklch, var(--warning) 16%, var(--color-bg));
+    --warning-strong: color-mix(in oklch, var(--warning) 68%, black);
+    --info: oklch(0.62 0.18 245);
+    --info-subtle: color-mix(in oklch, var(--info) 12%, var(--color-bg));
+    --info-strong: color-mix(in oklch, var(--info) 65%, black);
+    --color-error: var(--error);
+    --color-success: var(--success);
+    --color-warning: var(--warning);
+    --color-info: var(--info);
+
+    /* === Status (workflow — Linear-stil) === */
+    --status-backlog: var(--gray-500);
+    --status-todo: #94A3B8;
+    --status-in-progress: #F59E0B;
+    --status-in-review: #6366F1;
+    --status-done: #22C55E;
+    --status-canceled: var(--gray-600);
+    --status-blocked: #EF4444;
+
+    /* === Priority === */
+    --priority-urgent: #DC2626;
+    --priority-high: #F59E0B;
+    --priority-medium: #94A3B8;
+    --priority-low: var(--gray-600);
+    --priority-none: var(--gray-300);
+
+    /* === Chart-palett (app — lysere for SaaS-visibility) === */
+    --chart-1: oklch(0.62 0.20 145);
+    --chart-2: oklch(0.70 0.16 70);
+    --chart-3: oklch(0.58 0.20 245);
+    --chart-4: oklch(0.58 0.22 295);
+    --chart-5: oklch(0.66 0.13 195);
+    --chart-6: oklch(0.62 0.22 350);
+    --chart-7: oklch(0.70 0.13 220);
+    --chart-8: oklch(0.60 0.18 30);
+
+    /* === Spacing-skala === */
+    --space-0: 0; --space-px: 1px;
+    --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem;
+    --space-5: 1.5rem; --space-6: 2rem; --space-7: 2.5rem; --space-8: 3rem;
+    --space-10: 4rem; --space-12: 6rem; --space-16: 8rem; --space-20: 10rem;
+    --space-24: 12rem; --space-32: 16rem; --space-40: 20rem; --space-48: 24rem;
+
+    /* === Semantiske gaps (app er tett — gap-component 1rem) === */
+    --gap-tight: var(--space-1);          /* 4px */
+    --gap-component: var(--space-4);      /* 16px (web: 1.5rem) */
+    --gap-section: var(--space-8);        /* 48px */
+    --spacing-section: var(--space-8);    /* statisk, ikke fluid */
+    --page-padding: var(--space-5);       /* statisk */
+
+    /* === Radius === */
+    --radius-xs: 2px; --radius-sm: 3px; --radius-md: 6px; --radius-lg: 8px;
+    --radius-xl: 12px; --radius-2xl: 16px; --radius-full: 9999px;
+
+    /* === Border-width === */
+    --bw-hairline: 0.5px; --bw-thin: 1px; --bw-medium: 2px;
+    --border-card: var(--bw-thin) solid var(--color-border);
+    --border-divider: var(--bw-thin) solid var(--color-border);
+
+    /* === Shadows (tettere for SaaS) === */
+    --shadow-xs: 0 1px 1px 0 rgb(0 0 0 / 0.03);
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.04), 0 1px 1px -1px rgb(0 0 0 / 0.03);
+    --shadow-md: 0 2px 4px -1px rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.04);
+    --shadow-lg: 0 8px 12px -3px rgb(0 0 0 / 0.08), 0 3px 5px -3px rgb(0 0 0 / 0.06);
+    --shadow-xl: 0 16px 24px -6px rgb(0 0 0 / 0.1), 0 6px 10px -6px rgb(0 0 0 / 0.07);
+
+    /* === Icon-size === */
+    --size-icon-sm: 0.875rem; --size-icon: 1rem;
+    --size-icon-lg: 1.25rem; --size-icon-xl: 1.5rem;
+
+    /* === Z-index === */
+    --z-base: 0; --z-dropdown: 10; --z-sticky: 20; --z-drawer: 25;
+    --z-modal: 30; --z-toast: 40; --z-tooltip: 50;
+
+    /* === Motion (app raskere — SaaS-tempo) === */
+    --duration-instant: 50ms; --duration-fast: 100ms;
+    --duration-base: 150ms; --duration-slow: 250ms; --duration-slower: 400ms;
+    --ease-out: cubic-bezier(0.2, 0, 0, 1);
+    --ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-spring: cubic-bezier(0.2, 0.8, 0.2, 1);
+    --ease-emphasized: cubic-bezier(0.3, 0, 0, 1);
+
+    /* === Button (tactile default — gradient + inset highlight + bottom edge) === */
+    --button-radius: var(--radius-md);
+    --button-fw: 500;
+    --button-surface-bg-rest: linear-gradient(
+      to bottom,
+      color-mix(in oklch, var(--color-accent) 92%, white),
+      var(--color-accent)
+    );
+    --button-surface-bg-hover: linear-gradient(
+      to bottom,
+      color-mix(in oklch, var(--color-accent-hover) 92%, white),
+      var(--color-accent-hover)
+    );
+    --button-surface-bg-active: var(--color-accent-active);
+    --button-surface-shadow-rest:
+      inset 0 0.5px 0 0 rgb(255 255 255 / 0.22),
+      inset 0 -1px 0 0 color-mix(in oklch, var(--color-accent) 75%, black 25%),
+      var(--shadow-sm);
+    --button-surface-shadow-active:
+      inset 0 1px 2px 0 rgb(0 0 0 / 0.2),
+      var(--shadow-xs);
+
+    /* === Input === */
+    --input-radius: var(--radius-md);
+
+    /* === Nav + Glass === */
+    --nav-item-bg-hover: color-mix(in oklch, var(--color-fg) 6%, transparent);
+    --nav-item-bg-active: color-mix(in oklch, var(--color-fg) 10%, transparent);
+    --glass-bg: color-mix(in oklch, var(--color-bg) 75%, transparent);
+    --glass-bg-strong: color-mix(in oklch, var(--color-bg) 90%, transparent);
+    --glass-blur: blur(10px) saturate(180%);
+    --glass-blur-strong: blur(18px) saturate(180%);
+    --glass-border: var(--bw-thin) solid color-mix(in oklch, var(--color-border) 50%, transparent);
+
+    /* === Container (smalere for SaaS) === */
+    --container-narrow: 40rem;
+    --container-default: 80rem;
+    --container-wide: 100%;
+    --container-prose: 65ch;
+
+    /* === Hover-lift (mindre dramatisk for SaaS) === */
+    --lift-distance: -1px;
+    --lift-shadow-from: var(--shadow-xs);
+    --lift-shadow-to: var(--shadow-sm);
+  }
+
+  /* === DARK MODE (app default — anbefalt å sette checkbox.checked i markup) === */
+  :root:has(#dark:checked) {
+    --color-bg: var(--gray-950);
+    --color-surface: var(--gray-900);
+    --color-fg: var(--gray-50);
+    --color-muted: var(--gray-400);
+    --color-subtle: var(--gray-800);
+    --color-border: var(--gray-700);
+    --color-accent: #3B82F6;          /* Tailwind blue-500 — WCAG AA på mørk bg (5.63), lysere enn light-mode accent for synlighet */
+    --color-accent-hover: color-mix(in oklch, var(--color-accent) 88%, white);
+    --color-accent-active: color-mix(in oklch, var(--color-accent) 76%, white);
+
+    --error: oklch(0.68 0.22 25);
+    --success: oklch(0.72 0.18 155);
+    --warning: oklch(0.78 0.18 65);
+    --info: oklch(0.68 0.18 245);
+
+    --chart-1: oklch(0.72 0.18 145); --chart-2: oklch(0.78 0.16 70);
+    --chart-3: oklch(0.70 0.20 245); --chart-4: oklch(0.70 0.22 295);
+    --chart-5: oklch(0.75 0.15 195); --chart-6: oklch(0.72 0.22 350);
+    --chart-7: oklch(0.80 0.14 220); --chart-8: oklch(0.72 0.18 30);
+
+    --shadow-xs: 0 1px 1px 0 rgb(0 0 0 / 0.25);
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3), 0 1px 1px -1px rgb(0 0 0 / 0.25);
+    --shadow-md: 0 2px 4px -1px rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.3);
+    --shadow-lg: 0 8px 12px -3px rgb(0 0 0 / 0.5), 0 3px 5px -3px rgb(0 0 0 / 0.4);
+    --shadow-xl: 0 16px 24px -6px rgb(0 0 0 / 0.6), 0 6px 10px -6px rgb(0 0 0 / 0.45);
+  }
+}
