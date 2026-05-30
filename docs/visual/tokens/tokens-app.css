@@ -186,8 +186,8 @@
     --gap-tight: var(--space-1);          /* 4px */
     --gap-component: var(--space-4);      /* 16px (web: 1.5rem) */
     --gap-section: var(--space-8);        /* 48px */
-    --spacing-section: var(--space-8);    /* statisk, ikke fluid */
-    --page-padding: var(--space-6);       /* statisk — økt til 32px for bedre mobil-luft */
+    --spacing-section: clamp(var(--space-8), 8vw, var(--space-12));   /* 48 → 96px fluid, app-kompakt */
+    --page-padding: clamp(var(--space-5), 3vw, var(--space-6));       /* 24 → 32px fluid, app-tett */
 
     /* === Radius === */
     --radius-xs: 2px; --radius-sm: 3px; --radius-md: 6px; --radius-lg: 8px;
