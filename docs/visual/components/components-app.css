@@ -1,5 +1,5 @@
 /* ============================================================
-   NORDOVER APP COMPONENTS · Fase 1A-1D + 1J + 1L
+   NORDOVER APP COMPONENTS · Fase 1A-1D + 1J + 1L + 1M
    SaaS/dashboard interface, tactile buttons, compact spacing
    @layer architecture: primitives, components, utilities
    ============================================================ */
@@ -369,6 +369,64 @@
   .data-table-inline-edit input { border: var(--border-card); border-radius: var(--radius-sm); padding: var(--space-1) var(--space-2); font-size: 0.8125rem; }
   .data-table-filter { display: flex; gap: var(--space-2); margin-bottom: var(--space-3); }
   .data-table-filter input { flex: 1; font-size: 0.8125rem; }
+
+  /* ============================================================
+     PHASE 1M: ICON & MOTION SYSTEM
+     ============================================================ */
+
+  /* Icon variants */
+  .icon-primary { color: var(--color-accent); }
+  .icon-success { color: var(--color-success); }
+  .icon-error { color: var(--color-error); }
+  .icon-warning { color: var(--color-warning); }
+  .icon-info { color: var(--color-info); }
+  .icon-muted { color: var(--color-muted); }
+  .icon-subtle { opacity: 0.5; }
+  .icon-spin { animation: spin var(--duration-base) linear infinite; }
+  .icon-pulse { animation: pulse var(--duration-base) ease-in-out infinite; }
+  .icon-bounce { animation: bounce var(--duration-base) ease-in-out infinite; }
+
+  /* Motion utilities */
+  .fade-in { animation: fadeIn var(--duration-base) var(--ease-out); }
+  .fade-out { animation: fadeOut var(--duration-fast) var(--ease-out); }
+  .slide-in-up { animation: slideInUp var(--duration-base) var(--ease-out); }
+  .slide-in-down { animation: slideInDown var(--duration-base) var(--ease-out); }
+  .slide-in-left { animation: slideInLeft var(--duration-base) var(--ease-out); }
+  .slide-in-right { animation: slideInRight var(--duration-base) var(--ease-out); }
+  .scale-in { animation: scaleIn var(--duration-base) var(--ease-spring); }
+  .scale-out { animation: scaleOut var(--duration-fast) var(--ease-out); }
+  .bounce-in { animation: bounceIn var(--duration-base) var(--ease-spring); }
+
+  /* Transition utilities */
+  .transition-fast { transition: all var(--duration-fast) var(--ease-out); }
+  .transition-base { transition: all var(--duration-base) var(--ease-out); }
+  .transition-slow { transition: all var(--duration-slow) var(--ease-out); }
+
+  /* Animations keyframes */
+  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+  @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+  @keyframes slideInUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  @keyframes slideInDown { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  @keyframes slideInLeft { from { transform: translateX(-20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+  @keyframes slideInRight { from { transform: translateX(20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+  @keyframes scaleIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  @keyframes scaleOut { from { transform: scale(1); opacity: 1; } to { transform: scale(0.95); opacity: 0; } }
+  @keyframes bounceIn { 0% { opacity: 0; transform: scale(0.3); } 50% { opacity: 1; transform: scale(1.05); } 70% { transform: scale(0.9); } 100% { transform: scale(1); } }
+
+  /* Reduce motion respect */
+  @media (prefers-reduced-motion: reduce) {
+    .icon-spin, .icon-pulse, .icon-bounce,
+    .fade-in, .fade-out, .slide-in-up, .slide-in-down, .slide-in-left, .slide-in-right,
+    .scale-in, .scale-out, .bounce-in {
+      animation: none !important;
+    }
+    .transition-fast, .transition-base, .transition-slow {
+      transition: none !important;
+    }
+  }
 
   /* ============================================================
      PHASE 1L: MOBILE & RESPONSIVE PATTERNS
