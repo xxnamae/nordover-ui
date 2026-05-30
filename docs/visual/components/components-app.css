@@ -115,7 +115,7 @@
     content: ""; width: 0.5em; height: 0.5em;
     background: var(--color-accent-fg);
     clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-    transform: scale(0); transition: transform var(--duration-fast) var(--ease-spring));
+    transform: scale(0); transition: transform var(--duration-fast) var(--ease-spring);
   }
   .form-checkbox:checked { background: var(--color-accent); border-color: var(--color-accent); }
   .form-checkbox:checked::before { transform: scale(1); }
@@ -131,7 +131,7 @@
   .form-radio::before {
     content: ""; width: 0.375em; height: 0.375em;
     background: var(--color-accent-fg); border-radius: 50%;
-    transform: scale(0); transition: transform var(--duration-fast) var(--ease-spring));
+    transform: scale(0); transition: transform var(--duration-fast) var(--ease-spring);
   }
   .form-radio:checked { background: var(--color-accent); border-color: var(--color-accent); }
   .form-radio:checked::before { transform: scale(1); }
