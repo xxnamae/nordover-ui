@@ -1,5 +1,5 @@
 /* ============================================================
-   NORDOVER APP COMPONENTS · Fase 1A-1D + 1J
+   NORDOVER APP COMPONENTS · Fase 1A-1D + 1J + 1L
    SaaS/dashboard interface, tactile buttons, compact spacing
    @layer architecture: primitives, components, utilities
    ============================================================ */
@@ -370,14 +370,59 @@
   .data-table-filter { display: flex; gap: var(--space-2); margin-bottom: var(--space-3); }
   .data-table-filter input { flex: 1; font-size: 0.8125rem; }
 
+  /* ============================================================
+     PHASE 1L: MOBILE & RESPONSIVE PATTERNS
+     ============================================================ */
+
+  /* Mobile Navigation */
+  .mobile-nav-trigger { display: none; width: 2rem; height: 2rem; border: var(--border-card); border-radius: var(--radius-md); background: transparent; color: var(--color-fg); cursor: pointer; place-items: center; }
+  .mobile-nav-trigger:hover { background: var(--color-subtle); }
+  .mobile-nav { position: fixed; inset: 0 auto 0 0; width: 14rem; height: 100vh; z-index: var(--z-modal); background: var(--color-bg); border-right: var(--border-card); transform: translateX(-100%); transition: transform var(--duration-base) var(--ease-out)); overflow-y: auto; }
+  .mobile-nav.open { transform: translateX(0); }
+  .mobile-nav-header { padding: var(--space-3); border-bottom: var(--border-divider); display: flex; justify-content: space-between; align-items: center; }
+  .mobile-nav-close { width: 2rem; height: 2rem; border: none; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+  .mobile-nav-list { list-style: none; padding: var(--space-2); }
+  .mobile-nav-item { padding: var(--space-2); margin-bottom: var(--space-1); border-radius: var(--radius-md); font-size: var(--text-sm); transition: background var(--duration-fast) var(--ease-out)); }
+  .mobile-nav-item:hover { background: var(--color-subtle); }
+  .mobile-nav-item.active { background: var(--color-subtle); color: var(--color-accent); }
+  .mobile-backdrop { position: fixed; inset: 0; background: color-mix(in oklch, var(--color-fg) 40%, transparent); z-index: calc(var(--z-modal) - 1); opacity: 0; pointer-events: none; transition: opacity var(--duration-base) var(--ease-out)); }
+  .mobile-backdrop.open { opacity: 1; pointer-events: auto; }
+
+  /* Touch-friendly buttons */
+  .btn-touch { min-height: 44px; min-width: 44px; }
+
+  /* Responsive table wrapper */
+  .table-responsive { overflow-x: auto; border-radius: var(--radius-lg); border: var(--border-card); }
+  .table-responsive table { min-width: 100%; }
+
+  /* Stack/column responsive */
+  @supports (container-type: inline-size) {
+    .responsive-stack { container-type: inline-size; }
+    @container (min-width: 20rem) {
+      .responsive-stack { display: grid; grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr)); gap: var(--gap-component); }
+    }
+  }
+
+  /* Touch target spacing */
+  .touch-area { position: relative; }
+  .touch-area::before { content: ""; position: absolute; inset: -8px; pointer-events: none; }
+
   /* Responsive utilities */
   @media (max-width: 60rem) {
     .footer-grid { grid-template-columns: 1fr 1fr; }
+    .mobile-nav-trigger { display: inline-flex; }
   }
   @media (max-width: 48rem) {
     .footer-grid { grid-template-columns: 1fr; }
     .feature-grid { grid-template-columns: 1fr; }
     .pricing-grid { grid-template-columns: 1fr; }
     .date-picker-calendar { width: 100vw; max-width: 18rem; left: 50%; transform: translateX(-50%); }
+  }
+  @media (max-width: 36rem) {
+    .page { padding-inline: var(--space-3); }
+    .modal-dialog { max-width: 100%; width: 95vw; }
+    .btn { padding: var(--space-1) var(--space-3); }
+    .hero-centered { padding: var(--space-5) var(--space-4); }
+    .cta-card { padding: var(--space-5) var(--space-4); }
   }
 }
