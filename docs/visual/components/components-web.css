@@ -163,7 +163,7 @@
     border-radius: var(--radius-md);
     font-weight: 700;
     flex-shrink: 0;
-    font-size: 0.875rem;
+    font-size: var(--text-sm);
   }
 
   /* Sidebar section headers */
@@ -735,7 +735,7 @@
   }
 
   .t-body-sm {
-    font-size: 0.875rem;
+    font-size: var(--text-sm);
     font-weight: 500;
     line-height: 1.5;
   }
