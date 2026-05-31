@@ -521,10 +521,11 @@
 
         <!-- TABLE -->
         <section class="doc-section" id="table">
-          <h2 class="doc-section-title">Data Table</h2>
-          <p class="doc-section-desc">Compact data presentation with horizontal scrolling for desktop. Mobile: card layout via data-label attributes.</p>
+          <h2 class="doc-section-title">Data Tables</h2>
+          <p class="doc-section-desc">Compact data presentation with horizontal scrolling for desktop. Mobile: card layout via data-label attributes. Supports filtering and inline editing.</p>
+          <div class="chips"><span class="chip">.data-table</span><span class="chip">.data-table-filter</span><span class="chip">.data-table-inline-edit</span></div>
 
-          <div class="doc-sub">Example</div>
+          <div class="doc-sub">Basic Table</div>
           <div style="overflow-x:auto">
             <table class="data-table" style="width:100%;min-width:600px">
               <thead><tr><th>ID</th><th>Navn</th><th>Status</th><th>Tildelt</th></tr></thead>
@@ -534,6 +535,27 @@
                 <tr><td data-label="ID">SAK-140</td><td data-label="Navn">Bytte lyspære</td><td data-label="Status">Done</td><td data-label="Tildelt">Per</td></tr>
               </tbody>
             </table>
+          </div>
+
+          <div class="doc-sub">Table with Filtering (.data-table-filter)</div>
+          <div style="max-width:32rem">
+            <div class="data-table-filter">
+              <input class="form-input" type="text" placeholder="Search..." style="flex:1">
+              <select class="form-select" style="flex:1">
+                <option>All</option>
+                <option>In Progress</option>
+                <option>Done</option>
+              </select>
+            </div>
+            <div style="overflow-x:auto">
+              <table class="data-table" style="width:100%">
+                <thead><tr><th>Navn</th><th>Status</th><th>Ansvarlig</th></tr></thead>
+                <tbody>
+                  <tr><td data-label="Navn">Vannlekkasje</td><td data-label="Status">In Progress</td><td data-label="Ansvarlig">Eirik</td></tr>
+                  <tr><td data-label="Navn">Bytte lyspære</td><td data-label="Status">Done</td><td data-label="Ansvarlig">Per</td></tr>
+                </tbody>
+              </table>
+            </div>
           </div>
 
           <div class="doc-sub">Implementation</div>

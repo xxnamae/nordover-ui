@@ -757,8 +757,8 @@
         <!-- TABLES -->
         <section class="doc-section" id="tables">
           <h2 class="doc-section-title">Data Tables</h2>
-          <p class="doc-section-desc">Semantic data tables with hover states and responsive behavior. Accessible with proper header scope and ARIA labels. Responsive wrapper for mobile/horizontal scroll.</p>
-          <div class="chips"><span class="chip">.table</span><span class="chip">.data-table</span><span class="chip">.table-sort</span><span class="chip">.table-filter</span></div>
+          <p class="doc-section-desc">Semantic data tables with hover states, sorting, filtering, and inline editing. Accessible with proper header scope and ARIA labels. Responsive wrapper for mobile/horizontal scroll.</p>
+          <div class="chips"><span class="chip">.table</span><span class="chip">.table-sort</span><span class="chip">.table-filter</span><span class="chip">.data-table</span><span class="chip">.data-table-inline-edit</span><span class="chip">.data-table-filter</span></div>
 
           <div class="doc-sub">Basic Table</div>
           <div style="overflow-x:auto">
@@ -847,6 +847,42 @@
             </table>
           </div>
 
+          <div class="doc-sub">Table with Filtering</div>
+          <div style="max-width:32rem">
+            <div class="table-filter">
+              <input class="form-input" type="text" placeholder="Search name..." style="flex:1">
+              <select class="form-select" style="flex:1">
+                <option>All statuses</option>
+                <option>Active</option>
+                <option>Pending</option>
+                <option>Inactive</option>
+              </select>
+            </div>
+            <div style="overflow-x:auto">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Alice Johnson</td>
+                    <td>alice@example.com</td>
+                    <td><span class="badge badge-success">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td>Bob Smith</td>
+                    <td>bob@example.com</td>
+                    <td><span class="badge badge-warning">Pending</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
           <div class="doc-sub">Table with Actions</div>
           <div style="overflow-x:auto">
             <table class="table">
@@ -867,6 +903,56 @@
                 </tr>
               </tbody>
             </table>
+          </div>
+
+          <div class="doc-sub">Inline Editing (.data-table-inline-edit)</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Edit cells directly without opening a modal. Click to edit, then blur to save.</p>
+          <div style="overflow-x:auto">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Role</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input class="data-table-inline-edit" type="text" value="Alice Johnson" style="border:var(--border-card);border-radius:var(--radius-sm);padding:var(--space-1) var(--space-2);font-size:var(--text-sm)"></td>
+                  <td>Designer</td>
+                  <td><span class="badge badge-success">Active</span></td>
+                </tr>
+                <tr>
+                  <td>Bob Smith</td>
+                  <td><input class="data-table-inline-edit" type="text" value="Developer" style="border:var(--border-card);border-radius:var(--radius-sm);padding:var(--space-1) var(--space-2);font-size:var(--text-sm)"></td>
+                  <td><span class="badge badge-warning">Away</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="doc-sub">Table Usage Guide</div>
+          <div class="a11y-checklist">
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Use .table for simple data; .data-table for complex operations (sorting, editing)</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Always wrap sortable headers with .table-sort button elements with aria-sort attributes</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Use .table-filter for search/select bars above tables</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Use .data-table-inline-edit for editable cells (avoid modal overhead for simple changes)</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Include aria-label on tables or use &lt;caption&gt; for context</span>
+            </div>
           </div>
         </section>
 
