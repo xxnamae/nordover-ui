@@ -5610,6 +5610,36 @@ document.querySelectorAll('.app-sidebar-toggle').forEach(btn => {
   });
 });
 
+// Copy code function for pattern examples
+function copyCode(button) {
+  var codeBlock = button.previousElementSibling;
+  if (!codeBlock) return;
+
+  // Get the inner HTML and strip button elements
+  var html = codeBlock.innerHTML;
+  html = html.replace(/<button[^>]*>.*?<\/button>/g, '');
+
+  // Convert HTML entities
+  var textArea = document.createElement('textarea');
+  textArea.innerHTML = html;
+  var code = textArea.value;
+
+  // Copy to clipboard
+  navigator.clipboard.writeText(code.trim()).then(function() {
+    var originalText = button.textContent;
+    button.textContent = 'Copied!';
+    setTimeout(function() {
+      button.textContent = originalText;
+    }, 2000);
+  }).catch(function(err) {
+    console.error('Failed to copy:', err);
+    button.textContent = 'Failed';
+    setTimeout(function() {
+      button.textContent = 'Copy';
+    }, 2000);
+  });
+}
+
 </script>
 <!-- Hidden class reference for documentation completeness -->
 <div style="display:none" class="flex gap-1 gap-2 gap-3 gap-4 gap-5 block inline inline-block hidden invisible text-left text-center text-right absolute fixed relative inset-0 w-full max-w-md max-w-lg max-w-2xl max-w-3xl max-w-4xl max-w-5xl cursor-not-allowed pointer-events-none sr-only m-0 m-auto mx-auto mt-1 mt-2 mt-3 mt-4 mt-5 mb-1 mb-2 mb-3 mb-4 mb-5 p-2 p-3 p-4 p-5 font-medium font-semibold justify-center flex-col flex-wrap items-center leading-normal leading-relaxed line-clamp-2 rounded-lg"></div>

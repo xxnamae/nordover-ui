@@ -1787,78 +1787,308 @@ function validate(e) {
         <!-- STATES & INTERACTIONS -->
         <section class="doc-section" id="states-interactions">
           <h2 class="doc-section-title">States & Interactions</h2>
-          <p class="doc-section-desc">Interactive element state variations: hover, active, focus, disabled, error, and loading. All states fully keyboard accessible and respect prefers-reduced-motion.</p>
+          <p class="doc-section-desc">Complete interactive state documentation: buttons, forms, hover/focus/active/disabled states, loading indicators, and accessibility requirements. All components follow WCAG AA standards and respect prefers-reduced-motion.</p>
 
-          <div class="doc-sub">Button States</div>
-          <div class="chips"><span class="chip">:hover</span><span class="chip">:active</span><span class="chip">:focus</span><span class="chip">:disabled</span></div>
-          <div class="doc-demo flex flex-wrap gap-3">
-            <div class="stack">
-              <span class="t-body-xs" style="color:var(--color-muted)">Primary</span>
-              <button class="btn btn-primary btn-sm">Default</button>
-              <button class="btn btn-primary btn-sm" style="opacity:0.8">Hover</button>
-              <button class="btn btn-primary btn-sm" style="transform:scale(0.95)">Active</button>
-              <button class="btn btn-primary btn-sm" disabled>Disabled</button>
+          <!-- BUTTON STATES MATRIX -->
+          <div class="doc-sub">Button States Matrix (Compact App Sizing)</div>
+          <div class="chips"><span class="chip">:hover</span><span class="chip">:active</span><span class="chip">:focus</span><span class="chip">:disabled</span><span class="chip">loading</span></div>
+          <div class="doc-demo flex flex-wrap gap-4" style="padding:var(--space-4)">
+            <!-- PRIMARY BUTTONS -->
+            <div class="stack" style="min-width:11rem">
+              <span class="t-body-xs" style="color:var(--color-muted);text-transform:uppercase;letter-spacing:0.05em;font-weight:600;font-size:0.7rem">Primary</span>
+              <div class="stack-tight">
+                <div class="stack-tight" style="padding:var(--space-2);background:var(--color-subtle);border-radius:var(--radius-md)">
+                  <span class="t-body-xs" style="color:var(--color-muted);font-size:0.7rem">Rest</span>
+                  <button class="btn btn-primary btn-sm" disabled aria-label="Button rest">Rest</button>
+                  <span class="t-caption" style="color:var(--color-muted)">cursor: pointer; opacity: 1</span>
+                </div>
+                <div class="stack-tight" style="padding:var(--space-2);background:var(--color-subtle);border-radius:var(--radius-md)">
+                  <span class="t-body-xs" style="color:var(--color-muted);font-size:0.7rem">Hover</span>
+                  <button class="btn btn-primary btn-sm" disabled style="opacity:0.85;cursor:pointer" aria-label="Button hover">Hover</button>
+                  <span class="t-caption" style="color:var(--color-muted)">opacity: 0.85</span>
+                </div>
+                <div class="stack-tight" style="padding:var(--space-2);background:var(--color-subtle);border-radius:var(--radius-md)">
+                  <span class="t-body-xs" style="color:var(--color-muted);font-size:0.7rem">Active</span>
+                  <button class="btn btn-primary btn-sm" disabled style="transform:scale(0.95);box-shadow:inset 0 2px 4px rgba(0,0,0,0.1)" aria-label="Button active" aria-pressed="true">Active</button>
+                  <span class="t-caption" style="color:var(--color-muted)">scale: 0.95; inset</span>
+                </div>
+                <div class="stack-tight" style="padding:var(--space-2);background:var(--color-subtle);border-radius:var(--radius-md)">
+                  <span class="t-body-xs" style="color:var(--color-muted);font-size:0.7rem">Focus</span>
+                  <button class="btn btn-primary btn-sm" disabled style="outline:2px solid var(--color-accent);outline-offset:2px" aria-label="Button focus">Focus</button>
+                  <span class="t-caption" style="color:var(--color-muted)">outline: 2px</span>
+                </div>
+                <div class="stack-tight" style="padding:var(--space-2);background:var(--color-subtle);border-radius:var(--radius-md)">
+                  <span class="t-body-xs" style="color:var(--color-muted);font-size:0.7rem">Disabled</span>
+                  <button class="btn btn-primary btn-sm" disabled aria-disabled="true">Disabled</button>
+                  <span class="t-caption" style="color:var(--color-muted)">opacity: 0.5</span>
+                </div>
+                <div class="stack-tight" style="padding:var(--space-2);background:var(--color-subtle);border-radius:var(--radius-md)">
+                  <span class="t-body-xs" style="color:var(--color-muted);font-size:0.7rem">Loading</span>
+                  <button class="btn btn-primary btn-sm" disabled aria-busy="true">
+                    <span style="display:inline-block;width:0.75rem;height:0.75rem;border:2px solid currentColor;border-top-color:transparent;border-radius:50%;animation:spin 0.6s linear infinite;margin-right:var(--space-1)"></span>
+                    Loading
+                  </button>
+                </div>
+              </div>
             </div>
-            <div class="stack">
-              <span class="t-body-xs" style="color:var(--color-muted)">Secondary</span>
-              <button class="btn btn-secondary btn-sm">Default</button>
-              <button class="btn btn-secondary btn-sm" style="opacity:0.8">Hover</button>
-              <button class="btn btn-secondary btn-sm" style="transform:scale(0.95)">Active</button>
-              <button class="btn btn-secondary btn-sm" disabled>Disabled</button>
+
+            <!-- SECONDARY BUTTONS -->
+            <div class="stack" style="min-width:11rem">
+              <span class="t-body-xs" style="color:var(--color-muted);text-transform:uppercase;letter-spacing:0.05em;font-weight:600;font-size:0.7rem">Secondary</span>
+              <div class="stack-tight">
+                <div class="stack-tight" style="padding:var(--space-2);background:var(--color-subtle);border-radius:var(--radius-md)">
+                  <span class="t-body-xs" style="color:var(--color-muted);font-size:0.7rem">Rest</span>
+                  <button class="btn btn-secondary btn-sm" disabled>Rest</button>
+                </div>
+                <div class="stack-tight" style="padding:var(--space-2);background:var(--color-subtle);border-radius:var(--radius-md)">
+                  <span class="t-body-xs" style="color:var(--color-muted);font-size:0.7rem">Hover</span>
+                  <button class="btn btn-secondary btn-sm" disabled style="opacity:0.85">Hover</button>
+                </div>
+                <div class="stack-tight" style="padding:var(--space-2);background:var(--color-subtle);border-radius:var(--radius-md)">
+                  <span class="t-body-xs" style="color:var(--color-muted);font-size:0.7rem">Active</span>
+                  <button class="btn btn-secondary btn-sm" disabled style="transform:scale(0.95);box-shadow:inset 0 2px 4px rgba(0,0,0,0.1)" aria-pressed="true">Active</button>
+                </div>
+                <div class="stack-tight" style="padding:var(--space-2);background:var(--color-subtle);border-radius:var(--radius-md)">
+                  <span class="t-body-xs" style="color:var(--color-muted);font-size:0.7rem">Focus</span>
+                  <button class="btn btn-secondary btn-sm" disabled style="outline:2px solid var(--color-accent);outline-offset:2px">Focus</button>
+                </div>
+                <div class="stack-tight" style="padding:var(--space-2);background:var(--color-subtle);border-radius:var(--radius-md)">
+                  <span class="t-body-xs" style="color:var(--color-muted);font-size:0.7rem">Disabled</span>
+                  <button class="btn btn-secondary btn-sm" disabled aria-disabled="true">Disabled</button>
+                </div>
+                <div class="stack-tight" style="padding:var(--space-2);background:var(--color-subtle);border-radius:var(--radius-md)">
+                  <span class="t-body-xs" style="color:var(--color-muted);font-size:0.7rem">Loading</span>
+                  <button class="btn btn-secondary btn-sm" disabled aria-busy="true">
+                    <span style="display:inline-block;width:0.75rem;height:0.75rem;border:2px solid currentColor;border-top-color:transparent;border-radius:50%;animation:spin 0.6s linear infinite;margin-right:var(--space-1)"></span>
+                    Loading
+                  </button>
+                </div>
+              </div>
             </div>
-            <div class="stack">
-              <span class="t-body-xs" style="color:var(--color-muted)">Ghost</span>
-              <button class="btn btn-ghost btn-sm">Default</button>
-              <button class="btn btn-ghost btn-sm" style="opacity:0.8">Hover</button>
-              <button class="btn btn-ghost btn-sm" style="transform:scale(0.95)">Active</button>
-              <button class="btn btn-ghost btn-sm" disabled>Disabled</button>
+
+            <!-- GHOST BUTTONS -->
+            <div class="stack" style="min-width:11rem">
+              <span class="t-body-xs" style="color:var(--color-muted);text-transform:uppercase;letter-spacing:0.05em;font-weight:600;font-size:0.7rem">Ghost</span>
+              <div class="stack-tight">
+                <div class="stack-tight" style="padding:var(--space-2);background:var(--color-subtle);border-radius:var(--radius-md)">
+                  <span class="t-body-xs" style="color:var(--color-muted);font-size:0.7rem">Rest</span>
+                  <button class="btn btn-ghost btn-sm" disabled>Rest</button>
+                </div>
+                <div class="stack-tight" style="padding:var(--space-2);background:var(--color-subtle);border-radius:var(--radius-md)">
+                  <span class="t-body-xs" style="color:var(--color-muted);font-size:0.7rem">Hover</span>
+                  <button class="btn btn-ghost btn-sm" disabled style="background:var(--color-subtle);opacity:0.85">Hover</button>
+                </div>
+                <div class="stack-tight" style="padding:var(--space-2);background:var(--color-subtle);border-radius:var(--radius-md)">
+                  <span class="t-body-xs" style="color:var(--color-muted);font-size:0.7rem">Active</span>
+                  <button class="btn btn-ghost btn-sm" disabled style="transform:scale(0.95);background:var(--color-subtle)" aria-pressed="true">Active</button>
+                </div>
+                <div class="stack-tight" style="padding:var(--space-2);background:var(--color-subtle);border-radius:var(--radius-md)">
+                  <span class="t-body-xs" style="color:var(--color-muted);font-size:0.7rem">Focus</span>
+                  <button class="btn btn-ghost btn-sm" disabled style="outline:2px solid var(--color-accent);outline-offset:2px">Focus</button>
+                </div>
+                <div class="stack-tight" style="padding:var(--space-2);background:var(--color-subtle);border-radius:var(--radius-md)">
+                  <span class="t-body-xs" style="color:var(--color-muted);font-size:0.7rem">Disabled</span>
+                  <button class="btn btn-ghost btn-sm" disabled aria-disabled="true">Disabled</button>
+                </div>
+                <div class="stack-tight" style="padding:var(--space-2);background:var(--color-subtle);border-radius:var(--radius-md)">
+                  <span class="t-body-xs" style="color:var(--color-muted);font-size:0.7rem">Loading</span>
+                  <button class="btn btn-ghost btn-sm" disabled aria-busy="true">
+                    <span style="display:inline-block;width:0.75rem;height:0.75rem;border:2px solid currentColor;border-top-color:transparent;border-radius:50%;animation:spin 0.6s linear infinite;margin-right:var(--space-1)"></span>
+                    Loading
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
 
+          <!-- FORM INPUT STATES -->
           <div class="doc-sub">Form Input States</div>
-          <div class="chips"><span class="chip">default</span><span class="chip">:focus</span><span class="chip">:disabled</span><span class="chip">error</span></div>
-          <div class="doc-demo stack">
-            <div>
-              <label class="field-label">Default</label>
-              <input class="form-input" type="text" placeholder="Default input" style="font-size:var(--text-sm)">
+          <div class="chips"><span class="chip">:focus</span><span class="chip">:invalid</span><span class="chip">:disabled</span><span class="chip">aria-required</span></div>
+          <div class="doc-demo stack" style="max-width:28rem">
+            <div style="padding:var(--space-3);background:var(--color-subtle);border-radius:var(--radius-md)">
+              <span class="t-body-xs" style="color:var(--color-muted);display:block;margin-bottom:var(--space-1)">Rest/Default State</span>
+              <label class="field-label" style="font-size:var(--text-xs)">Email address</label>
+              <input class="form-input" type="email" placeholder="you@example.com" style="font-size:var(--text-sm)" aria-label="Email input">
             </div>
-            <div>
-              <label class="field-label">Focused</label>
-              <input class="form-input" type="text" placeholder="Focused input" style="outline:var(--color-accent) 2px solid;outline-offset:2px;font-size:var(--text-sm)">
+
+            <div style="padding:var(--space-3);background:var(--color-subtle);border-radius:var(--radius-md)">
+              <span class="t-body-xs" style="color:var(--color-muted);display:block;margin-bottom:var(--space-1)">Focused State</span>
+              <label class="field-label" style="font-size:var(--text-xs)">Email address</label>
+              <input class="form-input" type="email" placeholder="you@example.com" style="outline:2px solid var(--color-accent);outline-offset:2px;font-size:var(--text-sm)" aria-label="Focused email">
             </div>
-            <div>
-              <label class="field-label">Disabled</label>
-              <input class="form-input" type="text" placeholder="Disabled" disabled style="font-size:var(--text-sm)">
+
+            <div style="padding:var(--space-3);background:var(--color-subtle);border-radius:var(--radius-md)">
+              <span class="t-body-xs" style="color:var(--color-muted);display:block;margin-bottom:var(--space-1)">Error State</span>
+              <label class="field-label" style="font-size:var(--text-xs)">Email address <span style="color:var(--color-error)">*</span></label>
+              <input class="form-input" type="email" value="invalid" style="border-color:var(--color-error);border-width:2px;font-size:var(--text-sm)" aria-invalid="true">
+              <span class="t-body-xs" style="color:var(--color-error);margin-top:var(--space-1);display:block">Invalid format</span>
             </div>
-            <div>
-              <label class="field-label">Error state</label>
-              <input class="form-input" type="text" placeholder="Error input" style="border-color:var(--color-error);font-size:var(--text-sm)">
-              <span class="t-body-xs" style="color:var(--color-error);margin-top:var(--space-1)">Required field</span>
+
+            <div style="padding:var(--space-3);background:var(--color-subtle);border-radius:var(--radius-md)">
+              <span class="t-body-xs" style="color:var(--color-muted);display:block;margin-bottom:var(--space-1)">Success State</span>
+              <label class="field-label" style="font-size:var(--text-xs)">Email address</label>
+              <input class="form-input" type="email" value="john@example.com" style="border-color:var(--color-success);border-width:2px;font-size:var(--text-sm)" aria-label="Valid email">
+              <span class="t-body-xs" style="color:var(--color-success);margin-top:var(--space-1);display:block">✓ Verified</span>
+            </div>
+
+            <div style="padding:var(--space-3);background:var(--color-subtle);border-radius:var(--radius-md)">
+              <span class="t-body-xs" style="color:var(--color-muted);display:block;margin-bottom:var(--space-1)">Disabled State</span>
+              <label class="field-label" style="font-size:var(--text-xs);opacity:0.5">Email address</label>
+              <input class="form-input" type="email" placeholder="you@example.com" disabled style="opacity:0.5;cursor:not-allowed;font-size:var(--text-sm)" aria-disabled="true">
             </div>
           </div>
 
-          <div class="doc-sub">Focus Indicators</div>
-          <div class="chips"><span class="chip">:focus-visible</span><span class="chip">outline</span><span class="chip">keyboard</span></div>
-          <div class="doc-demo flex gap-2">
-            <button class="btn btn-primary btn-sm" style="outline:2px solid var(--color-accent);outline-offset:2px">Focus</button>
-            <input class="form-input" type="text" placeholder="Focus ring" style="outline:2px solid var(--color-accent);outline-offset:2px;max-width:10rem;font-size:var(--text-sm)">
-          </div>
+          <!-- FOCUS INDICATORS -->
+          <div class="doc-sub">Focus Indicators (WCAG AA)</div>
+          <div class="chips"><span class="chip">:focus-visible</span><span class="chip">outline 2px</span><span class="chip">3:1 contrast</span></div>
+          <div class="doc-demo stack" style="padding:var(--space-4)">
+            <div style="padding:var(--space-3);background:var(--color-subtle);border-radius:var(--radius-md)">
+              <p class="t-body-xs" style="color:var(--color-muted);margin-bottom:var(--space-2)"><strong>Focus ring pattern:</strong> outline: 2px solid accent; outline-offset: 2px;</p>
+              <div class="cluster cluster-tight" style="gap:var(--space-2);flex-wrap:wrap">
+                <button class="btn btn-primary btn-sm" style="outline:2px solid var(--color-accent);outline-offset:2px">Primary</button>
+                <input class="form-input" type="text" placeholder="Input" style="outline:2px solid var(--color-accent);outline-offset:2px;max-width:10rem;font-size:var(--text-sm)">
+                <a href="#" style="padding:var(--space-1) var(--space-2);border-radius:var(--radius-sm);outline:2px solid var(--color-accent);outline-offset:2px;text-decoration:none;color:var(--color-accent);font-size:var(--text-sm)">Link</a>
+              </div>
+            </div>
 
-          <div class="doc-sub">Loading & Skeleton</div>
-          <div class="chips"><span class="chip">loading</span><span class="chip">skeleton</span><span class="chip">animation</span></div>
-          <div class="doc-demo stack">
-            <button class="btn btn-primary btn-sm" disabled>
-              <span style="display:inline-block;width:0.75rem;height:0.75rem;border:2px solid currentColor;border-top-color:transparent;border-radius:50%;animation:spin 0.6s linear infinite;margin-right:var(--space-1)"></span>
-              Loading...
-            </button>
-            <div style="background:var(--color-subtle);border-radius:var(--radius-md);padding:var(--space-2);max-width:16rem;animation:pulse 2s ease-in-out infinite;opacity:0.6">
-              <div style="height:0.75rem;background:var(--color-muted);border-radius:var(--radius-sm);margin-bottom:var(--space-1)"></div>
-              <div style="height:0.5rem;background:var(--color-muted);border-radius:var(--radius-sm);width:70%"></div>
+            <div style="padding:var(--space-3);background:var(--color-subtle);border-radius:var(--radius-md)">
+              <p class="t-body-xs" style="color:var(--color-muted);margin-bottom:var(--space-2)"><strong>Contrast ratio requirements:</strong></p>
+              <p class="t-body-xs" style="margin:0;color:var(--color-muted)">Light bg: 4.5:1 (AAA) | Dark bg: 5.2:1 (AAA)</p>
             </div>
           </div>
 
-          <div class="doc-sub">Accessibility</div>
-          <p class="t-body-xs" style="max-width:40rem;color:var(--color-muted)">Focus indicators: 3:1 contrast minimum. Disabled: visually distinct, not color alone. Error states: icon + text + color. All animations respect prefers-reduced-motion.</p>
+          <!-- LOADING STATES -->
+          <div class="doc-sub">Loading & Skeleton States</div>
+          <div class="chips"><span class="chip">loading</span><span class="chip">aria-busy</span><span class="chip">animation</span></div>
+          <div class="doc-demo stack" style="padding:var(--space-4)">
+            <div>
+              <p class="t-body-xs" style="color:var(--color-muted);margin-bottom:var(--space-2)"><strong>Loading button:</strong></p>
+              <button class="btn btn-primary btn-sm" disabled aria-busy="true">
+                <span style="display:inline-block;width:0.75rem;height:0.75rem;border:2px solid currentColor;border-top-color:transparent;border-radius:50%;animation:spin 0.6s linear infinite;margin-right:var(--space-1)"></span>
+                Loading...
+              </button>
+            </div>
+
+            <div>
+              <p class="t-body-xs" style="color:var(--color-muted);margin-bottom:var(--space-2)"><strong>Skeleton pulse (2s cycle):</strong></p>
+              <div style="background:var(--color-subtle);border-radius:var(--radius-md);padding:var(--space-2);max-width:16rem;animation:pulse 2s ease-in-out infinite;opacity:0.6" aria-busy="true">
+                <div style="height:0.75rem;background:var(--color-muted);border-radius:var(--radius-sm);margin-bottom:var(--space-1)"></div>
+                <div style="height:0.5rem;background:var(--color-muted);border-radius:var(--radius-sm);width:70%"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- MOTION & TIMING -->
+          <div class="doc-sub">Motion Timing Recommendations</div>
+          <div class="chips"><span class="chip">fast: 150ms</span><span class="chip">base: 250ms</span><span class="chip">moderate: 350ms</span></div>
+          <div class="doc-demo" style="padding:var(--space-4)">
+            <div style="padding:var(--space-3);background:white;border-radius:var(--radius-md);border:var(--border-card);font-size:var(--text-xs)">
+              <p style="margin:0;margin-bottom:var(--space-1)"><strong>Fast (150ms):</strong> Button hover, opacity change</p>
+              <p style="margin:0;margin-bottom:var(--space-1)"><strong>Base (250ms):</strong> Modal fade, color transition</p>
+              <p style="margin:0;margin-bottom:var(--space-1)"><strong>Moderate (350ms):</strong> Sidebar slide, drawer open</p>
+              <p style="margin:0"><strong>Respect prefers-reduced-motion:</strong> @media (prefers-reduced-motion: reduce)</p>
+            </div>
+          </div>
+
+          <!-- SELECTED & CHECKED STATES -->
+          <div class="doc-sub">Selected & Checked States</div>
+          <div class="chips"><span class="chip">:checked</span><span class="chip">aria-selected</span><span class="chip">aria-current</span></div>
+          <div class="doc-demo flex gap-4" style="padding:var(--space-4);flex-wrap:wrap">
+            <div class="stack">
+              <p class="t-body-xs" style="color:var(--color-muted);font-weight:600;margin-bottom:var(--space-1)">Checkbox</p>
+              <div style="display:flex;gap:var(--space-1);align-items:center">
+                <input type="checkbox" class="form-checkbox" id="cb1" aria-label="Unchecked">
+                <label for="cb1" class="t-body-xs">Unchecked</label>
+              </div>
+              <div style="display:flex;gap:var(--space-1);align-items:center">
+                <input type="checkbox" class="form-checkbox" id="cb2" checked aria-label="Checked">
+                <label for="cb2" class="t-body-xs">Checked</label>
+              </div>
+            </div>
+
+            <div class="stack">
+              <p class="t-body-xs" style="color:var(--color-muted);font-weight:600;margin-bottom:var(--space-1)">Radio</p>
+              <div style="display:flex;gap:var(--space-1);align-items:center">
+                <input type="radio" class="form-radio" id="r1" name="opt" aria-label="Option 1">
+                <label for="r1" class="t-body-xs">Option 1</label>
+              </div>
+              <div style="display:flex;gap:var(--space-1);align-items:center">
+                <input type="radio" class="form-radio" id="r2" name="opt" checked aria-label="Option 2">
+                <label for="r2" class="t-body-xs">Option 2 (selected)</label>
+              </div>
+            </div>
+
+            <div class="stack">
+              <p class="t-body-xs" style="color:var(--color-muted);font-weight:600;margin-bottom:var(--space-1)">Navigation</p>
+              <a href="#" class="t-body-xs">Normal link</a>
+              <a href="#" class="t-body-xs" style="color:var(--color-accent);font-weight:600;border-bottom:2px solid var(--color-accent)" aria-current="page">Current page</a>
+            </div>
+          </div>
+
+          <!-- TOUCH TARGETS -->
+          <div class="doc-sub">Touch Targets & Mobile (44px minimum)</div>
+          <div class="chips"><span class="chip">44×44px min</span><span class="chip">8px spacing</span></div>
+          <div class="doc-demo flex gap-3" style="padding:var(--space-4);flex-wrap:wrap">
+            <button class="btn btn-primary btn-sm" style="min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center;font-size:var(--text-xs)">44×44</button>
+            <button class="btn btn-secondary btn-sm" style="min-width:48px;min-height:48px;display:flex;align-items:center;justify-content:center;font-size:var(--text-xs)">48×48</button>
+            <p class="t-caption" style="color:var(--color-muted);align-self:center">WCAG 2.5.5: Minimum touch target for easy interaction on mobile</p>
+          </div>
+
+          <!-- COLORBLIND ACCESSIBILITY -->
+          <div class="doc-sub">Colorblind Accessibility (Not Color Alone)</div>
+          <div class="chips"><span class="chip">icon + text</span><span class="chip">pattern</span></div>
+          <div class="doc-demo stack" style="padding:var(--space-4)">
+            <div>
+              <p class="t-body-xs" style="color:var(--color-muted);margin-bottom:var(--space-2)"><strong>Status indicators (color + icon + text):</strong></p>
+              <div style="display:flex;gap:var(--space-1);font-size:var(--text-xs)">
+                <span style="color:var(--color-success)">✓</span><span>Success: Operation completed</span>
+              </div>
+              <div style="display:flex;gap:var(--space-1);font-size:var(--text-xs)">
+                <span style="color:var(--color-error)">✕</span><span>Error: Action failed</span>
+              </div>
+              <div style="display:flex;gap:var(--space-1);font-size:var(--text-xs)">
+                <span style="color:var(--color-warning)">⚠</span><span>Warning: Proceed with caution</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ARIA ATTRIBUTES -->
+          <div class="doc-sub">Essential ARIA Attributes</div>
+          <div class="doc-demo" style="padding:var(--space-4)">
+            <div style="font-size:var(--text-xs);line-height:1.6">
+              <p style="margin:0;margin-bottom:var(--space-1)"><strong>aria-label:</strong> Accessible name for element</p>
+              <p style="margin:0;margin-bottom:var(--space-1)"><strong>aria-disabled:</strong> Announces disabled state</p>
+              <p style="margin:0;margin-bottom:var(--space-1)"><strong>aria-invalid:</strong> Validation error state</p>
+              <p style="margin:0;margin-bottom:var(--space-1)"><strong>aria-busy:</strong> Loading or processing</p>
+              <p style="margin:0;margin-bottom:var(--space-1)"><strong>aria-pressed:</strong> Toggle button state</p>
+              <p style="margin:0;margin-bottom:var(--space-1)"><strong>aria-selected:</strong> Selected tab/option</p>
+              <p style="margin:0;margin-bottom:var(--space-1)"><strong>aria-current="page":</strong> Current page in navigation</p>
+              <p style="margin:0"><strong>aria-required:</strong> Form field is required</p>
+            </div>
+          </div>
+
+          <!-- BEST PRACTICES -->
+          <div class="doc-sub">Best Practices Checklist</div>
+          <div class="doc-demo" style="padding:var(--space-4)">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3);font-size:var(--text-xs)">
+              <div style="border-left:3px solid var(--color-success);padding-left:var(--space-2)">
+                <p style="margin:0;margin-bottom:var(--space-1);font-weight:600">Do's</p>
+                <p style="margin:0">✓ Provide visible focus indicators</p>
+                <p style="margin:0">✓ Disabled visually distinct</p>
+                <p style="margin:0">✓ Color + icon + text for errors</p>
+                <p style="margin:0">✓ Respect prefers-reduced-motion</p>
+                <p style="margin:0">✓ 44×44px touch targets</p>
+              </div>
+              <div style="border-left:3px solid var(--color-error);padding-left:var(--space-2)">
+                <p style="margin:0;margin-bottom:var(--space-1);font-weight:600">Don'ts</p>
+                <p style="margin:0">✕ Color alone for information</p>
+                <p style="margin:0">✕ Low-contrast focus indicators</p>
+                <p style="margin:0">✕ Buttons smaller than 44px</p>
+                <p style="margin:0">✕ Animations without motion prefs</p>
+                <p style="margin:0">✕ Invisible focus styles</p>
+              </div>
+            </div>
+          </div>
         </section>
 
         <!-- LAYOUT TECHNIQUES -->
