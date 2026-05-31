@@ -498,23 +498,23 @@
           <div class="doc-sub">Primary Button — All States</div>
           <div class="component-states">
             <div class="state-item">
-              <button class="btn btn-primary" style="pointer-events: none;">Rest</button>
+              <button class="btn btn-primary" style="pointer-events: none;" aria-label="Default state">Rest</button>
               <span class="state-label">Default</span>
             </div>
             <div class="state-item">
-              <button class="btn btn-primary" style="pointer-events: none; background-color: var(--color-accent-hover);">Hover</button>
+              <button class="btn btn-primary" style="pointer-events: none; background-color: var(--color-accent-hover);" aria-label="Hover state">Hover</button>
               <span class="state-label">Hover</span>
             </div>
             <div class="state-item">
-              <button class="btn btn-primary" style="pointer-events: none; outline: 2px solid var(--color-focus); outline-offset: 2px;">Focus</button>
+              <button class="btn btn-primary" style="pointer-events: none; outline: 2px solid var(--color-focus); outline-offset: 2px;" aria-label="Focus state">Focus</button>
               <span class="state-label">Focus</span>
             </div>
             <div class="state-item">
-              <button class="btn btn-primary" style="pointer-events: none; background-color: var(--color-accent-active);">Active</button>
+              <button class="btn btn-primary" style="pointer-events: none; background-color: var(--color-accent-active);" aria-pressed="true" aria-label="Active state">Active</button>
               <span class="state-label">Active/Pressed</span>
             </div>
             <div class="state-item">
-              <button class="btn btn-primary" disabled>Disabled</button>
+              <button class="btn btn-primary" disabled aria-disabled="true" aria-label="Disabled state">Disabled</button>
               <span class="state-label">Disabled</span>
             </div>
           </div>
@@ -537,8 +537,8 @@
 
           <div class="doc-sub">With Icons</div>
           <div class="cluster cluster-tight">
-            <button class="btn btn-primary"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg> Icon Left</button>
-            <button class="btn btn-secondary">Icon Right <svg class="icon" viewBox="0 0 24 24"><polyline points="5 12 19 12" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></button>
+            <button class="btn btn-primary" aria-label="Action with icon"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg> Icon Left</button>
+            <button class="btn btn-secondary" aria-label="Action with icon">Icon Right <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><polyline points="5 12 19 12" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></button>
           </div>
 
           <div class="doc-sub">Accessibility</div>
@@ -919,10 +919,10 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th scope="col"><button class="table-sort" aria-sort="ascending">Name ↑</button></th>
+                  <th scope="col"><button class="table-sort" aria-sort="ascending" type="button">Name ↑</button></th>
                   <th scope="col">Email</th>
-                  <th scope="col"><button class="table-sort" aria-sort="none">Status</button></th>
-                  <th scope="col"><button class="table-sort" aria-sort="none">Joined</button></th>
+                  <th scope="col"><button class="table-sort" aria-sort="none" type="button">Status</button></th>
+                  <th scope="col"><button class="table-sort" aria-sort="none" type="button">Joined</button></th>
                 </tr>
               </thead>
               <tbody>
@@ -1056,7 +1056,7 @@
             <div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-3);padding:var(--space-2);background:var(--color-subtle);border-radius:var(--radius-md)">
               <span style="font-size:var(--text-sm);color:var(--color-muted)">3 selected</span>
               <div style="flex:1"></div>
-              <button class="btn btn-sm btn-secondary" style="margin-right:var(--space-2)">Delete</button>
+              <button class="btn btn-sm btn-secondary" style="margin-right:var(--space-2)" aria-label="Delete selected rows" type="button">Delete</button>
               <button class="btn btn-sm btn-secondary">Export</button>
             </div>
             <table class="data-table">
@@ -1111,12 +1111,12 @@
           <div class="doc-sub">Standard Pagination</div>
           <div class="doc-demo">
             <nav class="pagination" aria-label="Pagination">
-              <button class="pagination-btn">← Previous</button>
-              <button class="pagination-dot" aria-current="page">1</button>
+              <button class="pagination-btn" type="button" aria-label="Previous page">← Previous</button>
+              <button class="pagination-dot" aria-current="page" type="button">1</button>
               <button class="pagination-dot">2</button>
               <button class="pagination-dot">3</button>
               <button class="pagination-dot">4</button>
-              <button class="pagination-btn">Next →</button>
+              <button class="pagination-btn" type="button" aria-label="Next page">Next →</button>
             </nav>
           </div>
 
@@ -1156,14 +1156,14 @@
             <div class="modal-dialog">
               <div class="modal-header">
                 <h2 class="t-heading-md">Confirm Delete</h2>
-                <button class="btn btn-ghost" aria-label="Close modal">×</button>
+                <button class="btn btn-ghost" aria-label="Close modal" type="button">×</button>
               </div>
               <div class="modal-body">
                 <p class="t-body">This action cannot be undone. Are you sure you want to delete this item?</p>
               </div>
               <div class="modal-footer">
-                <button class="btn btn-ghost">Cancel</button>
-                <button class="btn btn-primary">Delete</button>
+                <button class="btn btn-ghost" type="button">Cancel</button>
+                <button class="btn btn-primary" type="button">Delete</button>
               </div>
             </div>
           </div>
@@ -1181,7 +1181,7 @@
                 </div>
               </div>
               <div class="modal-footer">
-                <button class="btn btn-primary btn-sm">Done</button>
+                <button class="btn btn-primary btn-sm" type="button">Done</button>
               </div>
             </div>
           </div>
@@ -1297,7 +1297,7 @@
             <div class="field">
               <label class="field-label">Add tags</label>
               <div class="tag-input">
-                <div class="tag-list">
+                <div class="tag-list" role="region" aria-label="Selected tags">
                   <span class="tag">react <button class="tag-remove">×</button></span>
                   <span class="tag">vue <button class="tag-remove">×</button></span>
                 </div>
@@ -1543,7 +1543,7 @@
           <div class="chips"><span class="chip">.file-upload</span><span class="chip">.file-upload.dragover</span></div>
           <div class="doc-demo stack">
             <div class="file-upload" style="max-width:24rem">
-              <svg class="file-upload-icon" style="width:1.5rem;height:1.5rem;color:var(--color-accent)" viewBox="0 0 24 24"><path d="M3 6h8l2-2h8a2 2 0 012 2v12a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg class="file-upload-icon" style="width:1.5rem;height:1.5rem;color:var(--color-accent)" aria-hidden="true" viewBox="0 0 24 24"><path d="M3 6h8l2-2h8a2 2 0 012 2v12a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
               <input type="file" id="file-input" aria-label="Choose file to upload">
               <p class="file-upload-text">Drag files here or click to browse</p>
               <p class="file-upload-hint">Supported: PDF, DOC, XLS (max 10MB)</p>
@@ -2254,7 +2254,7 @@
               <button class="btn btn-primary">Default</button>
               <button class="btn btn-primary" style="opacity:0.8">Hover</button>
               <button class="btn btn-primary" style="transform:scale(0.98)">Active</button>
-              <button class="btn btn-primary" disabled>Disabled</button>
+              <button class="btn btn-primary" disabled aria-disabled="true" aria-label="Disabled state">Disabled</button>
             </div>
             <div class="stack">
               <span class="t-body-xs" style="color:var(--color-muted)">Secondary</span>
@@ -2460,7 +2460,7 @@
               <table class="data-table" style="width:100%;margin:0">
                 <thead style="background:var(--color-subtle)">
                   <tr>
-                    <th style="padding:var(--space-2);text-align:left;font-weight:600"><button class="table-sort" aria-sort="ascending">Name ↑</button></th>
+                    <th style="padding:var(--space-2);text-align:left;font-weight:600"><button class="table-sort" aria-sort="ascending" type="button">Name ↑</button></th>
                     <th style="padding:var(--space-2);text-align:left;font-weight:600"><button class="table-sort" aria-sort="none">Role</button></th>
                     <th style="padding:var(--space-2);text-align:left;font-weight:600">Status</th>
                     <th style="padding:var(--space-2);text-align:left;font-weight:600">Actions</th>
@@ -2815,7 +2815,7 @@
           <div class="doc-demo flex gap-3">
             <button class="btn btn-primary">Normal</button>
             <button class="btn btn-primary active" style="border:2px solid var(--color-accent)">Active</button>
-            <button class="btn btn-primary" disabled>Disabled</button>
+            <button class="btn btn-primary" disabled aria-disabled="true" aria-label="Disabled state">Disabled</button>
           </div>
 
           <div class="doc-sub">Text Decoration</div>
@@ -3160,7 +3160,7 @@
             <button class="btn btn-primary">Primary</button>
             <button class="btn btn-secondary">Secondary</button>
             <button class="btn btn-ghost">Ghost</button>
-            <button class="btn btn-primary" disabled>Disabled</button>
+            <button class="btn btn-primary" disabled aria-disabled="true" aria-label="Disabled state">Disabled</button>
           </div>
 
           <div class="doc-sub">Form Inputs in Dark Mode</div>
