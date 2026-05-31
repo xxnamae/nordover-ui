@@ -49,6 +49,7 @@
     <a class="app-nav-item" href="#file-upload">File Upload</a>
     <a class="app-nav-item" href="#search-bar">Search Bar</a>
     <a class="app-nav-item" href="#empty-states">Empty States</a>
+    <a class="app-nav-item" href="#states-interactions">States & Interactions</a>
     <a class="app-nav-item" href="#utilities">Utilities</a>
     <a class="app-nav-item" href="#dark-mode-examples">Dark Mode</a>
     <div class="app-sidebar-section">Patterns</div>
@@ -1207,6 +1208,92 @@
             <li>Verify form labels are associated with inputs</li>
             <li>Use axe DevTools to check for violations</li>
           </ul>
+        </section>
+
+        <!-- STATES & INTERACTIONS -->
+        <section class="doc-section" id="states-interactions">
+          <h2 class="doc-section-title">States & Interactions</h2>
+          <p class="doc-section-desc">Interactive element state variations: hover, active, focus, disabled, error, and loading. All states fully keyboard accessible and respect prefers-reduced-motion.</p>
+
+          <div class="doc-sub">Button States</div>
+          <div class="chips"><span class="chip">:hover</span><span class="chip">:active</span><span class="chip">:focus</span><span class="chip">:disabled</span></div>
+          <div class="doc-demo flex flex-wrap gap-4">
+            <div class="stack">
+              <span class="t-body-xs" style="color:var(--color-muted)">Primary</span>
+              <button class="btn btn-primary">Default</button>
+              <button class="btn btn-primary" style="opacity:0.8">Hover</button>
+              <button class="btn btn-primary" style="transform:scale(0.98)">Active</button>
+              <button class="btn btn-primary" disabled>Disabled</button>
+            </div>
+            <div class="stack">
+              <span class="t-body-xs" style="color:var(--color-muted)">Secondary</span>
+              <button class="btn btn-secondary">Default</button>
+              <button class="btn btn-secondary" style="opacity:0.8">Hover</button>
+              <button class="btn btn-secondary" style="transform:scale(0.98)">Active</button>
+              <button class="btn btn-secondary" disabled>Disabled</button>
+            </div>
+            <div class="stack">
+              <span class="t-body-xs" style="color:var(--color-muted)">Ghost</span>
+              <button class="btn btn-ghost">Default</button>
+              <button class="btn btn-ghost" style="opacity:0.8">Hover</button>
+              <button class="btn btn-ghost" style="transform:scale(0.98)">Active</button>
+              <button class="btn btn-ghost" disabled>Disabled</button>
+            </div>
+          </div>
+
+          <div class="doc-sub">Form Input States</div>
+          <div class="chips"><span class="chip">default</span><span class="chip">:focus</span><span class="chip">:disabled</span><span class="chip">:invalid</span></div>
+          <div class="doc-demo stack">
+            <div>
+              <label class="field-label">Default state</label>
+              <input class="form-input" type="text" placeholder="Default input">
+            </div>
+            <div>
+              <label class="field-label">Focus state</label>
+              <input class="form-input" type="text" placeholder="Focused input" style="outline:var(--color-accent) 2px solid;outline-offset:2px">
+            </div>
+            <div>
+              <label class="field-label">Disabled state</label>
+              <input class="form-input" type="text" placeholder="Disabled input" disabled>
+            </div>
+            <div>
+              <label class="field-label">Error state</label>
+              <input class="form-input" type="text" placeholder="Input with error" style="border-color:var(--color-error)">
+              <span class="t-body-xs" style="color:var(--color-error);margin-top:var(--space-1)">This field is required</span>
+            </div>
+          </div>
+
+          <div class="doc-sub">Interactive Element Focus Indicators</div>
+          <div class="chips"><span class="chip">:focus-visible</span><span class="chip">outline</span><span class="chip">keyboard-navigable</span></div>
+          <div class="doc-demo flex gap-4">
+            <button class="btn btn-primary" style="outline:2px solid var(--color-accent);outline-offset:2px">Keyboard focus</button>
+            <input class="form-input" type="text" placeholder="Input with focus ring" style="outline:2px solid var(--color-accent);outline-offset:2px;max-width:12rem">
+            <a href="#" style="color:var(--color-accent);outline:2px solid var(--color-accent);outline-offset:2px;border-radius:var(--radius-sm);padding:var(--space-2)">Link focus</a>
+          </div>
+
+          <div class="doc-sub">Loading & Skeleton States</div>
+          <div class="chips"><span class="chip">loading</span><span class="chip">skeleton</span><span class="chip">animation</span></div>
+          <div class="doc-demo stack">
+            <div style="display:flex;gap:var(--space-3);align-items:center">
+              <button class="btn btn-primary" disabled>
+                <span style="display:inline-block;width:1rem;height:1rem;border:2px solid currentColor;border-top-color:transparent;border-radius:50%;animation:spin 0.6s linear infinite"></span>
+                Loading...
+              </button>
+            </div>
+            <div style="background:var(--color-subtle);border-radius:var(--radius-md);padding:var(--space-4);max-width:20rem;animation:pulse 2s ease-in-out infinite" class="opacity-50">
+              <div style="height:1rem;background:var(--color-muted);border-radius:var(--radius-sm);margin-bottom:var(--space-2)"></div>
+              <div style="height:0.5rem;background:var(--color-muted);border-radius:var(--radius-sm);margin-bottom:var(--space-2);width:80%"></div>
+              <div style="height:0.5rem;background:var(--color-muted);border-radius:var(--radius-sm);width:60%"></div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Accessibility Requirements</div>
+          <div class="stack" style="max-width:50rem">
+            <p class="t-body-sm"><strong>Focus visible:</strong> All interactive elements must show :focus-visible indicator (outline or background change). 3:1 contrast minimum.</p>
+            <p class="t-body-sm"><strong>Disabled appearance:</strong> Must be visually distinct - reduce opacity, change color, or add strikethrough. Not color alone.</p>
+            <p class="t-body-sm"><strong>Error states:</strong> Must be indicated by more than color. Include icon, text message, or border style change.</p>
+            <p class="t-body-sm"><strong>Motion:</strong> All animations respect prefers-reduced-motion. @media (prefers-reduced-motion: reduce) disables animations.</p>
+          </div>
         </section>
 
         <!-- UTILITIES -->
