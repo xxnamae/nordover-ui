@@ -80,7 +80,7 @@
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
     z-index: 99;
-    transition: opacity 300ms ease;
+    transition: opacity var(--duration-slow-base) ease;
   }
   #nav:checked ~ .mobile-backdrop {
     display: block;
@@ -94,7 +94,7 @@
     min-height: 100vh;
     background: var(--color-bg);
     color: var(--color-fg);
-    transition: background-color 200ms, color 200ms;
+    transition: background-color var(--duration-moderate), color var(--duration-moderate);
   }
 
   /* Sidebar: drawer on mobile, fixed on desktop */
@@ -110,7 +110,7 @@
     z-index: 100;
     padding: var(--space-4);
     transform: translateX(-100%);
-    transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform var(--duration-slow-base) cubic-bezier(0.4, 0, 0.2, 1);
     will-change: transform;
   }
   #nav:checked ~ .app .app-sidebar {
@@ -186,7 +186,7 @@
     color: var(--color-fg);
     text-decoration: none;
     font-size: 0.75rem;
-    transition: background-color 200ms, color 200ms;
+    transition: background-color var(--duration-moderate), color var(--duration-moderate);
     cursor: pointer;
     border: none;
     background: none;
@@ -248,7 +248,7 @@
     cursor: pointer;
     color: var(--color-fg);
     border-radius: var(--radius-sm);
-    transition: background-color 200ms;
+    transition: background-color var(--duration-moderate);
     flex-shrink: 0;
   }
   .hamburger:hover {
@@ -271,7 +271,7 @@
     cursor: pointer;
     color: var(--color-fg);
     border-radius: var(--radius-sm);
-    transition: background-color 200ms;
+    transition: background-color var(--duration-moderate);
     margin-bottom: 0;
     flex-shrink: 0;
   }
@@ -295,7 +295,7 @@
     background: none;
     cursor: pointer;
     border-radius: var(--radius-sm);
-    transition: background-color 200ms;
+    transition: background-color var(--duration-moderate);
     flex-shrink: 0;
     position: relative;
     color: var(--color-fg);
@@ -310,7 +310,7 @@
   .theme-toggle .icon {
     position: absolute;
     opacity: 0;
-    transition: opacity 200ms;
+    transition: opacity var(--duration-moderate);
     width: 1.25rem;
     height: 1.25rem;
   }
@@ -404,7 +404,7 @@
     flex-direction: column;
     gap: var(--space-2);
     cursor: pointer;
-    transition: transform 200ms;
+    transition: transform var(--duration-moderate);
   }
   .swatch:hover {
     transform: scale(1.02);
@@ -415,7 +415,7 @@
     border-radius: var(--radius-md);
     border: 1px solid var(--color-border);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    transition: box-shadow 200ms, border-color 200ms;
+    transition: box-shadow var(--duration-moderate), border-color var(--duration-moderate);
   }
   .swatch:hover .swatch-color {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -528,7 +528,7 @@
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
-    transition: border-color 200ms, background-color 200ms, transform 200ms;
+    transition: border-color var(--duration-moderate), background-color var(--duration-moderate), transform var(--duration-moderate);
     cursor: pointer;
     font-size: 0.75rem;
   }
@@ -544,7 +544,7 @@
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
-    transition: box-shadow 200ms;
+    transition: box-shadow var(--duration-moderate);
   }
   .blog-card:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -586,7 +586,7 @@
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
-    transition: border-color 200ms, transform 200ms, box-shadow 200ms;
+    transition: border-color var(--duration-moderate), transform var(--duration-moderate), box-shadow var(--duration-moderate);
   }
   .price-card:hover {
     border-color: var(--color-accent);
@@ -640,16 +640,16 @@
     margin-bottom: var(--space-6);
   }
 
-  /* Animations — 200-300ms smooth transitions */
+  /* Animations — smooth transitions using duration tokens */
   @media (prefers-reduced-motion: no-preference) {
     .animate-fade-in {
-      animation: fade-in 300ms ease-out;
+      animation: fade-in var(--duration-slow-base) ease-out;
     }
     .animate-slide-up {
-      animation: slide-up 300ms ease-out;
+      animation: slide-up var(--duration-slow-base) ease-out;
     }
     .animate-scale-in {
-      animation: scale-in 300ms ease-out;
+      animation: scale-in var(--duration-slow-base) ease-out;
     }
 
     @keyframes fade-in {
@@ -761,7 +761,7 @@
     font-size: 0.85rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 200ms;
+    transition: all var(--duration-moderate);
     text-decoration: none;
     min-height: 2.25rem;
   }
@@ -860,7 +860,7 @@
     color: var(--color-fg);
     font-size: 0.9rem;
     font-family: inherit;
-    transition: border-color 200ms, background-color 200ms;
+    transition: border-color var(--duration-moderate), background-color var(--duration-moderate);
   }
   .form-input:focus,
   .form-select:focus,
@@ -1000,7 +1000,7 @@
     border-radius: var(--radius-sm);
     cursor: pointer;
     font-size: 0.8rem;
-    transition: all 200ms;
+    transition: all var(--duration-moderate);
   }
   .pagination-btn:hover:not(:disabled),
   .pagination-dot:hover {
@@ -1037,7 +1037,7 @@
     justify-content: space-between;
     align-items: center;
     user-select: none;
-    transition: background-color 200ms;
+    transition: background-color var(--duration-moderate);
     font-size: 0.9rem;
   }
   .faq-summary:hover {
@@ -1090,7 +1090,7 @@
     color: var(--color-muted);
     text-decoration: none;
     margin-bottom: var(--space-1);
-    transition: color 200ms;
+    transition: color var(--duration-moderate);
     font-size: 0.8rem;
   }
   .footer-link:hover {
@@ -1209,8 +1209,8 @@
   .aspect-video { aspect-ratio: 16 / 9; }
 
   /* Transitions */
-  .transition-fast { transition: all 100ms ease; }
-  .transition-base { transition: all 200ms ease; }
+  .transition-fast { transition: all var(--duration-fast) ease; }
+  .transition-base { transition: all var(--duration-moderate) ease; }
   .transition-slow { transition: all 400ms ease; }
 
   /* Breadcrumbs */
@@ -1224,7 +1224,7 @@
   .breadcrumb-item {
     color: var(--color-muted);
     text-decoration: none;
-    transition: color 200ms;
+    transition: color var(--duration-moderate);
   }
   .breadcrumb-item:hover {
     color: var(--color-accent);
@@ -1273,7 +1273,7 @@
     background: var(--color-subtle);
     text-align: center;
     cursor: pointer;
-    transition: all 200ms;
+    transition: all var(--duration-moderate);
   }
   .file-upload:hover,
   .file-upload.dragover {
@@ -1341,7 +1341,7 @@
     padding: var(--space-2);
     border-bottom: 1px solid var(--color-border);
     cursor: pointer;
-    transition: background-color 200ms;
+    transition: background-color var(--duration-moderate);
     font-size: 0.8rem;
   }
   .search-result:last-child {
