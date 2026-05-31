@@ -118,27 +118,97 @@
             <div class="swatch"><div class="swatch-color" style="background:var(--info)"></div><div class="swatch-meta"><div class="swatch-name">info</div></div></div>
             <div class="swatch"><div class="swatch-color" style="background:var(--info-strong)"></div><div class="swatch-meta"><div class="swatch-name">info-strong</div></div></div>
           </div>
+
+          <div class="doc-sub">Semantic Token System</div>
+          <div class="stack-tight">
+            <div><strong>-subtle</strong> — Low contrast backgrounds, UI surfaces (WCAG AA with text)</div>
+            <div><strong>-base</strong> — Interactive states, primary color indicator (WCAG AA with white)</div>
+            <div><strong>-strong</strong> — High contrast, text foreground, emphasis (WCAG AAA with white)</div>
+          </div>
+
+          <div class="doc-sub">Accessibility</div>
+          <div class="a11y-checklist">
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>All semantic colors meet WCAG AA contrast (4.5:1 for text)</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Never use color alone to convey information (pair with icons or text)</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Grayscale mode: colors remain distinct by luminance differences</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Same token names, same semantic meaning in light and dark modes</span>
+            </div>
+          </div>
         </section>
 
         <!-- ELEVATION SYSTEM -->
         <section class="doc-section" id="elevation">
           <h2 class="doc-section-title">Elevation & Shadows</h2>
-          <p class="doc-section-desc">5-level shadow system for depth and layering. Invisible on surfaces, visible on cards and elevated components.</p>
+          <p class="doc-section-desc">5-level shadow system for precise depth and visual hierarchy. Shadows increase perceived elevation and layering.</p>
 
           <div class="doc-sub">Shadow Levels</div>
           <div class="elevation-grid">
-            <div class="elevation-sample elevation-0">xs — Subtle</div>
-            <div class="elevation-sample elevation-1">sm — Minimal lift</div>
-            <div class="elevation-sample elevation-2">md — Component hover</div>
-            <div class="elevation-sample elevation-3">lg — Modal base</div>
-            <div class="elevation-sample elevation-4">xl — Dropdown menu</div>
+            <div class="elevation-sample elevation-0">Elevation 0<br><small>No shadow<br>Flush surface</small></div>
+            <div class="elevation-sample elevation-1">Elevation 1<br><small>xs shadow<br>Minimal lift</small></div>
+            <div class="elevation-sample elevation-2">Elevation 2<br><small>sm shadow<br>Subtle hover</small></div>
+            <div class="elevation-sample elevation-3">Elevation 3<br><small>md shadow<br>Component lift</small></div>
+            <div class="elevation-sample elevation-4">Elevation 4<br><small>lg shadow<br>Modal base</small></div>
+            <div class="elevation-sample elevation-5">Elevation 5<br><small>xl shadow<br>Dropdown/menu</small></div>
+          </div>
+
+          <div class="doc-sub">Component Usage Map</div>
+          <div class="stack-tight">
+            <div><strong>xs (--shadow-xs)</strong> — Hover states, subtle lift on cards</div>
+            <div><strong>sm (--shadow-sm)</strong> — Resting cards, input focus, light interactivity</div>
+            <div><strong>md (--shadow-md)</strong> — Sticky headers, floating actions, component lift</div>
+            <div><strong>lg (--shadow-lg)</strong> — Modal dialogs, bottom sheets, overlays</div>
+            <div><strong>xl (--shadow-xl)</strong> — Dropdown menus, tooltips, top-level modals</div>
           </div>
 
           <div class="doc-sub">Real Examples</div>
-          <div class="cluster cluster-tight" style="align-items: flex-start">
-            <div style="width: 8rem; padding: var(--space-3); background: var(--color-surface); box-shadow: var(--shadow-sm); border-radius: var(--radius-md); text-align: center; font-size: var(--text-xs); color: var(--color-muted)">Card (sm shadow)</div>
-            <div style="width: 8rem; padding: var(--space-3); background: var(--color-surface); box-shadow: var(--shadow-lg); border-radius: var(--radius-md); text-align: center; font-size: var(--text-xs); color: var(--color-muted)">Modal (lg shadow)</div>
-            <div style="width: 8rem; padding: var(--space-3); background: var(--color-surface); box-shadow: var(--shadow-xl); border-radius: var(--radius-md); text-align: center; font-size: var(--text-xs); color: var(--color-muted)">Tooltip (xl shadow)</div>
+          <div class="cluster cluster-tight" style="align-items: flex-start; gap: var(--space-4)">
+            <div style="width: 9rem; padding: var(--space-4); background: var(--color-surface); box-shadow: var(--shadow-sm); border-radius: var(--radius-md); text-align: center">
+              <div style="font-size: var(--text-xs); color: var(--color-muted); margin-bottom: var(--space-2)">Card<br>sm shadow</div>
+              <div style="font-size: var(--text-sm); font-weight: 500">Content here</div>
+            </div>
+            <div style="width: 9rem; padding: var(--space-4); background: var(--color-surface); box-shadow: var(--shadow-md); border-radius: var(--radius-md); text-align: center">
+              <div style="font-size: var(--text-xs); color: var(--color-muted); margin-bottom: var(--space-2)">Floating<br>md shadow</div>
+              <div style="font-size: var(--text-sm); font-weight: 500">Action</div>
+            </div>
+            <div style="width: 9rem; padding: var(--space-4); background: var(--color-surface); box-shadow: var(--shadow-lg); border-radius: var(--radius-md); text-align: center">
+              <div style="font-size: var(--text-xs); color: var(--color-muted); margin-bottom: var(--space-2)">Modal<br>lg shadow</div>
+              <div style="font-size: var(--text-sm); font-weight: 500">Dialog</div>
+            </div>
+            <div style="width: 9rem; padding: var(--space-4); background: var(--color-surface); box-shadow: var(--shadow-xl); border-radius: var(--radius-md); text-align: center">
+              <div style="font-size: var(--text-xs); color: var(--color-muted); margin-bottom: var(--space-2)">Menu<br>xl shadow</div>
+              <div style="font-size: var(--text-sm); font-weight: 500">Dropdown</div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Shadow Principles</div>
+          <div class="a11y-checklist">
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Shadows increase progressively for clear hierarchy</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Consistent shadow direction simulates consistent light source</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Shadows work in both light and dark modes (same values)</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Use semantic shadow tokens (--shadow-*) not hardcoded values</span>
+            </div>
           </div>
         </section>
 
@@ -200,11 +270,41 @@
         <!-- MOTION -->
         <section class="doc-section" id="motion">
           <h2 class="doc-section-title">Motion-system</h2>
-          <p class="doc-section-desc">Entrance animations + transitions. Editorial: 250-400ms. Respects prefers-reduced-motion.</p>
+          <p class="doc-section-desc">Entrance animations and transitions. Editorial timing: 250-400ms. Always respects prefers-reduced-motion.</p>
+
+          <div class="doc-sub">Entrance Animations</div>
           <div class="grid-auto">
-            <div class="feature-card animate-fade-in">fade-in</div>
-            <div class="feature-card animate-slide-up">slide-up</div>
-            <div class="feature-card animate-scale-in">scale-in</div>
+            <div class="feature-card animate-fade-in">fade-in<br><small>Opacity 0 → 1</small></div>
+            <div class="feature-card animate-slide-up">slide-up<br><small>Transform translate</small></div>
+            <div class="feature-card animate-scale-in">scale-in<br><small>Transform scale</small></div>
+          </div>
+
+          <div class="doc-sub">Timing Durations</div>
+          <div class="stack-tight">
+            <div><strong>--duration-fast</strong> (150ms) — Hover states, small interactions</div>
+            <div><strong>--duration-base</strong> (250ms) — Standard transitions, component movements</div>
+            <div><strong>--duration-moderate</strong> (300ms) — Multi-step animations, delays</div>
+            <div><strong>--duration-slow</strong> (400ms) — Page entrance, hero animations</div>
+          </div>
+
+          <div class="doc-sub">Motion Principles</div>
+          <div class="a11y-checklist">
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Always use duration tokens (--duration-*), never hardcoded values</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Respect prefers-reduced-motion via CSS @media query</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Use easing functions for natural movement (ease-out, cubic-bezier)</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Keep animations under 400ms for responsiveness</span>
+            </div>
           </div>
         </section>
 
