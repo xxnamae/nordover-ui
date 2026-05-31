@@ -932,9 +932,10 @@
         <!-- ACCORDION -->
         <section class="doc-section" id="accordion">
           <h2 class="doc-section-title">Accordion / Details</h2>
-          <p class="doc-section-desc">Collapsible content sections. Uses semantic &lt;details&gt; and &lt;summary&gt; elements for accessibility. Keyboard navigation built-in (space/enter to toggle, tab to navigate).</p>
+          <p class="doc-section-desc">Collapsible content sections. Semantic &lt;details&gt; and &lt;summary&gt; elements with progressive disclosure. Full keyboard support and screen reader accessibility.</p>
           <div class="chips"><span class="chip">.faq-item</span><span class="chip">.faq-summary</span><span class="chip">.faq-answer</span></div>
 
+          <div class="doc-sub">Example — FAQ Pattern</div>
           <div class="stack" style="max-width:36rem">
             <details class="faq-item" open>
               <summary class="faq-summary">What is a design system?</summary>
@@ -952,6 +953,30 @@
               <summary class="faq-summary">Can I use this with my tech stack?</summary>
               <p class="faq-answer">Yes. Nordover is pure CSS and HTML with no framework dependencies. Use it with React, Vue, Svelte, or vanilla JavaScript. The CSS is modular and can be imported partially.</p>
             </details>
+          </div>
+
+          <div class="doc-sub">Accessibility & Keyboard Interaction</div>
+          <div class="a11y-checklist">
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Uses semantic &lt;details&gt; and &lt;summary&gt; elements (native HTML)</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Keyboard: Space/Enter toggles open/close state</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Focus indicator visible on summary element</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Screen readers announce expanded/collapsed state</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>All open/close states animated with prefers-reduced-motion support</span>
+            </div>
           </div>
         </section>
 
@@ -1000,6 +1025,30 @@
                 <div class="tag-suggestion">angular</div>
                 <div class="tag-suggestion">preact</div>
               </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Usage Guidelines</div>
+          <div class="a11y-checklist">
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Badges are informational — not interactive</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Remove buttons have aria-label and clear focus indication</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Tag removal can be undone or clearly communicated</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Color supplemented with text for meaning</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Keyboard: Tab/Enter for remove button, arrow keys for suggestions</span>
             </div>
           </div>
         </section>
@@ -1176,6 +1225,30 @@
                 <div class="field"><label class="field-label">Street</label><input class="form-input" type="text" placeholder="123 Main St"></div>
                 <div class="field"><label class="field-label">City</label><input class="form-input" type="text" placeholder="Oslo"></div>
               </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Stepper Accessibility</div>
+          <div class="a11y-checklist">
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Current step marked with .active class and aria-current="step"</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Completed steps show checkmark or completion indicator</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Step labels are descriptive and linked to form sections</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Progress announced to screen readers as percentage or step count</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Navigation buttons (Next/Previous) clearly labeled</span>
             </div>
           </div>
         </section>

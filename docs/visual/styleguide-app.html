@@ -753,13 +753,39 @@
         <!-- STEPPER (App variant) -->
         <section class="doc-section" id="stepper">
           <h2 class="doc-section-title">Stepper / Multi-Step</h2>
-          <p class="doc-section-desc">Progress indicator for app onboarding or multi-step workflows. Compact, horizontal layout.</p>
-          <div class="chips"><span class="chip">.stepper</span><span class="chip">.stepper-step.active</span></div>
+          <p class="doc-section-desc">Compact progress indicator for app onboarding or multi-step workflows. Horizontal layout with progress tracking.</p>
+          <div class="chips"><span class="chip">.stepper</span><span class="chip">.stepper-step.active</span><span class="chip">.stepper-step.completed</span></div>
+
+          <div class="doc-sub">Progress Flow</div>
           <div class="doc-demo stack" style="gap:var(--space-3)">
             <div class="stepper" style="gap:var(--space-2)">
               <div class="stepper-step completed"><div class="stepper-circle" style="font-size:var(--text-sm)">✓</div><div class="stepper-label">Setup</div></div>
               <div class="stepper-step active"><div class="stepper-circle" style="font-size:var(--text-sm)">2</div><div class="stepper-label">Profile</div></div>
               <div class="stepper-step"><div class="stepper-circle" style="font-size:var(--text-sm)">3</div><div class="stepper-label">Integrate</div></div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Accessibility</div>
+          <div class="a11y-checklist">
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Active step marked with .active class and aria-current="step"</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Completed steps show checkmark indicator</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Progress announced: "Step 2 of 3" or similar</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Labels are descriptive and linked to form sections</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Navigation buttons clearly labeled (Next, Skip, etc.)</span>
             </div>
           </div>
         </section>
@@ -1659,7 +1685,9 @@
 
         <section class="doc-section" id="accordion">
           <h2 class="doc-section-title">Accordion / Details</h2>
-          <p class="doc-section-desc">Collapsible content sections. Fully accessible keyboard navigation and semantic HTML.</p>
+          <p class="doc-section-desc">Collapsible content sections using semantic &lt;details&gt; elements. Progressive disclosure, fully keyboard accessible, no JavaScript required.</p>
+
+          <div class="doc-sub">Example — FAQ</div>
           <div class="stack" style="max-width:28rem">
             <details class="faq-item" open>
               <summary class="faq-summary">How do I use the framework?</summary>
@@ -1673,6 +1701,30 @@
               <summary class="faq-summary">Is it mobile-friendly?</summary>
               <p class="faq-answer">Yes. All components use mobile-first responsive design with clamp() for fluid sizing. Test on real devices for best results.</p>
             </details>
+          </div>
+
+          <div class="doc-sub">Accessibility & Keyboard</div>
+          <div class="a11y-checklist">
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Semantic &lt;details&gt; and &lt;summary&gt; elements (native HTML)</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Space/Enter toggles open/close (native browser support)</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Focus visible on summary elements</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Screen readers announce expanded/collapsed state</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Smooth animations with prefers-reduced-motion support</span>
+            </div>
           </div>
         </section>
 
