@@ -98,7 +98,9 @@
         <a class="app-nav-item" href="#overlays"><svg class="icon"><use href="#i-info"/></svg> Modals</a>
         <a class="app-nav-item" href="#accordion"><svg class="icon"><use href="#i-edit"/></svg> Accordion</a>
         <a class="app-nav-item" href="#tags"><svg class="icon"><use href="#i-check"/></svg> Tags & Badges</a>
+        <a class="app-nav-item" href="#form-patterns"><svg class="icon"><use href="#i-edit"/></svg> Form Patterns</a>
         <a class="app-nav-item" href="#dashboard-pattern"><svg class="icon"><use href="#i-chart"/></svg> Dashboard</a>
+        <a class="app-nav-item" href="#footers-app"><svg class="icon"><use href="#i-info"/></svg> Footers & Layout</a>
       </nav>
     </div>
 
@@ -3125,6 +3127,36 @@ document.querySelectorAll('.app-sidebar-toggle').forEach(btn => {
     group.classList.toggle('active');
   });
 });
+
+// Copy code function for pattern examples
+function copyCode(button) {
+  var codeBlock = button.previousElementSibling;
+  if (!codeBlock) return;
+
+  // Get the inner HTML and strip button elements
+  var html = codeBlock.innerHTML;
+  html = html.replace(/<button[^>]*>.*?<\/button>/g, '');
+
+  // Convert HTML entities
+  var textArea = document.createElement('textarea');
+  textArea.innerHTML = html;
+  var code = textArea.value;
+
+  // Copy to clipboard
+  navigator.clipboard.writeText(code.trim()).then(function() {
+    var originalText = button.textContent;
+    button.textContent = 'Copied!';
+    setTimeout(function() {
+      button.textContent = originalText;
+    }, 2000);
+  }).catch(function(err) {
+    console.error('Failed to copy:', err);
+    button.textContent = 'Failed';
+    setTimeout(function() {
+      button.textContent = 'Copy';
+    }, 2000);
+  });
+}
 
 </script>
 <!-- Hidden class reference for documentation completeness -->
