@@ -44,9 +44,9 @@
   .cluster { display: flex; flex-wrap: wrap; gap: var(--gap-component); align-items: center; }
   .cluster-tight { gap: var(--gap-tight); }
   .grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr)); gap: var(--gap-component); } /* 16rem = --grid-min */
-  .page { display: flex; flex-direction: column; gap: var(--spacing-section); padding-inline: var(--page-padding); }
-  .page-section { padding-block: var(--spacing-section); }
-  .page-content { max-width: var(--w-5xl); margin-inline: auto; }
+  .page { display: flex; flex-direction: column; gap: var(--spacing-section); padding-inline: var(--page-padding); width: 100%; max-width: 100%; overflow-x: hidden; }
+  .page-section { padding-block: var(--spacing-section); width: 100%; max-width: 100%; }
+  .page-content { max-width: var(--w-5xl); margin-inline: auto; width: 100%; }
 
   /* Icon sizing */
   .icon { width: var(--size-icon); height: var(--size-icon); stroke: currentColor; stroke-width: 1.5; fill: none; flex-shrink: 0; }
@@ -98,6 +98,8 @@
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
     min-height: 100vh;
+    max-width: 100%;
+    overflow-x: hidden;
     background: var(--color-bg);
     color: var(--color-fg);
     transition: background-color var(--duration-moderate), color var(--duration-moderate);
@@ -213,6 +215,8 @@
     grid-column: 1;
     grid-row: 1 / -1;
     width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
   }
   @media (min-width: 48rem) /* --bp-desktop */ {
     .app-main {
@@ -2008,13 +2012,18 @@
     .blog-card-image { width: 8rem; height: auto; }
   }
   @media (max-width: 36rem) /* --bp-tablet */ {
-    .page { padding-inline: var(--space-4); }
+    html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
+    .app, .app-main { width: 100%; max-width: 100%; overflow-x: hidden; }
+    .page { padding-inline: var(--space-3); width: 100%; max-width: 100%; overflow-x: hidden; }
+    .page-section, .page-content { width: 100%; max-width: 100%; }
     .app-topbar-title { font-size: var(--text-sm); font-weight: 600; }
     .app-sidebar { padding: var(--space-3); padding-top: var(--space-4); }
     .app-sidebar-brand { font-size: var(--text-sm); }
     .app-nav-item { font-size: var(--text-xs); padding: var(--space-2); }
     .app-sidebar-section { font-size: var(--text-xs); }
     .modal-dialog { max-width: 100%; width: 95vw; }
+    .table-responsive { width: 100%; overflow-x: auto; max-width: 100%; }
+    .table, .data-table { width: 100%; max-width: 100%; overflow-x: auto; }
     .hero-centered { padding: var(--space-6) var(--space-3); }
     .empty-state { padding: var(--space-6) var(--space-3); }
     .cta-card { padding: var(--space-5) var(--space-3); }
