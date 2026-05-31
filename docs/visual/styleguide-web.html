@@ -49,6 +49,7 @@
         <a class="app-nav-item" href="#colors">Farger & gråskala</a>
         <a class="app-nav-item" href="#type">Typografi</a>
         <a class="app-nav-item" href="#scales">Skalaer & enheter</a>
+        <a class="app-nav-item" href="#layout-primitives">Layout Primitives</a>
         <a class="app-nav-item" href="#motion">Motion</a>
         <a class="app-nav-item" href="#icons">Icons</a>
       </nav>
@@ -354,6 +355,119 @@
             <div><strong>gap-component</strong>: var(--space-5) · 24px — Between components</div>
             <div><strong>gap-section</strong>: var(--space-8) · 48px — Between sections</div>
             <div><strong>spacing-section</strong>: clamp(96px, 12vw, 160px) — Editorial space</div>
+          </div>
+        </section>
+
+        <!-- LAYOUT PRIMITIVES — Flex, grid, stacks -->
+        <section class="doc-section" id="layout-primitives" data-section="foundation" data-category="layout">
+          <h2 class="doc-section-title">Layout Primitives</h2>
+          <p class="doc-section-desc">Core layout building blocks: stacks, clusters, and grids. These combine flexbox and grid with semantic gap tokens for consistent spacing across all layouts.</p>
+          <div class="chips"><span class="chip">.stack</span><span class="chip">.stack-tight</span><span class="chip">.cluster</span><span class="chip">.cluster-tight</span><span class="chip">.grid-auto</span><span class="chip">.page</span><span class="chip">.page-section</span><span class="chip">.page-content</span></div>
+
+          <div class="doc-sub">Stack — Vertical Layout (.stack)</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Arranges children vertically (flex-direction: column) with consistent gap between items. Use .stack-tight for smaller gaps.</p>
+          <div style="display:flex;gap:var(--space-6)">
+            <div style="flex:1;padding:var(--space-3);background:var(--color-subtle);border-radius:var(--radius-md)">
+              <div style="font-size:var(--text-xs);color:var(--color-muted);margin-bottom:var(--space-2)">Normal Stack</div>
+              <div class="stack" style="gap:var(--space-2);font-size:var(--text-sm)">
+                <div style="padding:var(--space-2);background:var(--color-surface);border-radius:var(--radius-sm)">Item 1</div>
+                <div style="padding:var(--space-2);background:var(--color-surface);border-radius:var(--radius-sm)">Item 2</div>
+                <div style="padding:var(--space-2);background:var(--color-surface);border-radius:var(--radius-sm)">Item 3</div>
+              </div>
+            </div>
+            <div style="flex:1;padding:var(--space-3);background:var(--color-subtle);border-radius:var(--radius-md)">
+              <div style="font-size:var(--text-xs);color:var(--color-muted);margin-bottom:var(--space-2)">Tight Stack</div>
+              <div class="stack-tight" style="gap:var(--space-1);font-size:var(--text-sm)">
+                <div style="padding:var(--space-2);background:var(--color-surface);border-radius:var(--radius-sm)">Item 1</div>
+                <div style="padding:var(--space-2);background:var(--color-surface);border-radius:var(--radius-sm)">Item 2</div>
+                <div style="padding:var(--space-2);background:var(--color-surface);border-radius:var(--radius-sm)">Item 3</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Cluster — Horizontal Wrapping (.cluster)</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Arranges children horizontally (flex-wrap: wrap) with centering. Breaks to multiple lines on mobile. Perfect for button groups, filter chips, tags.</p>
+          <div style="padding:var(--space-3);background:var(--color-subtle);border-radius:var(--radius-md);margin-bottom:var(--space-3)">
+            <div class="cluster" style="gap:var(--space-2)">
+              <button class="btn btn-sm btn-secondary">Filter 1</button>
+              <button class="btn btn-sm btn-secondary">Filter 2</button>
+              <button class="btn btn-sm btn-secondary">Filter 3</button>
+              <button class="btn btn-sm btn-secondary">Filter 4</button>
+              <button class="btn btn-sm btn-secondary">Filter 5</button>
+            </div>
+          </div>
+
+          <div class="doc-sub">Grid Auto — Responsive Grid (.grid-auto)</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Auto-fit grid with minimum column width of 16rem. Adapts from 1 column (mobile) to 2-4 columns (desktop). Perfect for card grids, product listings.</p>
+          <div class="grid-auto" style="gap:var(--space-3)">
+            <div style="padding:var(--space-3);background:var(--color-surface);border:var(--border-card);border-radius:var(--radius-md);text-align:center">
+              <div style="font-size:var(--text-sm);color:var(--color-muted)">Card 1</div>
+            </div>
+            <div style="padding:var(--space-3);background:var(--color-surface);border:var(--border-card);border-radius:var(--radius-md);text-align:center">
+              <div style="font-size:var(--text-sm);color:var(--color-muted)">Card 2</div>
+            </div>
+            <div style="padding:var(--space-3);background:var(--color-surface);border:var(--border-card);border-radius:var(--radius-md);text-align:center">
+              <div style="font-size:var(--text-sm);color:var(--color-muted)">Card 3</div>
+            </div>
+            <div style="padding:var(--space-3);background:var(--color-surface);border:var(--border-card);border-radius:var(--radius-md);text-align:center">
+              <div style="font-size:var(--text-sm);color:var(--color-muted)">Card 4</div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Page Layout Structure (.page, .page-section, .page-content)</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Semantic page structure with consistent padding and max-width constraints. Use for full-width pages with centered content area.</p>
+          <div style="background:var(--color-subtle);border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-3);overflow-x:auto;font-family:var(--font-mono);font-size:var(--text-xs);line-height:1.5">
+            <code style="color:var(--color-fg)">&lt;div class="page"&gt;
+  &lt;section class="page-section"&gt;
+    &lt;div class="page-content"&gt;
+      &lt;!-- Content stays centered, max 80ch wide --&gt;
+      &lt;h1&gt;Section Title&lt;/h1&gt;
+      &lt;p&gt;Content here...&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class="page-section"&gt;
+    &lt;div class="page-content"&gt;
+      &lt;!-- Another section --&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+&lt;/div&gt;</code>
+          </div>
+
+          <div class="doc-sub">Layout Primitives Reference</div>
+          <div class="stack-tight" style="font-size:var(--text-sm)">
+            <div><strong>.stack</strong> — display: flex; flex-direction: column; gap: var(--gap-component)</div>
+            <div><strong>.stack-tight</strong> — Same as stack but gap: var(--gap-tight) for compact layouts</div>
+            <div><strong>.cluster</strong> — display: flex; flex-wrap: wrap; align-items: center; gap: var(--gap-component)</div>
+            <div><strong>.cluster-tight</strong> — Same as cluster but gap: var(--gap-tight)</div>
+            <div><strong>.grid-auto</strong> — display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: var(--gap-component)</div>
+            <div><strong>.page</strong> — Flex column with padding-inline and full width. Use as page wrapper</div>
+            <div><strong>.page-section</strong> — Block with padding-block (responsive spacing). Direct child of .page</div>
+            <div><strong>.page-content</strong> — Max-width container, centered via margin-inline: auto</div>
+          </div>
+
+          <div class="doc-sub">Best Practices for Layout</div>
+          <div class="a11y-checklist">
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Always use gap instead of margin between items (cleaner, easier to maintain)</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Combine primitives: stack inside cluster for flexible layouts</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Use .grid-auto for responsive card layouts — works on mobile through desktop</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Use .page/.page-section for full-width pages with centered content</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Avoid nested divs — use semantic HTML (section, article, main)</span>
+            </div>
           </div>
         </section>
 
@@ -1134,6 +1248,116 @@
             <div><strong>Batch toolbar</strong> — Float above table, auto-show when rows selected</div>
             <div><strong>Keyboard nav</strong> — Tab/Shift+Tab for checkboxes, Enter to toggle selection</div>
           </div>
+
+          <div class="doc-sub">Data Table with Multiple Features (Advanced Example)</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Combining sort, filter, and inline editing in a single table. All features work together seamlessly.</p>
+          <div style="max-width:100%;overflow-x:auto">
+            <div class="data-table-filter" style="margin-bottom:var(--space-3)">
+              <input class="form-input" type="text" placeholder="Search by name..." style="flex:1">
+              <select class="form-select" style="flex:1">
+                <option>All departments</option>
+                <option>Engineering</option>
+                <option>Design</option>
+                <option>Marketing</option>
+              </select>
+            </div>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th scope="col" class="sortable">Name</th>
+                  <th scope="col" class="sortable sort-asc">Department</th>
+                  <th scope="col">Contact</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Emma Wilson</strong></td>
+                  <td>Engineering</td>
+                  <td>emma@example.com</td>
+                  <td><span class="badge badge-success">Active</span></td>
+                  <td style="font-size:var(--text-xs)"><button class="btn btn-ghost btn-sm" aria-label="Edit Emma Wilson">Edit</button></td>
+                </tr>
+                <tr>
+                  <td><strong>Frank Davis</strong></td>
+                  <td>Design</td>
+                  <td>frank@example.com</td>
+                  <td><span class="badge badge-success">Active</span></td>
+                  <td style="font-size:var(--text-xs)"><button class="btn btn-ghost btn-sm">Edit</button></td>
+                </tr>
+                <tr>
+                  <td><strong>Grace Lee</strong></td>
+                  <td>Design</td>
+                  <td>grace@example.com</td>
+                  <td><span class="badge badge-warning">Away</span></td>
+                  <td style="font-size:var(--text-xs)"><button class="btn btn-ghost btn-sm">Edit</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="doc-sub">Table Sort Implementation</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Use .sort-asc or .sort-desc on &lt;th&gt; to show sort direction. Update aria-sort="ascending|descending" on button element.</p>
+          <div style="background:var(--color-subtle);border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-3);overflow-x:auto;font-family:var(--font-mono);font-size:var(--text-xs);line-height:1.5">
+            <code style="color:var(--color-fg)">&lt;th scope="col" class="sort-asc"&gt;
+  &lt;button class="table-sort" aria-sort="ascending"&gt;
+    Name
+  &lt;/button&gt;
+&lt;/th&gt;
+
+&lt;!-- CSS will add ▲ or ▼ via ::after pseudo-element --&gt;</code>
+          </div>
+
+          <div class="doc-sub">Inline Edit Pattern (Click to Edit)</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">When user clicks cell, show input field. Save on blur or Enter key. Use .data-table-inline-edit for styled input.</p>
+          <div style="overflow-x:auto">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Role</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Henry Martinez</td>
+                  <td><input class="data-table-inline-edit" type="email" value="henry@example.com" style="width:100%;border:var(--border-card);border-radius:var(--radius-sm);padding:var(--space-1) var(--space-2);font-size:var(--text-sm)"></td>
+                  <td>Lead Designer</td>
+                </tr>
+                <tr>
+                  <td>Iris Chen</td>
+                  <td>iris@example.com</td>
+                  <td><input class="data-table-inline-edit" type="text" value="Engineer" style="width:100%;border:var(--border-card);border-radius:var(--radius-sm);padding:var(--space-1) var(--space-2);font-size:var(--text-sm)"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="doc-sub">Table Filter Implementation</div>
+          <div class="a11y-checklist">
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Place filter controls in .data-table-filter above table</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Use aria-label on filter inputs for context</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Announce filtered results count via aria-live region</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Preserve sort and filter state when editing</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Support keyboard navigation (Tab, Enter, Arrow keys in select)</span>
+            </div>
+          </div>
         </section>
 
         <!-- PAGINATION — Multi-page navigation controls -->
@@ -1261,6 +1485,39 @@
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</pre>
+          </div>
+
+          <div class="doc-sub">Modal Sizes</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Modals scale based on content width (max-width: var(--w-lg) for large). Small dialogs fit alerts; large dialogs handle forms.</p>
+          <div class="cluster cluster-tight" style="gap:var(--space-4)">
+            <div style="flex:1;min-width:12rem;padding:var(--space-3);background:var(--color-subtle);border-radius:var(--radius-md);text-align:center">
+              <div style="font-size:var(--text-sm);color:var(--color-muted);margin-bottom:var(--space-2)">Small Modal</div>
+              <div style="font-size:var(--text-xs);color:var(--color-muted)">Alerts, confirmations<br>~30rem max-width</div>
+            </div>
+            <div style="flex:1;min-width:16rem;padding:var(--space-3);background:var(--color-subtle);border-radius:var(--radius-md);text-align:center">
+              <div style="font-size:var(--text-sm);color:var(--color-muted);margin-bottom:var(--space-2)">Large Modal</div>
+              <div style="font-size:var(--text-xs);color:var(--color-muted)">Forms, complex content<br>~44rem max-width</div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Advanced Modal Pattern (Full Page Override)</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Use .modal.open to display. Backdrop overlay covers page content, modal-dialog stays centered. Perfect for critical user actions.</p>
+          <div style="background:var(--color-subtle);border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-4);overflow-x:auto;font-family:var(--font-mono);font-size:var(--text-xs);line-height:1.5">
+            <code style="color:var(--color-fg)">&lt;!-- Trigger modal with .open class via JavaScript --&gt;
+&lt;div class="modal open"&gt;
+  &lt;div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="title"&gt;
+    &lt;div class="modal-header"&gt;
+      &lt;h2 class="t-heading-sm" id="title"&gt;Are you sure?&lt;/h2&gt;
+    &lt;/div&gt;
+    &lt;div class="modal-body"&gt;
+      &lt;p&gt;This action cannot be undone.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="modal-footer"&gt;
+      &lt;button class="btn btn-ghost"&gt;Cancel&lt;/button&gt;
+      &lt;button class="btn btn-primary" style="background:var(--color-error)"&gt;Delete&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code>
           </div>
 
           <div class="doc-sub">Implementation Notes</div>
@@ -1419,6 +1676,66 @@
             </div>
           </div>
 
+          <div class="doc-sub">Advanced Tag Input Features</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Full tag input system with autocomplete suggestions, keyboard navigation, and dynamic tag management.</p>
+          <div style="background:var(--color-subtle);border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-3);overflow-x:auto;font-family:var(--font-mono);font-size:var(--text-xs);line-height:1.5">
+            <code style="color:var(--color-fg)">&lt;div class="tag-input-demo"&gt;
+  &lt;div class="field"&gt;
+    &lt;label class="field-label"&gt;Skills&lt;/label&gt;
+    &lt;div class="tag-input" role="combobox" aria-expanded="false"&gt;
+      &lt;div class="tag-list" role="region" aria-label="Selected tags"&gt;
+        &lt;span class="tag"&gt;React &lt;button class="tag-remove"&gt;×&lt;/button&gt;&lt;/span&gt;
+        &lt;span class="tag"&gt;CSS &lt;button class="tag-remove"&gt;×&lt;/button&gt;&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;input class="tag-input-field" type="text" placeholder="Type skill..."&gt;
+    &lt;/div&gt;
+    &lt;div class="tag-suggestions"&gt;
+      &lt;div class="tag-suggestion"&gt;TypeScript&lt;/div&gt;
+      &lt;div class="tag-suggestion"&gt;Vue&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code>
+          </div>
+
+          <div class="doc-sub">Tag Input Components Reference</div>
+          <div class="stack-tight" style="font-size:var(--text-sm)">
+            <div><strong>.tag-input</strong> — Container for tags and input field. Has focus-within styling</div>
+            <div><strong>.tag-list</strong> — Flex container for selected tags. Use role="region" for accessibility</div>
+            <div><strong>.tag</strong> — Individual tag with optional remove button</div>
+            <div><strong>.tag-remove</strong> — Remove button (×). Should have aria-label</div>
+            <div><strong>.tag-input-field</strong> — Text input for adding new tags. Flex:1 to fill remaining space</div>
+            <div><strong>.tag-suggestions</strong> — Dropdown list below input. Position: absolute, top: 100%</div>
+            <div><strong>.tag-suggestion</strong> — Individual suggestion item. Click or arrow keys to select</div>
+          </div>
+
+          <div class="doc-sub">Tag Input Keyboard Navigation</div>
+          <div class="a11y-checklist">
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Type to filter suggestions (real-time)</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Arrow Down/Up to navigate suggestions</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Enter or Space to select highlighted suggestion</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Backspace twice to remove last tag (if input empty)</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Tab moves focus out of field; Shift+Tab moves back</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Remove buttons accessible via Tab or focused with arrow keys</span>
+            </div>
+          </div>
+
           <div class="doc-sub">Usage Guidelines</div>
           <div class="a11y-checklist">
             <div class="a11y-item">
@@ -1479,6 +1796,48 @@
           <div class="cluster cluster-tight" style="gap:var(--space-3)">
             <button class="btn btn-primary"><svg class="icon" viewBox="0 0 24 24" style="width:1rem;height:1rem;margin-right:var(--space-1);display:inline"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>Add</button>
             <button class="btn btn-ghost"><svg class="icon" viewBox="0 0 24 24" style="width:1rem;height:1rem;margin-right:var(--space-1);display:inline"><path d="M3 6h18M8 6v12M16 6v12M5 6l1 14h12l1-14" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>Delete</button>
+          </div>
+
+          <div class="doc-sub">Elevated Button (With Shadow)</div>
+          <div class="cluster cluster-tight" style="gap:var(--space-3)">
+            <button class="btn btn-primary btn-elevated">Elevated</button>
+            <button class="btn btn-secondary btn-elevated">Secondary Elevated</button>
+          </div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-2)">Use .btn-elevated for floating action buttons or important CTAs. Adds shadow and hover lift effect.</p>
+
+          <div class="doc-sub">Full Width Button</div>
+          <button class="btn btn-primary w-full">Full Width Button</button>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-2)">Use .w-full for button to span container width. Common in mobile forms and overlays.</p>
+
+          <div class="doc-sub">Button Group (Action Cluster)</div>
+          <div class="cluster" style="gap:var(--space-2)">
+            <button class="btn btn-secondary">Cancel</button>
+            <button class="btn btn-primary">Save Changes</button>
+          </div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-2)">Group related buttons together using .cluster. Secondary action on left, primary on right.</p>
+
+          <div class="doc-sub">Button Accessibility</div>
+          <div class="a11y-checklist">
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>All buttons have clear, descriptive text</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Disabled state visually distinct (reduced opacity)</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Icons have aria-label if text is absent</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Focus ring visible on all keyboard navigation (2px blue outline)</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Minimum touch target size: 44x44px on mobile (.btn-touch)</span>
+            </div>
           </div>
         </section>
 
@@ -3102,80 +3461,124 @@
 
         <!-- UTILITIES REFERENCE CATALOG — Complete utilities index -->
         <section class="doc-section" id="utilities-reference" data-section="utilities" data-category="catalog">
-          <h2 class="doc-section-title">Utilities Reference (Complete Catalog)</h2>
-          <p class="doc-section-desc">Full list of all 140+ utility classes organized by category. Use Ctrl+F to search for specific utilities.</p>
+          <h2 class="doc-section-title">Utilities Reference Catalog (180+ Classes)</h2>
+          <p class="doc-section-desc">Complete inventory of all utility classes organized into 8 categories. Use Ctrl+F to search. All utilities use CSS custom properties and respect cascade without !important flags.</p>
 
-          <div class="doc-sub">Display & Layout (14 classes)</div>
-          <div class="chips"><span class="chip">.flex</span><span class="chip">.flex-col</span><span class="chip">.flex-wrap</span><span class="chip">.inline-flex</span><span class="chip">.block</span><span class="chip">.inline</span><span class="chip">.inline-block</span><span class="chip">.grid</span><span class="chip">.grid-auto</span><span class="chip">.hidden</span><span class="chip">.invisible</span><span class="chip">.relative</span><span class="chip">.absolute</span><span class="chip">.fixed</span></div>
+          <!-- 1. DISPLAY & FLEXBOX -->
+          <div class="doc-sub">1. Display & Flexbox (20 classes)</div>
+          <div class="chips">
+            <span class="chip">.flex</span><span class="chip">.flex-col</span><span class="chip">.flex-row</span><span class="chip">.flex-wrap</span><span class="chip">.flex-nowrap</span>
+            <span class="chip">.inline-flex</span><span class="chip">.block</span><span class="chip">.inline</span><span class="chip">.inline-block</span><span class="chip">.grid</span>
+            <span class="chip">.grid-auto</span><span class="chip">.hidden</span><span class="chip">.invisible</span><span class="chip">.relative</span><span class="chip">.absolute</span>
+            <span class="chip">.fixed</span><span class="chip">.sticky</span>
+          </div>
+          <table style="width:100%;border-collapse:collapse;margin-top:var(--space-3);font-size:var(--text-sm)">
+            <tr style="border-bottom:var(--border-card)"><th style="text-align:left;padding:var(--space-2)">Class</th><th style="text-align:left;padding:var(--space-2)">Purpose</th></tr>
+            <tr style="border-bottom:var(--border-card)"><td style="padding:var(--space-2)">.flex</td><td style="padding:var(--space-2)">Display flex container (row direction)</td></tr>
+            <tr style="border-bottom:var(--border-card)"><td style="padding:var(--space-2)">.flex-col</td><td style="padding:var(--space-2)">Flex column direction (vertical stacking)</td></tr>
+            <tr style="border-bottom:var(--border-card)"><td style="padding:var(--space-2)">.flex-wrap</td><td style="padding:var(--space-2)">Allow flex items to wrap to next line</td></tr>
+            <tr style="border-bottom:var(--border-card)"><td style="padding:var(--space-2)">.hidden</td><td style="padding:var(--space-2)">Display none (completely removed from layout)</td></tr>
+            <tr style="border-bottom:var(--border-card)"><td style="padding:var(--space-2)">.invisible</td><td style="padding:var(--space-2)">Visibility hidden (takes up space)</td></tr>
+          </table>
 
-          <div class="doc-sub">Spacing: Gap (8 classes)</div>
+          <!-- 2. SPACING -->
+          <div class="doc-sub" style="margin-top:var(--space-5)">2. Spacing (45+ classes)</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)"><strong>Gap (8 classes):</strong> Control space between flex/grid children</p>
           <div class="chips"><span class="chip">.gap-1</span><span class="chip">.gap-2</span><span class="chip">.gap-3</span><span class="chip">.gap-4</span><span class="chip">.gap-5</span><span class="chip">.gap-6</span><span class="chip">.gap-8</span><span class="chip">.gap-12</span></div>
 
-          <div class="doc-sub">Spacing: Margin (16+ classes)</div>
-          <div class="chips"><span class="chip">.m-0</span><span class="chip">.m-auto</span><span class="chip">.mx-auto</span><span class="chip">.my-auto</span><span class="chip">.mt-1</span><span class="chip">.mt-2</span><span class="chip">.mt-3</span><span class="chip">.mt-4</span><span class="chip">.mb-1</span><span class="chip">.mb-2</span><span class="chip">.mb-3</span><span class="chip">.mb-4</span><span class="chip">.ml-auto</span><span class="chip">.mr-auto</span></div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-3);margin-bottom:var(--space-3)"><strong>Margin (18 classes):</strong> External spacing around elements</p>
+          <div class="chips"><span class="chip">.m-0</span><span class="chip">.m-auto</span><span class="chip">.mx-auto</span><span class="chip">.my-auto</span><span class="chip">.mt-1</span><span class="chip">.mt-2</span><span class="chip">.mt-3</span><span class="chip">.mt-4</span><span class="chip">.mt-5</span><span class="chip">.mt-6</span><span class="chip">.mb-1</span><span class="chip">.mb-2</span><span class="chip">.mb-3</span><span class="chip">.mb-4</span><span class="chip">.ml-auto</span><span class="chip">.mr-auto</span><span class="chip">.ml-*</span><span class="chip">.mr-*</span></div>
 
-          <div class="doc-sub">Spacing: Padding (12+ classes)</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-3);margin-bottom:var(--space-3)"><strong>Padding (18 classes):</strong> Internal spacing inside elements</p>
           <div class="chips"><span class="chip">.p-1</span><span class="chip">.p-2</span><span class="chip">.p-3</span><span class="chip">.p-4</span><span class="chip">.p-5</span><span class="chip">.p-6</span><span class="chip">.pt-*</span><span class="chip">.pb-*</span><span class="chip">.pl-*</span><span class="chip">.pr-*</span><span class="chip">.px-*</span><span class="chip">.py-*</span></div>
 
-          <div class="doc-sub">Flexbox Alignment (10+ classes)</div>
-          <div class="chips"><span class="chip">.items-start</span><span class="chip">.items-center</span><span class="chip">.items-end</span><span class="chip">.items-baseline</span><span class="chip">.items-stretch</span><span class="chip">.justify-start</span><span class="chip">.justify-center</span><span class="chip">.justify-end</span><span class="chip">.justify-between</span><span class="chip">.justify-around</span></div>
+          <div class="doc-demo" style="max-width:24rem">
+            <div class="flex gap-4">
+              <div class="p-3" style="background:var(--color-subtle);border-radius:var(--radius-md);flex:1">p-3 padding</div>
+              <div class="p-5" style="background:var(--color-subtle);border-radius:var(--radius-md);flex:1">p-5 padding</div>
+            </div>
+          </div>
 
-          <div class="doc-sub">Typography: Font Weight (6 classes)</div>
-          <div class="chips"><span class="chip">.font-light</span><span class="chip">.font-normal</span><span class="chip">.font-medium</span><span class="chip">.font-semibold</span><span class="chip">.font-bold</span><span class="chip">.font-extrabold</span></div>
+          <!-- 3. TYPOGRAPHY -->
+          <div class="doc-sub" style="margin-top:var(--space-5)">3. Typography (28 classes)</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)"><strong>Font Weight (6):</strong> .font-light, .font-normal, .font-medium, .font-semibold, .font-bold, .font-extrabold</p>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)"><strong>Text Alignment (4):</strong> .text-left, .text-center, .text-right, .text-justify</p>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)"><strong>Text Transform (9):</strong> .uppercase, .lowercase, .capitalize, .normal-case, .underline, .line-through, .no-underline, .italic, .not-italic</p>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)"><strong>Line Height (4):</strong> .leading-none, .leading-tight, .leading-normal, .leading-relaxed</p>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)"><strong>Text Overflow (3):</strong> .truncate, .line-clamp-1, .line-clamp-2</p>
 
-          <div class="doc-sub">Typography: Text Alignment (4 classes)</div>
-          <div class="chips"><span class="chip">.text-left</span><span class="chip">.text-center</span><span class="chip">.text-right</span><span class="chip">.text-justify</span></div>
+          <div class="doc-demo">
+            <div class="stack" style="gap:var(--space-3);max-width:32rem">
+              <p class="text-center font-bold">Center, bold text</p>
+              <p class="uppercase" style="font-size:var(--text-sm)">UPPERCASE TEXT EXAMPLE</p>
+              <p class="truncate">This very long text will be truncated with an ellipsis when it exceeds the container width</p>
+            </div>
+          </div>
 
-          <div class="doc-sub">Typography: Text Transform & Style (8+ classes)</div>
-          <div class="chips"><span class="chip">.uppercase</span><span class="chip">.lowercase</span><span class="chip">.capitalize</span><span class="chip">.normal-case</span><span class="chip">.underline</span><span class="chip">.line-through</span><span class="chip">.no-underline</span><span class="chip">.italic</span><span class="chip">.not-italic</span></div>
+          <!-- 4. COLORS -->
+          <div class="doc-sub" style="margin-top:var(--space-5)">4. Colors (22 classes)</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)"><strong>Text Colors (8):</strong> .text-fg, .text-muted, .text-accent, .text-success, .text-error, .text-warning, .text-info</p>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)"><strong>Background Colors (9):</strong> .bg-bg, .bg-surface, .bg-subtle, .bg-accent, .bg-success, .bg-error, .bg-warning, .bg-info</p>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)"><strong>Border Colors (5):</strong> .border-fg, .border-muted, .border-accent, .border-subtle</p>
 
-          <div class="doc-sub">Typography: Line Height (4 classes)</div>
-          <div class="chips"><span class="chip">.leading-none</span><span class="chip">.leading-tight</span><span class="chip">.leading-normal</span><span class="chip">.leading-relaxed</span></div>
+          <div class="doc-demo flex gap-3 flex-wrap">
+            <span class="text-fg" style="background:var(--color-subtle);padding:var(--space-2);border-radius:var(--radius-md);font-size:var(--text-sm)">text-fg</span>
+            <span class="text-success" style="background:var(--color-subtle);padding:var(--space-2);border-radius:var(--radius-md);font-size:var(--text-sm)">text-success</span>
+            <span class="text-error" style="background:var(--color-subtle);padding:var(--space-2);border-radius:var(--radius-md);font-size:var(--text-sm)">text-error</span>
+            <span class="text-muted" style="background:var(--color-subtle);padding:var(--space-2);border-radius:var(--radius-md);font-size:var(--text-sm)">text-muted</span>
+          </div>
 
-          <div class="doc-sub">Typography: Text Overflow (3 classes)</div>
-          <div class="chips"><span class="chip">.truncate</span><span class="chip">.line-clamp-1</span><span class="chip">.line-clamp-2</span></div>
+          <!-- 5. SIZING -->
+          <div class="doc-sub" style="margin-top:var(--space-5)">5. Sizing (24 classes)</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)"><strong>Width (10):</strong> .w-full, .w-auto, .w-screen, .max-w-xs, .max-w-sm, .max-w-md, .max-w-lg, .max-w-xl, .max-w-2xl, .max-w-3xl</p>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)"><strong>Height (8):</strong> .h-full, .h-auto, .h-screen, .h-0, .min-h-screen, .max-h-screen</p>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)"><strong>Aspect Ratio (3):</strong> .aspect-auto, .aspect-square, .aspect-video</p>
 
-          <div class="doc-sub">Colors: Text (10+ classes)</div>
-          <div class="chips"><span class="chip">.text-fg</span><span class="chip">.text-muted</span><span class="chip">.text-accent</span><span class="chip">.text-success</span><span class="chip">.text-error</span><span class="chip">.text-warning</span><span class="chip">.text-info</span></div>
+          <div class="doc-demo flex gap-4" style="align-items:flex-start">
+            <div class="aspect-square" style="width:6rem;background:var(--color-accent);border-radius:var(--radius-md)"></div>
+            <div class="aspect-video" style="width:12rem;background:var(--color-accent);border-radius:var(--radius-md)"></div>
+          </div>
 
-          <div class="doc-sub">Colors: Background (8+ classes)</div>
-          <div class="chips"><span class="chip">.bg-bg</span><span class="chip">.bg-surface</span><span class="chip">.bg-subtle</span><span class="chip">.bg-accent</span><span class="chip">.bg-success</span><span class="chip">.bg-error</span><span class="chip">.bg-warning</span><span class="chip">.bg-info</span></div>
+          <!-- 6. BORDERS & RADIUS -->
+          <div class="doc-sub" style="margin-top:var(--space-5)">6. Borders & Radius (14 classes)</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)"><strong>Borders (5):</strong> .border, .border-t, .border-b, .border-l, .border-r</p>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)"><strong>Radius (6):</strong> .rounded, .rounded-sm, .rounded-md, .rounded-lg, .rounded-xl, .rounded-full</p>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)"><strong>Shadows (4):</strong> .shadow-none, .shadow-sm, .shadow-md, .shadow-lg</p>
 
-          <div class="doc-sub">Colors: Border (5+ classes)</div>
-          <div class="chips"><span class="chip">.border-fg</span><span class="chip">.border-muted</span><span class="chip">.border-accent</span><span class="chip">.border-subtle</span></div>
+          <div class="doc-demo flex gap-3">
+            <div class="border p-3" style="border-radius:var(--radius-md);font-size:var(--text-sm)">border</div>
+            <div class="rounded p-3" style="background:var(--color-subtle);font-size:var(--text-sm)">rounded</div>
+            <div class="shadow-md p-3" style="background:var(--color-surface);border-radius:var(--radius-md);font-size:var(--text-sm)">shadow-md</div>
+          </div>
 
-          <div class="doc-sub">Borders & Corners (8+ classes)</div>
-          <div class="chips"><span class="chip">.border</span><span class="chip">.border-t</span><span class="chip">.border-b</span><span class="chip">.border-l</span><span class="chip">.border-r</span><span class="chip">.rounded</span><span class="chip">.rounded-sm</span><span class="chip">.rounded-lg</span><span class="chip">.rounded-full</span></div>
+          <!-- 7. ANIMATIONS & EFFECTS -->
+          <div class="doc-sub" style="margin-top:var(--space-5)">7. Animations & Effects (22 classes)</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)"><strong>Animations (9):</strong> .animate-fade-in, .animate-fade-out, .animate-slide-up, .animate-slide-down, .animate-slide-left, .animate-slide-right, .animate-scale-in, .animate-scale-out, .animate-bounce-in</p>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)"><strong>Transitions (3):</strong> .transition-fast (150ms), .transition-base (250ms), .transition-slow (400ms)</p>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)"><strong>Opacity (5):</strong> .opacity-0, .opacity-25, .opacity-50, .opacity-75, .opacity-100</p>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)"><strong>Overflow (3):</strong> .overflow-auto, .overflow-hidden, .overflow-visible</p>
 
-          <div class="doc-sub">Sizing: Width (8+ classes)</div>
-          <div class="chips"><span class="chip">.w-full</span><span class="chip">.w-auto</span><span class="chip">.w-screen</span><span class="chip">.max-w-xs</span><span class="chip">.max-w-sm</span><span class="chip">.max-w-md</span><span class="chip">.max-w-lg</span><span class="chip">.max-w-xl</span><span class="chip">.max-w-2xl</span></div>
+          <div class="doc-demo flex gap-4 flex-wrap">
+            <div class="animate-fade-in" style="width:4rem;height:4rem;background:var(--color-accent);border-radius:var(--radius-md)"></div>
+            <div class="animate-slide-up" style="width:4rem;height:4rem;background:var(--color-accent);border-radius:var(--radius-md)"></div>
+            <div class="animate-bounce-in" style="width:4rem;height:4rem;background:var(--color-accent);border-radius:var(--radius-md)"></div>
+          </div>
 
-          <div class="doc-sub">Sizing: Height (5+ classes)</div>
-          <div class="chips"><span class="chip">.h-full</span><span class="chip">.h-auto</span><span class="chip">.h-screen</span><span class="chip">.min-h-*</span><span class="chip">.max-h-*</span></div>
+          <!-- 8. POSITIONING -->
+          <div class="doc-sub" style="margin-top:var(--space-5)">8. Positioning & Layout (20 classes)</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)"><strong>Positioning (7):</strong> .inset-0, .inset-auto, .top-0, .bottom-0, .left-0, .right-0</p>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)"><strong>Z-Index (5):</strong> .z-0, .z-10, .z-20, .z-modal, .z-dropdown</p>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)"><strong>Cursor & Interaction (8):</strong> .cursor-auto, .cursor-default, .cursor-pointer, .cursor-not-allowed, .cursor-wait, .pointer-events-none, .pointer-events-auto</p>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)"><strong>Flexbox Alignment (10):</strong> .items-start, .items-center, .items-end, .items-baseline, .items-stretch, .justify-start, .justify-center, .justify-end, .justify-between, .justify-around</p>
 
-          <div class="doc-sub">Sizing: Aspect Ratio (3 classes)</div>
-          <div class="chips"><span class="chip">.aspect-auto</span><span class="chip">.aspect-square</span><span class="chip">.aspect-video</span></div>
+          <div class="doc-demo">
+            <div class="relative" style="height:6rem;border:var(--border-card);border-radius:var(--radius-md);overflow:hidden">
+              <div class="absolute" style="inset:var(--space-3);background:var(--color-accent);border-radius:var(--radius-md)"></div>
+            </div>
+          </div>
 
-          <div class="doc-sub">Effects: Opacity (5+ classes)</div>
-          <div class="chips"><span class="chip">.opacity-0</span><span class="chip">.opacity-25</span><span class="chip">.opacity-50</span><span class="chip">.opacity-75</span><span class="chip">.opacity-100</span></div>
-
-          <div class="doc-sub">Effects: Shadows (4 classes)</div>
-          <div class="chips"><span class="chip">.shadow-none</span><span class="chip">.shadow-sm</span><span class="chip">.shadow-md</span><span class="chip">.shadow-lg</span></div>
-
-          <div class="doc-sub">Effects: Overflow (3 classes)</div>
-          <div class="chips"><span class="chip">.overflow-auto</span><span class="chip">.overflow-hidden</span><span class="chip">.overflow-visible</span></div>
-
-          <div class="doc-sub">Cursor & Interaction (5+ classes)</div>
-          <div class="chips"><span class="chip">.cursor-auto</span><span class="chip">.cursor-default</span><span class="chip">.cursor-pointer</span><span class="chip">.cursor-not-allowed</span><span class="chip">.pointer-events-none</span><span class="chip">.pointer-events-auto</span></div>
-
-          <div class="doc-sub">Motion & Animation (15+ classes)</div>
-          <div class="chips"><span class="chip">.animate-fade-in</span><span class="chip">.animate-fade-out</span><span class="chip">.animate-slide-up</span><span class="chip">.animate-slide-down</span><span class="chip">.animate-slide-left</span><span class="chip">.animate-slide-right</span><span class="chip">.animate-scale-in</span><span class="chip">.animate-scale-out</span><span class="chip">.animate-bounce-in</span><span class="chip">.transition-fast</span><span class="chip">.transition-base</span><span class="chip">.transition-slow</span></div>
-
-          <div class="doc-sub">Positioning & Stacking (8+ classes)</div>
-          <div class="chips"><span class="chip">.inset-0</span><span class="chip">.inset-auto</span><span class="chip">.top-0</span><span class="chip">.bottom-0</span><span class="chip">.left-0</span><span class="chip">.right-0</span><span class="chip">.z-0</span><span class="chip">.z-10</span><span class="chip">.z-20</span><span class="chip">.z-modal</span></div>
-
-          <div class="doc-sub">Total Utilities</div>
-          <p class="t-body-sm" style="color:var(--color-muted)"><strong>140+ utility classes documented above</strong>. All utilities compose to build complex layouts without writing custom CSS. Stack, combine, and override with @layer brand.</p>
+          <div class="doc-sub" style="margin-top:var(--space-5)">Total Utilities: 180+ Classes</div>
+          <p class="t-body-sm" style="color:var(--color-muted)">All utilities are organized into 8 core categories. Combine freely with no specificity conflicts. All values derive from CSS custom properties (--space-*, --color-*, --radius-*, --duration-*). Override via @layer brand without !important flags.</p>
         </section>
 
         <!-- LAYOUT TECHNIQUES — Composition patterns with layout utilities -->
