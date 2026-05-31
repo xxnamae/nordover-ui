@@ -109,7 +109,7 @@
     left: 0;
     top: 0;
     bottom: 0;
-    width: 13rem;
+    width: 11rem;
     background: var(--color-surface);
     border-right: 1px solid var(--color-border);
     overflow-y: auto;
@@ -126,7 +126,7 @@
   /* Desktop: sidebar visible, positioned left */
   @media (min-width: 48rem) /* --bp-desktop */ {
     .app {
-      grid-template-columns: 13rem 1fr;
+      grid-template-columns: 11rem 1fr;
       grid-template-rows: auto 1fr;
     }
     .app-sidebar {
@@ -2009,11 +2009,16 @@
   }
   @media (max-width: 36rem) /* --bp-tablet */ {
     .page { padding-inline: var(--space-4); }
+    .app-topbar-title { font-size: var(--text-sm); font-weight: 600; }
+    .app-sidebar { padding: var(--space-3); padding-top: var(--space-4); }
+    .app-sidebar-brand { font-size: var(--text-sm); }
+    .app-nav-item { font-size: var(--text-xs); padding: var(--space-2); }
+    .app-sidebar-section { font-size: var(--text-xs); }
     .modal-dialog { max-width: 100%; width: 95vw; }
     .timeline { padding-left: var(--space-6); }
     .timeline::before { left: calc(var(--space-3) - 2px); }
     .timeline-item::before { left: calc(var(--space-3) * -1.1); }
-    .btn { padding: var(--space-2) var(--space-4); }
+    .btn { padding: var(--space-2) var(--space-4); font-size: var(--text-sm); }
     .hero-centered { padding: var(--space-6) var(--space-4); }
     .cta-card { padding: var(--space-6) var(--space-4); }
   }
