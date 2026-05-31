@@ -976,6 +976,57 @@
               <span>Include aria-label on tables or use &lt;caption&gt; for context</span>
             </div>
           </div>
+
+          <div class="doc-sub">Row Selection with Batch Operations</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Multi-select pattern with checkboxes and batch action toolbar. Select rows to enable bulk actions.</p>
+          <div style="overflow-x:auto">
+            <div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-3);padding:var(--space-2);background:var(--color-subtle);border-radius:var(--radius-md)">
+              <span style="font-size:var(--text-sm);color:var(--color-muted)">3 selected</span>
+              <div style="flex:1"></div>
+              <button class="btn btn-sm btn-secondary" style="margin-right:var(--space-2)">Delete</button>
+              <button class="btn btn-sm btn-secondary">Export</button>
+            </div>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th scope="col" style="width:3rem"><input type="checkbox" class="form-checkbox" aria-label="Select all rows"></th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="checkbox" class="form-checkbox" checked></td>
+                  <td>Alice Johnson</td>
+                  <td>alice@example.com</td>
+                  <td><span class="badge badge-success">Active</span></td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" class="form-checkbox" checked></td>
+                  <td>Bob Smith</td>
+                  <td>bob@example.com</td>
+                  <td><span class="badge badge-success">Active</span></td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" class="form-checkbox" checked></td>
+                  <td>Carol White</td>
+                  <td>carol@example.com</td>
+                  <td><span class="badge badge-warning">Pending</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="doc-sub">Advanced Table Features Reference</div>
+          <div class="stack-tight" style="font-size:var(--text-sm)">
+            <div><strong>.table-sort</strong> — Clickable header button with aria-sort attribute (none|ascending|descending)</div>
+            <div><strong>.table-filter</strong> — Search and filter input layout (stacks on mobile)</div>
+            <div><strong>.data-table-inline-edit</strong> — Click-to-edit cells with input fields</div>
+            <div><strong>Row selection</strong> — Checkbox in first column with aria-label for accessibility</div>
+            <div><strong>Batch toolbar</strong> — Float above table, auto-show when rows selected</div>
+            <div><strong>Keyboard nav</strong> — Tab/Shift+Tab for checkboxes, Enter to toggle selection</div>
+          </div>
         </section>
 
         <!-- PAGINATION — Multi-page navigation controls -->
@@ -1595,6 +1646,72 @@
                 <span class="field-help">At least 8 characters, 1 uppercase, 1 number</span>
               </div>
               <button class="btn btn-primary" style="width:100%">Create Account</button>
+            </div>
+          </div>
+
+          <div class="doc-sub">Dependent Fields (Conditional Form Fields)</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Show/hide form fields based on selection. Example: Country selector reveals region field.</p>
+          <div class="doc-demo" style="max-width:28rem;margin:auto">
+            <div class="stack">
+              <div class="field">
+                <label class="field-label">Account Type</label>
+                <select class="form-select">
+                  <option selected>Personal</option>
+                  <option>Business</option>
+                </select>
+              </div>
+              <div class="field">
+                <label class="field-label">Company Name</label>
+                <input class="form-input" type="text" placeholder="Enter company name" style="opacity:0.5;pointer-events:none">
+                <p class="field-help" style="color:var(--color-muted);font-size:var(--text-sm)">Only shown for Business accounts</p>
+              </div>
+              <div class="field">
+                <label class="field-label">Country</label>
+                <select class="form-select">
+                  <option selected>United States</option>
+                  <option>Canada</option>
+                  <option>United Kingdom</option>
+                </select>
+              </div>
+              <div class="field">
+                <label class="field-label">State/Province</label>
+                <select class="form-select">
+                  <option selected>California</option>
+                  <option>New York</option>
+                  <option>Texas</option>
+                </select>
+              </div>
+              <button class="btn btn-primary" style="width:100%">Submit</button>
+            </div>
+          </div>
+
+          <div class="doc-sub">Real-time Validation with Success States</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Fields show validation feedback as user types. Green checkmark for valid, red X for invalid.</p>
+          <div class="doc-demo" style="max-width:28rem;margin:auto">
+            <div class="stack">
+              <div class="field">
+                <div style="display:flex;align-items:center;gap:var(--space-2)">
+                  <label class="field-label" style="margin:0">Email</label>
+                  <span style="color:var(--color-success);font-size:1.2rem">✓</span>
+                </div>
+                <input class="form-input" type="email" value="user@example.com" style="border-color:var(--color-success)">
+              </div>
+              <div class="field">
+                <div style="display:flex;align-items:center;gap:var(--space-2)">
+                  <label class="field-label" style="margin:0">Password</label>
+                  <span style="color:var(--color-warning)">⚠</span>
+                </div>
+                <input class="form-input" type="password" placeholder="••••" style="border-color:var(--color-warning)">
+                <span class="field-help">At least 8 characters required</span>
+              </div>
+              <div class="field">
+                <div style="display:flex;align-items:center;gap:var(--space-2)">
+                  <label class="field-label" style="margin:0">Confirm Password</label>
+                  <span style="color:var(--color-error)">✗</span>
+                </div>
+                <input class="form-input" type="password" placeholder="••••" style="border-color:var(--color-error)">
+                <span class="field-error">Passwords do not match</span>
+              </div>
             </div>
           </div>
         </section>

@@ -582,6 +582,37 @@
               <span>Rows are keyboard navigable and screen-reader compatible</span>
             </div>
           </div>
+
+          <div class="doc-sub">Row Selection & Batch Operations</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Select multiple rows and perform bulk actions. Toolbar appears when selections are made.</p>
+          <div style="overflow-x:auto">
+            <div style="display:flex;align-items:center;gap:var(--space-2);margin-bottom:var(--space-2);padding:var(--space-2);background:var(--color-surface);border:var(--border-card);border-radius:var(--radius-md)">
+              <span style="font-size:var(--text-sm);color:var(--color-muted)">2 selected</span>
+              <div style="flex:1"></div>
+              <button class="btn btn-xs btn-secondary">Delete</button>
+            </div>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th scope="col" style="width:2rem"><input type="checkbox" class="form-checkbox" aria-label="Select all"></th>
+                  <th scope="col">Item</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="checkbox" class="form-checkbox" checked></td>
+                  <td>Project Alpha</td>
+                  <td><span class="badge badge-success">Active</span></td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" class="form-checkbox" checked></td>
+                  <td>Project Beta</td>
+                  <td><span class="badge badge-warning">Paused</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </section>
 
         <!-- ICONS — SVG icon system with variants -->
@@ -972,6 +1003,22 @@
                 <button class="btn btn-ghost btn-sm" style="font-size:var(--text-xs)">Cancel</button>
                 <button class="btn btn-primary btn-sm" style="font-size:var(--text-xs);flex:1">Save</button>
               </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Form with Field Validation</div>
+          <div class="doc-demo" style="max-width:20rem;margin:auto;font-size:var(--text-sm)">
+            <div class="stack" style="gap:var(--space-2)">
+              <div class="field">
+                <label class="field-label" style="font-size:var(--text-xs)">Username</label>
+                <input class="form-input" type="text" value="jo" style="border-color:var(--color-error);padding:var(--space-2) var(--space-3);font-size:var(--text-sm)">
+                <span class="field-error">3+ characters required</span>
+              </div>
+              <div class="field">
+                <label class="field-label" style="font-size:var(--text-xs)">Email <span style="color:var(--color-success)">✓</span></label>
+                <input class="form-input" type="email" value="user@example.com" style="border-color:var(--color-success);padding:var(--space-2) var(--space-3);font-size:var(--text-sm)">
+              </div>
+              <button class="btn btn-primary btn-sm" style="width:100%">Continue</button>
             </div>
           </div>
         </section>
