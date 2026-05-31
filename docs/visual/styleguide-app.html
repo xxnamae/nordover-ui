@@ -73,6 +73,7 @@
     <a class="app-nav-item" href="#responsive"><svg class="icon"><use href="#i-chart"/></svg> Responsive</a>
     <a class="app-nav-item" href="#accessibility"><svg class="icon"><use href="#i-info"/></svg> Accessibility</a>
     <a class="app-nav-item" href="#utilities"><svg class="icon"><use href="#i-sparkles"/></svg> Utilities</a>
+    <a class="app-nav-item" href="#dark-mode-examples"><svg class="icon"><use href="#i-moon"/></svg> Dark Mode</a>
   </aside>
 
   <div class="app-main">
@@ -736,6 +737,65 @@
           <div class="doc-demo">
             <button class="transition-base" style="background:var(--color-accent);color:white;padding:var(--space-2) var(--space-3);border-radius:var(--radius-md);border:none;cursor:pointer;font-size:var(--text-sm)" onmouseover="this.style.background='var(--color-error)'" onmouseout="this.style.background='var(--color-accent)'">Hover me (transition-base)</button>
           </div>
+        </section>
+
+        <!-- DARK MODE EXAMPLES -->
+        <section class="doc-section" id="dark-mode-examples">
+          <h2 class="doc-section-title">Dark Mode Variants</h2>
+          <p class="doc-section-desc">App defaults to dark mode (checked by default). All color tokens adapt via CSS custom properties with OKLCH lightness axis inversion. Light mode uses same semantic palette with inverted L-values for consistent contrast and accessibility.</p>
+
+          <div class="doc-sub">Semantic Colors (Dark-First)</div>
+          <div class="chips"><span class="chip">var(--color-fg)</span><span class="chip">var(--color-bg)</span><span class="chip">var(--color-accent)</span><span class="chip">var(--color-muted)</span></div>
+          <div class="doc-demo flex gap-2 flex-wrap">
+            <div style="background:var(--color-bg);color:var(--color-fg);padding:var(--space-3);border:var(--border-card);border-radius:var(--radius-md);font-size:var(--text-xs)">
+              <p class="font-bold">Foreground</p>
+              <p style="color:var(--color-muted)">Muted text</p>
+            </div>
+            <div style="background:var(--color-accent);color:white;padding:var(--space-3);border-radius:var(--radius-md);font-size:var(--text-xs)">
+              <p class="font-bold">Accent</p>
+              <p>Interactive</p>
+            </div>
+            <div style="background:var(--color-subtle);color:var(--color-fg);padding:var(--space-3);border-radius:var(--radius-md);font-size:var(--text-xs)">
+              <p class="font-bold">Subtle</p>
+              <p style="color:var(--color-muted)">Secondary</p>
+            </div>
+          </div>
+
+          <div class="doc-sub">Status Colors (Dark & Light)</div>
+          <div class="chips"><span class="chip">var(--color-success)</span><span class="chip">var(--color-warning)</span><span class="chip">var(--color-error)</span><span class="chip">var(--color-info)</span></div>
+          <div class="doc-demo flex gap-2 flex-wrap">
+            <div style="background:var(--color-success);color:white;padding:var(--space-2);border-radius:var(--radius-md);text-align:center;flex:1;min-width:6rem;font-size:var(--text-xs)">
+              <p class="font-bold">Success</p>
+            </div>
+            <div style="background:var(--color-warning);color:white;padding:var(--space-2);border-radius:var(--radius-md);text-align:center;flex:1;min-width:6rem;font-size:var(--text-xs)">
+              <p class="font-bold">Warning</p>
+            </div>
+            <div style="background:var(--color-error);color:white;padding:var(--space-2);border-radius:var(--radius-md);text-align:center;flex:1;min-width:6rem;font-size:var(--text-xs)">
+              <p class="font-bold">Error</p>
+            </div>
+            <div style="background:var(--color-info);color:white;padding:var(--space-2);border-radius:var(--radius-md);text-align:center;flex:1;min-width:6rem;font-size:var(--text-xs)">
+              <p class="font-bold">Info</p>
+            </div>
+          </div>
+
+          <div class="doc-sub">Button Variants (Dark & Light)</div>
+          <div class="chips"><span class="chip">.btn-primary</span><span class="chip">.btn-secondary</span><span class="chip">.btn-ghost</span></div>
+          <div class="doc-demo flex gap-2">
+            <button class="btn btn-primary btn-sm">Primary</button>
+            <button class="btn btn-secondary btn-sm">Secondary</button>
+            <button class="btn btn-ghost btn-sm">Ghost</button>
+            <button class="btn btn-primary btn-sm" disabled>Disabled</button>
+          </div>
+
+          <div class="doc-sub">Form Elements (Dark & Light)</div>
+          <div class="chips"><span class="chip">.form-input</span><span class="chip">.form-select</span></div>
+          <div class="doc-demo stack">
+            <input class="form-input" type="text" placeholder="Text input" style="max-width:16rem;font-size:var(--text-sm)">
+            <select class="form-select" style="max-width:16rem;font-size:var(--text-sm)"><option>Select option</option><option>Option 1</option></select>
+          </div>
+
+          <div class="doc-sub">Accessibility Note</div>
+          <p class="t-body-sm" style="max-width:40rem;color:var(--color-muted)">All text colors meet WCAG AA contrast ratios in both dark and light modes. Theme toggle uses system preference detection and localStorage persistence.</p>
         </section>
 
         <!-- OVERLAYS -->

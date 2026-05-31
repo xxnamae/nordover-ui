@@ -50,6 +50,7 @@
     <a class="app-nav-item" href="#search-bar">Search Bar</a>
     <a class="app-nav-item" href="#empty-states">Empty States</a>
     <a class="app-nav-item" href="#utilities">Utilities</a>
+    <a class="app-nav-item" href="#dark-mode-examples">Dark Mode</a>
     <div class="app-sidebar-section">Patterns</div>
     <a class="app-nav-item" href="#hero">Hero</a>
     <a class="app-nav-item" href="#features">Feature Grid</a>
@@ -1353,6 +1354,66 @@
           <div class="doc-demo">
             <button class="transition-base" style="background:var(--color-accent);color:white;padding:var(--space-3) var(--space-5);border-radius:var(--radius-md);border:none;cursor:pointer" onmouseover="this.style.background='var(--color-error)'" onmouseout="this.style.background='var(--color-accent)'">Hover me (transition-base)</button>
           </div>
+        </section>
+
+        <!-- DARK MODE EXAMPLES -->
+        <section class="doc-section" id="dark-mode-examples">
+          <h2 class="doc-section-title">Dark Mode Variants</h2>
+          <p class="doc-section-desc">All utilities and color tokens adapt automatically to dark mode via CSS custom properties. Toggle theme above to see live conversion. OKLCH lightness axis is inverted, maintaining contrast ratios and legibility.</p>
+
+          <div class="doc-sub">Semantic Colors in Dark Mode</div>
+          <div class="chips"><span class="chip">var(--color-fg)</span><span class="chip">var(--color-bg)</span><span class="chip">var(--color-accent)</span><span class="chip">var(--color-muted)</span></div>
+          <div class="doc-demo flex gap-4 flex-wrap">
+            <div style="background:var(--color-bg);color:var(--color-fg);padding:var(--space-4);border:var(--border-card);border-radius:var(--radius-md)">
+              <p class="font-bold">Foreground on Background</p>
+              <p style="color:var(--color-muted);font-size:var(--text-sm)">Muted secondary text</p>
+            </div>
+            <div style="background:var(--color-accent);color:white;padding:var(--space-4);border-radius:var(--radius-md)">
+              <p class="font-bold">Accent Highlight</p>
+              <p style="font-size:var(--text-sm)">Interactive element</p>
+            </div>
+            <div style="background:var(--color-subtle);color:var(--color-fg);padding:var(--space-4);border-radius:var(--radius-md)">
+              <p class="font-bold">Subtle Background</p>
+              <p style="color:var(--color-muted);font-size:var(--text-sm)">Secondary surface</p>
+            </div>
+          </div>
+
+          <div class="doc-sub">Status Colors (Light & Dark)</div>
+          <div class="chips"><span class="chip">var(--color-success)</span><span class="chip">var(--color-warning)</span><span class="chip">var(--color-error)</span><span class="chip">var(--color-info)</span></div>
+          <div class="doc-demo flex gap-3 flex-wrap">
+            <div style="background:var(--color-success);color:white;padding:var(--space-3);border-radius:var(--radius-md);text-align:center;flex:1;min-width:8rem">
+              <p class="font-bold" style="font-size:var(--text-sm)">Success</p>
+            </div>
+            <div style="background:var(--color-warning);color:white;padding:var(--space-3);border-radius:var(--radius-md);text-align:center;flex:1;min-width:8rem">
+              <p class="font-bold" style="font-size:var(--text-sm)">Warning</p>
+            </div>
+            <div style="background:var(--color-error);color:white;padding:var(--space-3);border-radius:var(--radius-md);text-align:center;flex:1;min-width:8rem">
+              <p class="font-bold" style="font-size:var(--text-sm)">Error</p>
+            </div>
+            <div style="background:var(--color-info);color:white;padding:var(--space-3);border-radius:var(--radius-md);text-align:center;flex:1;min-width:8rem">
+              <p class="font-bold" style="font-size:var(--text-sm)">Info</p>
+            </div>
+          </div>
+
+          <div class="doc-sub">Button States in Dark Mode</div>
+          <div class="chips"><span class="chip">.btn.btn-primary</span><span class="chip">.btn.btn-secondary</span><span class="chip">.btn.btn-ghost</span></div>
+          <div class="doc-demo flex gap-3">
+            <button class="btn btn-primary">Primary</button>
+            <button class="btn btn-secondary">Secondary</button>
+            <button class="btn btn-ghost">Ghost</button>
+            <button class="btn btn-primary" disabled>Disabled</button>
+          </div>
+
+          <div class="doc-sub">Form Inputs in Dark Mode</div>
+          <div class="chips"><span class="chip">.form-input</span><span class="chip">.form-select</span><span class="chip">.form-textarea</span></div>
+          <div class="doc-demo stack">
+            <input class="form-input" type="text" placeholder="Text input with placeholder" style="max-width:20rem">
+            <select class="form-select" style="max-width:20rem"><option>Select an option</option><option>Option 1</option><option>Option 2</option></select>
+            <textarea class="form-input" placeholder="Textarea input" style="max-width:20rem;height:6rem"></textarea>
+          </div>
+
+          <div class="doc-sub">Text Contrast in Dark Mode</div>
+          <p class="t-body" style="max-width:50rem">All text colors maintain WCAG AA contrast ratios in both light and dark modes. The framework automatically inverts the OKLCH lightness axis, ensuring semantic colors remain readable and accessible across theme switches.</p>
         </section>
 
         <!-- FOOTER -->
