@@ -61,6 +61,7 @@
     <a class="app-nav-item" href="#search-bar"><svg class="icon"><use href="#i-search"/></svg> Search Bar</a>
     <a class="app-nav-item" href="#empty-states"><svg class="icon"><use href="#i-info"/></svg> Empty States</a>
     <a class="app-nav-item" href="#states-interactions"><svg class="icon"><use href="#i-check"/></svg> States & Interactions</a>
+    <a class="app-nav-item" href="#layout-techniques"><svg class="icon"><use href="#i-chart"/></svg> Layout Techniques</a>
     <a class="app-nav-item" href="#component-variants"><svg class="icon"><use href="#i-folder"/></svg> Component Variants</a>
     <a class="app-nav-item" href="#overlays"><svg class="icon"><use href="#i-info"/></svg> Modals</a>
     <a class="app-nav-item" href="#accordion"><svg class="icon"><use href="#i-edit"/></svg> Accordion</a>
@@ -670,6 +671,81 @@
 
           <div class="doc-sub">Accessibility</div>
           <p class="t-body-xs" style="max-width:40rem;color:var(--color-muted)">Focus indicators: 3:1 contrast minimum. Disabled: visually distinct, not color alone. Error states: icon + text + color. All animations respect prefers-reduced-motion.</p>
+        </section>
+
+        <!-- LAYOUT TECHNIQUES -->
+        <section class="doc-section" id="layout-techniques">
+          <h2 class="doc-section-title">Layout Techniques</h2>
+          <p class="doc-section-desc">Common app layout patterns. Mobile-first responsive patterns for UI composition.</p>
+
+          <div class="doc-sub">Search + Results Layout</div>
+          <div class="chips"><span class="chip">.stack</span><span class="chip">.cluster</span><span class="chip">responsive</span></div>
+          <div class="doc-demo">
+            <div class="stack" style="gap:var(--space-2);background:var(--color-subtle);border-radius:var(--radius-lg);padding:var(--space-3)">
+              <div class="cluster cluster-tight">
+                <input class="form-input" type="search" placeholder="Search..." style="flex:1;margin-bottom:0;font-size:var(--text-sm);padding:var(--space-2) var(--space-3)">
+                <button class="btn btn-primary btn-sm">Search</button>
+              </div>
+              <div class="cluster cluster-tight" style="flex-wrap:wrap;font-size:var(--text-xs);gap:var(--space-1)">
+                <span style="color:var(--color-muted)">5 results</span>
+                <button class="btn btn-ghost btn-sm">Sort</button>
+                <button class="btn btn-ghost btn-sm">Filter</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Form Field Grid</div>
+          <div class="chips"><span class="chip">.grid-auto</span><span class="chip">Compact form</span></div>
+          <div class="doc-demo">
+            <div class="grid-auto" style="gap:var(--space-2)">
+              <div>
+                <label class="field-label" style="font-size:var(--text-xs)">Name</label>
+                <input class="form-input" type="text" placeholder="Name" style="font-size:var(--text-sm)">
+              </div>
+              <div>
+                <label class="field-label" style="font-size:var(--text-xs)">Email</label>
+                <input class="form-input" type="email" placeholder="Email" style="font-size:var(--text-sm)">
+              </div>
+              <div style="grid-column:1/-1">
+                <label class="field-label" style="font-size:var(--text-xs)">Message</label>
+                <textarea class="form-input" placeholder="Message" style="font-size:var(--text-sm);height:4rem"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Content Sections (Stacked)</div>
+          <div class="chips"><span class="chip">.stack</span><span class="chip">section-spacing</span></div>
+          <div class="doc-demo">
+            <div class="stack">
+              <div style="background:var(--color-subtle);border-radius:var(--radius-md);padding:var(--space-3)">
+                <h3 class="t-heading-sm" style="font-size:var(--text-sm)">Section 1</h3>
+                <p class="t-body-xs" style="color:var(--color-muted);margin-top:var(--space-1)">Content goes here</p>
+              </div>
+              <div style="background:var(--color-subtle);border-radius:var(--radius-md);padding:var(--space-3)">
+                <h3 class="t-heading-sm" style="font-size:var(--text-sm)">Section 2</h3>
+                <p class="t-body-xs" style="color:var(--color-muted);margin-top:var(--space-1)">Content goes here</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">List with Actions</div>
+          <div class="chips"><span class="chip">.cluster</span><span class="chip">justify-between</span></div>
+          <div class="doc-demo">
+            <div class="stack" style="gap:0">
+              <div class="cluster cluster-tight" style="justify-content:space-between;padding:var(--space-2) var(--space-3);border-bottom:var(--border-card);font-size:var(--text-sm)">
+                <span class="font-bold">Item 1</span>
+                <div class="cluster cluster-tight"><button class="btn btn-ghost btn-sm" style="font-size:var(--text-xs)">Edit</button><button class="btn btn-ghost btn-sm" style="font-size:var(--text-xs)">Delete</button></div>
+              </div>
+              <div class="cluster cluster-tight" style="justify-content:space-between;padding:var(--space-2) var(--space-3);border-bottom:var(--border-card);font-size:var(--text-sm)">
+                <span class="font-bold">Item 2</span>
+                <div class="cluster cluster-tight"><button class="btn btn-ghost btn-sm" style="font-size:var(--text-xs)">Edit</button><button class="btn btn-ghost btn-sm" style="font-size:var(--text-xs)">Delete</button></div>
+              </div>
+              <div class="cluster cluster-tight" style="justify-content:space-between;padding:var(--space-2) var(--space-3);font-size:var(--text-sm)">
+                <span class="font-bold">Item 3</span>
+                <div class="cluster cluster-tight"><button class="btn btn-ghost btn-sm" style="font-size:var(--text-xs)">Edit</button><button class="btn btn-ghost btn-sm" style="font-size:var(--text-xs)">Delete</button></div>
+              </div>
+            </div>
+          </div>
         </section>
 
         <!-- COMPONENT VARIANTS -->

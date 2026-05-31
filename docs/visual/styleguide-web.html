@@ -51,6 +51,7 @@
     <a class="app-nav-item" href="#empty-states">Empty States</a>
     <a class="app-nav-item" href="#states-interactions">States & Interactions</a>
     <a class="app-nav-item" href="#component-variants">Component Variants</a>
+    <a class="app-nav-item" href="#layout-techniques">Layout Techniques</a>
     <a class="app-nav-item" href="#utilities">Utilities</a>
     <a class="app-nav-item" href="#dark-mode-examples">Dark Mode</a>
     <div class="app-sidebar-section">Patterns</div>
@@ -1589,6 +1590,84 @@
           <div class="chips"><span class="chip">.transition-fast</span><span class="chip">.transition-base</span><span class="chip">.transition-slow</span></div>
           <div class="doc-demo">
             <button class="transition-base" style="background:var(--color-accent);color:white;padding:var(--space-3) var(--space-5);border-radius:var(--radius-md);border:none;cursor:pointer" onmouseover="this.style.background='var(--color-error)'" onmouseout="this.style.background='var(--color-accent)'">Hover me (transition-base)</button>
+          </div>
+        </section>
+
+        <!-- LAYOUT TECHNIQUES -->
+        <section class="doc-section" id="layout-techniques">
+          <h2 class="doc-section-title">Layout Techniques</h2>
+          <p class="doc-section-desc">Common layout patterns using primitives. Mobile-first responsive approaches with minimal media queries.</p>
+
+          <div class="doc-sub">Sidebar + Main Content (Responsive)</div>
+          <div class="chips"><span class="chip">.flex</span><span class="chip">gap</span><span class="chip">max-width</span></div>
+          <div class="doc-demo" style="background:var(--color-subtle);border-radius:var(--radius-lg);padding:var(--space-4)">
+            <div class="flex gap-6" style="flex-wrap:wrap">
+              <aside style="flex:0 1 12rem;background:var(--color-bg);padding:var(--space-4);border-radius:var(--radius-md)">
+                <p class="t-body-sm font-bold">Sidebar (12rem)</p>
+                <p class="t-body-xs" style="color:var(--color-muted);margin-top:var(--space-2)">Responsive: Stacks on mobile via flex-wrap</p>
+              </aside>
+              <main style="flex:1;background:var(--color-bg);padding:var(--space-4);border-radius:var(--radius-md)">
+                <p class="t-body-sm font-bold">Main Content</p>
+                <p class="t-body-xs" style="color:var(--color-muted);margin-top:var(--space-2)">Grows to fill available space with flex:1</p>
+              </main>
+            </div>
+          </div>
+
+          <div class="doc-sub">Form Grid Layout (Responsive Columns)</div>
+          <div class="chips"><span class="chip">.grid-auto</span><span class="chip">minmax()</span><span class="chip">auto-fit</span></div>
+          <div class="doc-demo">
+            <div class="grid-auto">
+              <div>
+                <label class="field-label">First Name</label>
+                <input class="form-input" type="text" placeholder="First">
+              </div>
+              <div>
+                <label class="field-label">Last Name</label>
+                <input class="form-input" type="text" placeholder="Last">
+              </div>
+              <div style="grid-column:1/-1">
+                <label class="field-label">Email</label>
+                <input class="form-input" type="email" placeholder="Email">
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Centered Max-Width Layout</div>
+          <div class="chips"><span class="chip">.page-content</span><span class="chip">margin-inline:auto</span><span class="chip">max-width</span></div>
+          <div class="doc-demo" style="background:var(--color-subtle);border-radius:var(--radius-lg);padding:var(--space-4)">
+            <div class="page-content" style="background:var(--color-bg);padding:var(--space-4);border-radius:var(--radius-md);border:var(--border-card)">
+              <p class="t-body-sm font-bold">max-width: 64rem centered</p>
+              <p class="t-body-xs" style="color:var(--color-muted);margin-top:var(--space-2)">Uses margin-inline: auto for centering. Responsive padding via page-padding token.</p>
+            </div>
+          </div>
+
+          <div class="doc-sub">Card Grid (auto-fit columns)</div>
+          <div class="chips"><span class="chip">.grid-auto</span><span class="chip">minmax(16rem, 1fr)</span></div>
+          <div class="doc-demo">
+            <div class="grid-auto">
+              <div class="card"><div class="card-body"><p class="t-heading-sm">Card 1</p><p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-2)">Auto-fits to screen width</p></div></div>
+              <div class="card"><div class="card-body"><p class="t-heading-sm">Card 2</p><p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-2)">Responsive columns</p></div></div>
+              <div class="card"><div class="card-body"><p class="t-heading-sm">Card 3</p><p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-2)">No media queries</p></div></div>
+              <div class="card"><div class="card-body"><p class="t-heading-sm">Card 4</p><p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-2)">Mobile-first</p></div></div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Stack + Cluster Composition</div>
+          <div class="chips"><span class="chip">.stack</span><span class="chip">.cluster</span><span class="chip">nested</span></div>
+          <div class="doc-demo">
+            <div class="stack" style="background:var(--color-subtle);border-radius:var(--radius-lg);padding:var(--space-4)">
+              <div class="cluster cluster-tight">
+                <input class="form-input" type="search" placeholder="Search..." style="flex:1;margin-bottom:0">
+                <button class="btn btn-primary">Search</button>
+              </div>
+              <div class="cluster cluster-tight" style="flex-wrap:wrap">
+                <span style="font-size:var(--text-sm);color:var(--color-muted)">Showing 3 of 12 results</span>
+                <div class="cluster cluster-tight">
+                  <button class="btn btn-ghost btn-sm">← Prev</button>
+                  <button class="btn btn-ghost btn-sm">Next →</button>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
