@@ -586,41 +586,58 @@
         <!-- ICONS -->
         <section class="doc-section" id="icons">
           <h2 class="doc-section-title">Icons</h2>
-          <p class="doc-section-desc">SVG icons with semantic sizing and colors. Inherit color via currentColor. Responsive scaling.</p>
+          <p class="doc-section-desc">SVG icons with semantic sizing and colors. Inherit color via currentColor. Support for animations.</p>
+          <div class="chips"><span class="chip">.icon</span><span class="chip">.icon-sm</span><span class="chip">.icon-lg</span><span class="chip">.icon-primary</span><span class="chip">.icon-success</span><span class="chip">.icon-error</span><span class="chip">.icon-warning</span><span class="chip">.icon-info</span><span class="chip">.icon-spin</span><span class="chip">.icon-pulse</span></div>
 
           <div class="doc-sub">Icon Sizes</div>
           <div class="component-states">
             <div class="state-item">
-              <svg style="width:var(--size-icon-sm);height:var(--size-icon-sm);stroke:currentColor;stroke-width:1.5;fill:none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
-              <span class="state-label">Small</span>
+              <svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+              <span class="state-label">Small (.icon-sm)</span>
             </div>
             <div class="state-item">
-              <svg style="width:var(--size-icon);height:var(--size-icon);stroke:currentColor;stroke-width:1.5;fill:none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
-              <span class="state-label">Default</span>
+              <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+              <span class="state-label">Default (.icon)</span>
             </div>
             <div class="state-item">
-              <svg style="width:var(--size-icon-lg);height:var(--size-icon-lg);stroke:currentColor;stroke-width:1.5;fill:none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
-              <span class="state-label">Large</span>
+              <svg class="icon icon-lg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+              <span class="state-label">Large (.icon-lg)</span>
             </div>
           </div>
 
           <div class="doc-sub">Semantic Colors</div>
           <div class="component-states">
-            <div class="state-item" style="color:var(--color-accent)">
-              <svg style="width:var(--size-icon);height:var(--size-icon);stroke:currentColor;stroke-width:1.5;fill:none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+            <div class="state-item">
+              <svg class="icon icon-primary" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
               <span class="state-label">Primary</span>
             </div>
-            <div class="state-item" style="color:var(--color-success)">
-              <svg style="width:var(--size-icon);height:var(--size-icon);stroke:currentColor;stroke-width:1.5;fill:none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+            <div class="state-item">
+              <svg class="icon icon-success" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
               <span class="state-label">Success</span>
             </div>
-            <div class="state-item" style="color:var(--color-error)">
-              <svg style="width:var(--size-icon);height:var(--size-icon);stroke:currentColor;stroke-width:1.5;fill:none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+            <div class="state-item">
+              <svg class="icon icon-error" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
               <span class="state-label">Error</span>
             </div>
-            <div class="state-item" style="color:var(--color-warning)">
-              <svg style="width:var(--size-icon);height:var(--size-icon);stroke:currentColor;stroke-width:1.5;fill:none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+            <div class="state-item">
+              <svg class="icon icon-warning" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
               <span class="state-label">Warning</span>
+            </div>
+            <div class="state-item">
+              <svg class="icon icon-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+              <span class="state-label">Info</span>
+            </div>
+          </div>
+
+          <div class="doc-sub">Animations</div>
+          <div class="component-states">
+            <div class="state-item">
+              <svg class="icon icon-spin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" /><path d="M12 2v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <span class="state-label">Spinning</span>
+            </div>
+            <div class="state-item">
+              <svg class="icon icon-pulse" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="currentColor"/></svg>
+              <span class="state-label">Pulsing</span>
             </div>
           </div>
 

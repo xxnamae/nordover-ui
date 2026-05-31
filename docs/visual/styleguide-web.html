@@ -365,30 +365,50 @@
         <!-- ICONS -->
         <section class="doc-section" id="icons">
           <h2 class="doc-section-title">Icons</h2>
-          <p class="doc-section-desc">SVG icons with semantic sizing and colors. Inherit color via currentColor.</p>
+          <p class="doc-section-desc">SVG icons with semantic sizing and colors. Inherit color via currentColor. Support for animations and semantic color variants.</p>
+          <div class="chips"><span class="chip">.icon</span><span class="chip">.icon-sm</span><span class="chip">.icon-lg</span><span class="chip">.icon-primary</span><span class="chip">.icon-success</span><span class="chip">.icon-error</span><span class="chip">.icon-warning</span><span class="chip">.icon-info</span><span class="chip">.icon-spin</span><span class="chip">.icon-pulse</span></div>
+
+          <div class="doc-sub">Sizes</div>
           <div class="doc-demo stack">
             <div class="cluster cluster-tight">
               <svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
-              <svg class="icon icon-sm icon-primary" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
-              <svg class="icon icon-sm icon-success" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
               <span>Small (.icon-sm)</span>
             </div>
             <div class="cluster cluster-tight">
               <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
-              <svg class="icon icon-primary" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
-              <svg class="icon icon-success" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
               <span>Default (.icon)</span>
             </div>
             <div class="cluster cluster-tight">
               <svg class="icon icon-lg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
-              <svg class="icon icon-lg icon-primary" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
-              <svg class="icon icon-lg icon-success" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
               <span>Large (.icon-lg)</span>
             </div>
+          </div>
+
+          <div class="doc-sub">Semantic Colors</div>
+          <div class="doc-demo stack">
+            <div class="cluster cluster-tight">
+              <svg class="icon icon-primary" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+              <span>Primary</span>
+              <svg class="icon icon-success" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+              <span>Success</span>
+              <svg class="icon icon-error" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+              <span>Error</span>
+              <svg class="icon icon-warning" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+              <span>Warning</span>
+              <svg class="icon icon-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+              <span>Info</span>
+            </div>
+          </div>
+
+          <div class="doc-sub">Animations</div>
+          <div class="doc-demo stack">
             <div class="cluster cluster-tight">
               <svg class="icon icon-spin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" /><path d="M12 2v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <span>Spinning (.icon-spin)</span>
+            </div>
+            <div class="cluster cluster-tight">
               <svg class="icon icon-pulse" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="currentColor"/></svg>
-              <span>Animated (.icon-spin, .icon-pulse)</span>
+              <span>Pulsing (.icon-pulse)</span>
             </div>
           </div>
         </section>
