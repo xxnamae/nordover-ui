@@ -1244,15 +1244,57 @@
               </div>
             </div>
           </div>
+
+          <div class="doc-sub">Semantic Modal with role="dialog"</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">HTML structure with ARIA attributes for screen reader users. Backdrop prevents interaction with page content behind.</p>
+          <div class="code-block" style="margin-bottom:var(--space-3);background:var(--color-subtle);border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-3);overflow-x:auto;font-size:0.8rem;font-family:var(--font-mono)">
+            <pre style="margin:0">&lt;div class="modal open" role="presentation"&gt;
+  &lt;div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title"&gt;
+    &lt;div class="modal-header"&gt;
+      &lt;h2 class="t-heading-sm" id="dialog-title"&gt;Edit Profile&lt;/h2&gt;
+      &lt;button class="btn btn-ghost" aria-label="Close dialog"&gt;×&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="modal-body"&gt;...content...&lt;/div&gt;
+    &lt;div class="modal-footer"&gt;
+      &lt;button class="btn btn-ghost"&gt;Cancel&lt;/button&gt;
+      &lt;button class="btn btn-primary"&gt;Save&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+          </div>
+
+          <div class="doc-sub">Implementation Notes</div>
+          <div class="a11y-checklist">
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Use role="dialog" on modal-dialog + aria-modal="true"</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Link header text with aria-labelledby for context</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Backdrop (role="presentation") prevents keyboard interaction outside modal</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>ESC key closes modal (JavaScript required)</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Focus trapped within modal until closed</span>
+            </div>
+          </div>
         </section>
 
         <!-- ACCORDION — Expandable content panels -->
         <section class="doc-section" id="accordion" data-section="components" data-category="accordion">
           <h2 class="doc-section-title">Accordion / Details</h2>
           <p class="doc-section-desc">Collapsible content sections. Semantic &lt;details&gt; and &lt;summary&gt; elements with progressive disclosure. Full keyboard support and screen reader accessibility.</p>
-          <div class="chips"><span class="chip">.faq-item</span><span class="chip">.faq-summary</span><span class="chip">.faq-answer</span></div>
+          <div class="chips"><span class="chip">.accordion</span><span class="chip">.accordion-item</span><span class="chip">.accordion-header</span><span class="chip">.accordion-content</span><span class="chip">.faq-item</span><span class="chip">.faq-summary</span><span class="chip">.faq-answer</span></div>
 
-          <div class="doc-sub">Example — FAQ Pattern</div>
+          <div class="doc-sub">Example — FAQ Pattern (HTML &lt;details&gt;)</div>
           <div class="stack" style="max-width:36rem">
             <details class="faq-item" open>
               <summary class="faq-summary">What is a design system?</summary>
@@ -1270,6 +1312,38 @@
               <summary class="faq-summary">Can I use this with my tech stack?</summary>
               <p class="faq-answer">Yes. Nordover is pure CSS and HTML with no framework dependencies. Use it with React, Vue, Svelte, or vanilla JavaScript. The CSS is modular and can be imported partially.</p>
             </details>
+          </div>
+
+          <div class="doc-sub">Advanced Accordion (.accordion pattern)</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Use .accordion classes for styled accordions with JavaScript control of open/close state and animated icons.</p>
+          <div class="accordion" style="max-width:36rem;border:var(--border-card);border-radius:var(--radius-lg)">
+            <div class="accordion-item open">
+              <button class="accordion-header" aria-expanded="true">
+                <span>Getting Started</span>
+                <svg class="accordion-icon icon" viewBox="0 0 24 24" style="width:1.25rem;height:1.25rem;stroke-width:2"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="accordion-content">
+                Installation is simple — import the CSS files and start building. All components are pre-styled and ready to use. No configuration needed for basic usage.
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header" aria-expanded="false">
+                <span>Customization</span>
+                <svg class="accordion-icon icon" viewBox="0 0 24 24" style="width:1.25rem;height:1.25rem;stroke-width:2"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="accordion-content hidden">
+                Customize colors, spacing, and typography by overriding CSS variables in your own stylesheet. Use @layer brand to ensure your overrides take precedence without !important.
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header" aria-expanded="false">
+                <span>Browser Support</span>
+                <svg class="accordion-icon icon" viewBox="0 0 24 24" style="width:1.25rem;height:1.25rem;stroke-width:2"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="accordion-content hidden">
+                Works on all modern browsers (Chrome, Firefox, Safari, Edge). CSS Grid and Flexbox required. Progressive enhancement for older browsers—components degrade gracefully.
+              </div>
+            </div>
           </div>
 
           <div class="doc-sub">Accessibility & Keyboard Interaction</div>
@@ -1370,6 +1444,44 @@
           </div>
         </section>
 
+        <!-- BUTTON VARIANTS & STATES -->
+        <section class="doc-section" id="button-variants">
+          <h2 class="doc-section-title">Button Variants & States</h2>
+          <p class="doc-section-desc">Button style variations for different actions and states. Use semantic sizing and colors for visual hierarchy. Disabled state prevents interaction and indicates unavailability.</p>
+          <div class="chips"><span class="chip">.btn</span><span class="chip">.btn-primary</span><span class="chip">.btn-secondary</span><span class="chip">.btn-ghost</span><span class="chip">.btn-sm</span><span class="chip">.btn-lg</span><span class="chip">:disabled</span></div>
+
+          <div class="doc-sub">Button Sizes</div>
+          <div class="cluster cluster-tight" style="gap:var(--space-3)">
+            <button class="btn btn-primary btn-sm">Small</button>
+            <button class="btn btn-primary">Default</button>
+            <button class="btn btn-primary btn-lg">Large</button>
+          </div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-2)">Use .btn-sm for compact layouts, default for normal, .btn-lg for call-to-action buttons.</p>
+
+          <div class="doc-sub">Button States</div>
+          <div class="cluster cluster-tight" style="gap:var(--space-3)">
+            <button class="btn btn-primary">Normal</button>
+            <button class="btn btn-primary" disabled>Disabled</button>
+            <button class="btn btn-primary" style="opacity:0.6">Loading...</button>
+            <button class="btn btn-primary" aria-pressed="true">Active</button>
+          </div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-2)">Disabled buttons have reduced opacity and no pointer events. Loading state is often animated with spinner.</p>
+
+          <div class="doc-sub">Ghost Buttons (Low Emphasis)</div>
+          <div class="cluster cluster-tight" style="gap:var(--space-3)">
+            <button class="btn btn-ghost">Cancel</button>
+            <button class="btn btn-ghost">Skip</button>
+            <button class="btn btn-ghost btn-sm">×</button>
+          </div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-2)">Use for secondary actions or close buttons. No background color, outline on hover.</p>
+
+          <div class="doc-sub">Button with Icon</div>
+          <div class="cluster cluster-tight" style="gap:var(--space-3)">
+            <button class="btn btn-primary"><svg class="icon" viewBox="0 0 24 24" style="width:1rem;height:1rem;margin-right:var(--space-1);display:inline"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>Add</button>
+            <button class="btn btn-ghost"><svg class="icon" viewBox="0 0 24 24" style="width:1rem;height:1rem;margin-right:var(--space-1);display:inline"><path d="M3 6h18M8 6v12M16 6v12M5 6l1 14h12l1-14" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>Delete</button>
+          </div>
+        </section>
+
         <!-- LAYOUT PRIMITIVES -->
         <section class="doc-section" id="layout">
           <h2 class="doc-section-title">Layout Primitives</h2>
@@ -1407,6 +1519,106 @@
           <div class="doc-sub">Page Container</div>
           <div class="chips"><span class="chip">.page</span><span class="chip">.page-content</span><span class="chip">.page-section</span></div>
           <p class="t-body-sm">Use .page as main container, .page-content for max-width centering, .page-section for vertical sections with spacing.</p>
+
+          <div class="doc-sub">Page Section with Full Width</div>
+          <div style="margin:var(--space-4) calc(-50vw + 50%);border:var(--border-card);border-left:none;border-right:none">
+            <div class="page-section" style="background:var(--color-subtle)">
+              <div style="max-width:36rem;margin:0 auto">
+                <h3 class="t-heading-sm">Full-width Section</h3>
+                <p class="t-body-sm" style="color:var(--color-muted)">Use negative margin technique to break outside content width. Useful for hero sections, divider bands, and emphasis areas.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- STEPPER — Multi-step form progress indicator -->
+        <section class="doc-section" id="stepper">
+          <h2 class="doc-section-title">Stepper / Progress</h2>
+          <p class="doc-section-desc">Visual progress indicator for multi-step workflows. Shows current step, completed steps, and upcoming steps. Keyboard navigable between steps.</p>
+          <div class="chips"><span class="chip">.stepper</span><span class="chip">.stepper-step</span><span class="chip">.stepper-circle</span><span class="chip">.stepper-label</span></div>
+
+          <div class="doc-sub">Basic Stepper</div>
+          <div class="stepper" style="margin-bottom:var(--space-8)">
+            <div class="stepper-step completed">
+              <div class="stepper-circle" style="background:var(--color-success);border-color:var(--color-success);color:var(--color-accent-fg)">1</div>
+              <div class="stepper-label">Account</div>
+            </div>
+            <div class="stepper-step active">
+              <div class="stepper-circle" style="background:var(--color-accent);border-color:var(--color-accent);color:var(--color-accent-fg)">2</div>
+              <div class="stepper-label">Profile</div>
+            </div>
+            <div class="stepper-step">
+              <div class="stepper-circle">3</div>
+              <div class="stepper-label">Billing</div>
+            </div>
+            <div class="stepper-step">
+              <div class="stepper-circle">4</div>
+              <div class="stepper-label">Confirm</div>
+            </div>
+          </div>
+          <p class="t-body-sm" style="color:var(--color-muted)">Show progress through a workflow. Step 1 is completed (green checkmark), step 2 is active (blue), steps 3-4 are upcoming.</p>
+
+          <div class="doc-sub">Implementation</div>
+          <div class="a11y-checklist">
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Use aria-current="step" on active step circle</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Completed steps have different color (success green)</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Connecting line between circles updates on progress</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Step labels always visible for context</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- FILE UPLOAD — Drag & drop file input -->
+        <section class="doc-section" id="file-upload">
+          <h2 class="doc-section-title">File Upload</h2>
+          <p class="doc-section-desc">Drag-and-drop file input with visual feedback. Shows file list with upload progress. Accessible with keyboard file picker.</p>
+          <div class="chips"><span class="chip">.file-upload</span><span class="chip">.file-list</span><span class="chip">.file-item</span><span class="chip">.file-item-progress</span></div>
+
+          <div class="doc-sub">Upload Zone</div>
+          <div class="file-upload" style="max-width:32rem;border:2px dashed var(--color-border);border-radius:var(--radius-lg);padding:var(--space-8);text-align:center">
+            <div class="file-upload-icon" style="font-size:var(--text-3xl);margin-bottom:var(--space-2)">↑</div>
+            <p class="t-body-sm" style="font-weight:600;margin-bottom:var(--space-1)">Drag files here to upload</p>
+            <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">or <button style="color:var(--color-accent);background:none;border:none;cursor:pointer;text-decoration:underline">select from device</button></p>
+            <p class="t-caption" style="color:var(--color-muted)">Max 10 files, 100 MB each (PDF, JPG, PNG)</p>
+          </div>
+
+          <div class="doc-sub">Upload Progress</div>
+          <div class="file-list" style="max-width:32rem">
+            <div class="file-item" style="display:flex;align-items:center;justify-content:space-between;padding:var(--space-3);border:var(--border-card);border-radius:var(--radius-md);margin-bottom:var(--space-2)">
+              <div class="file-item-info" style="display:flex;align-items:center;gap:var(--space-2);flex:1">
+                <span style="font-size:1.5rem">📄</span>
+                <div>
+                  <div class="file-item-name" style="font-size:var(--text-sm);font-weight:600">document.pdf</div>
+                  <div class="file-item-size" style="font-size:var(--text-xs);color:var(--color-muted)">2.4 MB</div>
+                </div>
+              </div>
+              <div class="file-item-progress" style="flex:1;min-width:var(--space-12);height:0.25rem;background:var(--color-border);border-radius:var(--radius-full);overflow:hidden;margin:0 var(--space-2)">
+                <div class="file-item-progress-bar" style="height:100%;background:var(--color-accent);width:65%"></div>
+              </div>
+              <span style="font-size:var(--text-xs);color:var(--color-muted);min-width:3rem;text-align:right">65%</span>
+            </div>
+            <div class="file-item" style="display:flex;align-items:center;justify-content:space-between;padding:var(--space-3);border:var(--border-card);border-radius:var(--radius-md);margin-bottom:var(--space-2)">
+              <div class="file-item-info" style="display:flex;align-items:center;gap:var(--space-2);flex:1">
+                <span style="font-size:1.5rem">📄</span>
+                <div>
+                  <div class="file-item-name" style="font-size:var(--text-sm);font-weight:600">image.jpg</div>
+                  <div class="file-item-size" style="font-size:var(--text-xs);color:var(--color-muted)">1.8 MB</div>
+                </div>
+              </div>
+              <span style="color:var(--color-success);font-weight:600">✓ Done</span>
+            </div>
+          </div>
         </section>
 
         <!-- DATE PICKER — Calendar widget with multiple selection modes -->
