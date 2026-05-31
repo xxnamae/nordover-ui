@@ -52,6 +52,9 @@
     <a class="app-nav-item" href="#alerts"><svg class="icon"><use href="#i-info"/></svg> Alerts</a>
     <a class="app-nav-item" href="#table"><svg class="icon"><use href="#i-inbox"/></svg> Data Table</a>
     <a class="app-nav-item" href="#pagination"><svg class="icon"><use href="#i-chart"/></svg> Pagination</a>
+    <div class="app-sidebar-section">Layout</div>
+    <a class="app-nav-item" href="#layout"><svg class="icon"><use href="#i-chart"/></svg> Primitives</a>
+    <div class="app-sidebar-section">Components</div>
     <a class="app-nav-item" href="#date-picker"><svg class="icon"><use href="#i-edit"/></svg> Date Picker</a>
     <a class="app-nav-item" href="#stepper"><svg class="icon"><use href="#i-check"/></svg> Stepper</a>
     <a class="app-nav-item" href="#file-upload"><svg class="icon"><use href="#i-copy"/></svg> File Upload</a>
@@ -151,19 +154,60 @@
         <!-- BUTTONS -->
         <section class="doc-section" id="buttons">
           <h2 class="doc-section-title">Buttons</h2>
-          <p class="doc-section-desc">Tactile gradients (app default). 5 variants × 3 sizes. Dark mode friendly.</p>
-          <div class="doc-demo stack">
-            <div class="cluster cluster-tight"><button class="btn btn-primary">Primary</button><button class="btn btn-secondary">Secondary</button><button class="btn btn-ghost">Ghost</button></div>
-            <div class="cluster cluster-tight"><button class="btn btn-primary btn-sm">Small</button><button class="btn btn-primary">Default</button><button class="btn btn-primary btn-lg">Large</button></div>
+          <p class="doc-section-desc">Tactile, touchable buttons for app interfaces. 5 variants × 3 sizes. Dark mode default, light mode supported.</p>
+          <div class="chips"><span class="chip">.btn</span><span class="chip">.btn-primary</span><span class="chip">.btn-sm</span></div>
+
+          <div class="doc-sub">Variants</div>
+          <div class="cluster cluster-tight">
+            <button class="btn btn-primary">Primary</button>
+            <button class="btn btn-secondary">Secondary</button>
+            <button class="btn btn-ghost">Ghost</button>
+          </div>
+
+          <div class="doc-sub">Sizes</div>
+          <div class="cluster cluster-tight" style="align-items:center">
+            <button class="btn btn-primary btn-sm">Small</button>
+            <button class="btn btn-primary">Default</button>
+            <button class="btn btn-primary btn-lg">Large</button>
+          </div>
+
+          <div class="doc-sub">States</div>
+          <div class="cluster cluster-tight">
+            <button class="btn btn-primary">Normal</button>
+            <button class="btn btn-primary" disabled>Disabled</button>
           </div>
         </section>
 
         <!-- FORMS -->
         <section class="doc-section" id="forms">
           <h2 class="doc-section-title">Forms</h2>
-          <div class="doc-demo stack" style="max-width:24rem">
-            <div class="field"><label class="field-label">E-post</label><input class="form-input" type="email" placeholder="navn@eksempel.no"><p class="field-help">Vi sender bekreftelse hit</p></div>
-            <div class="field"><label class="field-label">Innstilling</label><input type="checkbox" class="form-checkbox" checked id="cb1"><label for="cb1" style="font-size:var(--text-sm);margin-top:var(--space-2)">Aktiver dette alternativet</label></div>
+          <p class="doc-section-desc">Form inputs, checkboxes, radios with states. Compact sizing for app interfaces.</p>
+          <div class="chips"><span class="chip">.field</span><span class="chip">.form-input</span><span class="chip">.form-checkbox</span></div>
+
+          <div class="doc-sub">Text Input</div>
+          <div class="stack" style="max-width:20rem">
+            <div class="field">
+              <label class="field-label">Email</label>
+              <input class="form-input" type="email" placeholder="user@example.com">
+              <p class="field-help">We'll send confirmation here</p>
+            </div>
+            <div class="field">
+              <label class="field-label">Error State</label>
+              <input class="form-input" value="invalid">
+              <span class="field-error">This field is required</span>
+            </div>
+          </div>
+
+          <div class="doc-sub">Checkboxes & Radios</div>
+          <div class="stack-tight" style="max-width:20rem">
+            <div style="display:flex;align-items:center;gap:var(--space-2)">
+              <input type="checkbox" class="form-checkbox" checked id="cb1">
+              <label for="cb1" style="font-size:var(--text-sm)">Checked</label>
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--space-2)">
+              <input type="checkbox" class="form-checkbox" id="cb2">
+              <label for="cb2" style="font-size:var(--text-sm)">Unchecked</label>
+            </div>
           </div>
         </section>
 
@@ -238,6 +282,36 @@
             <a href="#" class="pagination-item">3</a>
             <a href="#" class="pagination-item">→</a>
           </nav>
+        </section>
+
+        <!-- LAYOUT PRIMITIVES -->
+        <section class="doc-section" id="layout">
+          <h2 class="doc-section-title">Layout Primitives</h2>
+          <p class="doc-section-desc">Foundational layout components for app dashboards and data-rich interfaces. Compact, efficient spacing.</p>
+
+          <div class="doc-sub">Stack (Vertical)</div>
+          <div class="chips"><span class="chip">.stack</span><span class="chip">.stack-tight</span></div>
+          <div class="stack" style="max-width:16rem">
+            <div class="p-2" style="background:var(--color-subtle);border-radius:var(--radius-md);font-size:var(--text-sm)">Item 1</div>
+            <div class="p-2" style="background:var(--color-subtle);border-radius:var(--radius-md);font-size:var(--text-sm)">Item 2</div>
+            <div class="p-2" style="background:var(--color-subtle);border-radius:var(--radius-md);font-size:var(--text-sm)">Item 3</div>
+          </div>
+
+          <div class="doc-sub">Cluster (Horizontal Wrap)</div>
+          <div class="chips"><span class="chip">.cluster</span></div>
+          <div class="cluster">
+            <button class="btn btn-sm">Action 1</button>
+            <button class="btn btn-ghost btn-sm">Action 2</button>
+            <button class="btn btn-ghost btn-sm">Action 3</button>
+          </div>
+
+          <div class="doc-sub">Grid Auto (Card Grid)</div>
+          <div class="chips"><span class="chip">.grid-auto</span></div>
+          <div class="grid-auto" style="margin-top:var(--space-2)">
+            <div class="p-3" style="background:var(--color-subtle);border-radius:var(--radius-md);text-align:center;font-size:var(--text-sm)">Card</div>
+            <div class="p-3" style="background:var(--color-subtle);border-radius:var(--radius-md);text-align:center;font-size:var(--text-sm)">Card</div>
+            <div class="p-3" style="background:var(--color-subtle);border-radius:var(--radius-md);text-align:center;font-size:var(--text-sm)">Card</div>
+          </div>
         </section>
 
         <!-- DATE PICKER (App variant - compact) -->

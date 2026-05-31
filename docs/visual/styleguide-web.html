@@ -183,13 +183,40 @@
         <!-- BUTTONS -->
         <section class="doc-section" id="buttons">
           <h2 class="doc-section-title">Buttons</h2>
-          <p class="doc-section-desc">5 variants (primary, secondary, ghost, link, elevated) × 3 sizes (sm, base, lg). Flat default (elevated opt-in).</p>
-          <div class="chips"><span class="chip">.btn</span><span class="chip">.btn-primary</span><span class="chip">.btn-sm</span></div>
-          <div class="doc-demo stack">
-            <div class="cluster cluster-tight"><button class="btn btn-primary">Primary</button><button class="btn btn-secondary">Secondary</button><button class="btn btn-ghost">Ghost</button><a class="btn btn-link">Link</a></div>
-            <div class="cluster cluster-tight"><button class="btn btn-primary btn-sm">Small</button><button class="btn btn-primary">Default</button><button class="btn btn-primary btn-lg">Large</button></div>
-            <div class="cluster cluster-tight"><button class="btn btn-primary btn-elevated">Elevated CTA</button><button class="btn btn-primary btn-elevated btn-lg">Elevated Large</button></div>
-            <div class="cluster cluster-tight"><button class="btn btn-primary" disabled>Disabled</button><button class="btn btn-secondary" disabled>Disabled Secondary</button></div>
+          <p class="doc-section-desc">5 variants (primary, secondary, ghost, link, elevated) × 3 sizes (sm, base, lg) × states (normal, hover, active, disabled). Accessible with focus states.</p>
+          <div class="chips"><span class="chip">.btn</span><span class="chip">.btn-primary</span><span class="chip">.btn-secondary</span><span class="chip">.btn-ghost</span><span class="chip">.btn-link</span></div>
+
+          <div class="doc-sub">Variants (Base Size)</div>
+          <div class="cluster cluster-tight">
+            <button class="btn btn-primary">Primary</button>
+            <button class="btn btn-secondary">Secondary</button>
+            <button class="btn btn-ghost">Ghost</button>
+            <a class="btn btn-link" href="#">Link</a>
+          </div>
+
+          <div class="doc-sub">Sizes (Primary)</div>
+          <div class="cluster cluster-tight" style="align-items:center">
+            <button class="btn btn-primary btn-sm">Small</button>
+            <button class="btn btn-primary">Default (base)</button>
+            <button class="btn btn-primary btn-lg">Large</button>
+          </div>
+
+          <div class="doc-sub">Elevated (CTA)</div>
+          <div class="cluster cluster-tight">
+            <button class="btn btn-primary btn-elevated">Elevated Small</button>
+            <button class="btn btn-primary btn-elevated btn-lg">Elevated Large</button>
+          </div>
+
+          <div class="doc-sub">States</div>
+          <div class="cluster cluster-tight">
+            <button class="btn btn-primary">Normal</button>
+            <button class="btn btn-primary" disabled>Disabled</button>
+          </div>
+
+          <div class="doc-sub">With Icons</div>
+          <div class="cluster cluster-tight">
+            <button class="btn btn-primary"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg> Icon Left</button>
+            <button class="btn btn-secondary">Icon Right <svg class="icon" viewBox="0 0 24 24"><polyline points="5 12 19 12" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></button>
           </div>
           <div class="doc-sub">HTML & CSS</div>
           <div style="background:var(--color-subtle);border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-4);overflow-x:auto;font-family:monospace;font-size:var(--text-sm);line-height:1.5;margin-bottom:var(--space-4)"><code style="color:var(--color-fg)">&lt;!-- Primary button --&gt;
@@ -216,36 +243,70 @@
         <!-- FORMS -->
         <section class="doc-section" id="forms">
           <h2 class="doc-section-title">Forms</h2>
-          <p class="doc-section-desc">Complete form ecosystem: inputs, selects, checkboxes, radios, toggles, textareas with validation states.</p>
-          <div class="chips"><span class="chip">.field</span><span class="chip">.form-input</span><span class="chip">.form-checkbox</span></div>
-          <div class="doc-demo stack" style="max-width:30rem">
+          <p class="doc-section-desc">Complete form ecosystem: inputs, textareas, selects, checkboxes, radios with all states (normal, error, disabled, focus).</p>
+          <div class="chips"><span class="chip">.field</span><span class="chip">.form-input</span><span class="chip">.field-label</span><span class="chip">.field-error</span><span class="chip">.field-help</span></div>
+
+          <div class="doc-sub">Text Inputs (All States)</div>
+          <div class="stack" style="max-width:24rem">
             <div class="field">
-              <label class="field-label">Email Address</label>
-              <input class="form-input" type="email" placeholder="your@email.com">
-              <p class="field-help">We'll never share your email</p>
+              <label class="field-label">Normal Input</label>
+              <input class="form-input" type="text" placeholder="Placeholder text">
+              <p class="field-help">Helper text appears below</p>
             </div>
             <div class="field">
-              <label class="field-label">Full Name</label>
-              <input class="form-input" placeholder="John Doe">
-              <span class="field-error" style="display:none">This field is required</span>
+              <label class="field-label">Filled Input</label>
+              <input class="form-input" type="text" value="John Doe">
             </div>
             <div class="field">
-              <label class="field-label">Message</label>
-              <textarea class="form-input" rows="4" placeholder="Your message..."></textarea>
-            </div>
-            <div class="form-group">
-              <div class="form-group-item">
-                <input type="checkbox" class="form-checkbox" id="cb1">
-                <label for="cb1">I agree to terms</label>
-              </div>
-              <div class="form-group-item">
-                <input type="radio" name="r" class="form-radio" id="rd1" checked>
-                <label for="rd1">Yes</label>
-              </div>
+              <label class="field-label">Error State</label>
+              <input class="form-input" type="email" value="invalid">
+              <span class="field-error">Please enter a valid email</span>
             </div>
             <div class="field">
-              <label class="field-label">Enable notifications</label>
-              <input type="checkbox" class="form-toggle" id="toggle1">
+              <label class="field-label">Disabled Input</label>
+              <input class="form-input" type="text" value="Disabled value" disabled>
+            </div>
+          </div>
+
+          <div class="doc-sub">Textarea</div>
+          <div class="field" style="max-width:24rem">
+            <label class="field-label">Message</label>
+            <textarea class="form-input" rows="4" placeholder="Your message..."></textarea>
+          </div>
+
+          <div class="doc-sub">Checkboxes & Radios</div>
+          <div class="stack-tight" style="max-width:24rem">
+            <div style="display:flex;align-items:center;gap:var(--space-2)">
+              <input type="checkbox" class="form-checkbox" id="cb1" checked>
+              <label for="cb1">Checked option</label>
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--space-2)">
+              <input type="checkbox" class="form-checkbox" id="cb2">
+              <label for="cb2">Unchecked option</label>
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--space-2);margin-top:var(--space-3)">
+              <input type="radio" name="option" class="form-radio" id="rd1" checked>
+              <label for="rd1">Option A</label>
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--space-2)">
+              <input type="radio" name="option" class="form-radio" id="rd2">
+              <label for="rd2">Option B</label>
+            </div>
+          </div>
+
+          <div class="doc-sub">Select & Toggle</div>
+          <div class="stack" style="max-width:24rem">
+            <div class="field">
+              <label class="field-label">Choose Option</label>
+              <select class="form-input">
+                <option>Option 1</option>
+                <option>Option 2</option>
+                <option>Option 3</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="field-label">Enable Feature</label>
+              <input type="checkbox" class="form-toggle" id="toggle1" checked>
             </div>
           </div>
           <div class="doc-sub">HTML & CSS</div>
@@ -570,6 +631,45 @@
               </div>
             </div>
           </div>
+        </section>
+
+        <!-- LAYOUT PRIMITIVES -->
+        <section class="doc-section" id="layout">
+          <h2 class="doc-section-title">Layout Primitives</h2>
+          <p class="doc-section-desc">Foundational layout components using flexbox and grid. Use for flexible, responsive layouts without custom CSS.</p>
+
+          <div class="doc-sub">Stack (Vertical Layout)</div>
+          <div class="chips"><span class="chip">.stack</span><span class="chip">.stack-tight</span></div>
+          <div class="stack" style="max-width:20rem;border:var(--border-card);border-radius:var(--radius-lg);padding:var(--space-4)">
+            <div class="p-3" style="background:var(--color-subtle);border-radius:var(--radius-md)">Stack item 1</div>
+            <div class="p-3" style="background:var(--color-subtle);border-radius:var(--radius-md)">Stack item 2</div>
+            <div class="p-3" style="background:var(--color-subtle);border-radius:var(--radius-md)">Stack item 3</div>
+          </div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-3)">Vertical layout with consistent gap. Use .stack-tight for reduced spacing.</p>
+
+          <div class="doc-sub">Cluster (Horizontal + Wrap)</div>
+          <div class="chips"><span class="chip">.cluster</span><span class="chip">.cluster-tight</span></div>
+          <div class="cluster" style="border:var(--border-card);border-radius:var(--radius-lg);padding:var(--space-4);gap:var(--gap-component)">
+            <div class="p-3" style="background:var(--color-subtle);border-radius:var(--radius-md)">Item 1</div>
+            <div class="p-3" style="background:var(--color-subtle);border-radius:var(--radius-md)">Item 2</div>
+            <div class="p-3" style="background:var(--color-subtle);border-radius:var(--radius-md)">Item 3</div>
+            <div class="p-3" style="background:var(--color-subtle);border-radius:var(--radius-md)">Item 4</div>
+          </div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-3)">Horizontal layout that wraps on small screens. Aligns items vertically.</p>
+
+          <div class="doc-sub">Grid Auto (Responsive Grid)</div>
+          <div class="chips"><span class="chip">.grid-auto</span></div>
+          <div class="grid-auto" style="border:var(--border-card);border-radius:var(--radius-lg);padding:var(--space-4)">
+            <div class="p-4" style="background:var(--color-subtle);border-radius:var(--radius-md);text-align:center">Card 1</div>
+            <div class="p-4" style="background:var(--color-subtle);border-radius:var(--radius-md);text-align:center">Card 2</div>
+            <div class="p-4" style="background:var(--color-subtle);border-radius:var(--radius-md);text-align:center">Card 3</div>
+            <div class="p-4" style="background:var(--color-subtle);border-radius:var(--radius-md);text-align:center">Card 4</div>
+          </div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-3)">Auto-fit grid with minimum column width (16rem). Adapts columns based on available space.</p>
+
+          <div class="doc-sub">Page Container</div>
+          <div class="chips"><span class="chip">.page</span><span class="chip">.page-content</span><span class="chip">.page-section</span></div>
+          <p class="t-body-sm">Use .page as main container, .page-content for max-width centering, .page-section for vertical sections with spacing.</p>
         </section>
 
         <!-- DATE PICKER -->
