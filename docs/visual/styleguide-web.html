@@ -474,14 +474,27 @@
 &lt;button class="btn btn-primary btn-elevated"&gt;Elevated&lt;/button&gt;
 
 &lt;!-- Disabled state --&gt;
-&lt;button class="btn btn-primary" disabled&gt;Disabled&lt;/button&gt;</code></div>
+&lt;button class="btn btn-primary" disabled&gt;Disabled&lt;/button&gt;
+
+&lt;!-- Mobile accessibility (44px minimum touch target) --&gt;
+&lt;button class="btn btn-primary btn-touch"&gt;Touch Target&lt;/button&gt;</code></div>
+
+          <div class="doc-sub">Mobile Accessibility</div>
+          <div class="stack-tight">
+            <div>
+              <strong>.btn-touch</strong> — Ensures minimum 44px height and width for mobile touch targets (WCAG accessibility standard). Use on mobile-exposed buttons.
+            </div>
+            <div style="margin-top: var(--space-3)">
+              <button class="btn btn-primary btn-touch" style="width: 100%; max-width: 12rem">Touch Target (44px min)</button>
+            </div>
+          </div>
         </section>
 
         <!-- FORMS -->
         <section class="doc-section" id="forms">
           <h2 class="doc-section-title">Forms</h2>
           <p class="doc-section-desc">Complete form ecosystem: inputs, textareas, selects, checkboxes, radios with all states (normal, error, disabled, focus).</p>
-          <div class="chips"><span class="chip">.field</span><span class="chip">.form-input</span><span class="chip">.field-label</span><span class="chip">.field-error</span><span class="chip">.field-help</span></div>
+          <div class="chips"><span class="chip">.field</span><span class="chip">.form-input</span><span class="chip">.form-textarea</span><span class="chip">.form-select</span><span class="chip">.form-checkbox</span><span class="chip">.form-radio</span><span class="chip">.form-toggle</span><span class="chip">.form-group</span></div>
 
           <div class="doc-sub">Text Inputs (All States)</div>
           <div class="stack" style="max-width:24rem">
@@ -508,7 +521,7 @@
           <div class="doc-sub">Textarea</div>
           <div class="field" style="max-width:24rem">
             <label class="field-label">Message</label>
-            <textarea class="form-input" rows="4" placeholder="Your message..."></textarea>
+            <textarea class="form-textarea" rows="4" placeholder="Your message..."></textarea>
           </div>
 
           <div class="doc-sub">Checkboxes & Radios</div>
@@ -535,7 +548,7 @@
           <div class="stack" style="max-width:24rem">
             <div class="field">
               <label class="field-label">Choose Option</label>
-              <select class="form-input">
+              <select class="form-select">
                 <option>Option 1</option>
                 <option>Option 2</option>
                 <option>Option 3</option>
@@ -545,6 +558,27 @@
               <label class="field-label">Enable Feature</label>
               <input type="checkbox" class="form-toggle" id="toggle1" checked>
             </div>
+          </div>
+
+          <div class="doc-sub">Form Groups (Multiple Checkboxes/Radios)</div>
+          <div class="stack" style="max-width:24rem">
+            <fieldset>
+              <legend class="field-label">Select preferences</legend>
+              <div class="form-group">
+                <div class="form-group-item">
+                  <input type="checkbox" class="form-checkbox" id="pref1" checked>
+                  <label for="pref1">Email notifications</label>
+                </div>
+                <div class="form-group-item">
+                  <input type="checkbox" class="form-checkbox" id="pref2">
+                  <label for="pref2">SMS alerts</label>
+                </div>
+                <div class="form-group-item">
+                  <input type="checkbox" class="form-checkbox" id="pref3" checked>
+                  <label for="pref3">Marketing emails</label>
+                </div>
+              </div>
+            </fieldset>
           </div>
 
           <div class="doc-sub">Form Guidelines</div>
@@ -571,7 +605,7 @@
             </div>
           </div>
 
-          <div class="doc-sub">HTML & CSS</div>
+          <div class="doc-sub">HTML & CSS Examples</div>
           <div style="background:var(--color-subtle);border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-4);overflow-x:auto;font-family:monospace;font-size:var(--text-sm);line-height:1.5;margin-bottom:var(--space-4)"><code style="color:var(--color-fg)">&lt;!-- Text input --&gt;
 &lt;div class="field"&gt;
   &lt;label class="field-label"&gt;Email&lt;/label&gt;
@@ -579,10 +613,19 @@
   &lt;p class="field-help"&gt;We'll never share your email&lt;/p&gt;
 &lt;/div&gt;
 
-&lt;!-- Textarea --&gt;
+&lt;!-- Textarea (use .form-textarea, not .form-input) --&gt;
 &lt;div class="field"&gt;
   &lt;label class="field-label"&gt;Message&lt;/label&gt;
-  &lt;textarea class="form-input" rows="4" placeholder="Your message..."&gt;&lt;/textarea&gt;
+  &lt;textarea class="form-textarea" rows="4" placeholder="Your message..."&gt;&lt;/textarea&gt;
+&lt;/div&gt;
+
+&lt;!-- Select dropdown (use .form-select, not .form-input) --&gt;
+&lt;div class="field"&gt;
+  &lt;label class="field-label"&gt;Choose one&lt;/label&gt;
+  &lt;select class="form-select"&gt;
+    &lt;option&gt;Option A&lt;/option&gt;
+    &lt;option&gt;Option B&lt;/option&gt;
+  &lt;/select&gt;
 &lt;/div&gt;
 
 &lt;!-- Checkbox --&gt;
@@ -597,12 +640,20 @@
 &lt;input type="checkbox" class="form-toggle" id="t1"&gt;
 &lt;label for="t1"&gt;Enable feature&lt;/label&gt;
 
-&lt;!-- Select dropdown --&gt;
-&lt;select class="form-select"&gt;
-  &lt;option&gt;Choose one&lt;/option&gt;
-  &lt;option&gt;Option A&lt;/option&gt;
-  &lt;option&gt;Option B&lt;/option&gt;
-&lt;/select&gt;</code></div>
+&lt;!-- Form group (multiple related inputs) --&gt;
+&lt;fieldset&gt;
+  &lt;legend class="field-label"&gt;Preferences&lt;/legend&gt;
+  &lt;div class="form-group"&gt;
+    &lt;div class="form-group-item"&gt;
+      &lt;input type="checkbox" class="form-checkbox" id="opt1"&gt;
+      &lt;label for="opt1"&gt;Option 1&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="form-group-item"&gt;
+      &lt;input type="checkbox" class="form-checkbox" id="opt2"&gt;
+      &lt;label for="opt2"&gt;Option 2&lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/fieldset&gt;</code></div>
         </section>
 
         <!-- BADGES -->
