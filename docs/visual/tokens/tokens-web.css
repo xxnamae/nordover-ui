@@ -269,6 +269,9 @@
     --w-5xl: 64rem;    /* 1024px */
     --w-6xl: 72rem;    /* 1152px */
 
+    /* === Grid sizing (auto-fit minmax values) === */
+    --grid-min: 16rem; /* 256px — min column width for auto-fit grids */
+
     /* === Hover-lift (mer dramatisk på web) === */
     --lift-distance: -2px;
     --lift-shadow-from: var(--shadow-xs);

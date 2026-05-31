@@ -275,6 +275,9 @@
     --w-lg: 28rem;     /* 448px */
     --w-xl: 32rem;     /* 512px */
 
+    /* === Grid sizing (auto-fit minmax values) === */
+    --grid-min: 14rem; /* 224px — min column width for auto-fit grids */
+
     /* === Hover-lift (mindre dramatisk for SaaS) === */
     --lift-distance: -1px;
     --lift-shadow-from: var(--shadow-xs);
