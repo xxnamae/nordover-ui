@@ -52,49 +52,61 @@
 <div class="app">
   <aside class="app-sidebar">
     <div class="app-sidebar-brand"><span class="app-sidebar-brand-mark"><svg class="icon icon-sm"><use href="#i-home"/></svg></span> Nordover App</div>
-    <div class="app-sidebar-section">Foundation</div>
-    <a class="app-nav-item" href="#colors"><svg class="icon"><use href="#i-folder"/></svg> Farger & gråskala</a>
-    <a class="app-nav-item" href="#type"><svg class="icon"><use href="#i-edit"/></svg> Typografi</a>
-    <a class="app-nav-item" href="#scales"><svg class="icon"><use href="#i-chart"/></svg> Skalaer & enheter</a>
-    <a class="app-nav-item" href="#motion"><svg class="icon"><use href="#i-sparkles"/></svg> Motion</a>
-    <div class="app-sidebar-section">Komponenter</div>
-    <a class="app-nav-item" href="#buttons"><svg class="icon"><use href="#i-check"/></svg> Buttons</a>
-    <a class="app-nav-item" href="#forms"><svg class="icon"><use href="#i-edit"/></svg> Forms</a>
-    <a class="app-nav-item" href="#icons"><svg class="icon"><use href="#i-sparkles"/></svg> Icons</a>
-    <div class="app-sidebar-section">Data & Feedback</div>
-    <a class="app-nav-item" href="#badges"><svg class="icon"><use href="#i-check"/></svg> Badges & Status</a>
-    <a class="app-nav-item" href="#alerts"><svg class="icon"><use href="#i-info"/></svg> Alerts</a>
-    <a class="app-nav-item" href="#table"><svg class="icon"><use href="#i-inbox"/></svg> Data Table</a>
-    <a class="app-nav-item" href="#pagination"><svg class="icon"><use href="#i-chart"/></svg> Pagination</a>
-    <div class="app-sidebar-section">Layout</div>
-    <a class="app-nav-item" href="#layout"><svg class="icon"><use href="#i-chart"/></svg> Primitives</a>
-    <div class="app-sidebar-section">Components</div>
-    <a class="app-nav-item" href="#date-picker"><svg class="icon"><use href="#i-edit"/></svg> Date Picker</a>
-    <a class="app-nav-item" href="#stepper"><svg class="icon"><use href="#i-check"/></svg> Stepper</a>
-    <a class="app-nav-item" href="#file-upload"><svg class="icon"><use href="#i-copy"/></svg> File Upload</a>
-    <a class="app-nav-item" href="#search-bar"><svg class="icon"><use href="#i-search"/></svg> Search Bar</a>
-    <a class="app-nav-item" href="#empty-states"><svg class="icon"><use href="#i-info"/></svg> Empty States</a>
-    <a class="app-nav-item" href="#form-patterns"><svg class="icon"><use href="#i-edit"/></svg> Form Patterns</a>
-    <a class="app-nav-item" href="#data-patterns"><svg class="icon"><use href="#i-inbox"/></svg> Data Display</a>
-    <a class="app-nav-item" href="#states-interactions"><svg class="icon"><use href="#i-check"/></svg> States & Interactions</a>
-    <a class="app-nav-item" href="#layout-techniques"><svg class="icon"><use href="#i-chart"/></svg> Layout Techniques</a>
-    <a class="app-nav-item" href="#real-world-examples"><svg class="icon"><use href="#i-folder"/></svg> Real-World Examples</a>
-    <a class="app-nav-item" href="#component-variants"><svg class="icon"><use href="#i-folder"/></svg> Component Variants</a>
-    <a class="app-nav-item" href="#overlays"><svg class="icon"><use href="#i-info"/></svg> Modals</a>
-    <a class="app-nav-item" href="#accordion"><svg class="icon"><use href="#i-edit"/></svg> Accordion</a>
-    <a class="app-nav-item" href="#tags"><svg class="icon"><use href="#i-check"/></svg> Tags & Badges</a>
-    <div class="app-sidebar-section">App Patterns</div>
-    <a class="app-nav-item" href="#dashboard-pattern"><svg class="icon"><use href="#i-chart"/></svg> Dashboard</a>
-    <a class="app-nav-item" href="#form-pattern"><svg class="icon"><use href="#i-edit"/></svg> Forms</a>
-    <a class="app-nav-item" href="#card-grid-pattern"><svg class="icon"><use href="#i-folder"/></svg> Card Grid</a>
-    <a class="app-nav-item" href="#multi-step-pattern"><svg class="icon"><use href="#i-check"/></svg> Multi-Step</a>
-    <a class="app-nav-item" href="#timeline-pattern"><svg class="icon"><use href="#i-chart"/></svg> Timeline</a>
-    <div class="app-sidebar-section">Guidelines</div>
-    <a class="app-nav-item" href="#real-world-examples"><svg class="icon"><use href="#i-chart"/></svg> Real-World Examples</a>
-    <a class="app-nav-item" href="#responsive"><svg class="icon"><use href="#i-chart"/></svg> Responsive</a>
-    <a class="app-nav-item" href="#accessibility"><svg class="icon"><use href="#i-info"/></svg> Accessibility</a>
-    <a class="app-nav-item" href="#utilities"><svg class="icon"><use href="#i-sparkles"/></svg> Utilities</a>
-    <a class="app-nav-item" href="#dark-mode-examples"><svg class="icon"><use href="#i-moon"/></svg> Dark Mode</a>
+
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="true">Foundation</button>
+      <nav class="app-nav-group active">
+        <a class="app-nav-item" href="#colors"><svg class="icon"><use href="#i-folder"/></svg> Farger & gråskala</a>
+        <a class="app-nav-item" href="#type"><svg class="icon"><use href="#i-edit"/></svg> Typografi</a>
+        <a class="app-nav-item" href="#scales"><svg class="icon"><use href="#i-chart"/></svg> Skalaer & enheter</a>
+        <a class="app-nav-item" href="#motion"><svg class="icon"><use href="#i-sparkles"/></svg> Motion</a>
+      </nav>
+    </div>
+
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="true">Komponenter</button>
+      <nav class="app-nav-group active">
+        <a class="app-nav-item" href="#buttons"><svg class="icon"><use href="#i-check"/></svg> Buttons</a>
+        <a class="app-nav-item" href="#forms"><svg class="icon"><use href="#i-edit"/></svg> Forms</a>
+        <a class="app-nav-item" href="#icons"><svg class="icon"><use href="#i-sparkles"/></svg> Icons</a>
+        <a class="app-nav-item" href="#badges"><svg class="icon"><use href="#i-check"/></svg> Badges & Status</a>
+        <a class="app-nav-item" href="#alerts"><svg class="icon"><use href="#i-info"/></svg> Alerts</a>
+        <a class="app-nav-item" href="#table"><svg class="icon"><use href="#i-inbox"/></svg> Data Table</a>
+        <a class="app-nav-item" href="#pagination"><svg class="icon"><use href="#i-chart"/></svg> Pagination</a>
+        <a class="app-nav-item" href="#layout"><svg class="icon"><use href="#i-chart"/></svg> Primitives</a>
+        <a class="app-nav-item" href="#date-picker"><svg class="icon"><use href="#i-edit"/></svg> Date Picker</a>
+        <a class="app-nav-item" href="#stepper"><svg class="icon"><use href="#i-check"/></svg> Stepper</a>
+        <a class="app-nav-item" href="#file-upload"><svg class="icon"><use href="#i-copy"/></svg> File Upload</a>
+        <a class="app-nav-item" href="#search-bar"><svg class="icon"><use href="#i-search"/></svg> Search Bar</a>
+        <a class="app-nav-item" href="#empty-states"><svg class="icon"><use href="#i-info"/></svg> Empty States</a>
+        <a class="app-nav-item" href="#form-patterns"><svg class="icon"><use href="#i-edit"/></svg> Form Patterns</a>
+        <a class="app-nav-item" href="#data-patterns"><svg class="icon"><use href="#i-inbox"/></svg> Data Display</a>
+      </nav>
+    </div>
+
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="true">Patterns</button>
+      <nav class="app-nav-group active">
+        <a class="app-nav-item" href="#states-interactions"><svg class="icon"><use href="#i-check"/></svg> States & Interactions</a>
+        <a class="app-nav-item" href="#layout-techniques"><svg class="icon"><use href="#i-chart"/></svg> Layout Techniques</a>
+        <a class="app-nav-item" href="#real-world-examples"><svg class="icon"><use href="#i-folder"/></svg> Real-World Examples</a>
+        <a class="app-nav-item" href="#component-variants"><svg class="icon"><use href="#i-folder"/></svg> Component Variants</a>
+        <a class="app-nav-item" href="#overlays"><svg class="icon"><use href="#i-info"/></svg> Modals</a>
+        <a class="app-nav-item" href="#accordion"><svg class="icon"><use href="#i-edit"/></svg> Accordion</a>
+        <a class="app-nav-item" href="#tags"><svg class="icon"><use href="#i-check"/></svg> Tags & Badges</a>
+        <a class="app-nav-item" href="#dashboard-pattern"><svg class="icon"><use href="#i-chart"/></svg> Dashboard</a>
+      </nav>
+    </div>
+
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="false">Guidelines</button>
+      <nav class="app-nav-group">
+        <a class="app-nav-item" href="#responsive"><svg class="icon"><use href="#i-chart"/></svg> Responsive</a>
+        <a class="app-nav-item" href="#accessibility"><svg class="icon"><use href="#i-info"/></svg> Accessibility</a>
+        <a class="app-nav-item" href="#utilities"><svg class="icon"><use href="#i-sparkles"/></svg> Utilities</a>
+        <a class="app-nav-item" href="#dark-mode-examples"><svg class="icon"><use href="#i-moon"/></svg> Dark Mode</a>
+      </nav>
+    </div>
   </aside>
 
   <div class="app-main">
