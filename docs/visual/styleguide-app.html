@@ -66,6 +66,9 @@
     <div class="app-sidebar-section">App Patterns</div>
     <a class="app-nav-item" href="#dashboard-pattern"><svg class="icon"><use href="#i-chart"/></svg> Dashboard</a>
     <a class="app-nav-item" href="#form-pattern"><svg class="icon"><use href="#i-edit"/></svg> Forms</a>
+    <a class="app-nav-item" href="#card-grid-pattern"><svg class="icon"><use href="#i-folder"/></svg> Card Grid</a>
+    <a class="app-nav-item" href="#multi-step-pattern"><svg class="icon"><use href="#i-check"/></svg> Multi-Step</a>
+    <a class="app-nav-item" href="#timeline-pattern"><svg class="icon"><use href="#i-chart"/></svg> Timeline</a>
     <div class="app-sidebar-section">Guidelines</div>
     <a class="app-nav-item" href="#responsive"><svg class="icon"><use href="#i-chart"/></svg> Responsive</a>
     <a class="app-nav-item" href="#accessibility"><svg class="icon"><use href="#i-info"/></svg> Accessibility</a>
@@ -441,6 +444,109 @@
               <div class="field"><label class="field-label" style="font-size:var(--text-sm)">Email</label><input class="form-input" type="email" style="font-size:var(--text-sm);padding:var(--space-2) var(--space-3)"></div>
               <div class="field"><label class="field-label" style="font-size:var(--text-sm)">Role</label><select class="form-select" style="font-size:var(--text-sm);padding:var(--space-2) var(--space-3)"><option>Admin</option><option>Editor</option><option>Viewer</option></select></div>
               <div class="cluster cluster-tight" style="justify-content:flex-end;gap:var(--space-2);margin-top:var(--space-3)"><button class="btn btn-ghost btn-sm" style="font-size:var(--text-sm)">Cancel</button><button class="btn btn-primary btn-sm" style="font-size:var(--text-sm)">Save</button></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CARD GRID PATTERN -->
+        <section class="doc-section" id="card-grid-pattern">
+          <h2 class="doc-section-title">Card Grid Pattern</h2>
+          <p class="doc-section-desc">Responsive grid of content cards. Auto-layout with container queries for fluid responsiveness across app layouts.</p>
+          <div class="doc-demo">
+            <div class="grid-auto" style="gap:var(--space-3)">
+              <div class="card">
+                <div class="card-body">
+                  <h3 class="t-heading-sm">Card 1</h3>
+                  <p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-2)">Compact card for grid layouts.</p>
+                  <button class="btn btn-ghost btn-sm" style="margin-top:var(--space-3)">Action</button>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h3 class="t-heading-sm">Card 2</h3>
+                  <p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-2)">Automatically flows to fill available space.</p>
+                  <button class="btn btn-ghost btn-sm" style="margin-top:var(--space-3)">Action</button>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h3 class="t-heading-sm">Card 3</h3>
+                  <p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-2)">Stacks on mobile, spreads on desktop.</p>
+                  <button class="btn btn-ghost btn-sm" style="margin-top:var(--space-3)">Action</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- MULTI-STEP FORM PATTERN -->
+        <section class="doc-section" id="multi-step-pattern">
+          <h2 class="doc-section-title">Multi-Step Form Pattern</h2>
+          <p class="doc-section-desc">Stepper component with step indicator and form progression. Tactile feedback and clear navigation.</p>
+          <div class="doc-demo">
+            <div class="stepper-container">
+              <div class="stepper">
+                <div class="step-item step-active">
+                  <div class="step-indicator">1</div>
+                  <span class="step-label">Personal</span>
+                </div>
+                <div class="step-line"></div>
+                <div class="step-item">
+                  <div class="step-indicator">2</div>
+                  <span class="step-label">Address</span>
+                </div>
+                <div class="step-line"></div>
+                <div class="step-item">
+                  <div class="step-indicator">3</div>
+                  <span class="step-label">Review</span>
+                </div>
+              </div>
+              <div class="field" style="margin-top:var(--space-4)">
+                <label class="field-label">Full Name</label>
+                <input class="form-input" type="text" placeholder="Enter your name" style="font-size:var(--text-sm)">
+              </div>
+              <div class="cluster cluster-tight" style="justify-content:flex-end;gap:var(--space-2);margin-top:var(--space-4)">
+                <button class="btn btn-ghost btn-sm">Back</button>
+                <button class="btn btn-primary btn-sm">Next</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TIMELINE PATTERN -->
+        <section class="doc-section" id="timeline-pattern">
+          <h2 class="doc-section-title">Timeline Pattern</h2>
+          <p class="doc-section-desc">Sequential progress visualization. Status indicators with connected timeline for workflows and activity history.</p>
+          <div class="doc-demo" style="max-width:24rem">
+            <div class="timeline">
+              <div class="timeline-item timeline-item-done">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                  <h4 class="t-heading-xs">Application Submitted</h4>
+                  <p class="t-body-xs" style="color:var(--color-muted);margin-top:var(--space-1)">May 30, 2026</p>
+                </div>
+              </div>
+              <div class="timeline-item timeline-item-done">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                  <h4 class="t-heading-xs">Review in Progress</h4>
+                  <p class="t-body-xs" style="color:var(--color-muted);margin-top:var(--space-1)">May 31, 2026</p>
+                </div>
+              </div>
+              <div class="timeline-item timeline-item-active">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                  <h4 class="t-heading-xs">Interview Scheduled</h4>
+                  <p class="t-body-xs" style="color:var(--color-muted);margin-top:var(--space-1)">June 5, 2026</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                  <h4 class="t-heading-xs">Final Decision</h4>
+                  <p class="t-body-xs" style="color:var(--color-muted);margin-top:var(--space-1)">Coming soon</p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
