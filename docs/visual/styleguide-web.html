@@ -3568,6 +3568,489 @@ function validate(e) {
           </div>
         </section>
 
+        <!-- ADVANCED ARIA PATTERNS -->
+        <section class="doc-section" id="advanced-aria-patterns">
+          <h2 class="doc-section-title">Advanced ARIA Patterns</h2>
+          <p class="doc-section-desc">Comprehensive ARIA attribute documentation with live examples. These attributes enhance screen reader compatibility and communicate state/relationships to assistive technologies.</p>
+
+          <!-- aria-live: polite, assertive, off -->
+          <div class="doc-sub">aria-live (Dynamic Content Updates)</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Announces content changes to screen readers. Use "polite" for general updates, "assertive" for urgent alerts, "off" for no announcement.</p>
+          <div class="doc-demo" style="padding:var(--space-6);gap:var(--space-4)">
+            <div style="flex:1;min-width:16rem">
+              <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md);margin-bottom:var(--space-3)">
+                <div aria-live="polite" aria-label="Status updates" style="margin-bottom:var(--space-3);padding:var(--space-3);background:var(--color-bg);border-radius:var(--radius-sm);font-size:var(--text-sm)">Items added: 0</div>
+                <button class="btn btn-primary btn-sm" onclick="var el=this.parentElement.querySelector('[aria-live]');el.textContent='Items added: '+Math.floor(Math.random()*100)">Add Item (polite)</button>
+              </div>
+              <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md)">
+                <div aria-live="assertive" aria-label="Urgent alerts" style="margin-bottom:var(--space-3);padding:var(--space-3);background:var(--color-bg);border-radius:var(--radius-sm);font-size:var(--text-sm)">Status: Ready</div>
+                <button class="btn btn-primary btn-sm" onclick="var el=this.parentElement.querySelector('[aria-live=assertive]');el.textContent='Status: ERROR'; el.style.color='var(--error)'; setTimeout(()=>{el.textContent='Status: Ready'; el.style.color='inherit'},2000)">Trigger Alert (assertive)</button>
+              </div>
+            </div>
+            <div style="flex:1;min-width:16rem">
+              <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md);font-family:var(--font-mono);font-size:var(--text-xs);overflow:auto">
+<pre>&lt;div <strong>aria-live="polite"</strong>&gt;
+  Form validation passed
+&lt;/div&gt;
+
+&lt;div <strong>aria-live="assertive"</strong>&gt;
+  Critical system error
+&lt;/div&gt;</pre>
+              </div>
+            </div>
+          </div>
+
+          <!-- aria-busy: true/false for loading -->
+          <div class="doc-sub">aria-busy (Loading & Processing States)</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Indicates when content is busy loading or processing. Set to "false" when complete.</p>
+          <div class="doc-demo" style="padding:var(--space-6)">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4);align-items:start">
+              <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md)">
+                <div id="busy-demo" aria-busy="false" style="padding:var(--space-3);background:var(--color-bg);border-radius:var(--radius-sm);margin-bottom:var(--space-3);font-size:var(--text-sm)">Ready for input</div>
+                <button class="btn btn-primary btn-sm" onclick="var el=document.getElementById('busy-demo');el.setAttribute('aria-busy','true');el.textContent='Processing...';setTimeout(()=>{el.setAttribute('aria-busy','false');el.textContent='Complete!'},2000)">Simulate Loading</button>
+              </div>
+              <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md);font-family:var(--font-mono);font-size:var(--text-xs)">
+<pre>&lt;div <strong>aria-busy="true"</strong>&gt;
+  Loading data...
+&lt;/div&gt;
+
+// When done:
+&lt;div <strong>aria-busy="false"</strong>&gt;
+  Data loaded
+&lt;/div&gt;</pre>
+              </div>
+            </div>
+          </div>
+
+          <!-- aria-expanded: true/false for collapsible -->
+          <div class="doc-sub">aria-expanded (Collapsible Sections)</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Communicates whether a region is expanded (true) or collapsed (false). Always set on toggles that control visibility.</p>
+          <div class="doc-demo" style="padding:var(--space-6)">
+            <div style="max-width:32rem">
+              <button class="btn btn-ghost btn-sm" onclick="var panel=this.nextElementSibling;var isExpanded=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',!isExpanded);panel.style.display=isExpanded?'none':'block'" aria-expanded="false" aria-controls="panel-1" style="width:100%;text-align:left">
+                ▶ Click to expand details
+              </button>
+              <div id="panel-1" style="display:none;padding:var(--space-4);background:var(--color-subtle);border-radius:var(--radius-md);margin-top:var(--space-2);font-size:var(--text-sm)">
+                This content appears/disappears based on aria-expanded state. Screen readers announce when it becomes visible.
+              </div>
+            </div>
+          </div>
+
+          <!-- aria-owns & aria-controls -->
+          <div class="doc-sub">aria-owns & aria-controls (Relationships)</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Define ownership (aria-owns) or control (aria-controls) relationships when DOM order doesn't reflect logical relationships.</p>
+          <div class="doc-demo" style="padding:var(--space-6)">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)">
+              <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md)">
+                <label style="display:block;margin-bottom:var(--space-2);font-weight:600;font-size:var(--text-sm)">Button Controls Dropdown:</label>
+                <button class="btn btn-primary btn-sm" onclick="var m=document.getElementById('menu-1');m.style.display=m.style.display==='none'?'block':'none';this.setAttribute('aria-expanded',m.style.display==='block')" aria-controls="menu-1" aria-expanded="false">Menu</button>
+                <div id="menu-1" style="display:none;margin-top:var(--space-2);background:var(--color-bg);border:1px solid var(--color-border);border-radius:var(--radius-sm);overflow:hidden">
+                  <div style="padding:var(--space-2);border-bottom:1px solid var(--color-border);font-size:var(--text-sm);cursor:pointer">Option 1</div>
+                  <div style="padding:var(--space-2);border-bottom:1px solid var(--color-border);font-size:var(--text-sm);cursor:pointer">Option 2</div>
+                  <div style="padding:var(--space-2);font-size:var(--text-sm);cursor:pointer">Option 3</div>
+                </div>
+              </div>
+              <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md);font-family:var(--font-mono);font-size:var(--text-xs)">
+<pre>&lt;button <strong>aria-controls="menu"</strong>
+        <strong>aria-expanded="false"</strong>&gt;
+  Menu
+&lt;/button&gt;
+&lt;div id="menu"&gt;...&lt;/div&gt;</pre>
+              </div>
+            </div>
+          </div>
+
+          <!-- aria-current -->
+          <div class="doc-sub">aria-current (Navigation & Steppers)</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Marks the current page, step, date, location, or time. Values: page | step | date | location | time | true.</p>
+          <div class="doc-demo" style="padding:var(--space-6)">
+            <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md);margin-bottom:var(--space-4)">
+              <div style="font-weight:600;margin-bottom:var(--space-3);font-size:var(--text-sm)">Pagination Example:</div>
+              <nav aria-label="Pagination">
+                <div style="display:flex;gap:var(--space-2)">
+                  <a href="#" style="padding:var(--space-2) var(--space-3);border:1px solid var(--color-border);border-radius:var(--radius-sm);text-decoration:none;color:var(--color-accent)">1</a>
+                  <a href="#" aria-current="page" style="padding:var(--space-2) var(--space-3);border:1px solid var(--color-accent);border-radius:var(--radius-sm);text-decoration:none;color:var(--color-bg);background:var(--color-accent);font-weight:600">2</a>
+                  <a href="#" style="padding:var(--space-2) var(--space-3);border:1px solid var(--color-border);border-radius:var(--radius-sm);text-decoration:none;color:var(--color-accent)">3</a>
+                </div>
+              </nav>
+            </div>
+            <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md);font-family:var(--font-mono);font-size:var(--text-xs)">
+<pre>&lt;a href="/page-2" <strong>aria-current="page"</strong>&gt;
+  Page 2 (Current)
+&lt;/a&gt;</pre>
+            </div>
+          </div>
+
+          <!-- aria-describedby & aria-labelledby -->
+          <div class="doc-sub">aria-describedby & aria-labelledby (Descriptions & Labels)</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Link elements to their descriptions (aria-describedby) or complex labels (aria-labelledby). Use IDs for association.</p>
+          <div class="doc-demo" style="padding:var(--space-6)">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)">
+              <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md)">
+                <label for="pwd" style="display:block;font-weight:600;margin-bottom:var(--space-2);font-size:var(--text-sm)">Password</label>
+                <input id="pwd" type="password" class="form-input" placeholder="8+ characters" aria-describedby="pwd-hint" style="width:100%;margin-bottom:var(--space-2)">
+                <div id="pwd-hint" style="font-size:var(--text-xs);color:var(--color-muted)">Must contain uppercase, number, and symbol</div>
+              </div>
+              <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md);font-family:var(--font-mono);font-size:var(--text-xs)">
+<pre>&lt;input id="pwd"
+       <strong>aria-describedby="pwd-hint"</strong>&gt;
+&lt;div id="pwd-hint"&gt;
+  Help text here
+&lt;/div&gt;</pre>
+              </div>
+            </div>
+          </div>
+
+          <!-- aria-pressed & aria-selected -->
+          <div class="doc-sub">aria-pressed & aria-selected (Toggle States)</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Mark toggle buttons (aria-pressed) and selected tabs/menu items (aria-selected).</p>
+          <div class="doc-demo" style="padding:var(--space-6)">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)">
+              <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md)">
+                <div style="font-weight:600;margin-bottom:var(--space-3);font-size:var(--text-sm)">Toggle Button:</div>
+                <button class="btn btn-primary btn-sm" onclick="this.setAttribute('aria-pressed',this.getAttribute('aria-pressed')==='true'?'false':'true');this.style.opacity=this.getAttribute('aria-pressed')==='true'?'1':'0.6'" aria-pressed="false">
+                  💬 Notifications
+                </button>
+              </div>
+              <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md)">
+                <div style="font-weight:600;margin-bottom:var(--space-3);font-size:var(--text-sm)">Tab Selection:</div>
+                <div role="tablist" style="display:flex;gap:var(--space-2);border-bottom:1px solid var(--color-border)">
+                  <button role="tab" aria-selected="true" style="padding:var(--space-2);border:none;background:none;border-bottom:2px solid var(--color-accent);cursor:pointer;font-weight:600">Tab 1</button>
+                  <button role="tab" aria-selected="false" style="padding:var(--space-2);border:none;background:none;cursor:pointer;color:var(--color-muted)">Tab 2</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- aria-invalid -->
+          <div class="doc-sub">aria-invalid (Form Validation)</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Communicate form field errors to screen readers. true = invalid, false = valid.</p>
+          <div class="doc-demo" style="padding:var(--space-6)">
+            <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md)">
+              <label for="email" style="display:block;font-weight:600;margin-bottom:var(--space-2);font-size:var(--text-sm)">Email Address</label>
+              <input id="email" type="email" class="form-input" placeholder="you@example.com" aria-invalid="true" aria-describedby="email-error" style="width:100%;border-color:var(--error);margin-bottom:var(--space-2)">
+              <div id="email-error" style="font-size:var(--text-xs);color:var(--error)">✗ Invalid email format</div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Best Practices</div>
+          <div class="a11y-checklist">
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Always pair aria-controls with aria-expanded on toggle buttons</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Use aria-live="polite" for user-initiated updates, "assertive" for urgent alerts</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Link form errors with aria-invalid + aria-describedby</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Use semantic roles (button, tab, menuitem) before ARIA attributes</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Test with screen readers: NVDA, JAWS, VoiceOver</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ANIMATION & MOTION PATTERNS -->
+        <section class="doc-section" id="animation-motion-patterns">
+          <h2 class="doc-section-title">Animation & Motion Patterns</h2>
+          <p class="doc-section-desc">Comprehensive animation guidelines: timing functions, durations, stagger patterns, reduced motion, and best practices for accessible, performant animations.</p>
+
+          <!-- Timing Functions -->
+          <div class="doc-sub">Transition Timing Functions</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Use timing functions to control animation curves. Common patterns: ease-in (slow→fast), ease-out (fast→slow), cubic-bezier (custom).</p>
+          <div class="doc-demo" style="padding:var(--space-6)">
+            <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-4)">
+              <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md)">
+                <div style="font-size:var(--text-xs);color:var(--color-muted);margin-bottom:var(--space-2);text-transform:uppercase;font-weight:600">ease-in (slow→fast)</div>
+                <div style="width:2rem;height:2rem;background:var(--color-accent);border-radius:var(--radius-sm);animation:slideRight 2s ease-in infinite"></div>
+              </div>
+              <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md)">
+                <div style="font-size:var(--text-xs);color:var(--color-muted);margin-bottom:var(--space-2);text-transform:uppercase;font-weight:600">ease-out (fast→slow)</div>
+                <div style="width:2rem;height:2rem;background:var(--color-accent);border-radius:var(--radius-sm);animation:slideRight 2s ease-out infinite"></div>
+              </div>
+              <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md)">
+                <div style="font-size:var(--text-xs);color:var(--color-muted);margin-bottom:var(--space-2);text-transform:uppercase;font-weight:600">ease-in-out</div>
+                <div style="width:2rem;height:2rem;background:var(--color-accent);border-radius:var(--radius-sm);animation:slideRight 2s ease-in-out infinite"></div>
+              </div>
+              <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md)">
+                <div style="font-size:var(--text-xs);color:var(--color-muted);margin-bottom:var(--space-2);text-transform:uppercase;font-weight:600">linear</div>
+                <div style="width:2rem;height:2rem;background:var(--color-accent);border-radius:var(--radius-sm);animation:slideRight 2s linear infinite"></div>
+              </div>
+            </div>
+            <style>
+              @keyframes slideRight { from { transform: translateX(0); } to { transform: translateX(100px); } }
+            </style>
+          </div>
+
+          <!-- Duration Guidelines -->
+          <div class="doc-sub">Animation Duration Guidelines</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Faster = responsive, slower = graceful. Rule: 150ms for instant feedback, 250ms for general UI, 350-500ms for complex animations.</p>
+          <div class="doc-demo" style="padding:var(--space-6)">
+            <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-4)">
+              <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md)">
+                <div style="font-size:var(--text-xs);color:var(--color-muted);margin-bottom:var(--space-2);text-transform:uppercase;font-weight:600">Fast (150ms)</div>
+                <div style="width:100%;height:2rem;background:var(--color-accent);border-radius:var(--radius-sm);animation:fadeIn 0.15s ease-out;opacity:1"></div>
+                <div style="font-size:var(--text-xs);color:var(--color-muted);margin-top:var(--space-2)">Button hover, micro-interactions</div>
+              </div>
+              <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md)">
+                <div style="font-size:var(--text-xs);color:var(--color-muted);margin-bottom:var(--space-2);text-transform:uppercase;font-weight:600">Base (250ms)</div>
+                <div style="width:100%;height:2rem;background:var(--color-accent);border-radius:var(--radius-sm);animation:fadeIn 0.25s ease-out;opacity:1"></div>
+                <div style="font-size:var(--text-xs);color:var(--color-muted);margin-top:var(--space-2)">Standard transitions, fade-in</div>
+              </div>
+              <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md)">
+                <div style="font-size:var(--text-xs);color:var(--color-muted);margin-bottom:var(--space-2);text-transform:uppercase;font-weight:600">Moderate (350ms)</div>
+                <div style="width:100%;height:2rem;background:var(--color-accent);border-radius:var(--radius-sm);animation:fadeIn 0.35s ease-out;opacity:1"></div>
+                <div style="font-size:var(--text-xs);color:var(--color-muted);margin-top:var(--space-2)">Modal entrance, page transition</div>
+              </div>
+              <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md)">
+                <div style="font-size:var(--text-xs);color:var(--color-muted);margin-bottom:var(--space-2);text-transform:uppercase;font-weight:600">Slow (500ms)</div>
+                <div style="width:100%;height:2rem;background:var(--color-accent);border-radius:var(--radius-sm);animation:fadeIn 0.5s ease-out;opacity:1"></div>
+                <div style="font-size:var(--text-xs);color:var(--color-muted);margin-top:var(--space-2)">Complex transitions, parallax</div>
+              </div>
+            </div>
+            <style>
+              @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+            </style>
+          </div>
+
+          <!-- Stagger Pattern -->
+          <div class="doc-sub">Stagger Patterns (Multiple Elements)</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Stagger animations add visual rhythm. Use 50-100ms delay between elements for cascading effect.</p>
+          <div class="doc-demo" style="padding:var(--space-6)">
+            <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md);margin-bottom:var(--space-4)">
+              <div style="display:flex;gap:var(--space-3);align-items:flex-end;height:120px">
+                <div style="width:20px;height:40px;background:var(--color-accent);border-radius:2px;animation:bounce 0.6s ease-in-out 0s infinite"></div>
+                <div style="width:20px;height:60px;background:var(--color-accent);border-radius:2px;animation:bounce 0.6s ease-in-out 0.1s infinite"></div>
+                <div style="width:20px;height:80px;background:var(--color-accent);border-radius:2px;animation:bounce 0.6s ease-in-out 0.2s infinite"></div>
+                <div style="width:20px;height:60px;background:var(--color-accent);border-radius:2px;animation:bounce 0.6s ease-in-out 0.3s infinite"></div>
+                <div style="width:20px;height:40px;background:var(--color-accent);border-radius:2px;animation:bounce 0.6s ease-in-out 0.4s infinite"></div>
+              </div>
+            </div>
+            <style>
+              @keyframes bounce { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(1.5); } }
+            </style>
+            <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md);font-family:var(--font-mono);font-size:var(--text-xs)">
+<pre>.list-item:nth-child(1) { animation-delay: 0s; }
+.list-item:nth-child(2) { animation-delay: 0.1s; }
+.list-item:nth-child(n) { animation-delay: calc(n * 0.1s); }</pre>
+            </div>
+          </div>
+
+          <!-- Prefers-Reduced-Motion -->
+          <div class="doc-sub">Prefers-Reduced-Motion (Accessibility)</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Respect user motion preferences. If user has prefers-reduced-motion enabled, disable animations or switch to instant changes.</p>
+          <div class="doc-demo" style="padding:var(--space-6)">
+            <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md);font-family:var(--font-mono);font-size:var(--text-xs);margin-bottom:var(--space-4)">
+<pre>/* Default animation */
+button { transition: all 250ms ease-out; }
+
+/* Respect motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  button { transition: none; }
+  * { animation: none !important; }
+}</pre>
+            </div>
+            <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md)">
+              <div style="font-size:var(--text-sm);margin-bottom:var(--space-3)">Example with reduced motion support:</div>
+              <button class="btn btn-primary btn-sm" style="transition:all 250ms ease-out">
+                Hover Me (respects motion prefs)
+              </button>
+            </div>
+          </div>
+
+          <!-- Loading Animations -->
+          <div class="doc-sub">Loading Animations (Skeleton, Pulse, Spinner)</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Use skeleton screens for placeholder content, pulse for subtle indicators, spinners for active loading.</p>
+          <div class="doc-demo" style="padding:var(--space-6)">
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4)">
+              <!-- Skeleton -->
+              <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md)">
+                <div style="font-size:var(--text-xs);color:var(--color-muted);margin-bottom:var(--space-2);text-transform:uppercase;font-weight:600">Skeleton Screen</div>
+                <div style="animation:pulse 1.5s ease-in-out infinite;background:var(--color-bg);height:12px;border-radius:var(--radius-sm);margin-bottom:var(--space-2)"></div>
+                <div style="animation:pulse 1.5s ease-in-out infinite;background:var(--color-bg);height:12px;border-radius:var(--radius-sm);margin-bottom:var(--space-2);width:80%"></div>
+              </div>
+              <!-- Pulse -->
+              <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md)">
+                <div style="font-size:var(--text-xs);color:var(--color-muted);margin-bottom:var(--space-2);text-transform:uppercase;font-weight:600">Pulse Indicator</div>
+                <div style="width:12px;height:12px;background:var(--success);border-radius:50%;animation:pulse 2s ease-in-out infinite"></div>
+                <div style="font-size:var(--text-xs);color:var(--color-muted);margin-top:var(--space-1)">Live now</div>
+              </div>
+              <!-- Spinner -->
+              <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md)">
+                <div style="font-size:var(--text-xs);color:var(--color-muted);margin-bottom:var(--space-2);text-transform:uppercase;font-weight:600">Spinner</div>
+                <div style="width:24px;height:24px;border:2px solid var(--color-border);border-top-color:var(--color-accent);border-radius:50%;animation:spin 0.8s linear infinite"></div>
+              </div>
+            </div>
+            <style>
+              @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+              @keyframes spin { to { transform: rotate(360deg); } }
+            </style>
+          </div>
+
+          <div class="doc-sub">Best Practices</div>
+          <div class="a11y-checklist">
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Keep animations under 400ms for perceived responsiveness</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Always implement @media (prefers-reduced-motion: reduce)</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Use ease-in-out for natural motion curves</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Stagger cascading animations with 50-100ms delays</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Never auto-play animations > 5 seconds</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- RESPONSIVE CONTAINER PATTERNS -->
+        <section class="doc-section" id="responsive-container-patterns">
+          <h2 class="doc-section-title">Responsive Container Patterns</h2>
+          <p class="doc-section-desc">Modern responsive design using container queries, fluid typography, breakpoint guidelines, and mobile-first strategies. Adapt components to their container context, not viewport size.</p>
+
+          <!-- Container Queries -->
+          <div class="doc-sub">Container Queries (@container)</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Style components based on their container size, not viewport. More powerful than media queries for reusable components.</p>
+          <div class="doc-demo" style="padding:var(--space-6)">
+            <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md);margin-bottom:var(--space-4)">
+              <div style="font-size:var(--text-xs);color:var(--color-muted);margin-bottom:var(--space-3);text-transform:uppercase;font-weight:600">Resize browser to see container query adaption:</div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3)">
+                <div style="background:var(--color-bg);padding:var(--space-3);border-radius:var(--radius-sm);display:flex;gap:1rem;align-items:center">
+                  <div style="min-width:3rem;width:3rem;height:3rem;background:var(--color-accent);border-radius:var(--radius-sm)"></div>
+                  <div style="font-size:var(--text-sm)">Card: Layout changes in container</div>
+                </div>
+                <div style="background:var(--color-bg);padding:var(--space-3);border-radius:var(--radius-sm);display:flex;gap:1rem;align-items:center">
+                  <div style="min-width:3rem;width:3rem;height:3rem;background:var(--color-accent);border-radius:var(--radius-sm)"></div>
+                  <div style="font-size:var(--text-sm)">Adapts to container width</div>
+                </div>
+              </div>
+            </div>
+            <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md);font-family:var(--font-mono);font-size:var(--text-xs)">
+<pre>.card-container { <strong>container-type: inline-size;</strong> }
+
+@container (min-width: 20rem) {
+  .card {
+    display: flex;
+    gap: var(--space-3);
+  }
+}</pre>
+            </div>
+          </div>
+
+          <!-- Fluid Typography -->
+          <div class="doc-sub">Fluid & Responsive Typography</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Use clamp() for responsive sizing: scales smoothly between mobile & desktop without breakpoints.</p>
+          <div class="doc-demo" style="padding:var(--space-6)">
+            <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md);margin-bottom:var(--space-4)">
+              <div style="font-size:clamp(1.5rem, 5vw, 2.5rem);font-weight:600;line-height:1.2;margin-bottom:var(--space-3)">Fluid Heading</div>
+              <div style="font-size:clamp(1rem, 3vw, 1.25rem);color:var(--color-muted);margin-bottom:var(--space-3)">Scales smoothly from mobile to desktop</div>
+              <div style="font-size:clamp(0.875rem, 2vw, 1rem);color:var(--color-muted)">No sudden jumps at breakpoints</div>
+            </div>
+            <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md);font-family:var(--font-mono);font-size:var(--text-xs)">
+<pre>h1 {
+  font-size: <strong>clamp(1.5rem, 5vw, 2.5rem)</strong>;
+  /* min: 1.5rem, preferred: 5vw, max: 2.5rem */
+}</pre>
+            </div>
+          </div>
+
+          <!-- Mobile vs Desktop Layouts -->
+          <div class="doc-sub">Mobile vs Desktop Layout Strategies</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Start with mobile layout, progressively enhance for larger screens. Mobile-first approach is simpler and more performant.</p>
+          <div class="doc-demo" style="padding:var(--space-6)">
+            <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md);margin-bottom:var(--space-4)">
+              <div style="font-weight:600;margin-bottom:var(--space-3);font-size:var(--text-sm)">Example: 2-Column Grid</div>
+              <div style="display:grid;grid-template-columns:1fr;gap:var(--space-3)">
+                <div style="background:var(--color-bg);padding:var(--space-3);border-radius:var(--radius-sm);text-align:center;font-size:var(--text-sm)">Mobile: 1 column</div>
+                <div style="background:var(--color-bg);padding:var(--space-3);border-radius:var(--radius-sm);text-align:center;font-size:var(--text-sm)">Desktop: 2 columns (resize to see)</div>
+              </div>
+            </div>
+            <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md);font-family:var(--font-mono);font-size:var(--text-xs)">
+<pre>/* Mobile first */
+.grid { display: grid; grid-template-columns: 1fr; }
+
+/* Enhanced on desktop */
+@media (min-width: 48rem) {
+  .grid { grid-template-columns: 1fr 1fr; }
+}</pre>
+            </div>
+          </div>
+
+          <!-- Breakpoint Guidelines -->
+          <div class="doc-sub">Breakpoint Guidelines</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Standard breakpoints for consistent responsive design. Use min-width breakpoints (mobile-first).</p>
+          <div class="doc-demo" style="padding:var(--space-6)">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(12rem,1fr));gap:var(--space-3)">
+              <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md)">
+                <div style="font-weight:600;margin-bottom:var(--space-2);font-size:var(--text-sm)">xs</div>
+                <div style="font-size:var(--text-xs);color:var(--color-muted);margin-bottom:var(--space-2)">max-width: 576px</div>
+                <div style="font-size:var(--text-xs);color:var(--color-muted)">Mobile phones</div>
+              </div>
+              <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md)">
+                <div style="font-weight:600;margin-bottom:var(--space-2);font-size:var(--text-sm)">sm</div>
+                <div style="font-size:var(--text-xs);color:var(--color-muted);margin-bottom:var(--space-2)">576px - 768px</div>
+                <div style="font-size:var(--text-xs);color:var(--color-muted)">Large phones</div>
+              </div>
+              <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md)">
+                <div style="font-weight:600;margin-bottom:var(--space-2);font-size:var(--text-sm)">md</div>
+                <div style="font-size:var(--text-xs);color:var(--color-muted);margin-bottom:var(--space-2)">768px - 1024px</div>
+                <div style="font-size:var(--text-xs);color:var(--color-muted)">Tablets</div>
+              </div>
+              <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md)">
+                <div style="font-weight:600;margin-bottom:var(--space-2);font-size:var(--text-sm)">lg</div>
+                <div style="font-size:var(--text-xs);color:var(--color-muted);margin-bottom:var(--space-2)">1024px - 1280px</div>
+                <div style="font-size:var(--text-xs);color:var(--color-muted)">Laptops</div>
+              </div>
+              <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md)">
+                <div style="font-weight:600;margin-bottom:var(--space-2);font-size:var(--text-sm)">xl</div>
+                <div style="font-size:var(--text-xs);color:var(--color-muted);margin-bottom:var(--space-2)">1280px+</div>
+                <div style="font-size:var(--text-xs);color:var(--color-muted)">Desktops/4K</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Best Practices</div>
+          <div class="a11y-checklist">
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Use mobile-first approach: start simple, add complexity</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Use container queries for component-scoped styling</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Use clamp() for fluid typography without breakpoints</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Test on real devices: phones, tablets, desktops</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Prioritize touch targets (min 44px) on mobile</span>
+            </div>
+          </div>
+        </section>
+
         <section class="doc-section" id="states-interactions" data-section="patterns" data-category="states">
           <h2 class="doc-section-title">States & Interactions</h2>
           <p class="doc-section-desc">Complete interactive state documentation: buttons, forms, hover/focus/active/disabled states, loading indicators, and accessibility requirements. All components follow WCAG AA standards and respect prefers-reduced-motion.</p>
