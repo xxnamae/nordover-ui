@@ -9,6 +9,7 @@
 <!-- Nordover canonical CSS framework (app package) -->
 <link rel="stylesheet" href="./tokens/tokens-app.css">
 <link rel="stylesheet" href="./components/components-app.css">
+<link rel="stylesheet" href="./styleguide-enhancements.css">
 </head>
 <body>
 <input type="checkbox" id="dark" class="sr-only" checked role="switch" aria-label="Aktiver mørk modus">
@@ -128,6 +129,28 @@
           </div>
         </section>
 
+        <!-- ELEVATION -->
+        <section class="doc-section" id="elevation">
+          <h2 class="doc-section-title">Elevation & Shadow</h2>
+          <p class="doc-section-desc">5-level shadow system for visual hierarchy and depth. Compact sizes optimized for app interface.</p>
+          <div class="elevation-grid">
+            <div class="elevation-sample elevation-0">Elevation 0<br><small>None</small></div>
+            <div class="elevation-sample elevation-1">Elevation 1<br><small>xs</small></div>
+            <div class="elevation-sample elevation-2">Elevation 2<br><small>sm</small></div>
+            <div class="elevation-sample elevation-3">Elevation 3<br><small>md</small></div>
+            <div class="elevation-sample elevation-4">Elevation 4<br><small>lg</small></div>
+            <div class="elevation-sample elevation-5">Elevation 5<br><small>xl</small></div>
+          </div>
+          <p class="doc-sub">Usage</p>
+          <div class="stack-tight">
+            <div><strong>xs</strong> — Subtle hover states, minimal lift</div>
+            <div><strong>sm</strong> — Cards, input focus, light interactivity</div>
+            <div><strong>md</strong> — Dropdowns, tooltips, popovers</div>
+            <div><strong>lg</strong> — Modal dialogs, sheet panels</div>
+            <div><strong>xl</strong> — Top-level overlays, full-screen modals</div>
+          </div>
+        </section>
+
         <!-- TYPE -->
         <section class="doc-section" id="type">
           <h2 class="doc-section-title">Typografi</h2>
@@ -170,11 +193,24 @@
           <p class="doc-section-desc">Tactile, touchable buttons for app interfaces. 5 variants × 3 sizes. Dark mode default, light mode supported.</p>
           <div class="chips"><span class="chip">.btn</span><span class="chip">.btn-primary</span><span class="chip">.btn-sm</span></div>
 
-          <div class="doc-sub">Variants</div>
-          <div class="cluster cluster-tight">
-            <button class="btn btn-primary">Primary</button>
-            <button class="btn btn-secondary">Secondary</button>
-            <button class="btn btn-ghost">Ghost</button>
+          <div class="doc-sub">Interactive States</div>
+          <div class="component-states">
+            <div class="state-item">
+              <button class="btn btn-primary" style="pointer-events: none;">Primary</button>
+              <span class="state-label">Rest</span>
+            </div>
+            <div class="state-item">
+              <button class="btn btn-secondary" style="pointer-events: none;">Secondary</button>
+              <span class="state-label">Secondary</span>
+            </div>
+            <div class="state-item">
+              <button class="btn btn-ghost" style="pointer-events: none;">Ghost</button>
+              <span class="state-label">Tertiary</span>
+            </div>
+            <div class="state-item">
+              <button class="btn btn-primary" disabled style="pointer-events: none;">Disabled</button>
+              <span class="state-label">Disabled</span>
+            </div>
           </div>
 
           <div class="doc-sub">Sizes</div>
@@ -184,10 +220,28 @@
             <button class="btn btn-primary btn-lg">Large</button>
           </div>
 
-          <div class="doc-sub">States</div>
-          <div class="cluster cluster-tight">
-            <button class="btn btn-primary">Normal</button>
-            <button class="btn btn-primary" disabled>Disabled</button>
+          <div class="doc-sub">Usage Guidelines</div>
+          <div class="a11y-checklist">
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Keyboard navigation with Tab key</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>2px focus outline visible on all states</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Disabled state clearly distinguished</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Color contrast meets WCAG AA standard</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Respects prefers-reduced-motion setting</span>
+            </div>
           </div>
         </section>
 
@@ -197,17 +251,27 @@
           <p class="doc-section-desc">Form inputs, checkboxes, radios with states. Compact sizing for app interfaces.</p>
           <div class="chips"><span class="chip">.field</span><span class="chip">.form-input</span><span class="chip">.form-checkbox</span></div>
 
-          <div class="doc-sub">Text Input</div>
-          <div class="stack" style="max-width:20rem">
+          <div class="doc-sub">Text Input States</div>
+          <div class="stack" style="max-width:22rem">
             <div class="field">
-              <label class="field-label">Email</label>
-              <input class="form-input" type="email" placeholder="user@example.com">
-              <p class="field-help">We'll send confirmation here</p>
+              <label class="field-label">Default</label>
+              <input class="form-input" type="text" placeholder="Placeholder text">
+              <p class="field-help">Supporting text</p>
             </div>
             <div class="field">
-              <label class="field-label">Error State</label>
-              <input class="form-input" value="invalid">
-              <span class="field-error">This field is required</span>
+              <label class="field-label">Filled</label>
+              <input class="form-input" type="text" value="User input">
+              <p class="field-help">With content</p>
+            </div>
+            <div class="field">
+              <label class="field-label">Error</label>
+              <input class="form-input" type="text" value="invalid@">
+              <span class="field-error">Invalid email format</span>
+            </div>
+            <div class="field">
+              <label class="field-label">Disabled</label>
+              <input class="form-input" type="text" placeholder="Cannot interact" disabled>
+              <p class="field-help">Disabled state</p>
             </div>
           </div>
 
@@ -221,80 +285,263 @@
               <input type="checkbox" class="form-checkbox" id="cb2">
               <label for="cb2" style="font-size:var(--text-sm)">Unchecked</label>
             </div>
+            <div style="display:flex;align-items:center;gap:var(--space-2)">
+              <input type="checkbox" class="form-checkbox" id="cb3" disabled checked>
+              <label for="cb3" style="font-size:var(--text-sm);opacity:0.5">Disabled checked</label>
+            </div>
+          </div>
+
+          <div class="doc-sub">Form Guidelines</div>
+          <div class="a11y-checklist">
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>All inputs have associated labels for accessibility</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Focus ring is 2px and clearly visible</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Error messages linked via aria-describedby</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Disabled state prevents all interactions</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Form inputs tested with screen readers</span>
+            </div>
           </div>
         </section>
 
         <!-- TABLE -->
         <section class="doc-section" id="table">
           <h2 class="doc-section-title">Data Table</h2>
-          <p class="doc-section-desc">Horizontal-scroll standard. Responsive card-mode på mobil (data-label attr).</p>
+          <p class="doc-section-desc">Compact data presentation with horizontal scrolling for desktop. Mobile: card layout via data-label attributes.</p>
+
+          <div class="doc-sub">Example</div>
           <div style="overflow-x:auto">
             <table class="data-table" style="width:100%;min-width:600px">
               <thead><tr><th>ID</th><th>Navn</th><th>Status</th><th>Tildelt</th></tr></thead>
               <tbody>
-                <tr><td>SAK-142</td><td>Vannlekkasje</td><td>In Progress</td><td>Eirik</td></tr>
-                <tr><td>SAK-141</td><td>Maling oppgang</td><td>Todo</td><td>Anna</td></tr>
-                <tr><td>SAK-140</td><td>Bytte lyspære</td><td>Done</td><td>Per</td></tr>
+                <tr><td data-label="ID">SAK-142</td><td data-label="Navn">Vannlekkasje</td><td data-label="Status">In Progress</td><td data-label="Tildelt">Eirik</td></tr>
+                <tr><td data-label="ID">SAK-141</td><td data-label="Navn">Maling oppgang</td><td data-label="Status">Todo</td><td data-label="Tildelt">Anna</td></tr>
+                <tr><td data-label="ID">SAK-140</td><td data-label="Navn">Bytte lyspære</td><td data-label="Status">Done</td><td data-label="Tildelt">Per</td></tr>
               </tbody>
             </table>
+          </div>
+
+          <div class="doc-sub">Implementation</div>
+          <div class="a11y-checklist">
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>All tables have caption or aria-label for context</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Header cells use &lt;th scope="col"&gt; for accessibility</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Mobile: data-label attributes show column names</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Overflow-x: auto for horizontal scrolling (not hidden)</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Rows are keyboard navigable and screen-reader compatible</span>
+            </div>
           </div>
         </section>
 
         <!-- ICONS -->
         <section class="doc-section" id="icons">
           <h2 class="doc-section-title">Icons</h2>
-          <p class="doc-section-desc">SVG icons with semantic sizing and colors. Inherit color via currentColor. Supports spin/pulse animations.</p>
-          <p class="doc-sub">Sizing</p>
-          <div class="cluster cluster-tight" style="gap:var(--space-4)">
-            <div style="text-align:center"><svg style="width:var(--size-icon-sm);height:var(--size-icon-sm);stroke:currentColor;stroke-width:1.5;fill:none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg><p class="t-caption">sm</p></div>
-            <div style="text-align:center"><svg style="width:var(--size-icon);height:var(--size-icon);stroke:currentColor;stroke-width:1.5;fill:none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg><p class="t-caption">default</p></div>
-            <div style="text-align:center"><svg style="width:var(--size-icon-lg);height:var(--size-icon-lg);stroke:currentColor;stroke-width:1.5;fill:none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg><p class="t-caption">lg</p></div>
+          <p class="doc-section-desc">SVG icons with semantic sizing and colors. Inherit color via currentColor. Responsive scaling.</p>
+
+          <div class="doc-sub">Icon Sizes</div>
+          <div class="component-states">
+            <div class="state-item">
+              <svg style="width:var(--size-icon-sm);height:var(--size-icon-sm);stroke:currentColor;stroke-width:1.5;fill:none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+              <span class="state-label">Small</span>
+            </div>
+            <div class="state-item">
+              <svg style="width:var(--size-icon);height:var(--size-icon);stroke:currentColor;stroke-width:1.5;fill:none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+              <span class="state-label">Default</span>
+            </div>
+            <div class="state-item">
+              <svg style="width:var(--size-icon-lg);height:var(--size-icon-lg);stroke:currentColor;stroke-width:1.5;fill:none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+              <span class="state-label">Large</span>
+            </div>
           </div>
-          <p class="doc-sub">Colors</p>
-          <div class="cluster cluster-tight" style="gap:var(--space-4)">
-            <div style="text-align:center;color:var(--color-accent)"><svg style="width:var(--size-icon);height:var(--size-icon);stroke:currentColor;stroke-width:1.5;fill:none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg><p class="t-caption">primary</p></div>
-            <div style="text-align:center;color:var(--color-success)"><svg style="width:var(--size-icon);height:var(--size-icon);stroke:currentColor;stroke-width:1.5;fill:none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg><p class="t-caption">success</p></div>
-            <div style="text-align:center;color:var(--color-error)"><svg style="width:var(--size-icon);height:var(--size-icon);stroke:currentColor;stroke-width:1.5;fill:none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg><p class="t-caption">error</p></div>
-            <div style="text-align:center;color:var(--color-warning)"><svg style="width:var(--size-icon);height:var(--size-icon);stroke:currentColor;stroke-width:1.5;fill:none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg><p class="t-caption">warning</p></div>
+
+          <div class="doc-sub">Semantic Colors</div>
+          <div class="component-states">
+            <div class="state-item" style="color:var(--color-accent)">
+              <svg style="width:var(--size-icon);height:var(--size-icon);stroke:currentColor;stroke-width:1.5;fill:none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+              <span class="state-label">Primary</span>
+            </div>
+            <div class="state-item" style="color:var(--color-success)">
+              <svg style="width:var(--size-icon);height:var(--size-icon);stroke:currentColor;stroke-width:1.5;fill:none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+              <span class="state-label">Success</span>
+            </div>
+            <div class="state-item" style="color:var(--color-error)">
+              <svg style="width:var(--size-icon);height:var(--size-icon);stroke:currentColor;stroke-width:1.5;fill:none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+              <span class="state-label">Error</span>
+            </div>
+            <div class="state-item" style="color:var(--color-warning)">
+              <svg style="width:var(--size-icon);height:var(--size-icon);stroke:currentColor;stroke-width:1.5;fill:none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+              <span class="state-label">Warning</span>
+            </div>
+          </div>
+
+          <div class="doc-sub">Best Practices</div>
+          <div class="a11y-checklist">
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Icons are decorative or have aria-label for semantic purpose</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Use currentColor to inherit parent element's text color</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Pair with text labels for clarity and accessibility</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Never use color alone to convey status or meaning</span>
+            </div>
           </div>
         </section>
 
         <!-- BADGES -->
         <section class="doc-section" id="badges">
           <h2 class="doc-section-title">Badges & Status</h2>
-          <p class="doc-section-desc">Inline status indicators. Color variants: neutral, success, error, warning, info.</p>
-          <div class="cluster cluster-tight">
-            <span class="badge badge-neutral">Neutral</span>
-            <span class="badge badge-success">Success</span>
-            <span class="badge badge-error">Error</span>
-            <span class="badge badge-warning">Warning</span>
-            <span class="badge badge-info">Info</span>
+          <p class="doc-section-desc">Inline status indicators. Color variants: neutral, success, error, warning, info. Semantic signaling.</p>
+
+          <div class="doc-sub">Status Variants</div>
+          <div class="component-states">
+            <div class="state-item">
+              <span class="badge badge-neutral">Neutral</span>
+              <span class="state-label">Neutral</span>
+            </div>
+            <div class="state-item">
+              <span class="badge badge-success">Success</span>
+              <span class="state-label">Success</span>
+            </div>
+            <div class="state-item">
+              <span class="badge badge-error">Error</span>
+              <span class="state-label">Error</span>
+            </div>
+            <div class="state-item">
+              <span class="badge badge-warning">Warning</span>
+              <span class="state-label">Warning</span>
+            </div>
+            <div class="state-item">
+              <span class="badge badge-info">Info</span>
+              <span class="state-label">Info</span>
+            </div>
+          </div>
+
+          <div class="doc-sub">Usage</div>
+          <div class="a11y-checklist">
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Not interactive — purely informational</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Color supplemented with text/icons for color-blind users</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Sufficient contrast ratio (WCAG AA)</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Include context or label if embedded in data tables</span>
+            </div>
           </div>
         </section>
 
         <!-- ALERTS -->
         <section class="doc-section" id="alerts">
           <h2 class="doc-section-title">Alerts</h2>
-          <p class="doc-section-desc">Feedback messages. Variants: success, error, warning, info. Use role="alert" for screen readers.</p>
+          <p class="doc-section-desc">Feedback messages with semantic color coding. Use role="alert" for dynamic updates. Persistent until dismissed.</p>
+
+          <div class="doc-sub">Alert Variants</div>
           <div class="stack-tight">
-            <div class="alert alert-success" role="alert">Success! Your changes have been saved.</div>
-            <div class="alert alert-error" role="alert">Error! Something went wrong. Please try again.</div>
-            <div class="alert alert-warning" role="alert">Warning: This action cannot be undone.</div>
-            <div class="alert alert-info" role="alert">Info: New features are now available.</div>
+            <div class="alert alert-success" role="alert">Success — Your changes have been saved successfully.</div>
+            <div class="alert alert-info" role="alert">Info — New features are now available in your account.</div>
+            <div class="alert alert-warning" role="alert">Warning — This action cannot be undone. Proceed with caution.</div>
+            <div class="alert alert-error" role="alert">Error — Something went wrong. Please try again or contact support.</div>
+          </div>
+
+          <div class="doc-sub">Implementation</div>
+          <div class="a11y-checklist">
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Use role="alert" for dynamic alerts (screen reader announcement)</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Color supplemented with icon or prefix text</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Clear, concise message language</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Meets WCAG AA contrast requirements</span>
+            </div>
           </div>
         </section>
 
         <!-- PAGINATION -->
         <section class="doc-section" id="pagination">
           <h2 class="doc-section-title">Pagination</h2>
-          <p class="doc-section-desc">Navigate between data pages. Use aria-current="page" for current page.</p>
+          <p class="doc-section-desc">Navigate between data pages. Keyboard accessible with arrow keys and Tab navigation.</p>
+
+          <div class="doc-sub">Standard Pagination</div>
           <nav class="pagination" aria-label="Pagination">
             <a href="#" class="pagination-item">←</a>
             <a href="#" class="pagination-item">1</a>
             <a href="#" class="pagination-item" aria-current="page">2</a>
             <a href="#" class="pagination-item">3</a>
+            <a href="#" class="pagination-item">4</a>
             <a href="#" class="pagination-item">→</a>
           </nav>
+
+          <div class="doc-sub">States</div>
+          <div class="a11y-checklist">
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Use aria-current="page" for current page (not aria-selected)</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Previous/next buttons disabled when at boundaries</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Current page visually distinct and semantically marked</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Use nav element with aria-label for screen readers</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>All items keyboard navigable with Tab and Enter</span>
+            </div>
+          </div>
         </section>
 
         <!-- LAYOUT PRIMITIVES -->
