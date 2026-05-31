@@ -1323,6 +1323,19 @@
     });
   } catch (e) { }
 })();
+
+(function() {
+  var navCheckbox = document.getElementById('nav');
+  if (!navCheckbox) return;
+  var appMain = document.querySelector('main.app-main');
+  var appContent = document.querySelector('.app-content');
+  if (!appMain && !appContent) return;
+
+  var closeTarget = appMain || appContent;
+  closeTarget.addEventListener('click', function() {
+    navCheckbox.checked = false;
+  });
+})();
 </script>
 </body>
 </html>
