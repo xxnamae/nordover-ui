@@ -10,6 +10,19 @@
 <link rel="stylesheet" href="./tokens/tokens-web.css">
 <link rel="stylesheet" href="./components/components-web.css">
 <link rel="stylesheet" href="./styleguide-enhancements.css">
+<style>
+.code-block { position: relative; }
+.copy-btn { position: absolute; top: 0.5rem; right: 0.5rem; padding: 0.5rem 0.75rem; background: var(--color-accent); color: var(--color-bg); border: none; border-radius: var(--radius-sm); cursor: pointer; font-size: 0.75rem; opacity: 0; transition: opacity 150ms; }
+.code-block:hover .copy-btn { opacity: 1; }
+.search-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); display: none; z-index: 1000; }
+.search-overlay.active { display: flex; align-items: flex-start; justify-content: center; padding-top: 4rem; }
+.search-results { background: var(--color-surface); border: var(--border-card); border-radius: var(--radius-lg); width: 90%; max-width: 600px; max-height: 60vh; overflow-y: auto; z-index: 1001; }
+.search-result { padding: var(--space-3); border-bottom: var(--border-card); cursor: pointer; }
+.search-result:hover { background: var(--color-subtle); }
+.search-result-title { font-weight: 600; font-size: var(--text-sm); margin-bottom: var(--space-1); }
+.search-result-desc { font-size: var(--text-xs); color: var(--color-muted); }
+</style>
+
 </head>
 <body>
 <input type="checkbox" id="dark" class="sr-only" role="switch" aria-label="Aktiver mørk modus">
@@ -29,50 +42,71 @@
 <div class="app">
   <aside class="app-sidebar">
     <div class="app-sidebar-brand"><span class="app-sidebar-brand-mark">N</span> Nordover Web</div>
-    <div class="app-sidebar-section">Foundation</div>
-    <a class="app-nav-item" href="#colors">Farger & gråskala</a>
-    <a class="app-nav-item" href="#type">Typografi</a>
-    <a class="app-nav-item" href="#scales">Skalaer & enheter</a>
-    <a class="app-nav-item" href="#motion">Motion</a>
-    <a class="app-nav-item" href="#icons">Icons</a>
-    <div class="app-sidebar-section">Komponenter</div>
-    <a class="app-nav-item" href="#buttons">Buttons</a>
-    <a class="app-nav-item" href="#forms">Forms</a>
-    <a class="app-nav-item" href="#badges">Badges</a>
-    <a class="app-nav-item" href="#alerts">Alerts</a>
-    <a class="app-nav-item" href="#tables">Tables</a>
-    <a class="app-nav-item" href="#pagination">Pagination</a>
-    <a class="app-nav-item" href="#modals">Modals</a>
-    <a class="app-nav-item" href="#accordion">Accordion</a>
-    <a class="app-nav-item" href="#tags">Tags</a>
-    <a class="app-nav-item" href="#date-picker">Date Picker</a>
-    <a class="app-nav-item" href="#stepper">Stepper</a>
-    <a class="app-nav-item" href="#file-upload">File Upload</a>
-    <a class="app-nav-item" href="#search-bar">Search Bar</a>
-    <a class="app-nav-item" href="#empty-states">Empty States</a>
-    <a class="app-nav-item" href="#form-patterns">Form Patterns</a>
-    <a class="app-nav-item" href="#data-patterns">Data Display</a>
-    <a class="app-nav-item" href="#states-interactions">States & Interactions</a>
-    <a class="app-nav-item" href="#component-variants">Component Variants</a>
-    <a class="app-nav-item" href="#layout-techniques">Layout Techniques</a>
-    <a class="app-nav-item" href="#real-world-examples">Real-World Examples</a>
-    <a class="app-nav-item" href="#utilities">Utilities</a>
-    <a class="app-nav-item" href="#dark-mode-examples">Dark Mode</a>
-    <div class="app-sidebar-section">Patterns</div>
-    <a class="app-nav-item" href="#hero">Hero</a>
-    <a class="app-nav-item" href="#features">Feature Grid</a>
-    <a class="app-nav-item" href="#cta">CTA</a>
-    <a class="app-nav-item" href="#pricing">Pricing</a>
-    <a class="app-nav-item" href="#faq">FAQ</a>
-    <a class="app-nav-item" href="#blog">Blog Cards</a>
-    <a class="app-nav-item" href="#testimonials">Testimonials</a>
-    <a class="app-nav-item" href="#timeline">Timeline</a>
-    <a class="app-nav-item" href="#footer">Footer</a>
-    <a class="app-nav-item" href="#breadcrumbs">Breadcrumbs</a>
-    <div class="app-sidebar-section">Guidelines</div>
-    <a class="app-nav-item" href="#real-world-examples"><svg class="icon"><use href="#i-chart"/></svg> Real-World Examples</a>
-    <a class="app-nav-item" href="#responsive"><svg class="icon"><use href="#i-chart"/></svg> Responsive Design</a>
-    <a class="app-nav-item" href="#accessibility"><svg class="icon"><use href="#i-info"/></svg> Accessibility (WCAG AA)</a>
+
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="true">Foundation</button>
+      <nav class="app-nav-group active">
+        <a class="app-nav-item" href="#colors">Farger & gråskala</a>
+        <a class="app-nav-item" href="#type">Typografi</a>
+        <a class="app-nav-item" href="#scales">Skalaer & enheter</a>
+        <a class="app-nav-item" href="#motion">Motion</a>
+        <a class="app-nav-item" href="#icons">Icons</a>
+      </nav>
+    </div>
+
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="true">Komponenter</button>
+      <nav class="app-nav-group active">
+        <a class="app-nav-item" href="#buttons">Buttons</a>
+        <a class="app-nav-item" href="#forms">Forms</a>
+        <a class="app-nav-item" href="#badges">Badges</a>
+        <a class="app-nav-item" href="#alerts">Alerts</a>
+        <a class="app-nav-item" href="#tables">Tables</a>
+        <a class="app-nav-item" href="#pagination">Pagination</a>
+        <a class="app-nav-item" href="#modals">Modals</a>
+        <a class="app-nav-item" href="#accordion">Accordion</a>
+        <a class="app-nav-item" href="#tags">Tags</a>
+        <a class="app-nav-item" href="#date-picker">Date Picker</a>
+        <a class="app-nav-item" href="#stepper">Stepper</a>
+        <a class="app-nav-item" href="#file-upload">File Upload</a>
+        <a class="app-nav-item" href="#search-bar">Search Bar</a>
+        <a class="app-nav-item" href="#empty-states">Empty States</a>
+        <a class="app-nav-item" href="#form-patterns">Form Patterns</a>
+        <a class="app-nav-item" href="#data-patterns">Data Display</a>
+      </nav>
+    </div>
+
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="true">Patterns</button>
+      <nav class="app-nav-group active">
+        <a class="app-nav-item" href="#states-interactions">States & Interactions</a>
+        <a class="app-nav-item" href="#component-variants">Component Variants</a>
+        <a class="app-nav-item" href="#layout-techniques">Layout Techniques</a>
+        <a class="app-nav-item" href="#real-world-examples">Real-World Examples</a>
+        <a class="app-nav-item" href="#hero">Hero</a>
+        <a class="app-nav-item" href="#features">Feature Grid</a>
+        <a class="app-nav-item" href="#cta">CTA</a>
+        <a class="app-nav-item" href="#pricing">Pricing</a>
+      </nav>
+    </div>
+
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="true">Guidelines</button>
+      <nav class="app-nav-group active">
+        <a class="app-nav-item" href="#responsive"><svg class="icon"><use href="#i-chart"/></svg> Responsive Design</a>
+        <a class="app-nav-item" href="#accessibility"><svg class="icon"><use href="#i-info"/></svg> Accessibility (WCAG AA)</a>
+        <a class="app-nav-item" href="#dark-mode-examples">Dark Mode</a>
+      </nav>
+    </div>
+
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="false">Utilities</button>
+      <nav class="app-nav-group">
+        <a class="app-nav-item" href="#utilities">Utilities</a>
+        <a class="app-nav-item" href="#faq">FAQ</a>
+        <a class="app-nav-item" href="#footer">Footer</a>
+      </nav>
+    </div>
   </aside>
 
   <div class="app-main">
@@ -3344,6 +3378,81 @@
     navCheckbox.checked = false;
   });
 })();
+
+// Copy to clipboard functionality
+document.addEventListener('DOMContentLoaded', function() {
+  var codeBlocks = document.querySelectorAll('[style*="monospace"]');
+  codeBlocks.forEach(function(block) {
+    if (block.textContent.includes('<')) {
+      block.classList.add('code-block');
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.textContent = 'Kopier';
+      btn.onclick = function(e) {
+        e.preventDefault();
+        navigator.clipboard.writeText(block.textContent.trim()).then(function() {
+          btn.textContent = 'Kopiert!';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.textContent = 'Kopier';
+            btn.classList.remove('copied');
+          }, 2000);
+        });
+      };
+      block.parentElement.style.position = 'relative';
+      block.parentElement.appendChild(btn);
+    }
+  });
+});
+
+// Search functionality (Ctrl+K)
+var searchOverlay = document.getElementById('search-overlay');
+if (!searchOverlay) {
+  searchOverlay = document.createElement('div');
+  searchOverlay.id = 'search-overlay';
+  searchOverlay.className = 'search-overlay';
+  searchOverlay.innerHTML = '<div class="search-results" id="search-results"></div>';
+  document.body.appendChild(searchOverlay);
+}
+
+document.addEventListener('keydown', function(e) {
+  if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+    e.preventDefault();
+    var query = prompt('Søk i komponenter:');
+    if (query) performSearch(query);
+  }
+});
+
+function performSearch(query) {
+  var sections = document.querySelectorAll('.doc-section[id]');
+  var results = [];
+  sections.forEach(function(section) {
+    var title = section.querySelector('h2')?.textContent || '';
+    var desc = section.querySelector('p')?.textContent || '';
+    if (title.toLowerCase().includes(query.toLowerCase()) || desc.toLowerCase().includes(query.toLowerCase())) {
+      results.push({ id: section.id, title: title, desc: desc.substring(0, 100) });
+    }
+  });
+
+  var resultsDiv = document.getElementById('search-results');
+  resultsDiv.innerHTML = results.map(r => `
+    <div class="search-result" onclick="window.location.hash='${r.id}'">
+      <div class="search-result-title">${r.title}</div>
+      <div class="search-result-desc">${r.desc}...</div>
+    </div>
+  `).join('');
+
+  searchOverlay.classList.add('active');
+  setTimeout(() => {
+    searchOverlay.addEventListener('click', function closeSearch(e) {
+      if (e.target === searchOverlay) {
+        searchOverlay.classList.remove('active');
+        searchOverlay.removeEventListener('click', closeSearch);
+      }
+    });
+  }, 100);
+}
+
 </script>
 </body>
 </html>
