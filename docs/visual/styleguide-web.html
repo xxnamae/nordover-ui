@@ -2167,6 +2167,111 @@
               <p class="t-body-sm" style="text-align:center;color:var(--color-muted)">Already have an account? <a href="#" style="color:var(--color-accent)">Sign in</a></p>
             </div>
           </div>
+
+          <div class="doc-sub">Blog Post Page Layout</div>
+          <div style="border:var(--border-card);border-radius:var(--radius-lg);overflow:hidden;background:var(--color-surface)">
+            <!-- Header -->
+            <div style="padding:var(--space-6);text-align:center;border-bottom:var(--border-card)">
+              <div style="margin-bottom:var(--space-3)"><span class="badge badge-info">Design</span></div>
+              <h1 class="t-display-md">Building Accessible Design Systems</h1>
+              <p class="t-body-lg" style="color:var(--color-muted);margin-top:var(--space-4)">A comprehensive guide to designing inclusive components</p>
+              <div class="cluster cluster-tight" style="justify-content:center;margin-top:var(--space-4);font-size:var(--text-sm);color:var(--color-muted)">
+                <span>By Sarah Chen</span> · <span>May 31, 2026</span> · <span>12 min read</span>
+              </div>
+            </div>
+            <!-- Content + Sidebar -->
+            <div style="display:flex;gap:var(--space-6)">
+              <!-- Main content -->
+              <article style="flex:1;padding:var(--space-6);max-width:60rem">
+                <p class="t-body-lg" style="margin-bottom:var(--space-4);color:var(--color-muted)">Accessibility is not an afterthought—it's fundamental to good design. When we build components with accessibility in mind, we create better experiences for everyone...</p>
+                <h2 class="t-heading-lg" style="margin-top:var(--space-6);margin-bottom:var(--space-3)">Key Principles</h2>
+                <ul class="stack-tight" style="color:var(--color-fg);padding-left:var(--space-4)">
+                  <li>Semantic HTML for structure</li>
+                  <li>Keyboard navigation for all interactions</li>
+                  <li>WCAG AA contrast standards</li>
+                  <li>Screen reader testing</li>
+                </ul>
+              </article>
+              <!-- Sidebar (Related posts) -->
+              <aside style="width:200px;padding:var(--space-4);background:var(--color-subtle);border-radius:var(--radius-md);height:fit-content">
+                <h3 class="t-heading-sm" style="font-size:var(--text-sm);margin-bottom:var(--space-3)">Related Posts</h3>
+                <div class="stack-tight">
+                  <a href="#" style="padding:var(--space-2);border-radius:var(--radius-sm);display:block;color:var(--color-accent);text-decoration:none;font-size:var(--text-sm)">Design Tokens 101</a>
+                  <a href="#" style="padding:var(--space-2);border-radius:var(--radius-sm);display:block;color:var(--color-accent);text-decoration:none;font-size:var(--text-sm)">Color Systems</a>
+                  <a href="#" style="padding:var(--space-2);border-radius:var(--radius-sm);display:block;color:var(--color-accent);text-decoration:none;font-size:var(--text-sm)">Typography Guide</a>
+                </div>
+              </aside>
+            </div>
+          </div>
+
+          <div class="doc-sub">Data Dashboard with Filters & Search</div>
+          <div style="border:var(--border-card);border-radius:var(--radius-lg);padding:var(--space-4);background:var(--color-surface);max-width:48rem">
+            <h3 class="t-heading-md" style="margin-bottom:var(--space-4)">Users</h3>
+            <!-- Search & Filter Bar -->
+            <div class="table-filter" style="margin-bottom:var(--space-4)">
+              <input class="form-input" type="text" placeholder="Search name..." style="flex:1">
+              <select class="form-select" style="flex:1"><option>All roles</option><option>Admin</option><option>User</option></select>
+              <button class="btn btn-secondary btn-sm">Filter</button>
+            </div>
+            <!-- Data Table -->
+            <div style="border:var(--border-card);border-radius:var(--radius-md);overflow:hidden;font-size:var(--text-sm)">
+              <table class="data-table" style="width:100%;margin:0">
+                <thead style="background:var(--color-subtle)">
+                  <tr>
+                    <th style="padding:var(--space-2);text-align:left;font-weight:600"><button class="table-sort" aria-sort="ascending">Name ↑</button></th>
+                    <th style="padding:var(--space-2);text-align:left;font-weight:600"><button class="table-sort" aria-sort="none">Role</button></th>
+                    <th style="padding:var(--space-2);text-align:left;font-weight:600">Status</th>
+                    <th style="padding:var(--space-2);text-align:left;font-weight:600">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom:var(--border-card)"><td style="padding:var(--space-2)">Alice Johnson</td><td style="padding:var(--space-2)">Admin</td><td style="padding:var(--space-2)"><span class="badge badge-success">Active</span></td><td style="padding:var(--space-2)"><button class="btn btn-ghost btn-sm">Edit</button></td></tr>
+                  <tr><td style="padding:var(--space-2)">Bob Smith</td><td style="padding:var(--space-2)">User</td><td style="padding:var(--space-2)"><span class="badge badge-warning">Pending</span></td><td style="padding:var(--space-2)"><button class="btn btn-ghost btn-sm">Edit</button></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="doc-sub">Onboarding Flow with Stepper</div>
+          <div style="border:var(--border-card);border-radius:var(--radius-lg);padding:var(--space-6);background:var(--color-surface)">
+            <!-- Stepper -->
+            <div class="stepper" style="margin-bottom:var(--space-6)">
+              <div class="stepper-step completed">
+                <div class="stepper-circle">✓</div>
+                <div class="stepper-label">Account</div>
+              </div>
+              <div class="stepper-step active">
+                <div class="stepper-circle">2</div>
+                <div class="stepper-label">Profile</div>
+              </div>
+              <div class="stepper-step">
+                <div class="stepper-circle">3</div>
+                <div class="stepper-label">Preferences</div>
+              </div>
+              <div class="stepper-step">
+                <div class="stepper-circle">4</div>
+                <div class="stepper-label">Complete</div>
+              </div>
+            </div>
+            <!-- Step Content -->
+            <div style="max-width:32rem;margin:0 auto">
+              <h3 class="t-heading-md" style="margin-bottom:var(--space-4)">Step 2: Complete Your Profile</h3>
+              <div class="stack">
+                <div class="field">
+                  <label class="field-label">Full Name</label>
+                  <input class="form-input" type="text" placeholder="John Doe">
+                </div>
+                <div class="field">
+                  <label class="field-label">Bio</label>
+                  <textarea class="form-textarea" placeholder="Tell us about yourself..."></textarea>
+                </div>
+                <div class="cluster">
+                  <button class="btn btn-ghost">Back</button>
+                  <button class="btn btn-primary" style="margin-left:auto">Next</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
 
         <!-- COMPONENT VARIANTS -->

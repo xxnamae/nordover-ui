@@ -1276,6 +1276,55 @@
               <div><strong>Error —</strong> Could not save. Please try again.</div>
             </div>
           </div>
+
+          <div class="doc-sub">Data List with Search & Filter</div>
+          <div style="border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-3);background:var(--color-surface);max-width:24rem">
+            <h3 class="t-heading-sm" style="margin-bottom:var(--space-3)">Contacts</h3>
+            <!-- Search -->
+            <input class="form-input" type="text" placeholder="Search..." style="margin-bottom:var(--space-3);width:100%">
+            <!-- List -->
+            <div class="stack-tight">
+              <div style="padding:var(--space-2);border:var(--border-card);border-radius:var(--radius-sm);background:var(--color-subtle)">
+                <p class="t-body-sm" style="font-weight:600;margin-bottom:var(--space-1)">Alice Johnson</p>
+                <p class="t-body-sm" style="color:var(--color-muted);font-size:var(--text-sm)">alice@example.com</p>
+              </div>
+              <div style="padding:var(--space-2);border:var(--border-card);border-radius:var(--radius-sm);background:var(--color-subtle)">
+                <p class="t-body-sm" style="font-weight:600;margin-bottom:var(--space-1)">Bob Smith</p>
+                <p class="t-body-sm" style="color:var(--color-muted);font-size:var(--text-sm)">bob@example.com</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Onboarding Stepper Flow</div>
+          <div style="border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-4);background:var(--color-surface);max-width:24rem;margin:0 auto">
+            <!-- Compact Stepper -->
+            <div class="stepper" style="margin-bottom:var(--space-4);gap:var(--space-2)">
+              <div class="stepper-step completed">
+                <div class="stepper-circle" style="font-size:var(--text-sm)">✓</div>
+                <div class="stepper-label">Setup</div>
+              </div>
+              <div class="stepper-step active">
+                <div class="stepper-circle" style="font-size:var(--text-sm)">2</div>
+                <div class="stepper-label">Profile</div>
+              </div>
+              <div class="stepper-step">
+                <div class="stepper-circle" style="font-size:var(--text-sm)">3</div>
+                <div class="stepper-label">Done</div>
+              </div>
+            </div>
+            <!-- Form -->
+            <div class="stack-tight">
+              <h4 class="t-heading-sm" style="font-size:var(--text-base);margin-bottom:var(--space-3)">Step 2: Profile</h4>
+              <div class="field">
+                <label class="field-label">Display Name</label>
+                <input class="form-input" type="text" placeholder="Your name">
+              </div>
+              <div class="cluster">
+                <button class="btn btn-ghost btn-sm">Back</button>
+                <button class="btn btn-primary btn-sm" style="margin-left:auto">Next</button>
+              </div>
+            </div>
+          </div>
         </section>
 
         <!-- STATES & INTERACTIONS -->
