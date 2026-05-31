@@ -49,7 +49,14 @@
     <a class="app-nav-item" href="#file-upload">File Upload</a>
     <a class="app-nav-item" href="#search-bar">Search Bar</a>
     <a class="app-nav-item" href="#empty-states">Empty States</a>
+    <a class="app-nav-item" href="#form-patterns">Form Patterns</a>
+    <a class="app-nav-item" href="#data-patterns">Data Display</a>
+    <a class="app-nav-item" href="#states-interactions">States & Interactions</a>
+    <a class="app-nav-item" href="#component-variants">Component Variants</a>
+    <a class="app-nav-item" href="#layout-techniques">Layout Techniques</a>
+    <a class="app-nav-item" href="#real-world-examples">Real-World Examples</a>
     <a class="app-nav-item" href="#utilities">Utilities</a>
+    <a class="app-nav-item" href="#dark-mode-examples">Dark Mode</a>
     <div class="app-sidebar-section">Patterns</div>
     <a class="app-nav-item" href="#hero">Hero</a>
     <a class="app-nav-item" href="#features">Feature Grid</a>
@@ -920,6 +927,182 @@
 &lt;!-- .btn .btn-secondary: CTA button --&gt;</code></div>
         </section>
 
+        <!-- FORM PATTERNS -->
+        <section class="doc-section" id="form-patterns">
+          <h2 class="doc-section-title">Form Patterns</h2>
+          <p class="doc-section-desc">Complete form layouts: login, signup, multi-section, and complex forms. All with validation, error states, and helpful text.</p>
+
+          <div class="doc-sub">Simple Login Form</div>
+          <div class="doc-demo" style="max-width:24rem;margin:auto">
+            <div class="stack">
+              <div class="stack-tight">
+                <h3 class="t-heading-md">Sign In</h3>
+                <p class="t-body-sm" style="color:var(--color-muted)">Enter your credentials to continue</p>
+              </div>
+              <div class="field">
+                <label class="field-label">Email Address</label>
+                <input class="form-input" type="email" placeholder="name@example.com">
+              </div>
+              <div class="field">
+                <label class="field-label">Password</label>
+                <input class="form-input" type="password" placeholder="••••••••">
+                <a href="#" style="font-size:var(--text-sm);color:var(--color-accent)">Forgot password?</a>
+              </div>
+              <button class="btn btn-primary" style="width:100%">Sign In</button>
+              <p class="t-body-sm text-center" style="color:var(--color-muted)">Don't have an account? <a href="#" style="color:var(--color-accent)">Create one</a></p>
+            </div>
+          </div>
+
+          <div class="doc-sub">Multi-Section Form</div>
+          <div class="doc-demo" style="max-width:32rem;margin:auto">
+            <div class="stack">
+              <div>
+                <h3 class="t-heading-sm">Billing Information</h3>
+                <div class="grid-auto" style="margin-top:var(--space-4)">
+                  <div class="field"><label class="field-label">First Name</label><input class="form-input" type="text"></div>
+                  <div class="field"><label class="field-label">Last Name</label><input class="form-input" type="text"></div>
+                  <div class="field" style="grid-column:1/-1"><label class="field-label">Address</label><input class="form-input" type="text"></div>
+                </div>
+              </div>
+              <div style="border-top:var(--border-card);padding-top:var(--space-6)">
+                <h3 class="t-heading-sm">Payment Method</h3>
+                <div class="stack-tight" style="margin-top:var(--space-4)">
+                  <label style="display:flex;align-items:center;gap:var(--space-2);cursor:pointer;padding:var(--space-2)">
+                    <input type="radio" name="payment" checked> Credit Card
+                  </label>
+                  <label style="display:flex;align-items:center;gap:var(--space-2);cursor:pointer;padding:var(--space-2)">
+                    <input type="radio" name="payment"> Bank Transfer
+                  </label>
+                </div>
+              </div>
+              <div class="cluster cluster-tight" style="justify-content:flex-end;border-top:var(--border-card);padding-top:var(--space-6)">
+                <button class="btn btn-secondary">Cancel</button>
+                <button class="btn btn-primary">Continue</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Form with Validation</div>
+          <div class="doc-demo" style="max-width:28rem;margin:auto">
+            <div class="stack">
+              <div class="field">
+                <label class="field-label">Username</label>
+                <input class="form-input" type="text" placeholder="username" style="border-color:var(--color-error)">
+                <span class="field-error">Username must be 3+ characters</span>
+                <span class="field-help">lowercase letters and numbers only</span>
+              </div>
+              <div class="field">
+                <label class="field-label">Email</label>
+                <input class="form-input" type="email" placeholder="name@example.com" style="border-color:var(--color-success)">
+                <span style="color:var(--color-success);font-size:var(--text-sm)">✓ Email looks good</span>
+              </div>
+              <div class="field">
+                <label class="field-label">Password</label>
+                <input class="form-input" type="password" placeholder="••••••••">
+                <span class="field-help">At least 8 characters, 1 uppercase, 1 number</span>
+              </div>
+              <button class="btn btn-primary" style="width:100%">Create Account</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- DATA PATTERNS -->
+        <section class="doc-section" id="data-patterns">
+          <h2 class="doc-section-title">Data Display Patterns</h2>
+          <p class="doc-section-desc">Tables, lists, and grid patterns for displaying structured data. Responsive and accessible.</p>
+
+          <div class="doc-sub">Simple Data Table</div>
+          <div class="doc-demo">
+            <table class="table" style="width:100%;font-size:var(--text-sm)">
+              <thead>
+                <tr>
+                  <th style="text-align:left;padding:var(--space-3);border-bottom:var(--border-card)">Name</th>
+                  <th style="text-align:left;padding:var(--space-3);border-bottom:var(--border-card)">Email</th>
+                  <th style="text-align:left;padding:var(--space-3);border-bottom:var(--border-card)">Status</th>
+                  <th style="text-align:right;padding:var(--space-3);border-bottom:var(--border-card)">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding:var(--space-3);border-bottom:var(--border-card)">Sarah Johnson</td>
+                  <td style="padding:var(--space-3);border-bottom:var(--border-card)">sarah@example.com</td>
+                  <td style="padding:var(--space-3);border-bottom:var(--border-card)"><span class="badge badge-success">Active</span></td>
+                  <td style="padding:var(--space-3);border-bottom:var(--border-card);text-align:right"><button class="btn btn-ghost btn-sm">Edit</button></td>
+                </tr>
+                <tr>
+                  <td style="padding:var(--space-3);border-bottom:var(--border-card)">Michael Chen</td>
+                  <td style="padding:var(--space-3);border-bottom:var(--border-card)">michael@example.com</td>
+                  <td style="padding:var(--space-3);border-bottom:var(--border-card)"><span class="badge badge-warning">Pending</span></td>
+                  <td style="padding:var(--space-3);border-bottom:var(--border-card);text-align:right"><button class="btn btn-ghost btn-sm">Edit</button></td>
+                </tr>
+                <tr>
+                  <td style="padding:var(--space-3)">Emma Davis</td>
+                  <td style="padding:var(--space-3)">emma@example.com</td>
+                  <td style="padding:var(--space-3)"><span class="badge badge-error">Inactive</span></td>
+                  <td style="padding:var(--space-3);text-align:right"><button class="btn btn-ghost btn-sm">Edit</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="doc-sub">Data Grid with Metric Cards</div>
+          <div class="doc-demo">
+            <div class="grid-auto">
+              <div class="card">
+                <div class="card-body">
+                  <p class="t-body-sm font-bold">Total Users</p>
+                  <p class="t-display-md" style="margin-top:var(--space-2);color:var(--color-accent)">1,234</p>
+                  <p class="t-body-xs" style="color:var(--color-muted);margin-top:var(--space-1)">↑ 12% vs last month</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <p class="t-body-sm font-bold">Active Sessions</p>
+                  <p class="t-display-md" style="margin-top:var(--space-2);color:var(--color-success)">456</p>
+                  <p class="t-body-xs" style="color:var(--color-muted);margin-top:var(--space-1)">Currently online</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <p class="t-body-sm font-bold">Revenue</p>
+                  <p class="t-display-md" style="margin-top:var(--space-2);color:var(--color-accent)">$45.6K</p>
+                  <p class="t-body-xs" style="color:var(--color-muted);margin-top:var(--space-1)">↑ 8% vs last month</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">List with Metadata</div>
+          <div class="doc-demo" style="max-width:32rem">
+            <div class="stack-tight">
+              <div class="stack-tight" style="padding:var(--space-3);border-bottom:var(--border-card)">
+                <p class="t-body font-bold">Project Alpha</p>
+                <p class="t-body-sm" style="color:var(--color-muted)">By Sarah Johnson • Updated 2 hours ago</p>
+                <div class="cluster cluster-tight" style="margin-top:var(--space-2);font-size:var(--text-xs)">
+                  <span class="badge badge-info">Design</span>
+                  <span class="badge badge-success">Active</span>
+                </div>
+              </div>
+              <div class="stack-tight" style="padding:var(--space-3);border-bottom:var(--border-card)">
+                <p class="t-body font-bold">Project Beta</p>
+                <p class="t-body-sm" style="color:var(--color-muted)">By Michael Chen • Updated 5 days ago</p>
+                <div class="cluster cluster-tight" style="margin-top:var(--space-2);font-size:var(--text-xs)">
+                  <span class="badge badge-info">Development</span>
+                  <span class="badge badge-warning">On Hold</span>
+                </div>
+              </div>
+              <div class="stack-tight" style="padding:var(--space-3)">
+                <p class="t-body font-bold">Project Gamma</p>
+                <p class="t-body-sm" style="color:var(--color-muted)">By Emma Davis • Updated 1 week ago</p>
+                <div class="cluster cluster-tight" style="margin-top:var(--space-2);font-size:var(--text-xs)">
+                  <span class="badge badge-info">Marketing</span>
+                  <span class="badge badge-error">Archived</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <!-- HERO -->
         <section class="doc-section" id="hero">
           <h2 class="doc-section-title">Hero Section</h2>
@@ -1208,6 +1391,240 @@
           </ul>
         </section>
 
+        <!-- STATES & INTERACTIONS -->
+        <section class="doc-section" id="states-interactions">
+          <h2 class="doc-section-title">States & Interactions</h2>
+          <p class="doc-section-desc">Interactive element state variations: hover, active, focus, disabled, error, and loading. All states fully keyboard accessible and respect prefers-reduced-motion.</p>
+
+          <div class="doc-sub">Button States</div>
+          <div class="chips"><span class="chip">:hover</span><span class="chip">:active</span><span class="chip">:focus</span><span class="chip">:disabled</span></div>
+          <div class="doc-demo flex flex-wrap gap-4">
+            <div class="stack">
+              <span class="t-body-xs" style="color:var(--color-muted)">Primary</span>
+              <button class="btn btn-primary">Default</button>
+              <button class="btn btn-primary" style="opacity:0.8">Hover</button>
+              <button class="btn btn-primary" style="transform:scale(0.98)">Active</button>
+              <button class="btn btn-primary" disabled>Disabled</button>
+            </div>
+            <div class="stack">
+              <span class="t-body-xs" style="color:var(--color-muted)">Secondary</span>
+              <button class="btn btn-secondary">Default</button>
+              <button class="btn btn-secondary" style="opacity:0.8">Hover</button>
+              <button class="btn btn-secondary" style="transform:scale(0.98)">Active</button>
+              <button class="btn btn-secondary" disabled>Disabled</button>
+            </div>
+            <div class="stack">
+              <span class="t-body-xs" style="color:var(--color-muted)">Ghost</span>
+              <button class="btn btn-ghost">Default</button>
+              <button class="btn btn-ghost" style="opacity:0.8">Hover</button>
+              <button class="btn btn-ghost" style="transform:scale(0.98)">Active</button>
+              <button class="btn btn-ghost" disabled>Disabled</button>
+            </div>
+          </div>
+
+          <div class="doc-sub">Form Input States</div>
+          <div class="chips"><span class="chip">default</span><span class="chip">:focus</span><span class="chip">:disabled</span><span class="chip">:invalid</span></div>
+          <div class="doc-demo stack">
+            <div>
+              <label class="field-label">Default state</label>
+              <input class="form-input" type="text" placeholder="Default input">
+            </div>
+            <div>
+              <label class="field-label">Focus state</label>
+              <input class="form-input" type="text" placeholder="Focused input" style="outline:var(--color-accent) 2px solid;outline-offset:2px">
+            </div>
+            <div>
+              <label class="field-label">Disabled state</label>
+              <input class="form-input" type="text" placeholder="Disabled input" disabled>
+            </div>
+            <div>
+              <label class="field-label">Error state</label>
+              <input class="form-input" type="text" placeholder="Input with error" style="border-color:var(--color-error)">
+              <span class="t-body-xs" style="color:var(--color-error);margin-top:var(--space-1)">This field is required</span>
+            </div>
+          </div>
+
+          <div class="doc-sub">Interactive Element Focus Indicators</div>
+          <div class="chips"><span class="chip">:focus-visible</span><span class="chip">outline</span><span class="chip">keyboard-navigable</span></div>
+          <div class="doc-demo flex gap-4">
+            <button class="btn btn-primary" style="outline:2px solid var(--color-accent);outline-offset:2px">Keyboard focus</button>
+            <input class="form-input" type="text" placeholder="Input with focus ring" style="outline:2px solid var(--color-accent);outline-offset:2px;max-width:12rem">
+            <a href="#" style="color:var(--color-accent);outline:2px solid var(--color-accent);outline-offset:2px;border-radius:var(--radius-sm);padding:var(--space-2)">Link focus</a>
+          </div>
+
+          <div class="doc-sub">Loading & Skeleton States</div>
+          <div class="chips"><span class="chip">loading</span><span class="chip">skeleton</span><span class="chip">animation</span></div>
+          <div class="doc-demo stack">
+            <div style="display:flex;gap:var(--space-3);align-items:center">
+              <button class="btn btn-primary" disabled>
+                <span style="display:inline-block;width:1rem;height:1rem;border:2px solid currentColor;border-top-color:transparent;border-radius:50%;animation:spin 0.6s linear infinite"></span>
+                Loading...
+              </button>
+            </div>
+            <div style="background:var(--color-subtle);border-radius:var(--radius-md);padding:var(--space-4);max-width:20rem;animation:pulse 2s ease-in-out infinite" class="opacity-50">
+              <div style="height:1rem;background:var(--color-muted);border-radius:var(--radius-sm);margin-bottom:var(--space-2)"></div>
+              <div style="height:0.5rem;background:var(--color-muted);border-radius:var(--radius-sm);margin-bottom:var(--space-2);width:80%"></div>
+              <div style="height:0.5rem;background:var(--color-muted);border-radius:var(--radius-sm);width:60%"></div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Accessibility Requirements</div>
+          <div class="stack" style="max-width:50rem">
+            <p class="t-body-sm"><strong>Focus visible:</strong> All interactive elements must show :focus-visible indicator (outline or background change). 3:1 contrast minimum.</p>
+            <p class="t-body-sm"><strong>Disabled appearance:</strong> Must be visually distinct - reduce opacity, change color, or add strikethrough. Not color alone.</p>
+            <p class="t-body-sm"><strong>Error states:</strong> Must be indicated by more than color. Include icon, text message, or border style change.</p>
+            <p class="t-body-sm"><strong>Motion:</strong> All animations respect prefers-reduced-motion. @media (prefers-reduced-motion: reduce) disables animations.</p>
+          </div>
+        </section>
+
+        <!-- COMPONENT VARIANTS -->
+        <section class="doc-section" id="component-variants">
+          <h2 class="doc-section-title">Component Variants & Combinations</h2>
+          <p class="doc-section-desc">Complete overview of all component variant combinations. Mix and match sizes, styles, and states to build custom layouts.</p>
+
+          <div class="doc-sub">Button Size × Variant Matrix</div>
+          <div class="chips"><span class="chip">.btn-xs</span><span class="chip">.btn-sm</span><span class="chip">.btn-md</span><span class="chip">.btn-lg</span></div>
+          <div class="doc-demo">
+            <div class="stack">
+              <div class="cluster cluster-tight">
+                <button class="btn btn-primary" style="padding:var(--space-1) var(--space-2);font-size:var(--text-xs)">XS Primary</button>
+                <button class="btn btn-secondary" style="padding:var(--space-1) var(--space-2);font-size:var(--text-xs)">XS Secondary</button>
+                <button class="btn btn-ghost" style="padding:var(--space-1) var(--space-2);font-size:var(--text-xs)">XS Ghost</button>
+              </div>
+              <div class="cluster cluster-tight">
+                <button class="btn btn-primary btn-sm">SM Primary</button>
+                <button class="btn btn-secondary btn-sm">SM Secondary</button>
+                <button class="btn btn-ghost btn-sm">SM Ghost</button>
+              </div>
+              <div class="cluster cluster-tight">
+                <button class="btn btn-primary">MD Primary</button>
+                <button class="btn btn-secondary">MD Secondary</button>
+                <button class="btn btn-ghost">MD Ghost</button>
+              </div>
+              <div class="cluster cluster-tight">
+                <button class="btn btn-primary btn-lg">LG Primary</button>
+                <button class="btn btn-secondary btn-lg">LG Secondary</button>
+                <button class="btn btn-ghost btn-lg">LG Ghost</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Form Input Types (All Variants)</div>
+          <div class="chips"><span class="chip">text</span><span class="chip">email</span><span class="chip">password</span><span class="chip">number</span><span class="chip">date</span><span class="chip">textarea</span><span class="chip">select</span></div>
+          <div class="doc-demo stack">
+            <div>
+              <label class="field-label">Text Input</label>
+              <input class="form-input" type="text" placeholder="Enter text">
+            </div>
+            <div>
+              <label class="field-label">Email Input</label>
+              <input class="form-input" type="email" placeholder="name@example.com">
+            </div>
+            <div>
+              <label class="field-label">Password Input</label>
+              <input class="form-input" type="password" placeholder="••••••••">
+            </div>
+            <div>
+              <label class="field-label">Number Input</label>
+              <input class="form-input" type="number" placeholder="0" min="0">
+            </div>
+            <div>
+              <label class="field-label">Date Input</label>
+              <input class="form-input" type="date">
+            </div>
+            <div>
+              <label class="field-label">Select Dropdown</label>
+              <select class="form-input">
+                <option>Choose an option</option>
+                <option>Option 1</option>
+                <option>Option 2</option>
+                <option>Option 3</option>
+              </select>
+            </div>
+            <div>
+              <label class="field-label">Textarea</label>
+              <textarea class="form-textarea" placeholder="Enter longer text here..."></textarea>
+            </div>
+          </div>
+
+          <div class="doc-sub">Badge & Status Combinations</div>
+          <div class="chips"><span class="chip">.badge-success</span><span class="chip">.badge-warning</span><span class="chip">.badge-error</span><span class="chip">.badge-info</span></div>
+          <div class="doc-demo">
+            <div class="stack">
+              <div class="cluster cluster-tight">
+                <span class="badge badge-success">✓ Success</span>
+                <span class="badge badge-warning">⚠ Warning</span>
+                <span class="badge badge-error">✕ Error</span>
+                <span class="badge badge-info">ⓘ Info</span>
+              </div>
+              <div class="cluster cluster-tight">
+                <span class="badge badge-success" style="font-size:var(--text-xs)">Small Success</span>
+                <span class="badge badge-warning" style="font-size:var(--text-xs)">Small Warning</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Card Combinations</div>
+          <div class="chips"><span class="chip">.card</span><span class="chip">.card-header</span><span class="chip">.card-footer</span><span class="chip">Interactive</span></div>
+          <div class="doc-demo grid-auto" style="gap:var(--space-4)">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="t-heading-sm">Basic Card</h4>
+                <p class="t-body-sm" style="color:var(--color-muted)">Simple card with content only.</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header">Card with Header</div>
+              <div class="card-body">
+                <p class="t-body-sm">Content below the header section.</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body">
+                <h4 class="t-heading-sm">Card with Footer</h4>
+                <p class="t-body-sm" style="color:var(--color-muted)">Includes action buttons below.</p>
+              </div>
+              <div class="card-footer">
+                <button class="btn btn-ghost btn-sm">Cancel</button>
+                <button class="btn btn-primary btn-sm">Action</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Alert Variants (All Types)</div>
+          <div class="chips"><span class="chip">success</span><span class="chip">warning</span><span class="chip">error</span><span class="chip">info</span></div>
+          <div class="doc-demo stack">
+            <div class="alert alert-success">
+              <strong>Success:</strong> Operation completed successfully. All changes have been saved.
+            </div>
+            <div class="alert alert-warning">
+              <strong>Warning:</strong> Please review this information. Some items may need attention.
+            </div>
+            <div class="alert alert-error">
+              <strong>Error:</strong> Something went wrong. Please try again or contact support.
+            </div>
+            <div class="alert alert-info">
+              <strong>Info:</strong> This is informational content to help you understand the feature.
+            </div>
+          </div>
+
+          <div class="doc-sub">Typography Sizes (Complete Hierarchy)</div>
+          <div class="chips"><span class="chip">.t-display-xl</span><span class="chip">.t-display-lg</span><span class="chip">.t-heading-*</span><span class="chip">.t-body-*</span></div>
+          <div class="doc-demo stack">
+            <p class="t-display-xl">Display XL (80px responsive)</p>
+            <p class="t-display-lg">Display LG (60px responsive)</p>
+            <p class="t-display-md">Display MD (40px responsive)</p>
+            <p class="t-heading-lg">Heading LG (32px)</p>
+            <p class="t-heading-md">Heading MD (24px)</p>
+            <p class="t-heading-sm">Heading SM (20px)</p>
+            <p class="t-body-lg">Body Large (18px)</p>
+            <p class="t-body">Body Regular (16px)</p>
+            <p class="t-body-sm">Body Small (14px)</p>
+            <p class="t-eyebrow">EYEBROW / LABEL (12px, uppercase)</p>
+            <p class="t-caption">Caption (12px, muted)</p>
+          </div>
+        </section>
+
         <!-- UTILITIES -->
         <section class="doc-section" id="utilities">
           <h2 class="doc-section-title">Utilities</h2>
@@ -1476,6 +1893,249 @@
           <p class="t-body-sm" style="color:var(--color-muted)"><strong>140+ utility classes documented above</strong>. All utilities compose to build complex layouts without writing custom CSS. Stack, combine, and override with @layer brand.</p>
         </section>
 
+        <!-- LAYOUT TECHNIQUES -->
+        <section class="doc-section" id="layout-techniques">
+          <h2 class="doc-section-title">Layout Techniques</h2>
+          <p class="doc-section-desc">Common layout patterns using primitives. Mobile-first responsive approaches with minimal media queries.</p>
+
+          <div class="doc-sub">Sidebar + Main Content (Responsive)</div>
+          <div class="chips"><span class="chip">.flex</span><span class="chip">gap</span><span class="chip">max-width</span></div>
+          <div class="doc-demo" style="background:var(--color-subtle);border-radius:var(--radius-lg);padding:var(--space-4)">
+            <div class="flex gap-6" style="flex-wrap:wrap">
+              <aside style="flex:0 1 12rem;background:var(--color-bg);padding:var(--space-4);border-radius:var(--radius-md)">
+                <p class="t-body-sm font-bold">Sidebar (12rem)</p>
+                <p class="t-body-xs" style="color:var(--color-muted);margin-top:var(--space-2)">Responsive: Stacks on mobile via flex-wrap</p>
+              </aside>
+              <main style="flex:1;background:var(--color-bg);padding:var(--space-4);border-radius:var(--radius-md)">
+                <p class="t-body-sm font-bold">Main Content</p>
+                <p class="t-body-xs" style="color:var(--color-muted);margin-top:var(--space-2)">Grows to fill available space with flex:1</p>
+              </main>
+            </div>
+          </div>
+
+          <div class="doc-sub">Form Grid Layout (Responsive Columns)</div>
+          <div class="chips"><span class="chip">.grid-auto</span><span class="chip">minmax()</span><span class="chip">auto-fit</span></div>
+          <div class="doc-demo">
+            <div class="grid-auto">
+              <div>
+                <label class="field-label">First Name</label>
+                <input class="form-input" type="text" placeholder="First">
+              </div>
+              <div>
+                <label class="field-label">Last Name</label>
+                <input class="form-input" type="text" placeholder="Last">
+              </div>
+              <div style="grid-column:1/-1">
+                <label class="field-label">Email</label>
+                <input class="form-input" type="email" placeholder="Email">
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Centered Max-Width Layout</div>
+          <div class="chips"><span class="chip">.page-content</span><span class="chip">margin-inline:auto</span><span class="chip">max-width</span></div>
+          <div class="doc-demo" style="background:var(--color-subtle);border-radius:var(--radius-lg);padding:var(--space-4)">
+            <div class="page-content" style="background:var(--color-bg);padding:var(--space-4);border-radius:var(--radius-md);border:var(--border-card)">
+              <p class="t-body-sm font-bold">max-width: 64rem centered</p>
+              <p class="t-body-xs" style="color:var(--color-muted);margin-top:var(--space-2)">Uses margin-inline: auto for centering. Responsive padding via page-padding token.</p>
+            </div>
+          </div>
+
+          <div class="doc-sub">Card Grid (auto-fit columns)</div>
+          <div class="chips"><span class="chip">.grid-auto</span><span class="chip">minmax(16rem, 1fr)</span></div>
+          <div class="doc-demo">
+            <div class="grid-auto">
+              <div class="card"><div class="card-body"><p class="t-heading-sm">Card 1</p><p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-2)">Auto-fits to screen width</p></div></div>
+              <div class="card"><div class="card-body"><p class="t-heading-sm">Card 2</p><p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-2)">Responsive columns</p></div></div>
+              <div class="card"><div class="card-body"><p class="t-heading-sm">Card 3</p><p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-2)">No media queries</p></div></div>
+              <div class="card"><div class="card-body"><p class="t-heading-sm">Card 4</p><p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-2)">Mobile-first</p></div></div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Stack + Cluster Composition</div>
+          <div class="chips"><span class="chip">.stack</span><span class="chip">.cluster</span><span class="chip">nested</span></div>
+          <div class="doc-demo">
+            <div class="stack" style="background:var(--color-subtle);border-radius:var(--radius-lg);padding:var(--space-4)">
+              <div class="cluster cluster-tight">
+                <input class="form-input" type="search" placeholder="Search..." style="flex:1;margin-bottom:0">
+                <button class="btn btn-primary">Search</button>
+              </div>
+              <div class="cluster cluster-tight" style="flex-wrap:wrap">
+                <span style="font-size:var(--text-sm);color:var(--color-muted)">Showing 3 of 12 results</span>
+                <div class="cluster cluster-tight">
+                  <button class="btn btn-ghost btn-sm">← Prev</button>
+                  <button class="btn btn-ghost btn-sm">Next →</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- REAL-WORLD EXAMPLES -->
+        <section class="doc-section" id="real-world-examples">
+          <h2 class="doc-section-title">Real-World Page Examples</h2>
+          <p class="doc-section-desc">Complete, composition-ready page layouts combining multiple components and patterns.</p>
+
+          <div class="doc-sub">SaaS Product Page Header</div>
+          <div class="doc-demo" style="background:linear-gradient(135deg, var(--color-subtle) 0%, var(--color-bg) 100%);padding:var(--space-8);border-radius:var(--radius-lg)">
+            <div class="page-content">
+              <div class="stack" style="text-align:center">
+                <p class="t-eyebrow">Introducing Nordover 2.0</p>
+                <h1 class="t-display-lg">The design system teams love</h1>
+                <p class="t-body-lg" style="color:var(--color-muted);margin-top:var(--space-3);max-width:50ch;margin-inline:auto">Build faster, ship smarter. Production-ready components with 100% WCAG AA accessibility. Start free today.</p>
+                <div class="cluster cluster-tight" style="justify-content:center;margin-top:var(--space-6);gap:var(--space-3)">
+                  <button class="btn btn-primary btn-lg">Start Building</button>
+                  <button class="btn btn-secondary btn-lg">View Docs</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Pricing Section (Three Tiers)</div>
+          <div class="doc-demo">
+            <div class="page-content">
+              <div class="stack" style="text-align:center;margin-bottom:var(--space-8)">
+                <h2 class="t-heading-lg">Simple, Transparent Pricing</h2>
+                <p class="t-body" style="color:var(--color-muted);margin-top:var(--space-2)">Choose the plan that fits your team</p>
+              </div>
+              <div class="grid-auto" style="gap:var(--space-4)">
+                <div class="card">
+                  <div class="card-header">Starter</div>
+                  <div class="card-body">
+                    <p class="t-display-md" style="color:var(--color-accent)">$0<span class="t-body-sm" style="color:var(--color-muted)">/month</span></p>
+                    <ul class="stack-tight" style="list-style:inside;margin-top:var(--space-4);font-size:var(--text-sm)">
+                      <li>✓ Up to 3 projects</li>
+                      <li>✓ Community support</li>
+                      <li>✗ Advanced features</li>
+                    </ul>
+                  </div>
+                  <div class="card-footer"><button class="btn btn-secondary" style="width:100%">Get Started</button></div>
+                </div>
+                <div class="card" style="border:2px solid var(--color-accent)">
+                  <div class="card-header" style="background:var(--color-accent);color:white">Professional</div>
+                  <div class="card-body">
+                    <p class="t-display-md" style="color:var(--color-accent)">$29<span class="t-body-sm" style="color:var(--color-muted)">/month</span></p>
+                    <ul class="stack-tight" style="list-style:inside;margin-top:var(--space-4);font-size:var(--text-sm)">
+                      <li>✓ Unlimited projects</li>
+                      <li>✓ Priority support</li>
+                      <li>✓ Advanced features</li>
+                    </ul>
+                  </div>
+                  <div class="card-footer"><button class="btn btn-primary" style="width:100%">Subscribe Now</button></div>
+                </div>
+                <div class="card">
+                  <div class="card-header">Enterprise</div>
+                  <div class="card-body">
+                    <p class="t-display-md" style="color:var(--color-accent)">Custom<span class="t-body-sm" style="color:var(--color-muted)">/month</span></p>
+                    <ul class="stack-tight" style="list-style:inside;margin-top:var(--space-4);font-size:var(--text-sm)">
+                      <li>✓ Everything in Pro</li>
+                      <li>✓ Custom features</li>
+                      <li>✓ Dedicated support</li>
+                    </ul>
+                  </div>
+                  <div class="card-footer"><button class="btn btn-secondary" style="width:100%">Contact Sales</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Feature Section with Image</div>
+          <div class="doc-demo">
+            <div class="page-content">
+              <div class="flex gap-8" style="flex-wrap:wrap;align-items:center">
+                <div style="flex:1;min-width:20rem">
+                  <h2 class="t-heading-lg">Built for Speed</h2>
+                  <p class="t-body" style="color:var(--color-muted);margin-top:var(--space-3)">All components are optimized for performance. CSS-only, zero runtime overhead.</p>
+                  <ul class="stack-tight" style="list-style:none;margin-top:var(--space-4)">
+                    <li class="cluster cluster-tight" style="gap:var(--space-2)"><span style="color:var(--color-success)">✓</span> <span>40KB total CSS</span></li>
+                    <li class="cluster cluster-tight" style="gap:var(--space-2)"><span style="color:var(--color-success)">✓</span> <span>Zero JavaScript</span></li>
+                    <li class="cluster cluster-tight" style="gap:var(--space-2)"><span style="color:var(--color-success)">✓</span> <span>100 Lighthouse score</span></li>
+                  </ul>
+                </div>
+                <div style="flex:1;min-width:16rem;height:12rem;background:var(--color-subtle);border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;color:var(--color-muted)">
+                  [Image/Chart Area]
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Feature Checklist Card</div>
+          <div class="doc-demo" style="max-width:32rem;margin:auto">
+            <div class="card">
+              <div class="card-header">What's Included</div>
+              <div class="card-body">
+                <div class="stack-tight">
+                  <div class="cluster cluster-tight"><span class="t-heading-sm" style="color:var(--color-success);margin-right:var(--space-2)">✓</span><span>40+ production components</span></div>
+                  <div class="cluster cluster-tight"><span class="t-heading-sm" style="color:var(--color-success);margin-right:var(--space-2)">✓</span><span>Fully accessible (WCAG AA)</span></div>
+                  <div class="cluster cluster-tight"><span class="t-heading-sm" style="color:var(--color-success);margin-right:var(--space-2)">✓</span><span>Dark mode support</span></div>
+                  <div class="cluster cluster-tight"><span class="t-heading-sm" style="color:var(--color-success);margin-right:var(--space-2)">✓</span><span>Responsive mobile-first</span></div>
+                  <div class="cluster cluster-tight"><span class="t-heading-sm" style="color:var(--color-success);margin-right:var(--space-2)">✓</span><span>Clear documentation</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- DARK MODE EXAMPLES -->
+        <section class="doc-section" id="dark-mode-examples">
+          <h2 class="doc-section-title">Dark Mode Variants</h2>
+          <p class="doc-section-desc">All utilities and color tokens adapt automatically to dark mode via CSS custom properties. Toggle theme above to see live conversion. OKLCH lightness axis is inverted, maintaining contrast ratios and legibility.</p>
+
+          <div class="doc-sub">Semantic Colors in Dark Mode</div>
+          <div class="chips"><span class="chip">var(--color-fg)</span><span class="chip">var(--color-bg)</span><span class="chip">var(--color-accent)</span><span class="chip">var(--color-muted)</span></div>
+          <div class="doc-demo flex gap-4 flex-wrap">
+            <div style="background:var(--color-bg);color:var(--color-fg);padding:var(--space-4);border:var(--border-card);border-radius:var(--radius-md)">
+              <p class="font-bold">Foreground on Background</p>
+              <p style="color:var(--color-muted);font-size:var(--text-sm)">Muted secondary text</p>
+            </div>
+            <div style="background:var(--color-accent);color:white;padding:var(--space-4);border-radius:var(--radius-md)">
+              <p class="font-bold">Accent Highlight</p>
+              <p style="font-size:var(--text-sm)">Interactive element</p>
+            </div>
+            <div style="background:var(--color-subtle);color:var(--color-fg);padding:var(--space-4);border-radius:var(--radius-md)">
+              <p class="font-bold">Subtle Background</p>
+              <p style="color:var(--color-muted);font-size:var(--text-sm)">Secondary surface</p>
+            </div>
+          </div>
+
+          <div class="doc-sub">Status Colors (Light & Dark)</div>
+          <div class="chips"><span class="chip">var(--color-success)</span><span class="chip">var(--color-warning)</span><span class="chip">var(--color-error)</span><span class="chip">var(--color-info)</span></div>
+          <div class="doc-demo flex gap-3 flex-wrap">
+            <div style="background:var(--color-success);color:white;padding:var(--space-3);border-radius:var(--radius-md);text-align:center;flex:1;min-width:8rem">
+              <p class="font-bold" style="font-size:var(--text-sm)">Success</p>
+            </div>
+            <div style="background:var(--color-warning);color:white;padding:var(--space-3);border-radius:var(--radius-md);text-align:center;flex:1;min-width:8rem">
+              <p class="font-bold" style="font-size:var(--text-sm)">Warning</p>
+            </div>
+            <div style="background:var(--color-error);color:white;padding:var(--space-3);border-radius:var(--radius-md);text-align:center;flex:1;min-width:8rem">
+              <p class="font-bold" style="font-size:var(--text-sm)">Error</p>
+            </div>
+            <div style="background:var(--color-info);color:white;padding:var(--space-3);border-radius:var(--radius-md);text-align:center;flex:1;min-width:8rem">
+              <p class="font-bold" style="font-size:var(--text-sm)">Info</p>
+            </div>
+          </div>
+
+          <div class="doc-sub">Button States in Dark Mode</div>
+          <div class="chips"><span class="chip">.btn.btn-primary</span><span class="chip">.btn.btn-secondary</span><span class="chip">.btn.btn-ghost</span></div>
+          <div class="doc-demo flex gap-3">
+            <button class="btn btn-primary">Primary</button>
+            <button class="btn btn-secondary">Secondary</button>
+            <button class="btn btn-ghost">Ghost</button>
+            <button class="btn btn-primary" disabled>Disabled</button>
+          </div>
+
+          <div class="doc-sub">Form Inputs in Dark Mode</div>
+          <div class="chips"><span class="chip">.form-input</span><span class="chip">.form-select</span><span class="chip">.form-textarea</span></div>
+          <div class="doc-demo stack">
+            <input class="form-input" type="text" placeholder="Text input with placeholder" style="max-width:20rem">
+            <select class="form-select" style="max-width:20rem"><option>Select an option</option><option>Option 1</option><option>Option 2</option></select>
+            <textarea class="form-input" placeholder="Textarea input" style="max-width:20rem;height:6rem"></textarea>
+          </div>
+
+          <div class="doc-sub">Text Contrast in Dark Mode</div>
+          <p class="t-body" style="max-width:50rem">All text colors maintain WCAG AA contrast ratios in both light and dark modes. The framework automatically inverts the OKLCH lightness axis, ensuring semantic colors remain readable and accessible across theme switches.</p>
+        </section>
+
         <!-- FOOTER -->
         <section class="doc-section" id="footer">
           <h2 class="doc-section-title">Footer</h2>
@@ -1530,6 +2190,19 @@
       localStorage.setItem(key, this.checked ? 'dark' : 'light');
     });
   } catch (e) { }
+})();
+
+(function() {
+  var navCheckbox = document.getElementById('nav');
+  if (!navCheckbox) return;
+  var appMain = document.querySelector('main.app-main');
+  var appContent = document.querySelector('.app-content');
+  if (!appMain && !appContent) return;
+
+  var closeTarget = appMain || appContent;
+  closeTarget.addEventListener('click', function() {
+    navCheckbox.checked = false;
+  });
 })();
 </script>
 </body>
