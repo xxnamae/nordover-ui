@@ -66,6 +66,9 @@
     <div class="app-sidebar-section">App Patterns</div>
     <a class="app-nav-item" href="#dashboard-pattern"><svg class="icon"><use href="#i-chart"/></svg> Dashboard</a>
     <a class="app-nav-item" href="#form-pattern"><svg class="icon"><use href="#i-edit"/></svg> Forms</a>
+    <div class="app-sidebar-section">Guidelines</div>
+    <a class="app-nav-item" href="#responsive"><svg class="icon"><use href="#i-chart"/></svg> Responsive</a>
+    <a class="app-nav-item" href="#accessibility"><svg class="icon"><use href="#i-info"/></svg> Accessibility</a>
     <a class="app-nav-item" href="#utilities"><svg class="icon"><use href="#i-sparkles"/></svg> Utilities</a>
   </aside>
 
@@ -440,6 +443,47 @@
               <div class="cluster cluster-tight" style="justify-content:flex-end;gap:var(--space-2);margin-top:var(--space-3)"><button class="btn btn-ghost btn-sm" style="font-size:var(--text-sm)">Cancel</button><button class="btn btn-primary btn-sm" style="font-size:var(--text-sm)">Save</button></div>
             </div>
           </div>
+        </section>
+
+        <!-- RESPONSIVE DESIGN -->
+        <section class="doc-section" id="responsive">
+          <h2 class="doc-section-title">Responsive Design</h2>
+          <p class="doc-section-desc">Mobile-first framework. Test on real devices. Nordover adapts from 320px to 1600px+ without changes to HTML.</p>
+
+          <div class="doc-sub">Key Principles</div>
+          <ul class="stack-tight" style="font-size:var(--text-sm);list-style:inside;max-width:28rem">
+            <li>Mobile-first: Start with mobile layout</li>
+            <li>Fluid sizing: Use clamp() not breakpoints</li>
+            <li>Flexible grids: Use .grid-auto not rigid layouts</li>
+            <li>Touch-friendly: Min 44px tap targets on mobile</li>
+            <li>Test real devices: Not just browser DevTools</li>
+          </ul>
+
+          <div class="doc-sub">Breakpoint</div>
+          <p class="t-body-sm" style="color:var(--color-muted)">Primary breakpoint: 48rem (768px) for tablet/desktop enhancements</p>
+
+          <div class="doc-sub">For App Developers</div>
+          <p class="t-body-sm" style="color:var(--color-muted)">All components work on mobile, tablet, desktop. Use responsive utilities and layout primitives. No additional CSS needed.</p>
+        </section>
+
+        <!-- ACCESSIBILITY -->
+        <section class="doc-section" id="accessibility">
+          <h2 class="doc-section-title">Accessibility</h2>
+          <p class="doc-section-desc">WCAG AA compliant. All components include keyboard navigation, focus indicators, and semantic markup.</p>
+
+          <div class="doc-sub">Quick Checklist</div>
+          <ul class="stack-tight" style="font-size:var(--text-sm);list-style:inside;max-width:28rem">
+            <li>✓ All buttons keyboard navigable (Tab/Space/Enter)</li>
+            <li>✓ Focus indicators visible on all interactive elements</li>
+            <li>✓ Form labels associated with inputs</li>
+            <li>✓ Color contrast 4.5:1 (WCAG AA)</li>
+            <li>✓ Dark mode supported with no contrast loss</li>
+            <li>✓ Semantic HTML used throughout</li>
+            <li>✓ Screen reader tested (NVDA, VoiceOver)</li>
+          </ul>
+
+          <div class="doc-sub">Testing Tools</div>
+          <p class="t-body-sm" style="color:var(--color-muted)">Recommended tools: axe DevTools, WebAIM Contrast Checker, NVDA (Windows), VoiceOver (Mac), Lighthouse</p>
         </section>
 
         <!-- UTILITIES -->

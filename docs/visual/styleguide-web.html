@@ -61,6 +61,9 @@
     <a class="app-nav-item" href="#timeline">Timeline</a>
     <a class="app-nav-item" href="#footer">Footer</a>
     <a class="app-nav-item" href="#breadcrumbs">Breadcrumbs</a>
+    <div class="app-sidebar-section">Guidelines</div>
+    <a class="app-nav-item" href="#responsive"><svg class="icon"><use href="#i-chart"/></svg> Responsive Design</a>
+    <a class="app-nav-item" href="#accessibility"><svg class="icon"><use href="#i-info"/></svg> Accessibility (WCAG AA)</a>
   </aside>
 
   <div class="app-main">
@@ -1107,6 +1110,102 @@
               <span class="breadcrumb-item" aria-current="page">Variants</span>
             </nav>
           </div>
+        </section>
+
+        <!-- RESPONSIVE DESIGN -->
+        <section class="doc-section" id="responsive">
+          <h2 class="doc-section-title">Responsive Design</h2>
+          <p class="doc-section-desc">All components are mobile-first. Nordover uses clamp() for fluid sizing and container queries for layout adaptation.</p>
+
+          <div class="doc-sub">Mobile-First Approach</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Design for mobile first, then enhance for larger screens:</p>
+          <div class="stack-tight" style="max-width:36rem;background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-lg);font-size:var(--text-sm)">
+            <p><strong>Default:</strong> Mobile layout (320px+)</p>
+            <p><strong>@media (min-width: 48rem):</strong> Tablet/desktop enhancements</p>
+            <p><strong>Note:</strong> No max-width limits — responsive to 1600px+ screens</p>
+          </div>
+
+          <div class="doc-sub">Fluid Typography with clamp()</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Type scales automatically scale between min and max values:</p>
+          <ul class="stack-tight" style="font-size:var(--text-sm);list-style:inside;max-width:36rem">
+            <li>.t-display-lg: 40px → 160px (editorial flow)</li>
+            <li>.t-heading-lg: 32px → 64px</li>
+            <li>.t-body: 16px base, responsive line-height</li>
+          </ul>
+
+          <div class="doc-sub">Responsive Spacing</div>
+          <p class="t-body-sm" style="color:var(--color-muted)">Use gap utilities with responsive values: .gap-2 (mobile) scales to larger gaps on desktop via clamp().</p>
+
+          <div class="doc-sub">Responsive Grids</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">.grid-auto auto-fits columns based on available space. No media queries needed:</p>
+          <div class="grid-auto" style="border:var(--border-card);border-radius:var(--radius-lg);padding:var(--space-4)">
+            <div class="p-4 text-center" style="background:var(--color-subtle);border-radius:var(--radius-md);font-size:var(--text-sm)">Column</div>
+            <div class="p-4 text-center" style="background:var(--color-subtle);border-radius:var(--radius-md);font-size:var(--text-sm)">Column</div>
+            <div class="p-4 text-center" style="background:var(--color-subtle);border-radius:var(--radius-md);font-size:var(--text-sm)">Column</div>
+          </div>
+
+          <div class="doc-sub">Container Queries</div>
+          <p class="t-body-sm" style="color:var(--color-muted)">Components can adapt based on their container width (not viewport width), enabling true responsive components that work anywhere on a page.</p>
+
+          <div class="doc-sub">Testing Responsiveness</div>
+          <ul class="stack-tight" style="font-size:var(--text-sm);list-style:inside;max-width:36rem">
+            <li>Test on real devices (phone, tablet, desktop)</li>
+            <li>Test browser zoom (150%, 200%)</li>
+            <li>Test with text size increased (Windows high contrast)</li>
+            <li>Test landscape orientation on mobile</li>
+            <li>Check text reflow at narrow widths</li>
+          </ul>
+        </section>
+
+        <!-- ACCESSIBILITY -->
+        <section class="doc-section" id="accessibility">
+          <h2 class="doc-section-title">Accessibility (WCAG AA)</h2>
+          <p class="doc-section-desc">Nordover is built for accessibility. All interactive components include keyboard navigation, focus indicators, and semantic HTML.</p>
+
+          <div class="doc-sub">Keyboard Navigation</div>
+          <div class="stack-tight" style="max-width:36rem;background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-lg);font-size:var(--text-sm)">
+            <p><strong>Buttons:</strong> Tab to focus, Space/Enter to activate</p>
+            <p><strong>Form Inputs:</strong> Tab to focus, Shift+Tab to reverse, arrows in selects</p>
+            <p><strong>Modal Dialogs:</strong> Escape to close, focus trap inside modal</p>
+            <p><strong>Accordion:</strong> Tab to focus summary, Space/Enter to toggle</p>
+            <p><strong>Date Picker:</strong> Tab/Shift+Tab, Arrow keys for dates, Enter to select</p>
+          </div>
+
+          <div class="doc-sub">Focus Indicators</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">All interactive elements have visible focus states (blue border outline + glow):</p>
+          <div class="cluster cluster-tight">
+            <button class="btn btn-primary">Button (Tab to focus)</button>
+            <input class="form-input" type="text" placeholder="Input (Tab to focus)" style="max-width:12rem">
+          </div>
+
+          <div class="doc-sub">Semantic HTML</div>
+          <div class="stack-tight" style="max-width:36rem;background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-lg);font-size:var(--text-sm)">
+            <p>• Use semantic elements: &lt;button&gt;, &lt;a&gt;, &lt;input&gt;, &lt;select&gt;, &lt;label&gt;</p>
+            <p>• Always pair inputs with &lt;label&gt; for screen readers</p>
+            <p>• Use &lt;h1&gt;-&lt;h6&gt; for headings (not divs with styling)</p>
+            <p>• Use &lt;nav&gt;, &lt;main&gt;, &lt;article&gt;, &lt;section&gt; for landmarks</p>
+            <p>• Mark up lists with &lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;</p>
+          </div>
+
+          <div class="doc-sub">Color Contrast</div>
+          <p class="t-body-sm" style="color:var(--color-muted)">All text meets WCAG AA 4.5:1 contrast ratio. Checked with WebAIM contrast checker.</p>
+          <div class="cluster cluster-tight">
+            <div class="p-3" style="background:var(--color-bg);color:var(--color-fg);border-radius:var(--radius-md)">Primary text on background</div>
+            <div class="p-3" style="background:var(--color-subtle);color:var(--color-muted);border-radius:var(--radius-md)">Muted text on subtle bg</div>
+          </div>
+
+          <div class="doc-sub">Dark Mode</div>
+          <p class="t-body-sm" style="color:var(--color-muted)">All colors and contrast ratios are maintained in dark mode. Users can toggle via button top-right. Preference respects system dark mode setting.</p>
+
+          <div class="doc-sub">Testing Recommendations</div>
+          <ul class="stack-tight" style="max-width:36rem;font-size:var(--text-sm);list-style:inside">
+            <li>Use keyboard only (no mouse) to navigate pages</li>
+            <li>Test with screen reader (NVDA, JAWS, VoiceOver)</li>
+            <li>Test color contrast with WebAIM tool</li>
+            <li>Test focus order is logical and visible</li>
+            <li>Verify form labels are associated with inputs</li>
+            <li>Use axe DevTools to check for violations</li>
+          </ul>
         </section>
 
         <!-- UTILITIES -->
