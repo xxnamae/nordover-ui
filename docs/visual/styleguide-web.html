@@ -323,17 +323,19 @@
 
         <!-- TABLES -->
         <section class="doc-section" id="tables">
-          <h2 class="doc-section-title">Tables</h2>
-          <p class="doc-section-desc">Data tables with hover states. Responsive wrapper for mobile. Use .table-responsive for horizontal scroll on small screens.</p>
-          <div class="chips"><span class="chip">.data-table</span><span class="chip">.table-responsive</span></div>
-          <div class="doc-demo" style="overflow-x:auto">
-            <table class="data-table" style="width:100%;min-width:500px">
+          <h2 class="doc-section-title">Data Tables</h2>
+          <p class="doc-section-desc">Semantic data tables with hover states and responsive behavior. Accessible with proper header scope and ARIA labels. Responsive wrapper for mobile/horizontal scroll.</p>
+          <div class="chips"><span class="chip">.table</span><span class="chip">.data-table</span><span class="chip">.table-sort</span><span class="chip">.table-filter</span></div>
+
+          <div class="doc-sub">Basic Table</div>
+          <div style="overflow-x:auto">
+            <table class="table">
               <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Status</th>
-                  <th>Joined</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Joined</th>
                 </tr>
               </thead>
               <tbody>
@@ -354,6 +356,57 @@
                   <td>charlie@example.com</td>
                   <td><span class="badge">Inactive</span></td>
                   <td>2025-12-01</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="doc-sub">Table with Sortable Headers</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Click column headers to sort. Aria-sort indicates current sort direction.</p>
+          <div style="overflow-x:auto">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col"><button class="table-sort" aria-sort="ascending">Name ↑</button></th>
+                  <th scope="col">Email</th>
+                  <th scope="col"><button class="table-sort" aria-sort="none">Status</button></th>
+                  <th scope="col"><button class="table-sort" aria-sort="none">Joined</button></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Alice Johnson</td>
+                  <td>alice@example.com</td>
+                  <td><span class="badge badge-success">Active</span></td>
+                  <td>2026-01-15</td>
+                </tr>
+                <tr>
+                  <td>Bob Smith</td>
+                  <td>bob@example.com</td>
+                  <td><span class="badge badge-warning">Pending</span></td>
+                  <td>2026-05-30</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="doc-sub">Table with Actions</div>
+          <div style="overflow-x:auto">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Alice Johnson</td>
+                  <td>alice@example.com</td>
+                  <td><span class="badge badge-success">Active</span></td>
+                  <td><button class="btn btn-ghost btn-sm">Edit</button> <button class="btn btn-ghost btn-sm">Delete</button></td>
                 </tr>
               </tbody>
             </table>
@@ -380,20 +433,65 @@
         <!-- MODALS -->
         <section class="doc-section" id="modals">
           <h2 class="doc-section-title">Modals</h2>
-          <p class="doc-section-desc">Dialog overlays. Use semantic &lt;dialog&gt; element. Requires JavaScript for focus trap implementation.</p>
-          <div class="chips"><span class="chip">.modal</span><span class="chip">.modal-content</span></div>
-          <div class="doc-demo" style="position:relative;height:16rem;background:var(--color-subtle);border:var(--border-card);border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center">
-            <div style="background:var(--color-surface);border:var(--border-card);border-radius:var(--radius-lg);max-width:24rem;box-shadow:var(--shadow-lg);overflow:hidden">
-              <div style="padding:var(--space-6);border-bottom:var(--border-divider);display:flex;justify-content:space-between;align-items:center">
-                <h2 style="font-size:var(--text-lg);font-weight:var(--fw-medium)">Confirm Delete</h2>
-                <button style="background:none;border:none;cursor:pointer;color:var(--color-muted)">×</button>
+          <p class="doc-section-desc">Dialog overlays for alerts, confirmations, and forms. Use semantic &lt;dialog&gt; element for accessibility. Backdrop click or ESC key closes modal.</p>
+          <div class="chips"><span class="chip">.modal</span><span class="chip">.modal-dialog</span><span class="chip">.modal-header</span><span class="chip">.modal-body</span><span class="chip">.modal-footer</span></div>
+
+          <div class="doc-sub">Confirmation Modal</div>
+          <div class="modal-demo">
+            <div class="modal-dialog">
+              <div class="modal-header">
+                <h2 class="t-heading-md">Confirm Delete</h2>
+                <button class="btn btn-ghost" aria-label="Close modal">×</button>
               </div>
-              <div style="padding:var(--space-6)">
-                <p class="t-body-sm">This action cannot be undone. Are you sure?</p>
+              <div class="modal-body">
+                <p class="t-body">This action cannot be undone. Are you sure you want to delete this item?</p>
               </div>
-              <div style="padding:var(--space-6);border-top:var(--border-divider);display:flex;gap:var(--space-3);justify-content:flex-end">
+              <div class="modal-footer">
+                <button class="btn btn-ghost">Cancel</button>
+                <button class="btn btn-primary">Delete</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Success Modal</div>
+          <div class="modal-demo">
+            <div class="modal-dialog">
+              <div class="modal-header">
+                <h2 class="t-heading-sm">Success</h2>
+              </div>
+              <div class="modal-body">
+                <div class="cluster cluster-tight">
+                  <svg class="icon icon-success" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <p class="t-body">Your changes have been saved successfully.</p>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-primary btn-sm">Done</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Form Modal</div>
+          <div class="modal-demo">
+            <div class="modal-dialog">
+              <div class="modal-header">
+                <h2 class="t-heading-sm">Create New Item</h2>
+              </div>
+              <div class="modal-body">
+                <div class="stack-tight">
+                  <div class="field">
+                    <label class="field-label">Name</label>
+                    <input class="form-input" type="text" placeholder="Enter name">
+                  </div>
+                  <div class="field">
+                    <label class="field-label">Description</label>
+                    <textarea class="form-textarea" placeholder="Enter description"></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
                 <button class="btn btn-ghost btn-sm">Cancel</button>
-                <button class="btn btn-primary btn-sm">Delete</button>
+                <button class="btn btn-primary btn-sm">Create</button>
               </div>
             </div>
           </div>
@@ -402,34 +500,74 @@
         <!-- ACCORDION -->
         <section class="doc-section" id="accordion">
           <h2 class="doc-section-title">Accordion / Details</h2>
-          <p class="doc-section-desc">Collapsible content. Uses semantic &lt;details&gt; and &lt;summary&gt; elements. Smooth transitions on open/close.</p>
-          <div class="chips"><span class="chip">.faq-item</span><span class="chip">.faq-summary</span></div>
-          <div class="doc-demo" style="max-width:32rem">
+          <p class="doc-section-desc">Collapsible content sections. Uses semantic &lt;details&gt; and &lt;summary&gt; elements for accessibility. Keyboard navigation built-in (space/enter to toggle, tab to navigate).</p>
+          <div class="chips"><span class="chip">.faq-item</span><span class="chip">.faq-summary</span><span class="chip">.faq-answer</span></div>
+
+          <div class="stack" style="max-width:36rem">
             <details class="faq-item" open>
-              <summary class="faq-summary">How does this work?</summary>
-              <p class="faq-answer" style="padding-bottom:var(--space-4)">The component uses semantic &lt;details&gt; and &lt;summary&gt; elements, which are fully accessible and keyboard-navigable by default.</p>
+              <summary class="faq-summary">What is a design system?</summary>
+              <p class="faq-answer">A design system is a collection of reusable components, patterns, and tokens that serve as the single source of truth for building digital products. It ensures consistency, accelerates development, and improves collaboration between design and engineering.</p>
             </details>
             <details class="faq-item">
-              <summary class="faq-summary">Can I customize it?</summary>
-              <p class="faq-answer" style="padding-bottom:var(--space-4)">Yes, override CSS variables (colors, spacing, fonts) via @layer brand block in your CSS.</p>
+              <summary class="faq-summary">How do I customize components?</summary>
+              <p class="faq-answer">Override CSS variables (colors, spacing, fonts) using @layer brand rules in your CSS. Variables are documented in the tokens reference. All tokens are semantic and support both light and dark modes.</p>
             </details>
             <details class="faq-item">
-              <summary class="faq-summary">Is it accessible?</summary>
-              <p class="faq-answer" style="padding-bottom:var(--space-4)">Fully WCAG AA compliant. Keyboard navigation, focus management, and screen reader support built-in.</p>
+              <summary class="faq-summary">Is the framework accessible?</summary>
+              <p class="faq-answer">Yes. Nordover is built with WCAG AA compliance as a baseline. All interactive components include keyboard navigation, focus management, and screen reader support through semantic HTML and ARIA attributes.</p>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-summary">Can I use this with my tech stack?</summary>
+              <p class="faq-answer">Yes. Nordover is pure CSS and HTML with no framework dependencies. Use it with React, Vue, Svelte, or vanilla JavaScript. The CSS is modular and can be imported partially.</p>
             </details>
           </div>
         </section>
 
-        <!-- TAGS -->
+        <!-- TAGS & BADGES -->
         <section class="doc-section" id="tags">
           <h2 class="doc-section-title">Tags & Badges</h2>
-          <p class="doc-section-desc">Keyword tags for categorization and filtering. Similar to badges but typically removable.</p>
-          <div class="doc-demo">
-            <div class="cluster cluster-tight">
-              <span class="badge">design-system</span>
-              <span class="badge">css</span>
-              <span class="badge badge-success">frontend</span>
-              <span class="badge badge-info">web</span>
+          <p class="doc-section-desc">Small labeled indicators for status, categories, or keywords. Badges are read-only; tags can be removable. Use for metadata, filters, status indicators.</p>
+          <div class="chips"><span class="chip">.badge</span><span class="chip">.badge-success</span><span class="chip">.badge-error</span><span class="chip">.tag</span><span class="chip">.tag-remove</span></div>
+
+          <div class="doc-sub">Badges (Read-only)</div>
+          <div class="cluster cluster-tight" style="gap:var(--space-2)">
+            <span class="badge">design</span>
+            <span class="badge">frontend</span>
+            <span class="badge">css</span>
+            <span class="badge">accessible</span>
+          </div>
+
+          <div class="doc-sub">Badges with Colors</div>
+          <div class="cluster cluster-tight" style="gap:var(--space-2)">
+            <span class="badge badge-success">Active</span>
+            <span class="badge badge-warning">Pending</span>
+            <span class="badge badge-error">Archived</span>
+            <span class="badge badge-info">New</span>
+          </div>
+
+          <div class="doc-sub">Tags (Removable)</div>
+          <div class="cluster cluster-tight" style="gap:var(--space-2)">
+            <span class="tag">typescript <button class="tag-remove" aria-label="Remove tag">×</button></span>
+            <span class="tag">accessibility <button class="tag-remove" aria-label="Remove tag">×</button></span>
+            <span class="tag">components <button class="tag-remove" aria-label="Remove tag">×</button></span>
+          </div>
+
+          <div class="doc-sub">Tag Input with Suggestions</div>
+          <div class="tag-input-demo">
+            <div class="field">
+              <label class="field-label">Add tags</label>
+              <div class="tag-input">
+                <div class="tag-list">
+                  <span class="tag">react <button class="tag-remove">×</button></span>
+                  <span class="tag">vue <button class="tag-remove">×</button></span>
+                </div>
+                <input class="tag-input-field" type="text" placeholder="Type to add...">
+              </div>
+              <div class="tag-suggestions">
+                <div class="tag-suggestion">svelte</div>
+                <div class="tag-suggestion">angular</div>
+                <div class="tag-suggestion">preact</div>
+              </div>
             </div>
           </div>
         </section>
