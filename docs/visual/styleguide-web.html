@@ -214,15 +214,69 @@
 
         <section class="doc-section" id="type">
           <h2 class="doc-section-title">Typografi</h2>
-          <p class="doc-section-desc">Fluid type scale (clamp). Display opp til 160px. Finkalibrerte vekter 380-600.</p>
-          <div class="doc-demo stack">
-            <div><div class="t-eyebrow">.t-display-lg (380 fw)</div><div class="t-display-lg">Massive headline</div></div>
-            <div><div class="t-eyebrow">.t-display-md (420 fw)</div><div class="t-display-md">Display medium</div></div>
-            <div><div class="t-eyebrow">.t-heading-lg (440 fw)</div><div class="t-heading-lg">Section heading</div></div>
-            <div><div class="t-eyebrow">.t-body-lg (400 fw)</div><div class="t-body-lg">Lead paragraph with generous spacing</div></div>
-            <div><div class="t-eyebrow">.t-body (400 fw)</div><div class="t-body">Regular body text — optimized for reading comfort with 1.6x line height</div></div>
-            <div><div class="t-eyebrow">.t-body-sm (520 fw)</div><div class="t-body-sm">Small text — metadata, captions, labels</div></div>
-            <div><div class="t-eyebrow">.t-eyebrow (600 fw, uppercase)</div><div class="t-eyebrow">Emphasis label</div></div>
+          <p class="doc-section-desc">Fluid type scale with clamp() for responsive sizing. Display typography scales up to 160px. Carefully calibrated weights 380-600 for Nordic minimalism.</p>
+
+          <div class="doc-sub">Type Scale</div>
+          <div class="type-showcase">
+            <div class="type-sample">
+              <div class="type-label">.t-display-lg</div>
+              <div class="t-display-lg">Massive headline</div>
+              <div class="type-meta">Fluid 48-160px, weight 380 — Hero sections, major titles</div>
+            </div>
+            <div class="type-sample">
+              <div class="type-label">.t-display-md</div>
+              <div class="t-display-md">Display medium</div>
+              <div class="type-meta">Fluid 40-120px, weight 420 — Page titles, prominent headings</div>
+            </div>
+            <div class="type-sample">
+              <div class="type-label">.t-heading-lg</div>
+              <div class="t-heading-lg">Section heading</div>
+              <div class="type-meta">Fluid 28-48px, weight 440 — Major sections, article headings</div>
+            </div>
+            <div class="type-sample">
+              <div class="type-label">.t-body-lg</div>
+              <div class="t-body-lg">Lead paragraph with generous spacing and comfort</div>
+              <div class="type-meta">Fluid 18-24px, weight 400 — Introduction text, pull quotes</div>
+            </div>
+            <div class="type-sample">
+              <div class="type-label">.t-body</div>
+              <div class="t-body">Regular body text — optimized for reading comfort with 1.6x line height and balanced measure</div>
+              <div class="type-meta">Fluid 16-18px, weight 400 — Primary content, paragraphs</div>
+            </div>
+            <div class="type-sample">
+              <div class="type-label">.t-body-sm</div>
+              <div class="t-body-sm">Small text for metadata, captions, and secondary information</div>
+              <div class="type-meta">14px, weight 520 — Captions, bylines, timestamps</div>
+            </div>
+            <div class="type-sample">
+              <div class="type-label">.t-eyebrow</div>
+              <div class="t-eyebrow">Emphasis label</div>
+              <div class="type-meta">12px, weight 600, uppercase — Overlines, category labels</div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Typography Principles</div>
+          <div class="a11y-checklist">
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Use semantic type classes (never hardcoded font-size)</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Fluid scaling: type sizes scale smoothly across breakpoints</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Line-height: minimum 1.5 for readability (1.6 for body)</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Contrast: all text meets WCAG AA (4.5:1 minimum)</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Measure: optimal 50-75 characters per line</span>
+            </div>
           </div>
         </section>
 

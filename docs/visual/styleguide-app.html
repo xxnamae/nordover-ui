@@ -220,12 +220,64 @@
         <!-- TYPE -->
         <section class="doc-section" id="type">
           <h2 class="doc-section-title">Typografi</h2>
-          <p class="doc-section-desc">Static scale (app optimized). Inter Variable for all. Finkalibrerte vekter. 14px base.</p>
-          <div class="doc-demo stack">
-            <div><div class="t-eyebrow" style="margin-bottom:var(--space-2)">.t-heading-lg</div><div class="t-heading-lg">Heading large</div></div>
-            <div><div class="t-eyebrow" style="margin-bottom:var(--space-2)">.t-heading-md</div><div class="t-heading-md">Heading medium</div></div>
-            <div><div class="t-eyebrow" style="margin-bottom:var(--space-2)">.t-body</div><div class="t-body">Normal body text — optimized for 14px base</div></div>
-            <div><div class="t-eyebrow" style="margin-bottom:var(--space-2)">.t-body-sm</div><div class="t-body-sm">Small body — data labels</div></div>
+          <p class="doc-section-desc">Static type scale optimized for compact app interfaces. Inter Variable, carefully calibrated weights 400-700. 14px base for comfortable reading.</p>
+
+          <div class="doc-sub">Type Scale</div>
+          <div class="type-showcase">
+            <div class="type-sample">
+              <div class="type-label">.t-heading-lg</div>
+              <div class="t-heading-lg">Heading large</div>
+              <div class="type-meta">24px, weight 600 — Page titles, major sections</div>
+            </div>
+            <div class="type-sample">
+              <div class="type-label">.t-heading-md</div>
+              <div class="t-heading-md">Heading medium</div>
+              <div class="type-meta">20px, weight 600 — Section headings, dialogs</div>
+            </div>
+            <div class="type-sample">
+              <div class="type-label">.t-heading-sm</div>
+              <div class="t-heading-sm">Heading small</div>
+              <div class="type-meta">18px, weight 600 — Card titles, subsections</div>
+            </div>
+            <div class="type-sample">
+              <div class="type-label">.t-body</div>
+              <div class="t-body">Body text — Primary reading text with 1.6x line height for comfort</div>
+              <div class="type-meta">14px (base), weight 400 — Main content, paragraphs</div>
+            </div>
+            <div class="type-sample">
+              <div class="type-label">.t-body-sm</div>
+              <div class="t-body-sm">Small body text for metadata and labels</div>
+              <div class="type-meta">12px, weight 500 — Captions, data labels, help text</div>
+            </div>
+            <div class="type-sample">
+              <div class="type-label">.t-caption</div>
+              <div class="t-caption">Caption text for auxiliary information</div>
+              <div class="type-meta">11px, weight 400 — Minor labels, timestamps</div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Typography Guidelines</div>
+          <div class="a11y-checklist">
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Use semantic type classes (never hardcoded font-size)</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Maintain minimum 1.5x line-height for readability</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Color contrast: text must be 4.5:1 (WCAG AA)</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Respect font-size preferences in accessibility settings</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span>Use heading hierarchy (h1-h6) for document structure</span>
+            </div>
           </div>
         </section>
 
