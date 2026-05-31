@@ -213,6 +213,31 @@
     background: var(--color-subtle);
   }
 
+  /* Sidebar close button */
+  .app-sidebar-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: var(--color-fg);
+    border-radius: var(--radius-sm);
+    transition: background-color 200ms;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+  .app-sidebar-close:hover {
+    background: var(--color-subtle);
+  }
+  @media (min-width: 48rem) {
+    .app-sidebar-close {
+      display: none;
+    }
+  }
+
   /* Theme toggle */
   .theme-toggle {
     display: flex;
