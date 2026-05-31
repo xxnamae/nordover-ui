@@ -33,7 +33,8 @@ Keep in the private `xxnamae/notater` repository:
 - **Tokens are contracts**: CSS variable names are public contracts; renaming breaks downstream compatibility
 - **Published ADRs are immutable**: Record reversals in new ADRs rather than editing old ones
 - **WCAG compliance required**: Color token changes must maintain WCAG AA contrast standards
-- **Language**: Norwegian Bokmål for wiki/decisions; English for code comments
+- **Language**: Norwegian Bokmål for wiki/decisions, user communication, and agent sessions; English for code comments and CSS
+- **Claude communication**: Claude agent communicates in Norwegian Bokmål (Norsk bokmål) with the user unless explicitly directed otherwise
 - **Mirroring**: Changes to token values must be applied to both `tokens-web.css` and `tokens-app.css` in the same commit. The same applies to shared component structure across `components-web.css` and `components-app.css`
 - **Component classes are contracts**: Class names in `components-*.css` are public contracts (like token names). They live there as the single source of truth — never re-embed component CSS inside styleguide HTML; the styleguides must link the shippable files
 - **Styleguides are authoritative**: Styleguides must always reflect 100% of components in framework. If a component exists in CSS but not in styleguide, it doesn't exist for users. See `docs/visual/STYLEGUIDE-MAINTENANCE.md`
