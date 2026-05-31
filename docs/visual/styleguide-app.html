@@ -60,6 +60,8 @@
     <a class="app-nav-item" href="#file-upload"><svg class="icon"><use href="#i-copy"/></svg> File Upload</a>
     <a class="app-nav-item" href="#search-bar"><svg class="icon"><use href="#i-search"/></svg> Search Bar</a>
     <a class="app-nav-item" href="#empty-states"><svg class="icon"><use href="#i-info"/></svg> Empty States</a>
+    <a class="app-nav-item" href="#form-patterns"><svg class="icon"><use href="#i-edit"/></svg> Form Patterns</a>
+    <a class="app-nav-item" href="#data-patterns"><svg class="icon"><use href="#i-inbox"/></svg> Data Display</a>
     <a class="app-nav-item" href="#states-interactions"><svg class="icon"><use href="#i-check"/></svg> States & Interactions</a>
     <a class="app-nav-item" href="#layout-techniques"><svg class="icon"><use href="#i-chart"/></svg> Layout Techniques</a>
     <a class="app-nav-item" href="#component-variants"><svg class="icon"><use href="#i-folder"/></svg> Component Variants</a>
@@ -411,6 +413,95 @@
             <div style="font-size:2rem;margin-bottom:var(--space-3)">📊</div>
             <h3 class="t-heading-sm">No data available</h3>
             <p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-2)">Create your first entry to get started</p>
+          </div>
+        </section>
+
+        <!-- FORM PATTERNS -->
+        <section class="doc-section" id="form-patterns">
+          <h2 class="doc-section-title">Form Patterns</h2>
+          <p class="doc-section-desc">Common form layouts: login, signup, data entry. Compact app-appropriate sizing.</p>
+
+          <div class="doc-sub">Compact Login Form</div>
+          <div class="doc-demo" style="max-width:20rem;margin:auto">
+            <div class="stack">
+              <h3 class="t-heading-sm" style="font-size:var(--text-sm)">Sign In</h3>
+              <div class="field">
+                <label class="field-label" style="font-size:var(--text-xs)">Email</label>
+                <input class="form-input" type="email" placeholder="Email" style="font-size:var(--text-sm);padding:var(--space-2) var(--space-3)">
+              </div>
+              <div class="field">
+                <label class="field-label" style="font-size:var(--text-xs)">Password</label>
+                <input class="form-input" type="password" placeholder="Password" style="font-size:var(--text-sm);padding:var(--space-2) var(--space-3)">
+              </div>
+              <button class="btn btn-primary" style="width:100%;font-size:var(--text-sm)">Sign In</button>
+            </div>
+          </div>
+
+          <div class="doc-sub">Quick Data Entry Form</div>
+          <div class="doc-demo" style="max-width:20rem">
+            <div class="stack" style="gap:var(--space-2)">
+              <div class="field">
+                <label class="field-label" style="font-size:var(--text-xs)">Item Name</label>
+                <input class="form-input" type="text" placeholder="Name" style="font-size:var(--text-sm);padding:var(--space-2) var(--space-3)">
+              </div>
+              <div class="field">
+                <label class="field-label" style="font-size:var(--text-xs)">Category</label>
+                <select class="form-input" style="font-size:var(--text-sm);padding:var(--space-2) var(--space-3)"><option>Select</option><option>Cat 1</option></select>
+              </div>
+              <div class="cluster cluster-tight" style="gap:var(--space-1)">
+                <button class="btn btn-ghost btn-sm" style="font-size:var(--text-xs)">Cancel</button>
+                <button class="btn btn-primary btn-sm" style="font-size:var(--text-xs);flex:1">Save</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- DATA PATTERNS -->
+        <section class="doc-section" id="data-patterns">
+          <h2 class="doc-section-title">Data Display Patterns</h2>
+          <p class="doc-section-desc">Tables, lists, and metric cards for data-heavy interfaces.</p>
+
+          <div class="doc-sub">Compact Data Table</div>
+          <div class="doc-demo" style="font-size:var(--text-xs);overflow-x:auto">
+            <table class="table" style="width:100%">
+              <thead>
+                <tr style="border-bottom:var(--border-card)">
+                  <th style="text-align:left;padding:var(--space-2)">Name</th>
+                  <th style="text-align:left;padding:var(--space-2)">Status</th>
+                  <th style="text-align:right;padding:var(--space-2)">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:var(--border-card)">
+                  <td style="padding:var(--space-2)">John Doe</td>
+                  <td style="padding:var(--space-2)"><span class="badge badge-success">Active</span></td>
+                  <td style="padding:var(--space-2);text-align:right"><button class="btn btn-ghost btn-sm" style="font-size:var(--text-xs)">Edit</button></td>
+                </tr>
+                <tr>
+                  <td style="padding:var(--space-2)">Jane Smith</td>
+                  <td style="padding:var(--space-2)"><span class="badge badge-warning">Pending</span></td>
+                  <td style="padding:var(--space-2);text-align:right"><button class="btn btn-ghost btn-sm" style="font-size:var(--text-xs)">Edit</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="doc-sub">Metric Cards</div>
+          <div class="doc-demo">
+            <div class="grid-auto" style="gap:var(--space-2)">
+              <div class="card">
+                <div class="card-body">
+                  <p class="t-body-xs font-bold">Active</p>
+                  <p style="font-size:var(--text-2xl);font-weight:var(--fw-bold);color:var(--color-accent);margin-top:var(--space-1)">42</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <p class="t-body-xs font-bold">Pending</p>
+                  <p style="font-size:var(--text-2xl);font-weight:var(--fw-bold);color:var(--color-warning);margin-top:var(--space-1)">8</p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
