@@ -101,8 +101,8 @@
           <p class="doc-hero-desc">Komplett komponentbibliotek for applikasjoner. Tactile knapper, kompakt 14px-base, dark mode default. WCAG AA accessible, motion-respecting. Toggle tema oppe til høyre.</p>
         </div>
 
-        <!-- COLORS -->
-        <section class="doc-section" id="colors">
+        <!-- COLORS — Foundation tokens -->
+        <section class="doc-section" id="colors" data-section="foundation" data-category="colors">
           <h2 class="doc-section-title">Farger & gråskala</h2>
           <p class="doc-section-desc">OKLCH-gråskala. Dark mode = mapping av L-aksen. Semantiske farger deriverer.</p>
           <p class="doc-sub">Gråskala (11 trinn)</p>
@@ -157,8 +157,8 @@
           </div>
         </section>
 
-        <!-- ELEVATION -->
-        <section class="doc-section" id="elevation">
+        <!-- ELEVATION — Shadow system for depth -->
+        <section class="doc-section" id="elevation" data-section="foundation" data-category="shadows">
           <h2 class="doc-section-title">Elevation & Shadow</h2>
           <p class="doc-section-desc">5-level shadow system for precise depth. Optimized for compact app interfaces with touch targets and dense layouts.</p>
 
@@ -218,8 +218,8 @@
           </div>
         </section>
 
-        <!-- TYPE -->
-        <section class="doc-section" id="type">
+        <!-- TYPE — Typography and text styles -->
+        <section class="doc-section" id="type" data-section="foundation" data-category="typography">
           <h2 class="doc-section-title">Typografi</h2>
           <p class="doc-section-desc">Static type scale optimized for compact app interfaces. Inter Variable, carefully calibrated weights 400-700. 14px base for comfortable reading.</p>
 
@@ -282,8 +282,8 @@
           </div>
         </section>
 
-        <!-- SCALES -->
-        <section class="doc-section" id="scales">
+        <!-- SCALES — Spacing and sizing system -->
+        <section class="doc-section" id="scales" data-section="foundation" data-category="scales">
           <h2 class="doc-section-title">Skalaer & enhetspolicy</h2>
           <p class="doc-section-desc">Kompakt spacing (14px base). Responsive clamp() for section-level gaps.</p>
           <p class="doc-sub">Spacing (rem)</p>
@@ -295,8 +295,8 @@
           </div>
         </section>
 
-        <!-- MOTION -->
-        <section class="doc-section" id="motion">
+        <!-- MOTION — Animation and transition system -->
+        <section class="doc-section" id="motion" data-section="foundation" data-category="motion">
           <h2 class="doc-section-title">Motion-system</h2>
           <p class="doc-section-desc">Fast transitions and entrance animations optimized for app responsiveness. 150-300ms timings. Respects prefers-reduced-motion.</p>
 
@@ -335,8 +335,8 @@
           </div>
         </section>
 
-        <!-- BUTTONS -->
-        <section class="doc-section" id="buttons">
+        <!-- BUTTONS — Interactive CTAs with variants -->
+        <section class="doc-section" id="buttons" data-section="components" data-category="buttons">
           <h2 class="doc-section-title">Buttons</h2>
           <p class="doc-section-desc">Tactile, touchable buttons for app interfaces. 5 variants × 3 sizes. Dark mode default, light mode supported.</p>
           <div class="chips"><span class="chip">.btn</span><span class="chip">.btn-primary</span><span class="chip">.btn-sm</span></div>
@@ -403,8 +403,8 @@
           </div>
         </section>
 
-        <!-- FORMS -->
-        <section class="doc-section" id="forms">
+        <!-- FORMS — Input ecosystem with all field types -->
+        <section class="doc-section" id="forms" data-section="components" data-category="forms">
           <h2 class="doc-section-title">Forms</h2>
           <p class="doc-section-desc">Form inputs, checkboxes, radios with states. Compact sizing for app interfaces.</p>
           <div class="chips"><span class="chip">.field</span><span class="chip">.form-input</span><span class="chip">.form-textarea</span><span class="chip">.form-select</span><span class="chip">.form-checkbox</span><span class="chip">.form-radio</span><span class="chip">.form-toggle</span><span class="chip">.form-group</span></div>
@@ -520,8 +520,8 @@
           </div>
         </section>
 
-        <!-- TABLE -->
-        <section class="doc-section" id="table">
+        <!-- TABLE — Data table with sort and filter -->
+        <section class="doc-section" id="table" data-section="components" data-category="data-table">
           <h2 class="doc-section-title">Data Tables</h2>
           <p class="doc-section-desc">Compact data presentation with horizontal scrolling for desktop. Mobile: card layout via data-label attributes. Supports filtering and inline editing.</p>
           <div class="chips"><span class="chip">.data-table</span><span class="chip">.data-table-filter</span><span class="chip">.data-table-inline-edit</span></div>
@@ -584,8 +584,8 @@
           </div>
         </section>
 
-        <!-- ICONS -->
-        <section class="doc-section" id="icons">
+        <!-- ICONS — SVG icon system with variants -->
+        <section class="doc-section" id="icons" data-section="components" data-category="icons">
           <h2 class="doc-section-title">Icons</h2>
           <p class="doc-section-desc">SVG icons with semantic sizing and colors. Inherit color via currentColor. Support for animations.</p>
           <div class="chips"><span class="chip">.icon</span><span class="chip">.icon-sm</span><span class="chip">.icon-lg</span><span class="chip">.icon-primary</span><span class="chip">.icon-success</span><span class="chip">.icon-error</span><span class="chip">.icon-warning</span><span class="chip">.icon-info</span><span class="chip">.icon-spin</span><span class="chip">.icon-pulse</span></div>
@@ -663,8 +663,8 @@
           </div>
         </section>
 
-        <!-- BADGES -->
-        <section class="doc-section" id="badges">
+        <!-- BADGES — Status indicators with colors -->
+        <section class="doc-section" id="badges" data-section="components" data-category="badges">
           <h2 class="doc-section-title">Badges & Status</h2>
           <p class="doc-section-desc">Inline status indicators. Color variants: neutral, success, error, warning, info. Semantic signaling.</p>
           <div class="chips"><span class="chip">.badge</span><span class="chip">.badge-neutral</span><span class="chip">.badge-success</span><span class="chip">.badge-error</span><span class="chip">.badge-warning</span><span class="chip">.badge-info</span></div>
@@ -714,8 +714,8 @@
           </div>
         </section>
 
-        <!-- ALERTS -->
-        <section class="doc-section" id="alerts">
+        <!-- ALERTS — Feedback messages with semantic colors -->
+        <section class="doc-section" id="alerts" data-section="components" data-category="alerts">
           <h2 class="doc-section-title">Alerts</h2>
           <p class="doc-section-desc">Feedback messages with semantic color coding. Use role="alert" for dynamic updates. Persistent until dismissed.</p>
           <div class="chips"><span class="chip">.alert</span><span class="chip">.alert-success</span><span class="chip">.alert-info</span><span class="chip">.alert-warning</span><span class="chip">.alert-error</span></div>
@@ -749,8 +749,8 @@
           </div>
         </section>
 
-        <!-- PAGINATION -->
-        <section class="doc-section" id="pagination">
+        <!-- PAGINATION — Multi-page navigation controls -->
+        <section class="doc-section" id="pagination" data-section="components" data-category="pagination">
           <h2 class="doc-section-title">Pagination</h2>
           <p class="doc-section-desc">Navigate between data pages. Keyboard accessible with arrow keys and Tab navigation.</p>
           <div class="chips"><span class="chip">.pagination</span><span class="chip">.pagination-item</span></div>
@@ -790,8 +790,8 @@
           </div>
         </section>
 
-        <!-- LAYOUT PRIMITIVES -->
-        <section class="doc-section" id="layout">
+        <!-- LAYOUT PRIMITIVES — Stack, cluster, grid utilities -->
+        <section class="doc-section" id="layout" data-section="layout" data-category="primitives">
           <h2 class="doc-section-title">Layout Primitives</h2>
           <p class="doc-section-desc">Foundational layout components for app dashboards and data-rich interfaces. Compact, efficient spacing.</p>
 
@@ -820,8 +820,8 @@
           </div>
         </section>
 
-        <!-- DATE PICKER (App variant - compact) -->
-        <section class="doc-section" id="date-picker">
+        <!-- DATE PICKER — Calendar widget (app variant) -->
+        <section class="doc-section" id="date-picker" data-section="components" data-category="date-picker">
           <h2 class="doc-section-title">Date Picker</h2>
           <p class="doc-section-desc">Compact date picker for app interfaces. Keyboard accessible (tab, arrow keys, enter, escape).</p>
           <div class="chips"><span class="chip">.date-picker</span><span class="chip">.date-picker-day.selected</span></div>
@@ -849,8 +849,8 @@
           </div>
         </section>
 
-        <!-- STEPPER (App variant) -->
-        <section class="doc-section" id="stepper">
+        <!-- STEPPER — Multi-step progress (app variant) -->
+        <section class="doc-section" id="stepper" data-section="components" data-category="stepper">
           <h2 class="doc-section-title">Stepper / Multi-Step</h2>
           <p class="doc-section-desc">Compact progress indicator for app onboarding or multi-step workflows. Horizontal layout with progress tracking.</p>
           <div class="chips"><span class="chip">.stepper</span><span class="chip">.stepper-step</span><span class="chip">.stepper-circle</span><span class="chip">.stepper-label</span><span class="chip">.active</span><span class="chip">.completed</span></div>
@@ -889,8 +889,8 @@
           </div>
         </section>
 
-        <!-- FILE UPLOAD (App variant) -->
-        <section class="doc-section" id="file-upload">
+        <!-- FILE UPLOAD — Drag-drop interface (app variant) -->
+        <section class="doc-section" id="file-upload" data-section="components" data-category="file-upload">
           <h2 class="doc-section-title">File Upload</h2>
           <p class="doc-section-desc">Compact drag-drop for app interfaces. Highlights on dragover.</p>
           <div class="chips"><span class="chip">.file-upload</span><span class="chip">.file-upload.dragover</span></div>
@@ -904,8 +904,8 @@
           </div>
         </section>
 
-        <!-- SEARCH BAR (App variant) -->
-        <section class="doc-section" id="search-bar">
+        <!-- SEARCH BAR — Search with results (app variant) -->
+        <section class="doc-section" id="search-bar" data-section="components" data-category="search-bar">
           <h2 class="doc-section-title">Search Bar</h2>
           <p class="doc-section-desc">Searchable input with filtered results. Compact for app header or sidebar.</p>
           <div class="chips"><span class="chip">.search-bar</span><span class="chip">.search-results</span></div>
@@ -924,8 +924,8 @@
           </div>
         </section>
 
-        <!-- EMPTY STATES (App variant) -->
-        <section class="doc-section" id="empty-states">
+        <!-- EMPTY STATES — Placeholder UI (app variant) -->
+        <section class="doc-section" id="empty-states" data-section="components" data-category="empty-states">
           <h2 class="doc-section-title">Empty States</h2>
           <p class="doc-section-desc">Placeholder for no data. Compact version for app interfaces.</p>
           <div class="chips"><span class="chip">.empty-state</span></div>
@@ -936,8 +936,8 @@
           </div>
         </section>
 
-        <!-- FORM PATTERNS -->
-        <section class="doc-section" id="form-patterns">
+        <!-- FORM PATTERNS — Multi-field form layouts -->
+        <section class="doc-section" id="form-patterns" data-section="patterns" data-category="forms">
           <h2 class="doc-section-title">Form Patterns</h2>
           <p class="doc-section-desc">Common form layouts: login, signup, data entry. Compact app-appropriate sizing.</p>
 
@@ -976,8 +976,8 @@
           </div>
         </section>
 
-        <!-- DATA PATTERNS -->
-        <section class="doc-section" id="data-patterns">
+        <!-- DATA PATTERNS — Search, filter, and sort interactions -->
+        <section class="doc-section" id="data-patterns" data-section="patterns" data-category="data">
           <h2 class="doc-section-title">Data Display Patterns</h2>
           <p class="doc-section-desc">Tables, lists, and metric cards for data-heavy interfaces.</p>
 
@@ -1025,8 +1025,8 @@
           </div>
         </section>
 
-        <!-- APP PATTERNS - DASHBOARD -->
-        <section class="doc-section" id="dashboard-pattern">
+        <!-- DASHBOARD PATTERN — Card-based dashboard layout -->
+        <section class="doc-section" id="dashboard-pattern" data-section="patterns" data-category="app-layouts">
           <h2 class="doc-section-title">Dashboard Pattern</h2>
           <p class="doc-section-desc">Typical SaaS dashboard layout. Data cards in responsive grid, compact styling.</p>
           <div class="doc-demo">
@@ -1050,8 +1050,8 @@
           </div>
         </section>
 
-        <!-- APP PATTERNS - COMPACT FORM -->
-        <section class="doc-section" id="form-pattern">
+        <!-- COMPACT FORM PATTERN — Inline form layout -->
+        <section class="doc-section" id="form-pattern" data-section="patterns" data-category="app-layouts">
           <h2 class="doc-section-title">Form Pattern (Compact)</h2>
           <p class="doc-section-desc">Inline form layout for app dialogs and modals. Space-efficient.</p>
           <div class="doc-demo" style="max-width:20rem">
@@ -1063,8 +1063,8 @@
           </div>
         </section>
 
-        <!-- CARD GRID PATTERN -->
-        <section class="doc-section" id="card-grid-pattern">
+        <!-- CARD GRID PATTERN — Responsive card layout -->
+        <section class="doc-section" id="card-grid-pattern" data-section="patterns" data-category="app-layouts">
           <h2 class="doc-section-title">Card Grid Pattern</h2>
           <p class="doc-section-desc">Responsive grid of content cards. Auto-layout with container queries for fluid responsiveness across app layouts.</p>
           <div class="doc-demo">
@@ -1094,8 +1094,8 @@
           </div>
         </section>
 
-        <!-- MULTI-STEP FORM PATTERN -->
-        <section class="doc-section" id="multi-step-pattern">
+        <!-- MULTI-STEP FORM PATTERN — Stepper-based wizard -->
+        <section class="doc-section" id="multi-step-pattern" data-section="patterns" data-category="app-layouts">
           <h2 class="doc-section-title">Multi-Step Form Pattern</h2>
           <p class="doc-section-desc">Stepper component with step indicator and form progression. Tactile feedback and clear navigation.</p>
           <div class="doc-demo">
@@ -1128,8 +1128,8 @@
           </div>
         </section>
 
-        <!-- TIMELINE PATTERN -->
-        <section class="doc-section" id="timeline-pattern">
+        <!-- TIMELINE PATTERN — Chronological event visualization -->
+        <section class="doc-section" id="timeline-pattern" data-section="patterns" data-category="app-layouts">
           <h2 class="doc-section-title">Timeline Pattern</h2>
           <p class="doc-section-desc">Sequential progress visualization. Status indicators with connected timeline for workflows and activity history.</p>
           <div class="doc-demo" style="max-width:24rem">
@@ -1166,8 +1166,8 @@
           </div>
         </section>
 
-        <!-- RESPONSIVE DESIGN -->
-        <section class="doc-section" id="responsive">
+        <!-- RESPONSIVE DESIGN — Mobile and desktop breakpoints -->
+        <section class="doc-section" id="responsive" data-section="guidelines" data-category="responsive">
           <h2 class="doc-section-title">Responsive Design</h2>
           <p class="doc-section-desc">Mobile-first framework. Test on real devices. Nordover adapts from 320px to 1600px+ without changes to HTML.</p>
 
@@ -1187,8 +1187,8 @@
           <p class="t-body-sm" style="color:var(--color-muted)">All components work on mobile, tablet, desktop. Use responsive utilities and layout primitives. No additional CSS needed.</p>
         </section>
 
-        <!-- ACCESSIBILITY -->
-        <section class="doc-section" id="accessibility">
+        <!-- ACCESSIBILITY — WCAG AA/AAA compliance -->
+        <section class="doc-section" id="accessibility" data-section="guidelines" data-category="wcag">
           <h2 class="doc-section-title">Accessibility</h2>
           <p class="doc-section-desc">WCAG AA compliant. All components include keyboard navigation, focus indicators, and semantic markup.</p>
 
@@ -1207,8 +1207,8 @@
           <p class="t-body-sm" style="color:var(--color-muted)">Recommended tools: axe DevTools, WebAIM Contrast Checker, NVDA (Windows), VoiceOver (Mac), Lighthouse</p>
         </section>
 
-        <!-- REAL-WORLD EXAMPLES -->
-        <section class="doc-section" id="real-world-examples">
+        <!-- REAL-WORLD EXAMPLES — Complete page templates -->
+        <section class="doc-section" id="real-world-examples" data-section="patterns" data-category="templates">
           <h2 class="doc-section-title">Real-World Examples</h2>
           <p class="doc-section-desc">Complete app layouts and patterns showing components in production scenarios. Fully responsive and optimized for touch.</p>
 
@@ -1625,8 +1625,8 @@
           </div>
         </section>
 
-        <!-- UTILITIES -->
-        <section class="doc-section" id="utilities">
+        <!-- UTILITIES — Helper classes for display and spacing -->
+        <section class="doc-section" id="utilities" data-section="utilities" data-category="helpers">
           <h2 class="doc-section-title">Utilities Reference Catalog</h2>
           <p class="doc-section-desc">Composition toolkit for rapid layout and styling. Low-level utility classes for display, spacing, typography, colors, sizing, shadows, and animations. App-optimized with compact spacing defaults.</p>
 
@@ -1771,8 +1771,8 @@
           </div>
         </section>
 
-        <!-- DARK MODE EXAMPLES -->
-        <section class="doc-section" id="dark-mode-examples">
+        <!-- DARK MODE EXAMPLES — Components in dark theme -->
+        <section class="doc-section" id="dark-mode-examples" data-section="guidelines" data-category="themes">
           <h2 class="doc-section-title">Dark Mode Variants</h2>
           <p class="doc-section-desc">App defaults to dark mode (checked by default). All color tokens adapt via CSS custom properties with OKLCH lightness axis inversion. Light mode uses same semantic palette with inverted L-values for consistent contrast and accessibility.</p>
 
