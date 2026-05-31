@@ -66,6 +66,7 @@
     <div class="app-sidebar-section-group">
       <button class="app-sidebar-toggle" aria-expanded="true">Komponenter</button>
       <nav class="app-nav-group active">
+        <a class="app-nav-item" href="#component-api"><strong>API Reference</strong></a>
         <a class="app-nav-item" href="#buttons"><svg class="icon"><use href="#i-check"/></svg> Buttons</a>
         <a class="app-nav-item" href="#forms"><svg class="icon"><use href="#i-edit"/></svg> Forms</a>
         <a class="app-nav-item" href="#icons"><svg class="icon"><use href="#i-sparkles"/></svg> Icons</a>
@@ -391,6 +392,13 @@
             <div>✗ <strong>Don't:</strong> Use animations on every element (less = more)</div>
             <div>✗ <strong>Don't:</strong> Auto-play animations > 5 seconds without controls</div>
           </div>
+        </section>
+
+        <!-- COMPONENT API REFERENCE -->
+        <!-- This section is included from component-api-reference.html -->
+        <!-- Load externally to avoid duplication between styleguides -->
+        <section class="doc-section" id="component-api" data-section="components" data-category="api-reference">
+          <div id="component-api-content"></div>
         </section>
 
         <!-- BUTTONS — Interactive CTAs with variants -->
@@ -3127,6 +3135,17 @@ document.querySelectorAll('.app-sidebar-toggle').forEach(btn => {
     group.classList.toggle('active');
   });
 });
+
+// Load Component API Reference
+fetch('./component-api-reference.html')
+  .then(response => response.text())
+  .then(html => {
+    var container = document.getElementById('component-api-content');
+    if (container) {
+      container.innerHTML = html;
+    }
+  })
+  .catch(error => console.log('Could not load component API reference:', error));
 
 // Copy code function for pattern examples
 function copyCode(button) {

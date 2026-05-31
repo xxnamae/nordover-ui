@@ -39,6 +39,18 @@
 
 <label for="nav" class="mobile-backdrop" aria-hidden="true"></label>
 
+<!-- Search modal overlay (Ctrl+K activated) -->
+<div class="search-overlay" id="search-modal" role="dialog" aria-labelledby="search-title" aria-hidden="true">
+  <div class="search-results">
+    <div style="padding: var(--space-3) var(--space-4); border-bottom: var(--border-card);">
+      <input type="search" id="search-input" placeholder="Søk etter komponenter, tokens, patterns..." style="width: 100%; padding: var(--space-2) var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-md); font-size: var(--text-sm);" aria-label="Søk i styleguide">
+    </div>
+    <div id="search-results-container">
+      <!-- Results populated by search JS -->
+    </div>
+  </div>
+</div>
+
 <div class="app">
   <aside class="app-sidebar">
     <div class="app-sidebar-brand"><span class="app-sidebar-brand-mark">N</span> Nordover Web</div>
@@ -58,6 +70,7 @@
     <div class="app-sidebar-section-group">
       <button class="app-sidebar-toggle" aria-expanded="true">Komponenter</button>
       <nav class="app-nav-group active">
+        <a class="app-nav-item" href="#component-api"><strong>API Reference</strong></a>
         <a class="app-nav-item" href="#buttons">Buttons</a>
         <a class="app-nav-item" href="#forms">Forms</a>
         <a class="app-nav-item" href="#badges">Badges</a>
@@ -649,6 +662,13 @@
               <span>Pulsing (.icon-pulse)</span>
             </div>
           </div>
+        </section>
+
+        <!-- COMPONENT API REFERENCE -->
+        <!-- This section is included from component-api-reference.html -->
+        <!-- Load externally to avoid duplication between styleguides -->
+        <section class="doc-section" id="component-api" data-section="components" data-category="api-reference">
+          <div id="component-api-content"></div>
         </section>
 
         <!-- BUTTONS — Interactive CTAs with 5 variants × 3 sizes -->
@@ -5608,6 +5628,17 @@ document.querySelectorAll('.app-sidebar-toggle').forEach(btn => {
     group.classList.toggle('active');
   });
 });
+
+// Load Component API Reference
+fetch('./component-api-reference.html')
+  .then(response => response.text())
+  .then(html => {
+    var container = document.getElementById('component-api-content');
+    if (container) {
+      container.innerHTML = html;
+    }
+  })
+  .catch(error => console.log('Could not load component API reference:', error));
 
 // Copy code function for pattern examples
 function copyCode(button) {
