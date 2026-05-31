@@ -37,3 +37,4 @@ Keep in the private `xxnamae/notater` repository:
 - **Mirroring**: Changes to token values must be applied to both `tokens-web.css` and `tokens-app.css` in the same commit. The same applies to shared component structure across `components-web.css` and `components-app.css`
 - **Component classes are contracts**: Class names in `components-*.css` are public contracts (like token names). They live there as the single source of truth — never re-embed component CSS inside styleguide HTML; the styleguides must link the shippable files
 - **Styleguides are authoritative**: Styleguides must always reflect 100% of components in framework. If a component exists in CSS but not in styleguide, it doesn't exist for users. See `docs/visual/STYLEGUIDE-MAINTENANCE.md`
+- **Styleguide workflow is mandatory**: Framework changes and styleguide updates must occur in the same commit. No CSS commit without corresponding styleguide documentation. Follow `docs/visual/STYLEGUIDE-WORKFLOW.md`

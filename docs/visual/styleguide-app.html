@@ -37,10 +37,7 @@
 
 <div class="app">
   <aside class="app-sidebar">
-    <div class="cluster cluster-tight" style="justify-content: space-between; margin-bottom: var(--space-3)">
-      <div class="app-sidebar-brand"><span class="app-sidebar-brand-mark"><svg class="icon icon-sm"><use href="#i-home"/></svg></span> Nordover App</div>
-      <label for="nav" class="app-sidebar-close" title="Lukk meny"><svg class="icon"><use href="#i-x"/></svg></label>
-    </div>
+    <div class="app-sidebar-brand"><span class="app-sidebar-brand-mark"><svg class="icon icon-sm"><use href="#i-home"/></svg></span> Nordover App</div>
     <div class="app-sidebar-section">Foundation</div>
     <a class="app-nav-item" href="#colors"><svg class="icon"><use href="#i-folder"/></svg> Farger & gråskala</a>
     <a class="app-nav-item" href="#type"><svg class="icon"><use href="#i-edit"/></svg> Typografi</a>
@@ -55,18 +52,23 @@
     <a class="app-nav-item" href="#alerts"><svg class="icon"><use href="#i-info"/></svg> Alerts</a>
     <a class="app-nav-item" href="#table"><svg class="icon"><use href="#i-inbox"/></svg> Data Table</a>
     <a class="app-nav-item" href="#pagination"><svg class="icon"><use href="#i-chart"/></svg> Pagination</a>
+    <div class="app-sidebar-section">Layout</div>
+    <a class="app-nav-item" href="#layout"><svg class="icon"><use href="#i-chart"/></svg> Primitives</a>
+    <div class="app-sidebar-section">Components</div>
     <a class="app-nav-item" href="#date-picker"><svg class="icon"><use href="#i-edit"/></svg> Date Picker</a>
     <a class="app-nav-item" href="#stepper"><svg class="icon"><use href="#i-check"/></svg> Stepper</a>
     <a class="app-nav-item" href="#file-upload"><svg class="icon"><use href="#i-copy"/></svg> File Upload</a>
     <a class="app-nav-item" href="#search-bar"><svg class="icon"><use href="#i-search"/></svg> Search Bar</a>
     <a class="app-nav-item" href="#empty-states"><svg class="icon"><use href="#i-info"/></svg> Empty States</a>
-    <a class="app-nav-item" href="#overlays"><svg class="icon"><use href="#i-info"/></svg> Modal & Toast</a>
-    <a class="app-nav-item" href="#layout-primitives"><svg class="icon"><use href="#i-chart"/></svg> Layout Primitives</a>
-    <a class="app-nav-item" href="#breadcrumbs"><svg class="icon"><use href="#i-edit"/></svg> Breadcrumbs</a>
-    <a class="app-nav-item" href="#dividers"><svg class="icon"><use href="#i-chart"/></svg> Dividers</a>
+    <a class="app-nav-item" href="#overlays"><svg class="icon"><use href="#i-info"/></svg> Modals</a>
+    <a class="app-nav-item" href="#accordion"><svg class="icon"><use href="#i-edit"/></svg> Accordion</a>
+    <a class="app-nav-item" href="#tags"><svg class="icon"><use href="#i-check"/></svg> Tags & Badges</a>
     <div class="app-sidebar-section">App Patterns</div>
     <a class="app-nav-item" href="#dashboard-pattern"><svg class="icon"><use href="#i-chart"/></svg> Dashboard</a>
     <a class="app-nav-item" href="#form-pattern"><svg class="icon"><use href="#i-edit"/></svg> Forms</a>
+    <div class="app-sidebar-section">Guidelines</div>
+    <a class="app-nav-item" href="#responsive"><svg class="icon"><use href="#i-chart"/></svg> Responsive</a>
+    <a class="app-nav-item" href="#accessibility"><svg class="icon"><use href="#i-info"/></svg> Accessibility</a>
     <a class="app-nav-item" href="#utilities"><svg class="icon"><use href="#i-sparkles"/></svg> Utilities</a>
   </aside>
 
@@ -155,19 +157,60 @@
         <!-- BUTTONS -->
         <section class="doc-section" id="buttons">
           <h2 class="doc-section-title">Buttons</h2>
-          <p class="doc-section-desc">Tactile gradients (app default). 5 variants × 3 sizes. Dark mode friendly.</p>
-          <div class="doc-demo stack">
-            <div class="cluster cluster-tight"><button class="btn btn-primary">Primary</button><button class="btn btn-secondary">Secondary</button><button class="btn btn-ghost">Ghost</button></div>
-            <div class="cluster cluster-tight"><button class="btn btn-primary btn-sm">Small</button><button class="btn btn-primary">Default</button><button class="btn btn-primary btn-lg">Large</button></div>
+          <p class="doc-section-desc">Tactile, touchable buttons for app interfaces. 5 variants × 3 sizes. Dark mode default, light mode supported.</p>
+          <div class="chips"><span class="chip">.btn</span><span class="chip">.btn-primary</span><span class="chip">.btn-sm</span></div>
+
+          <div class="doc-sub">Variants</div>
+          <div class="cluster cluster-tight">
+            <button class="btn btn-primary">Primary</button>
+            <button class="btn btn-secondary">Secondary</button>
+            <button class="btn btn-ghost">Ghost</button>
+          </div>
+
+          <div class="doc-sub">Sizes</div>
+          <div class="cluster cluster-tight" style="align-items:center">
+            <button class="btn btn-primary btn-sm">Small</button>
+            <button class="btn btn-primary">Default</button>
+            <button class="btn btn-primary btn-lg">Large</button>
+          </div>
+
+          <div class="doc-sub">States</div>
+          <div class="cluster cluster-tight">
+            <button class="btn btn-primary">Normal</button>
+            <button class="btn btn-primary" disabled>Disabled</button>
           </div>
         </section>
 
         <!-- FORMS -->
         <section class="doc-section" id="forms">
           <h2 class="doc-section-title">Forms</h2>
-          <div class="doc-demo stack" style="max-width:24rem">
-            <div class="field"><label class="field-label">E-post</label><input class="form-input" type="email" placeholder="navn@eksempel.no"><p class="field-help">Vi sender bekreftelse hit</p></div>
-            <div class="field"><label class="field-label">Innstilling</label><input type="checkbox" class="form-checkbox" checked id="cb1"><label for="cb1" style="font-size:var(--text-sm);margin-top:var(--space-2)">Aktiver dette alternativet</label></div>
+          <p class="doc-section-desc">Form inputs, checkboxes, radios with states. Compact sizing for app interfaces.</p>
+          <div class="chips"><span class="chip">.field</span><span class="chip">.form-input</span><span class="chip">.form-checkbox</span></div>
+
+          <div class="doc-sub">Text Input</div>
+          <div class="stack" style="max-width:20rem">
+            <div class="field">
+              <label class="field-label">Email</label>
+              <input class="form-input" type="email" placeholder="user@example.com">
+              <p class="field-help">We'll send confirmation here</p>
+            </div>
+            <div class="field">
+              <label class="field-label">Error State</label>
+              <input class="form-input" value="invalid">
+              <span class="field-error">This field is required</span>
+            </div>
+          </div>
+
+          <div class="doc-sub">Checkboxes & Radios</div>
+          <div class="stack-tight" style="max-width:20rem">
+            <div style="display:flex;align-items:center;gap:var(--space-2)">
+              <input type="checkbox" class="form-checkbox" checked id="cb1">
+              <label for="cb1" style="font-size:var(--text-sm)">Checked</label>
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--space-2)">
+              <input type="checkbox" class="form-checkbox" id="cb2">
+              <label for="cb2" style="font-size:var(--text-sm)">Unchecked</label>
+            </div>
           </div>
         </section>
 
@@ -242,6 +285,36 @@
             <a href="#" class="pagination-item">3</a>
             <a href="#" class="pagination-item">→</a>
           </nav>
+        </section>
+
+        <!-- LAYOUT PRIMITIVES -->
+        <section class="doc-section" id="layout">
+          <h2 class="doc-section-title">Layout Primitives</h2>
+          <p class="doc-section-desc">Foundational layout components for app dashboards and data-rich interfaces. Compact, efficient spacing.</p>
+
+          <div class="doc-sub">Stack (Vertical)</div>
+          <div class="chips"><span class="chip">.stack</span><span class="chip">.stack-tight</span></div>
+          <div class="stack" style="max-width:16rem">
+            <div class="p-2" style="background:var(--color-subtle);border-radius:var(--radius-md);font-size:var(--text-sm)">Item 1</div>
+            <div class="p-2" style="background:var(--color-subtle);border-radius:var(--radius-md);font-size:var(--text-sm)">Item 2</div>
+            <div class="p-2" style="background:var(--color-subtle);border-radius:var(--radius-md);font-size:var(--text-sm)">Item 3</div>
+          </div>
+
+          <div class="doc-sub">Cluster (Horizontal Wrap)</div>
+          <div class="chips"><span class="chip">.cluster</span></div>
+          <div class="cluster">
+            <button class="btn btn-sm">Action 1</button>
+            <button class="btn btn-ghost btn-sm">Action 2</button>
+            <button class="btn btn-ghost btn-sm">Action 3</button>
+          </div>
+
+          <div class="doc-sub">Grid Auto (Card Grid)</div>
+          <div class="chips"><span class="chip">.grid-auto</span></div>
+          <div class="grid-auto" style="margin-top:var(--space-2)">
+            <div class="p-3" style="background:var(--color-subtle);border-radius:var(--radius-md);text-align:center;font-size:var(--text-sm)">Card</div>
+            <div class="p-3" style="background:var(--color-subtle);border-radius:var(--radius-md);text-align:center;font-size:var(--text-sm)">Card</div>
+            <div class="p-3" style="background:var(--color-subtle);border-radius:var(--radius-md);text-align:center;font-size:var(--text-sm)">Card</div>
+          </div>
         </section>
 
         <!-- DATE PICKER (App variant - compact) -->
@@ -372,125 +445,179 @@
           </div>
         </section>
 
-        <!-- LAYOUT PRIMITIVES -->
-        <section class="doc-section" id="layout-primitives">
-          <h2 class="doc-section-title">Layout Primitives</h2>
-          <p class="doc-section-desc">Fundamental layout composites. Stack for vertical, cluster for horizontal layouts.</p>
-          <div class="chips"><span class="chip">.stack</span><span class="chip">.stack-tight</span><span class="chip">.cluster</span><span class="chip">.cluster-tight</span><span class="chip">.grid-auto</span></div>
-          <div class="doc-demo">
-            <div class="stack-tight" style="border:var(--border-card);border-radius:var(--radius-md);overflow:hidden">
-              <div style="padding:var(--space-3);background:var(--color-subtle);border-bottom:var(--border-divider);font-size:var(--text-sm)">List item 1</div>
-              <div style="padding:var(--space-3);background:var(--color-subtle);border-bottom:var(--border-divider);font-size:var(--text-sm)">List item 2</div>
-              <div style="padding:var(--space-3);background:var(--color-subtle);font-size:var(--text-sm)">List item 3</div>
-            </div>
-          </div>
+        <!-- RESPONSIVE DESIGN -->
+        <section class="doc-section" id="responsive">
+          <h2 class="doc-section-title">Responsive Design</h2>
+          <p class="doc-section-desc">Mobile-first framework. Test on real devices. Nordover adapts from 320px to 1600px+ without changes to HTML.</p>
+
+          <div class="doc-sub">Key Principles</div>
+          <ul class="stack-tight" style="font-size:var(--text-sm);list-style:inside;max-width:28rem">
+            <li>Mobile-first: Start with mobile layout</li>
+            <li>Fluid sizing: Use clamp() not breakpoints</li>
+            <li>Flexible grids: Use .grid-auto not rigid layouts</li>
+            <li>Touch-friendly: Min 44px tap targets on mobile</li>
+            <li>Test real devices: Not just browser DevTools</li>
+          </ul>
+
+          <div class="doc-sub">Breakpoint</div>
+          <p class="t-body-sm" style="color:var(--color-muted)">Primary breakpoint: 48rem (768px) for tablet/desktop enhancements</p>
+
+          <div class="doc-sub">For App Developers</div>
+          <p class="t-body-sm" style="color:var(--color-muted)">All components work on mobile, tablet, desktop. Use responsive utilities and layout primitives. No additional CSS needed.</p>
         </section>
 
-        <!-- BREADCRUMBS & NAVIGATION -->
-        <section class="doc-section" id="breadcrumbs">
-          <h2 class="doc-section-title">Breadcrumbs</h2>
-          <p class="doc-section-desc">Navigation hierarchy for app pages.</p>
-          <div class="chips"><span class="chip">.breadcrumbs</span><span class="chip">.breadcrumb-item</span></div>
-          <nav class="breadcrumbs" aria-label="Breadcrumb" style="margin-bottom:var(--space-4);font-size:var(--text-sm)">
-            <a class="breadcrumb-item" href="#">Dashboard</a>
-            <span style="color:var(--color-muted)"> / </span>
-            <a class="breadcrumb-item" href="#">Projects</a>
-            <span style="color:var(--color-muted)"> / </span>
-            <span class="breadcrumb-item" aria-current="page" style="color:var(--color-fg);pointer-events:none">Details</span>
-          </nav>
-        </section>
+        <!-- ACCESSIBILITY -->
+        <section class="doc-section" id="accessibility">
+          <h2 class="doc-section-title">Accessibility</h2>
+          <p class="doc-section-desc">WCAG AA compliant. All components include keyboard navigation, focus indicators, and semantic markup.</p>
 
-        <!-- DIVIDERS -->
-        <section class="doc-section" id="dividers">
-          <h2 class="doc-section-title">Dividers</h2>
-          <p class="doc-section-desc">Visual separators for content sections.</p>
-          <div class="doc-demo" style="gap:var(--space-6);display:flex;flex-direction:column">
-            <div>
-              <p class="t-body-sm" style="margin-bottom:var(--space-3)">Content area 1</p>
-              <div style="height:1px;background:var(--color-border)"></div>
-              <p class="t-body-sm" style="margin-top:var(--space-3)">Content area 2</p>
-            </div>
-          </div>
+          <div class="doc-sub">Quick Checklist</div>
+          <ul class="stack-tight" style="font-size:var(--text-sm);list-style:inside;max-width:28rem">
+            <li>✓ All buttons keyboard navigable (Tab/Space/Enter)</li>
+            <li>✓ Focus indicators visible on all interactive elements</li>
+            <li>✓ Form labels associated with inputs</li>
+            <li>✓ Color contrast 4.5:1 (WCAG AA)</li>
+            <li>✓ Dark mode supported with no contrast loss</li>
+            <li>✓ Semantic HTML used throughout</li>
+            <li>✓ Screen reader tested (NVDA, VoiceOver)</li>
+          </ul>
+
+          <div class="doc-sub">Testing Tools</div>
+          <p class="t-body-sm" style="color:var(--color-muted)">Recommended tools: axe DevTools, WebAIM Contrast Checker, NVDA (Windows), VoiceOver (Mac), Lighthouse</p>
         </section>
 
         <!-- UTILITIES -->
         <section class="doc-section" id="utilities">
           <h2 class="doc-section-title">Utilities</h2>
-          <p class="doc-section-desc">Low-level composition utilities for layout, spacing, typography, and effects.</p>
-
-          <div class="doc-sub">Display & Layout</div>
-          <div class="chips"><span class="chip">.flex</span><span class="chip">.flex-col</span><span class="chip">.flex-wrap</span><span class="chip">.block</span><span class="chip">.inline</span><span class="chip">.hidden</span><span class="chip">.items-center</span><span class="chip">.justify-center</span></div>
-          <div class="cluster cluster-tight" style="gap:var(--space-4);margin-bottom:var(--space-4)">
-            <button class="flex gap-2 items-center justify-center" style="padding:var(--space-3);border:var(--border-card);border-radius:var(--radius-md);cursor:default">.flex</button>
-            <button class="block" style="padding:var(--space-3);border:var(--border-card);border-radius:var(--radius-md);cursor:default">.block</button>
-            <button style="padding:var(--space-3);border:var(--border-card);border-radius:var(--radius-md);cursor:default">.hidden</button>
+          <p class="doc-section-desc">Low-level composition utilities for layout, spacing, typography, and effects. See web styleguide for complete utilities reference.</p>
+          <p class="doc-sub">Display & Layout</p>
+          <div class="cluster cluster-tight" style="gap:var(--space-4)">
+            <button class="flex gap-2 items-center justify-center" style="padding:var(--space-3);border:var(--border-card);border-radius:var(--radius-md);">.flex</button>
+            <button class="block" style="padding:var(--space-3);border:var(--border-card);border-radius:var(--radius-md);">.block</button>
+            <button style="padding:var(--space-3);border:var(--border-card);border-radius:var(--radius-md);">.hidden</button>
           </div>
-
-          <div class="doc-sub">Spacing (Gap, Margin, Padding)</div>
-          <div class="chips"><span class="chip">.gap-1</span><span class="chip">.gap-2</span><span class="chip">.gap-3</span><span class="chip">.m-auto</span><span class="chip">.mx-auto</span><span class="chip">.p-2</span><span class="chip">.p-3</span></div>
-          <div style="margin-bottom:var(--space-4)">
-            <div class="mx-auto" style="width:8rem;height:2rem;background:var(--color-accent);border-radius:var(--radius-md)"></div>
-            <p class="t-caption" style="text-align:center;margin-top:var(--space-2)">mx-auto</p>
+          <p class="doc-sub">Spacing</p>
+          <div class="cluster cluster-tight">
+            <div class="mx-auto" style="width:6rem;height:2rem;background:var(--color-accent);border-radius:var(--radius-md)"></div>
           </div>
-
-          <div class="doc-sub">Typography & Text</div>
-          <div class="chips"><span class="chip">.text-center</span><span class="chip">.text-left</span><span class="chip">.text-right</span><span class="chip">.font-bold</span><span class="chip">.font-medium</span><span class="chip">.uppercase</span><span class="chip">.truncate</span></div>
-          <div class="flex gap-4 flex-wrap" style="margin-bottom:var(--space-4)">
-            <span class="text-center" style="flex:1;min-width:8rem;background:var(--color-subtle);padding:var(--space-2);border-radius:var(--radius-md);font-size:var(--text-sm)">text-center</span>
-            <span class="font-bold" style="background:var(--color-subtle);padding:var(--space-2);border-radius:var(--radius-md);font-size:var(--text-sm)">font-bold</span>
-            <span class="truncate" style="max-width:12rem;background:var(--color-subtle);padding:var(--space-2);border-radius:var(--radius-md);font-size:var(--text-sm)">truncate text</span>
+          <p class="doc-sub">Typography</p>
+          <div class="flex gap-4">
+            <span class="text-center">text-center</span>
+            <span class="font-bold">font-bold</span>
+            <span class="truncate" style="max-width:12rem">truncate text</span>
           </div>
-
-          <div class="doc-sub">Colors - Text</div>
-          <div class="chips"><span class="chip">.text-accent</span><span class="chip">.text-fg</span><span class="chip">.text-muted</span><span class="chip">.text-success</span><span class="chip">.text-error</span></div>
-          <div class="flex gap-2 flex-wrap" style="margin-bottom:var(--space-4)">
+          <p class="doc-sub">Colors</p>
+          <div class="flex gap-2">
             <span class="text-accent">text-accent</span>
-            <span class="text-fg">text-fg</span>
-            <span class="text-muted">text-muted</span>
-            <span class="text-success">text-success</span>
-            <span class="text-error">text-error</span>
+            <span class="bg-subtle p-2" style="border-radius:var(--radius-md)">bg-subtle</span>
           </div>
-
-          <div class="doc-sub">Colors - Background</div>
-          <div class="chips"><span class="chip">.bg-subtle</span><span class="chip">.bg-accent</span></div>
-          <div class="flex gap-2 flex-wrap" style="margin-bottom:var(--space-4)">
-            <span class="bg-subtle p-2" style="border-radius:var(--radius-md);font-size:var(--text-sm)">bg-subtle</span>
-            <span class="bg-accent p-2" style="border-radius:var(--radius-md);font-size:var(--text-sm);color:var(--color-accent-fg)">bg-accent</span>
-          </div>
-
-          <div class="doc-sub">Borders & Radius</div>
-          <div class="chips"><span class="chip">.border</span><span class="chip">.border-b</span><span class="chip">.rounded</span><span class="chip">.rounded-lg</span></div>
-          <div class="flex gap-3 flex-wrap" style="margin-bottom:var(--space-4)">
-            <div class="border p-2" style="border-radius:var(--radius-md);font-size:var(--text-sm)">border</div>
-            <div class="border-b p-2" style="font-size:var(--text-sm)">border-b</div>
-            <div class="rounded p-2" style="background:var(--color-subtle);font-size:var(--text-sm)">rounded</div>
-            <div class="rounded-lg p-2" style="background:var(--color-subtle);font-size:var(--text-sm)">rounded-lg</div>
-          </div>
-
-          <div class="doc-sub">Position</div>
-          <div class="chips"><span class="chip">.relative</span><span class="chip">.absolute</span><span class="chip">.fixed</span></div>
-
-          <div class="doc-sub">Visibility & Opacity</div>
-          <div class="chips"><span class="chip">.hidden</span><span class="chip">.invisible</span><span class="chip">.opacity-50</span><span class="chip">.sr-only</span></div>
-
-          <div class="doc-sub">Animations & Transitions</div>
-          <div class="chips"><span class="chip">.fade-in</span><span class="chip">.slide-in-up</span><span class="chip">.scale-in</span><span class="chip">.bounce-in</span><span class="chip">.transition-fast</span><span class="chip">.transition-base</span></div>
-          <div class="flex gap-2 flex-wrap" style="margin-bottom:var(--space-4)">
+          <p class="doc-sub">Animations & Transitions</p>
+          <div class="flex gap-2">
             <div class="fade-in" style="width:3rem;height:3rem;background:var(--color-accent);border-radius:var(--radius-md)"></div>
-            <button class="transition-base" style="padding:var(--space-2) var(--space-4);background:var(--color-accent);color:white;border:none;border-radius:var(--radius-md);cursor:pointer;font-size:var(--text-sm)" onmouseover="this.style.background='var(--color-error)'" onmouseout="this.style.background='var(--color-accent)'">Hover me</button>
+            <button class="transition-base" style="padding:var(--space-2) var(--space-4);background:var(--color-accent);color:white;border:none;border-radius:var(--radius-md);cursor:pointer" onmouseover="this.style.background='var(--color-error)'" onmouseout="this.style.background='var(--color-accent)'">Hover</button>
           </div>
         </section>
 
         <!-- OVERLAYS -->
         <section class="doc-section" id="overlays">
-          <h2 class="doc-section-title">Modal & Toast</h2>
-          <p class="doc-sub">Modal (scale-in animation)</p>
-          <div style="position:relative;height:16rem;border:var(--border-card);border-radius:var(--radius-lg);background:var(--color-subtle);display:flex;align-items:center;justify-content:center">
-            <div style="background:var(--color-surface);padding:var(--space-6);border-radius:var(--radius-lg);max-width:20rem;box-shadow:var(--shadow-lg)">
-              <strong style="display:block;margin-bottom:var(--space-3)">Confirm action?</strong>
-              <p style="font-size:var(--text-sm);color:var(--color-muted);margin-bottom:var(--space-4)">This action cannot be undone.</p>
-              <div class="cluster cluster-tight" style="justify-content:flex-end;gap:var(--space-2)"><button class="btn btn-ghost btn-sm">Cancel</button><button class="btn btn-primary btn-sm">Confirm</button></div>
+          <h2 class="doc-section-title">Modals & Dialogs</h2>
+          <p class="doc-section-desc">Dialog overlays for confirmations, forms, and alerts. Use semantic &lt;dialog&gt; element.</p>
+
+          <div class="doc-sub">Confirmation Modal</div>
+          <div class="modal-demo" style="height:12rem">
+            <div class="modal-dialog">
+              <div class="modal-header">
+                <h3 class="t-heading-sm">Confirm Delete</h3>
+              </div>
+              <div class="modal-body">
+                <p class="t-body-sm">This action cannot be undone. Are you sure?</p>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-ghost btn-sm">Cancel</button>
+                <button class="btn btn-primary btn-sm">Delete</button>
+              </div>
             </div>
+          </div>
+
+          <div class="doc-sub">Success Dialog</div>
+          <div class="modal-demo" style="height:10rem">
+            <div class="modal-dialog">
+              <div class="modal-body">
+                <div class="cluster cluster-tight">
+                  <svg class="icon icon-success" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span class="t-body-sm">Changes saved</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="accordion">
+          <h2 class="doc-section-title">Accordion / Details</h2>
+          <p class="doc-section-desc">Collapsible content sections. Fully accessible keyboard navigation and semantic HTML.</p>
+          <div class="stack" style="max-width:28rem">
+            <details class="faq-item" open>
+              <summary class="faq-summary">How do I use the framework?</summary>
+              <p class="faq-answer">Import the CSS files (tokens and components), then use class names in your HTML. All components are self-contained and don't require JavaScript.</p>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-summary">Can I customize colors?</summary>
+              <p class="faq-answer">Yes. Define CSS variables in @layer brand rules to override defaults. All tokens are semantic and will adapt to light/dark mode.</p>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-summary">Is it mobile-friendly?</summary>
+              <p class="faq-answer">Yes. All components use mobile-first responsive design with clamp() for fluid sizing. Test on real devices for best results.</p>
+            </details>
+          </div>
+        </section>
+
+        <section class="doc-section" id="tags">
+          <h2 class="doc-section-title">Tags & Badges</h2>
+          <p class="doc-section-desc">Status indicators, badges, and removable tags for data and metadata.</p>
+
+          <div class="doc-sub">Badges</div>
+          <div class="cluster cluster-tight" style="gap:var(--space-2)">
+            <span class="badge badge-success">Active</span>
+            <span class="badge badge-warning">Pending</span>
+            <span class="badge badge-error">Error</span>
+            <span class="badge badge-info">Info</span>
+          </div>
+
+          <div class="doc-sub">Tags with Remove</div>
+          <div class="cluster cluster-tight" style="gap:var(--space-2)">
+            <span class="tag">React <button class="tag-remove">×</button></span>
+            <span class="tag">Vue <button class="tag-remove">×</button></span>
+            <span class="tag">TypeScript <button class="tag-remove">×</button></span>
+          </div>
+        </section>
+
+        <section class="doc-section" id="utilities">
+          <h2 class="doc-section-title">Utilities</h2>
+          <p class="doc-section-desc">Low-level utility classes for layout, spacing, typography, and state. Compose components quickly with utilities.</p>
+
+          <div class="doc-sub">Flexbox Layout</div>
+          <div class="chips"><span class="chip">.flex</span><span class="chip">.flex-col</span><span class="chip">.items-center</span><span class="chip">.justify-between</span></div>
+          <div class="cluster">
+            <div class="flex gap-2">
+              <div class="p-2" style="background:var(--color-subtle);border-radius:var(--radius-md);flex:1">Item 1</div>
+              <div class="p-2" style="background:var(--color-subtle);border-radius:var(--radius-md);flex:1">Item 2</div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Spacing</div>
+          <div class="chips"><span class="chip">.gap-1</span><span class="chip">.gap-2</span><span class="chip">.p-2</span><span class="chip">.p-3</span><span class="chip">.m-auto</span></div>
+          <div class="p-3" style="background:var(--color-subtle);border-radius:var(--radius-md);margin-bottom:var(--space-2)">Content with .p-3 padding</div>
+
+          <div class="doc-sub">Typography</div>
+          <div class="chips"><span class="chip">.font-bold</span><span class="chip">.text-center</span><span class="chip">.uppercase</span><span class="chip">.truncate</span></div>
+          <div class="text-center font-bold">Centered, bold text</div>
+
+          <div class="doc-sub">Colors & States</div>
+          <div class="chips"><span class="chip">.text-muted</span><span class="chip">.opacity-50</span><span class="chip">.cursor-pointer</span><span class="chip">.disabled</span></div>
+          <div class="flex gap-2 items-center">
+            <span class="text-muted">Muted text</span>
+            <div class="opacity-50" style="width:1.5rem;height:1.5rem;background:var(--color-accent);border-radius:var(--radius-sm)"></div>
+            <button class="btn btn-ghost btn-sm cursor-pointer">Clickable</button>
           </div>
         </section>
 
