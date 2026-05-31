@@ -57,7 +57,9 @@
     <a class="app-nav-item" href="#file-upload"><svg class="icon"><use href="#i-copy"/></svg> File Upload</a>
     <a class="app-nav-item" href="#search-bar"><svg class="icon"><use href="#i-search"/></svg> Search Bar</a>
     <a class="app-nav-item" href="#empty-states"><svg class="icon"><use href="#i-info"/></svg> Empty States</a>
-    <a class="app-nav-item" href="#overlays"><svg class="icon"><use href="#i-info"/></svg> Modal & Toast</a>
+    <a class="app-nav-item" href="#overlays"><svg class="icon"><use href="#i-info"/></svg> Modals</a>
+    <a class="app-nav-item" href="#accordion"><svg class="icon"><use href="#i-edit"/></svg> Accordion</a>
+    <a class="app-nav-item" href="#tags"><svg class="icon"><use href="#i-check"/></svg> Tags & Badges</a>
     <div class="app-sidebar-section">App Patterns</div>
     <a class="app-nav-item" href="#dashboard-pattern"><svg class="icon"><use href="#i-chart"/></svg> Dashboard</a>
     <a class="app-nav-item" href="#form-pattern"><svg class="icon"><use href="#i-edit"/></svg> Forms</a>
@@ -400,14 +402,104 @@
 
         <!-- OVERLAYS -->
         <section class="doc-section" id="overlays">
-          <h2 class="doc-section-title">Modal & Toast</h2>
-          <p class="doc-sub">Modal (scale-in animation)</p>
-          <div style="position:relative;height:16rem;border:var(--border-card);border-radius:var(--radius-lg);background:var(--color-subtle);display:flex;align-items:center;justify-content:center">
-            <div style="background:var(--color-surface);padding:var(--space-6);border-radius:var(--radius-lg);max-width:20rem;box-shadow:var(--shadow-lg)">
-              <strong style="display:block;margin-bottom:var(--space-3)">Confirm action?</strong>
-              <p style="font-size:var(--text-sm);color:var(--color-muted);margin-bottom:var(--space-4)">This action cannot be undone.</p>
-              <div class="cluster cluster-tight" style="justify-content:flex-end;gap:var(--space-2)"><button class="btn btn-ghost btn-sm">Cancel</button><button class="btn btn-primary btn-sm">Confirm</button></div>
+          <h2 class="doc-section-title">Modals & Dialogs</h2>
+          <p class="doc-section-desc">Dialog overlays for confirmations, forms, and alerts. Use semantic &lt;dialog&gt; element.</p>
+
+          <div class="doc-sub">Confirmation Modal</div>
+          <div class="modal-demo" style="height:12rem">
+            <div class="modal-dialog">
+              <div class="modal-header">
+                <h3 class="t-heading-sm">Confirm Delete</h3>
+              </div>
+              <div class="modal-body">
+                <p class="t-body-sm">This action cannot be undone. Are you sure?</p>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-ghost btn-sm">Cancel</button>
+                <button class="btn btn-primary btn-sm">Delete</button>
+              </div>
             </div>
+          </div>
+
+          <div class="doc-sub">Success Dialog</div>
+          <div class="modal-demo" style="height:10rem">
+            <div class="modal-dialog">
+              <div class="modal-body">
+                <div class="cluster cluster-tight">
+                  <svg class="icon icon-success" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span class="t-body-sm">Changes saved</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="accordion">
+          <h2 class="doc-section-title">Accordion / Details</h2>
+          <p class="doc-section-desc">Collapsible content sections. Fully accessible keyboard navigation and semantic HTML.</p>
+          <div class="stack" style="max-width:28rem">
+            <details class="faq-item" open>
+              <summary class="faq-summary">How do I use the framework?</summary>
+              <p class="faq-answer">Import the CSS files (tokens and components), then use class names in your HTML. All components are self-contained and don't require JavaScript.</p>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-summary">Can I customize colors?</summary>
+              <p class="faq-answer">Yes. Define CSS variables in @layer brand rules to override defaults. All tokens are semantic and will adapt to light/dark mode.</p>
+            </details>
+            <details class="faq-item">
+              <summary class="faq-summary">Is it mobile-friendly?</summary>
+              <p class="faq-answer">Yes. All components use mobile-first responsive design with clamp() for fluid sizing. Test on real devices for best results.</p>
+            </details>
+          </div>
+        </section>
+
+        <section class="doc-section" id="tags">
+          <h2 class="doc-section-title">Tags & Badges</h2>
+          <p class="doc-section-desc">Status indicators, badges, and removable tags for data and metadata.</p>
+
+          <div class="doc-sub">Badges</div>
+          <div class="cluster cluster-tight" style="gap:var(--space-2)">
+            <span class="badge badge-success">Active</span>
+            <span class="badge badge-warning">Pending</span>
+            <span class="badge badge-error">Error</span>
+            <span class="badge badge-info">Info</span>
+          </div>
+
+          <div class="doc-sub">Tags with Remove</div>
+          <div class="cluster cluster-tight" style="gap:var(--space-2)">
+            <span class="tag">React <button class="tag-remove">×</button></span>
+            <span class="tag">Vue <button class="tag-remove">×</button></span>
+            <span class="tag">TypeScript <button class="tag-remove">×</button></span>
+          </div>
+        </section>
+
+        <section class="doc-section" id="utilities">
+          <h2 class="doc-section-title">Utilities</h2>
+          <p class="doc-section-desc">Low-level utility classes for layout, spacing, typography, and state. Compose components quickly with utilities.</p>
+
+          <div class="doc-sub">Flexbox Layout</div>
+          <div class="chips"><span class="chip">.flex</span><span class="chip">.flex-col</span><span class="chip">.items-center</span><span class="chip">.justify-between</span></div>
+          <div class="cluster">
+            <div class="flex gap-2">
+              <div class="p-2" style="background:var(--color-subtle);border-radius:var(--radius-md);flex:1">Item 1</div>
+              <div class="p-2" style="background:var(--color-subtle);border-radius:var(--radius-md);flex:1">Item 2</div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Spacing</div>
+          <div class="chips"><span class="chip">.gap-1</span><span class="chip">.gap-2</span><span class="chip">.p-2</span><span class="chip">.p-3</span><span class="chip">.m-auto</span></div>
+          <div class="p-3" style="background:var(--color-subtle);border-radius:var(--radius-md);margin-bottom:var(--space-2)">Content with .p-3 padding</div>
+
+          <div class="doc-sub">Typography</div>
+          <div class="chips"><span class="chip">.font-bold</span><span class="chip">.text-center</span><span class="chip">.uppercase</span><span class="chip">.truncate</span></div>
+          <div class="text-center font-bold">Centered, bold text</div>
+
+          <div class="doc-sub">Colors & States</div>
+          <div class="chips"><span class="chip">.text-muted</span><span class="chip">.opacity-50</span><span class="chip">.cursor-pointer</span><span class="chip">.disabled</span></div>
+          <div class="flex gap-2 items-center">
+            <span class="text-muted">Muted text</span>
+            <div class="opacity-50" style="width:1.5rem;height:1.5rem;background:var(--color-accent);border-radius:var(--radius-sm)"></div>
+            <button class="btn btn-ghost btn-sm cursor-pointer">Clickable</button>
           </div>
         </section>
 
