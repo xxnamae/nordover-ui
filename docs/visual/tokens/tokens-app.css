@@ -269,6 +269,12 @@
     --container-wide: 100%;
     --container-prose: 65ch;
 
+    /* === Width scale (utilities) — compact SaaS sizing === */
+    --w-sm: 20rem;     /* 320px */
+    --w-md: 24rem;     /* 384px */
+    --w-lg: 28rem;     /* 448px */
+    --w-xl: 32rem;     /* 512px */
+
     /* === Hover-lift (mindre dramatisk for SaaS) === */
     --lift-distance: -1px;
     --lift-shadow-from: var(--shadow-xs);

@@ -38,7 +38,7 @@
   .grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(14rem, 100%), 1fr)); gap: var(--gap-component); }
   .page { display: flex; flex-direction: column; gap: var(--spacing-section); padding-inline: var(--page-padding); }
   .page-section { padding-block: var(--spacing-section); }
-  .page-content { max-width: 80rem; margin-inline: auto; }
+  .page-content { max-width: var(--container-default); margin-inline: auto; }
 
   /* Icon sizing */
   .icon { width: var(--size-icon); height: var(--size-icon); stroke: currentColor; stroke-width: 1.5; fill: none; flex-shrink: 0; }
@@ -1112,7 +1112,7 @@
   .modal.open { opacity: 1; pointer-events: auto; }
   .modal-dialog {
     background: var(--color-bg); border: var(--border-card); border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg); max-width: 28rem; width: 90vw; max-height: 90vh;
+    box-shadow: var(--shadow-lg); max-width: var(--w-lg); width: 90vw; max-height: 90vh;
     display: flex; flex-direction: column;
   }
   .modal-header { padding: var(--space-4); border-bottom: var(--border-divider); font-weight: var(--fw-semibold); }
@@ -1290,10 +1290,10 @@
 
   /* Width/Height utilities */
   .w-full { width: 100%; }
-  .max-w-sm { max-width: 20rem; }
-  .max-w-md { max-width: 24rem; }
-  .max-w-lg { max-width: 28rem; }
-  .max-w-xl { max-width: 32rem; }
+  .max-w-sm { max-width: var(--w-sm); }
+  .max-w-md { max-width: var(--w-md); }
+  .max-w-lg { max-width: var(--w-lg); }
+  .max-w-xl { max-width: var(--w-xl); }
   .aspect-square { aspect-ratio: 1 / 1; }
   .aspect-video { aspect-ratio: 16 / 9; }
 
