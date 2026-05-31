@@ -1589,6 +1589,42 @@
           </div>
         </section>
 
+        <!-- MOBILE NAVIGATION & STATE PATTERNS -->
+        <section class="doc-section" id="mobile-navigation">
+          <h2 class="doc-section-title">State Patterns</h2>
+          <p class="doc-section-desc">Empty states, error handling, loading indicators, and success confirmations for complete user journeys.</p>
+
+          <div class="doc-sub">Empty State</div>
+          <div style="border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-4);background:var(--color-surface);text-align:center;max-width:20rem;margin:0 auto">
+            <div style="font-size:2rem;margin-bottom:var(--space-2)">📭</div>
+            <p class="t-body-sm" style="font-weight:600">No tasks</p>
+            <p class="t-body-sm" style="color:var(--color-muted);font-size:var(--text-xs);margin-top:var(--space-1)">Create one to get started</p>
+          </div>
+
+          <div class="doc-sub">Error State</div>
+          <div style="border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-3);background:var(--color-surface)">
+            <div class="alert alert-error" role="alert" style="margin-bottom:0">
+              <div style="font-size:var(--text-sm)"><strong>Error:</strong> Could not save. Try again.</div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Success Confirmation</div>
+          <div style="border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-3);background:var(--color-surface)">
+            <div class="alert alert-success" role="alert" style="margin-bottom:0">
+              <div style="font-size:var(--text-sm)"><strong>Done!</strong> Task created successfully.</div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Loading Indicator</div>
+          <div style="border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-4);background:var(--color-surface);text-align:center">
+            <svg class="icon icon-spin" style="width:1.5rem;height:1.5rem;margin:0 auto;color:var(--color-accent)" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" />
+              <path d="M12 2v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <p class="t-body-sm" style="font-size:var(--text-sm);color:var(--color-muted);margin-top:var(--space-2)">Loading...</p>
+          </div>
+        </section>
+
         <!-- UTILITIES -->
         <section class="doc-section" id="utilities">
           <h2 class="doc-section-title">Utilities Reference Catalog</h2>

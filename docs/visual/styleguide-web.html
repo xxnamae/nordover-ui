@@ -2933,6 +2933,72 @@
           <p class="t-body" style="max-width:50rem">All text colors maintain WCAG AA contrast ratios in both light and dark modes. The framework automatically inverts the OKLCH lightness axis, ensuring semantic colors remain readable and accessible across theme switches.</p>
         </section>
 
+        <!-- MOBILE NAVIGATION & STATE PATTERNS -->
+        <section class="doc-section" id="mobile-navigation">
+          <h2 class="doc-section-title">Mobile Navigation & State Patterns</h2>
+          <p class="doc-section-desc">Mobile-first navigation drawer, empty states, and feedback patterns for complete user experiences.</p>
+
+          <div class="doc-sub">Mobile Navigation Drawer</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">On mobile, sidebar becomes a drawer (toggle with hamburger button). Use checkbox + label for toggle mechanism:</p>
+          <div style="border:var(--border-card);border-radius:var(--radius-lg);padding:var(--space-4);background:var(--color-surface);font-size:var(--text-sm)">
+            <p style="margin-bottom:var(--space-3)"><strong>HTML Pattern:</strong></p>
+            <div style="background:var(--color-subtle);padding:var(--space-3);border-radius:var(--radius-md);font-family:monospace;overflow-x:auto">
+&lt;input type="checkbox" id="nav-toggle" class="sr-only"&gt;<br>
+&lt;label for="nav-toggle" class="hamburger"&gt;☰&lt;/label&gt;<br>
+&lt;nav class="mobile-nav" id="mobile-nav"&gt;<br>
+&nbsp;&nbsp;&lt;a href="#"&gt;Home&lt;/a&gt;<br>
+&nbsp;&nbsp;&lt;a href="#"&gt;About&lt;/a&gt;<br>
+&lt;/nav&gt;
+            </div>
+            <p style="margin-top:var(--space-3);color:var(--color-muted)"><strong>Behavior:</strong> Drawer slides from left, backdrop appears, ESC or backdrop click closes</p>
+          </div>
+
+          <div class="doc-sub">Empty State Pattern</div>
+          <div style="border:var(--border-card);border-radius:var(--radius-lg);padding:var(--space-6);background:var(--color-surface);text-align:center;max-width:32rem;margin:0 auto">
+            <div style="font-size:3rem;margin-bottom:var(--space-3)">📭</div>
+            <h3 class="t-heading-sm">No items yet</h3>
+            <p class="t-body-sm" style="color:var(--color-muted);margin:var(--space-2) 0">Create your first item to get started</p>
+            <button class="btn btn-primary" style="margin-top:var(--space-4)">Create Item</button>
+          </div>
+
+          <div class="doc-sub">Error State Pattern</div>
+          <div class="stack" style="max-width:32rem">
+            <div class="alert alert-error" role="alert" style="margin-bottom:0">
+              <strong>Error:</strong> Could not load items. Please check your connection and try again.
+            </div>
+            <div style="padding:var(--space-4);background:var(--color-subtle);border:var(--border-card);border-radius:var(--radius-md)">
+              <div style="text-align:center">
+                <div style="font-size:2rem;margin-bottom:var(--space-3)">⚠️</div>
+                <h4 class="t-body" style="margin-bottom:var(--space-2)">Something went wrong</h4>
+                <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">We're having trouble connecting to our servers.</p>
+                <button class="btn btn-primary btn-sm">Retry</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Success Confirmation Pattern</div>
+          <div class="stack" style="max-width:32rem;gap:var(--space-2)">
+            <div class="alert alert-success" role="alert">
+              <strong>Success!</strong> Your changes have been saved.
+            </div>
+            <div style="padding:var(--space-6);background:var(--color-subtle);border:var(--border-card);border-radius:var(--radius-md);text-align:center">
+              <div style="font-size:3rem;margin-bottom:var(--space-3)">✓</div>
+              <h3 class="t-heading-sm">Payment complete</h3>
+              <p class="t-body-sm" style="color:var(--color-muted);margin:var(--space-2) 0">Your order #12345 has been confirmed.</p>
+              <button class="btn btn-primary" style="margin-top:var(--space-4)">View Order</button>
+            </div>
+          </div>
+
+          <div class="doc-sub">Loading State Pattern</div>
+          <div style="border:var(--border-card);border-radius:var(--radius-lg);padding:var(--space-6);background:var(--color-surface);text-align:center">
+            <svg class="icon icon-spin" style="width:2rem;height:2rem;margin:0 auto;color:var(--color-accent)" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" />
+              <path d="M12 2v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <p class="t-body-sm" style="margin-top:var(--space-3);color:var(--color-muted)">Loading your data...</p>
+          </div>
+        </section>
+
         <!-- FOOTER -->
         <section class="doc-section" id="footer">
           <h2 class="doc-section-title">Footer</h2>
