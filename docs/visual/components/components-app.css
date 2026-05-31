@@ -2,6 +2,12 @@
    NORDOVER APP COMPONENTS · Fase 1A-1D + 1J + 1L + 1M + UTILITIES
    SaaS/dashboard interface, tactile buttons, compact spacing
    @layer architecture: primitives, components, utilities
+
+   Breakpoint tokens (CSS media queries cannot use custom properties):
+   36rem = --bp-tablet (576px)
+   48rem = --bp-desktop (768px)
+   60rem = --bp-wide (960px)
+   80rem = --bp-ultra (1280px)
    ============================================================ */
 
 @layer primitives, components, utilities;
@@ -232,7 +238,7 @@
   .app-sidebar-close:hover {
     background: var(--color-subtle);
   }
-  @media (min-width: 48rem) {
+  @media (min-width: 48rem) /* --bp-desktop */ {
     .app-sidebar-close {
       display: none;
     }
@@ -796,7 +802,7 @@
   /* ============================================================
      DESKTOP LAYOUT (48rem+)
      ============================================================ */
-  @media (min-width: 48rem) {
+  @media (min-width: 48rem) /* --bp-desktop */ {
     /* Desktop: 2-column layout with fixed sidebar */
     .app {
       grid-template-columns: 13rem 1fr;
@@ -863,7 +869,7 @@
   /* ============================================================
      TABLET / MEDIUM (32rem - 48rem)
      ============================================================ */
-  @media (max-width: 48rem) {
+  @media (max-width: 48rem) /* --bp-desktop */ {
     /* Tighter spacing on mobile */
     .app-content {
       padding: 0.75rem 0.75rem;
@@ -1425,17 +1431,17 @@
   .touch-area::before { content: ""; position: absolute; inset: -8px; pointer-events: none; }
 
   /* Responsive utilities */
-  @media (max-width: 60rem) {
+  @media (max-width: 60rem) /* --bp-wide */ {
     .footer-grid { grid-template-columns: 1fr 1fr; }
     .mobile-nav-trigger { display: inline-flex; }
   }
-  @media (max-width: 48rem) {
+  @media (max-width: 48rem) /* --bp-desktop */ {
     .footer-grid { grid-template-columns: 1fr; }
     .feature-grid { grid-template-columns: 1fr; }
     .pricing-grid { grid-template-columns: 1fr; }
     .date-picker-calendar { width: 100vw; max-width: 18rem; left: 50%; transform: translateX(-50%); }
   }
-  @media (max-width: 36rem) {
+  @media (max-width: 36rem) /* --bp-tablet */ {
     .page { padding-inline: var(--space-3); }
     .modal-dialog { max-width: 100%; width: 95vw; }
     .btn { padding: var(--space-1) var(--space-3); }

@@ -2,6 +2,12 @@
    NORDOVER WEB COMPONENTS · Fase 1A-1D + 1J + 1K + 1L + 1M + UTILITIES
    Editorial layout, flat buttons, generous spacing
    @layer architecture: primitives, components, utilities
+
+   Breakpoint tokens (CSS media queries cannot use custom properties):
+   36rem = --bp-tablet (576px)
+   48rem = --bp-desktop (768px)
+   60rem = --bp-wide (960px)
+   80rem = --bp-ultra (1280px)
    ============================================================ */
 
 @layer primitives, components, utilities;
@@ -118,7 +124,7 @@
   }
 
   /* Desktop: sidebar visible, positioned left */
-  @media (min-width: 48rem) {
+  @media (min-width: 48rem) /* --bp-desktop */ {
     .app {
       grid-template-columns: 13rem 1fr;
       grid-template-rows: auto 1fr;
@@ -208,7 +214,7 @@
     grid-row: 1 / -1;
     width: 100%;
   }
-  @media (min-width: 48rem) {
+  @media (min-width: 48rem) /* --bp-desktop */ {
     .app-main {
       grid-column: 2;
       grid-row: 1 / -1;
@@ -278,7 +284,7 @@
   .app-sidebar-close:hover {
     background: var(--color-subtle);
   }
-  @media (min-width: 48rem) {
+  @media (min-width: 48rem) /* --bp-desktop */ {
     .app-sidebar-close {
       display: none;
     }
@@ -516,7 +522,7 @@
     gap: var(--space-2);
     margin-bottom: var(--space-3);
   }
-  @media (min-width: 48rem) {
+  @media (min-width: 48rem) /* --bp-desktop */ {
     .feature-grid {
       grid-template-columns: repeat(3, 1fr);
       gap: var(--space-3);
@@ -572,7 +578,7 @@
     gap: var(--space-2);
     margin-bottom: var(--space-3);
   }
-  @media (min-width: 48rem) {
+  @media (min-width: 48rem) /* --bp-desktop */ {
     .pricing-grid {
       grid-template-columns: repeat(3, 1fr);
       gap: var(--space-4);
@@ -1071,7 +1077,7 @@
     padding: 1.5rem 0;
     border-top: 1px solid var(--color-border);
   }
-  @media (min-width: 48rem) {
+  @media (min-width: 48rem) /* --bp-desktop */ {
     .footer-grid {
       grid-template-columns: repeat(4, 1fr);
       gap: var(--space-4);
@@ -1352,7 +1358,7 @@
   }
 
   /* Desktop layout enhancements */
-  @media (min-width: 48rem) {
+  @media (min-width: 48rem) /* --bp-desktop */ {
     .app-content {
       padding: 1rem 1rem;
     }
@@ -1994,11 +2000,11 @@
   .touch-area::before { content: ""; position: absolute; inset: -8px; pointer-events: none; }
 
   /* Responsive utilities */
-  @media (max-width: 60rem) {
+  @media (max-width: 60rem) /* --bp-wide */ {
     .footer-grid { grid-template-columns: 1fr 1fr; }
     .mobile-nav-trigger { display: inline-flex; }
   }
-  @media (max-width: 48rem) {
+  @media (max-width: 48rem) /* --bp-desktop */ {
     .footer-grid { grid-template-columns: 1fr; }
     .feature-grid { grid-template-columns: 1fr; }
     .pricing-grid { grid-template-columns: 1fr; }
@@ -2007,7 +2013,7 @@
     .blog-card { flex-direction: row; }
     .blog-card-image { width: 8rem; height: auto; }
   }
-  @media (max-width: 36rem) {
+  @media (max-width: 36rem) /* --bp-tablet */ {
     .page { padding-inline: var(--space-4); }
     .modal-dialog { max-width: 100%; width: 95vw; }
     .timeline { padding-left: var(--space-6); }
