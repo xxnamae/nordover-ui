@@ -72,6 +72,10 @@
         <a class="app-nav-item" href="#file-upload">File Upload</a>
         <a class="app-nav-item" href="#search-bar">Search Bar</a>
         <a class="app-nav-item" href="#empty-states">Empty States</a>
+        <a class="app-nav-item" href="#modal-variants">Modal Advanced</a>
+        <a class="app-nav-item" href="#advanced-tables">Advanced Tables</a>
+        <a class="app-nav-item" href="#complex-forms">Complex Forms</a>
+        <a class="app-nav-item" href="#picker-components">Pickers</a>
         <a class="app-nav-item" href="#form-patterns">Form Patterns</a>
         <a class="app-nav-item" href="#data-patterns">Data Display</a>
       </nav>
@@ -2249,6 +2253,340 @@
 &lt;!-- .btn .btn-secondary: CTA button --&gt;</code></div>
         </section>
 
+
+        <!-- MODAL DIALOG SYSTEM — Advanced modals with variants -->
+        <section class="doc-section" id="modal-variants" data-section="components" data-category="modals">
+          <h2 class="doc-section-title">Modal Dialog System (Advanced)</h2>
+          <p class="doc-section-desc">Complete modal variants: basic, footer actions, form submission, scrollable content. All with proper ARIA semantics, focus trapping, and keyboard navigation.</p>
+
+          <div class="doc-sub">Modal with Scrollable Content</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">For content exceeding viewport height. Body scrolls while header/footer remain sticky.</p>
+          <div class="modal-demo" style="max-height:20rem;overflow-y:auto">
+            <div class="modal-dialog">
+              <div class="modal-header" style="position:sticky;top:0;z-index:1;background:var(--color-surface)">
+                <h2 class="t-heading-md">Terms of Service</h2>
+                <button class="btn btn-ghost" aria-label="Close modal" type="button">×</button>
+              </div>
+              <div class="modal-body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p style="margin-top:var(--space-3)">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p style="margin-top:var(--space-3)">Excepteur sint occaecat cupidatat non proident. This text continues to demonstrate scrolling behavior with sticky header and footer.</p>
+              </div>
+              <div class="modal-footer" style="position:sticky;bottom:0;background:var(--color-surface);border-top:1px solid var(--color-border)">
+                <button class="btn btn-ghost btn-sm">Cancel</button>
+                <button class="btn btn-primary btn-sm">I Agree</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Modal with Form HTML</div>
+          <div class="code-block" style="background:var(--color-subtle);border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-3);overflow-x:auto;font-size:0.8rem;font-family:var(--font-mono);margin-bottom:var(--space-3)">
+            <pre style="margin:0">&lt;div class="modal open" role="presentation"&gt;
+  &lt;div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="form-dialog-title"&gt;
+    &lt;div class="modal-header"&gt;
+      &lt;h2 class="t-heading-md" id="form-dialog-title"&gt;Add New Project&lt;/h2&gt;
+      &lt;button class="btn btn-ghost" aria-label="Close dialog" type="button"&gt;×&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="modal-body"&gt;
+      &lt;div class="field"&gt;
+        &lt;label class="field-label"&gt;Project Name&lt;/label&gt;
+        &lt;input class="form-input" type="text" placeholder="e.g., Website Redesign"&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="modal-footer"&gt;
+      &lt;button class="btn btn-ghost"&gt;Cancel&lt;/button&gt;
+      &lt;button class="btn btn-primary"&gt;Create&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+          </div>
+
+          <div class="doc-sub">Accessibility & Keyboard</div>
+          <div class="a11y-checklist">
+            <div class="a11y-item"><span class="a11y-check">✓</span><span>aria-modal="true" on dialog element</span></div>
+            <div class="a11y-item"><span class="a11y-check">✓</span><span>aria-labelledby links header for context</span></div>
+            <div class="a11y-item"><span class="a11y-check">✓</span><span>Focus trap: Tab/Shift+Tab cycles within modal</span></div>
+            <div class="a11y-item"><span class="a11y-check">✓</span><span>ESC closes modal (JavaScript required)</span></div>
+          </div>
+        </section>
+
+        <!-- ADVANCED DATA TABLES — Sortable, filterable, selectable -->
+        <section class="doc-section" id="advanced-tables" data-section="components" data-category="tables">
+          <h2 class="doc-section-title">Advanced Data Tables</h2>
+          <p class="doc-section-desc">Production-grade tables: sortable headers with aria-sort, row selection, bulk actions, inline editing, responsive wrappers.</p>
+
+          <div class="doc-sub">Sortable Headers with aria-sort</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Aria-sort indicates sort state: none → ascending → descending</p>
+          <div style="overflow-x:auto">
+            <table class="table" aria-label="Sortable user table">
+              <thead>
+                <tr>
+                  <th scope="col"><button class="table-sort" aria-sort="ascending" type="button">Name ↑</button></th>
+                  <th scope="col"><button class="table-sort" aria-sort="none" type="button">Email</button></th>
+                  <th scope="col"><button class="table-sort" aria-sort="none" type="button">Status</button></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Alice</strong></td><td>alice@example.com</td><td><span class="badge badge-success">Active</span></td></tr>
+                <tr><td><strong>Bob</strong></td><td>bob@example.com</td><td><span class="badge badge-warning">Pending</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="doc-sub">Row Selection & Bulk Actions</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Checkbox selection with bulk action toolbar</p>
+          <div style="margin-bottom:var(--space-3)">
+            <div style="display:flex;gap:var(--space-2);margin-bottom:var(--space-3);align-items:center">
+              <span style="font-size:var(--text-sm);color:var(--color-muted)">2 rows selected</span>
+              <button class="btn btn-secondary btn-sm">Edit</button>
+              <button class="btn btn-ghost btn-sm" style="color:var(--color-error)">Delete</button>
+            </div>
+            <div style="overflow-x:auto">
+              <table class="table" aria-label="Selectable table">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width:2.5rem"><input type="checkbox" aria-label="Select all"></th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><input type="checkbox" checked></td>
+                    <td><strong>Alice</strong></td>
+                    <td>alice@example.com</td>
+                  </tr>
+                  <tr>
+                    <td><input type="checkbox" checked></td>
+                    <td><strong>Bob</strong></td>
+                    <td>bob@example.com</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="doc-sub">Inline Editing</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Click to edit, blur to save</p>
+          <div style="overflow-x:auto">
+            <table class="table" aria-label="Inline editable table">
+              <thead><tr><th scope="col">Name</th><th scope="col">Role</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><strong>Alice</strong></td>
+                  <td><button style="background:none;border:none;color:var(--color-accent);cursor:pointer;font-weight:500">Admin</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="doc-sub">Implementation</div>
+          <div class="a11y-checklist">
+            <div class="a11y-item"><span class="a11y-check">✓</span><span>aria-sort on sortable headers</span></div>
+            <div class="a11y-item"><span class="a11y-check">✓</span><span>th scope="col" for all headers</span></div>
+            <div class="a11y-item"><span class="a11y-check">✓</span><span>Checkbox column with "select all" in header</span></div>
+            <div class="a11y-item"><span class="a11y-check">✓</span><span>overflow-x:auto for responsive, not hidden</span></div>
+          </div>
+        </section>
+
+        <!-- COMPLEX FORM PATTERNS — Multi-field validation, dependent fields -->
+        <section class="doc-section" id="complex-forms" data-section="components" data-category="forms">
+          <h2 class="doc-section-title">Complex Form Patterns</h2>
+          <p class="doc-section-desc">Real-time validation, dependent fields, success/error states. Production-ready patterns.</p>
+
+          <div class="doc-sub">Real-time Validation & Success States</div>
+          <div class="doc-demo" style="max-width:28rem;margin:auto">
+            <div class="stack">
+              <div class="field">
+                <label class="field-label">Username</label>
+                <input class="form-input" type="text" value="john_doe" style="border-color:var(--color-success)">
+                <span style="color:var(--color-success);font-size:var(--text-xs)">✓ Available</span>
+              </div>
+              <div class="field">
+                <label class="field-label">Email</label>
+                <input class="form-input" type="email" value="john@example.c" style="border-color:var(--color-error)">
+                <span class="field-error">Invalid format</span>
+              </div>
+              <div class="field">
+                <label class="field-label">Password</label>
+                <input class="form-input" type="password" value="MyPass123">
+                <div style="display:flex;gap:var(--space-1);margin-top:var(--space-2)">
+                  <div style="flex:1;height:0.5rem;background:var(--color-success);border-radius:var(--radius-sm)"></div>
+                  <div style="flex:1;height:0.5rem;background:var(--color-success);border-radius:var(--radius-sm)"></div>
+                  <div style="flex:1;height:0.5rem;background:var(--color-warning);border-radius:var(--radius-sm)"></div>
+                </div>
+              </div>
+              <button class="btn btn-primary" style="width:100%">Create</button>
+            </div>
+          </div>
+
+          <div class="doc-sub">Conditional/Dependent Fields</div>
+          <div class="doc-demo" style="max-width:28rem;margin:auto">
+            <div class="stack">
+              <div class="field">
+                <label class="field-label">Shipping Method</label>
+                <select class="form-select"><option>Standard</option><option selected>Express</option></select>
+              </div>
+              <div style="background:var(--color-subtle);border:1px solid var(--color-border);border-radius:var(--radius-md);padding:var(--space-3)">
+                <label style="display:flex;align-items:center;gap:var(--space-2);cursor:pointer;font-size:var(--text-sm)">
+                  <input type="checkbox" checked> Special instructions
+                </label>
+                <textarea class="form-textarea" style="margin-top:var(--space-2)" placeholder="Leave at door..." rows="2"></textarea>
+              </div>
+              <div style="background:color-mix(in oklch, var(--color-success) 10%, var(--color-surface));padding:var(--space-3);border-radius:var(--radius-md)">
+                <p style="font-size:var(--text-sm);font-weight:600">Ready to ship</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Validation HTML Example</div>
+          <div class="code-block" style="background:var(--color-subtle);border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-3);overflow-x:auto;font-size:0.8rem;font-family:var(--font-mono)">
+            <pre style="margin:0">&lt;form onsubmit="validate(event)"&gt;
+  &lt;div class="field"&gt;
+    &lt;label class="field-label"&gt;Password&lt;/label&gt;
+    &lt;input class="form-input" id="pwd" type="password" required&gt;
+  &lt;/div&gt;
+  &lt;div class="field"&gt;
+    &lt;label class="field-label"&gt;Confirm&lt;/label&gt;
+    &lt;input class="form-input" id="pwd2" type="password" required&gt;
+    &lt;div id="error" class="field-error" style="display:none"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;button type="submit" class="btn btn-primary"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;script&gt;
+function validate(e) {
+  if (pwd.value !== pwd2.value) {
+    error.style.display = 'block';
+    error.textContent = 'Passwords do not match';
+    e.preventDefault();
+  }
+}
+&lt;/script&gt;</pre>
+          </div>
+
+          <div class="doc-sub">Accessibility</div>
+          <div class="a11y-checklist">
+            <div class="a11y-item"><span class="a11y-check">✓</span><span>aria-describedby links errors to inputs</span></div>
+            <div class="a11y-item"><span class="a11y-check">✓</span><span>Conditional fields use aria-hidden when hidden</span></div>
+            <div class="a11y-item"><span class="a11y-check">✓</span><span>Real-time feedback without page reload</span></div>
+            <div class="a11y-item"><span class="a11y-check">✓</span><span>Error messages in red with text (not color alone)</span></div>
+          </div>
+        </section>
+
+        <!-- PICKER COMPONENTS — Date, Time, Color -->
+        <section class="doc-section" id="picker-components" data-section="components" data-category="pickers">
+          <h2 class="doc-section-title">Picker Components</h2>
+          <p class="doc-section-desc">Date, time, and color pickers with full keyboard navigation and ARIA support.</p>
+
+          <div class="doc-sub">Date Picker with Calendar</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Arrow keys navigate, Enter selects, ESC closes</p>
+          <div class="doc-demo" style="max-width:18rem">
+            <div class="field">
+              <label class="field-label">Select Date</label>
+              <input class="form-input" type="date" value="2026-05-31">
+            </div>
+            <div style="background:var(--color-subtle);border:1px solid var(--color-border);border-radius:var(--radius-md);padding:var(--space-3);margin-top:var(--space-3)">
+              <div style="text-align:center;margin-bottom:var(--space-3);font-weight:600">May 2026</div>
+              <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:var(--space-1);font-size:0.85rem">
+                <div style="text-align:center;color:var(--color-muted);font-weight:600">Su</div>
+                <div style="text-align:center;color:var(--color-muted);font-weight:600">Mo</div>
+                <div style="text-align:center;color:var(--color-muted);font-weight:600">Tu</div>
+                <div style="text-align:center;color:var(--color-muted);font-weight:600">We</div>
+                <div style="text-align:center;color:var(--color-muted);font-weight:600">Th</div>
+                <div style="text-align:center;color:var(--color-muted);font-weight:600">Fr</div>
+                <div style="text-align:center;color:var(--color-muted);font-weight:600">Sa</div>
+                <div style="text-align:center;color:var(--color-muted)">26</div>
+                <div style="text-align:center;color:var(--color-muted)">27</div>
+                <div style="text-align:center;color:var(--color-muted)">28</div>
+                <div style="text-align:center;color:var(--color-muted)">29</div>
+                <div style="text-align:center;color:var(--color-muted)">30</div>
+                <div style="text-align:center">1</div>
+                <div style="text-align:center">2</div>
+                <div style="text-align:center">3</div>
+                <div style="text-align:center">4</div>
+                <div style="text-align:center">5</div>
+                <div style="text-align:center">6</div>
+                <div style="text-align:center">7</div>
+                <div style="text-align:center">8</div>
+                <div style="text-align:center">9</div>
+                <div style="text-align:center">10</div>
+                <div style="text-align:center">11</div>
+                <div style="text-align:center">12</div>
+                <div style="text-align:center">13</div>
+                <div style="text-align:center">14</div>
+                <div style="text-align:center">15</div>
+                <div style="text-align:center">16</div>
+                <div style="text-align:center">17</div>
+                <div style="text-align:center">18</div>
+                <div style="text-align:center">19</div>
+                <div style="text-align:center">20</div>
+                <div style="text-align:center">21</div>
+                <div style="text-align:center">22</div>
+                <div style="text-align:center">23</div>
+                <div style="text-align:center">24</div>
+                <div style="text-align:center">25</div>
+                <div style="text-align:center">26</div>
+                <div style="text-align:center">27</div>
+                <div style="text-align:center">28</div>
+                <div style="text-align:center">29</div>
+                <div style="text-align:center">30</div>
+                <div style="text-align:center;background:var(--color-accent);color:var(--color-accent-fg);border-radius:var(--radius-sm);font-weight:600">31</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Time Picker</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Up/Down arrows adjust hours/minutes</p>
+          <div class="doc-demo" style="max-width:16rem">
+            <div class="field">
+              <label class="field-label">Select Time</label>
+              <input class="form-input" type="time" value="14:30">
+            </div>
+            <div style="background:var(--color-subtle);border:1px solid var(--color-border);border-radius:var(--radius-md);padding:var(--space-3);margin-top:var(--space-3);text-align:center">
+              <div style="display:flex;gap:var(--space-2);justify-content:center;align-items:center">
+                <div style="text-align:center">
+                  <div style="font-size:1.5rem;font-weight:600">14</div>
+                  <div style="font-size:0.7rem;color:var(--color-muted);margin-top:var(--space-1)">Hours</div>
+                </div>
+                <div style="font-size:1.5rem;font-weight:600">:</div>
+                <div style="text-align:center">
+                  <div style="font-size:1.5rem;font-weight:600">30</div>
+                  <div style="font-size:0.7rem;color:var(--color-muted);margin-top:var(--space-1)">Minutes</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Color Picker</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">HSL sliders with hex output</p>
+          <div class="doc-demo" style="max-width:20rem">
+            <div class="field">
+              <label class="field-label">Select Color</label>
+              <input class="form-input" type="color" value="#0047AB">
+            </div>
+            <div style="background:var(--color-subtle);border:1px solid var(--color-border);border-radius:var(--radius-md);padding:var(--space-3);margin-top:var(--space-3)">
+              <div style="display:flex;gap:var(--space-3)">
+                <div style="flex:1;min-height:4rem;background:#0047AB;border-radius:var(--radius-md);border:1px solid var(--color-border)"></div>
+                <div style="flex:1;font-size:var(--text-xs)">
+                  <div style="margin-bottom:var(--space-2)"><label style="color:var(--color-muted)">Hue</label><input type="range" min="0" max="360" value="210" style="width:100%;margin-top:0.25rem"></div>
+                  <div style="margin-bottom:var(--space-2)"><label style="color:var(--color-muted)">Saturation</label><input type="range" min="0" max="100" value="100" style="width:100%;margin-top:0.25rem"></div>
+                  <div><label style="color:var(--color-muted)">Lightness</label><input type="range" min="0" max="100" value="32" style="width:100%;margin-top:0.25rem"></div>
+                </div>
+              </div>
+              <div style="margin-top:var(--space-2);padding:var(--space-2);background:var(--color-surface);border-radius:var(--radius-sm);text-align:center;font-family:var(--font-mono);font-size:var(--text-xs)">#0047AB</div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Keyboard Navigation</div>
+          <div class="a11y-checklist">
+            <div class="a11y-item"><span class="a11y-check">✓</span><span>Date: Arrow keys move dates, Enter selects</span></div>
+            <div class="a11y-item"><span class="a11y-check">✓</span><span>Time: Up/Down adjust by 15min increments</span></div>
+            <div class="a11y-item"><span class="a11y-check">✓</span><span>Color: Tab between sliders, arrows adjust ±1</span></div>
+            <div class="a11y-item"><span class="a11y-check">✓</span><span>ESC closes any open picker</span></div>
+            <div class="a11y-item"><span class="a11y-check">✓</span><span>aria-live="polite" announces changes</span></div>
+          </div>
+        </section>
         <!-- FORM PATTERNS — Multi-field form layouts and arrangements -->
         <section class="doc-section" id="form-patterns" data-section="patterns" data-category="forms">
           <h2 class="doc-section-title">Form Patterns</h2>
