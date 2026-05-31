@@ -50,6 +50,7 @@
     <a class="app-nav-item" href="#search-bar">Search Bar</a>
     <a class="app-nav-item" href="#empty-states">Empty States</a>
     <a class="app-nav-item" href="#states-interactions">States & Interactions</a>
+    <a class="app-nav-item" href="#component-variants">Component Variants</a>
     <a class="app-nav-item" href="#utilities">Utilities</a>
     <a class="app-nav-item" href="#dark-mode-examples">Dark Mode</a>
     <div class="app-sidebar-section">Patterns</div>
@@ -1293,6 +1294,154 @@
             <p class="t-body-sm"><strong>Disabled appearance:</strong> Must be visually distinct - reduce opacity, change color, or add strikethrough. Not color alone.</p>
             <p class="t-body-sm"><strong>Error states:</strong> Must be indicated by more than color. Include icon, text message, or border style change.</p>
             <p class="t-body-sm"><strong>Motion:</strong> All animations respect prefers-reduced-motion. @media (prefers-reduced-motion: reduce) disables animations.</p>
+          </div>
+        </section>
+
+        <!-- COMPONENT VARIANTS -->
+        <section class="doc-section" id="component-variants">
+          <h2 class="doc-section-title">Component Variants & Combinations</h2>
+          <p class="doc-section-desc">Complete overview of all component variant combinations. Mix and match sizes, styles, and states to build custom layouts.</p>
+
+          <div class="doc-sub">Button Size × Variant Matrix</div>
+          <div class="chips"><span class="chip">.btn-xs</span><span class="chip">.btn-sm</span><span class="chip">.btn-md</span><span class="chip">.btn-lg</span></div>
+          <div class="doc-demo">
+            <div class="stack">
+              <div class="cluster cluster-tight">
+                <button class="btn btn-primary" style="padding:var(--space-1) var(--space-2);font-size:var(--text-xs)">XS Primary</button>
+                <button class="btn btn-secondary" style="padding:var(--space-1) var(--space-2);font-size:var(--text-xs)">XS Secondary</button>
+                <button class="btn btn-ghost" style="padding:var(--space-1) var(--space-2);font-size:var(--text-xs)">XS Ghost</button>
+              </div>
+              <div class="cluster cluster-tight">
+                <button class="btn btn-primary btn-sm">SM Primary</button>
+                <button class="btn btn-secondary btn-sm">SM Secondary</button>
+                <button class="btn btn-ghost btn-sm">SM Ghost</button>
+              </div>
+              <div class="cluster cluster-tight">
+                <button class="btn btn-primary">MD Primary</button>
+                <button class="btn btn-secondary">MD Secondary</button>
+                <button class="btn btn-ghost">MD Ghost</button>
+              </div>
+              <div class="cluster cluster-tight">
+                <button class="btn btn-primary btn-lg">LG Primary</button>
+                <button class="btn btn-secondary btn-lg">LG Secondary</button>
+                <button class="btn btn-ghost btn-lg">LG Ghost</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Form Input Types (All Variants)</div>
+          <div class="chips"><span class="chip">text</span><span class="chip">email</span><span class="chip">password</span><span class="chip">number</span><span class="chip">date</span><span class="chip">textarea</span><span class="chip">select</span></div>
+          <div class="doc-demo stack">
+            <div>
+              <label class="field-label">Text Input</label>
+              <input class="form-input" type="text" placeholder="Enter text">
+            </div>
+            <div>
+              <label class="field-label">Email Input</label>
+              <input class="form-input" type="email" placeholder="name@example.com">
+            </div>
+            <div>
+              <label class="field-label">Password Input</label>
+              <input class="form-input" type="password" placeholder="••••••••">
+            </div>
+            <div>
+              <label class="field-label">Number Input</label>
+              <input class="form-input" type="number" placeholder="0" min="0">
+            </div>
+            <div>
+              <label class="field-label">Date Input</label>
+              <input class="form-input" type="date">
+            </div>
+            <div>
+              <label class="field-label">Select Dropdown</label>
+              <select class="form-input">
+                <option>Choose an option</option>
+                <option>Option 1</option>
+                <option>Option 2</option>
+                <option>Option 3</option>
+              </select>
+            </div>
+            <div>
+              <label class="field-label">Textarea</label>
+              <textarea class="form-textarea" placeholder="Enter longer text here..."></textarea>
+            </div>
+          </div>
+
+          <div class="doc-sub">Badge & Status Combinations</div>
+          <div class="chips"><span class="chip">.badge-success</span><span class="chip">.badge-warning</span><span class="chip">.badge-error</span><span class="chip">.badge-info</span></div>
+          <div class="doc-demo">
+            <div class="stack">
+              <div class="cluster cluster-tight">
+                <span class="badge badge-success">✓ Success</span>
+                <span class="badge badge-warning">⚠ Warning</span>
+                <span class="badge badge-error">✕ Error</span>
+                <span class="badge badge-info">ⓘ Info</span>
+              </div>
+              <div class="cluster cluster-tight">
+                <span class="badge badge-success" style="font-size:var(--text-xs)">Small Success</span>
+                <span class="badge badge-warning" style="font-size:var(--text-xs)">Small Warning</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Card Combinations</div>
+          <div class="chips"><span class="chip">.card</span><span class="chip">.card-header</span><span class="chip">.card-footer</span><span class="chip">Interactive</span></div>
+          <div class="doc-demo grid-auto" style="gap:var(--space-4)">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="t-heading-sm">Basic Card</h4>
+                <p class="t-body-sm" style="color:var(--color-muted)">Simple card with content only.</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header">Card with Header</div>
+              <div class="card-body">
+                <p class="t-body-sm">Content below the header section.</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body">
+                <h4 class="t-heading-sm">Card with Footer</h4>
+                <p class="t-body-sm" style="color:var(--color-muted)">Includes action buttons below.</p>
+              </div>
+              <div class="card-footer">
+                <button class="btn btn-ghost btn-sm">Cancel</button>
+                <button class="btn btn-primary btn-sm">Action</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Alert Variants (All Types)</div>
+          <div class="chips"><span class="chip">success</span><span class="chip">warning</span><span class="chip">error</span><span class="chip">info</span></div>
+          <div class="doc-demo stack">
+            <div class="alert alert-success">
+              <strong>Success:</strong> Operation completed successfully. All changes have been saved.
+            </div>
+            <div class="alert alert-warning">
+              <strong>Warning:</strong> Please review this information. Some items may need attention.
+            </div>
+            <div class="alert alert-error">
+              <strong>Error:</strong> Something went wrong. Please try again or contact support.
+            </div>
+            <div class="alert alert-info">
+              <strong>Info:</strong> This is informational content to help you understand the feature.
+            </div>
+          </div>
+
+          <div class="doc-sub">Typography Sizes (Complete Hierarchy)</div>
+          <div class="chips"><span class="chip">.t-display-xl</span><span class="chip">.t-display-lg</span><span class="chip">.t-heading-*</span><span class="chip">.t-body-*</span></div>
+          <div class="doc-demo stack">
+            <p class="t-display-xl">Display XL (80px responsive)</p>
+            <p class="t-display-lg">Display LG (60px responsive)</p>
+            <p class="t-display-md">Display MD (40px responsive)</p>
+            <p class="t-heading-lg">Heading LG (32px)</p>
+            <p class="t-heading-md">Heading MD (24px)</p>
+            <p class="t-heading-sm">Heading SM (20px)</p>
+            <p class="t-body-lg">Body Large (18px)</p>
+            <p class="t-body">Body Regular (16px)</p>
+            <p class="t-body-sm">Body Small (14px)</p>
+            <p class="t-eyebrow">EYEBROW / LABEL (12px, uppercase)</p>
+            <p class="t-caption">Caption (12px, muted)</p>
           </div>
         </section>
 

@@ -61,6 +61,7 @@
     <a class="app-nav-item" href="#search-bar"><svg class="icon"><use href="#i-search"/></svg> Search Bar</a>
     <a class="app-nav-item" href="#empty-states"><svg class="icon"><use href="#i-info"/></svg> Empty States</a>
     <a class="app-nav-item" href="#states-interactions"><svg class="icon"><use href="#i-check"/></svg> States & Interactions</a>
+    <a class="app-nav-item" href="#component-variants"><svg class="icon"><use href="#i-folder"/></svg> Component Variants</a>
     <a class="app-nav-item" href="#overlays"><svg class="icon"><use href="#i-info"/></svg> Modals</a>
     <a class="app-nav-item" href="#accordion"><svg class="icon"><use href="#i-edit"/></svg> Accordion</a>
     <a class="app-nav-item" href="#tags"><svg class="icon"><use href="#i-check"/></svg> Tags & Badges</a>
@@ -669,6 +670,116 @@
 
           <div class="doc-sub">Accessibility</div>
           <p class="t-body-xs" style="max-width:40rem;color:var(--color-muted)">Focus indicators: 3:1 contrast minimum. Disabled: visually distinct, not color alone. Error states: icon + text + color. All animations respect prefers-reduced-motion.</p>
+        </section>
+
+        <!-- COMPONENT VARIANTS -->
+        <section class="doc-section" id="component-variants">
+          <h2 class="doc-section-title">Component Variants & Combinations</h2>
+          <p class="doc-section-desc">All available component variant combinations. Compact app-appropriate sizing.</p>
+
+          <div class="doc-sub">Button Sizes × Variants</div>
+          <div class="chips"><span class="chip">.btn-xs</span><span class="chip">.btn-sm</span><span class="chip">.btn</span></div>
+          <div class="doc-demo">
+            <div class="stack">
+              <div class="flex gap-1 flex-wrap">
+                <button class="btn btn-primary" style="padding:var(--space-1) var(--space-2);font-size:var(--text-xs)">XS Primary</button>
+                <button class="btn btn-secondary" style="padding:var(--space-1) var(--space-2);font-size:var(--text-xs)">XS Secondary</button>
+                <button class="btn btn-ghost" style="padding:var(--space-1) var(--space-2);font-size:var(--text-xs)">XS Ghost</button>
+              </div>
+              <div class="flex gap-1 flex-wrap">
+                <button class="btn btn-primary btn-sm">SM Primary</button>
+                <button class="btn btn-secondary btn-sm">SM Secondary</button>
+                <button class="btn btn-ghost btn-sm">SM Ghost</button>
+              </div>
+              <div class="flex gap-1 flex-wrap">
+                <button class="btn btn-primary">MD Primary</button>
+                <button class="btn btn-secondary">MD Secondary</button>
+                <button class="btn btn-ghost">MD Ghost</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Form Input Types</div>
+          <div class="chips"><span class="chip">text</span><span class="chip">email</span><span class="chip">password</span><span class="chip">number</span><span class="chip">select</span></div>
+          <div class="doc-demo stack">
+            <div>
+              <label class="field-label">Text</label>
+              <input class="form-input" type="text" placeholder="Text input" style="font-size:var(--text-sm)">
+            </div>
+            <div>
+              <label class="field-label">Email</label>
+              <input class="form-input" type="email" placeholder="name@example.com" style="font-size:var(--text-sm)">
+            </div>
+            <div>
+              <label class="field-label">Password</label>
+              <input class="form-input" type="password" placeholder="••••••••" style="font-size:var(--text-sm)">
+            </div>
+            <div>
+              <label class="field-label">Select</label>
+              <select class="form-input" style="font-size:var(--text-sm)">
+                <option>Choose option</option>
+                <option>Option 1</option>
+                <option>Option 2</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="doc-sub">Badge Variants</div>
+          <div class="chips"><span class="chip">.badge-success</span><span class="chip">.badge-warning</span><span class="chip">.badge-error</span></div>
+          <div class="doc-demo flex gap-1 flex-wrap">
+            <span class="badge badge-success">Active</span>
+            <span class="badge badge-warning">Pending</span>
+            <span class="badge badge-error">Error</span>
+            <span class="badge badge-info">Info</span>
+          </div>
+
+          <div class="doc-sub">Alert Variants</div>
+          <div class="chips"><span class="chip">success</span><span class="chip">warning</span><span class="chip">error</span><span class="chip">info</span></div>
+          <div class="doc-demo stack">
+            <div class="alert alert-success" style="font-size:var(--text-sm)">Success: Operation completed</div>
+            <div class="alert alert-warning" style="font-size:var(--text-sm)">Warning: Please review</div>
+            <div class="alert alert-error" style="font-size:var(--text-sm)">Error: Something failed</div>
+            <div class="alert alert-info" style="font-size:var(--text-sm)">Info: Helpful information</div>
+          </div>
+
+          <div class="doc-sub">Card Layouts</div>
+          <div class="chips"><span class="chip">.card</span><span class="chip">.card-header</span><span class="chip">.card-footer</span></div>
+          <div class="doc-demo grid-auto" style="gap:var(--space-2)">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="t-heading-xs">Basic Card</h4>
+                <p class="t-body-xs" style="color:var(--color-muted);margin-top:var(--space-1)">Simple card content</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" style="font-size:var(--text-sm);font-weight:var(--fw-medium)">Header</div>
+              <div class="card-body">
+                <p class="t-body-xs">Content with header</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body">
+                <h4 class="t-heading-xs">With Footer</h4>
+                <p class="t-body-xs" style="color:var(--color-muted);margin-top:var(--space-1)">Card with actions</p>
+              </div>
+              <div class="card-footer">
+                <button class="btn btn-ghost btn-sm" style="font-size:var(--text-xs)">Cancel</button>
+                <button class="btn btn-primary btn-sm" style="font-size:var(--text-xs)">OK</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Typography Hierarchy</div>
+          <div class="chips"><span class="chip">.t-heading-*</span><span class="chip">.t-body-*</span><span class="chip">.t-caption</span></div>
+          <div class="doc-demo stack">
+            <p class="t-heading-lg">Heading Large</p>
+            <p class="t-heading-md">Heading Medium</p>
+            <p class="t-heading-sm">Heading Small</p>
+            <p class="t-heading-xs">Heading XSmall</p>
+            <p class="t-body">Body Regular</p>
+            <p class="t-body-sm">Body Small</p>
+            <p class="t-caption">Caption / Meta</p>
+          </div>
         </section>
 
         <!-- UTILITIES -->
