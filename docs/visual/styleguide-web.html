@@ -362,6 +362,79 @@
               <span>Keep animations under 400ms for responsiveness</span>
             </div>
           </div>
+
+          <div class="doc-sub">Easing Functions (Timing)</div>
+          <div class="stack-tight" style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-lg);font-size:var(--text-sm)">
+            <p><strong>ease-out:</strong> Fast start, slow end — For entrances and positive actions</p>
+            <p><strong>ease-in:</strong> Slow start, fast end — For exits (less common)</p>
+            <p><strong>ease-in-out:</strong> Slow at both ends — For continuous movements</p>
+            <p><strong>cubic-bezier(0.34, 1.56, 0.64, 1):</strong> Bouncy spring effect</p>
+            <p><strong>Avoid:</strong> Linear and ease-in for entrances (feels mechanical)</p>
+          </div>
+
+          <div class="doc-sub">Micro-Interactions Examples</div>
+          <div class="stack" style="gap:var(--space-4)">
+            <div>
+              <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-2)">Button hover scale (150ms ease-out)</p>
+              <div style="display:flex;gap:var(--space-3)">
+                <button class="btn btn-primary">Normal</button>
+                <button class="btn btn-primary" style="transform:scale(1.05)">Hover (+5%)</button>
+              </div>
+            </div>
+            <div>
+              <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-2)">Loading spinner (infinite rotation)</p>
+              <svg class="icon icon-spin" style="width:1.5rem;height:1.5rem;color:var(--color-accent)" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" />
+                <path d="M12 2v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-2)">Success checkmark (bounce-in 250ms)</p>
+              <div style="color:var(--color-success);font-size:2rem">✓</div>
+            </div>
+            <div>
+              <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-2)">Tooltip fade (100ms opacity transition)</p>
+              <div style="padding:var(--space-2);background:var(--color-fg);color:var(--color-bg);border-radius:var(--radius-md);font-size:var(--text-sm);opacity:0.9">Helpful tooltip</div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Animation Utilities Reference</div>
+          <div class="chips" style="margin-bottom:var(--space-3)">
+            <span class="chip">.animate-fade-in</span>
+            <span class="chip">.animate-slide-up</span>
+            <span class="chip">.animate-slide-down</span>
+            <span class="chip">.animate-slide-left</span>
+            <span class="chip">.animate-slide-right</span>
+            <span class="chip">.animate-scale-in</span>
+            <span class="chip">.animate-bounce-in</span>
+            <span class="chip">.transition-fast</span>
+            <span class="chip">.transition-base</span>
+          </div>
+
+          <div class="doc-sub">CSS Implementation Guide</div>
+          <div style="background:var(--color-surface);border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-4);font-family:monospace;font-size:var(--text-xs);overflow-x:auto;white-space:pre;line-height:1.5;margin-bottom:var(--space-3)">.fade-in {
+  animation: fadeIn var(--duration-base) ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in { animation: none; }
+}</div>
+
+          <div class="doc-sub">Best Practices Summary</div>
+          <ul class="stack-tight" style="font-size:var(--text-sm);list-style:inside">
+            <li>✓ All animations use CSS (not JavaScript when possible)</li>
+            <li>✓ Animations follow motion tokens (--duration-*)</li>
+            <li>✓ Easing is natural (ease-out for entrances)</li>
+            <li>✓ Duration 150-400ms (never longer than 400ms)</li>
+            <li>✓ prefers-reduced-motion always respected</li>
+            <li>✓ Loading spinners have .icon-spin class</li>
+            <li>✓ No animation on pure decorative elements</li>
+          </ul>
         </section>
 
         <!-- ICONS — SVG icon system with sizing and colors -->

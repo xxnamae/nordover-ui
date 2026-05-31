@@ -333,6 +333,33 @@
               <span>Use easing for natural, responsive feel</span>
             </div>
           </div>
+
+          <div class="doc-sub">App-Specific Animation Patterns</div>
+          <div class="stack-tight" style="background:var(--color-subtle);padding:var(--space-3);border-radius:var(--radius-md);font-size:var(--text-sm);max-width:24rem">
+            <p><strong>Button press:</strong> Scale 0.98 + fade (150ms) — Tactile feedback</p>
+            <p><strong>Page transition:</strong> Fade-in 200ms — Smooth screen changes</p>
+            <p><strong>Loading spinner:</strong> Infinite rotation — .icon-spin class</p>
+            <p><strong>Slide drawer:</strong> Transform 250ms ease-out — Mobile nav pattern</p>
+            <p><strong>Bounce pulse:</strong> Scale 1.0 → 1.2 → 1.0 — Attention grabber</p>
+          </div>
+
+          <div class="doc-sub">Easing & Timing (App-tuned)</div>
+          <div class="stack-tight" style="font-size:var(--text-xs);max-width:24rem">
+            <p><strong>ease-out:</strong> Recommended for all app animations</p>
+            <p><strong>150ms:</strong> Micro-interactions, hover states</p>
+            <p><strong>200ms:</strong> Component transitions</p>
+            <p><strong>300ms:</strong> Page transitions, modal opens</p>
+          </div>
+
+          <div class="doc-sub">Do's and Don'ts</div>
+          <div class="stack-tight" style="font-size:var(--text-sm);max-width:24rem">
+            <div>✓ <strong>Do:</strong> Use animations for user feedback and state changes</div>
+            <div>✓ <strong>Do:</strong> Keep animations under 300ms for app responsiveness</div>
+            <div>✓ <strong>Do:</strong> Respect prefers-reduced-motion preference</div>
+            <div>✗ <strong>Don't:</strong> Animate decorative elements</div>
+            <div>✗ <strong>Don't:</strong> Use animations on every element (less = more)</div>
+            <div>✗ <strong>Don't:</strong> Auto-play animations > 5 seconds without controls</div>
+          </div>
         </section>
 
         <!-- BUTTONS — Interactive CTAs with variants -->
