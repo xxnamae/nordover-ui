@@ -36,3 +36,4 @@ Keep in the private `xxnamae/notater` repository:
 - **Language**: Norwegian Bokmål for wiki/decisions; English for code comments
 - **Mirroring**: Changes to token values must be applied to both `tokens-web.css` and `tokens-app.css` in the same commit
 - **Styleguides are authoritative**: Styleguides must always reflect 100% of components in framework. If a component exists in CSS but not in styleguide, it doesn't exist for users. See `docs/visual/STYLEGUIDE-MAINTENANCE.md`
+- **Styleguide workflow is mandatory**: Framework changes and styleguide updates must occur in the same commit. No CSS commit without corresponding styleguide documentation. Follow `docs/visual/STYLEGUIDE-WORKFLOW.md`
