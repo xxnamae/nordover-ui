@@ -64,6 +64,7 @@
     <a class="app-nav-item" href="#data-patterns"><svg class="icon"><use href="#i-inbox"/></svg> Data Display</a>
     <a class="app-nav-item" href="#states-interactions"><svg class="icon"><use href="#i-check"/></svg> States & Interactions</a>
     <a class="app-nav-item" href="#layout-techniques"><svg class="icon"><use href="#i-chart"/></svg> Layout Techniques</a>
+    <a class="app-nav-item" href="#real-world-examples"><svg class="icon"><use href="#i-folder"/></svg> Real-World Examples</a>
     <a class="app-nav-item" href="#component-variants"><svg class="icon"><use href="#i-folder"/></svg> Component Variants</a>
     <a class="app-nav-item" href="#overlays"><svg class="icon"><use href="#i-info"/></svg> Modals</a>
     <a class="app-nav-item" href="#accordion"><svg class="icon"><use href="#i-edit"/></svg> Accordion</a>
@@ -1152,6 +1153,80 @@
 
           <div class="doc-sub">Accessibility Note</div>
           <p class="t-body-sm" style="max-width:40rem;color:var(--color-muted)">All text colors meet WCAG AA contrast ratios in both dark and light modes. Theme toggle uses system preference detection and localStorage persistence.</p>
+        </section>
+
+        <!-- REAL-WORLD EXAMPLES -->
+        <section class="doc-section" id="real-world-examples">
+          <h2 class="doc-section-title">Real-World App Examples</h2>
+          <p class="doc-section-desc">Complete app screens combining multiple components and patterns in realistic layouts.</p>
+
+          <div class="doc-sub">Inbox / Message List Screen</div>
+          <div class="doc-demo">
+            <div class="stack" style="gap:0;font-size:var(--text-sm)">
+              <div style="padding:var(--space-2);background:var(--color-subtle);border-bottom:var(--border-card)">
+                <div class="cluster cluster-tight">
+                  <input class="form-input" type="search" placeholder="Search..." style="flex:1;font-size:var(--text-xs);padding:var(--space-1) var(--space-2);margin-bottom:0">
+                  <button class="btn btn-ghost btn-sm" style="font-size:var(--text-xs)">Filter</button>
+                </div>
+              </div>
+              <div style="padding:var(--space-2);border-bottom:var(--border-card);background:var(--color-subtle)">
+                <div class="cluster cluster-tight" style="justify-content:space-between">
+                  <p class="font-bold">John Doe</p>
+                  <span class="t-caption">2h</span>
+                </div>
+                <p class="t-body-xs" style="color:var(--color-muted)">How's the project?</p>
+              </div>
+              <div style="padding:var(--space-2);border-bottom:var(--border-card)">
+                <div class="cluster cluster-tight" style="justify-content:space-between">
+                  <p class="font-bold">Sarah Smith</p>
+                  <span class="badge badge-info" style="font-size:var(--text-xs)">New</span>
+                </div>
+                <p class="t-body-xs" style="color:var(--color-muted)">Review my PR?</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Task Board / Kanban View</div>
+          <div class="doc-demo">
+            <div class="flex gap-2" style="overflow-x:auto;font-size:var(--text-xs)">
+              <div style="flex:0 0 14rem;background:var(--color-subtle);border-radius:var(--radius-md);padding:var(--space-2)">
+                <p class="font-bold" style="margin-bottom:var(--space-2)">To Do (2)</p>
+                <div class="stack" style="gap:var(--space-1)">
+                  <div class="card"><div class="card-body">Implement auth</div></div>
+                  <div class="card"><div class="card-body">Fix mobile</div></div>
+                </div>
+              </div>
+              <div style="flex:0 0 14rem;background:var(--color-subtle);border-radius:var(--radius-md);padding:var(--space-2)">
+                <p class="font-bold" style="margin-bottom:var(--space-2)">In Progress (1)</p>
+                <div class="card"><div class="card-body" style="border-left:3px solid var(--color-accent)">Design system</div></div>
+              </div>
+              <div style="flex:0 0 14rem;background:var(--color-subtle);border-radius:var(--radius-md);padding:var(--space-2)">
+                <p class="font-bold" style="margin-bottom:var(--space-2)">Done (3)</p>
+                <div class="card"><div class="card-body"><span class="badge badge-success" style="font-size:var(--text-xs)">✓</span> Setup</div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Settings Screen</div>
+          <div class="doc-demo" style="max-width:20rem">
+            <div class="stack" style="gap:var(--space-2);font-size:var(--text-sm)">
+              <div style="text-align:center;padding:var(--space-3);background:var(--color-subtle);border-radius:var(--radius-md)">
+                <div style="width:2.5rem;height:2.5rem;background:var(--color-accent);border-radius:50%;margin:0 auto;margin-bottom:var(--space-1)"></div>
+                <p class="font-bold">John</p>
+                <p class="t-body-xs" style="color:var(--color-muted)">john@example.com</p>
+              </div>
+              <div style="border-top:var(--border-card);padding-top:var(--space-2)">
+                <p class="t-heading-xs" style="font-size:var(--text-xs);margin-bottom:var(--space-2)">SETTINGS</p>
+                <label style="display:flex;gap:var(--space-2);align-items:center;cursor:pointer;margin-bottom:var(--space-1)">
+                  <input type="checkbox" checked> Notifications
+                </label>
+                <label style="display:flex;gap:var(--space-2);align-items:center;cursor:pointer">
+                  <input type="checkbox"> Email updates
+                </label>
+              </div>
+              <button class="btn btn-secondary" style="width:100%;font-size:var(--text-xs)">Sign Out</button>
+            </div>
+          </div>
         </section>
 
         <!-- OVERLAYS -->

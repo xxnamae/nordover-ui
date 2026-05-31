@@ -54,6 +54,7 @@
     <a class="app-nav-item" href="#states-interactions">States & Interactions</a>
     <a class="app-nav-item" href="#component-variants">Component Variants</a>
     <a class="app-nav-item" href="#layout-techniques">Layout Techniques</a>
+    <a class="app-nav-item" href="#real-world-examples">Real-World Examples</a>
     <a class="app-nav-item" href="#utilities">Utilities</a>
     <a class="app-nav-item" href="#dark-mode-examples">Dark Mode</a>
     <div class="app-sidebar-section">Patterns</div>
@@ -1843,6 +1844,111 @@
                 <div class="cluster cluster-tight">
                   <button class="btn btn-ghost btn-sm">← Prev</button>
                   <button class="btn btn-ghost btn-sm">Next →</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- REAL-WORLD EXAMPLES -->
+        <section class="doc-section" id="real-world-examples">
+          <h2 class="doc-section-title">Real-World Page Examples</h2>
+          <p class="doc-section-desc">Complete, composition-ready page layouts combining multiple components and patterns.</p>
+
+          <div class="doc-sub">SaaS Product Page Header</div>
+          <div class="doc-demo" style="background:linear-gradient(135deg, var(--color-subtle) 0%, var(--color-bg) 100%);padding:var(--space-8);border-radius:var(--radius-lg)">
+            <div class="page-content">
+              <div class="stack" style="text-align:center">
+                <p class="t-eyebrow">Introducing Nordover 2.0</p>
+                <h1 class="t-display-lg">The design system teams love</h1>
+                <p class="t-body-lg" style="color:var(--color-muted);margin-top:var(--space-3);max-width:50ch;margin-inline:auto">Build faster, ship smarter. Production-ready components with 100% WCAG AA accessibility. Start free today.</p>
+                <div class="cluster cluster-tight" style="justify-content:center;margin-top:var(--space-6);gap:var(--space-3)">
+                  <button class="btn btn-primary btn-lg">Start Building</button>
+                  <button class="btn btn-secondary btn-lg">View Docs</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Pricing Section (Three Tiers)</div>
+          <div class="doc-demo">
+            <div class="page-content">
+              <div class="stack" style="text-align:center;margin-bottom:var(--space-8)">
+                <h2 class="t-heading-lg">Simple, Transparent Pricing</h2>
+                <p class="t-body" style="color:var(--color-muted);margin-top:var(--space-2)">Choose the plan that fits your team</p>
+              </div>
+              <div class="grid-auto" style="gap:var(--space-4)">
+                <div class="card">
+                  <div class="card-header">Starter</div>
+                  <div class="card-body">
+                    <p class="t-display-md" style="color:var(--color-accent)">$0<span class="t-body-sm" style="color:var(--color-muted)">/month</span></p>
+                    <ul class="stack-tight" style="list-style:inside;margin-top:var(--space-4);font-size:var(--text-sm)">
+                      <li>✓ Up to 3 projects</li>
+                      <li>✓ Community support</li>
+                      <li>✗ Advanced features</li>
+                    </ul>
+                  </div>
+                  <div class="card-footer"><button class="btn btn-secondary" style="width:100%">Get Started</button></div>
+                </div>
+                <div class="card" style="border:2px solid var(--color-accent)">
+                  <div class="card-header" style="background:var(--color-accent);color:white">Professional</div>
+                  <div class="card-body">
+                    <p class="t-display-md" style="color:var(--color-accent)">$29<span class="t-body-sm" style="color:var(--color-muted)">/month</span></p>
+                    <ul class="stack-tight" style="list-style:inside;margin-top:var(--space-4);font-size:var(--text-sm)">
+                      <li>✓ Unlimited projects</li>
+                      <li>✓ Priority support</li>
+                      <li>✓ Advanced features</li>
+                    </ul>
+                  </div>
+                  <div class="card-footer"><button class="btn btn-primary" style="width:100%">Subscribe Now</button></div>
+                </div>
+                <div class="card">
+                  <div class="card-header">Enterprise</div>
+                  <div class="card-body">
+                    <p class="t-display-md" style="color:var(--color-accent)">Custom<span class="t-body-sm" style="color:var(--color-muted)">/month</span></p>
+                    <ul class="stack-tight" style="list-style:inside;margin-top:var(--space-4);font-size:var(--text-sm)">
+                      <li>✓ Everything in Pro</li>
+                      <li>✓ Custom features</li>
+                      <li>✓ Dedicated support</li>
+                    </ul>
+                  </div>
+                  <div class="card-footer"><button class="btn btn-secondary" style="width:100%">Contact Sales</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Feature Section with Image</div>
+          <div class="doc-demo">
+            <div class="page-content">
+              <div class="flex gap-8" style="flex-wrap:wrap;align-items:center">
+                <div style="flex:1;min-width:20rem">
+                  <h2 class="t-heading-lg">Built for Speed</h2>
+                  <p class="t-body" style="color:var(--color-muted);margin-top:var(--space-3)">All components are optimized for performance. CSS-only, zero runtime overhead.</p>
+                  <ul class="stack-tight" style="list-style:none;margin-top:var(--space-4)">
+                    <li class="cluster cluster-tight" style="gap:var(--space-2)"><span style="color:var(--color-success)">✓</span> <span>40KB total CSS</span></li>
+                    <li class="cluster cluster-tight" style="gap:var(--space-2)"><span style="color:var(--color-success)">✓</span> <span>Zero JavaScript</span></li>
+                    <li class="cluster cluster-tight" style="gap:var(--space-2)"><span style="color:var(--color-success)">✓</span> <span>100 Lighthouse score</span></li>
+                  </ul>
+                </div>
+                <div style="flex:1;min-width:16rem;height:12rem;background:var(--color-subtle);border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;color:var(--color-muted)">
+                  [Image/Chart Area]
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Feature Checklist Card</div>
+          <div class="doc-demo" style="max-width:32rem;margin:auto">
+            <div class="card">
+              <div class="card-header">What's Included</div>
+              <div class="card-body">
+                <div class="stack-tight">
+                  <div class="cluster cluster-tight"><span class="t-heading-sm" style="color:var(--color-success);margin-right:var(--space-2)">✓</span><span>40+ production components</span></div>
+                  <div class="cluster cluster-tight"><span class="t-heading-sm" style="color:var(--color-success);margin-right:var(--space-2)">✓</span><span>Fully accessible (WCAG AA)</span></div>
+                  <div class="cluster cluster-tight"><span class="t-heading-sm" style="color:var(--color-success);margin-right:var(--space-2)">✓</span><span>Dark mode support</span></div>
+                  <div class="cluster cluster-tight"><span class="t-heading-sm" style="color:var(--color-success);margin-right:var(--space-2)">✓</span><span>Responsive mobile-first</span></div>
+                  <div class="cluster cluster-tight"><span class="t-heading-sm" style="color:var(--color-success);margin-right:var(--space-2)">✓</span><span>Clear documentation</span></div>
                 </div>
               </div>
             </div>
