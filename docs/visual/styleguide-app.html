@@ -2291,6 +2291,16 @@ function performSearch(query) {
   }, 100);
 }
 
+// Sidebar toggle functionality for collapsible nav sections
+document.querySelectorAll('.app-sidebar-toggle').forEach(btn => {
+  btn.addEventListener('click', function() {
+    var group = this.nextElementSibling;
+    var isExpanded = this.getAttribute('aria-expanded') === 'true';
+    this.setAttribute('aria-expanded', !isExpanded);
+    group.classList.toggle('active');
+  });
+});
+
 </script>
 </body>
 </html>

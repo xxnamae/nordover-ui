@@ -309,6 +309,54 @@
   text-align: center;
 }
 
+/* Sidebar collapsible sections */
+.app-sidebar-section-group {
+  margin-bottom: var(--space-1);
+}
+
+.app-sidebar-toggle {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: var(--space-3);
+  padding-right: var(--space-2);
+  text-align: left;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--color-fg);
+  font-size: var(--text-sm);
+  transition: color var(--duration-fast);
+}
+
+.app-sidebar-toggle:hover {
+  color: var(--color-accent);
+}
+
+.app-sidebar-toggle::after {
+  content: '▶';
+  display: inline-block;
+  transition: transform var(--duration-moderate) ease-out;
+  flex-shrink: 0;
+  margin-left: var(--space-2);
+}
+
+.app-sidebar-toggle[aria-expanded="true"]::after {
+  transform: rotate(90deg);
+}
+
+.app-nav-group {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--duration-moderate) ease-out;
+}
+
+.app-nav-group.active {
+  max-height: 5000px;
+}
+
 /* Mobile optimization for styleguide */
 @media (max-width: 36rem) {
   .component-states {
