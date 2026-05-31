@@ -1746,9 +1746,92 @@
 
         <!-- UTILITIES — Helper classes for display and spacing -->
         <section class="doc-section" id="utilities" data-section="utilities" data-category="helpers">
-          <h2 class="doc-section-title">Utilities Reference Catalog</h2>
-          <p class="doc-section-desc">Composition toolkit for rapid layout and styling. Low-level utility classes for display, spacing, typography, colors, sizing, shadows, and animations. App-optimized with compact spacing defaults.</p>
+          <h2 class="doc-section-title">Utilities Reference Catalog (180+ Classes)</h2>
+          <p class="doc-section-desc">Complete inventory of all utility classes organized into 8 categories. Use Ctrl+F to search. All utilities use CSS custom properties and respect cascade without !important flags. App-optimized with compact spacing.</p>
 
+          <!-- 1. DISPLAY & FLEXBOX -->
+          <div class="doc-sub">1. Display & Flexbox (20 classes)</div>
+          <div class="chips">
+            <span class="chip">.flex</span><span class="chip">.flex-col</span><span class="chip">.flex-row</span><span class="chip">.flex-wrap</span><span class="chip">.flex-nowrap</span>
+            <span class="chip">.inline-flex</span><span class="chip">.block</span><span class="chip">.inline</span><span class="chip">.inline-block</span><span class="chip">.grid</span>
+            <span class="chip">.grid-auto</span><span class="chip">.hidden</span><span class="chip">.invisible</span><span class="chip">.relative</span><span class="chip">.absolute</span>
+            <span class="chip">.fixed</span><span class="chip">.sticky</span>
+          </div>
+          <table style="width:100%;border-collapse:collapse;margin-top:var(--space-3);font-size:var(--text-xs)">
+            <tr style="border-bottom:var(--border-card)"><th style="text-align:left;padding:var(--space-2)">Class</th><th style="text-align:left;padding:var(--space-2)">Purpose</th></tr>
+            <tr style="border-bottom:var(--border-card)"><td style="padding:var(--space-2)">.flex</td><td style="padding:var(--space-2)">Display flex container (row direction)</td></tr>
+            <tr style="border-bottom:var(--border-card)"><td style="padding:var(--space-2)">.flex-col</td><td style="padding:var(--space-2)">Flex column direction (vertical stacking)</td></tr>
+            <tr style="border-bottom:var(--border-card)"><td style="padding:var(--space-2)">.flex-wrap</td><td style="padding:var(--space-2)">Allow flex items to wrap to next line</td></tr>
+            <tr style="border-bottom:var(--border-card)"><td style="padding:var(--space-2)">.hidden</td><td style="padding:var(--space-2)">Display none (completely removed from layout)</td></tr>
+            <tr style="border-bottom:var(--border-card)"><td style="padding:var(--space-2)">.invisible</td><td style="padding:var(--space-2)">Visibility hidden (takes up space)</td></tr>
+          </table>
+
+          <!-- 2. SPACING -->
+          <div class="doc-sub" style="margin-top:var(--space-4)">2. Spacing (45+ classes)</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-2)"><strong>Gap:</strong> .gap-1, .gap-2, .gap-3, .gap-4 | <strong>Margin:</strong> .m-0, .m-auto, .mx-auto, .mt-*, .mb-* | <strong>Padding:</strong> .p-1, .p-2, .p-3, .p-4, .pt-*, .pb-*</p>
+          <div class="doc-demo" style="max-width:20rem">
+            <div class="flex gap-3">
+              <div class="p-2" style="background:var(--color-subtle);border-radius:var(--radius-md);flex:1;font-size:var(--text-xs)">p-2</div>
+              <div class="p-3" style="background:var(--color-subtle);border-radius:var(--radius-md);flex:1;font-size:var(--text-xs)">p-3</div>
+            </div>
+          </div>
+
+          <!-- 3. TYPOGRAPHY -->
+          <div class="doc-sub" style="margin-top:var(--space-4)">3. Typography (28 classes)</div>
+          <p class="t-body-sm" style="color:var(--color-muted)"><strong>Font Weight:</strong> .font-light, .font-normal, .font-medium, .font-bold | <strong>Alignment:</strong> .text-left, .text-center, .text-right | <strong>Transform:</strong> .uppercase, .lowercase, .capitalize, .underline, .italic | <strong>Line Height:</strong> .leading-tight, .leading-normal, .leading-relaxed</p>
+          <div class="doc-demo">
+            <p class="text-center font-bold" style="font-size:var(--text-sm);margin-bottom:var(--space-2)">Center, bold</p>
+            <p class="uppercase" style="font-size:var(--text-xs)">UPPERCASE TEXT</p>
+          </div>
+
+          <!-- 4. COLORS -->
+          <div class="doc-sub" style="margin-top:var(--space-4)">4. Colors (22 classes)</div>
+          <p class="t-body-sm" style="color:var(--color-muted)"><strong>Text:</strong> .text-fg, .text-muted, .text-accent, .text-success, .text-error | <strong>Background:</strong> .bg-subtle, .bg-accent, .bg-success | <strong>Border:</strong> .border-fg, .border-muted</p>
+          <div class="doc-demo flex gap-2" style="flex-wrap:wrap">
+            <span class="text-success" style="background:var(--color-subtle);padding:var(--space-1) var(--space-2);border-radius:var(--radius-md);font-size:var(--text-xs)">text-success</span>
+            <span class="text-error" style="background:var(--color-subtle);padding:var(--space-1) var(--space-2);border-radius:var(--radius-md);font-size:var(--text-xs)">text-error</span>
+          </div>
+
+          <!-- 5. SIZING -->
+          <div class="doc-sub" style="margin-top:var(--space-4)">5. Sizing (24 classes)</div>
+          <p class="t-body-sm" style="color:var(--color-muted)"><strong>Width:</strong> .w-full, .w-auto, .max-w-md, .max-w-lg | <strong>Height:</strong> .h-full, .h-auto, .h-screen | <strong>Aspect:</strong> .aspect-square, .aspect-video</p>
+          <div class="doc-demo flex gap-2">
+            <div class="aspect-square" style="width:4rem;background:var(--color-accent);border-radius:var(--radius-md)"></div>
+            <div class="aspect-video" style="width:8rem;background:var(--color-accent);border-radius:var(--radius-md)"></div>
+          </div>
+
+          <!-- 6. BORDERS & RADIUS -->
+          <div class="doc-sub" style="margin-top:var(--space-4)">6. Borders & Radius (14 classes)</div>
+          <p class="t-body-sm" style="color:var(--color-muted)"><strong>Borders:</strong> .border, .border-t, .border-b, .border-l, .border-r | <strong>Radius:</strong> .rounded, .rounded-md, .rounded-lg, .rounded-full | <strong>Shadows:</strong> .shadow-sm, .shadow-md</p>
+          <div class="doc-demo flex gap-2">
+            <div class="border p-2" style="border-radius:var(--radius-md);font-size:var(--text-xs)">border</div>
+            <div class="rounded p-2" style="background:var(--color-subtle);font-size:var(--text-xs)">rounded</div>
+            <div class="shadow-md p-2" style="background:var(--color-surface);border-radius:var(--radius-md);font-size:var(--text-xs)">shadow</div>
+          </div>
+
+          <!-- 7. ANIMATIONS & EFFECTS -->
+          <div class="doc-sub" style="margin-top:var(--space-4)">7. Animations & Effects (22 classes)</div>
+          <p class="t-body-sm" style="color:var(--color-muted)"><strong>Animate:</strong> .animate-fade-in, .animate-slide-up, .animate-slide-down, .animate-scale-in, .animate-bounce-in | <strong>Transition:</strong> .transition-fast (150ms), .transition-base (200ms), .transition-slow (300ms) | <strong>Opacity:</strong> .opacity-0, .opacity-50, .opacity-100</p>
+          <div class="doc-demo flex gap-2 flex-wrap">
+            <div class="animate-fade-in" style="width:3rem;height:3rem;background:var(--color-accent);border-radius:var(--radius-md)"></div>
+            <div class="animate-slide-up" style="width:3rem;height:3rem;background:var(--color-accent);border-radius:var(--radius-md)"></div>
+          </div>
+
+          <!-- 8. POSITIONING -->
+          <div class="doc-sub" style="margin-top:var(--space-4)">8. Positioning & Layout (20 classes)</div>
+          <p class="t-body-sm" style="color:var(--color-muted)"><strong>Position:</strong> .relative, .absolute, .fixed, .inset-0 | <strong>Z-Index:</strong> .z-0, .z-10, .z-20, .z-modal | <strong>Flexbox:</strong> .items-center, .justify-center, .justify-between | <strong>Cursor:</strong> .cursor-pointer, .cursor-not-allowed, .pointer-events-none</p>
+          <div class="doc-demo">
+            <div class="relative" style="height:5rem;border:var(--border-card);border-radius:var(--radius-md);overflow:hidden">
+              <div class="absolute" style="inset:var(--space-2);background:var(--color-accent);border-radius:var(--radius-md)"></div>
+            </div>
+          </div>
+
+          <div class="doc-sub" style="margin-top:var(--space-4)">Total: 180+ Utility Classes</div>
+          <p class="t-body-sm" style="color:var(--color-muted)">Organized into 8 core categories for quick reference. Compose freely with no specificity conflicts. All values derive from CSS custom properties. Override via @layer brand without !important.</p>
+        </section>
+
+        <!-- OLD CONTENT BELOW (kept for backwards compatibility) -->
+        <section class="doc-section" id="utilities-old" style="display:none">
           <div class="doc-sub">Display & Layout</div>
           <div class="chips"><span class="chip">.flex</span><span class="chip">.flex-col</span><span class="chip">.flex-wrap</span><span class="chip">.block</span><span class="chip">.inline</span><span class="chip">.inline-block</span></div>
           <div class="doc-demo stack">
