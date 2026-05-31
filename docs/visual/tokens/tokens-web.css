@@ -246,6 +246,12 @@
     --glass-border: var(--bw-thin) solid color-mix(in oklch, var(--color-border) 50%, transparent);
     --nav-item-bg-hover: color-mix(in oklch, var(--color-fg) 6%, transparent);
 
+    /* === Breakpoints (mobile-first) === */
+    --bp-tablet: 36rem;    /* 576px */
+    --bp-desktop: 48rem;   /* 768px */
+    --bp-wide: 60rem;      /* 960px */
+    --bp-ultra: 80rem;     /* 1280px */
+
     /* === Container === */
     --container-narrow: 45rem;     /* 720px */
     --container-default: 80rem;    /* 1280px */
