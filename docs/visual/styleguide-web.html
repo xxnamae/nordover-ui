@@ -70,6 +70,7 @@
     <a class="app-nav-item" href="#footer">Footer</a>
     <a class="app-nav-item" href="#breadcrumbs">Breadcrumbs</a>
     <div class="app-sidebar-section">Guidelines</div>
+    <a class="app-nav-item" href="#real-world-examples"><svg class="icon"><use href="#i-chart"/></svg> Real-World Examples</a>
     <a class="app-nav-item" href="#responsive"><svg class="icon"><use href="#i-chart"/></svg> Responsive Design</a>
     <a class="app-nav-item" href="#accessibility"><svg class="icon"><use href="#i-info"/></svg> Accessibility (WCAG AA)</a>
   </aside>
@@ -1889,45 +1890,61 @@
         <!-- RESPONSIVE DESIGN -->
         <section class="doc-section" id="responsive">
           <h2 class="doc-section-title">Responsive Design</h2>
-          <p class="doc-section-desc">All components are mobile-first. Nordover uses clamp() for fluid sizing and container queries for layout adaptation.</p>
+          <p class="doc-section-desc">All components are mobile-first. Nordover uses clamp() for fluid sizing and container queries for layout adaptation. Breakpoint: 48rem (768px).</p>
 
-          <div class="doc-sub">Mobile-First Approach</div>
+          <div class="doc-sub">Breakpoints & Mobile-First</div>
           <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Design for mobile first, then enhance for larger screens:</p>
           <div class="stack-tight" style="max-width:36rem;background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-lg);font-size:var(--text-sm)">
-            <p><strong>Default:</strong> Mobile layout (320px+)</p>
-            <p><strong>@media (min-width: 48rem):</strong> Tablet/desktop enhancements</p>
-            <p><strong>Note:</strong> No max-width limits — responsive to 1600px+ screens</p>
+            <p><strong>320px–767px:</strong> Mobile layout (default styles)</p>
+            <p><strong>768px+ (@media min-width: 48rem):</strong> Tablet/desktop enhancements</p>
+            <p><strong>Full responsive range:</strong> 320px → 1600px+ (no max-width limits)</p>
           </div>
 
           <div class="doc-sub">Fluid Typography with clamp()</div>
-          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Type scales automatically scale between min and max values:</p>
-          <ul class="stack-tight" style="font-size:var(--text-sm);list-style:inside;max-width:36rem">
-            <li>.t-display-lg: 40px → 160px (editorial flow)</li>
-            <li>.t-heading-lg: 32px → 64px</li>
-            <li>.t-body: 16px base, responsive line-height</li>
-          </ul>
-
-          <div class="doc-sub">Responsive Spacing</div>
-          <p class="t-body-sm" style="color:var(--color-muted)">Use gap utilities with responsive values: .gap-2 (mobile) scales to larger gaps on desktop via clamp().</p>
-
-          <div class="doc-sub">Responsive Grids</div>
-          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">.grid-auto auto-fits columns based on available space. No media queries needed:</p>
-          <div class="grid-auto" style="border:var(--border-card);border-radius:var(--radius-lg);padding:var(--space-4)">
-            <div class="p-4 text-center" style="background:var(--color-subtle);border-radius:var(--radius-md);font-size:var(--text-sm)">Column</div>
-            <div class="p-4 text-center" style="background:var(--color-subtle);border-radius:var(--radius-md);font-size:var(--text-sm)">Column</div>
-            <div class="p-4 text-center" style="background:var(--color-subtle);border-radius:var(--radius-md);font-size:var(--text-sm)">Column</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Type scales automatically between min/max at any screen size:</p>
+          <div style="max-width:36rem;background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-lg);font-size:var(--text-sm)">
+            <p><strong>.t-display-lg:</strong> <code>clamp(2rem, 6vw, 2.5rem)</code> = 40px (mobile) → 160px (desktop)</p>
+            <p><strong>.t-heading-lg:</strong> <code>clamp(1.25rem, 3vw, 1.5rem)</code> = 32px → 64px</p>
+            <p><strong>.t-body:</strong> 16px base with responsive line-height (1.6)</p>
           </div>
 
-          <div class="doc-sub">Container Queries</div>
-          <p class="t-body-sm" style="color:var(--color-muted)">Components can adapt based on their container width (not viewport width), enabling true responsive components that work anywhere on a page.</p>
+          <div class="doc-sub">Responsive Grid Example</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Resize your browser to see grid adapt. No media queries needed:</p>
+          <div class="grid-auto" style="border:var(--border-card);border-radius:var(--radius-lg);padding:var(--space-4);gap:var(--space-3)">
+            <div style="padding:var(--space-6);background:var(--color-subtle);border-radius:var(--radius-md);text-align:center;font-size:var(--text-sm);color:var(--color-muted)">Card 1</div>
+            <div style="padding:var(--space-6);background:var(--color-subtle);border-radius:var(--radius-md);text-align:center;font-size:var(--text-sm);color:var(--color-muted)">Card 2</div>
+            <div style="padding:var(--space-6);background:var(--color-subtle);border-radius:var(--radius-md);text-align:center;font-size:var(--text-sm);color:var(--color-muted)">Card 3</div>
+            <div style="padding:var(--space-6);background:var(--color-subtle);border-radius:var(--radius-md);text-align:center;font-size:var(--text-sm);color:var(--color-muted)">Card 4</div>
+          </div>
 
-          <div class="doc-sub">Testing Responsiveness</div>
-          <ul class="stack-tight" style="font-size:var(--text-sm);list-style:inside;max-width:36rem">
-            <li>Test on real devices (phone, tablet, desktop)</li>
+          <div class="doc-sub">Feature Grid Responsive</div>
+          <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-3)">Stacks vertically on mobile (320px–767px), 3-column on desktop (768px+):</p>
+          <div class="feature-grid">
+            <article class="feature-card">
+              <div style="width:2rem;height:2rem;color:var(--color-accent);margin-bottom:var(--space-3)">◆</div>
+              <h3 class="t-heading-sm">Mobile First</h3>
+              <p class="t-body-sm" style="color:var(--color-muted)">Single column on phone, multi-column on desktop.</p>
+            </article>
+            <article class="feature-card">
+              <div style="width:2rem;height:2rem;color:var(--color-accent);margin-bottom:var(--space-3)">◆</div>
+              <h3 class="t-heading-sm">Fluid Spacing</h3>
+              <p class="t-body-sm" style="color:var(--color-muted)">Gap and padding scale smoothly across all screen sizes.</p>
+            </article>
+            <article class="feature-card">
+              <div style="width:2rem;height:2rem;color:var(--color-accent);margin-bottom:var(--space-3)">◆</div>
+              <h3 class="t-heading-sm">No Breaks</h3>
+              <p class="t-body-sm" style="color:var(--color-muted)">Responsive design that works from 320px to 1600px+.</p>
+            </article>
+          </div>
+
+          <div class="doc-sub">Testing Responsive Design</div>
+          <ul class="stack-tight" style="font-size:var(--text-sm);list-style:inside;max-width:36rem;color:var(--color-muted)">
+            <li>Test on real devices (phone: 375px, tablet: 768px, desktop: 1024px+)</li>
             <li>Test browser zoom (150%, 200%)</li>
-            <li>Test with text size increased (Windows high contrast)</li>
+            <li>Test with text size increased (accessibility setting)</li>
             <li>Test landscape orientation on mobile</li>
-            <li>Check text reflow at narrow widths</li>
+            <li>Check text reflow at narrow widths (&lt;320px would need custom adjustments)</li>
+            <li>Verify touch targets are 44px minimum (WCAG mobile accessibility)</li>
           </ul>
         </section>
 
@@ -2065,6 +2082,90 @@
             <p class="t-body-sm"><strong>Disabled appearance:</strong> Must be visually distinct - reduce opacity, change color, or add strikethrough. Not color alone.</p>
             <p class="t-body-sm"><strong>Error states:</strong> Must be indicated by more than color. Include icon, text message, or border style change.</p>
             <p class="t-body-sm"><strong>Motion:</strong> All animations respect prefers-reduced-motion. @media (prefers-reduced-motion: reduce) disables animations.</p>
+          </div>
+        </section>
+
+        <!-- REAL-WORLD EXAMPLES -->
+        <section class="doc-section" id="real-world-examples">
+          <h2 class="doc-section-title">Real-World Examples</h2>
+          <p class="doc-section-desc">Complete page layouts showing how components work together in production scenarios. Fully responsive from mobile to desktop.</p>
+
+          <div class="doc-sub">Landing Page Layout</div>
+          <div style="border:var(--border-card);border-radius:var(--radius-lg);overflow:hidden;background:var(--color-surface)">
+            <!-- Hero -->
+            <div class="hero-centered" style="border-bottom:var(--border-card)">
+              <p class="t-eyebrow">Welcome to Nordover</p>
+              <h2 class="t-display-md">Build faster with components</h2>
+              <p class="t-body-lg" style="color:var(--color-muted);margin-top:var(--space-4)">A complete design system for modern web and app development.</p>
+              <div class="cluster cluster-tight" style="justify-content:center;margin-top:var(--space-6)"><button class="btn btn-primary">Get Started</button><button class="btn btn-secondary">Learn More</button></div>
+            </div>
+            <!-- Features -->
+            <div style="padding:var(--space-6);border-bottom:var(--border-card)">
+              <h3 class="t-heading-lg" style="text-align:center;margin-bottom:var(--space-6)">Why Choose Nordover?</h3>
+              <div class="feature-grid">
+                <article class="feature-card"><div style="color:var(--color-accent);margin-bottom:var(--space-3)">✓</div><h4 class="t-heading-sm">40+ Components</h4><p class="t-body-sm" style="color:var(--color-muted)">Complete component library ready to use.</p></article>
+                <article class="feature-card"><div style="color:var(--color-accent);margin-bottom:var(--space-3)">✓</div><h4 class="t-heading-sm">Fully Accessible</h4><p class="t-body-sm" style="color:var(--color-muted)">WCAG AA compliant across all components.</p></article>
+                <article class="feature-card"><div style="color:var(--color-accent);margin-bottom:var(--space-3)">✓</div><h4 class="t-heading-sm">Mobile Ready</h4><p class="t-body-sm" style="color:var(--color-muted)">Responsive from 320px to 1600px+.</p></article>
+              </div>
+            </div>
+            <!-- CTA -->
+            <div class="cta-card" style="border:none">
+              <h3 class="t-heading-lg">Ready to build?</h3>
+              <p class="t-body" style="margin-top:var(--space-3);color:var(--color-muted)">Start using Nordover components today.</p>
+              <button class="btn btn-primary btn-elevated" style="margin-top:var(--space-4)">Begin Now</button>
+            </div>
+          </div>
+
+          <div class="doc-sub">Dashboard Layout (Compact Data View)</div>
+          <div style="border:var(--border-card);border-radius:var(--radius-lg);overflow:auto;background:var(--color-surface);display:flex;min-height:20rem">
+            <!-- Sidebar -->
+            <aside style="width:200px;background:var(--color-subtle);padding:var(--space-4);border-right:var(--border-card);flex-shrink:0;overflow-y:auto">
+              <h4 class="t-heading-sm" style="font-size:var(--text-sm);margin-bottom:var(--space-3)">Navigation</h4>
+              <nav class="stack-tight">
+                <a href="#" style="padding:var(--space-2);border-radius:var(--radius-sm);background:var(--color-accent);color:var(--color-accent-fg);text-decoration:none;display:block;font-size:var(--text-sm)">Dashboard</a>
+                <a href="#" style="padding:var(--space-2);border-radius:var(--radius-sm);color:var(--color-fg);text-decoration:none;display:block;font-size:var(--text-sm)">Projects</a>
+                <a href="#" style="padding:var(--space-2);border-radius:var(--radius-sm);color:var(--color-fg);text-decoration:none;display:block;font-size:var(--text-sm)">Settings</a>
+              </nav>
+            </aside>
+            <!-- Main content -->
+            <main style="flex:1;padding:var(--space-4);overflow-y:auto">
+              <h3 class="t-heading-md" style="margin-bottom:var(--space-4)">Dashboard</h3>
+              <!-- Stats cards -->
+              <div class="grid-auto" style="margin-bottom:var(--space-4);gap:var(--space-2)">
+                <div style="padding:var(--space-4);background:var(--color-subtle);border-radius:var(--radius-md)"><p class="t-body-sm" style="color:var(--color-muted)">Total Users</p><p class="t-heading-sm" style="margin-top:var(--space-2)">2,543</p></div>
+                <div style="padding:var(--space-4);background:var(--color-subtle);border-radius:var(--radius-md)"><p class="t-body-sm" style="color:var(--color-muted)">Revenue</p><p class="t-heading-sm" style="margin-top:var(--space-2)">$48.2K</p></div>
+                <div style="padding:var(--space-4);background:var(--color-subtle);border-radius:var(--radius-md)"><p class="t-body-sm" style="color:var(--color-muted)">Growth</p><p class="t-heading-sm" style="margin-top:var(--space-2)">+24%</p></div>
+              </div>
+              <!-- Mini table -->
+              <div style="font-size:var(--text-sm);border:var(--border-card);border-radius:var(--radius-md);overflow:hidden">
+                <table class="data-table" style="width:100%;margin:0">
+                  <thead style="background:var(--color-subtle)"><tr><th style="padding:var(--space-2);text-align:left;font-weight:600">Item</th><th style="padding:var(--space-2);text-align:left;font-weight:600">Status</th><th style="padding:var(--space-2);text-align:left;font-weight:600">Action</th></tr></thead>
+                  <tbody><tr style="border-bottom:var(--border-card)"><td style="padding:var(--space-2)">Feature A</td><td style="padding:var(--space-2)"><span class="badge badge-success">Active</span></td><td style="padding:var(--space-2)"><button class="btn btn-ghost btn-sm">Edit</button></td></tr><tr><td style="padding:var(--space-2)">Feature B</td><td style="padding:var(--space-2)"><span class="badge">Pending</span></td><td style="padding:var(--space-2)"><button class="btn btn-ghost btn-sm">Edit</button></td></tr></tbody>
+                </table>
+              </div>
+            </main>
+          </div>
+
+          <div class="doc-sub">Responsive Form Layout</div>
+          <div style="border:var(--border-card);border-radius:var(--radius-lg);padding:var(--space-6);background:var(--color-surface);max-width:32rem;margin:0 auto">
+            <h3 class="t-heading-md" style="margin-bottom:var(--space-4)">Create Account</h3>
+            <div class="stack">
+              <div class="field">
+                <label class="field-label">Email</label>
+                <input class="form-input" type="email" placeholder="your@email.com">
+                <p class="field-help">We'll never share your email</p>
+              </div>
+              <div class="field">
+                <label class="field-label">Password</label>
+                <input class="form-input" type="password" placeholder="••••••••">
+              </div>
+              <div style="display:flex;gap:var(--space-2);align-items:center">
+                <input type="checkbox" class="form-checkbox" id="terms">
+                <label for="terms" style="font-size:var(--text-sm)">I agree to terms and conditions</label>
+              </div>
+              <button class="btn btn-primary" style="width:100%;justify-content:center">Create Account</button>
+              <p class="t-body-sm" style="text-align:center;color:var(--color-muted)">Already have an account? <a href="#" style="color:var(--color-accent)">Sign in</a></p>
+            </div>
           </div>
         </section>
 

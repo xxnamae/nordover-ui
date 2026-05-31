@@ -77,6 +77,7 @@
     <a class="app-nav-item" href="#multi-step-pattern"><svg class="icon"><use href="#i-check"/></svg> Multi-Step</a>
     <a class="app-nav-item" href="#timeline-pattern"><svg class="icon"><use href="#i-chart"/></svg> Timeline</a>
     <div class="app-sidebar-section">Guidelines</div>
+    <a class="app-nav-item" href="#real-world-examples"><svg class="icon"><use href="#i-chart"/></svg> Real-World Examples</a>
     <a class="app-nav-item" href="#responsive"><svg class="icon"><use href="#i-chart"/></svg> Responsive</a>
     <a class="app-nav-item" href="#accessibility"><svg class="icon"><use href="#i-info"/></svg> Accessibility</a>
     <a class="app-nav-item" href="#utilities"><svg class="icon"><use href="#i-sparkles"/></svg> Utilities</a>
@@ -1204,6 +1205,77 @@
 
           <div class="doc-sub">Testing Tools</div>
           <p class="t-body-sm" style="color:var(--color-muted)">Recommended tools: axe DevTools, WebAIM Contrast Checker, NVDA (Windows), VoiceOver (Mac), Lighthouse</p>
+        </section>
+
+        <!-- REAL-WORLD EXAMPLES -->
+        <section class="doc-section" id="real-world-examples">
+          <h2 class="doc-section-title">Real-World Examples</h2>
+          <p class="doc-section-desc">Complete app layouts and patterns showing components in production scenarios. Fully responsive and optimized for touch.</p>
+
+          <div class="doc-sub">Dashboard with Sidebar Navigation</div>
+          <div style="border:var(--border-card);border-radius:var(--radius-md);overflow:hidden;display:flex;background:var(--color-surface);min-height:20rem">
+            <!-- Sidebar -->
+            <aside style="width:160px;background:var(--color-subtle);padding:var(--space-3);border-right:var(--border-card);flex-shrink:0;overflow-y:auto">
+              <div style="font-weight:600;font-size:var(--text-sm);margin-bottom:var(--space-3);color:var(--color-fg)">App</div>
+              <nav class="stack-tight">
+                <a href="#" style="display:block;padding:var(--space-2);border-radius:var(--radius-sm);background:var(--color-accent);color:var(--color-accent-fg);text-decoration:none;font-size:var(--text-sm)">Home</a>
+                <a href="#" style="display:block;padding:var(--space-2);border-radius:var(--radius-sm);color:var(--color-fg);text-decoration:none;font-size:var(--text-sm)">Tasks</a>
+                <a href="#" style="display:block;padding:var(--space-2);border-radius:var(--radius-sm);color:var(--color-fg);text-decoration:none;font-size:var(--text-sm)">Settings</a>
+              </nav>
+            </aside>
+            <!-- Main -->
+            <main style="flex:1;padding:var(--space-4);overflow-y:auto">
+              <h3 class="t-heading-md" style="margin-bottom:var(--space-4)">Tasks</h3>
+              <div style="border:var(--border-card);border-radius:var(--radius-md);overflow:hidden;font-size:var(--text-sm)">
+                <table class="data-table" style="width:100%;margin:0">
+                  <thead style="background:var(--color-subtle)"><tr><th style="padding:var(--space-2);text-align:left;font-weight:600">Task</th><th style="padding:var(--space-2);text-align:left;font-weight:600">Status</th></tr></thead>
+                  <tbody><tr style="border-bottom:var(--border-card)"><td style="padding:var(--space-2)">Fix login flow</td><td style="padding:var(--space-2)"><span class="badge badge-info">In Progress</span></td></tr><tr><td style="padding:var(--space-2)">Update docs</td><td style="padding:var(--space-2)"><span class="badge badge-success">Done</span></td></tr></tbody>
+                </table>
+              </div>
+            </main>
+          </div>
+
+          <div class="doc-sub">Mobile-First Form (Stacked)</div>
+          <div style="border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-4);background:var(--color-surface);max-width:24rem">
+            <h3 class="t-heading-sm" style="margin-bottom:var(--space-4)">New Task</h3>
+            <div class="stack-tight">
+              <div class="field">
+                <label class="field-label">Title</label>
+                <input class="form-input" type="text" placeholder="Task name">
+              </div>
+              <div class="field">
+                <label class="field-label">Priority</label>
+                <select class="form-select">
+                  <option>Low</option>
+                  <option>Medium</option>
+                  <option>High</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <div class="form-group-item">
+                  <input type="checkbox" class="form-checkbox" id="urgent">
+                  <label for="urgent" style="font-size:var(--text-sm)">Urgent</label>
+                </div>
+              </div>
+              <div class="cluster">
+                <button class="btn btn-primary btn-sm">Add</button>
+                <button class="btn btn-ghost btn-sm">Cancel</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Alert & Feedback Pattern</div>
+          <div class="stack-tight" style="max-width:24rem">
+            <div class="alert alert-success" role="alert">
+              <div><strong>Success —</strong> Task created successfully.</div>
+            </div>
+            <div class="alert alert-warning" role="alert">
+              <div><strong>Warning —</strong> This will affect 3 related items.</div>
+            </div>
+            <div class="alert alert-error" role="alert">
+              <div><strong>Error —</strong> Could not save. Please try again.</div>
+            </div>
+          </div>
         </section>
 
         <!-- STATES & INTERACTIONS -->
