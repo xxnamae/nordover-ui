@@ -2106,15 +2106,66 @@
           <div class="doc-sub">Dark Mode</div>
           <p class="t-body-sm" style="color:var(--color-muted)">All colors and contrast ratios are maintained in dark mode. Users can toggle via button top-right. Preference respects system dark mode setting.</p>
 
-          <div class="doc-sub">Testing Recommendations</div>
+          <div class="doc-sub">ARIA Attributes Used in Nordover</div>
+          <div class="stack-tight" style="max-width:36rem;background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-lg);font-size:var(--text-sm)">
+            <p><strong>aria-label</strong> — Icon buttons, close buttons, icon-only elements</p>
+            <p><strong>aria-labelledby</strong> — Connect headings to sections for screen readers</p>
+            <p><strong>aria-describedby</strong> — Link form inputs to help/error text</p>
+            <p><strong>aria-expanded</strong> — Accordion, modal, menu toggle buttons (true|false)</p>
+            <p><strong>aria-hidden</strong> — Decorative icons, visual separators (true)</p>
+            <p><strong>aria-live</strong> — Dynamic content updates (polite|assertive) for alerts</p>
+            <p><strong>aria-sort</strong> — Table headers (none|ascending|descending)</p>
+            <p><strong>aria-current</strong> — Active page in pagination/stepper (page|step|true)</p>
+            <p><strong>aria-disabled</strong> — Non-button disabled elements</p>
+            <p><strong>role</strong> — Switch, alert, tablist, tabpanel, tab, dialog, region, navigation</p>
+          </div>
+
+          <div class="doc-sub">Screen Reader Testing Checklist</div>
           <ul class="stack-tight" style="max-width:36rem;font-size:var(--text-sm);list-style:inside">
-            <li>Use keyboard only (no mouse) to navigate pages</li>
-            <li>Test with screen reader (NVDA, JAWS, VoiceOver)</li>
-            <li>Test color contrast with WebAIM tool</li>
-            <li>Test focus order is logical and visible</li>
-            <li>Verify form labels are associated with inputs</li>
-            <li>Use axe DevTools to check for violations</li>
+            <li>✓ Page landmark regions announced: main, nav, sidebar, footer</li>
+            <li>✓ Heading hierarchy is logical (no skips: h1 → h2 → h3)</li>
+            <li>✓ Form labels are programmatically associated with inputs</li>
+            <li>✓ Button text is descriptive (not "Click here")</li>
+            <li>✓ Images have alt text (or aria-hidden if decorative)</li>
+            <li>✓ Tables have &lt;caption&gt; or aria-label</li>
+            <li>✓ Error messages are announced to screen readers</li>
+            <li>✓ Dynamic content uses aria-live="polite"</li>
           </ul>
+
+          <div class="doc-sub">Motion & Animation Accessibility</div>
+          <div class="stack-tight" style="max-width:36rem;background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-lg);font-size:var(--text-sm)">
+            <p>✓ All animations respect <strong>prefers-reduced-motion</strong> media query</p>
+            <p>✓ Duration max 400ms for responsiveness</p>
+            <p>✓ No auto-playing video/animations > 5 seconds</p>
+            <p>✓ No flashing content (> 3 per second violates WCAG)</p>
+            <p>✓ CSS: @media (prefers-reduced-motion: reduce) { animation: none; }</p>
+          </div>
+
+          <div class="doc-sub">Testing Tools & Resources</div>
+          <ul class="stack-tight" style="max-width:36rem;font-size:var(--text-sm);list-style:inside">
+            <li><strong>axe DevTools:</strong> Automated accessibility testing (Chrome, Firefox)</li>
+            <li><strong>WebAIM Contrast Checker:</strong> Color contrast verification</li>
+            <li><strong>NVDA (Windows):</strong> Free screen reader for testing</li>
+            <li><strong>JAWS:</strong> Most widely used screen reader</li>
+            <li><strong>VoiceOver (Mac/iOS):</strong> Built-in Apple screen reader</li>
+            <li><strong>WAVE:</strong> Web accessibility evaluation tool</li>
+          </ul>
+
+          <div class="doc-sub">WCAG Compliance Summary</div>
+          <div class="a11y-checklist">
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span><strong>Level A:</strong> All basic accessibility requirements met</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">✓</span>
+              <span><strong>Level AA:</strong> Color contrast (4.5:1), keyboard navigation, focus visible</span>
+            </div>
+            <div class="a11y-item">
+              <span class="a11y-check">→</span>
+              <span><strong>Level AAA:</strong> Enhanced contrast (7:1), audio descriptions — optional, recommend for critical content</span>
+            </div>
+          </div>
         </section>
 
         <!-- STATES & INTERACTIONS — Interactive component behaviors -->
