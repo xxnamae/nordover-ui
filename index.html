@@ -8,8 +8,8 @@
   <link rel="stylesheet" href="docs/visual/components/components-web.css">
   <style>
     @layer components {
-      .nav { display: flex; align-items: center; justify-content: space-between; padding: var(--space-5) var(--page-padding); border-bottom: var(--border-divider); }
-      .nav-brand { font-size: var(--text-lg); font-weight: var(--fw-semibold); }
+      .nav { display: flex; align-items: center; justify-content: space-between; padding: var(--space-4) var(--page-padding); border-bottom: var(--border-divider); background: color-mix(in oklch, var(--color-bg) 98%, transparent); }
+      .nav-brand { font-size: var(--text-lg); font-weight: var(--fw-semibold); letter-spacing: -0.02em; }
       .nav-links { display: flex; gap: var(--space-5); align-items: center; }
       @media (max-width: 640px) {
         .nav-links { gap: var(--space-3); }
@@ -67,6 +67,17 @@
       .footer-col-title { font-weight: var(--fw-semibold); margin-bottom: var(--space-3); color: var(--color-fg); }
       .footer-link { display: block; color: var(--color-muted); text-decoration: none; margin-bottom: var(--space-2); transition: color var(--duration-fast); }
       .footer-link:hover { color: var(--color-fg); }
+
+      /* Section heading accents */
+      h2.t-heading-lg { color: var(--color-fg); letter-spacing: -0.01em; }
+
+      /* Theme toggle styling */
+      .theme-toggle { cursor: pointer; display: flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; border-radius: var(--radius-full); border: none; background: transparent; transition: background-color var(--duration-fast); }
+      .theme-toggle:hover { background-color: var(--color-subtle); }
+      .theme-toggle svg { width: 1.25rem; height: 1.25rem; }
+      .theme-toggle .t-sun { display: none; }
+      :root:has(#dark:checked) .theme-toggle .t-sun { display: block; }
+      :root:has(#dark:checked) .theme-toggle .t-moon { display: none; }
     }
   </style>
 </head>
