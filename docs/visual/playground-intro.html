@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Component Playground — Nordover</title>
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  <link rel="stylesheet" href="./tokens/tokens-web.css">
+  <link rel="stylesheet" href="./components/components-web.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--color-bg);
+      color: var(--color-fg);
+      transition: background-color var(--duration-moderate), color var(--duration-moderate);
+    }
+
+    .intro-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: var(--spacing-section);
+    }
+
+    .intro-header {
+      text-align: center;
+      margin-bottom: var(--spacing-section);
+    }
+
+    .intro-title {
+      font-size: var(--text-6xl);
+      font-weight: 700;
+      margin: 0 0 var(--space-2) 0;
+      line-height: 1.2;
+    }
+
+    .intro-subtitle {
+      font-size: var(--text-lg);
+      color: var(--color-muted);
+      margin: 0 0 var(--spacing-section) 0;
+    }
+
+    .intro-hero {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-section);
+      margin-bottom: var(--spacing-section);
+      text-align: center;
+    }
+
+    .intro-cta {
+      display: flex;
+      gap: var(--space-3);
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: var(--space-4) 0;
+    }
+
+    .intro-btn {
+      padding: var(--space-3) var(--space-4);
+      background: var(--color-accent);
+      color: white;
+      border: none;
+      border-radius: var(--radius-md);
+      font-size: var(--text-base);
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      transition: all var(--duration-moderate);
+    }
+
+    .intro-btn:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+
+    .intro-btn-secondary {
+      background: var(--color-subtle);
+      color: var(--color-fg);
+      border: 1px solid var(--color-border);
+    }
+
+    .intro-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--space-4);
+      margin-bottom: var(--spacing-section);
+    }
+
+    .feature-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+    }
+
+    .feature-icon {
+      font-size: var(--text-4xl);
+      margin-bottom: var(--space-2);
+    }
+
+    .feature-title {
+      font-size: var(--text-lg);
+      font-weight: 600;
+      margin: 0 0 var(--space-2) 0;
+    }
+
+    .feature-desc {
+      font-size: var(--text-sm);
+      color: var(--color-muted);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .intro-components {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+      margin-bottom: var(--spacing-section);
+    }
+
+    .intro-components-title {
+      font-size: var(--text-2xl);
+      font-weight: 600;
+      margin: 0 0 var(--space-3) 0;
+    }
+
+    .component-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: var(--space-2);
+    }
+
+    .component-badge {
+      padding: var(--space-2) var(--space-3);
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      text-align: center;
+      font-size: var(--text-sm);
+      cursor: pointer;
+      transition: all var(--duration-fast);
+    }
+
+    .component-badge:hover {
+      background: var(--color-accent);
+      color: white;
+      border-color: var(--color-accent);
+    }
+
+    .intro-footer {
+      text-align: center;
+      padding: var(--space-4);
+      border-top: 1px solid var(--color-border);
+      color: var(--color-muted);
+      font-size: var(--text-sm);
+    }
+
+    .intro-docs-link {
+      color: var(--color-accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .intro-docs-link:hover {
+      text-decoration: underline;
+    }
+
+    :root:has(#dark:checked) {
+      --color-bg: oklch(0.15 0 0);
+      --color-surface: oklch(0.21 0 0);
+      --color-subtle: oklch(0.27 0 0);
+      --color-fg: oklch(0.93 0 0);
+      --color-muted: oklch(0.62 0 0);
+      --color-border: oklch(0.32 0 0);
+    }
+  </style>
+</head>
+<body>
+<input type="checkbox" id="dark" class="sr-only" role="switch" aria-label="Aktiver mørk modus">
+
+<div class="intro-container">
+  <div class="intro-header">
+    <h1 class="intro-title">🎨 Component Playground</h1>
+    <p class="intro-subtitle">Interaktiv editor for Nordover-komponenter</p>
+  </div>
+
+  <div class="intro-hero">
+    <p style="font-size: var(--text-lg); margin-bottom: var(--space-3); color: var(--color-muted);">
+      Eksperimentér med over 40 komponenter i sanntid. Rediger HTML, se preview, og valider tilgjengelighet — alt på ett sted.
+    </p>
+    <div class="intro-cta">
+      <a href="./playground.html" class="intro-btn">
+        Åpne Playground →
+      </a>
+      <a href="./PLAYGROUND.md" class="intro-btn intro-btn-secondary">
+        Les dokumentasjon
+      </a>
+    </div>
+  </div>
+
+  <div class="intro-features">
+    <div class="feature-card">
+      <div class="feature-icon">✏️</div>
+      <h3 class="feature-title">Live Editor</h3>
+      <p class="feature-desc">Rediger HTML direkte og se endringer i sanntid. Format, kopier, og eksporter kode.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">👀</div>
+      <h3 class="feature-title">Real-time Preview</h3>
+      <p class="feature-desc">Se komponenten oppdateres mens du skriver. Test på desktop, tablet og mobil.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">♿</div>
+      <h3 class="feature-title">Accessibility Check</h3>
+      <p class="feature-desc">Automatisk validering av ARIA-attributter, labels, og tastatur-navigasjon.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">🔍</div>
+      <h3 class="feature-title">Smart Search</h3>
+      <p class="feature-desc">Søk komponenter etter navn, kategori eller ARIA-attributter. Raske filtre.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">💾</div>
+      <h3 class="feature-title">Automatisk Lagring</h3>
+      <p class="feature-desc">Dine endringer lagres lokalt. Gjenoppta arbeidet hvor du stoppet.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">🌙</div>
+      <h3 class="feature-title">Dark Mode</h3>
+      <p class="feature-desc">Test komponenter i mørk modus. Sjekk kontrast og lesbarhet.</p>
+    </div>
+  </div>
+
+  <div class="intro-components">
+    <h2 class="intro-components-title">40+ Komponenter</h2>
+    <div class="component-grid">
+      <a href="./playground.html?component=btn-primary" class="component-badge" title="Åpne i playground">
+        btn-primary
+      </a>
+      <a href="./playground.html?component=btn-secondary" class="component-badge" title="Åpne i playground">
+        btn-secondary
+      </a>
+      <a href="./playground.html?component=btn-ghost" class="component-badge" title="Åpne i playground">
+        btn-ghost
+      </a>
+      <a href="./playground.html?component=btn-link" class="component-badge" title="Åpne i playground">
+        btn-link
+      </a>
+      <a href="./playground.html?component=btn-sm" class="component-badge" title="Åpne i playground">
+        btn-sm
+      </a>
+      <a href="./playground.html?component=btn-lg" class="component-badge" title="Åpne i playground">
+        btn-lg
+      </a>
+      <a href="./playground.html?component=input-text" class="component-badge" title="Åpne i playground">
+        input-text
+      </a>
+      <a href="./playground.html?component=input-email" class="component-badge" title="Åpne i playground">
+        input-email
+      </a>
+      <a href="./playground.html?component=input-checkbox" class="component-badge" title="Åpne i playground">
+        input-checkbox
+      </a>
+      <a href="./playground.html?component=input-select" class="component-badge" title="Åpne i playground">
+        input-select
+      </a>
+      <a href="./playground.html?component=badge-primary" class="component-badge" title="Åpne i playground">
+        badge-primary
+      </a>
+      <a href="./playground.html?component=badge-success" class="component-badge" title="Åpne i playground">
+        badge-success
+      </a>
+      <a href="./playground.html?component=badge-error" class="component-badge" title="Åpne i playground">
+        badge-error
+      </a>
+      <a href="./playground.html?component=alert-success" class="component-badge" title="Åpne i playground">
+        alert-success
+      </a>
+      <a href="./playground.html?component=alert-error" class="component-badge" title="Åpne i playground">
+        alert-error
+      </a>
+      <a href="./playground.html?component=alert-warning" class="component-badge" title="Åpne i playground">
+        alert-warning
+      </a>
+      <a href="./playground.html?component=alert-info" class="component-badge" title="Åpne i playground">
+        alert-info
+      </a>
+      <a href="./playground.html?component=breadcrumbs" class="component-badge" title="Åpne i playground">
+        breadcrumbs
+      </a>
+      <a href="./playground.html?component=pagination" class="component-badge" title="Åpne i playground">
+        pagination
+      </a>
+      <a href="./playground.html?component=accordion" class="component-badge" title="Åpne i playground">
+        accordion
+      </a>
+      <a href="./playground.html?component=data-table" class="component-badge" title="Åpne i playground">
+        data-table
+      </a>
+      <a href="./playground.html?component=modal-basic" class="component-badge" title="Åpne i playground">
+        modal-basic
+      </a>
+      <a href="./playground.html?component=chip" class="component-badge" title="Åpne i playground">
+        chip
+      </a>
+      <a href="./playground.html" class="component-badge" title="Se alle komponenter">
+        + 17 flere
+      </a>
+    </div>
+  </div>
+
+  <div class="intro-footer">
+    <p>
+      Del med andre: <code style="background: var(--color-surface); padding: 0.25rem 0.5rem; border-radius: 4px;">playground.html?component=button-name</code>
+    </p>
+    <p>
+      Se <a href="./PLAYGROUND.md" class="intro-docs-link">full dokumentasjon</a> for flere tips og tricks.
+    </p>
+    <p style="margin-top: var(--space-4); font-size: var(--text-xs);">
+      Nordover Design System — MIT License
+    </p>
+  </div>
+</div>
+
+<script>
+  // Dark mode toggle
+  const darkCheckbox = document.getElementById('dark');
+  darkCheckbox.addEventListener('change', function() {
+    localStorage.setItem('playground-dark-mode', this.checked);
+  });
+
+  // Load saved dark mode preference
+  const savedDarkMode = localStorage.getItem('playground-dark-mode') === 'true';
+  if (savedDarkMode) {
+    darkCheckbox.checked = true;
+  }
+</script>
+</body>
+</html>
