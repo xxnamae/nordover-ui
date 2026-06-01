@@ -882,6 +882,23 @@
 }
 .code-block:hover .copy-btn { opacity: 1; }
 
+/* Styleguide-only preview frame for fixed-position components (mobile-nav).
+   Scopes the live demo so .mobile-nav previews inline instead of covering the page. */
+.mobile-nav-preview {
+  position: relative;
+  height: 22rem;
+  max-width: 16rem;
+  overflow: hidden;
+  border: var(--border-card);
+  border-radius: var(--radius-lg);
+}
+.mobile-nav-preview .mobile-nav {
+  position: absolute;
+  height: 100%;
+  transform: none;
+  border-right: var(--border-divider);
+}
+
 /* Styleguide-only demo keyframes (motion documentation examples) */
 @keyframes sg-slide-right { from { transform: translateX(0); } to { transform: translateX(100px); } }
 @keyframes sg-bounce-bars { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(1.5); } }

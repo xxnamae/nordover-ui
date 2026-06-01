@@ -530,10 +530,11 @@
           <div class="doc-sub">Micro-Interactions Examples</div>
           <div class="stack gap-4">
             <div>
-              <p class="t-body-sm text-muted mb-2">Button hover scale (150ms ease-out)</p>
-              <div style="display:flex;gap:var(--space-3)">
-                <button class="btn btn-primary">Normal</button>
-                <button class="btn btn-primary" style="transform:scale(1.05)">Hover (+5%)</button>
+              <p class="t-body-sm text-muted mb-2">Transition utilities — hover to compare speed</p>
+              <div class="flex gap-3">
+                <button class="btn btn-secondary transition-fast">.transition-fast</button>
+                <button class="btn btn-secondary transition-base">.transition-base</button>
+                <button class="btn btn-secondary transition-slow">.transition-slow</button>
               </div>
             </div>
             <div>
@@ -554,16 +555,25 @@
           </div>
 
           <div class="doc-sub">Animation Utilities Reference</div>
+          <p class="t-body-sm text-muted mb-3">Entrance/exit animation and transition utility classes. Hover the swatches to trigger.</p>
+          <div class="flex flex-wrap gap-3 mb-3">
+            <span class="badge slide-in-down">.slide-in-down</span>
+            <span class="badge slide-in-left">.slide-in-left</span>
+            <span class="badge slide-in-right">.slide-in-right</span>
+            <span class="badge scale-in">.scale-in</span>
+            <span class="badge scale-out">.scale-out</span>
+            <span class="badge fade-out">.fade-out</span>
+          </div>
           <div class="chips mb-3">
-            <span class="chip">.animate-fade-in</span>
-            <span class="chip">.animate-slide-up</span>
-            <span class="chip">.animate-slide-down</span>
-            <span class="chip">.animate-slide-left</span>
-            <span class="chip">.animate-slide-right</span>
-            <span class="chip">.animate-scale-in</span>
-            <span class="chip">.animate-bounce-in</span>
+            <span class="chip">.slide-in-down</span>
+            <span class="chip">.slide-in-left</span>
+            <span class="chip">.slide-in-right</span>
+            <span class="chip">.scale-in</span>
+            <span class="chip">.scale-out</span>
+            <span class="chip">.fade-out</span>
             <span class="chip">.transition-fast</span>
             <span class="chip">.transition-base</span>
+            <span class="chip">.transition-slow</span>
           </div>
 
           <div class="doc-sub">CSS Implementation Guide</div>
@@ -630,7 +640,21 @@
             </div>
           </div>
 
+          <div class="doc-sub">Muted &amp; Subtle Variants</div>
+          <div class="chips"><span class="chip">.icon-muted</span><span class="chip">.icon-subtle</span></div>
+          <div class="doc-demo stack">
+            <div class="cluster cluster-tight">
+              <svg class="icon icon-muted" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+              <span>Muted color (.icon-muted)</span>
+            </div>
+            <div class="cluster cluster-tight">
+              <svg class="icon icon-subtle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+              <span>Reduced opacity (.icon-subtle)</span>
+            </div>
+          </div>
+
           <div class="doc-sub">Animations</div>
+          <div class="chips"><span class="chip">.icon-spin</span><span class="chip">.icon-pulse</span><span class="chip">.icon-bounce</span></div>
           <div class="doc-demo stack">
             <div class="cluster cluster-tight">
               <svg class="icon icon-spin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" /><path d="M12 2v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -639,6 +663,10 @@
             <div class="cluster cluster-tight">
               <svg class="icon icon-pulse" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="currentColor"/></svg>
               <span>Pulsing (.icon-pulse)</span>
+            </div>
+            <div class="cluster cluster-tight">
+              <svg class="icon icon-bounce" viewBox="0 0 24 24"><path d="M12 4v12m0 0l-5-5m5 5l5-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Bouncing (.icon-bounce)</span>
             </div>
           </div>
         </section>
@@ -968,24 +996,24 @@
         <section class="doc-section" id="alerts" data-section="components" data-category="alerts">
           <h2 class="doc-section-title">Alerts</h2>
           <p class="doc-section-desc">Contextual feedback messages with semantic color coding. Use role="alert" for dynamic updates.</p>
-          <div class="chips"><span class="chip">.alert</span><span class="chip">.alert-success</span><span class="chip">.alert-info</span><span class="chip">.alert-warning</span><span class="chip">.alert-error</span></div>
+          <div class="chips"><span class="chip">.alert</span><span class="chip">.alert-icon</span><span class="chip">.alert-success</span><span class="chip">.alert-info</span><span class="chip">.alert-warning</span><span class="chip">.alert-error</span></div>
 
           <div class="doc-sub">Alert Variants</div>
           <div class="stack">
             <div class="alert alert-success" role="alert">
-              <svg class="icon-sm" style="color:var(--color-success);flex-shrink:0" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+              <svg class="icon-sm alert-icon" style="color:var(--color-success)" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
               <div><strong>Success —</strong> Your changes have been saved successfully.</div>
             </div>
             <div class="alert alert-info" role="alert">
-              <svg class="icon-sm" style="color:var(--color-info);flex-shrink:0" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="12" y1="16" x2="12" y2="12" stroke="currentColor" stroke-width="1.5"/><line x1="12" y1="8" x2="12.01" y2="8" stroke="currentColor" stroke-width="1.5"/></svg>
+              <svg class="icon-sm alert-icon" style="color:var(--color-info)" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="12" y1="16" x2="12" y2="12" stroke="currentColor" stroke-width="1.5"/><line x1="12" y1="8" x2="12.01" y2="8" stroke="currentColor" stroke-width="1.5"/></svg>
               <div><strong>Info —</strong> New features are now available in your account.</div>
             </div>
             <div class="alert alert-warning" role="alert">
-              <svg class="icon-sm" style="color:var(--color-warning);flex-shrink:0" viewBox="0 0 24 24"><path d="M12 2L2 20h20L12 2" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="12" y1="9" x2="12" y2="13" stroke="currentColor" stroke-width="1.5"/><line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="1.5"/></svg>
+              <svg class="icon-sm alert-icon" style="color:var(--color-warning)" viewBox="0 0 24 24"><path d="M12 2L2 20h20L12 2" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="12" y1="9" x2="12" y2="13" stroke="currentColor" stroke-width="1.5"/><line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="1.5"/></svg>
               <div><strong>Warning —</strong> This action cannot be undone. Proceed with caution.</div>
             </div>
             <div class="alert alert-error" role="alert">
-              <svg class="icon-sm" style="color:var(--color-error);flex-shrink:0" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="12" y1="8" x2="12" y2="12" stroke="currentColor" stroke-width="1.5"/><line x1="12" y1="16" x2="12.01" y2="16" stroke="currentColor" stroke-width="1.5"/></svg>
+              <svg class="icon-sm alert-icon" style="color:var(--color-error)" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="12" y1="8" x2="12" y2="12" stroke="currentColor" stroke-width="1.5"/><line x1="12" y1="16" x2="12.01" y2="16" stroke="currentColor" stroke-width="1.5"/></svg>
               <div><strong>Error —</strong> Something went wrong. Please try again or contact support.</div>
             </div>
           </div>
@@ -1280,7 +1308,7 @@
                 <tr>
                   <th scope="col" class="sortable">Name</th>
                   <th scope="col" class="sortable sort-asc">Department</th>
-                  <th scope="col">Contact</th>
+                  <th scope="col" class="sortable sort-desc">Contact</th>
                   <th scope="col">Status</th>
                   <th scope="col">Actions</th>
                 </tr>
@@ -1889,6 +1917,24 @@
           </div>
           <p class="t-body-sm text-muted mt-3">Auto-fit grid with minimum column width (16rem). Adapts columns based on available space.</p>
 
+          <div class="doc-sub">Application Sidebar</div>
+          <div class="chips"><span class="chip">.app-sidebar</span><span class="chip">.app-sidebar-section</span><span class="chip">.app-sidebar-close</span><span class="chip">.app-nav-item</span></div>
+          <div class="doc-demo">
+            <div style="max-width:16rem;border:var(--border-card);border-radius:var(--radius-lg);padding:var(--space-3)">
+              <div class="flex items-center justify-between mb-2">
+                <strong>Menu</strong>
+                <button class="app-sidebar-close" aria-label="Close sidebar">✕</button>
+              </div>
+              <p class="app-sidebar-section">Foundation</p>
+              <a class="app-nav-item" href="#colors">Colors</a>
+              <a class="app-nav-item" href="#type">Typography</a>
+              <p class="app-sidebar-section">Components</p>
+              <a class="app-nav-item" href="#buttons">Buttons</a>
+              <a class="app-nav-item" href="#alerts">Alerts</a>
+            </div>
+          </div>
+          <p class="t-body-sm text-muted mt-3"><code>.app-sidebar-section</code> labels a group of nav items; <code>.app-sidebar-close</code> is the mobile dismiss button (hidden on desktop).</p>
+
           <div class="doc-sub">Page Container</div>
           <div class="chips"><span class="chip">.page</span><span class="chip">.page-content</span><span class="chip">.page-section</span></div>
           <p class="t-body-sm">Use .page as main container, .page-content for max-width centering, .page-section for vertical sections with spacing.</p>
@@ -1998,12 +2044,14 @@
         <section class="doc-section" id="date-picker" data-section="components" data-category="date-picker">
           <h2 class="doc-section-title">Date Picker</h2>
           <p class="doc-section-desc">Interactive calendar for date selection. Opens dropdown with calendar grid, month/year navigation. Full keyboard support: tab to navigate, enter to select, escape to close.</p>
-          <div class="chips"><span class="chip">.date-picker</span><span class="chip">.date-picker-calendar</span><span class="chip">.date-picker-day.selected</span></div>
+          <div class="chips"><span class="chip">.date-picker</span><span class="chip">.date-picker-input</span><span class="chip">.date-picker-calendar</span><span class="chip">.date-picker-day.selected</span></div>
           <div class="doc-demo stack">
             <div class="max-w-xs">
               <label class="field-label">Velg dato</label>
               <div class="date-picker">
-                <input class="form-input" type="text" placeholder="Choose date..." readonly style="cursor:pointer">
+                <div class="date-picker-input">
+                  <input class="form-input" type="text" placeholder="Choose date..." readonly style="cursor:pointer">
+                </div>
                 <div class="date-picker-calendar" style="display:block;position:static;background:var(--color-surface);border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-4)">
                   <div class="date-picker-header">
                     <button class="date-picker-nav">←</button>
@@ -3071,6 +3119,23 @@ function validate(e) {
           <h2 class="doc-section-title">Pricing Models</h2>
           <p class="doc-section-desc">3+ pricing layouts: simple grid, comparison table, tiered cards. All responsive and accessible.</p>
 
+          <div class="doc-sub">Pricing Header &amp; Billing Toggle</div>
+          <div class="chips"><span class="chip">.pricing-section</span><span class="chip">.pricing-header</span><span class="chip">.pricing-toggle</span><span class="chip">.pricing-toggle-label</span><span class="chip">.pricing-annual</span></div>
+          <div class="doc-demo">
+            <div class="pricing-section">
+              <div class="pricing-header">
+                <h3 class="t-heading-lg">Simple, transparent pricing</h3>
+                <p class="text-muted">Choose the plan that fits your team. No hidden fees.</p>
+                <div class="pricing-toggle">
+                  <span class="pricing-toggle-label">Monthly</span>
+                  <input type="checkbox" class="form-toggle" id="pricing-billing" checked aria-label="Toggle annual billing">
+                  <span class="pricing-toggle-label">Annual <span class="pricing-annual">Save 20%</span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="t-caption mt-3 text-muted">Centered pricing header with monthly/annual billing toggle. Pair with any grid below.</p>
+
           <div class="doc-sub">1. 3-Column Pricing Grid</div>
           <div class="chips"><span class="chip">.pricing-grid</span><span class="chip">.price-card</span></div>
           <div class="code-block relative">
@@ -3227,7 +3292,7 @@ function validate(e) {
           <p class="doc-section-desc">3+ blog layouts: grid cards, list with sidebar, featured post. All responsive.</p>
 
           <div class="doc-sub">1. Blog Grid</div>
-          <div class="chips"><span class="chip">.blog-grid</span><span class="chip">.blog-card</span></div>
+          <div class="chips"><span class="chip">.blog-grid</span><span class="chip">.blog-card</span><span class="chip">.blog-card-meta</span><span class="chip">.blog-card-author</span><span class="chip">.blog-card-author-avatar</span></div>
           <div class="code-block relative">
             <div class="grid-auto">
               <article class="blog-card">
@@ -3235,6 +3300,9 @@ function validate(e) {
                 <div class="blog-card-category t-eyebrow">Design System</div>
                 <h3 class="blog-card-title t-heading-sm">Building a production-ready design system</h3>
                 <p class="blog-card-excerpt t-body-sm">Lessons learned from creating Nordover, a complete CSS framework for modern web applications.</p>
+                <div class="blog-card-meta">
+                  <span class="blog-card-author"><span class="blog-card-author-avatar"></span>Sarah Chen</span>
+                </div>
                 <div class="blog-card-footer" style="display:flex;justify-content:space-between;margin-top:var(--space-4);padding-top:var(--space-4);border-top:var(--border-divider);font-size:var(--text-xs);color:var(--color-muted)">
                   <span class="blog-card-date">May 30, 2026</span>
                   <span class="blog-card-read-time">5 min read</span>
@@ -3343,16 +3411,25 @@ function validate(e) {
         <section class="doc-section" id="testimonials" data-section="patterns" data-category="sections">
           <h2 class="doc-section-title">Testimonials</h2>
           <p class="doc-section-desc">Customer testimonials or quotes. Quote block with author info. Social proof pattern.</p>
-          <div class="chips"><span class="chip">.testimonial-grid</span><span class="chip">.testimonial</span></div>
-          <div class="testimonial-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));gap:var(--space-5)">
-            <article style="padding:var(--space-6);border:var(--border-card);border-radius:var(--radius-lg)">
-              <div style="color:var(--color-accent);margin-bottom:var(--space-3);font-size:1.5rem">"</div>
-              <p class="t-body">Nordover transformed how we build components. From scattered implementations to a single source of truth.</p>
-              <div style="margin-top:var(--space-4);display:flex;align-items:center;gap:var(--space-3)">
-                <div style="width:2.5rem;height:2.5rem;border-radius:50%;background:var(--color-subtle);flex-shrink:0"></div>
-                <div>
-                  <p style="font-weight:var(--fw-medium);font-size:var(--text-sm)">Sarah Chen</p>
-                  <p class="text-xs text-muted">Design Lead, TechCorp</p>
+          <div class="chips"><span class="chip">.testimonial-grid</span><span class="chip">.testimonial</span><span class="chip">.testimonial-quote</span><span class="chip">.testimonial-author</span><span class="chip">.testimonial-avatar</span><span class="chip">.testimonial-info</span><span class="chip">.testimonial-name</span><span class="chip">.testimonial-role</span></div>
+          <div class="testimonial-grid">
+            <article class="testimonial">
+              <p class="testimonial-quote">Nordover transformed how we build components. From scattered implementations to a single source of truth.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar"></div>
+                <div class="testimonial-info">
+                  <p class="testimonial-name">Sarah Chen</p>
+                  <p class="testimonial-role">Design Lead, TechCorp</p>
+                </div>
+              </div>
+            </article>
+            <article class="testimonial">
+              <p class="testimonial-quote">The token contract approach means brand styling is the only per-project work left. Structure and accessibility come for free.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar"></div>
+                <div class="testimonial-info">
+                  <p class="testimonial-name">Erik Solberg</p>
+                  <p class="testimonial-role">Frontend Architect, Nordbyte</p>
                 </div>
               </div>
             </article>
@@ -3363,27 +3440,23 @@ function validate(e) {
         <section class="doc-section" id="timeline" data-section="patterns" data-category="sections">
           <h2 class="doc-section-title">Timeline</h2>
           <p class="doc-section-desc">Vertical timeline for milestones, roadmap, or chronological events.</p>
-          <div class="chips"><span class="chip">.timeline</span><span class="chip">.timeline-item</span></div>
+          <div class="chips"><span class="chip">.timeline</span><span class="chip">.timeline-item</span><span class="chip">.timeline-date</span><span class="chip">.timeline-title</span><span class="chip">.timeline-desc</span></div>
           <div class="max-w-md">
-            <div style="position:relative;padding:var(--space-8) 0 var(--space-8) var(--space-10)">
-              <div style="position:absolute;left:calc(var(--space-4) - 4px);top:0;bottom:0;width:2px;background:var(--color-border)"></div>
-              <div style="margin-bottom:var(--space-8)">
-                <div style="position:absolute;left:0;top:var(--space-2);width:var(--space-4);height:var(--space-4);background:var(--color-accent);border-radius:50%;border:3px solid var(--color-bg)"></div>
-                <p class="t-heading-sm">Phase 1: Foundation</p>
-                <p class="t-body-sm text-muted mt-1">Tokens and reset layer established</p>
-                <p class="t-caption mt-2">May 2026</p>
+            <div class="timeline">
+              <div class="timeline-item">
+                <p class="timeline-date">May 2026</p>
+                <p class="timeline-title">Phase 1: Foundation</p>
+                <p class="timeline-desc">Tokens and reset layer established</p>
               </div>
-              <div style="margin-bottom:var(--space-8)">
-                <div style="position:absolute;left:0;top:calc(var(--space-8) + var(--space-2));width:var(--space-4);height:var(--space-4);background:var(--color-accent);border-radius:50%;border:3px solid var(--color-bg)"></div>
-                <p class="t-heading-sm">Phase 2: Components</p>
-                <p class="t-body-sm text-muted mt-1">40+ production components built</p>
-                <p class="t-caption mt-2">May 2026</p>
+              <div class="timeline-item">
+                <p class="timeline-date">May 2026</p>
+                <p class="timeline-title">Phase 2: Components</p>
+                <p class="timeline-desc">40+ production components built</p>
               </div>
-              <div>
-                <div style="position:absolute;left:0;top:calc(var(--space-8) * 2 + var(--space-2));width:var(--space-4);height:var(--space-4);background:var(--color-accent);border-radius:50%;border:3px solid var(--color-bg)"></div>
-                <p class="t-heading-sm">Phase 3: Documentation</p>
-                <p class="t-body-sm text-muted mt-1">Complete guides and specs published</p>
-                <p class="t-caption mt-2">May 2026</p>
+              <div class="timeline-item">
+                <p class="timeline-date">May 2026</p>
+                <p class="timeline-title">Phase 3: Documentation</p>
+                <p class="timeline-desc">Complete guides and specs published</p>
               </div>
             </div>
           </div>
@@ -5177,8 +5250,9 @@ button { transition: all 250ms ease-out; }
 
           <div class="doc-sub">Width & Max-Width</div>
           <div class="chips"><span class="chip">.w-full</span><span class="chip">.max-w-md</span><span class="chip">.max-w-lg</span><span class="chip">.max-w-2xl</span><span class="chip">.max-w-3xl</span><span class="chip">.max-w-4xl</span><span class="chip">.max-w-5xl</span><span class="chip">.max-w-6xl</span></div>
-          <div class="doc-demo">
+          <div class="doc-demo stack">
             <div class="max-w-2xl mx-auto bg-subtle p-4 rounded-md">Content constrained to max-w-2xl</div>
+            <div class="max-w-6xl mx-auto bg-subtle p-4 rounded-md">Content constrained to max-w-6xl (widest container)</div>
           </div>
 
           <div class="doc-sub">Aspect Ratio</div>
@@ -5278,6 +5352,57 @@ button { transition: all 250ms ease-out; }
           <div class="doc-sub">Responsive Prefixes</div>
           <div class="chips"><span class="chip">@media (min-width: 48rem)</span></div>
           <p class="t-body-sm text-muted">All utilities support responsive adaption. Example: <code style="background:var(--color-subtle);padding:0.25rem 0.5rem;border-radius:var(--radius-sm)">.gap-2 md:gap-4</code> = mobile gap-2, desktop gap-4</p>
+
+          <div class="doc-sub">Dividers</div>
+          <div class="chips"><span class="chip">.divider</span><span class="chip">.section-divider</span><span class="chip">.section-divider-icon</span></div>
+          <div class="doc-demo stack">
+            <p class="t-body-sm text-muted">Simple inline rule (<code>.divider</code>)</p>
+            <div class="divider"></div>
+            <p class="t-body-sm text-muted">Faded section break (<code>.section-divider</code>)</p>
+            <div class="section-divider"></div>
+            <p class="t-body-sm text-muted">Section break with centered icon (<code>.section-divider-icon</code>)</p>
+            <div class="section-divider-icon"><span>✦</span></div>
+          </div>
+
+          <div class="doc-sub">Loading Spinner</div>
+          <div class="chips"><span class="chip">.spinner</span></div>
+          <div class="doc-demo flex items-center gap-3">
+            <span class="spinner" role="status" aria-label="Loading"></span>
+            <span class="t-body-sm text-muted">Indeterminate loading indicator</span>
+          </div>
+
+          <div class="doc-sub">Responsive Table Wrapper</div>
+          <div class="chips"><span class="chip">.table-responsive</span></div>
+          <div class="doc-demo">
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead><tr><th>Name</th><th>Role</th><th>Team</th><th>Location</th></tr></thead>
+                <tbody>
+                  <tr><td>Sarah Chen</td><td>Design Lead</td><td>Platform</td><td>Oslo</td></tr>
+                  <tr><td>Erik Solberg</td><td>Architect</td><td>Frontend</td><td>Bergen</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <p class="t-caption mt-3 text-muted">Wraps a table to allow horizontal scroll on narrow viewports without breaking layout.</p>
+
+          <div class="doc-sub">Responsive Stack (Container Query)</div>
+          <div class="chips"><span class="chip">.responsive-stack</span></div>
+          <div class="doc-demo">
+            <div class="responsive-stack">
+              <div class="bg-subtle p-4 rounded-md">Item 1</div>
+              <div class="bg-subtle p-4 rounded-md">Item 2</div>
+              <div class="bg-subtle p-4 rounded-md">Item 3</div>
+            </div>
+          </div>
+          <p class="t-caption mt-3 text-muted">Uses container queries: lays out as a grid when its container is wide enough, stacks otherwise.</p>
+
+          <div class="doc-sub">Touch Target</div>
+          <div class="chips"><span class="chip">.touch-area</span></div>
+          <div class="doc-demo flex items-center gap-3">
+            <button class="btn btn-secondary btn-sm touch-area">Compact</button>
+            <span class="t-body-sm text-muted">Expands the hit area by 8px on all sides without changing visual size (touch accessibility).</span>
+          </div>
 
           <div class="doc-sub">Utility Summary</div>
           <p class="t-body-sm text-muted">All utilities use CSS custom properties for values. Override by setting variables in @layer brand. No !important flags — utilities respect cascade.</p>
@@ -5654,19 +5779,26 @@ button { transition: all 250ms ease-out; }
           <p class="doc-section-desc">Mobile-first navigation drawer, empty states, and feedback patterns for complete user experiences.</p>
 
           <div class="doc-sub">Mobile Navigation Drawer</div>
-          <p class="t-body-sm text-muted mb-3">On mobile, sidebar becomes a drawer (toggle with hamburger button). Use checkbox + label for toggle mechanism:</p>
-          <div style="border:var(--border-card);border-radius:var(--radius-lg);padding:var(--space-4);background:var(--color-surface);font-size:var(--text-sm)">
-            <p class="mb-3"><strong>HTML Pattern:</strong></p>
-            <div style="background:var(--color-subtle);padding:var(--space-3);border-radius:var(--radius-md);font-family:monospace;overflow-x:auto">
-&lt;input type="checkbox" id="nav-toggle" class="sr-only"&gt;<br>
-&lt;label for="nav-toggle" class="hamburger"&gt;☰&lt;/label&gt;<br>
-&lt;nav class="mobile-nav" id="mobile-nav"&gt;<br>
-&nbsp;&nbsp;&lt;a href="#"&gt;Home&lt;/a&gt;<br>
-&nbsp;&nbsp;&lt;a href="#"&gt;About&lt;/a&gt;<br>
-&lt;/nav&gt;
+          <p class="t-body-sm text-muted mb-3">On mobile, the sidebar becomes a drawer toggled by a hamburger button. The drawer slides in from the left; add <code>.open</code> to reveal it. Preview shown in its open state:</p>
+          <div class="chips"><span class="chip">.mobile-nav-trigger</span><span class="chip">.mobile-nav</span><span class="chip">.mobile-nav-header</span><span class="chip">.mobile-nav-close</span><span class="chip">.mobile-nav-list</span><span class="chip">.mobile-nav-item</span></div>
+          <div class="doc-demo flex gap-4 items-start">
+            <button class="mobile-nav-trigger" aria-label="Open navigation">☰</button>
+            <div class="mobile-nav-preview">
+              <nav class="mobile-nav open" aria-label="Mobile">
+                <div class="mobile-nav-header">
+                  <strong>Nordover</strong>
+                  <button class="mobile-nav-close" aria-label="Close navigation">✕</button>
+                </div>
+                <ul class="mobile-nav-list">
+                  <li class="mobile-nav-item active">Home</li>
+                  <li class="mobile-nav-item">Components</li>
+                  <li class="mobile-nav-item">Patterns</li>
+                  <li class="mobile-nav-item">Guidelines</li>
+                </ul>
+              </nav>
             </div>
-            <p class="mt-3 text-muted"><strong>Behavior:</strong> Drawer slides from left, backdrop appears, ESC or backdrop click closes</p>
           </div>
+          <p class="t-caption mt-3 text-muted"><strong>Behavior:</strong> <code>.mobile-nav-trigger</code> shows only below the tablet breakpoint. Toggling <code>.open</code> on <code>.mobile-nav</code> slides the drawer in. Pair with a backdrop; ESC or backdrop click closes.</p>
 
           <div class="doc-sub">Empty State Pattern</div>
           <div style="border:var(--border-card);border-radius:var(--radius-lg);padding:var(--space-6);background:var(--color-surface);text-align:center;max-width:32rem;margin:0 auto">
@@ -5895,7 +6027,9 @@ button { transition: all 250ms ease-out; }
         <section class="doc-section" id="footer" data-section="patterns" data-category="page-sections">
           <h2 class="doc-section-title">Footer</h2>
           <p class="doc-section-desc">Multi-column footer layout. Responsive grid that stacks on mobile.</p>
-          <div class="chips"><span class="chip">.footer-grid</span></div>
+
+          <div class="doc-sub">Auto-fit Grid</div>
+          <div class="chips"><span class="chip">.footer-grid</span><span class="chip">.footer-col-title</span><span class="chip">.footer-link</span></div>
           <div class="doc-demo">
             <div class="footer-grid">
               <div>
@@ -5922,6 +6056,60 @@ button { transition: all 250ms ease-out; }
               </div>
             </div>
           </div>
+
+          <div class="doc-sub">3-Column Layout</div>
+          <div class="chips"><span class="chip">.footer-3col</span></div>
+          <div class="doc-demo">
+            <div class="footer-3col">
+              <div>
+                <p class="footer-col-title">Product</p>
+                <a class="footer-link">Features</a>
+                <a class="footer-link">Pricing</a>
+                <a class="footer-link">Changelog</a>
+              </div>
+              <div>
+                <p class="footer-col-title">Resources</p>
+                <a class="footer-link">Docs</a>
+                <a class="footer-link">Guides</a>
+                <a class="footer-link">API</a>
+              </div>
+              <div>
+                <p class="footer-col-title">Company</p>
+                <a class="footer-link">About</a>
+                <a class="footer-link">Careers</a>
+                <a class="footer-link">Contact</a>
+              </div>
+            </div>
+          </div>
+          <p class="t-caption mt-3 text-muted">Wider columns (14rem min). Collapses to 2 columns on tablet, 1 on mobile.</p>
+
+          <div class="doc-sub">4-Column Layout</div>
+          <div class="chips"><span class="chip">.footer-4col</span></div>
+          <div class="doc-demo">
+            <div class="footer-4col">
+              <div>
+                <p class="footer-col-title">Product</p>
+                <a class="footer-link">Features</a>
+                <a class="footer-link">Pricing</a>
+              </div>
+              <div>
+                <p class="footer-col-title">Resources</p>
+                <a class="footer-link">Docs</a>
+                <a class="footer-link">Guides</a>
+              </div>
+              <div>
+                <p class="footer-col-title">Company</p>
+                <a class="footer-link">About</a>
+                <a class="footer-link">Blog</a>
+              </div>
+              <div>
+                <p class="footer-col-title">Legal</p>
+                <a class="footer-link">Privacy</a>
+                <a class="footer-link">Terms</a>
+              </div>
+            </div>
+          </div>
+          <p class="t-caption mt-3 text-muted">Tighter columns (12rem min) for denser footers. Collapses to 2 columns on tablet, 1 on mobile.</p>
         </section>
 
         <!-- QUICK COPY REFERENCE — Copy-paste code snippets -->
