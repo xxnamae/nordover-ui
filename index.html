@@ -30,7 +30,11 @@
             color-mix(in oklch, var(--color-accent) 18%, transparent),
             transparent 65%
           );
+        width: 100vw;
+        margin-left: calc(-1 * var(--page-padding));
+        margin-right: calc(-1 * var(--page-padding));
       }
+      .hero .section-inner { width: 100%; }
       .hero h1 { margin: var(--space-4) 0 var(--space-5); }
       .hero-sub { color: var(--color-muted); max-width: 52ch; margin-inline: auto; }
       .hero-stats {
@@ -48,7 +52,9 @@
       }
 
       /* Feature cards — accent icons + gentle tactile lift on hover */
-      .feature-card-icon { color: var(--color-accent); margin-bottom: var(--space-4); }
+      .feature-card-icon { color: var(--color-accent); margin-bottom: var(--space-6); }
+      .feature-card h3 { color: var(--color-fg); font-weight: var(--fw-semibold); }
+      .feature-card p { color: var(--gray-600); }
       .feature-card {
         transition: border-color var(--duration-base), background-color var(--duration-base),
                     transform var(--duration-base), box-shadow var(--duration-base);
