@@ -784,3 +784,33 @@
   font-size: var(--text-xs);
   margin-top: var(--space-2);
 }
+
+/* Additional utilities for styleguide example markup (Phase 6C batch 2) */
+.uppercase { text-transform: uppercase; }
+.tracking-eyebrow { letter-spacing: 0.05em; }
+.flex-1 { flex: 1; }
+.mt-5 { margin-top: var(--space-5); }
+.mt-6 { margin-top: var(--space-6); }
+.mb-0 { margin-bottom: 0; }
+.gap-5 { gap: var(--space-5); }
+.max-w-sm { max-width: 24rem; }
+.max-w-md { max-width: 32rem; }
+.max-w-prose { max-width: 65ch; }
+
+/* Eyebrow label (uppercase, muted, small) — common styleguide pattern */
+.eyebrow {
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+/* Inline code snippet box (monospace on subtle bg) */
+.code-snippet {
+  background: var(--color-subtle);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}
