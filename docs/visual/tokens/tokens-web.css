@@ -137,8 +137,8 @@
     --gray-950: oklch(0.07  var(--neutral-c) var(--neutral-h));
 
     /* === Semantiske farger (LIGHT default — editorial, accent svart) === */
-    --color-bg: #FFFFFF;
-    --color-surface: #FFFFFF;
+    --color-bg: oklch(1 0 0);
+    --color-surface: oklch(1 0 0);
     --color-fg: var(--gray-900);
     --color-muted: var(--gray-500);
     --color-subtle: var(--gray-100);
@@ -147,7 +147,7 @@
     --color-accent-fg: var(--gray-50);
     --color-accent-hover: color-mix(in oklch, var(--color-accent) 85%, white);
     --color-accent-active: color-mix(in oklch, var(--color-accent) 70%, white);
-    --color-focus: #0066FF;
+    --color-focus: oklch(0.50 0.28 260);
     --color-backdrop: color-mix(in oklch, var(--color-fg) 50%, transparent);
 
     /* === Semantiske tripletter (subtle / base / strong) === */
@@ -295,7 +295,7 @@
     --color-accent-fg: var(--gray-950);
     --color-accent-hover: color-mix(in oklch, var(--color-accent) 85%, black);
     --color-accent-active: color-mix(in oklch, var(--color-accent) 70%, black);
-    --color-focus: #4D8DFF;
+    --color-focus: oklch(0.60 0.20 260);
     --color-backdrop: color-mix(in oklch, var(--color-fg) 50%, transparent);
 
     /* Funksjonelle farger lysere i dark for kontrast */

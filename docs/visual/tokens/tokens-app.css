@@ -120,13 +120,13 @@
 
     /* === Semantiske farger (LIGHT default — brand-blå accent) === */
     --color-bg: var(--gray-50);
-    --color-surface: #FFFFFF;
+    --color-surface: oklch(1 0 0);
     --color-fg: var(--gray-900);
     --color-muted: var(--gray-500);
     --color-subtle: var(--gray-100);
     --color-border: var(--gray-200);
-    --color-accent: #2563EB;          /* Tailwind blue-600 — WCAG AA på lys bg (4.95) og med hvit tekst (5.17) */
-    --color-accent-fg: #FFFFFF;
+    --color-accent: oklch(0.50 0.22 260);          /* Brand blue — WCAG AA på lys bg (4.95) og med hvit tekst (5.17) */
+    --color-accent-fg: oklch(1 0 0);
     --color-accent-hover: color-mix(in oklch, var(--color-accent) 88%, black);
     --color-accent-active: color-mix(in oklch, var(--color-accent) 76%, black);
     --color-focus: var(--color-accent);
@@ -151,17 +151,17 @@
 
     /* === Status (workflow — Linear-stil) === */
     --status-backlog: var(--gray-500);
-    --status-todo: #94A3B8;
-    --status-in-progress: #F59E0B;
-    --status-in-review: #6366F1;
-    --status-done: #22C55E;
+    --status-todo: oklch(0.62 0.04 260);
+    --status-in-progress: oklch(0.66 0.17 65);
+    --status-in-review: oklch(0.55 0.25 280);
+    --status-done: oklch(0.65 0.17 155);
     --status-canceled: var(--gray-600);
-    --status-blocked: #EF4444;
+    --status-blocked: oklch(0.55 0.20 25);
 
     /* === Priority === */
-    --priority-urgent: #DC2626;
-    --priority-high: #F59E0B;
-    --priority-medium: #94A3B8;
+    --priority-urgent: oklch(0.52 0.20 25);
+    --priority-high: oklch(0.66 0.17 65);
+    --priority-medium: oklch(0.62 0.04 260);
     --priority-low: var(--gray-600);
     --priority-none: var(--gray-300);
 
@@ -293,7 +293,7 @@
     --color-muted: var(--gray-400);
     --color-subtle: var(--gray-800);
     --color-border: var(--gray-700);
-    --color-accent: #3B82F6;          /* Tailwind blue-500 — WCAG AA på mørk bg (5.63), lysere enn light-mode accent for synlighet */
+    --color-accent: oklch(0.55 0.25 260);          /* Brand blue lighter — WCAG AA på mørk bg (5.63), lysere enn light-mode accent for synlighet */
     --color-accent-hover: color-mix(in oklch, var(--color-accent) 88%, white);
     --color-accent-active: color-mix(in oklch, var(--color-accent) 76%, white);
 
