@@ -640,6 +640,7 @@
     border: 1px solid var(--color-border);
   }
   .btn-secondary:hover {
+    background: rgb(245, 245, 245); /* fallback: light gray */
     background: color-mix(in oklch, var(--color-accent) 10%, var(--color-subtle));
     border-color: var(--color-accent);
   }
@@ -727,9 +728,17 @@
     background: var(--color-bg);
   }
 
-  .form-input.is-error { border-color: var(--error); background: color-mix(in oklch, var(--error) 8%, var(--color-bg)); }
+  .form-input.is-error {
+    border-color: var(--error);
+    background: rgb(252, 240, 235); /* fallback: pale red */
+    background: color-mix(in oklch, var(--error) 8%, var(--color-bg));
+  }
   .form-input.is-error:focus-visible { border-color: var(--error); outline-color: var(--error); }
-  .form-input.is-success { border-color: var(--success); background: color-mix(in oklch, var(--success) 8%, var(--color-bg)); }
+  .form-input.is-success {
+    border-color: var(--success);
+    background: rgb(235, 248, 242); /* fallback: pale green */
+    background: color-mix(in oklch, var(--success) 8%, var(--color-bg));
+  }
   .form-input.is-success:focus-visible { border-color: var(--success); outline-color: var(--success); }
 
   .field-help,
@@ -772,24 +781,28 @@
   .badge-success {
     background: var(--success-subtle);
     color: var(--success-strong);
+    border-color: rgb(200, 230, 215); /* fallback: pale green border */
     border-color: color-mix(in oklch, var(--success) 30%, var(--color-border));
   }
 
   .badge-error {
     background: var(--error-subtle);
     color: var(--error-strong);
+    border-color: rgb(230, 200, 190); /* fallback: pale red border */
     border-color: color-mix(in oklch, var(--error) 30%, var(--color-border));
   }
 
   .badge-warning {
     background: var(--warning-subtle);
     color: var(--warning-strong);
+    border-color: rgb(230, 215, 185); /* fallback: pale yellow border */
     border-color: color-mix(in oklch, var(--warning) 30%, var(--color-border));
   }
 
   .badge-info {
     background: var(--info-subtle);
     color: var(--info-strong);
+    border-color: rgb(210, 225, 245); /* fallback: pale blue border */
     border-color: color-mix(in oklch, var(--info) 30%, var(--color-border));
   }
 
@@ -808,21 +821,25 @@
 
   .alert-success {
     background: var(--success-subtle);
+    border-color: rgb(200, 230, 215); /* fallback: pale green border */
     border-color: color-mix(in oklch, var(--success) 30%, var(--color-border));
   }
 
   .alert-error {
     background: var(--error-subtle);
+    border-color: rgb(230, 200, 190); /* fallback: pale red border */
     border-color: color-mix(in oklch, var(--error) 30%, var(--color-border));
   }
 
   .alert-warning {
     background: var(--warning-subtle);
+    border-color: rgb(230, 215, 185); /* fallback: pale yellow border */
     border-color: color-mix(in oklch, var(--warning) 30%, var(--color-border));
   }
 
   .alert-info {
     background: var(--info-subtle);
+    border-color: rgb(210, 225, 245); /* fallback: pale blue border */
     border-color: color-mix(in oklch, var(--info) 30%, var(--color-border));
   }
 
@@ -1258,7 +1275,10 @@
   .table { width: 100%; border-collapse: collapse; font-size: var(--text-sm); }
   .table th { text-align: left; font-weight: var(--fw-medium); color: var(--color-muted); padding: var(--space-3) var(--space-4); background: var(--color-subtle); border-bottom: var(--border-divider); }
   .table td { padding: var(--space-3) var(--space-4); border-bottom: var(--border-divider); vertical-align: top; }
-  .table tr:hover { background: color-mix(in oklch, var(--color-fg) 2%, var(--color-bg)); }
+  .table tr:hover {
+    background: rgb(252, 252, 252); /* fallback: very light gray */
+    background: color-mix(in oklch, var(--color-fg) 2%, var(--color-bg));
+  }
 
   /* Sortable table headers */
   .table-sort { background: transparent; border: none; cursor: pointer; color: var(--color-muted); font-weight: var(--fw-medium); transition: color var(--duration-fast) var(--ease-out)); text-align: left; padding: 0; }
@@ -1310,7 +1330,11 @@
 
   /* Autocomplete / Tag Input */
   .tag-input { display: flex; flex-wrap: wrap; gap: var(--space-2); padding: var(--space-2); border: var(--border-card); border-radius: var(--input-radius); background: var(--color-surface); align-items: center; transition: border-color var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out); }
-  .tag-input:focus-within { border-color: var(--color-focus); box-shadow: 0 0 0 2px color-mix(in oklch, var(--color-focus) 15%, transparent); }
+  .tag-input:focus-within {
+    border-color: var(--color-focus);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15); /* fallback: pale blue ring */
+    box-shadow: 0 0 0 2px color-mix(in oklch, var(--color-focus) 15%, transparent);
+  }
   .tag-input input { flex: 1; min-width: var(--space-12); border: none; background: transparent; font-size: var(--text-base); color: var(--color-fg); outline: none; }
   .tag { display: flex; align-items: center; gap: var(--space-1); padding: var(--space-1) var(--space-2); background: var(--color-subtle); border-radius: var(--radius-sm); font-size: var(--text-sm); }
   .tag-remove { cursor: pointer; opacity: 0.6; transition: opacity var(--duration-fast) var(--ease-out); }
