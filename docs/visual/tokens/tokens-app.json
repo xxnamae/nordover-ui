@@ -436,7 +436,27 @@
       }
     },
     "focus": {
-      "$value": "{color.accent}"
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.5,
+          0.28,
+          260.0
+        ]
+      },
+      "$extensions": {
+        "com.nordover.dark": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.6,
+              0.2,
+              260.0
+            ]
+          }
+        }
+      }
     },
     "error": {
       "$type": "color",

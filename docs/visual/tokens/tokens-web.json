@@ -118,7 +118,7 @@
       },
       "9xl": {
         "$type": "dimension",
-        "$value": "clamp(4.25rem, 1.8rem + 11vw, 12rem)",
+        "$value": "clamp(4.25rem, 1.8rem + 11vw, 7.5rem)",
         "$extensions": {
           "com.nordover.cssText": true
         }
