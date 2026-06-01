@@ -186,47 +186,6 @@ jobs:
           path: audit-results/
           retention-days: 30
 
-      - name: Comment PR with results
-        if: github.event_name == 'pull_request' && always()
-        uses: actions/github-script@v6
-        continue-on-error: true
-        with:
-          script: |
-            const fs = require('fs');
-
-            const critical = '${{ steps.audit.outputs.critical_violations }}' || '0';
-            const warnings = '${{ steps.audit.outputs.warnings }}' || '0';
-            const notices = '${{ steps.audit.outputs.notices }}' || '0';
-
-            let emoji = '✅';
-            if (critical > 0) emoji = '🔴';
-            else if (warnings > 0) emoji = '🟠';
-
-            const comment = `## ${emoji} Accessibility Audit Results
-
-            | Severity | Count |
-            |----------|-------|
-            | 🔴 Critical Issues | ${critical} |
-            | 🟠 Warnings | ${warnings} |
-            | 🟡 Notices | ${notices} |
-
-            **Standard:** WCAG 2.1 Level AA
-
-            🔍 **Review Details:** Open [\`/docs/visual/accessibility-audit.html\`](../docs/visual/accessibility-audit.html) for the interactive audit tool.
-
-            ${critical > 0 ? '⚠️ **Critical issues found.** Please address before merging.' : '✓ No critical issues found.'}`;
-
-            try {
-              github.rest.issues.createComment({
-                issue_number: context.issue.number,
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                body: comment
-              });
-            } catch (error) {
-              console.log('Could not post comment (permissions): ' + error.message);
-            }
-
       - name: Fail on critical violations
         if: steps.audit.outputs.critical_violations > 0
         run: |
