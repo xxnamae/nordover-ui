@@ -727,6 +727,11 @@
     background: var(--color-bg);
   }
 
+  .form-input.is-error { border-color: var(--error); background: color-mix(in oklch, var(--error) 8%, var(--color-bg)); }
+  .form-input.is-error:focus-visible { border-color: var(--error); outline-color: var(--error); }
+  .form-input.is-success { border-color: var(--success); background: color-mix(in oklch, var(--success) 8%, var(--color-bg)); }
+  .form-input.is-success:focus-visible { border-color: var(--success); outline-color: var(--success); }
+
   .field-help,
   .field-error {
     font-size: var(--text-xs);
