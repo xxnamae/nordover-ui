@@ -37,7 +37,7 @@
     line-gap-override: 0%;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { -webkit-text-size-adjust: 100%; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
   body {
     font-family: var(--font-sans);
     font-size: var(--text-base);
@@ -256,6 +256,14 @@
     --glass-blur: blur(10px) saturate(180%);
     --glass-blur-strong: blur(18px) saturate(180%);
     --glass-border: var(--bw-thin) solid color-mix(in oklch, var(--color-border) 50%, transparent);
+
+    /* Mirrors tokens-web.css — referenced by .hero-centered::before and
+       .cta-card::before overlays in components-app.css. */
+    --gradient-radial-accent: radial-gradient(
+      ellipse 80% 50% at 50% -20%,
+      color-mix(in oklch, var(--color-accent) 8%, transparent),
+      transparent 70%
+    );
 
     /* === Breakpoints (mobile-first) === */
     --bp-mobile: 30rem;    /* 480px — small phone upper bound */

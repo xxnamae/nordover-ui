@@ -1537,6 +1537,13 @@
       "$extensions": {
         "com.nordover.cssText": true
       }
+    },
+    "gradient-radial-accent": {
+      "$type": "gradient",
+      "$value": "radial-gradient( ellipse 80% 50% at 50% -20%, color-mix(in oklch, var(--color-accent) 8%, transparent), transparent 70% )",
+      "$extensions": {
+        "com.nordover.cssText": true
+      }
     }
   },
   "breakpoint": {
