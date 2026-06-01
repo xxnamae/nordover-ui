@@ -189,6 +189,7 @@ jobs:
       - name: Comment PR with results
         if: github.event_name == 'pull_request' && always()
         uses: actions/github-script@v6
+        continue-on-error: true
         with:
           script: |
             const fs = require('fs');
@@ -215,12 +216,16 @@ jobs:
 
             ${critical > 0 ? '⚠️ **Critical issues found.** Please address before merging.' : '✓ No critical issues found.'}`;
 
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: comment
-            });
+            try {
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: comment
+              });
+            } catch (error) {
+              console.log('Could not post comment (permissions): ' + error.message);
+            }
 
       - name: Fail on critical violations
         if: steps.audit.outputs.critical_violations > 0
