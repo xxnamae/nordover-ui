@@ -258,10 +258,11 @@
     --glass-border: var(--bw-thin) solid color-mix(in oklch, var(--color-border) 50%, transparent);
 
     /* === Breakpoints (mobile-first) === */
-    --bp-tablet: 36rem;    /* 576px */
-    --bp-desktop: 48rem;   /* 768px */
-    --bp-wide: 60rem;      /* 960px */
-    --bp-ultra: 80rem;     /* 1280px */
+    --bp-mobile: 30rem;    /* 480px — small phone upper bound */
+    --bp-tablet: 36rem;    /* 576px — tablet portrait */
+    --bp-desktop: 48rem;   /* 768px — tablet landscape / small desktop */
+    --bp-wide: 60rem;      /* 960px — full desktop */
+    --bp-ultra: 80rem;     /* 1280px — ultra-wide */
 
     /* === Container (smalere for SaaS) === */
     --container-narrow: 40rem;
