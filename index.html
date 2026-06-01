@@ -21,6 +21,32 @@
       main { padding: var(--page-padding) 0; }
       section { padding: var(--spacing-section) var(--page-padding); }
       .section-inner { max-width: 72rem; margin: 0 auto; }
+
+      /* Hero — radial accent glow + credibility stat strip */
+      .hero { background: var(--gradient-radial-accent); }
+      .hero h1 { margin: var(--space-4) 0 var(--space-5); }
+      .hero-sub { color: var(--color-muted); max-width: 52ch; margin-inline: auto; }
+      .hero-stats {
+        list-style: none; display: flex; flex-wrap: wrap;
+        justify-content: center; gap: var(--space-4) var(--space-7);
+        margin-top: var(--space-10);
+      }
+      .hero-stats li {
+        display: inline-flex; align-items: baseline; gap: var(--space-2);
+        color: var(--color-muted); font-size: var(--text-sm);
+      }
+      .hero-stats strong {
+        color: var(--color-fg); font-weight: var(--fw-semibold);
+        font-size: var(--text-base);
+      }
+
+      /* Feature cards — accent icons + gentle tactile lift on hover */
+      .feature-card-icon { color: var(--color-accent); margin-bottom: var(--space-4); }
+      .feature-card {
+        transition: border-color var(--duration-base), background-color var(--duration-base),
+                    transform var(--duration-base), box-shadow var(--duration-base);
+      }
+      .feature-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
     }
   </style>
 </head>
@@ -49,18 +75,25 @@
 
   <main>
     <!-- Hero Section -->
-    <section style="padding: clamp(var(--space-16), 20vw, var(--space-24)) var(--page-padding);">
+    <section class="hero" style="padding: clamp(var(--space-16), 20vw, var(--space-24)) var(--page-padding);">
       <div class="section-inner">
         <div class="hero-centered">
           <p class="t-eyebrow">Designsystem for nordiske nettsider og apper</p>
-          <h1 class="t-display-lg" style="margin: var(--space-5) 0;">Nordover</h1>
-          <p class="t-body-lg" style="color: var(--color-muted); max-width: 50ch; margin: 0 auto;">
+          <h1 class="t-display-xl">Nordover</h1>
+          <p class="t-body-lg hero-sub">
             Et komplett CSS-rammeverk og komponentbibliotek. Skandinavisk minimalisme, fluid typografi, full kontroll over tema og brand.
           </p>
           <div class="cluster" style="margin-top: var(--space-8); justify-content: center;">
             <a href="#styleguides" class="btn btn-primary">Utforsk styleguides</a>
             <a href="https://github.com/xxnamae/nordover-ui" class="btn btn-secondary">GitHub</a>
           </div>
+          <ul class="hero-stats">
+            <li><strong>40+</strong> komponenter</li>
+            <li><strong>WCAG AA</strong> tilgjengelig</li>
+            <li><strong>Lys + Mørk</strong> innebygd</li>
+            <li><strong>Web + App</strong> pakker</li>
+            <li><strong>MIT</strong> lisensiert</li>
+          </ul>
         </div>
       </div>
     </section>
