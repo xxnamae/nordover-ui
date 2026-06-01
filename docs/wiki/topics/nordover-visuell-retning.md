@@ -14,6 +14,8 @@
 | **Stacked** | Nettside | Mørk. Dristig display, dashboard-mockups, monokrom, minimal. |
 | **Off Menu (O/M)** | Nettside | **Lys/hvit.** Ekstrem whitespace. Flytende sirkulære thumbnails. Blandet serif/sans display. Mest "nordisk" av alle. |
 | **Linear onboarding** | App-flyt | Mørk. Split-screen: skjema venstre, showcase høyre. Dot-paginering. Minimal. |
+| **Stacked widgets** | Dashboard | Mørk. Revenue-charts (gradient-barer), stat-cards, feed-tabeller, asset-lister, analytics. Monokrom + flerfarget data-viz. |
+| **Linear widgets** | Produkt-UI | Mørk. Kommando-barer, issue-kort med status-ikoner, lagdelte kunde-kort med dybde/blur, lydbølge-konnektorer, tastatur-grid. |
 
 ---
 
@@ -57,6 +59,8 @@ Basert på sammenligning mellom inspirasjon og nåværende styleguides:
 - **Aksent-disiplin:** App bruker konvensjonell blå overalt; referansene bruker aksent langt mer sparsomt.
 - **3D/illustrasjon-språk:** Referansene bruker subtile, monokrome 3D-objekter som signatur. Nordover har ingen illustrasjonsstandard.
 - **Onboarding-mønster** (split-screen, dot-paginering) finnes ikke som dokumentert pattern.
+- **Data-viz:** Stacked-widgetene viser revenue-charts med gradient-barer på mørk. Nordover har ingen chart/data-viz-token-standard.
+- **Lagdelte kort med dybde:** Linear-widgetene stabler kunde-kort med blur/dybde. Dagens `.card`/elevation er flatere — vurder et "stacked cards"-mønster.
 
 ---
 
