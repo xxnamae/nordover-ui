@@ -1,0 +1,62 @@
+/* ============================================================
+   NORDOVER BRAND LAYER · Template
+   Clients: Copy this file to clients/<slug>.css and customize
+
+   This layer ONLY contains brand-specific token overrides.
+   All component CSS lives in the framework (@layer components).
+
+   Import order: tokens → base → ... → [all components] → this file
+
+   SAFE TO OVERRIDE: --color-accent, --font-display, --radius-md, etc.
+   DO NOT OVERRIDE: --text-*, --space-*, --bp-*, --duration-*
+
+   See docs/handoff/brand-styling.md for full guidance.
+   ============================================================ */
+
+@layer brand {
+  :root {
+    /* ===== COLOR CUSTOMIZATION ===== */
+    /* Primary brand accent (used for buttons, links, focus states) */
+    --color-accent: oklch(0.55 0.30 260); /* Change to your brand color */
+
+    /* Accent derivatives (auto-adjust on dark mode via token system) */
+    --color-accent-hover: color-mix(in oklch, var(--color-accent) 85%, white);
+    --color-accent-active: color-mix(in oklch, var(--color-accent) 70%, white);
+
+    /* Focus ring color (often brand blue or accent) */
+    --color-focus: oklch(0.55 0.30 260);
+
+    /* ===== TYPOGRAPHY CUSTOMIZATION ===== */
+    /* Display font (headlines, large titles) */
+    /* Default: "Inter Tight Variable" (geometric sans)
+       Alternatives: "Fraunces" (serif), "Playfair Display" (editorial serif), etc. */
+    --font-display: "Inter Tight Variable", "Inter Tight Fallback", "Inter Variable", system-ui, sans-serif;
+
+    /* ===== RADIUS CUSTOMIZATION (OPTIONAL) ===== */
+    /* Adjust the personality of rounded corners.
+       Default: --radius-md: 8px (soft, modern)
+       Sharp: --radius-md: 2px; --radius-lg: 4px;
+       Minimal: --radius-md: 4px;
+       Rounded: --radius-md: 12px; --radius-lg: 20px; */
+    /* Uncomment to customize:
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    */
+
+    /* ===== CHART COLORS (if using data visualization) ===== */
+    /* Optional: override chart palette for consistent visualization branding */
+    /* --chart-1: oklch(0.55 0.15 145);
+    --chart-2: oklch(0.62 0.14 70);
+    --chart-3: oklch(0.55 0.18 245); */
+  }
+}
+
+/* ============================================================
+   DO NOT EDIT BELOW THIS LINE
+
+   The following are LOCKED TOKENS — do not override.
+   Changes to text scale, spacing grid, breakpoints, or motion
+   will break the responsive system and accessibility guarantees.
+
+   If you need to override these, contact the design system team.
+   ============================================================ */
