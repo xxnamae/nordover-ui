@@ -2,7 +2,7 @@ name: Accessibility Audit
 
 on:
   push:
-    branches: [main, 'claude/**']
+    branches: [main]
   pull_request:
     branches: [main]
   schedule:
@@ -203,17 +203,17 @@ jobs:
 
             const comment = `## ${emoji} Accessibility Audit Results
 
-| Severity | Count |
-|----------|-------|
-| 🔴 Critical Issues | ${critical} |
-| 🟠 Warnings | ${warnings} |
-| 🟡 Notices | ${notices} |
+            | Severity | Count |
+            |----------|-------|
+            | 🔴 Critical Issues | ${critical} |
+            | 🟠 Warnings | ${warnings} |
+            | 🟡 Notices | ${notices} |
 
-**Standard:** WCAG 2.1 Level AA
+            **Standard:** WCAG 2.1 Level AA
 
-🔍 **Review Details:** Open [\`/docs/visual/accessibility-audit.html\`](../docs/visual/accessibility-audit.html) for the interactive audit tool.
+            🔍 **Review Details:** Open [\`/docs/visual/accessibility-audit.html\`](../docs/visual/accessibility-audit.html) for the interactive audit tool.
 
-${critical > 0 ? '⚠️ **Critical issues found.** Please address before merging.' : '✓ No critical issues found.'}`;
+            ${critical > 0 ? '⚠️ **Critical issues found.** Please address before merging.' : '✓ No critical issues found.'}`;
 
             github.rest.issues.createComment({
               issue_number: context.issue.number,
