@@ -2,6 +2,18 @@
 
 This repository contains the **shippable framework specification** for the Nordover design system. It is public and MIT-licensed. Strategy notes, research, and session logs remain in a separate private repository.
 
+## Vision
+
+Nordover is a **universal, reusable styleguide of global top quality** — a foundation for all applications and websites. The goal is to **minimize design time on new projects** so that the only per-client work left is **brand styling** (colors, logo, font choice, tone), never structure, components, accessibility, or responsiveness.
+
+- **Market:** all-purpose (SaaS, editorial/marketing, e-commerce, consumer apps)
+- **Platform:** multi-platform (web-first, mappable to native iOS/Android and desktop)
+- **Aesthetic:** modern/minimal, grounded in **Nordic minimalism**, with **Apple HIG** as interaction inspiration and **Linear** as SaaS-density reference
+- **Benchmarks:** must withstand comparison with Apple HIG, Material Design 3, Linear, Fluent
+- **Breakpoints (official QA):** Mobile <480px · Tablet 768–1024px · Desktop >1024px — every component evaluated on all three
+
+Full vision: `docs/wiki/topics/nordover-visjon.md`. All design decisions trace back to this vision.
+
 ## Four Foundational Principles
 
 1. **Think first** — surface tradeoffs explicitly; decisions are traceable in `docs/wiki/decisions/`
