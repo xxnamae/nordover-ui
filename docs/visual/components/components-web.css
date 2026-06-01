@@ -30,7 +30,7 @@
   .page-content { max-width: var(--w-5xl); margin-inline: auto; width: 100%; }
 
   /* Icon sizing */
-  .icon { width: var(--size-icon); height: var(--size-icon); stroke: currentColor; stroke-width: 1.5; fill: none; flex-shrink: 0; }
+  .icon { width: var(--size-icon); height: var(--size-icon); stroke: currentColor; stroke-width: 1.5; fill: none; flex-shrink: 0; vertical-align: middle; display: inline-block; }
   .icon-sm { width: var(--size-icon-sm); height: var(--size-icon-sm); }
   .icon-lg { width: var(--size-icon-lg); height: var(--size-icon-lg); }
 
@@ -1696,6 +1696,10 @@
      Uses the padding-box/border-box layering so border-radius is preserved. */
   .feature-card { padding: var(--space-6); border: var(--border-card); border-radius: var(--radius-lg); transition: border-color var(--duration-base), background-color var(--duration-base), box-shadow var(--duration-base); display: flex; flex-direction: column; box-shadow: 0 1px 3px color-mix(in oklch, var(--color-fg) 10%, transparent); }
   .feature-card:hover { border-color: var(--color-accent); background: var(--color-subtle); box-shadow: 0 4px 12px color-mix(in oklch, var(--color-fg) 15%, transparent); }
+  .feature-card.featured,
+  .card-featured { border-color: var(--color-accent); background: color-mix(in oklch, var(--color-accent) 2%, var(--color-bg)); box-shadow: 0 4px 12px color-mix(in oklch, var(--color-accent) 15%, transparent); }
+  .feature-card.featured:hover,
+  .card-featured:hover { border-color: var(--color-accent); background: color-mix(in oklch, var(--color-accent) 4%, var(--color-bg)); box-shadow: 0 8px 20px color-mix(in oklch, var(--color-accent) 20%, transparent); }
 
   /* CTA Card */
   .cta-card { padding: clamp(2rem, 5vw, 4rem) var(--page-padding); background: var(--color-subtle); border-radius: var(--radius-lg); text-align: center; display: flex; flex-direction: column; align-items: center; gap: var(--space-4); }

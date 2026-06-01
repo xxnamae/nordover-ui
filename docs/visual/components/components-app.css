@@ -41,7 +41,7 @@
   .page-content { max-width: var(--container-default); margin-inline: auto; }
 
   /* Icon sizing */
-  .icon { width: var(--size-icon); height: var(--size-icon); stroke: currentColor; stroke-width: 1.5; fill: none; flex-shrink: 0; }
+  .icon { width: var(--size-icon); height: var(--size-icon); stroke: currentColor; stroke-width: 1.5; fill: none; flex-shrink: 0; vertical-align: middle; display: inline-block; }
   .icon-sm { width: var(--size-icon-sm); height: var(--size-icon-sm); }
   .icon-lg { width: var(--size-icon-lg); height: var(--size-icon-lg); }
 
@@ -443,6 +443,20 @@
     border-color: var(--color-accent);
     background: var(--color-subtle);
     box-shadow: 0 3px 8px color-mix(in oklch, var(--color-fg) 12%, transparent);
+  }
+
+  /* Featured/prominent card variant for visual hierarchy */
+  .feature-card.featured,
+  .card-featured {
+    border-color: var(--color-accent);
+    background: color-mix(in oklch, var(--color-accent) 3%, var(--color-surface));
+    box-shadow: 0 4px 12px color-mix(in oklch, var(--color-accent) 18%, transparent);
+  }
+  .feature-card.featured:hover,
+  .card-featured:hover {
+    border-color: var(--color-accent-hover);
+    background: color-mix(in oklch, var(--color-accent) 6%, var(--color-surface));
+    box-shadow: 0 8px 20px color-mix(in oklch, var(--color-accent) 22%, transparent);
   }
 
   /* Icon sizing */
@@ -912,6 +926,7 @@
     font-weight: var(--button-fw); border-radius: var(--button-radius); border: none;
     cursor: pointer; padding: var(--space-2) var(--space-4); font-size: var(--text-sm);
     line-height: var(--leading-none); transition: all var(--duration-fast) var(--ease-out);
+    max-width: 100%; word-wrap: break-word;
   }
   .btn-primary {
     background: linear-gradient(to bottom, color-mix(in oklch, var(--color-accent) 92%, white), var(--color-accent));

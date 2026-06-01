@@ -107,7 +107,7 @@
     --text-6xl: clamp(3.25rem, 2.54rem + 3.57vw, 5.75rem);
     --text-7xl: clamp(3.75rem, 2.68rem + 5.36vw, 7.5rem);
     --text-8xl: clamp(4.5rem, 2.93rem + 7.86vw, 10rem);
-    --text-9xl: clamp(4.25rem, 1.8rem + 11vw, 12rem);  /* hero display-2xl (mobile-safe min) */
+    --text-9xl: clamp(4.25rem, 1.8rem + 11vw, 7.5rem);  /* hero display-2xl (mobile-safe min, capped at 120px for readability) */
 
     /* === Finkalibrerte vekter (variable font) === */
     --fw-display-xl: 380; --fw-display-lg: 400; --fw-display-md: 420;
