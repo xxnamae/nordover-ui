@@ -4,8 +4,9 @@
 
 - `tokens-app.css` — CSS-variable pakke for SaaS, dashboards (dark default)
 - `tokens-web.css` — CSS-variable pakke for marketing-sites (light default)
+- `tokens-app.json` / `tokens-web.json` — **avledet** DTCG-eksport for tooling/native (se [JSON-eksport](#json-eksport-dtcg) nedenfor)
 
-Begge filer:
+Begge CSS-filer:
 - Identisk `@layer`-arkitektur
 - Identisk token-navn (no breaking between packages)
 - Eneste forskjell: defaults (type-skala, spacing-tetthet, button-surface, theme-default)
@@ -16,6 +17,40 @@ Begge filer:
 2. **Importer før dine egne styles**
 3. **Bruk token-variabler** i komponenter
 4. **Synk ved behov** — WebFetch på nytt når du vil oppdatere
+
+## JSON-eksport (DTCG)
+
+For verktøy-konsum (Style Dictionary, Tokens Studio, Figma) og native-plattformer
+finnes en **avledet** eksport i [W3C Design Tokens-format](https://tr.designtokens.org/format/):
+`tokens-web.json` og `tokens-app.json`.
+
+**CSS er eneste sannhetskilde.** JSON genereres fra CSS-filene av
+`scripts/build_tokens.py` — rediger aldri JSON for hånd.
+
+```bash
+npm run build:tokens   # regenerer JSON fra CSS
+npm run check:tokens   # verifiserer at JSON er i sync (kjøres i CI)
+```
+
+> **Mirroring:** Endrer du en token-verdi i CSS, kjør `npm run build:tokens` i
+> samme commit. CI (`test.yml`) feiler hvis JSON er utdatert.
+
+### Verdimodell
+
+| Token-type | DTCG-representasjon |
+|---|---|
+| Farge-primitiv (`--gray-900`) | `color` med OKLCH-objekt: `{ "colorSpace": "oklch", "components": [L,C,H] }` |
+| Alias (`--color-fg: var(--gray-900)`) | referanse `"{color.gray.900}"` |
+| Lengde (`--space-4`, `--radius-md`) | `dimension` `{ "value": 1, "unit": "rem" }` |
+| Varighet (`--duration-fast`) | `duration` `{ "value": 150, "unit": "ms" }` |
+| Easing (`--ease-out`) | `cubicBezier` `[0.2, 0, 0, 1]` |
+| Vekt/z-index/line-height | `number` |
+| Derivert (`color-mix()`, `clamp()`, gradient, shadow) | rå CSS-streng i `$value` + `$extensions["com.nordover.cssText"] = true` |
+| Dark-mode-overstyring | `$extensions["com.nordover.dark"]` på samme token |
+
+Primitiver er fullt portable. Deriverte verdier krever en CSS-kapabel runtime
+(flagget med `cssText`) — native-konsumenter må selv resolve `color-mix`/`clamp`.
+Bakgrunn og avveininger: `docs/wiki/decisions/2026-06-01-json-token-eksport-dtcg.md`.
 
 ## CSS-arkitektur
 

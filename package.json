@@ -13,6 +13,8 @@
     "design-system",
     "css-framework",
     "components",
+    "design-tokens",
+    "dtcg",
     "wcag-aa",
     "accessibility",
     "dark-mode",
@@ -23,6 +25,8 @@
   "files": [
     "docs/visual/tokens/tokens-web.css",
     "docs/visual/tokens/tokens-app.css",
+    "docs/visual/tokens/tokens-web.json",
+    "docs/visual/tokens/tokens-app.json",
     "docs/visual/components/components-web.css",
     "docs/visual/components/components-app.css",
     "README.md",
@@ -31,6 +35,8 @@
   "main": "docs/visual/components/components-web.css",
   "style": "docs/visual/components/components-web.css",
   "scripts": {
+    "build:tokens": "python3 scripts/build_tokens.py",
+    "check:tokens": "python3 scripts/build_tokens.py --check",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
