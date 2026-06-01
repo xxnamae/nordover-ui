@@ -94,6 +94,7 @@
     --font-mono: ui-monospace, "SF Mono", "Menlo", "Cascadia Code", monospace;
 
     /* === Fluid type-skala (rem-clamp, ratio 1.2 → 1.333) === */
+    --text-2xs: 0.65rem;
     --text-xs: 0.75rem;
     --text-sm: 0.875rem;
     --text-base: 1rem;
@@ -147,6 +148,7 @@
     --color-accent-hover: color-mix(in oklch, var(--color-accent) 85%, white);
     --color-accent-active: color-mix(in oklch, var(--color-accent) 70%, white);
     --color-focus: #0066FF;
+    --color-backdrop: color-mix(in oklch, var(--color-fg) 50%, transparent);
 
     /* === Semantiske tripletter (subtle / base / strong) === */
     --error: oklch(0.55 0.22 28);
@@ -293,6 +295,7 @@
     --color-accent-hover: color-mix(in oklch, var(--color-accent) 85%, black);
     --color-accent-active: color-mix(in oklch, var(--color-accent) 70%, black);
     --color-focus: #4D8DFF;
+    --color-backdrop: color-mix(in oklch, var(--color-fg) 50%, transparent);
 
     /* Funksjonelle farger lysere i dark for kontrast */
     --error: oklch(0.65 0.22 28);
