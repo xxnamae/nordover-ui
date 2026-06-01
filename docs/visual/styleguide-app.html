@@ -110,10 +110,10 @@
   <div class="app-main">
     <header class="app-topbar">
       <div class="cluster cluster-tight">
-        <label for="nav" class="hamburger" title="Meny"><svg class="icon"><use href="#i-menu"/></svg></label>
+        <label for="nav" class="hamburger" aria-label="Åpne navigasjonsmenyen"><svg class="icon"><use href="#i-menu"/></svg></label>
         <span class="app-topbar-title">App Styleguide</span>
       </div>
-      <label class="theme-toggle" for="dark" title="Toggle tema"><svg class="icon t-moon"><use href="#i-moon"/></svg><svg class="icon t-sun"><use href="#i-sun"/></svg></label>
+      <label class="theme-toggle" for="dark" aria-label="Aktiver mørk modus"><svg class="icon t-moon"><use href="#i-moon"/></svg><svg class="icon t-sun"><use href="#i-sun"/></svg></label>
     </header>
 
     <main class="app-content">
@@ -2187,9 +2187,9 @@ function validate(e) {
 
             <div class="p-3 bg-subtle rounded-md">
               <span class="t-body-xs" style="color:var(--color-muted);display:block;margin-bottom:var(--space-1)">Error State</span>
-              <label class="field-label text-xs">Email address <span style="color:var(--color-error)">*</span></label>
-              <input class="form-input" type="email" value="invalid" style="border-color:var(--color-error);border-width:2px;font-size:var(--text-sm)" aria-invalid="true">
-              <span class="t-body-xs" style="color:var(--color-error);margin-top:var(--space-1);display:block">Invalid format</span>
+              <label class="field-label text-xs" for="error-email-app">Email address <span style="color:var(--color-error)">*</span></label>
+              <input id="error-email-app" class="form-input" type="email" value="invalid" style="border-color:var(--color-error);border-width:2px;font-size:var(--text-sm)" aria-invalid="true" aria-describedby="error-email-app-msg">
+              <span id="error-email-app-msg" class="t-body-xs" style="color:var(--color-error);margin-top:var(--space-1);display:block">Invalid format</span>
             </div>
 
             <div class="p-3 bg-subtle rounded-md">
@@ -3691,6 +3691,10 @@ function validate(e) {
         </footer>
       </div>
     </main>
+
+    <footer role="contentinfo" style="padding: var(--space-6); border-top: 1px solid var(--color-border); margin-top: var(--space-8); color: var(--color-muted);">
+      <p style="font-size: var(--text-sm);">© 2026 Nordover Design System. MIT Licensed. <a href="https://github.com/xxnamae/nordover-ui" style="color: var(--color-accent);">View on GitHub</a></p>
+    </footer>
   </div>
 </div>
 <script>

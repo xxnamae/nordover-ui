@@ -120,10 +120,10 @@
   <div class="app-main">
     <header class="app-topbar">
       <div class="cluster cluster-tight">
-        <label for="nav" class="hamburger" title="Meny"><svg class="icon"><use href="#i-menu"/></svg></label>
+        <label for="nav" class="hamburger" aria-label="Åpne navigasjonsmenyen"><svg class="icon"><use href="#i-menu"/></svg></label>
         <span class="app-topbar-title">Web Styleguide (Complete)</span>
       </div>
-      <label class="theme-toggle" for="dark" title="Toggle tema"><svg class="icon t-moon"><use href="#i-moon"/></svg><svg class="icon t-sun"><use href="#i-sun"/></svg></label>
+      <label class="theme-toggle" for="dark" aria-label="Aktiver mørk modus"><svg class="icon t-moon"><use href="#i-moon"/></svg><svg class="icon t-sun"><use href="#i-sun"/></svg></label>
     </header>
 
     <main class="app-content">
@@ -803,9 +803,9 @@
               <input class="form-input" type="text" value="John Doe">
             </div>
             <div class="field">
-              <label class="field-label">Error State</label>
-              <input class="form-input" type="email" value="invalid">
-              <span class="field-error">Please enter a valid email</span>
+              <label class="field-label" for="error-email">Error State</label>
+              <input id="error-email" class="form-input" type="email" value="invalid" aria-invalid="true" aria-describedby="error-email-msg">
+              <span id="error-email-msg" class="field-error">Please enter a valid email</span>
             </div>
             <div class="field">
               <label class="field-label">Disabled Input</label>
@@ -6160,6 +6160,10 @@ button { transition: all 250ms ease-out; }
       </div>
     </main>
   </div>
+
+  <footer role="contentinfo" style="padding: var(--space-6); border-top: 1px solid var(--color-border); margin-top: var(--space-8); color: var(--color-muted);">
+    <p style="font-size: var(--text-sm);">© 2026 Nordover Design System. MIT Licensed. <a href="https://github.com/xxnamae/nordover-ui" style="color: var(--color-accent);">View on GitHub</a></p>
+  </footer>
 </div>
 <script>
 (function() {
