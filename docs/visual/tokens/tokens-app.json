@@ -94,6 +94,13 @@
           "value": 3.0,
           "unit": "rem"
         }
+      },
+      "6xl": {
+        "$type": "dimension",
+        "$value": {
+          "value": 3.75,
+          "unit": "rem"
+        }
       }
     },
     "weight": {
