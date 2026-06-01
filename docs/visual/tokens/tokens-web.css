@@ -304,6 +304,23 @@
     --warning: oklch(0.72 0.17 65);
     --info: oklch(0.68 0.18 245);
 
+    /* -strong må mikse mot HVITT i dark (mot svart i light) — ellers
+       blir sterk tekst mørk-på-mørk på subtle-bakgrunn. Paritetskritisk. */
+    --error-strong: color-mix(in oklch, var(--error) 70%, white);
+    --success-strong: color-mix(in oklch, var(--success) 70%, white);
+    --warning-strong: color-mix(in oklch, var(--warning) 75%, white);
+    --info-strong: color-mix(in oklch, var(--info) 70%, white);
+
+    /* Chart-palett løftet for vibrans/kontrast på mørk bakgrunn (Material/Stacked-mønster) */
+    --chart-1: oklch(0.70 0.16 145);
+    --chart-2: oklch(0.78 0.15 70);
+    --chart-3: oklch(0.68 0.19 245);
+    --chart-4: oklch(0.68 0.21 295);
+    --chart-5: oklch(0.74 0.13 195);
+    --chart-6: oklch(0.70 0.21 350);
+    --chart-7: oklch(0.78 0.13 220);
+    --chart-8: oklch(0.70 0.17 30);
+
     /* Shadows må re-defineres (svart på svart = usynlig) */
     --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.3);
     --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.3);

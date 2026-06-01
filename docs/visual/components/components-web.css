@@ -748,12 +748,14 @@
   }
 
   /* Badges */
+  /* Badges — subtle tinted background + strong (contrast-safe) text.
+     -subtle/-strong auto-adapt: light=pale bg/dark text, dark=dark bg/light text. */
   .badge {
     display: inline-block;
     padding: var(--space-1) var(--space-2);
     background: var(--color-subtle);
     color: var(--color-fg);
-    border: 1px solid var(--color-border);
+    border: var(--bw-thin) solid var(--color-border);
     border-radius: var(--radius-sm);
     font-size: var(--text-xs);
     font-weight: 600;
@@ -761,58 +763,60 @@
   }
 
   .badge-success {
-    background: color-mix(in oklch, var(--color-success) 15%, var(--color-surface));
-    color: var(--color-success);
-    border-color: color-mix(in oklch, var(--color-success) 30%, var(--color-border));
+    background: var(--success-subtle);
+    color: var(--success-strong);
+    border-color: color-mix(in oklch, var(--success) 30%, var(--color-border));
   }
 
   .badge-error {
-    background: color-mix(in oklch, var(--color-error) 15%, var(--color-surface));
-    color: var(--color-error);
-    border-color: color-mix(in oklch, var(--color-error) 30%, var(--color-border));
+    background: var(--error-subtle);
+    color: var(--error-strong);
+    border-color: color-mix(in oklch, var(--error) 30%, var(--color-border));
   }
 
   .badge-warning {
-    background: color-mix(in oklch, var(--color-warning) 15%, var(--color-surface));
-    color: var(--color-warning);
-    border-color: color-mix(in oklch, var(--color-warning) 30%, var(--color-border));
+    background: var(--warning-subtle);
+    color: var(--warning-strong);
+    border-color: color-mix(in oklch, var(--warning) 30%, var(--color-border));
   }
 
   .badge-info {
-    background: color-mix(in oklch, var(--color-info) 15%, var(--color-surface));
-    color: var(--color-info);
-    border-color: color-mix(in oklch, var(--color-info) 30%, var(--color-border));
+    background: var(--info-subtle);
+    color: var(--info-strong);
+    border-color: color-mix(in oklch, var(--info) 30%, var(--color-border));
   }
 
-  /* Alerts */
+  /* Alerts — subtle tinted background, fg text, colored border + icon */
   .alert {
     display: flex;
     gap: var(--space-3);
-    padding: var(--space-3);
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    background: var(--color-subtle);
+    border: var(--bw-thin) solid var(--color-border);
+    border-radius: var(--radius-lg);
+    color: var(--color-fg);
     font-size: var(--text-sm);
   }
+  .alert-icon { flex-shrink: 0; width: var(--space-5); height: var(--space-5); margin-top: 0.125rem; }
 
   .alert-success {
-    border-color: color-mix(in oklch, var(--color-success) 50%, var(--color-border));
-    background: color-mix(in oklch, var(--color-success) 10%, var(--color-surface));
+    background: var(--success-subtle);
+    border-color: color-mix(in oklch, var(--success) 30%, var(--color-border));
   }
 
   .alert-error {
-    border-color: color-mix(in oklch, var(--color-error) 50%, var(--color-border));
-    background: color-mix(in oklch, var(--color-error) 10%, var(--color-surface));
+    background: var(--error-subtle);
+    border-color: color-mix(in oklch, var(--error) 30%, var(--color-border));
   }
 
   .alert-warning {
-    border-color: color-mix(in oklch, var(--color-warning) 50%, var(--color-border));
-    background: color-mix(in oklch, var(--color-warning) 10%, var(--color-surface));
+    background: var(--warning-subtle);
+    border-color: color-mix(in oklch, var(--warning) 30%, var(--color-border));
   }
 
   .alert-info {
-    border-color: color-mix(in oklch, var(--color-info) 50%, var(--color-border));
-    background: color-mix(in oklch, var(--color-info) 10%, var(--color-surface));
+    background: var(--info-subtle);
+    border-color: color-mix(in oklch, var(--info) 30%, var(--color-border));
   }
 
   /* Tables */
@@ -1225,22 +1229,6 @@
       grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr)); /* --grid-min */
     }
   }
-
-  .badge-success { background: color-mix(in oklch, var(--color-success) 15%, var(--color-bg)); color: var(--color-success); }
-  .badge-error { background: color-mix(in oklch, var(--color-error) 15%, var(--color-bg)); color: var(--color-error); }
-  .badge-warning { background: color-mix(in oklch, var(--color-warning) 15%, var(--color-bg)); color: var(--color-warning); }
-  .badge-info { background: color-mix(in oklch, var(--color-info) 15%, var(--color-bg)); color: var(--color-info); }
-
-  .alert {
-    display: flex; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-lg);
-    border: var(--bw-thin) solid; background-color: var(--color-subtle);
-    border-color: var(--color-border); color: var(--color-fg);
-  }
-  .alert-icon { flex-shrink: 0; width: var(--space-5); height: var(--space-5); margin-top: 0.125rem; }
-  .alert-success { background-color: color-mix(in oklch, var(--color-success) 10%, var(--color-bg)); border-color: color-mix(in oklch, var(--color-success) 30%, var(--color-border)); }
-  .alert-error { background-color: color-mix(in oklch, var(--color-error) 10%, var(--color-bg)); border-color: color-mix(in oklch, var(--color-error) 30%, var(--color-border)); }
-  .alert-warning { background-color: color-mix(in oklch, var(--color-warning) 10%, var(--color-bg)); border-color: color-mix(in oklch, var(--color-warning) 30%, var(--color-border)); }
-  .alert-info { background-color: color-mix(in oklch, var(--color-info) 10%, var(--color-bg)); border-color: color-mix(in oklch, var(--color-info) 30%, var(--color-border)); }
 
   .modal {
     position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;

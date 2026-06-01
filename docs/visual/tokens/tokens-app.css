@@ -302,6 +302,12 @@
     --warning: oklch(0.78 0.18 65);
     --info: oklch(0.68 0.18 245);
 
+    /* -strong mikser mot HVITT i dark — ellers mørk-på-mørk på subtle-bg. Speiler tokens-web.css. */
+    --error-strong: color-mix(in oklch, var(--error) 70%, white);
+    --success-strong: color-mix(in oklch, var(--success) 65%, white);
+    --warning-strong: color-mix(in oklch, var(--warning) 72%, white);
+    --info-strong: color-mix(in oklch, var(--info) 68%, white);
+
     --chart-1: oklch(0.72 0.18 145); --chart-2: oklch(0.78 0.16 70);
     --chart-3: oklch(0.70 0.20 245); --chart-4: oklch(0.70 0.22 295);
     --chart-5: oklch(0.75 0.15 195); --chart-6: oklch(0.72 0.22 350);
