@@ -246,6 +246,36 @@
           <h2 class="doc-section-title">Typografi</h2>
           <p class="doc-section-desc">Static type scale optimized for compact app interfaces. Inter Variable, carefully calibrated weights 400-700. 14px base for comfortable reading.</p>
 
+          <div class="doc-sub">Display Scale</div>
+          <p class="t-body-sm text-muted mb-2">Large display type for hero sections and marketing landing pages. Tight tracking, display font.</p>
+          <div class="type-showcase">
+            <div class="type-sample">
+              <div class="type-label">.t-display-xl</div>
+              <div class="t-display-xl">Display XL</div>
+              <div class="type-meta">Largest scale — landing hero headlines</div>
+            </div>
+            <div class="type-sample">
+              <div class="type-label">.t-display-lg</div>
+              <div class="t-display-lg">Display LG</div>
+              <div class="type-meta">Large display — section headlines</div>
+            </div>
+            <div class="type-sample">
+              <div class="type-label">.t-display-md</div>
+              <div class="t-display-md">Display MD</div>
+              <div class="type-meta">Medium display — hero / CTA titles</div>
+            </div>
+            <div class="type-sample">
+              <div class="type-label">.t-eyebrow</div>
+              <div class="t-eyebrow">Eyebrow label</div>
+              <div class="type-meta">Uppercase kicker above headlines</div>
+            </div>
+            <div class="type-sample">
+              <div class="type-label">.t-body-lg</div>
+              <div class="t-body-lg">Large body text for lead paragraphs and intros</div>
+              <div class="type-meta">Larger reading text — hero subtitles</div>
+            </div>
+          </div>
+
           <div class="doc-sub">Type Scale</div>
           <div class="type-showcase">
             <div class="type-sample">
@@ -906,16 +936,38 @@
             <div class="p-3" style="background:var(--color-subtle);border-radius:var(--radius-md);text-align:center;font-size:var(--text-sm)">Card</div>
             <div class="p-3" style="background:var(--color-subtle);border-radius:var(--radius-md);text-align:center;font-size:var(--text-sm)">Card</div>
           </div>
+
+          <div class="doc-sub">App Sidebar Parts</div>
+          <div class="chips"><span class="chip">.app-sidebar-section</span><span class="chip">.app-sidebar-close</span></div>
+          <p class="t-body-sm text-muted mb-2">Section divider labels and the mobile close button used inside the app shell sidebar (<code>.app-sidebar</code>).</p>
+          <div class="doc-demo" style="max-width:14rem;border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-3)">
+            <div class="cluster" style="justify-content:space-between;align-items:center">
+              <strong style="font-size:var(--text-sm)">Navigation</strong>
+              <button class="app-sidebar-close" aria-label="Close sidebar">✕</button>
+            </div>
+            <div class="app-sidebar-section">Foundation</div>
+            <nav class="stack-tight">
+              <a class="app-nav-item" href="#">Colors</a>
+              <a class="app-nav-item" href="#">Typography</a>
+            </nav>
+            <div class="app-sidebar-section">Components</div>
+            <nav class="stack-tight">
+              <a class="app-nav-item" href="#">Buttons</a>
+              <a class="app-nav-item" href="#">Forms</a>
+            </nav>
+          </div>
         </section>
 
         <!-- DATE PICKER — Calendar widget (app variant) -->
         <section class="doc-section" id="date-picker" data-section="components" data-category="date-picker">
           <h2 class="doc-section-title">Date Picker</h2>
           <p class="doc-section-desc">Compact date picker for app interfaces. Keyboard accessible (tab, arrow keys, enter, escape).</p>
-          <div class="chips"><span class="chip">.date-picker</span><span class="chip">.date-picker-day.selected</span></div>
+          <div class="chips"><span class="chip">.date-picker</span><span class="chip">.date-picker-input</span><span class="chip">.date-picker-day.selected</span></div>
           <div class="doc-demo" style="max-width:18rem">
             <div class="date-picker">
-              <input class="form-input" type="text" placeholder="Pick date..." readonly style="cursor:pointer;font-size:var(--text-sm)">
+              <div class="date-picker-input">
+                <input class="form-input" type="text" placeholder="Pick date..." readonly style="cursor:pointer;font-size:var(--text-sm)">
+              </div>
               <div class="date-picker-calendar" style="display:block;position:static;background:var(--color-surface);border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-3)">
                 <div class="date-picker-header mb-2">
                   <button class="date-picker-nav">←</button>
@@ -3021,7 +3073,7 @@ function validate(e) {
           <p class="t-body-sm text-muted mb-2">Icon element within alerts for visual emphasis. Inherits alert color.</p>
           <div class="doc-demo">
             <div class="alert alert-success" style="display:flex;gap:var(--space-2);align-items:flex-start">
-              <svg class="icon icon-sm icon-success" style="margin-top:0.125rem;flex-shrink:0" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+              <svg class="alert-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
               <span><strong>Success —</strong> Operation completed successfully.</span>
             </div>
           </div>
@@ -3039,29 +3091,41 @@ function validate(e) {
           <div class="chips"><span class="chip">.scale-in</span><span class="chip">.scale-out</span><span class="chip">.slide-in-down</span><span class="chip">.slide-in-left</span><span class="chip">.slide-in-right</span><span class="chip">.fade-out</span></div>
           <p class="t-body-sm text-muted mb-2">Exit and entrance animations. Pair with transition duration utilities.</p>
           <div class="doc-demo flex gap-2 flex-wrap">
-            <div class="scale-in" style="width:3rem;height:3rem;background:var(--color-accent);border-radius:var(--radius-md);font-size:var(--text-xs);display:flex;align-items:center;justify-content:center">scale</div>
-            <div class="slide-in-down" style="width:3rem;height:3rem;background:var(--color-accent);border-radius:var(--radius-md);font-size:var(--text-xs);display:flex;align-items:center;justify-content:center">slide</div>
+            <div class="scale-in" style="width:3rem;height:3rem;background:var(--color-accent);border-radius:var(--radius-md);font-size:var(--text-xs);display:flex;align-items:center;justify-content:center;color:var(--color-accent-fg)">scale-in</div>
+            <div class="scale-out" style="width:3rem;height:3rem;background:var(--color-accent);border-radius:var(--radius-md);font-size:var(--text-xs);display:flex;align-items:center;justify-content:center;color:var(--color-accent-fg)">scale-out</div>
+            <div class="slide-in-down" style="width:3rem;height:3rem;background:var(--color-accent);border-radius:var(--radius-md);font-size:var(--text-xs);display:flex;align-items:center;justify-content:center;color:var(--color-accent-fg)">down</div>
+            <div class="slide-in-left" style="width:3rem;height:3rem;background:var(--color-accent);border-radius:var(--radius-md);font-size:var(--text-xs);display:flex;align-items:center;justify-content:center;color:var(--color-accent-fg)">left</div>
+            <div class="slide-in-right" style="width:3rem;height:3rem;background:var(--color-accent);border-radius:var(--radius-md);font-size:var(--text-xs);display:flex;align-items:center;justify-content:center;color:var(--color-accent-fg)">right</div>
+            <div class="fade-out" style="width:3rem;height:3rem;background:var(--color-accent);border-radius:var(--radius-md);font-size:var(--text-xs);display:flex;align-items:center;justify-content:center;color:var(--color-accent-fg)">fade-out</div>
           </div>
 
           <div class="doc-sub">Transition Timing Utilities</div>
           <div class="chips"><span class="chip">.transition-fast</span><span class="chip">.transition-base</span><span class="chip">.transition-slow</span></div>
-          <p class="t-body-sm text-muted">150ms (fast), 200ms (base), 300ms (slow). Use on interactive elements for hover/focus effects.</p>
+          <p class="t-body-sm text-muted mb-2">150ms (fast), 200ms (base), 300ms (slow). Use on interactive elements for hover/focus effects.</p>
+          <div class="doc-demo flex gap-2 flex-wrap">
+            <button class="btn btn-secondary btn-sm transition-fast">.transition-fast</button>
+            <button class="btn btn-secondary btn-sm transition-base">.transition-base</button>
+            <button class="btn btn-secondary btn-sm transition-slow">.transition-slow</button>
+          </div>
 
           <div class="doc-sub">Table Responsive & Sortable</div>
           <div class="chips"><span class="chip">.table-responsive</span><span class="chip">.sortable</span><span class="chip">.sort-asc</span><span class="chip">.sort-desc</span></div>
           <p class="t-body-sm text-muted mb-2">Horizontal scrolling wrapper and sort indicators for column headers. Use aria-sort="ascending|descending|none".</p>
-          <div class="doc-demo overflow-x-auto">
-            <table class="data-table" style="width:100%;min-width:600px">
-              <thead>
-                <tr>
-                  <th class="p-2"><button class="sortable sort-asc" style="background:none;border:none;cursor:pointer;color:inherit;font:inherit;width:100%;text-align:left">Name ↑</button></th>
-                  <th class="p-2"><button class="sortable" style="background:none;border:none;cursor:pointer;color:inherit;font:inherit;width:100%;text-align:left">Status</button></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td class="p-2">Alice Johnson</td><td class="p-2"><span class="badge badge-success">Active</span></td></tr>
-              </tbody>
-            </table>
+          <div class="doc-demo">
+            <div class="table-responsive">
+              <table class="data-table" style="width:100%;min-width:600px">
+                <thead>
+                  <tr>
+                    <th class="sortable sort-asc" aria-sort="ascending">Name</th>
+                    <th class="sortable sort-desc" aria-sort="descending">Created</th>
+                    <th class="sortable">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Alice Johnson</td><td>2026-05-30</td><td><span class="badge badge-success">Active</span></td></tr>
+                </tbody>
+              </table>
+            </div>
           </div>
 
           <div class="doc-sub">Data Table Inline Edit & Filter</div>
@@ -3076,7 +3140,7 @@ function validate(e) {
               <table class="data-table" style="width:100%">
                 <thead><tr><th class="p-2">Name</th><th class="p-2">Role</th></tr></thead>
                 <tbody>
-                  <tr><td style="padding:var(--space-2);font-weight:600">John</td><td style="padding:var(--space-2);cursor:pointer;color:var(--color-accent)">Editor (click to edit)</td></tr>
+                  <tr><td style="font-weight:600">John</td><td class="data-table-inline-edit"><input type="text" value="Editor" aria-label="Edit role"></td></tr>
                 </tbody>
               </table>
             </div>
@@ -3094,88 +3158,132 @@ function validate(e) {
           <div class="doc-sub">Loading Spinner</div>
           <div class="chips"><span class="chip">.spinner</span></div>
           <p class="t-body-sm text-muted mb-2">Rotating spinner for loading states. Use with disabled button or aria-busy="true".</p>
-          <div class="doc-demo flex gap-3">
-            <button class="btn btn-primary btn-sm" disabled>
-              <span style="display:inline-block;width:0.5rem;height:0.5rem;border:2px solid currentColor;border-top-color:transparent;border-radius:50%;animation:spin 0.6s linear infinite;margin-right:var(--space-1)"></span>
-              Loading
-            </button>
+          <div class="doc-demo flex gap-3 items-center">
+            <span class="spinner" role="status" aria-label="Loading"></span>
+            <button class="btn btn-primary btn-sm" disabled aria-busy="true">Loading</button>
           </div>
 
           <div class="doc-sub">Responsive Stack Layout</div>
           <div class="chips"><span class="chip">.responsive-stack</span></div>
-          <p class="t-body-sm text-muted">Column on mobile, row on desktop. Uses flex-direction change at breakpoint.</p>
+          <p class="t-body-sm text-muted mb-2">Column on mobile, grid on desktop via container query. Resize to see adaptation.</p>
+          <div class="doc-demo">
+            <div class="responsive-stack">
+              <div class="p-3" style="background:var(--color-subtle);border-radius:var(--radius-md);font-size:var(--text-xs);text-align:center">Item 1</div>
+              <div class="p-3" style="background:var(--color-subtle);border-radius:var(--radius-md);font-size:var(--text-xs);text-align:center">Item 2</div>
+              <div class="p-3" style="background:var(--color-subtle);border-radius:var(--radius-md);font-size:var(--text-xs);text-align:center">Item 3</div>
+            </div>
+          </div>
+
+          <div class="doc-sub">Touch Area Expansion</div>
+          <div class="chips"><span class="chip">.touch-area</span></div>
+          <p class="t-body-sm text-muted mb-2">Expands the hit target of small interactive elements by 8px without affecting layout. Improves mobile tap accuracy.</p>
+          <div class="doc-demo flex gap-3 items-center">
+            <button class="btn btn-ghost btn-sm touch-area" aria-label="Close">✕</button>
+            <span class="t-body-sm text-muted">Larger tap target than visual size</span>
+          </div>
 
           <div class="doc-sub">Tag Input & Suggestions</div>
           <div class="chips"><span class="chip">.tag-input</span><span class="chip">.tag-suggestion</span><span class="chip">.tag-suggestions</span></div>
           <p class="t-body-sm text-muted mb-2">Input with autocomplete suggestions and removable tags. Typed tags appear inline.</p>
           <div class="doc-demo max-w-xs">
-            <div class="field">
+            <div class="field" style="position:relative">
               <label class="field-label">Add tags</label>
-              <input class="form-input text-sm" type="text" placeholder="Type and press Enter...">
-              <div style="margin-top:var(--space-2);display:flex;gap:var(--space-1);flex-wrap:wrap">
-                <button style="background:var(--color-subtle);border:1px solid var(--color-border);padding:var(--space-1) var(--space-2);border-radius:var(--radius-sm);font-size:var(--text-xs);cursor:pointer">React</button>
-                <button style="background:var(--color-subtle);border:1px solid var(--color-border);padding:var(--space-1) var(--space-2);border-radius:var(--radius-sm);font-size:var(--text-xs);cursor:pointer">Vue</button>
+              <div class="tag-input">
+                <span class="tag">React<button aria-label="Remove React">✕</button></span>
+                <span class="tag">Vue<button aria-label="Remove Vue">✕</button></span>
+                <input type="text" placeholder="Type and press Enter...">
+              </div>
+              <div class="tag-suggestions">
+                <div class="tag-suggestion">Angular</div>
+                <div class="tag-suggestion">Svelte</div>
               </div>
             </div>
           </div>
 
           <div class="doc-sub">Pagination: Dot Indicators</div>
           <div class="chips"><span class="chip">.pagination-btn</span><span class="chip">.pagination-dot</span></div>
-          <p class="t-body-sm text-muted mb-2">Dot-based pagination for carousels. Alternative to numbered page navigation.</p>
+          <p class="t-body-sm text-muted mb-2">Numbered page buttons and dot indicators for carousels. Use aria-current="page" on the active item.</p>
+          <nav class="doc-demo flex justify-center gap-2 items-center" aria-label="Pagination">
+            <button class="pagination-btn" aria-label="Previous page" disabled>‹</button>
+            <button class="pagination-btn active" aria-current="page">1</button>
+            <button class="pagination-btn">2</button>
+            <button class="pagination-btn">3</button>
+            <button class="pagination-btn" aria-label="Next page">›</button>
+          </nav>
           <div class="doc-demo flex justify-center gap-2">
-            <button style="width:0.5rem;height:0.5rem;border-radius:50%;background:var(--color-accent);border:none;cursor:pointer"></button>
-            <button style="width:0.5rem;height:0.5rem;border-radius:50%;background:var(--color-border);border:none;cursor:pointer"></button>
-            <button style="width:0.5rem;height:0.5rem;border-radius:50%;background:var(--color-border);border:none;cursor:pointer"></button>
+            <button class="pagination-dot" aria-current="page" aria-label="Slide 1"></button>
+            <button class="pagination-dot" aria-label="Slide 2"></button>
+            <button class="pagination-dot" aria-label="Slide 3"></button>
           </div>
 
           <div class="doc-sub">Empty State Components</div>
-          <div class="chips"><span class="chip">.empty-state</span><span class="chip">.empty-state-title</span><span class="chip">.empty-state-text</span></div>
+          <div class="chips"><span class="chip">.empty-state</span><span class="chip">.empty-state-icon</span><span class="chip">.empty-state-title</span><span class="chip">.empty-state-text</span></div>
           <p class="t-body-sm text-muted mb-2">Complete empty state with icon, title, description, and optional action button.</p>
-          <div class="doc-demo" style="text-align:center;padding:var(--space-6) var(--space-3)">
-            <svg style="width:2.5rem;height:2.5rem;color:var(--color-accent);margin:0 auto var(--space-3)" viewBox="0 0 24 24"><rect x="3" y="9" width="3" height="12" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="10" y="3" width="3" height="18" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="17" y="6" width="3" height="15" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
-            <h3 class="t-heading-sm">No data available</h3>
-            <p style="color:var(--color-muted);margin:var(--space-2) 0;font-size:var(--text-sm)">Create your first item to get started</p>
-            <button class="btn btn-primary btn-sm">Create Item</button>
+          <div class="doc-demo">
+            <div class="empty-state">
+              <svg class="empty-state-icon" viewBox="0 0 24 24"><rect x="3" y="9" width="3" height="12" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="10" y="3" width="3" height="18" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="17" y="6" width="3" height="15" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+              <h3 class="empty-state-title">No data available</h3>
+              <p class="empty-state-text">Create your first item to get started with your dashboard.</p>
+              <button class="btn btn-primary btn-sm">Create Item</button>
+            </div>
           </div>
 
           <div class="doc-sub">File Upload, List & Progress</div>
-          <div class="chips"><span class="chip">.file-upload</span><span class="chip">.file-list</span><span class="chip">.file-item</span><span class="chip">.file-item-progress</span><span class="chip">.file-item-size</span></div>
-          <p class="t-body-sm text-muted mb-2">File input, upload list, and progress indicators for multi-file scenarios.</p>
-          <div class="doc-demo max-w-xs">
-            <div style="display:flex;gap:var(--space-2);align-items:flex-start;padding:var(--space-2);background:var(--color-subtle);border-radius:var(--radius-md)">
-              <svg style="width:1.5rem;height:1.5rem;color:var(--color-accent);flex-shrink:0" viewBox="0 0 24 24"><path d="M13 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V9z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
-              <div style="flex:1">
-                <p style="font-size:var(--text-sm);font-weight:500">document.pdf</p>
-                <p style="font-size:var(--text-xs);color:var(--color-muted)">2.5 MB</p>
-                <div style="height:0.25rem;background:var(--color-border);border-radius:50%;margin-top:var(--space-1);overflow:hidden">
-                  <div style="height:100%;width:65%;background:var(--color-accent)"></div>
+          <div class="chips"><span class="chip">.file-list</span><span class="chip">.file-item</span><span class="chip">.file-item-info</span><span class="chip">.file-item-name</span><span class="chip">.file-item-size</span><span class="chip">.file-item-progress</span><span class="chip">.file-item-progress-bar</span></div>
+          <p class="t-body-sm text-muted mb-2">Upload list with name, size, and progress indicators for multi-file scenarios.</p>
+          <div class="doc-demo">
+            <div class="file-list">
+              <div class="file-item">
+                <div class="file-item-info">
+                  <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M13 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V9z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+                  <span class="file-item-name">document.pdf</span>
+                  <span class="file-item-size">2.5 MB</span>
                 </div>
+                <div class="file-item-progress"><div class="file-item-progress-bar" style="width:65%"></div></div>
+              </div>
+              <div class="file-item">
+                <div class="file-item-info">
+                  <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M13 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V9z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+                  <span class="file-item-name">image.png</span>
+                  <span class="file-item-size">1.1 MB</span>
+                </div>
+                <div class="file-item-progress"><div class="file-item-progress-bar" style="width:100%"></div></div>
               </div>
             </div>
           </div>
 
           <div class="doc-sub">Hero Centered (Landing)</div>
-          <div class="chips"><span class="chip">.hero-centered</span></div>
-          <p class="t-body-sm text-muted mb-2">Centered hero section with gradient for landing pages or empty states.</p>
-          <div style="padding:var(--space-12) var(--space-4);text-align:center;background:linear-gradient(135deg, var(--color-subtle) 0%, transparent 100%);border-radius:var(--radius-lg)">
-            <h2 class="t-heading-lg">Welcome to App</h2>
-            <p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-2)">Get started with a few simple steps</p>
-            <button class="btn btn-primary mt-3">Learn More</button>
+          <div class="chips"><span class="chip">.hero-centered</span><span class="chip">.t-eyebrow</span><span class="chip">.t-display-md</span><span class="chip">.t-body-lg</span></div>
+          <p class="t-body-sm text-muted mb-2">Centered hero section with radial gradient accent for landing pages or empty states.</p>
+          <div class="doc-demo">
+            <div class="hero-centered">
+              <p class="t-eyebrow mb-4">Welcome aboard</p>
+              <h2 class="t-display-md" style="max-width:20ch;margin:0 auto">Skandinavisk minimalisme møter app-tetthet</h2>
+              <p class="t-body-lg" style="max-width:50ch;margin:var(--space-4) auto 0;color:var(--color-muted)">Get started with a few simple steps to set up your workspace.</p>
+              <div class="cluster cluster-tight" style="justify-content:center;margin-top:var(--space-5);gap:var(--space-2)"><button class="btn btn-primary btn-elevated">Get Started</button><button class="btn btn-secondary">Learn More</button></div>
+            </div>
           </div>
 
           <div class="doc-sub">Feature Grid & Cards</div>
           <div class="chips"><span class="chip">.feature-grid</span><span class="chip">.feature-card</span><span class="chip">.feature-card-icon</span></div>
           <p class="t-body-sm text-muted mb-2">Grid of feature cards for marketing or onboarding. Auto-responsive layout.</p>
-          <div class="grid-auto gap-3">
-            <div style="padding:var(--space-2);background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-md)">
-              <svg style="width:1.5rem;height:1.5rem;color:var(--color-accent);margin-bottom:var(--space-2)" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
-              <p class="t-body-sm" style="font-weight:600">Feature 1</p>
-              <p style="font-size:var(--text-xs);color:var(--color-muted);margin-top:var(--space-1)">Description of feature</p>
-            </div>
-            <div style="padding:var(--space-2);background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-md)">
-              <svg style="width:1.5rem;height:1.5rem;color:var(--color-accent);margin-bottom:var(--space-2)" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
-              <p class="t-body-sm" style="font-weight:600">Feature 2</p>
-              <p style="font-size:var(--text-xs);color:var(--color-muted);margin-top:var(--space-1)">Another feature</p>
+          <div class="doc-demo">
+            <div class="feature-grid">
+              <article class="feature-card">
+                <svg class="feature-card-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+                <h3 class="t-heading-sm">Fast & Compact</h3>
+                <p class="t-body-sm text-muted">Dense layouts optimized for data-rich app interfaces.</p>
+              </article>
+              <article class="feature-card">
+                <svg class="feature-card-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+                <h3 class="t-heading-sm">Accessible</h3>
+                <p class="t-body-sm text-muted">WCAG AA compliant with full keyboard navigation.</p>
+              </article>
+              <article class="feature-card">
+                <svg class="feature-card-icon" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+                <h3 class="t-heading-sm">Themeable</h3>
+                <p class="t-body-sm text-muted">Token-driven theming with dark mode by default.</p>
+              </article>
             </div>
           </div>
 
@@ -3183,80 +3291,137 @@ function validate(e) {
           <div class="chips"><span class="chip">.footer-grid</span><span class="chip">.footer-col-title</span><span class="chip">.footer-link</span></div>
           <p class="t-body-sm text-muted mb-2">Multi-column footer. Responsive to single column on mobile.</p>
           <div class="doc-demo">
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:var(--space-4);font-size:var(--text-xs)">
+            <div class="footer-grid">
               <div>
-                <p style="font-weight:600;margin-bottom:var(--space-2)">Product</p>
-                <nav class="stack-tight">
-                  <a href="#" style="color:var(--color-fg);text-decoration:none;display:block">Features</a>
-                  <a href="#" style="color:var(--color-fg);text-decoration:none;display:block">Pricing</a>
-                </nav>
+                <strong>Nordover</strong>
+                <p class="t-body-sm text-muted mt-2">Production-ready design system for modern apps.</p>
               </div>
               <div>
-                <p style="font-weight:600;margin-bottom:var(--space-2)">Company</p>
-                <nav class="stack-tight">
-                  <a href="#" style="color:var(--color-fg);text-decoration:none;display:block">About</a>
-                  <a href="#" style="color:var(--color-fg);text-decoration:none;display:block">Blog</a>
-                </nav>
+                <p class="footer-col-title">Product</p>
+                <a href="#" class="footer-link">Features</a>
+                <a href="#" class="footer-link">Pricing</a>
+                <a href="#" class="footer-link">Docs</a>
+              </div>
+              <div>
+                <p class="footer-col-title">Company</p>
+                <a href="#" class="footer-link">About</a>
+                <a href="#" class="footer-link">Blog</a>
+                <a href="#" class="footer-link">Contact</a>
+              </div>
+              <div>
+                <p class="footer-col-title">Legal</p>
+                <a href="#" class="footer-link">Privacy</a>
+                <a href="#" class="footer-link">Terms</a>
+                <a href="#" class="footer-link">License</a>
               </div>
             </div>
           </div>
 
           <div class="doc-sub">Pricing Cards & Grid</div>
-          <div class="chips"><span class="chip">.price-card</span><span class="chip">.pricing-grid</span><span class="chip">.price-features</span><span class="chip">.price-val</span></div>
-          <p class="t-body-sm text-muted mb-2">Pricing tier cards with feature lists. Highlight/featured state available.</p>
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(12rem,1fr));gap:var(--space-3)">
-            <div style="border:1px solid var(--color-border);border-radius:var(--radius-md);padding:var(--space-3)">
-              <p class="t-body-sm" style="font-weight:600">Starter</p>
-              <p style="font-size:1.5rem;font-weight:700;margin:var(--space-2) 0;color:var(--color-accent)">$29</p>
-              <div style="font-size:var(--text-xs);color:var(--color-muted);margin:var(--space-2) 0">
-                <p>✓ 10 projects</p>
-                <p>✓ Basic support</p>
+          <div class="chips"><span class="chip">.pricing-section</span><span class="chip">.pricing-grid</span><span class="chip">.price-card</span><span class="chip">.price-card-highlight</span><span class="chip">.price-val</span><span class="chip">.price-features</span></div>
+          <p class="t-body-sm text-muted mb-2">Pricing tier cards with feature lists. Middle tier uses highlight/featured state.</p>
+          <div class="doc-demo">
+            <section class="pricing-section">
+              <div class="pricing-grid">
+                <article class="price-card">
+                  <p class="font-semibold">Starter</p>
+                  <p class="price-val">$29<span style="font-size:var(--text-sm);color:var(--color-muted);font-weight:400">/mo</span></p>
+                  <ul class="price-features">
+                    <li>10 projects</li>
+                    <li>Basic components</li>
+                    <li>Community support</li>
+                  </ul>
+                  <button class="btn btn-secondary btn-sm" style="width:100%;margin-top:auto">Get Started</button>
+                </article>
+                <article class="price-card price-card-highlight">
+                  <p class="font-semibold">Pro</p>
+                  <p class="price-val">$99<span style="font-size:var(--text-sm);color:var(--color-muted);font-weight:400">/mo</span></p>
+                  <ul class="price-features">
+                    <li>Unlimited projects</li>
+                    <li>All components</li>
+                    <li>Priority support</li>
+                  </ul>
+                  <button class="btn btn-primary btn-elevated btn-sm" style="width:100%;margin-top:auto">Choose Plan</button>
+                </article>
+                <article class="price-card">
+                  <p class="font-semibold">Enterprise</p>
+                  <p class="price-val">Custom</p>
+                  <ul class="price-features">
+                    <li>Everything in Pro</li>
+                    <li>Dedicated support</li>
+                    <li>Custom integrations</li>
+                  </ul>
+                  <button class="btn btn-secondary btn-sm" style="width:100%;margin-top:auto">Contact Sales</button>
+                </article>
               </div>
-              <button class="btn btn-secondary btn-sm" style="width:100%;font-size:var(--text-xs)">Select</button>
-            </div>
+            </section>
           </div>
 
           <div class="doc-sub">Page, Page Section, Page Content</div>
           <div class="chips"><span class="chip">.page</span><span class="chip">.page-section</span><span class="chip">.page-content</span></div>
-          <p class="t-body-sm text-muted">Top-level layout containers. .page = full page wrapper, .page-section = padded block, .page-content = max-width constrain.</p>
+          <p class="t-body-sm text-muted mb-2">Top-level layout containers. .page = full page wrapper, .page-section = padded block, .page-content = max-width constrain.</p>
+          <div class="doc-demo">
+            <div class="page" style="background:var(--color-subtle);border-radius:var(--radius-md)">
+              <section class="page-section">
+                <div class="page-content">
+                  <h3 class="t-heading-sm">Page Section</h3>
+                  <p class="t-body-sm text-muted">.page wraps the document, .page-section adds vertical rhythm, .page-content constrains width and centers content.</p>
+                </div>
+              </section>
+            </div>
+          </div>
 
           <div class="doc-sub">Blog Card & Article Metadata</div>
           <div class="chips"><span class="chip">.blog-card</span><span class="chip">.blog-card-category</span><span class="chip">.blog-card-title</span><span class="chip">.blog-card-excerpt</span></div>
-          <p class="t-body-sm text-muted mb-2">Article preview cards with category, title, excerpt, and optional cover image.</p>
+          <p class="t-body-sm text-muted mb-2">Article preview cards with category, title, and excerpt.</p>
           <div class="doc-demo max-w-xs">
-            <div style="border:1px solid var(--color-border);border-radius:var(--radius-md);overflow:hidden">
-              <div style="height:8rem;background:var(--color-subtle)"></div>
-              <div class="p-3">
-                <span style="display:inline-block;background:var(--color-subtle);padding:0.25rem var(--space-1);border-radius:var(--radius-sm);font-size:var(--text-xs);color:var(--color-muted)">Design</span>
-                <h3 style="font-size:var(--text-sm);font-weight:600;margin:var(--space-2) 0">Article Title</h3>
-                <p style="font-size:var(--text-xs);color:var(--color-muted)">Brief description of the article...</p>
-              </div>
-            </div>
+            <article class="blog-card">
+              <div class="blog-card-category">Design System</div>
+              <h3 class="blog-card-title">Building a production-ready design system</h3>
+              <p class="blog-card-excerpt">Lessons learned from creating Nordover, a complete CSS framework for modern apps.</p>
+            </article>
           </div>
 
           <div class="doc-sub">CTA Card (Call-To-Action)</div>
           <div class="chips"><span class="chip">.cta-card</span></div>
-          <p class="t-body-sm text-muted mb-2">Prominent card with gradient and action button for conversions.</p>
-          <div style="text-align:center;padding:var(--space-4);background:linear-gradient(135deg, var(--color-accent) 0%, var(--color-subtle) 100%);border-radius:var(--radius-md)">
-            <h3 class="t-heading-sm" style="color:white;margin-bottom:var(--space-2)">Ready to get started?</h3>
-            <p style="color:rgba(255,255,255,0.9);font-size:var(--text-sm);margin-bottom:var(--space-3)">Join thousands of users</p>
-            <button class="btn btn-primary">Start Free Trial</button>
+          <p class="t-body-sm text-muted mb-2">Prominent card with radial gradient accent and action button for conversions.</p>
+          <div class="doc-demo">
+            <div class="cta-card">
+              <h3 class="t-heading-lg" style="max-width:18ch;margin:0 auto">Ready to get started?</h3>
+              <p class="t-body-sm" style="margin-top:var(--space-2);color:var(--color-muted);max-width:45ch;margin-left:auto;margin-right:auto">Join thousands of teams already shipping with Nordover.</p>
+              <div class="cluster cluster-tight" style="justify-content:center;margin-top:var(--space-4)"><button class="btn btn-primary btn-elevated">Start Free Trial</button></div>
+            </div>
           </div>
 
           <div class="doc-sub">Mobile Navigation Drawer</div>
-          <div class="chips"><span class="chip">.mobile-nav</span><span class="chip">.mobile-nav-trigger</span><span class="chip">.mobile-nav-header</span><span class="chip">.mobile-nav-close</span></div>
-          <p class="t-body-sm text-muted">Mobile-only nav drawer with hamburger trigger, header, and close button. Toggle via checkbox or JavaScript.</p>
+          <div class="chips"><span class="chip">.mobile-nav-trigger</span><span class="chip">.mobile-nav</span><span class="chip">.mobile-nav-header</span><span class="chip">.mobile-nav-close</span><span class="chip">.mobile-nav-list</span><span class="chip">.mobile-nav-item</span></div>
+          <p class="t-body-sm text-muted mb-2">Mobile-only nav drawer with hamburger trigger, header, and close button. Toggle <code>.open</code> on <code>.mobile-nav</code> to slide it in. Shown here inside a preview frame.</p>
+          <div class="doc-demo">
+            <button class="mobile-nav-trigger" aria-label="Open navigation">☰</button>
+            <div class="mobile-nav-preview">
+              <nav class="mobile-nav open" aria-label="Mobile">
+                <div class="mobile-nav-header">
+                  <strong>Nordover</strong>
+                  <button class="mobile-nav-close" aria-label="Close navigation">✕</button>
+                </div>
+                <ul class="mobile-nav-list">
+                  <li class="mobile-nav-item active">Dashboard</li>
+                  <li class="mobile-nav-item">Projects</li>
+                  <li class="mobile-nav-item">Team</li>
+                  <li class="mobile-nav-item">Settings</li>
+                </ul>
+              </nav>
+            </div>
+          </div>
 
           <div class="doc-sub">Breadcrumbs Navigation</div>
           <div class="chips"><span class="chip">.breadcrumbs</span><span class="chip">.breadcrumb-item</span></div>
-          <p class="t-body-sm text-muted mb-2">Hierarchical navigation trail for nested page structure.</p>
+          <p class="t-body-sm text-muted mb-2">Hierarchical navigation trail for nested page structure. Separators are rendered via CSS.</p>
           <div class="doc-demo">
-            <nav style="display:flex;gap:var(--space-1);font-size:var(--text-sm)">
-              <a href="#" style="color:var(--color-accent);text-decoration:none">Home</a>
-              <span>/</span>
-              <a href="#" style="color:var(--color-accent);text-decoration:none">Products</a>
-              <span>/</span>
-              <span class="text-muted">Current Page</span>
+            <nav class="breadcrumbs" aria-label="Breadcrumb">
+              <a href="#" class="breadcrumb-item">Home</a>
+              <a href="#" class="breadcrumb-item">Products</a>
+              <span class="breadcrumb-item" aria-current="page">Current Page</span>
             </nav>
           </div>
 
