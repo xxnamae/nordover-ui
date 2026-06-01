@@ -1,0 +1,18 @@
+{
+  "runners": [
+    "axe",
+    "htmlcs"
+  ],
+  "standard": "WCAG2AA",
+  "timeout": 10000,
+  "wait": 1000,
+  "chromeLaunchConfig": {
+    "args": [
+      "--no-sandbox"
+    ]
+  },
+  "urls": [
+    "docs/visual/styleguide-web.html",
+    "docs/visual/styleguide-app.html"
+  ]
+}

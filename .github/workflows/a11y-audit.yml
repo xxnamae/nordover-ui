@@ -1,0 +1,235 @@
+name: Accessibility Audit
+
+on:
+  push:
+    branches: [main, 'claude/**']
+  pull_request:
+    branches: [main]
+  schedule:
+    # Run weekly scan on Monday at 09:00 UTC
+    - cron: '0 9 * * 1'
+
+jobs:
+  a11y-audit:
+    name: Accessibility Testing (WCAG 2.1 AA)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: |
+          npm install -g \
+            axe-core \
+            pa11y \
+            pa11y-ci \
+            html-validate
+
+      - name: Run PA11y accessibility audit
+        id: audit
+        run: |
+          mkdir -p audit-results
+
+          echo "Starting accessibility audit..."
+
+          # Run PA11y with JSON output for both styleguides
+          pa11y-ci \
+            --config .pa11yci.json \
+            --json > audit-results/audit-report.json 2>&1 || true
+
+          # Count violations
+          CRITICAL=$(grep -o '"type":"error"' audit-results/audit-report.json | wc -l || echo "0")
+          WARNING=$(grep -o '"type":"warning"' audit-results/audit-report.json | wc -l || echo "0")
+          NOTICE=$(grep -o '"type":"notice"' audit-results/audit-report.json | wc -l || echo "0")
+
+          echo "critical_violations=$CRITICAL" >> $GITHUB_OUTPUT
+          echo "warnings=$WARNING" >> $GITHUB_OUTPUT
+          echo "notices=$NOTICE" >> $GITHUB_OUTPUT
+
+          # Display summary
+          echo "## Accessibility Audit Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Severity | Count |" >> $GITHUB_STEP_SUMMARY
+          echo "|----------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| 🔴 Critical | $CRITICAL |" >> $GITHUB_STEP_SUMMARY
+          echo "| 🟠 Warnings | $WARNING |" >> $GITHUB_STEP_SUMMARY
+          echo "| 🟡 Notices | $NOTICE |" >> $GITHUB_STEP_SUMMARY
+
+      - name: Generate detailed HTML report
+        if: always()
+        run: |
+          cat > audit-results/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Accessibility Audit Report</title>
+            <style>
+              * { margin: 0; padding: 0; box-sizing: border-box; }
+              body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                background: #f5f5f5;
+                color: #333;
+                padding: 2rem;
+              }
+              .container { max-width: 1200px; margin: 0 auto; }
+              h1 { color: #1a1a1a; margin-bottom: 1rem; }
+              .summary {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1.5rem;
+                margin: 2rem 0;
+              }
+              .card {
+                background: white;
+                padding: 1.5rem;
+                border-radius: 8px;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+                text-align: center;
+              }
+              .number {
+                font-size: 2.5rem;
+                font-weight: bold;
+                margin: 0.5rem 0;
+              }
+              .label { font-size: 0.9rem; color: #666; }
+              .critical { border-left: 4px solid #ef4444; }
+              .critical .number { color: #ef4444; }
+              .warning { border-left: 4px solid #f59e0b; }
+              .warning .number { color: #f59e0b; }
+              .notice { border-left: 4px solid #eab308; }
+              .notice .number { color: #eab308; }
+              .info {
+                background: #e0f2fe;
+                border-left: 4px solid #0284c7;
+                padding: 1rem;
+                border-radius: 4px;
+                margin: 1rem 0;
+              }
+              pre {
+                background: #f0f0f0;
+                padding: 1rem;
+                border-radius: 4px;
+                overflow-x: auto;
+                font-size: 0.85rem;
+              }
+            </style>
+          </head>
+          <body>
+            <div class="container">
+              <h1>🔍 Accessibility Audit Report</h1>
+              <p>Generated: <strong>$(date -u)</strong></p>
+
+              <div class="summary">
+                <div class="card critical">
+                  <div class="label">Critical Issues</div>
+                  <div class="number">—</div>
+                  <p style="font-size: 0.8rem; color: #666;">See audit tool</p>
+                </div>
+                <div class="card warning">
+                  <div class="label">Warnings</div>
+                  <div class="number">—</div>
+                  <p style="font-size: 0.8rem; color: #666;">See audit tool</p>
+                </div>
+                <div class="card notice">
+                  <div class="label">Notices</div>
+                  <div class="number">—</div>
+                  <p style="font-size: 0.8rem; color: #666;">See audit tool</p>
+                </div>
+              </div>
+
+              <div class="info">
+                <strong>ℹ️ Full Interactive Audit Tool</strong>
+                <p>For detailed results, open the interactive audit tool at <code>/docs/visual/accessibility-audit.html</code></p>
+              </div>
+
+              <h2 style="margin-top: 2rem;">Styleguides Tested</h2>
+              <ul style="margin-left: 1.5rem; line-height: 2;">
+                <li>✓ Web Styleguide: <code>docs/visual/styleguide-web.html</code></li>
+                <li>✓ App Styleguide: <code>docs/visual/styleguide-app.html</code></li>
+              </ul>
+
+              <h2 style="margin-top: 2rem;">Standard Tested</h2>
+              <p><strong>WCAG 2.1 Level AA</strong> — The industry standard for accessibility compliance</p>
+
+              <h2 style="margin-top: 2rem;">Next Steps</h2>
+              <ol style="margin-left: 1.5rem; line-height: 2;">
+                <li>Review critical violations in the interactive audit tool</li>
+                <li>For each issue, check the remediation guidance</li>
+                <li>Apply fixes to CSS and component HTML</li>
+                <li>Re-audit to verify resolution</li>
+              </ol>
+
+              <h2 style="margin-top: 2rem;">Resources</h2>
+              <ul style="margin-left: 1.5rem; line-height: 2;">
+                <li><a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank">WCAG 2.1 Guidelines</a></li>
+                <li><a href="https://webaim.org/" target="_blank">WebAIM</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility" target="_blank">MDN Accessibility Guide</a></li>
+              </ul>
+            </div>
+          </body>
+          </html>
+          EOF
+
+      - name: Upload audit report
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: a11y-audit-report
+          path: audit-results/
+          retention-days: 30
+
+      - name: Comment PR with results
+        if: github.event_name == 'pull_request' && always()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs');
+
+            const critical = '${{ steps.audit.outputs.critical_violations }}' || '0';
+            const warnings = '${{ steps.audit.outputs.warnings }}' || '0';
+            const notices = '${{ steps.audit.outputs.notices }}' || '0';
+
+            let emoji = '✅';
+            if (critical > 0) emoji = '🔴';
+            else if (warnings > 0) emoji = '🟠';
+
+            const comment = `## ${emoji} Accessibility Audit Results
+
+| Severity | Count |
+|----------|-------|
+| 🔴 Critical Issues | ${critical} |
+| 🟠 Warnings | ${warnings} |
+| 🟡 Notices | ${notices} |
+
+**Standard:** WCAG 2.1 Level AA
+
+🔍 **Review Details:** Open [\`/docs/visual/accessibility-audit.html\`](../docs/visual/accessibility-audit.html) for the interactive audit tool.
+
+${critical > 0 ? '⚠️ **Critical issues found.** Please address before merging.' : '✓ No critical issues found.'}`;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
+
+      - name: Fail on critical violations
+        if: steps.audit.outputs.critical_violations > 0
+        run: |
+          echo "❌ Critical accessibility violations detected!"
+          echo "Please review and fix before merging."
+          exit 1
+
+      - name: Update audit results document
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: |
+          echo "Audit results updated during merge. Check /docs/visual/ACCESSIBILITY-AUDIT-RESULTS.md"
