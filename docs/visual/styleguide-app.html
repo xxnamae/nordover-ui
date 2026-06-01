@@ -499,7 +499,7 @@
         <section class="doc-section" id="forms" data-section="components" data-category="forms">
           <h2 class="doc-section-title">Forms</h2>
           <p class="doc-section-desc">Form inputs, checkboxes, radios with states. Compact sizing for app interfaces.</p>
-          <div class="chips"><span class="chip">.field</span><span class="chip">.form-input</span><span class="chip">.form-textarea</span><span class="chip">.form-select</span><span class="chip">.form-checkbox</span><span class="chip">.form-radio</span><span class="chip">.form-toggle</span><span class="chip">.form-group</span></div>
+          <div class="chips"><span class="chip">.field</span><span class="chip">.field-label</span><span class="chip">.form-input</span><span class="chip">.form-select</span><span class="chip">.form-checkbox</span><span class="chip">.form-radio</span><span class="chip">.form-toggle</span></div>
 
           <div class="doc-sub">Text Input States</div>
           <div class="stack" style="max-width:22rem">
@@ -528,7 +528,7 @@
           <div class="doc-sub">Textarea</div>
           <div class="field" style="max-width:22rem">
             <label class="field-label">Notes</label>
-            <textarea class="form-textarea" rows="3" placeholder="Enter notes..."></textarea>
+            <textarea rows="3" placeholder="Enter notes..."></textarea>
           </div>
 
           <div class="doc-sub">Select Dropdown</div>
@@ -568,21 +568,20 @@
 
           <div class="doc-sub">Form Groups</div>
           <div style="max-width:22rem">
-            <fieldset>
+            <fieldset class="stack gap-2">
               <legend class="field-label">Notification preferences</legend>
-              <div class="form-group">
-                <div class="form-group-item">
-                  <input type="checkbox" class="form-checkbox" id="notif1" checked>
-                  <label for="notif1" class="text-sm">Email</label>
-                </div>
-                <div class="form-group-item">
-                  <input type="checkbox" class="form-checkbox" id="notif2">
-                  <label for="notif2" class="text-sm">SMS</label>
-                </div>
-                <div class="form-group-item">
-                  <input type="checkbox" class="form-checkbox" id="notif3" checked>
-                  <label for="notif3" class="text-sm">In-app</label>
-                </div>
+              <label class="cluster gap-2">
+                <input type="checkbox" class="form-checkbox" id="notif1" checked>
+                <span class="text-sm">Email</span>
+              </label>
+              <label class="cluster gap-2">
+                <input type="checkbox" class="form-checkbox" id="notif2">
+                <span class="text-sm">SMS</span>
+              </label>
+              <label class="cluster gap-2">
+                <input type="checkbox" class="form-checkbox" id="notif3" checked>
+                <span class="text-sm">In-app</span>
+              </label>
               </div>
             </fieldset>
           </div>
@@ -1259,7 +1258,7 @@
                 <label style="display:flex;align-items:center;gap:var(--space-2);cursor:pointer;font-size:var(--text-sm)">
                   <input type="checkbox" checked> Special instructions
                 </label>
-                <textarea class="form-textarea" style="margin-top:var(--space-2)" placeholder="Leave at door..." rows="2"></textarea>
+                <textarea style="margin-top:var(--space-2)" placeholder="Leave at door..." rows="2"></textarea>
               </div>
               <div style="background:color-mix(in oklch, var(--color-success) 10%, var(--color-surface));padding:var(--space-3);border-radius:var(--radius-md)">
                 <p style="font-size:var(--text-sm);font-weight:600">Ready to ship</p>
@@ -1979,12 +1978,10 @@ function validate(e) {
                   <option>High</option>
                 </select>
               </div>
-              <div class="form-group">
-                <div class="form-group-item">
-                  <input type="checkbox" class="form-checkbox" id="urgent">
-                  <label for="urgent" class="text-sm">Urgent</label>
-                </div>
-              </div>
+              <label class="cluster gap-2">
+                <input type="checkbox" class="form-checkbox" id="urgent">
+                <span class="text-sm">Urgent</span>
+              </label>
               <div class="cluster">
                 <button class="btn btn-primary btn-sm">Add</button>
                 <button class="btn btn-ghost btn-sm">Cancel</button>

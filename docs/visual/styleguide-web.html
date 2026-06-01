@@ -789,7 +789,7 @@
         <section class="doc-section" id="forms" data-section="components" data-category="forms">
           <h2 class="doc-section-title">Forms</h2>
           <p class="doc-section-desc">Complete form ecosystem: inputs, textareas, selects, checkboxes, radios with all states (normal, error, disabled, focus).</p>
-          <div class="chips"><span class="chip">.field</span><span class="chip">.form-input</span><span class="chip">.form-textarea</span><span class="chip">.form-select</span><span class="chip">.form-checkbox</span><span class="chip">.form-radio</span><span class="chip">.form-toggle</span><span class="chip">.form-group</span></div>
+          <div class="chips"><span class="chip">.field</span><span class="chip">.field-label</span><span class="chip">.form-input</span><span class="chip">.form-select</span><span class="chip">.form-checkbox</span><span class="chip">.form-radio</span><span class="chip">.form-toggle</span></div>
 
           <div class="doc-sub">Text Inputs (All States)</div>
           <div class="stack max-w-sm">
@@ -857,21 +857,20 @@
 
           <div class="doc-sub">Form Groups (Multiple Checkboxes/Radios)</div>
           <div class="stack max-w-sm">
-            <fieldset>
+            <fieldset class="stack gap-2">
               <legend class="field-label">Select preferences</legend>
-              <div class="form-group">
-                <div class="form-group-item">
-                  <input type="checkbox" class="form-checkbox" id="pref1" checked>
-                  <label for="pref1">Email notifications</label>
-                </div>
-                <div class="form-group-item">
-                  <input type="checkbox" class="form-checkbox" id="pref2">
-                  <label for="pref2">SMS alerts</label>
-                </div>
-                <div class="form-group-item">
-                  <input type="checkbox" class="form-checkbox" id="pref3" checked>
-                  <label for="pref3">Marketing emails</label>
-                </div>
+              <label class="cluster gap-2">
+                <input type="checkbox" class="form-checkbox" id="pref1" checked>
+                <span>Email notifications</span>
+              </label>
+              <label class="cluster gap-2">
+                <input type="checkbox" class="form-checkbox" id="pref2">
+                <span>SMS alerts</span>
+              </label>
+              <label class="cluster gap-2">
+                <input type="checkbox" class="form-checkbox" id="pref3" checked>
+                <span>Marketing emails</span>
+              </label>
               </div>
             </fieldset>
           </div>
@@ -908,10 +907,10 @@
   &lt;p class="field-help"&gt;We'll never share your email&lt;/p&gt;
 &lt;/div&gt;
 
-&lt;!-- Textarea (use .form-textarea, not .form-input) --&gt;
+&lt;!-- Textarea (styled by element selector, no class needed) --&gt;
 &lt;div class="field"&gt;
   &lt;label class="field-label"&gt;Message&lt;/label&gt;
-  &lt;textarea class="form-textarea" rows="4" placeholder="Your message..."&gt;&lt;/textarea&gt;
+  &lt;textarea rows="4" placeholder="Your message..."&gt;&lt;/textarea&gt;
 &lt;/div&gt;
 
 &lt;!-- Select dropdown (use .form-select, not .form-input) --&gt;
@@ -938,16 +937,14 @@
 &lt;!-- Form group (multiple related inputs) --&gt;
 &lt;fieldset&gt;
   &lt;legend class="field-label"&gt;Preferences&lt;/legend&gt;
-  &lt;div class="form-group"&gt;
-    &lt;div class="form-group-item"&gt;
-      &lt;input type="checkbox" class="form-checkbox" id="opt1"&gt;
-      &lt;label for="opt1"&gt;Option 1&lt;/label&gt;
-    &lt;/div&gt;
-    &lt;div class="form-group-item"&gt;
-      &lt;input type="checkbox" class="form-checkbox" id="opt2"&gt;
-      &lt;label for="opt2"&gt;Option 2&lt;/label&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
+  &lt;label class="cluster gap-2"&gt;
+    &lt;input type="checkbox" class="form-checkbox" id="opt1"&gt;
+    &lt;span&gt;Option 1&lt;/span&gt;
+  &lt;/label&gt;
+  &lt;label class="cluster gap-2"&gt;
+    &lt;input type="checkbox" class="form-checkbox" id="opt2"&gt;
+    &lt;span&gt;Option 2&lt;/span&gt;
+  &lt;/label&gt;
 &lt;/fieldset&gt;</code></div>
         </section>
 
@@ -5772,11 +5769,11 @@ button { transition: all 250ms ease-out; }
           </div>
 
           <div class="doc-sub">Form Inputs in Dark Mode</div>
-          <div class="chips"><span class="chip">.form-input</span><span class="chip">.form-select</span><span class="chip">.form-textarea</span></div>
+          <div class="chips"><span class="chip">.form-input</span><span class="chip">.form-select</span><span class="chip">textarea</span></div>
           <div class="doc-demo stack">
             <input class="form-input max-w-xs" type="text" placeholder="Text input with placeholder">
             <select class="form-select max-w-xs"><option>Select an option</option><option>Option 1</option><option>Option 2</option></select>
-            <textarea class="form-input" placeholder="Textarea input" style="max-width:20rem;height:6rem"></textarea>
+            <textarea placeholder="Textarea input" style="max-width:20rem;height:6rem"></textarea>
           </div>
 
           <div class="doc-sub">Text Contrast in Dark Mode</div>
