@@ -222,20 +222,20 @@
           <div class="doc-sub">Real Examples</div>
           <div class="cluster cluster-tight" style="align-items: flex-start; gap: var(--space-4)">
             <div style="width: 9rem; padding: var(--space-4); background: var(--color-surface); box-shadow: var(--shadow-sm); border-radius: var(--radius-md); text-align: center">
-              <div style="font-size: var(--text-xs); color: var(--color-muted); margin-bottom: var(--space-2)">Card<br>sm shadow</div>
-              <div style="font-size: var(--text-sm); font-weight: 500">Content here</div>
+              <div class="text-xs text-muted mb-2">Card<br>sm shadow</div>
+              <div class="text-sm font-medium">Content here</div>
             </div>
             <div style="width: 9rem; padding: var(--space-4); background: var(--color-surface); box-shadow: var(--shadow-md); border-radius: var(--radius-md); text-align: center">
-              <div style="font-size: var(--text-xs); color: var(--color-muted); margin-bottom: var(--space-2)">Floating<br>md shadow</div>
-              <div style="font-size: var(--text-sm); font-weight: 500">Action</div>
+              <div class="text-xs text-muted mb-2">Floating<br>md shadow</div>
+              <div class="text-sm font-medium">Action</div>
             </div>
             <div style="width: 9rem; padding: var(--space-4); background: var(--color-surface); box-shadow: var(--shadow-lg); border-radius: var(--radius-md); text-align: center">
-              <div style="font-size: var(--text-xs); color: var(--color-muted); margin-bottom: var(--space-2)">Modal<br>lg shadow</div>
-              <div style="font-size: var(--text-sm); font-weight: 500">Dialog</div>
+              <div class="text-xs text-muted mb-2">Modal<br>lg shadow</div>
+              <div class="text-sm font-medium">Dialog</div>
             </div>
             <div style="width: 9rem; padding: var(--space-4); background: var(--color-surface); box-shadow: var(--shadow-xl); border-radius: var(--radius-md); text-align: center">
-              <div style="font-size: var(--text-xs); color: var(--color-muted); margin-bottom: var(--space-2)">Menu<br>xl shadow</div>
-              <div style="font-size: var(--text-sm); font-weight: 500">Dropdown</div>
+              <div class="text-xs text-muted mb-2">Menu<br>xl shadow</div>
+              <div class="text-sm font-medium">Dropdown</div>
             </div>
           </div>
 
@@ -533,27 +533,27 @@
           </div>
 
           <div class="doc-sub">Micro-Interactions Examples</div>
-          <div class="stack" style="gap:var(--space-4)">
+          <div class="stack gap-4">
             <div>
-              <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-2)">Button hover scale (150ms ease-out)</p>
+              <p class="t-body-sm text-muted mb-2">Button hover scale (150ms ease-out)</p>
               <div style="display:flex;gap:var(--space-3)">
                 <button class="btn btn-primary">Normal</button>
                 <button class="btn btn-primary" style="transform:scale(1.05)">Hover (+5%)</button>
               </div>
             </div>
             <div>
-              <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-2)">Loading spinner (infinite rotation)</p>
+              <p class="t-body-sm text-muted mb-2">Loading spinner (infinite rotation)</p>
               <svg class="icon icon-spin" style="width:1.5rem;height:1.5rem;color:var(--color-accent)" viewBox="0 0 24 24">
                 <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" />
                 <path d="M12 2v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
               </svg>
             </div>
             <div>
-              <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-2)">Success checkmark (bounce-in 250ms)</p>
+              <p class="t-body-sm text-muted mb-2">Success checkmark (bounce-in 250ms)</p>
               <div style="color:var(--color-success);font-size:2rem">✓</div>
             </div>
             <div>
-              <p class="t-body-sm" style="color:var(--color-muted);margin-bottom:var(--space-2)">Tooltip fade (100ms opacity transition)</p>
+              <p class="t-body-sm text-muted mb-2">Tooltip fade (100ms opacity transition)</p>
               <div style="padding:var(--space-2);background:var(--color-fg);color:var(--color-bg);border-radius:var(--radius-md);font-size:var(--text-sm);opacity:0.9">Helpful tooltip</div>
             </div>
           </div>
@@ -1508,7 +1508,7 @@
 
           <div class="doc-sub">Modal Sizes</div>
           <p class="t-body-sm text-muted mb-3">Modals scale based on content width (max-width: var(--w-lg) for large). Small dialogs fit alerts; large dialogs handle forms.</p>
-          <div class="cluster cluster-tight" style="gap:var(--space-4)">
+          <div class="cluster cluster-tight gap-4">
             <div style="flex:1;min-width:12rem;padding:var(--space-3);background:var(--color-subtle);border-radius:var(--radius-md);text-align:center">
               <div style="font-size:var(--text-sm);color:var(--color-muted);margin-bottom:var(--space-2)">Small Modal</div>
               <div class="text-xs text-muted">Alerts, confirmations<br>~30rem max-width</div>
@@ -1872,7 +1872,7 @@
             <div class="p-3 bg-subtle rounded-md">Stack item 2</div>
             <div class="p-3 bg-subtle rounded-md">Stack item 3</div>
           </div>
-          <p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-3)">Vertical layout with consistent gap. Use .stack-tight for reduced spacing.</p>
+          <p class="t-body-sm text-muted mt-3">Vertical layout with consistent gap. Use .stack-tight for reduced spacing.</p>
 
           <div class="doc-sub">Cluster (Horizontal + Wrap)</div>
           <div class="chips"><span class="chip">.cluster</span><span class="chip">.cluster-tight</span></div>
@@ -1882,7 +1882,7 @@
             <div class="p-3 bg-subtle rounded-md">Item 3</div>
             <div class="p-3 bg-subtle rounded-md">Item 4</div>
           </div>
-          <p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-3)">Horizontal layout that wraps on small screens. Aligns items vertically.</p>
+          <p class="t-body-sm text-muted mt-3">Horizontal layout that wraps on small screens. Aligns items vertically.</p>
 
           <div class="doc-sub">Grid Auto (Responsive Grid)</div>
           <div class="chips"><span class="chip">.grid-auto</span></div>
@@ -1892,7 +1892,7 @@
             <div class="p-4" style="background:var(--color-subtle);border-radius:var(--radius-md);text-align:center">Card 3</div>
             <div class="p-4" style="background:var(--color-subtle);border-radius:var(--radius-md);text-align:center">Card 4</div>
           </div>
-          <p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-3)">Auto-fit grid with minimum column width (16rem). Adapts columns based on available space.</p>
+          <p class="t-body-sm text-muted mt-3">Auto-fit grid with minimum column width (16rem). Adapts columns based on available space.</p>
 
           <div class="doc-sub">Page Container</div>
           <div class="chips"><span class="chip">.page</span><span class="chip">.page-content</span><span class="chip">.page-section</span></div>
@@ -2005,14 +2005,14 @@
           <p class="doc-section-desc">Interactive calendar for date selection. Opens dropdown with calendar grid, month/year navigation. Full keyboard support: tab to navigate, enter to select, escape to close.</p>
           <div class="chips"><span class="chip">.date-picker</span><span class="chip">.date-picker-calendar</span><span class="chip">.date-picker-day.selected</span></div>
           <div class="doc-demo stack">
-            <div style="max-width:20rem">
+            <div class="max-w-xs">
               <label class="field-label">Velg dato</label>
               <div class="date-picker">
                 <input class="form-input" type="text" placeholder="Choose date..." readonly style="cursor:pointer">
                 <div class="date-picker-calendar" style="display:block;position:static;background:var(--color-surface);border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-4)">
                   <div class="date-picker-header">
                     <button class="date-picker-nav">←</button>
-                    <span style="font-weight:600">May 2026</span>
+                    <span class="font-semibold">May 2026</span>
                     <button class="date-picker-nav">→</button>
                   </div>
                   <div class="date-picker-weekdays">
@@ -2128,7 +2128,7 @@
             <div style="padding:var(--space-6);background:var(--color-subtle);border-radius:var(--radius-md);margin-top:var(--space-4)">
               <h3 class="t-heading-sm">Step 2: Address</h3>
               <p class="t-body-sm text-muted mt-2">Enter your shipping address</p>
-              <div class="stack-tight" style="margin-top:var(--space-4)">
+              <div class="stack-tight mt-4">
                 <div class="field"><label class="field-label">Street</label><input class="form-input" type="text" placeholder="123 Main St"></div>
                 <div class="field"><label class="field-label">City</label><input class="form-input" type="text" placeholder="Oslo"></div>
               </div>
@@ -2355,7 +2355,7 @@
             <div style="display:flex;gap:var(--space-2);margin-bottom:var(--space-3);align-items:center">
               <span class="text-sm text-muted">2 rows selected</span>
               <button class="btn btn-secondary btn-sm">Edit</button>
-              <button class="btn btn-ghost btn-sm" style="color:var(--color-error)">Delete</button>
+              <button class="btn btn-ghost btn-sm text-error">Delete</button>
             </div>
             <div class="overflow-x-auto">
               <table class="table" aria-label="Selectable table">
@@ -2411,7 +2411,7 @@
           <p class="doc-section-desc">Real-time validation, dependent fields, success/error states. Production-ready patterns.</p>
 
           <div class="doc-sub">Real-time Validation & Success States</div>
-          <div class="doc-demo" style="max-width:28rem;margin:auto">
+          <div class="doc-demo max-w-lg mx-auto">
             <div class="stack">
               <div class="field">
                 <label class="field-label">Username</label>
@@ -2437,7 +2437,7 @@
           </div>
 
           <div class="doc-sub">Conditional/Dependent Fields</div>
-          <div class="doc-demo" style="max-width:28rem;margin:auto">
+          <div class="doc-demo max-w-lg mx-auto">
             <div class="stack">
               <div class="field">
                 <label class="field-label">Shipping Method</label>
@@ -2505,18 +2505,18 @@ function validate(e) {
             <div style="background:var(--color-subtle);border:1px solid var(--color-border);border-radius:var(--radius-md);padding:var(--space-3);margin-top:var(--space-3)">
               <div style="text-align:center;margin-bottom:var(--space-3);font-weight:600">May 2026</div>
               <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:var(--space-1);font-size:0.85rem">
-                <div style="text-align:center;color:var(--color-muted);font-weight:600">Su</div>
-                <div style="text-align:center;color:var(--color-muted);font-weight:600">Mo</div>
-                <div style="text-align:center;color:var(--color-muted);font-weight:600">Tu</div>
-                <div style="text-align:center;color:var(--color-muted);font-weight:600">We</div>
-                <div style="text-align:center;color:var(--color-muted);font-weight:600">Th</div>
-                <div style="text-align:center;color:var(--color-muted);font-weight:600">Fr</div>
-                <div style="text-align:center;color:var(--color-muted);font-weight:600">Sa</div>
-                <div style="text-align:center;color:var(--color-muted)">26</div>
-                <div style="text-align:center;color:var(--color-muted)">27</div>
-                <div style="text-align:center;color:var(--color-muted)">28</div>
-                <div style="text-align:center;color:var(--color-muted)">29</div>
-                <div style="text-align:center;color:var(--color-muted)">30</div>
+                <div class="text-center text-muted font-semibold">Su</div>
+                <div class="text-center text-muted font-semibold">Mo</div>
+                <div class="text-center text-muted font-semibold">Tu</div>
+                <div class="text-center text-muted font-semibold">We</div>
+                <div class="text-center text-muted font-semibold">Th</div>
+                <div class="text-center text-muted font-semibold">Fr</div>
+                <div class="text-center text-muted font-semibold">Sa</div>
+                <div class="text-center text-muted">26</div>
+                <div class="text-center text-muted">27</div>
+                <div class="text-center text-muted">28</div>
+                <div class="text-center text-muted">29</div>
+                <div class="text-center text-muted">30</div>
                 <div class="text-center">1</div>
                 <div class="text-center">2</div>
                 <div class="text-center">3</div>
@@ -2576,7 +2576,7 @@ function validate(e) {
 
           <div class="doc-sub">Color Picker</div>
           <p class="t-body-sm text-muted mb-3">HSL sliders with hex output</p>
-          <div class="doc-demo" style="max-width:20rem">
+          <div class="doc-demo max-w-xs">
             <div class="field">
               <label class="field-label">Select Color</label>
               <input class="form-input" type="color" value="#0047AB">
@@ -2625,7 +2625,7 @@ function validate(e) {
                 <a href="#" style="font-size:var(--text-sm);color:var(--color-accent)">Forgot password?</a>
               </div>
               <button class="btn btn-primary w-full">Sign In</button>
-              <p class="t-body-sm text-center text-muted">Don't have an account? <a href="#" style="color:var(--color-accent)">Create one</a></p>
+              <p class="t-body-sm text-center text-muted">Don't have an account? <a href="#" class="text-accent">Create one</a></p>
             </div>
           </div>
 
@@ -2634,7 +2634,7 @@ function validate(e) {
             <div class="stack">
               <div>
                 <h3 class="t-heading-sm">Billing Information</h3>
-                <div class="grid-auto" style="margin-top:var(--space-4)">
+                <div class="grid-auto mt-4">
                   <div class="field"><label class="field-label">First Name</label><input class="form-input" type="text"></div>
                   <div class="field"><label class="field-label">Last Name</label><input class="form-input" type="text"></div>
                   <div class="field" style="grid-column:1/-1"><label class="field-label">Address</label><input class="form-input" type="text"></div>
@@ -2642,7 +2642,7 @@ function validate(e) {
               </div>
               <div style="border-top:var(--border-card);padding-top:var(--space-6)">
                 <h3 class="t-heading-sm">Payment Method</h3>
-                <div class="stack-tight" style="margin-top:var(--space-4)">
+                <div class="stack-tight mt-4">
                   <label style="display:flex;align-items:center;gap:var(--space-2);cursor:pointer;padding:var(--space-2)">
                     <input type="radio" name="payment" checked> Credit Card
                   </label>
@@ -2659,7 +2659,7 @@ function validate(e) {
           </div>
 
           <div class="doc-sub">Form with Validation</div>
-          <div class="doc-demo" style="max-width:28rem;margin:auto">
+          <div class="doc-demo max-w-lg mx-auto">
             <div class="stack">
               <div class="field">
                 <label class="field-label">Username</label>
@@ -2683,7 +2683,7 @@ function validate(e) {
 
           <div class="doc-sub">Dependent Fields (Conditional Form Fields)</div>
           <p class="t-body-sm text-muted mb-3">Show/hide form fields based on selection. Example: Country selector reveals region field.</p>
-          <div class="doc-demo" style="max-width:28rem;margin:auto">
+          <div class="doc-demo max-w-lg mx-auto">
             <div class="stack">
               <div class="field">
                 <label class="field-label">Account Type</label>
@@ -2719,7 +2719,7 @@ function validate(e) {
 
           <div class="doc-sub">Real-time Validation with Success States</div>
           <p class="t-body-sm text-muted mb-3">Fields show validation feedback as user types. Green checkmark for valid, red X for invalid.</p>
-          <div class="doc-demo" style="max-width:28rem;margin:auto">
+          <div class="doc-demo max-w-lg mx-auto">
             <div class="stack">
               <div class="field">
                 <div class="flex items-center gap-2">
@@ -2739,7 +2739,7 @@ function validate(e) {
               <div class="field">
                 <div class="flex items-center gap-2">
                   <label class="field-label m-0">Confirm Password</label>
-                  <span style="color:var(--color-error)">✗</span>
+                  <span class="text-error">✗</span>
                 </div>
                 <input class="form-input" type="password" placeholder="••••" style="border-color:var(--color-error)">
                 <span class="field-error">Passwords do not match</span>
@@ -2766,15 +2766,15 @@ function validate(e) {
               </thead>
               <tbody>
                 <tr>
-                  <td style="padding:var(--space-3);border-bottom:var(--border-card)">Sarah Johnson</td>
-                  <td style="padding:var(--space-3);border-bottom:var(--border-card)">sarah@example.com</td>
-                  <td style="padding:var(--space-3);border-bottom:var(--border-card)"><span class="badge badge-success">Active</span></td>
+                  <td class="td-divider">Sarah Johnson</td>
+                  <td class="td-divider">sarah@example.com</td>
+                  <td class="td-divider"><span class="badge badge-success">Active</span></td>
                   <td style="padding:var(--space-3);border-bottom:var(--border-card);text-align:right"><button class="btn btn-ghost btn-sm">Edit</button></td>
                 </tr>
                 <tr>
-                  <td style="padding:var(--space-3);border-bottom:var(--border-card)">Michael Chen</td>
-                  <td style="padding:var(--space-3);border-bottom:var(--border-card)">michael@example.com</td>
-                  <td style="padding:var(--space-3);border-bottom:var(--border-card)"><span class="badge badge-warning">Pending</span></td>
+                  <td class="td-divider">Michael Chen</td>
+                  <td class="td-divider">michael@example.com</td>
+                  <td class="td-divider"><span class="badge badge-warning">Pending</span></td>
                   <td style="padding:var(--space-3);border-bottom:var(--border-card);text-align:right"><button class="btn btn-ghost btn-sm">Edit</button></td>
                 </tr>
                 <tr>
@@ -2794,21 +2794,21 @@ function validate(e) {
                 <div class="card-body">
                   <p class="t-body-sm font-bold">Total Users</p>
                   <p class="t-display-md" style="margin-top:var(--space-2);color:var(--color-accent)">1,234</p>
-                  <p class="t-body-xs" style="color:var(--color-muted);margin-top:var(--space-1)">↑ 12% vs last month</p>
+                  <p class="t-body-xs text-muted mt-1">↑ 12% vs last month</p>
                 </div>
               </div>
               <div class="card">
                 <div class="card-body">
                   <p class="t-body-sm font-bold">Active Sessions</p>
                   <p class="t-display-md" style="margin-top:var(--space-2);color:var(--color-success)">456</p>
-                  <p class="t-body-xs" style="color:var(--color-muted);margin-top:var(--space-1)">Currently online</p>
+                  <p class="t-body-xs text-muted mt-1">Currently online</p>
                 </div>
               </div>
               <div class="card">
                 <div class="card-body">
                   <p class="t-body-sm font-bold">Revenue</p>
                   <p class="t-display-md" style="margin-top:var(--space-2);color:var(--color-accent)">$45.6K</p>
-                  <p class="t-body-xs" style="color:var(--color-muted);margin-top:var(--space-1)">↑ 8% vs last month</p>
+                  <p class="t-body-xs text-muted mt-1">↑ 8% vs last month</p>
                 </div>
               </div>
             </div>
@@ -2817,7 +2817,7 @@ function validate(e) {
           <div class="doc-sub">List with Metadata</div>
           <div class="doc-demo max-w-md">
             <div class="stack-tight">
-              <div class="stack-tight" style="padding:var(--space-3);border-bottom:var(--border-card)">
+              <div class="stack-tight td-divider">
                 <p class="t-body font-bold">Project Alpha</p>
                 <p class="t-body-sm text-muted">By Sarah Johnson • Updated 2 hours ago</p>
                 <div class="cluster cluster-tight" style="margin-top:var(--space-2);font-size:var(--text-xs)">
@@ -2825,7 +2825,7 @@ function validate(e) {
                   <span class="badge badge-success">Active</span>
                 </div>
               </div>
-              <div class="stack-tight" style="padding:var(--space-3);border-bottom:var(--border-card)">
+              <div class="stack-tight td-divider">
                 <p class="t-body font-bold">Project Beta</p>
                 <p class="t-body-sm text-muted">By Michael Chen • Updated 5 days ago</p>
                 <div class="cluster cluster-tight" style="margin-top:var(--space-2);font-size:var(--text-xs)">
@@ -2949,17 +2949,17 @@ function validate(e) {
           <div class="code-block relative">
             <div class="feature-grid">
               <article class="feature-card">
-                <div style="width:2rem;height:2rem;color:var(--color-accent);margin-bottom:var(--space-3)">◆</div>
+                <div class="swatch-icon">◆</div>
                 <h3 class="t-heading-sm">40+ Components</h3>
                 <p class="t-body-sm text-muted">Buttons, forms, tables, modals, cards, and everything in between.</p>
               </article>
               <article class="feature-card">
-                <div style="width:2rem;height:2rem;color:var(--color-accent);margin-bottom:var(--space-3)">◆</div>
+                <div class="swatch-icon">◆</div>
                 <h3 class="t-heading-sm">Fluid Typography</h3>
                 <p class="t-body-sm text-muted">Responsive type scale with clamp() — 72px to 160px.</p>
               </article>
               <article class="feature-card">
-                <div style="width:2rem;height:2rem;color:var(--color-accent);margin-bottom:var(--space-3)">◆</div>
+                <div class="swatch-icon">◆</div>
                 <h3 class="t-heading-sm">WCAG AA</h3>
                 <p class="t-body-sm text-muted">Fully accessible, keyboard navigable, screen reader tested.</p>
               </article>
@@ -2973,22 +2973,22 @@ function validate(e) {
           <div class="code-block relative">
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:var(--space-5)">
               <article class="feature-card">
-                <div style="width:2rem;height:2rem;color:var(--color-accent);margin-bottom:var(--space-3)">★</div>
+                <div class="swatch-icon">★</div>
                 <h3 class="t-heading-sm">Design Tokens</h3>
                 <p class="t-body-sm text-muted">Color, typography, spacing, and motion tokens.</p>
               </article>
               <article class="feature-card">
-                <div style="width:2rem;height:2rem;color:var(--color-accent);margin-bottom:var(--space-3)">★</div>
+                <div class="swatch-icon">★</div>
                 <h3 class="t-heading-sm">Components</h3>
                 <p class="t-body-sm text-muted">Form inputs, buttons, cards, modals, and more.</p>
               </article>
               <article class="feature-card">
-                <div style="width:2rem;height:2rem;color:var(--color-accent);margin-bottom:var(--space-3)">★</div>
+                <div class="swatch-icon">★</div>
                 <h3 class="t-heading-sm">Patterns</h3>
                 <p class="t-body-sm text-muted">Hero, pricing, CTA, blog, testimonials, and more.</p>
               </article>
               <article class="feature-card">
-                <div style="width:2rem;height:2rem;color:var(--color-accent);margin-bottom:var(--space-3)">★</div>
+                <div class="swatch-icon">★</div>
                 <h3 class="t-heading-sm">Accessible</h3>
                 <p class="t-body-sm text-muted">WCAG AA compliant with keyboard navigation support.</p>
               </article>
@@ -3049,7 +3049,7 @@ function validate(e) {
               <div style="display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap">
                 <div>
                   <h3 class="t-heading-sm">Upgrade your workflow</h3>
-                  <p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-1)">Get pro features and unlock unlimited projects.</p>
+                  <p class="t-body-sm text-muted mt-1">Get pro features and unlock unlimited projects.</p>
                 </div>
                 <button class="btn btn-primary btn-elevated" style="flex-shrink:0">Learn More</button>
               </div>
@@ -3081,7 +3081,7 @@ function validate(e) {
           <div class="code-block relative">
             <div class="pricing-grid">
               <article class="price-card">
-                <p style="font-weight:600">Starter</p>
+                <p class="font-semibold">Starter</p>
                 <p class="price-val">$29<span style="font-size:var(--text-base);color:var(--color-muted);font-weight:400">/mo</span></p>
                 <ul class="price-features">
                   <li>10 projects</li>
@@ -3091,7 +3091,7 @@ function validate(e) {
                 <button class="btn btn-secondary" style="width:100%;margin-top:auto">Get Started</button>
               </article>
               <article class="price-card price-card-highlight">
-                <p style="font-weight:600">Pro</p>
+                <p class="font-semibold">Pro</p>
                 <p class="price-val">$99<span style="font-size:var(--text-base);color:var(--color-muted);font-weight:400">/mo</span></p>
                 <ul class="price-features">
                   <li>Unlimited projects</li>
@@ -3101,7 +3101,7 @@ function validate(e) {
                 <button class="btn btn-primary btn-elevated" style="width:100%;margin-top:auto">Choose Plan</button>
               </article>
               <article class="price-card">
-                <p style="font-weight:600">Enterprise</p>
+                <p class="font-semibold">Enterprise</p>
                 <p class="price-val">Custom</p>
                 <ul class="price-features">
                   <li>Everything in Pro</li>
@@ -3130,27 +3130,27 @@ function validate(e) {
               <tbody>
                 <tr>
                   <td style="padding:var(--space-4);border-bottom:var(--border-card)">Projects</td>
-                  <td style="padding:var(--space-4);text-align:center;border-left:var(--border-card);border-bottom:var(--border-card)">10</td>
-                  <td style="padding:var(--space-4);text-align:center;border-left:var(--border-card);border-bottom:var(--border-card)">Unlimited</td>
-                  <td style="padding:var(--space-4);text-align:center;border-left:var(--border-card);border-bottom:var(--border-card)">Unlimited</td>
+                  <td class="grid-cell">10</td>
+                  <td class="grid-cell">Unlimited</td>
+                  <td class="grid-cell">Unlimited</td>
                 </tr>
                 <tr>
                   <td style="padding:var(--space-4);border-bottom:var(--border-card)">Components</td>
-                  <td style="padding:var(--space-4);text-align:center;border-left:var(--border-card);border-bottom:var(--border-card)">Basic</td>
-                  <td style="padding:var(--space-4);text-align:center;border-left:var(--border-card);border-bottom:var(--border-card)">All (40+)</td>
-                  <td style="padding:var(--space-4);text-align:center;border-left:var(--border-card);border-bottom:var(--border-card)">All + Custom</td>
+                  <td class="grid-cell">Basic</td>
+                  <td class="grid-cell">All (40+)</td>
+                  <td class="grid-cell">All + Custom</td>
                 </tr>
                 <tr>
                   <td style="padding:var(--space-4);border-bottom:var(--border-card)">Support</td>
-                  <td style="padding:var(--space-4);text-align:center;border-left:var(--border-card);border-bottom:var(--border-card)">Community</td>
-                  <td style="padding:var(--space-4);text-align:center;border-left:var(--border-card);border-bottom:var(--border-card)">Priority</td>
-                  <td style="padding:var(--space-4);text-align:center;border-left:var(--border-card);border-bottom:var(--border-card)">Dedicated</td>
+                  <td class="grid-cell">Community</td>
+                  <td class="grid-cell">Priority</td>
+                  <td class="grid-cell">Dedicated</td>
                 </tr>
                 <tr>
                   <td style="padding:var(--space-4);border-bottom:var(--border-card)">SLA</td>
-                  <td style="padding:var(--space-4);text-align:center;border-left:var(--border-card);border-bottom:var(--border-card)">—</td>
-                  <td style="padding:var(--space-4);text-align:center;border-left:var(--border-card);border-bottom:var(--border-card)">99%</td>
-                  <td style="padding:var(--space-4);text-align:center;border-left:var(--border-card);border-bottom:var(--border-card)">99.9%</td>
+                  <td class="grid-cell">—</td>
+                  <td class="grid-cell">99%</td>
+                  <td class="grid-cell">99.9%</td>
                 </tr>
                 <tr>
                   <td class="p-4"></td>
@@ -3375,19 +3375,19 @@ function validate(e) {
               <div style="margin-bottom:var(--space-8)">
                 <div style="position:absolute;left:0;top:var(--space-2);width:var(--space-4);height:var(--space-4);background:var(--color-accent);border-radius:50%;border:3px solid var(--color-bg)"></div>
                 <p class="t-heading-sm">Phase 1: Foundation</p>
-                <p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-1)">Tokens and reset layer established</p>
+                <p class="t-body-sm text-muted mt-1">Tokens and reset layer established</p>
                 <p class="t-caption mt-2">May 2026</p>
               </div>
               <div style="margin-bottom:var(--space-8)">
                 <div style="position:absolute;left:0;top:calc(var(--space-8) + var(--space-2));width:var(--space-4);height:var(--space-4);background:var(--color-accent);border-radius:50%;border:3px solid var(--color-bg)"></div>
                 <p class="t-heading-sm">Phase 2: Components</p>
-                <p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-1)">40+ production components built</p>
+                <p class="t-body-sm text-muted mt-1">40+ production components built</p>
                 <p class="t-caption mt-2">May 2026</p>
               </div>
               <div>
                 <div style="position:absolute;left:0;top:calc(var(--space-8) * 2 + var(--space-2));width:var(--space-4);height:var(--space-4);background:var(--color-accent);border-radius:50%;border:3px solid var(--color-bg)"></div>
                 <p class="t-heading-sm">Phase 3: Documentation</p>
-                <p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-1)">Complete guides and specs published</p>
+                <p class="t-body-sm text-muted mt-1">Complete guides and specs published</p>
                 <p class="t-caption mt-2">May 2026</p>
               </div>
             </div>
@@ -3443,17 +3443,17 @@ function validate(e) {
           <p class="t-body-sm text-muted mb-3">Stacks vertically on mobile (320px–767px), 3-column on desktop (768px+):</p>
           <div class="feature-grid">
             <article class="feature-card">
-              <div style="width:2rem;height:2rem;color:var(--color-accent);margin-bottom:var(--space-3)">◆</div>
+              <div class="swatch-icon">◆</div>
               <h3 class="t-heading-sm">Mobile First</h3>
               <p class="t-body-sm text-muted">Single column on phone, multi-column on desktop.</p>
             </article>
             <article class="feature-card">
-              <div style="width:2rem;height:2rem;color:var(--color-accent);margin-bottom:var(--space-3)">◆</div>
+              <div class="swatch-icon">◆</div>
               <h3 class="t-heading-sm">Fluid Spacing</h3>
               <p class="t-body-sm text-muted">Gap and padding scale smoothly across all screen sizes.</p>
             </article>
             <article class="feature-card">
-              <div style="width:2rem;height:2rem;color:var(--color-accent);margin-bottom:var(--space-3)">◆</div>
+              <div class="swatch-icon">◆</div>
               <h3 class="t-heading-sm">No Breaks</h3>
               <p class="t-body-sm text-muted">Responsive design that works from 320px to 1600px+.</p>
             </article>
@@ -3668,8 +3668,8 @@ function validate(e) {
           <div class="doc-sub">aria-current (Navigation & Steppers)</div>
           <p class="t-body-sm text-muted mb-3">Marks the current page, step, date, location, or time. Values: page | step | date | location | time | true.</p>
           <div class="doc-demo p-6">
-            <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md);margin-bottom:var(--space-4)">
-              <div style="font-weight:600;margin-bottom:var(--space-3);font-size:var(--text-sm)">Pagination Example:</div>
+            <div class="demo-callout">
+              <div class="font-semibold mb-3 text-sm">Pagination Example:</div>
               <nav aria-label="Pagination">
                 <div style="display:flex;gap:var(--space-2)">
                   <a href="#" style="padding:var(--space-2) var(--space-3);border:1px solid var(--color-border);border-radius:var(--radius-sm);text-decoration:none;color:var(--color-accent)">1</a>
@@ -3711,13 +3711,13 @@ function validate(e) {
           <div class="doc-demo p-6">
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)">
               <div class="bg-subtle p-4 rounded-md">
-                <div style="font-weight:600;margin-bottom:var(--space-3);font-size:var(--text-sm)">Toggle Button:</div>
+                <div class="font-semibold mb-3 text-sm">Toggle Button:</div>
                 <button class="btn btn-primary btn-sm" onclick="this.setAttribute('aria-pressed',this.getAttribute('aria-pressed')==='true'?'false':'true');this.style.opacity=this.getAttribute('aria-pressed')==='true'?'1':'0.6'" aria-pressed="false">
                   💬 Notifications
                 </button>
               </div>
               <div class="bg-subtle p-4 rounded-md">
-                <div style="font-weight:600;margin-bottom:var(--space-3);font-size:var(--text-sm)">Tab Selection:</div>
+                <div class="font-semibold mb-3 text-sm">Tab Selection:</div>
                 <div role="tablist" style="display:flex;gap:var(--space-2);border-bottom:1px solid var(--color-border)">
                   <button role="tab" aria-selected="true" style="padding:var(--space-2);border:none;background:none;border-bottom:2px solid var(--color-accent);cursor:pointer;font-weight:600">Tab 1</button>
                   <button role="tab" aria-selected="false" style="padding:var(--space-2);border:none;background:none;cursor:pointer;color:var(--color-muted)">Tab 2</button>
@@ -3802,22 +3802,22 @@ function validate(e) {
               <div class="bg-subtle p-4 rounded-md">
                 <div class="eyebrow mb-2">Fast (150ms)</div>
                 <div style="width:100%;height:2rem;background:var(--color-accent);border-radius:var(--radius-sm);animation:fadeIn 0.15s ease-out;opacity:1"></div>
-                <div style="font-size:var(--text-xs);color:var(--color-muted);margin-top:var(--space-2)">Button hover, micro-interactions</div>
+                <div class="text-xs text-muted mt-2">Button hover, micro-interactions</div>
               </div>
               <div class="bg-subtle p-4 rounded-md">
                 <div class="eyebrow mb-2">Base (250ms)</div>
                 <div style="width:100%;height:2rem;background:var(--color-accent);border-radius:var(--radius-sm);animation:fadeIn 0.25s ease-out;opacity:1"></div>
-                <div style="font-size:var(--text-xs);color:var(--color-muted);margin-top:var(--space-2)">Standard transitions, fade-in</div>
+                <div class="text-xs text-muted mt-2">Standard transitions, fade-in</div>
               </div>
               <div class="bg-subtle p-4 rounded-md">
                 <div class="eyebrow mb-2">Moderate (350ms)</div>
                 <div style="width:100%;height:2rem;background:var(--color-accent);border-radius:var(--radius-sm);animation:fadeIn 0.35s ease-out;opacity:1"></div>
-                <div style="font-size:var(--text-xs);color:var(--color-muted);margin-top:var(--space-2)">Modal entrance, page transition</div>
+                <div class="text-xs text-muted mt-2">Modal entrance, page transition</div>
               </div>
               <div class="bg-subtle p-4 rounded-md">
                 <div class="eyebrow mb-2">Slow (500ms)</div>
                 <div style="width:100%;height:2rem;background:var(--color-accent);border-radius:var(--radius-sm);animation:fadeIn 0.5s ease-out;opacity:1"></div>
-                <div style="font-size:var(--text-xs);color:var(--color-muted);margin-top:var(--space-2)">Complex transitions, parallax</div>
+                <div class="text-xs text-muted mt-2">Complex transitions, parallax</div>
               </div>
             </div>
             <style>
@@ -3829,7 +3829,7 @@ function validate(e) {
           <div class="doc-sub">Stagger Patterns (Multiple Elements)</div>
           <p class="t-body-sm text-muted mb-3">Stagger animations add visual rhythm. Use 50-100ms delay between elements for cascading effect.</p>
           <div class="doc-demo p-6">
-            <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md);margin-bottom:var(--space-4)">
+            <div class="demo-callout">
               <div style="display:flex;gap:var(--space-3);align-items:flex-end;height:120px">
                 <div style="width:20px;height:40px;background:var(--color-accent);border-radius:2px;animation:bounce 0.6s ease-in-out 0s infinite"></div>
                 <div style="width:20px;height:60px;background:var(--color-accent);border-radius:2px;animation:bounce 0.6s ease-in-out 0.1s infinite"></div>
@@ -3933,7 +3933,7 @@ button { transition: all 250ms ease-out; }
           <div class="doc-sub">Container Queries (@container)</div>
           <p class="t-body-sm text-muted mb-3">Style components based on their container size, not viewport. More powerful than media queries for reusable components.</p>
           <div class="doc-demo p-6">
-            <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md);margin-bottom:var(--space-4)">
+            <div class="demo-callout">
               <div style="font-size:var(--text-xs);color:var(--color-muted);margin-bottom:var(--space-3);text-transform:uppercase;font-weight:600">Resize browser to see container query adaption:</div>
               <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3)">
                 <div style="background:var(--color-bg);padding:var(--space-3);border-radius:var(--radius-sm);display:flex;gap:1rem;align-items:center">
@@ -3962,7 +3962,7 @@ button { transition: all 250ms ease-out; }
           <div class="doc-sub">Fluid & Responsive Typography</div>
           <p class="t-body-sm text-muted mb-3">Use clamp() for responsive sizing: scales smoothly between mobile & desktop without breakpoints.</p>
           <div class="doc-demo p-6">
-            <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md);margin-bottom:var(--space-4)">
+            <div class="demo-callout">
               <div style="font-size:clamp(1.5rem, 5vw, 2.5rem);font-weight:600;line-height:1.2;margin-bottom:var(--space-3)">Fluid Heading</div>
               <div style="font-size:clamp(1rem, 3vw, 1.25rem);color:var(--color-muted);margin-bottom:var(--space-3)">Scales smoothly from mobile to desktop</div>
               <div style="font-size:clamp(0.875rem, 2vw, 1rem);color:var(--color-muted)">No sudden jumps at breakpoints</div>
@@ -3979,8 +3979,8 @@ button { transition: all 250ms ease-out; }
           <div class="doc-sub">Mobile vs Desktop Layout Strategies</div>
           <p class="t-body-sm text-muted mb-3">Start with mobile layout, progressively enhance for larger screens. Mobile-first approach is simpler and more performant.</p>
           <div class="doc-demo p-6">
-            <div style="background:var(--color-subtle);padding:var(--space-4);border-radius:var(--radius-md);margin-bottom:var(--space-4)">
-              <div style="font-weight:600;margin-bottom:var(--space-3);font-size:var(--text-sm)">Example: 2-Column Grid</div>
+            <div class="demo-callout">
+              <div class="font-semibold mb-3 text-sm">Example: 2-Column Grid</div>
               <div style="display:grid;grid-template-columns:1fr;gap:var(--space-3)">
                 <div style="background:var(--color-bg);padding:var(--space-3);border-radius:var(--radius-sm);text-align:center;font-size:var(--text-sm)">Mobile: 1 column</div>
                 <div style="background:var(--color-bg);padding:var(--space-3);border-radius:var(--radius-sm);text-align:center;font-size:var(--text-sm)">Desktop: 2 columns (resize to see)</div>
@@ -4003,27 +4003,27 @@ button { transition: all 250ms ease-out; }
           <div class="doc-demo p-6">
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(12rem,1fr));gap:var(--space-3)">
               <div class="bg-subtle p-4 rounded-md">
-                <div style="font-weight:600;margin-bottom:var(--space-2);font-size:var(--text-sm)">xs</div>
+                <div class="font-semibold mb-2 text-sm">xs</div>
                 <div class="text-xs text-muted mb-2">max-width: 576px</div>
                 <div class="text-xs text-muted">Mobile phones</div>
               </div>
               <div class="bg-subtle p-4 rounded-md">
-                <div style="font-weight:600;margin-bottom:var(--space-2);font-size:var(--text-sm)">sm</div>
+                <div class="font-semibold mb-2 text-sm">sm</div>
                 <div class="text-xs text-muted mb-2">576px - 768px</div>
                 <div class="text-xs text-muted">Large phones</div>
               </div>
               <div class="bg-subtle p-4 rounded-md">
-                <div style="font-weight:600;margin-bottom:var(--space-2);font-size:var(--text-sm)">md</div>
+                <div class="font-semibold mb-2 text-sm">md</div>
                 <div class="text-xs text-muted mb-2">768px - 1024px</div>
                 <div class="text-xs text-muted">Tablets</div>
               </div>
               <div class="bg-subtle p-4 rounded-md">
-                <div style="font-weight:600;margin-bottom:var(--space-2);font-size:var(--text-sm)">lg</div>
+                <div class="font-semibold mb-2 text-sm">lg</div>
                 <div class="text-xs text-muted mb-2">1024px - 1280px</div>
                 <div class="text-xs text-muted">Laptops</div>
               </div>
               <div class="bg-subtle p-4 rounded-md">
-                <div style="font-weight:600;margin-bottom:var(--space-2);font-size:var(--text-sm)">xl</div>
+                <div class="font-semibold mb-2 text-sm">xl</div>
                 <div class="text-xs text-muted mb-2">1280px+</div>
                 <div class="text-xs text-muted">Desktops/4K</div>
               </div>
@@ -4070,27 +4070,27 @@ button { transition: all 250ms ease-out; }
                 <div class="stack-tight p-3 bg-subtle rounded-md">
                   <span class="t-body-xs text-muted">Rest (Default)</span>
                   <button class="btn btn-primary" disabled aria-label="Button in rest state">Rest</button>
-                  <span class="t-body-xs" style="font-size:0.75rem;color:var(--color-muted)">cursor: pointer; opacity: 1</span>
+                  <span class="t-body-xs text-xs text-muted">cursor: pointer; opacity: 1</span>
                 </div>
                 <div class="stack-tight p-3 bg-subtle rounded-md">
                   <span class="t-body-xs text-muted">Hover</span>
                   <button class="btn btn-primary" disabled style="opacity:0.85;cursor:pointer" aria-label="Button in hover state">Hover</button>
-                  <span class="t-body-xs" style="font-size:0.75rem;color:var(--color-muted)">opacity: 0.85; shadow lifted</span>
+                  <span class="t-body-xs text-xs text-muted">opacity: 0.85; shadow lifted</span>
                 </div>
                 <div class="stack-tight p-3 bg-subtle rounded-md">
                   <span class="t-body-xs text-muted">Active/Pressed</span>
                   <button class="btn btn-primary" disabled style="transform:scale(0.98);box-shadow:inset 0 2px 4px rgba(0,0,0,0.1)" aria-label="Button in active state" aria-pressed="true">Active</button>
-                  <span class="t-body-xs" style="font-size:0.75rem;color:var(--color-muted)">scale: 0.98; inset shadow</span>
+                  <span class="t-body-xs text-xs text-muted">scale: 0.98; inset shadow</span>
                 </div>
                 <div class="stack-tight p-3 bg-subtle rounded-md">
                   <span class="t-body-xs text-muted">Focus (Keyboard)</span>
                   <button class="btn btn-primary" disabled style="outline:2px solid var(--color-accent);outline-offset:2px" aria-label="Button with focus ring">Focus</button>
-                  <span class="t-body-xs" style="font-size:0.75rem;color:var(--color-muted)">outline: 2px accent; offset: 2px</span>
+                  <span class="t-body-xs text-xs text-muted">outline: 2px accent; offset: 2px</span>
                 </div>
                 <div class="stack-tight p-3 bg-subtle rounded-md">
                   <span class="t-body-xs text-muted">Disabled</span>
                   <button class="btn btn-primary" disabled aria-disabled="true" aria-label="Disabled button">Disabled</button>
-                  <span class="t-body-xs" style="font-size:0.75rem;color:var(--color-muted)">opacity: 0.5; cursor: not-allowed</span>
+                  <span class="t-body-xs text-xs text-muted">opacity: 0.5; cursor: not-allowed</span>
                 </div>
                 <div class="stack-tight p-3 bg-subtle rounded-md">
                   <span class="t-body-xs text-muted">Loading</span>
@@ -4098,7 +4098,7 @@ button { transition: all 250ms ease-out; }
                     <span style="display:inline-block;width:1rem;height:1rem;border:2px solid currentColor;border-top-color:transparent;border-radius:50%;animation:spin 0.6s linear infinite;margin-right:var(--space-2)"></span>
                     Loading
                   </button>
-                  <span class="t-body-xs" style="font-size:0.75rem;color:var(--color-muted)">disabled + spinner animation</span>
+                  <span class="t-body-xs text-xs text-muted">disabled + spinner animation</span>
                 </div>
               </div>
             </div>
@@ -4177,36 +4177,36 @@ button { transition: all 250ms ease-out; }
           <div class="chips"><span class="chip">:focus</span><span class="chip">:invalid</span><span class="chip">:disabled</span><span class="chip">aria-required</span></div>
           <div class="doc-demo stack max-w-md">
             <div class="p-4 bg-subtle rounded-md">
-              <span class="t-body-xs" style="color:var(--color-muted);display:block;margin-bottom:var(--space-2)">Rest/Default State</span>
+              <span class="t-body-xs text-muted block mb-2">Rest/Default State</span>
               <div class="relative">
                 <label class="field-label">Email address</label>
                 <input class="form-input" type="email" placeholder="you@example.com" aria-label="Email input">
-                <span class="t-body-xs" style="color:var(--color-muted);margin-top:var(--space-1);display:block">Ready for input. Cursor: text pointer.</span>
+                <span class="t-body-xs text-muted mt-1 block">Ready for input. Cursor: text pointer.</span>
               </div>
             </div>
 
             <div class="p-4 bg-subtle rounded-md">
-              <span class="t-body-xs" style="color:var(--color-muted);display:block;margin-bottom:var(--space-2)">Focused State</span>
+              <span class="t-body-xs text-muted block mb-2">Focused State</span>
               <div>
                 <label class="field-label">Email address</label>
                 <input class="form-input" type="email" placeholder="you@example.com" style="outline:2px solid var(--color-accent);outline-offset:2px" aria-label="Focused email input" autofocus>
-                <span class="t-body-xs" style="color:var(--color-muted);margin-top:var(--space-1);display:block">2px accent outline with 2px offset. Keyboard navigable.</span>
+                <span class="t-body-xs text-muted mt-1 block">2px accent outline with 2px offset. Keyboard navigable.</span>
               </div>
             </div>
 
             <div class="p-4 bg-subtle rounded-md">
-              <span class="t-body-xs" style="color:var(--color-muted);display:block;margin-bottom:var(--space-2)">Filled State</span>
+              <span class="t-body-xs text-muted block mb-2">Filled State</span>
               <div>
                 <label class="field-label">Email address</label>
                 <input class="form-input" type="email" placeholder="you@example.com" value="john@example.com" aria-label="Filled email input">
-                <span class="t-body-xs" style="color:var(--color-muted);margin-top:var(--space-1);display:block">Value entered. Border darkens slightly.</span>
+                <span class="t-body-xs text-muted mt-1 block">Value entered. Border darkens slightly.</span>
               </div>
             </div>
 
             <div class="p-4 bg-subtle rounded-md">
-              <span class="t-body-xs" style="color:var(--color-muted);display:block;margin-bottom:var(--space-2)">Error State (Invalid)</span>
+              <span class="t-body-xs text-muted block mb-2">Error State (Invalid)</span>
               <div>
-                <label class="field-label">Email address <span style="color:var(--color-error)">*</span></label>
+                <label class="field-label">Email address <span class="text-error">*</span></label>
                 <input class="form-input" type="email" value="invalid-email" style="border-color:var(--color-error);border-width:2px" aria-invalid="true" aria-label="Invalid email input">
                 <span class="t-body-xs" style="color:var(--color-error);margin-top:var(--space-1);display:flex;align-items:center">
                   <span style="display:inline-block;width:1rem;height:1rem;margin-right:var(--space-1)">⚠</span>
@@ -4216,7 +4216,7 @@ button { transition: all 250ms ease-out; }
             </div>
 
             <div class="p-4 bg-subtle rounded-md">
-              <span class="t-body-xs" style="color:var(--color-muted);display:block;margin-bottom:var(--space-2)">Success State</span>
+              <span class="t-body-xs text-muted block mb-2">Success State</span>
               <div>
                 <label class="field-label">Email address</label>
                 <input class="form-input" type="email" value="john@example.com" style="border-color:var(--color-success);border-width:2px" aria-label="Valid email input">
@@ -4228,20 +4228,20 @@ button { transition: all 250ms ease-out; }
             </div>
 
             <div class="p-4 bg-subtle rounded-md">
-              <span class="t-body-xs" style="color:var(--color-muted);display:block;margin-bottom:var(--space-2)">Disabled State</span>
+              <span class="t-body-xs text-muted block mb-2">Disabled State</span>
               <div>
                 <label class="field-label" style="opacity:0.5">Email address</label>
                 <input class="form-input" type="email" placeholder="you@example.com" disabled aria-disabled="true" aria-label="Disabled email input">
-                <span class="t-body-xs" style="color:var(--color-muted);margin-top:var(--space-1);display:block">opacity: 0.5; cursor: not-allowed</span>
+                <span class="t-body-xs text-muted mt-1 block">opacity: 0.5; cursor: not-allowed</span>
               </div>
             </div>
 
             <div class="p-4 bg-subtle rounded-md">
-              <span class="t-body-xs" style="color:var(--color-muted);display:block;margin-bottom:var(--space-2)">Required Field (with validation)</span>
+              <span class="t-body-xs text-muted block mb-2">Required Field (with validation)</span>
               <div>
-                <label class="field-label">Password <span style="color:var(--color-error)">*</span> (required)</label>
+                <label class="field-label">Password <span class="text-error">*</span> (required)</label>
                 <input class="form-input" type="password" placeholder="••••••••" required aria-required="true" aria-label="Required password input">
-                <span class="t-body-xs" style="color:var(--color-muted);margin-top:var(--space-1);display:block">Must be 8+ characters, with uppercase, number, symbol</span>
+                <span class="t-body-xs text-muted mt-1 block">Must be 8+ characters, with uppercase, number, symbol</span>
               </div>
             </div>
           </div>
@@ -4257,7 +4257,7 @@ button { transition: all 250ms ease-out; }
                 <input class="form-input" type="text" placeholder="Text input" style="outline:2px solid var(--color-accent);outline-offset:2px;max-width:12rem">
                 <a href="#" style="padding:var(--space-2) var(--space-3);border-radius:var(--radius-sm);outline:2px solid var(--color-accent);outline-offset:2px;text-decoration:none;color:var(--color-accent)">Link focus</a>
               </div>
-              <p class="t-body-xs" style="color:var(--color-muted);margin-top:var(--space-3)">All use: outline: 2px solid accent; outline-offset: 2px; + optional outer shadow for context</p>
+              <p class="t-body-xs text-muted mt-3">All use: outline: 2px solid accent; outline-offset: 2px; + optional outer shadow for context</p>
             </div>
 
             <div class="p-4 bg-subtle rounded-md">
@@ -4265,10 +4265,10 @@ button { transition: all 250ms ease-out; }
               <table style="width:100%;border-collapse:collapse;font-size:var(--text-sm)">
                 <thead style="background:var(--color-bg)">
                   <tr class="border-bottom">
-                    <th style="text-align:left;padding:var(--space-2)">Context</th>
-                    <th style="text-align:left;padding:var(--space-2)">Outline Color</th>
-                    <th style="text-align:left;padding:var(--space-2)">Contrast Ratio</th>
-                    <th style="text-align:left;padding:var(--space-2)">WCAG Level</th>
+                    <th class="td-left">Context</th>
+                    <th class="td-left">Outline Color</th>
+                    <th class="td-left">Contrast Ratio</th>
+                    <th class="td-left">WCAG Level</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -4308,11 +4308,11 @@ button { transition: all 250ms ease-out; }
               <span class="t-body-xs eyebrow">Color Change</span>
               <div class="stack-tight">
                 <div class="p-4 bg-subtle rounded-md">
-                  <span class="t-body-xs" style="color:var(--color-muted);margin-bottom:var(--space-2);display:block">Rest</span>
+                  <span class="t-body-xs text-muted mb-2 block">Rest</span>
                   <button class="btn btn-primary" disabled style="background:var(--color-accent)">Rest Button</button>
                 </div>
                 <div class="p-4 bg-subtle rounded-md">
-                  <span class="t-body-xs" style="color:var(--color-muted);margin-bottom:var(--space-2);display:block">Hover</span>
+                  <span class="t-body-xs text-muted mb-2 block">Hover</span>
                   <button class="btn btn-primary" disabled style="background:var(--color-accent);opacity:0.85;cursor:pointer">Hover (opacity -15%)</button>
                 </div>
               </div>
@@ -4322,11 +4322,11 @@ button { transition: all 250ms ease-out; }
               <span class="t-body-xs eyebrow">Shadow Lift</span>
               <div class="stack-tight">
                 <div class="p-4 bg-subtle rounded-md">
-                  <span class="t-body-xs" style="color:var(--color-muted);margin-bottom:var(--space-2);display:block">Rest</span>
+                  <span class="t-body-xs text-muted mb-2 block">Rest</span>
                   <div style="padding:var(--space-3);background:white;border-radius:var(--radius-md);box-shadow:0 1px 2px rgba(0,0,0,0.08)">Rest card</div>
                 </div>
                 <div class="p-4 bg-subtle rounded-md">
-                  <span class="t-body-xs" style="color:var(--color-muted);margin-bottom:var(--space-2);display:block">Hover</span>
+                  <span class="t-body-xs text-muted mb-2 block">Hover</span>
                   <div style="padding:var(--space-3);background:white;border-radius:var(--radius-md);box-shadow:0 8px 16px rgba(0,0,0,0.12);cursor:pointer">Hover card</div>
                 </div>
               </div>
@@ -4336,11 +4336,11 @@ button { transition: all 250ms ease-out; }
               <span class="t-body-xs eyebrow">Scale Transform</span>
               <div class="stack-tight">
                 <div class="p-4 bg-subtle rounded-md">
-                  <span class="t-body-xs" style="color:var(--color-muted);margin-bottom:var(--space-2);display:block">Rest (1.0)</span>
+                  <span class="t-body-xs text-muted mb-2 block">Rest (1.0)</span>
                   <button class="btn btn-primary" disabled>Normal size</button>
                 </div>
                 <div class="p-4 bg-subtle rounded-md">
-                  <span class="t-body-xs" style="color:var(--color-muted);margin-bottom:var(--space-2);display:block">Hover (1.02)</span>
+                  <span class="t-body-xs text-muted mb-2 block">Hover (1.02)</span>
                   <button class="btn btn-primary" disabled style="transform:scale(1.02);cursor:pointer">Scaled hover</button>
                 </div>
               </div>
@@ -4427,10 +4427,10 @@ button { transition: all 250ms ease-out; }
             <table style="width:100%;border-collapse:collapse;font-size:var(--text-sm)">
               <thead class="bg-subtle">
                 <tr class="border-bottom">
-                  <th style="text-align:left;padding:var(--space-3);font-weight:600">Duration</th>
-                  <th style="text-align:left;padding:var(--space-3);font-weight:600">Value</th>
-                  <th style="text-align:left;padding:var(--space-3);font-weight:600">Use Case</th>
-                  <th style="text-align:left;padding:var(--space-3);font-weight:600">Example</th>
+                  <th class="th-left">Duration</th>
+                  <th class="th-left">Value</th>
+                  <th class="th-left">Use Case</th>
+                  <th class="th-left">Example</th>
                 </tr>
               </thead>
               <tbody>
@@ -4465,7 +4465,7 @@ button { transition: all 250ms ease-out; }
               <p class="t-body-sm text-muted mb-3"><strong>Reduced motion preference:</strong></p>
               <div style="padding:var(--space-3);background:white;border-radius:var(--radius-md);border-left:3px solid var(--color-accent)">
                 <p class="t-body-xs m-0"><code>@media (prefers-reduced-motion: reduce) {</code></p>
-                <p class="t-body-xs" style="margin:var(--space-1) 0;color:var(--color-muted)"><code>&nbsp;&nbsp;* { animation-duration: 0.01ms !important; }</code></p>
+                <p class="t-body-xs text-muted"><code>&nbsp;&nbsp;* { animation-duration: 0.01ms !important; }</code></p>
                 <p class="t-body-xs m-0"><code>}</code></p>
               </div>
               <p class="t-body-xs text-muted mt-2">All animations must respect user motion preferences. Instantly show end state instead of animating.</p>
@@ -4596,7 +4596,7 @@ button { transition: all 250ms ease-out; }
                   </div>
                 </div>
               </div>
-              <p class="t-body-xs" style="color:var(--color-muted);margin-top:var(--space-3)">Combines: red border (1) + red background tint (2) + icon (3) + text label (4)</p>
+              <p class="t-body-xs text-muted mt-3">Combines: red border (1) + red background tint (2) + icon (3) + text label (4)</p>
             </div>
 
             <div class="p-4 bg-subtle rounded-md">
@@ -4630,10 +4630,10 @@ button { transition: all 250ms ease-out; }
             <table style="width:100%;border-collapse:collapse;font-size:var(--text-sm)">
               <thead class="bg-subtle">
                 <tr class="border-bottom">
-                  <th style="text-align:left;padding:var(--space-3);font-weight:600">Attribute</th>
-                  <th style="text-align:left;padding:var(--space-3);font-weight:600">Value</th>
-                  <th style="text-align:left;padding:var(--space-3);font-weight:600">Purpose</th>
-                  <th style="text-align:left;padding:var(--space-3);font-weight:600">Example</th>
+                  <th class="th-left">Attribute</th>
+                  <th class="th-left">Value</th>
+                  <th class="th-left">Purpose</th>
+                  <th class="th-left">Example</th>
                 </tr>
               </thead>
               <tbody>
@@ -4702,9 +4702,9 @@ button { transition: all 250ms ease-out; }
             <div class="p-4 bg-subtle rounded-md">
               <p class="t-body-sm text-muted mb-3"><strong>Desktop (with hover capability):</strong></p>
               <div style="padding:var(--space-3);background:white;border-radius:var(--radius-md);border:var(--border-card)">
-                <p class="t-body-xs" style="margin:0;color:var(--color-muted)"><code>@media (hover: hover) {</code></p>
-                <p class="t-body-xs" style="margin:var(--space-1) 0;color:var(--color-muted)"><code>&nbsp;&nbsp;button:hover { opacity: 0.85; }</code></p>
-                <p class="t-body-xs" style="margin:0;color:var(--color-muted)"><code>}</code></p>
+                <p class="t-body-xs m-0 text-muted"><code>@media (hover: hover) {</code></p>
+                <p class="t-body-xs text-muted"><code>&nbsp;&nbsp;button:hover { opacity: 0.85; }</code></p>
+                <p class="t-body-xs m-0 text-muted"><code>}</code></p>
               </div>
               <p class="t-body-xs text-muted mt-2">Show hover states on mouse-capable devices. Smooth opacity transitions.</p>
             </div>
@@ -4712,10 +4712,10 @@ button { transition: all 250ms ease-out; }
             <div class="p-4 bg-subtle rounded-md">
               <p class="t-body-sm text-muted mb-3"><strong>Mobile (touch-only, no hover):</strong></p>
               <div style="padding:var(--space-3);background:white;border-radius:var(--radius-md);border:var(--border-card)">
-                <p class="t-body-xs" style="margin:0;color:var(--color-muted)"><code>@media (hover: none) {</code></p>
-                <p class="t-body-xs" style="margin:var(--space-1) 0;color:var(--color-muted)"><code>&nbsp;&nbsp;button { background: base; }</code></p>
-                <p class="t-body-xs" style="margin:var(--space-1) 0;color:var(--color-muted)"><code>&nbsp;&nbsp;button:active { transform: scale(0.98); }</code></p>
-                <p class="t-body-xs" style="margin:0;color:var(--color-muted)"><code>}</code></p>
+                <p class="t-body-xs m-0 text-muted"><code>@media (hover: none) {</code></p>
+                <p class="t-body-xs text-muted"><code>&nbsp;&nbsp;button { background: base; }</code></p>
+                <p class="t-body-xs text-muted"><code>&nbsp;&nbsp;button:active { transform: scale(0.98); }</code></p>
+                <p class="t-body-xs m-0 text-muted"><code>}</code></p>
               </div>
               <p class="t-body-xs text-muted mt-2">Hide hover states. Show active/pressed feedback on touch.</p>
             </div>
@@ -4801,7 +4801,7 @@ button { transition: all 250ms ease-out; }
             <div class="cta-card" style="border:none">
               <h3 class="t-heading-lg">Ready to build?</h3>
               <p class="t-body mt-3 text-muted">Start using Nordover components today.</p>
-              <button class="btn btn-primary btn-elevated" style="margin-top:var(--space-4)">Begin Now</button>
+              <button class="btn btn-primary btn-elevated mt-4">Begin Now</button>
             </div>
           </div>
 
@@ -4828,7 +4828,7 @@ button { transition: all 250ms ease-out; }
               <!-- Mini table -->
               <div style="font-size:var(--text-sm);border:var(--border-card);border-radius:var(--radius-md);overflow:hidden">
                 <table class="data-table" style="width:100%;margin:0">
-                  <thead class="bg-subtle"><tr><th style="padding:var(--space-2);text-align:left;font-weight:600">Item</th><th style="padding:var(--space-2);text-align:left;font-weight:600">Status</th><th style="padding:var(--space-2);text-align:left;font-weight:600">Action</th></tr></thead>
+                  <thead class="bg-subtle"><tr><th class="th-left-sm">Item</th><th class="th-left-sm">Status</th><th class="th-left-sm">Action</th></tr></thead>
                   <tbody><tr class="border-bottom"><td class="p-2">Feature A</td><td class="p-2"><span class="badge badge-success">Active</span></td><td class="p-2"><button class="btn btn-ghost btn-sm">Edit</button></td></tr><tr><td class="p-2">Feature B</td><td class="p-2"><span class="badge">Pending</span></td><td class="p-2"><button class="btn btn-ghost btn-sm">Edit</button></td></tr></tbody>
                 </table>
               </div>
@@ -4853,7 +4853,7 @@ button { transition: all 250ms ease-out; }
                 <label for="terms" class="text-sm">I agree to terms and conditions</label>
               </div>
               <button class="btn btn-primary" style="width:100%;justify-content:center">Create Account</button>
-              <p class="t-body-sm" style="text-align:center;color:var(--color-muted)">Already have an account? <a href="#" style="color:var(--color-accent)">Sign in</a></p>
+              <p class="t-body-sm text-center text-muted">Already have an account? <a href="#" class="text-accent">Sign in</a></p>
             </div>
           </div>
 
@@ -4907,10 +4907,10 @@ button { transition: all 250ms ease-out; }
               <table class="data-table" style="width:100%;margin:0">
                 <thead class="bg-subtle">
                   <tr>
-                    <th style="padding:var(--space-2);text-align:left;font-weight:600"><button class="table-sort" aria-sort="ascending" type="button">Name ↑</button></th>
-                    <th style="padding:var(--space-2);text-align:left;font-weight:600"><button class="table-sort" aria-sort="none">Role</button></th>
-                    <th style="padding:var(--space-2);text-align:left;font-weight:600">Status</th>
-                    <th style="padding:var(--space-2);text-align:left;font-weight:600">Actions</th>
+                    <th class="th-left-sm"><button class="table-sort" aria-sort="ascending" type="button">Name ↑</button></th>
+                    <th class="th-left-sm"><button class="table-sort" aria-sort="none">Role</button></th>
+                    <th class="th-left-sm">Status</th>
+                    <th class="th-left-sm">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -5052,7 +5052,7 @@ button { transition: all 250ms ease-out; }
 
           <div class="doc-sub">Card Combinations</div>
           <div class="chips"><span class="chip">.card</span><span class="chip">.card-header</span><span class="chip">.card-footer</span><span class="chip">Interactive</span></div>
-          <div class="doc-demo grid-auto" style="gap:var(--space-4)">
+          <div class="doc-demo grid-auto gap-4">
             <div class="card">
               <div class="card-body">
                 <h4 class="t-heading-sm">Basic Card</h4>
@@ -5143,9 +5143,9 @@ button { transition: all 250ms ease-out; }
           <div class="chips"><span class="chip">.gap-1</span><span class="chip">.gap-2</span><span class="chip">.gap-3</span><span class="chip">.gap-4</span><span class="chip">.gap-5</span></div>
           <div class="doc-demo">
             <div class="flex gap-5">
-              <div style="width:4rem;height:4rem;background:var(--color-accent);border-radius:var(--radius-md)"></div>
-              <div style="width:4rem;height:4rem;background:var(--color-accent);border-radius:var(--radius-md)"></div>
-              <div style="width:4rem;height:4rem;background:var(--color-accent);border-radius:var(--radius-md)"></div>
+              <div class="swatch-box"></div>
+              <div class="swatch-box"></div>
+              <div class="swatch-box"></div>
             </div>
           </div>
 
@@ -5167,7 +5167,7 @@ button { transition: all 250ms ease-out; }
             <p class="text-center">Center aligned text</p>
             <p class="font-bold">Bold text</p>
             <p class="uppercase">uppercase text</p>
-            <p class="truncate" style="max-width:20rem">This is a very long text that will be truncated with ellipsis when it exceeds the maximum width of the container</p>
+            <p class="truncate max-w-xs">This is a very long text that will be truncated with ellipsis when it exceeds the maximum width of the container</p>
           </div>
 
           <div class="doc-sub">Line Height</div>
@@ -5189,8 +5189,8 @@ button { transition: all 250ms ease-out; }
           <div class="doc-sub">Colors - Background</div>
           <div class="chips"><span class="chip">.bg-subtle</span><span class="chip">.bg-accent</span></div>
           <div class="doc-demo flex gap-3">
-            <div class="bg-subtle p-4" style="border-radius:var(--radius-md)">bg-subtle</div>
-            <div class="bg-accent p-4" style="border-radius:var(--radius-md)">bg-accent</div>
+            <div class="bg-subtle p-4 rounded-md">bg-subtle</div>
+            <div class="bg-accent p-4 rounded-md">bg-accent</div>
           </div>
 
           <div class="doc-sub">Width & Max-Width</div>
@@ -5215,7 +5215,7 @@ button { transition: all 250ms ease-out; }
           <div class="doc-sub">Borders & Radius</div>
           <div class="chips"><span class="chip">.border</span><span class="chip">.border-b</span><span class="chip">.rounded</span><span class="chip">.rounded-lg</span></div>
           <div class="doc-demo flex gap-4">
-            <div class="border p-4" style="border-radius:var(--radius-md)">border</div>
+            <div class="border p-4 rounded-md">border</div>
             <div class="border-b p-4">border-b</div>
             <div class="rounded p-4 bg-subtle">rounded</div>
             <div class="rounded-lg p-4 bg-subtle">rounded-lg</div>
@@ -5232,23 +5232,23 @@ button { transition: all 250ms ease-out; }
           <div class="doc-sub">Opacity & Cursor</div>
           <div class="chips"><span class="chip">.opacity-50</span><span class="chip">.cursor-pointer</span><span class="chip">.cursor-not-allowed</span><span class="chip">.pointer-events-none</span></div>
           <div class="doc-demo flex gap-4">
-            <div class="opacity-50" style="width:4rem;height:4rem;background:var(--color-accent);border-radius:var(--radius-md)"></div>
+            <div class="opacity-50 swatch-box"></div>
             <button class="cursor-pointer" style="background:var(--color-accent);color:white;padding:var(--space-3);border-radius:var(--radius-md);border:none">cursor-pointer</button>
           </div>
 
           <div class="doc-sub">Shadows</div>
           <div class="chips"><span class="chip">.shadow-sm</span><span class="chip">.shadow-md</span></div>
           <div class="doc-demo flex gap-4">
-            <div class="shadow-sm p-4" style="border-radius:var(--radius-md)">shadow-sm</div>
-            <div class="shadow-md p-4" style="border-radius:var(--radius-md)">shadow-md</div>
+            <div class="shadow-sm p-4 rounded-md">shadow-sm</div>
+            <div class="shadow-md p-4 rounded-md">shadow-md</div>
           </div>
 
           <div class="doc-sub">Animations</div>
           <div class="chips"><span class="chip">.fade-in</span><span class="chip">.slide-in-up</span><span class="chip">.slide-in-down</span><span class="chip">.slide-in-left</span><span class="chip">.slide-in-right</span><span class="chip">.scale-in</span><span class="chip">.bounce-in</span></div>
           <div class="doc-demo flex gap-4 flex-wrap">
-            <div class="fade-in" style="width:4rem;height:4rem;background:var(--color-accent);border-radius:var(--radius-md)"></div>
-            <div class="slide-in-up" style="width:4rem;height:4rem;background:var(--color-accent);border-radius:var(--radius-md)"></div>
-            <div class="bounce-in" style="width:4rem;height:4rem;background:var(--color-accent);border-radius:var(--radius-md)"></div>
+            <div class="fade-in swatch-box"></div>
+            <div class="slide-in-up swatch-box"></div>
+            <div class="bounce-in swatch-box"></div>
           </div>
 
           <div class="doc-sub">Transitions</div>
@@ -5315,7 +5315,7 @@ button { transition: all 250ms ease-out; }
             <span class="chip">.fixed</span><span class="chip">.sticky</span>
           </div>
           <table style="width:100%;border-collapse:collapse;margin-top:var(--space-3);font-size:var(--text-sm)">
-            <tr class="border-bottom"><th style="text-align:left;padding:var(--space-2)">Class</th><th style="text-align:left;padding:var(--space-2)">Purpose</th></tr>
+            <tr class="border-bottom"><th class="td-left">Class</th><th class="td-left">Purpose</th></tr>
             <tr class="border-bottom"><td class="p-2">.flex</td><td class="p-2">Display flex container (row direction)</td></tr>
             <tr class="border-bottom"><td class="p-2">.flex-col</td><td class="p-2">Flex column direction (vertical stacking)</td></tr>
             <tr class="border-bottom"><td class="p-2">.flex-wrap</td><td class="p-2">Allow flex items to wrap to next line</td></tr>
@@ -5401,9 +5401,9 @@ button { transition: all 250ms ease-out; }
           <p class="t-body-sm text-muted mb-3"><strong>Overflow (3):</strong> .overflow-auto, .overflow-hidden, .overflow-visible</p>
 
           <div class="doc-demo flex gap-4 flex-wrap">
-            <div class="animate-fade-in" style="width:4rem;height:4rem;background:var(--color-accent);border-radius:var(--radius-md)"></div>
-            <div class="animate-slide-up" style="width:4rem;height:4rem;background:var(--color-accent);border-radius:var(--radius-md)"></div>
-            <div class="animate-bounce-in" style="width:4rem;height:4rem;background:var(--color-accent);border-radius:var(--radius-md)"></div>
+            <div class="animate-fade-in swatch-box"></div>
+            <div class="animate-slide-up swatch-box"></div>
+            <div class="animate-bounce-in swatch-box"></div>
           </div>
 
           <!-- 8. POSITIONING -->
@@ -5528,11 +5528,11 @@ button { transition: all 250ms ease-out; }
                 <h2 class="t-heading-lg">Simple, Transparent Pricing</h2>
                 <p class="t-body text-muted mt-2">Choose the plan that fits your team</p>
               </div>
-              <div class="grid-auto" style="gap:var(--space-4)">
+              <div class="grid-auto gap-4">
                 <div class="card">
                   <div class="card-header">Starter</div>
                   <div class="card-body">
-                    <p class="t-display-md" style="color:var(--color-accent)">$0<span class="t-body-sm text-muted">/month</span></p>
+                    <p class="t-display-md text-accent">$0<span class="t-body-sm text-muted">/month</span></p>
                     <ul class="stack-tight" style="list-style:inside;margin-top:var(--space-4);font-size:var(--text-sm)">
                       <li>✓ Up to 3 projects</li>
                       <li>✓ Community support</li>
@@ -5544,7 +5544,7 @@ button { transition: all 250ms ease-out; }
                 <div class="card" style="border:2px solid var(--color-accent)">
                   <div class="card-header" style="background:var(--color-accent);color:white">Professional</div>
                   <div class="card-body">
-                    <p class="t-display-md" style="color:var(--color-accent)">$29<span class="t-body-sm text-muted">/month</span></p>
+                    <p class="t-display-md text-accent">$29<span class="t-body-sm text-muted">/month</span></p>
                     <ul class="stack-tight" style="list-style:inside;margin-top:var(--space-4);font-size:var(--text-sm)">
                       <li>✓ Unlimited projects</li>
                       <li>✓ Priority support</li>
@@ -5556,7 +5556,7 @@ button { transition: all 250ms ease-out; }
                 <div class="card">
                   <div class="card-header">Enterprise</div>
                   <div class="card-body">
-                    <p class="t-display-md" style="color:var(--color-accent)">Custom<span class="t-body-sm text-muted">/month</span></p>
+                    <p class="t-display-md text-accent">Custom<span class="t-body-sm text-muted">/month</span></p>
                     <ul class="stack-tight" style="list-style:inside;margin-top:var(--space-4);font-size:var(--text-sm)">
                       <li>✓ Everything in Pro</li>
                       <li>✓ Custom features</li>
@@ -5575,7 +5575,7 @@ button { transition: all 250ms ease-out; }
               <div class="flex gap-8" style="flex-wrap:wrap;align-items:center">
                 <div style="flex:1;min-width:20rem">
                   <h2 class="t-heading-lg">Built for Speed</h2>
-                  <p class="t-body" style="color:var(--color-muted);margin-top:var(--space-3)">All components are optimized for performance. CSS-only, zero runtime overhead.</p>
+                  <p class="t-body text-muted mt-3">All components are optimized for performance. CSS-only, zero runtime overhead.</p>
                   <ul class="stack-tight" style="list-style:none;margin-top:var(--space-4)">
                     <li class="cluster cluster-tight gap-2"><span style="color:var(--color-success)">✓</span> <span>40KB total CSS</span></li>
                     <li class="cluster cluster-tight gap-2"><span style="color:var(--color-success)">✓</span> <span>Zero JavaScript</span></li>
@@ -5595,11 +5595,11 @@ button { transition: all 250ms ease-out; }
               <div class="card-header">What's Included</div>
               <div class="card-body">
                 <div class="stack-tight">
-                  <div class="cluster cluster-tight"><span class="t-heading-sm" style="color:var(--color-success);margin-right:var(--space-2)">✓</span><span>40+ production components</span></div>
-                  <div class="cluster cluster-tight"><span class="t-heading-sm" style="color:var(--color-success);margin-right:var(--space-2)">✓</span><span>Fully accessible (WCAG AA)</span></div>
-                  <div class="cluster cluster-tight"><span class="t-heading-sm" style="color:var(--color-success);margin-right:var(--space-2)">✓</span><span>Dark mode support</span></div>
-                  <div class="cluster cluster-tight"><span class="t-heading-sm" style="color:var(--color-success);margin-right:var(--space-2)">✓</span><span>Responsive mobile-first</span></div>
-                  <div class="cluster cluster-tight"><span class="t-heading-sm" style="color:var(--color-success);margin-right:var(--space-2)">✓</span><span>Clear documentation</span></div>
+                  <div class="cluster cluster-tight"><span class="t-heading-sm text-success mr-2">✓</span><span>40+ production components</span></div>
+                  <div class="cluster cluster-tight"><span class="t-heading-sm text-success mr-2">✓</span><span>Fully accessible (WCAG AA)</span></div>
+                  <div class="cluster cluster-tight"><span class="t-heading-sm text-success mr-2">✓</span><span>Dark mode support</span></div>
+                  <div class="cluster cluster-tight"><span class="t-heading-sm text-success mr-2">✓</span><span>Responsive mobile-first</span></div>
+                  <div class="cluster cluster-tight"><span class="t-heading-sm text-success mr-2">✓</span><span>Clear documentation</span></div>
                 </div>
               </div>
             </div>
@@ -5657,8 +5657,8 @@ button { transition: all 250ms ease-out; }
           <div class="doc-sub">Form Inputs in Dark Mode</div>
           <div class="chips"><span class="chip">.form-input</span><span class="chip">.form-select</span><span class="chip">.form-textarea</span></div>
           <div class="doc-demo stack">
-            <input class="form-input" type="text" placeholder="Text input with placeholder" style="max-width:20rem">
-            <select class="form-select" style="max-width:20rem"><option>Select an option</option><option>Option 1</option><option>Option 2</option></select>
+            <input class="form-input max-w-xs" type="text" placeholder="Text input with placeholder">
+            <select class="form-select max-w-xs"><option>Select an option</option><option>Option 1</option><option>Option 2</option></select>
             <textarea class="form-input" placeholder="Textarea input" style="max-width:20rem;height:6rem"></textarea>
           </div>
 
@@ -5691,7 +5691,7 @@ button { transition: all 250ms ease-out; }
             <div style="font-size:3rem;margin-bottom:var(--space-3)">📭</div>
             <h3 class="t-heading-sm">No items yet</h3>
             <p class="t-body-sm" style="color:var(--color-muted);margin:var(--space-2) 0">Create your first item to get started</p>
-            <button class="btn btn-primary" style="margin-top:var(--space-4)">Create Item</button>
+            <button class="btn btn-primary mt-4">Create Item</button>
           </div>
 
           <div class="doc-sub">Error State Pattern</div>
@@ -5718,7 +5718,7 @@ button { transition: all 250ms ease-out; }
               <div style="font-size:3rem;margin-bottom:var(--space-3)">✓</div>
               <h3 class="t-heading-sm">Payment complete</h3>
               <p class="t-body-sm" style="color:var(--color-muted);margin:var(--space-2) 0">Your order #12345 has been confirmed.</p>
-              <button class="btn btn-primary" style="margin-top:var(--space-4)">View Order</button>
+              <button class="btn btn-primary mt-4">View Order</button>
             </div>
           </div>
 
@@ -5973,7 +5973,7 @@ button { transition: all 250ms ease-out; }
             <div>📌 <strong>All snippets use semantic classes:</strong> No inline styles in production</div>
             <div>📌 <strong>Accessibility built-in:</strong> ARIA attributes included where needed</div>
             <div>📌 <strong>Responsive by default:</strong> Works on mobile-first approach</div>
-            <div><a href="#colors" style="color:var(--color-accent)">← Browse all components above</a></div>
+            <div><a href="#colors" class="text-accent">← Browse all components above</a></div>
           </div>
         </section>
 

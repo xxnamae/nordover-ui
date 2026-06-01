@@ -814,3 +814,52 @@
   font-family: var(--font-mono);
   font-size: var(--text-xs);
 }
+
+/* Phase 6C batch 3 — table cells, swatches, spacing fills */
+.mt-1 { margin-top: var(--space-1); }
+.mr-2 { margin-right: var(--space-2); }
+.mr-3 { margin-right: var(--space-3); }
+.block { display: block; }
+.font-semibold { font-weight: 600; }
+
+/* Table header/cell helpers used in styleguide tables */
+.th-left { text-align: left; padding: var(--space-3); font-weight: 600; }
+.th-left-sm { text-align: left; padding: var(--space-2); font-weight: 600; }
+.td-left { text-align: left; padding: var(--space-2); }
+.td-divider { padding: var(--space-3); border-bottom: var(--border-card); }
+
+/* Demo swatch boxes (styleguide-only visual samples) */
+.swatch-box {
+  width: 4rem;
+  height: 4rem;
+  background: var(--color-accent);
+  border-radius: var(--radius-md);
+}
+.swatch-icon {
+  width: 2rem;
+  height: 2rem;
+  color: var(--color-accent);
+  margin-bottom: var(--space-3);
+}
+
+/* Demo callout box (subtle bg, padded, sample content) */
+.demo-callout {
+  background: var(--color-subtle);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-4);
+}
+
+/* Phase 6C batch 4 — remaining reusable patterns */
+.max-w-xs { max-width: 20rem; }
+.max-w-lg { max-width: 28rem; }
+.gap-4 { gap: var(--space-4); }
+.text-error { color: var(--error); }
+
+/* Table grid cell (bordered, centered) — used in spec comparison tables */
+.grid-cell {
+  padding: var(--space-4);
+  text-align: center;
+  border-left: var(--border-card);
+  border-bottom: var(--border-card);
+}
