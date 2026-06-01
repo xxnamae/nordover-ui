@@ -44,8 +44,17 @@
         font-size: var(--text-base);
       }
 
-      /* Feature cards — content styling only; surface, border (gradient hairline)
-         and hover come from components-web.css (the system is the source of truth). */
+      /* Feature cards — landing page brand polish (gradient hairline border) */
+      .feature-card {
+        background:
+          linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
+          linear-gradient(150deg, color-mix(in oklch, var(--color-border) 70%, var(--color-fg)), var(--color-border) 60%) border-box;
+      }
+      .feature-card:hover {
+        background:
+          linear-gradient(var(--color-subtle), var(--color-subtle)) padding-box,
+          linear-gradient(150deg, var(--color-accent), color-mix(in oklch, var(--color-accent) 45%, var(--color-bg)) 70%) border-box;
+      }
       .feature-card-icon { color: var(--color-accent); margin-bottom: var(--space-6); }
       .feature-card h3 { color: var(--color-fg); font-weight: var(--fw-semibold); }
       .feature-card p { color: var(--color-muted); }
