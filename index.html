@@ -23,7 +23,14 @@
       .section-inner { max-width: 72rem; margin: 0 auto; }
 
       /* Hero — radial accent glow + credibility stat strip */
-      .hero { background: var(--gradient-radial-accent); }
+      .hero {
+        background:
+          radial-gradient(
+            ellipse 100% 60% at 50% -30%,
+            color-mix(in oklch, var(--color-accent) 18%, transparent),
+            transparent 65%
+          );
+      }
       .hero h1 { margin: var(--space-4) 0 var(--space-5); }
       .hero-sub { color: var(--color-muted); max-width: 52ch; margin-inline: auto; }
       .hero-stats {
@@ -45,8 +52,21 @@
       .feature-card {
         transition: border-color var(--duration-base), background-color var(--duration-base),
                     transform var(--duration-base), box-shadow var(--duration-base);
+        padding: var(--space-6); border-radius: var(--radius-lg); border: var(--border-subtle);
       }
-      .feature-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+      .feature-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); background-color: var(--color-subtle); }
+
+      /* Feature grid spacing */
+      .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6); }
+
+      /* CTA card — emphasis */
+      .cta-card { padding: var(--space-12) var(--space-8); border-radius: var(--radius-lg); background: linear-gradient(135deg, var(--color-subtle) 0%, transparent 100%); }
+
+      /* Footer — grid and link styling */
+      .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-8); }
+      .footer-col-title { font-weight: var(--fw-semibold); margin-bottom: var(--space-3); color: var(--color-fg); }
+      .footer-link { display: block; color: var(--color-muted); text-decoration: none; margin-bottom: var(--space-2); transition: color var(--duration-fast); }
+      .footer-link:hover { color: var(--color-fg); }
     }
   </style>
 </head>
