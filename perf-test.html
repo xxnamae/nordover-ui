@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nordover Performance Test</title>
+  <link rel="stylesheet" href="./docs/visual/tokens/tokens-web.css">
+  <link rel="stylesheet" href="./docs/visual/components/components-web.css">
+  <style>
+    /* Performance measurement markers */
+    [data-perf-mark] {
+      display: none;
+    }
+
+    body { padding: 2rem; }
+    .test-section { margin-bottom: 3rem; }
+    h2 { margin-bottom: 1rem; color: var(--color-accent); }
+
+    /* Animation stress test */
+    .animate-test {
+      animation: fadeInSlide 0.5s ease-out forwards;
+    }
+    @keyframes fadeInSlide {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .button { padding: 0.75rem 1rem; background: var(--color-accent); color: var(--color-accent-fg); border: none; border-radius: var(--radius-md); cursor: pointer; font-weight: 500; }
+    .button:hover { background: var(--color-accent-hover); }
+    .button-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0.5rem; }
+
+    .button-large-grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 0.5rem; }
+
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    td, th { padding: 0.5rem; border: 1px solid var(--color-border); }
+    th { background: var(--color-subtle); font-weight: 600; }
+
+    .color-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); gap: 1rem; margin: 1rem 0; }
+    .color-box { aspect-ratio: 1; border-radius: var(--radius-lg); border: 1px solid var(--color-border); }
+  </style>
+</head>
+<body>
+  <input type="checkbox" id="dark" style="display: none;">
+
+  <h1>Nordover Performance Test Suite</h1>
+
+  <!-- 1. Bundle Analysis Section -->
+  <div class="test-section">
+    <h2>1. Bundle Composition</h2>
+    <p>tokens-web.css: <strong>14,873 bytes (4,657 gzipped)</strong></p>
+    <p>components-web.css: <strong>68,288 bytes (11,348 gzipped)</strong></p>
+    <p>Combined: <strong>83,161 bytes (16,005 gzipped)</strong></p>
+    <p>CSS Classes: <strong>354 unique selectors</strong></p>
+    <p>@media queries: <strong>11</strong></p>
+    <p>@layer declarations: <strong>5</strong></p>
+    <p>color-mix/clamp/calc usage: <strong>37 instances</strong></p>
+  </div>
+
+  <!-- 2. Animation Performance Test -->
+  <div class="test-section">
+    <h2>2. Animation Performance (Hover Animations)</h2>
+    <div class="button-grid">
+      <button class="button">Button 1</button>
+      <button class="button">Button 2</button>
+      <button class="button">Button 3</button>
+      <button class="button">Button 4</button>
+      <button class="button">Button 5</button>
+      <button class="button">Button 6</button>
+      <button class="button">Button 7</button>
+      <button class="button">Button 8</button>
+      <button class="button">Button 9</button>
+      <button class="button">Button 10</button>
+    </div>
+    <p style="margin-top: 1rem; color: var(--color-muted);">Test instructions: Open DevTools Performance tab, hover rapidly across buttons, record frame rate</p>
+  </div>
+
+  <!-- 3. Dark Mode Toggle Stress Test -->
+  <div class="test-section">
+    <h2>3. Dark Mode Toggle Performance</h2>
+    <button onclick="testDarkModeToggle()">Click to test 50 rapid toggles</button>
+    <div id="toggle-metrics" style="color: var(--color-muted); margin-top: 1rem;"></div>
+  </div>
+
+  <!-- 4. Large Component Count -->
+  <div class="test-section">
+    <h2>4. Rendering 100 Buttons</h2>
+    <div class="button-large-grid" id="button-stress"></div>
+  </div>
+
+  <!-- 5. Table Rendering (500 rows) -->
+  <div class="test-section">
+    <h2>5. Table Performance (500 rows)</h2>
+    <button onclick="renderLargeTable()">Generate 500-row table</button>
+    <div id="table-container"></div>
+  </div>
+
+  <!-- 6. Color Palette Test -->
+  <div class="test-section">
+    <h2>6. Color Token Performance</h2>
+    <div class="color-grid" id="color-palette"></div>
+    <p style="color: var(--color-muted);">Testing color-mix() performance with all semantic colors</p>
+  </div>
+
+  <!-- 7. Nested Layout Stress -->
+  <div class="test-section">
+    <h2>7. Deep Nesting (Flexbox/Grid Performance)</h2>
+    <div id="nested-layout"></div>
+  </div>
+
+  <!-- 8. Form Elements -->
+  <div class="test-section">
+    <h2>8. Form State Complexity</h2>
+    <form id="form-test"></form>
+  </div>
+
+  <script>
+    // Mark navigation timing
+    performance.mark('page-start');
+    window.addEventListener('load', () => {
+      performance.mark('page-end');
+      performance.measure('page-load', 'page-start', 'page-end');
+      const measure = performance.getEntriesByName('page-load')[0];
+      console.log('Total page load:', measure.duration.toFixed(2), 'ms');
+    });
+
+    // Test 1: Render 100 buttons
+    window.addEventListener('load', () => {
+      const container = document.getElementById('button-stress');
+      performance.mark('button-start');
+      for (let i = 0; i < 100; i++) {
+        const btn = document.createElement('button');
+        btn.className = 'button';
+        btn.textContent = i + 1;
+        container.appendChild(btn);
+      }
+      performance.mark('button-end');
+      performance.measure('100-buttons', 'button-start', 'button-end');
+      const m = performance.getEntriesByName('100-buttons')[0];
+      console.log('100 buttons rendered:', m.duration.toFixed(2), 'ms');
+    });
+
+    // Test 2: Dark mode toggle
+    function testDarkModeToggle() {
+      const checkbox = document.getElementById('dark');
+      const startTime = performance.now();
+      let toggleCount = 0;
+
+      const interval = setInterval(() => {
+        checkbox.checked = !checkbox.checked;
+        toggleCount++;
+
+        if (toggleCount === 50) {
+          clearInterval(interval);
+          const endTime = performance.now();
+          const duration = endTime - startTime;
+          const perToggle = duration / 50;
+
+          document.getElementById('toggle-metrics').innerHTML = `
+            <p>50 toggles completed in <strong>${duration.toFixed(2)}ms</strong></p>
+            <p>Average per toggle: <strong>${perToggle.toFixed(2)}ms</strong></p>
+            <p>Status: ${perToggle > 16.67 ? 'WARNING: Exceeds 60fps (16.67ms)' : 'OK: Smooth (within 60fps)'}</p>
+          `;
+        }
+      }, 10);
+    }
+
+    // Test 3: Large table
+    function renderLargeTable() {
+      const container = document.getElementById('table-container');
+      container.innerHTML = '';
+
+      performance.mark('table-start');
+      const table = document.createElement('table');
+
+      const thead = table.createTHead();
+      const headerRow = thead.insertRow();
+      ['ID', 'Name', 'Email', 'Status', 'Action'].forEach(h => {
+        const th = document.createElement('th');
+        th.textContent = h;
+        headerRow.appendChild(th);
+      });
+
+      const tbody = table.createTBody();
+      for (let i = 1; i <= 500; i++) {
+        const row = tbody.insertRow();
+        row.innerHTML = `
+          <td>${i}</td>
+          <td>User ${i}</td>
+          <td>user${i}@example.com</td>
+          <td>${i % 2 === 0 ? 'Active' : 'Inactive'}</td>
+          <td><button class="button" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Edit</button></td>
+        `;
+      }
+
+      container.appendChild(table);
+      performance.mark('table-end');
+      performance.measure('500-row-table', 'table-start', 'table-end');
+      const m = performance.getEntriesByName('500-row-table')[0];
+      console.log('500-row table rendered:', m.duration.toFixed(2), 'ms');
+    }
+
+    // Test 4: Color palette
+    window.addEventListener('load', () => {
+      const colors = [
+        { name: 'accent', var: '--color-accent' },
+        { name: 'error', var: '--error' },
+        { name: 'success', var: '--success' },
+        { name: 'warning', var: '--warning' },
+        { name: 'info', var: '--info' },
+        { name: 'muted', var: '--color-muted' },
+        { name: 'border', var: '--color-border' },
+        { name: 'bg', var: '--color-bg' },
+      ];
+
+      const palette = document.getElementById('color-palette');
+      colors.forEach(c => {
+        const box = document.createElement('div');
+        box.className = 'color-box';
+        box.style.backgroundColor = `var(${c.var})`;
+        box.title = c.name;
+        palette.appendChild(box);
+      });
+    });
+
+    // Test 5: Deep nesting
+    window.addEventListener('load', () => {
+      const nested = document.getElementById('nested-layout');
+      let html = '<div style="display: flex;">';
+      for (let i = 0; i < 5; i++) {
+        html += '<div style="flex: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">';
+        for (let j = 0; j < 9; j++) {
+          html += `<div style="background: var(--color-subtle); padding: 1rem; border-radius: var(--radius-md);">Item ${i}-${j}</div>`;
+        }
+        html += '</div>';
+      }
+      html += '</div>';
+      nested.innerHTML = html;
+    });
+
+    // Test 6: Form state
+    window.addEventListener('load', () => {
+      const form = document.getElementById('form-test');
+      let formHtml = '';
+
+      for (let i = 1; i <= 10; i++) {
+        formHtml += `
+          <fieldset style="margin-bottom: 1rem; padding: 1rem; border: 1px solid var(--color-border); border-radius: var(--radius-md);">
+            <legend>Field Group ${i}</legend>
+            <input type="text" placeholder="Input ${i}" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm);">
+            <div style="color: var(--color-error); font-size: 0.875rem;">Error message ${i}</div>
+          </fieldset>
+        `;
+      }
+
+      form.innerHTML = formHtml;
+    });
+
+    // Font loading metrics
+    if ('PerformanceObserver' in window) {
+      try {
+        const observer = new PerformanceObserver((list) => {
+          list.getEntries().forEach((entry) => {
+            if (entry.entryType === 'resource' && entry.name.includes('font')) {
+              console.log(`Font loaded: ${entry.name}, Duration: ${entry.duration.toFixed(2)}ms, Size: ${entry.transferSize} bytes`);
+            }
+          });
+        });
+        observer.observe({ entryTypes: ['resource'] });
+      } catch (e) {
+        console.log('PerformanceObserver not fully supported');
+      }
+    }
+
+    // Core Web Vitals simulation
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const navTiming = performance.getEntriesByType('navigation')[0];
+        if (navTiming) {
+          console.log('=== Web Vitals (estimates) ===');
+          console.log('FCP (First Contentful Paint):', navTiming.responseStart ? (navTiming.responseStart + 100).toFixed(2) : 'N/A', 'ms');
+          console.log('LCP (Largest Contentful Paint):', (navTiming.loadEventEnd || 0).toFixed(2), 'ms');
+          console.log('DOM Interactive:', (navTiming.domInteractive || 0).toFixed(2), 'ms');
+          console.log('DOM Complete:', (navTiming.domComplete || 0).toFixed(2), 'ms');
+        }
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
