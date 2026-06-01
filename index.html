@@ -44,15 +44,11 @@
         font-size: var(--text-base);
       }
 
-      /* Feature cards — accent icons + gentle tactile lift on hover.
-         Structure (padding/border/radius) comes from components-web.css; only
-         additive enhancements live here. */
+      /* Feature cards — content styling only; surface, border (gradient hairline)
+         and hover come from components-web.css (the system is the source of truth). */
       .feature-card-icon { color: var(--color-accent); margin-bottom: var(--space-6); }
       .feature-card h3 { color: var(--color-fg); font-weight: var(--fw-semibold); }
       .feature-card p { color: var(--color-muted); }
-      .feature-card { transition: border-color var(--duration-base), background-color var(--duration-base),
-                    transform var(--duration-base), box-shadow var(--duration-base); }
-      .feature-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
 
       /* Footer — grid and link styling */
       .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-8); }

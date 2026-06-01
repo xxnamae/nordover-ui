@@ -1051,8 +1051,17 @@
   .hero-centered > * { position: relative; z-index: 1; }
 
   .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(12rem, 100%), 1fr)); gap: var(--space-3); }
-  .feature-card { padding: var(--space-3); border: var(--border-card); border-radius: var(--radius-lg); transition: border-color var(--duration-fast) var(--ease-out), background var(--duration-fast) var(--ease-out); }
-  .feature-card:hover { border-color: var(--color-fg); background: var(--color-subtle); }
+  /* Gradient hairline border (mirrors components-web.css): border-color -> tone
+     toward fg for tactile depth; padding-box/border-box keeps border-radius. */
+  .feature-card { padding: var(--space-3); border: var(--bw-thin) solid transparent; border-radius: var(--radius-lg);
+    background:
+      linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
+      linear-gradient(150deg, color-mix(in oklch, var(--color-border) 70%, var(--color-fg)), var(--color-border) 60%) border-box;
+    transition: background var(--duration-fast) var(--ease-out); }
+  .feature-card:hover {
+    background:
+      linear-gradient(var(--color-subtle), var(--color-subtle)) padding-box,
+      linear-gradient(150deg, var(--color-accent), color-mix(in oklch, var(--color-accent) 45%, var(--color-bg)) 70%) border-box; }
   .feature-card-icon { width: var(--space-5); height: var(--space-5); color: var(--color-accent); margin-bottom: var(--space-2); }
 
   .cta-card { position: relative; background: var(--color-subtle); border-radius: var(--radius-xl); padding: var(--space-6) var(--space-5); text-align: center; overflow: hidden; }
