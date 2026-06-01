@@ -18,23 +18,21 @@
     }
     @layer brand {
       body { max-height: 100vh; overflow-y: auto; }
-      main { padding: var(--page-padding) 0; }
+      main { padding: 0; }
       section { padding: var(--spacing-section) var(--page-padding); }
       .section-inner { max-width: 72rem; margin: 0 auto; }
 
-      /* Hero — radial accent glow + credibility stat strip */
+      /* Hero — full-bleed radial accent glow + credibility stat strip.
+         Section is already full viewport width inside main (horizontal padding 0),
+         so the gradient reaches the screen edges without 100vw hacks. */
       .hero {
         background:
           radial-gradient(
-            ellipse 100% 60% at 50% -30%,
+            ellipse 140% 65% at 50% -15%,
             color-mix(in oklch, var(--color-accent) 18%, transparent),
-            transparent 65%
+            transparent 80%
           );
-        width: 100vw;
-        margin-left: calc(-1 * var(--page-padding));
-        margin-right: calc(-1 * var(--page-padding));
       }
-      .hero .section-inner { width: 100%; }
       .hero h1 { margin: var(--space-4) 0 var(--space-5); }
       .hero-sub { color: var(--color-muted); max-width: 52ch; margin-inline: auto; }
       .hero-stats {
@@ -51,22 +49,15 @@
         font-size: var(--text-base);
       }
 
-      /* Feature cards — accent icons + gentle tactile lift on hover */
+      /* Feature cards — accent icons + gentle tactile lift on hover.
+         Structure (padding/border/radius) comes from components-web.css; only
+         additive enhancements live here. */
       .feature-card-icon { color: var(--color-accent); margin-bottom: var(--space-6); }
       .feature-card h3 { color: var(--color-fg); font-weight: var(--fw-semibold); }
       .feature-card p { color: var(--gray-600); }
-      .feature-card {
-        transition: border-color var(--duration-base), background-color var(--duration-base),
-                    transform var(--duration-base), box-shadow var(--duration-base);
-        padding: var(--space-6); border-radius: var(--radius-lg); border: var(--border-subtle);
-      }
-      .feature-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); background-color: var(--color-subtle); }
-
-      /* Feature grid spacing */
-      .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6); }
-
-      /* CTA card — emphasis */
-      .cta-card { padding: var(--space-12) var(--space-8); border-radius: var(--radius-lg); background: linear-gradient(135deg, var(--color-subtle) 0%, transparent 100%); }
+      .feature-card { transition: border-color var(--duration-base), background-color var(--duration-base),
+                    transform var(--duration-base), box-shadow var(--duration-base); }
+      .feature-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
 
       /* Footer — grid and link styling */
       .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-8); }
@@ -242,8 +233,8 @@
     <section style="background: var(--color-subtle);">
       <div class="section-inner">
         <div class="cta-card">
-          <h2 class="t-heading-lg" style="margin-bottom: var(--space-3);">Klar til å komme i gang?</h2>
-          <p class="t-body-lg" style="color: var(--color-muted); margin-bottom: var(--space-6); max-width: 50ch; margin-left: auto; margin-right: auto;">
+          <h2 class="t-display-md" style="margin-bottom: var(--space-4);">Klar til å komme i gang?</h2>
+          <p class="t-body-lg" style="color: var(--gray-700); font-size: var(--text-lg); margin-bottom: var(--space-7); max-width: 50ch; margin-left: auto; margin-right: auto;">
             Les implementørguidansen og se hvordan du integrerer Nordover i ditt prosjekt.
           </p>
           <div class="cluster" style="justify-content: center;">
