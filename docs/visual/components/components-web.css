@@ -186,7 +186,7 @@
   }
   .app-nav-item:focus-visible {
     outline: 2px solid var(--color-accent);
-    outline-offset: -2px;
+    outline-offset: 2px;
   }
 
   /* Main content area */
@@ -247,7 +247,7 @@
   }
   .hamburger:focus-visible {
     outline: 2px solid var(--color-accent);
-    outline-offset: -2px;
+    outline-offset: 2px;
   }
 
   /* Sidebar close button */
@@ -296,7 +296,7 @@
   }
   .theme-toggle:focus-visible {
     outline: 2px solid var(--color-accent);
-    outline-offset: -2px;
+    outline-offset: 2px;
   }
   .theme-toggle .icon {
     position: absolute;
@@ -615,7 +615,7 @@
     font-size: var(--text-sm);
     font-weight: 600;
     cursor: pointer;
-    transition: all var(--duration-moderate);
+    transition: background-color var(--duration-moderate), color var(--duration-moderate), border-color var(--duration-moderate), opacity var(--duration-moderate), transform var(--duration-moderate);
     text-decoration: none;
     min-height: 2.75rem;
   }
@@ -859,7 +859,7 @@
     border-radius: var(--radius-sm);
     cursor: pointer;
     font-size: var(--text-xs);
-    transition: all var(--duration-moderate);
+    transition: background-color var(--duration-moderate), border-color var(--duration-moderate), color var(--duration-moderate);
   }
   .pagination-btn:hover:not(:disabled),
   .pagination-dot:hover {
@@ -1132,7 +1132,7 @@
     background: var(--color-subtle);
     text-align: center;
     cursor: pointer;
-    transition: all var(--duration-moderate);
+    transition: border-color var(--duration-moderate), background-color var(--duration-moderate);
   }
   .file-upload:hover,
   .file-upload.dragover {
@@ -1328,7 +1328,7 @@
   .stepper-circle {
     width: var(--space-8); height: var(--space-8); border-radius: 50%; display: flex; align-items: center; justify-content: center;
     border: 2px solid var(--color-border); background: var(--color-surface); font-weight: var(--fw-semibold);
-    margin-bottom: var(--space-2); transition: all var(--duration-fast) var(--ease-out);
+    margin-bottom: var(--space-2); transition: border-color var(--duration-fast) var(--ease-out), background-color var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out);
   }
   .stepper-step.active .stepper-circle { border-color: var(--color-accent); background: var(--color-accent); color: var(--color-accent-fg); }
   .stepper-step.completed .stepper-circle { border-color: var(--color-success); background: var(--color-success); color: var(--color-accent-fg); }
@@ -1605,7 +1605,6 @@
   .slide-in-right { animation: slideInRight var(--duration-base) var(--ease-out); }
   .scale-in { animation: scaleIn var(--duration-base) var(--ease-spring); }
   .scale-out { animation: scaleOut var(--duration-fast) var(--ease-out); }
-  .bounce-in { animation: bounceIn var(--duration-base) var(--ease-spring); }
 
   /* Transition utilities */
   .transition-fast { transition: all var(--duration-fast) var(--ease-out); }
@@ -1624,13 +1623,12 @@
   @keyframes slideInRight { from { transform: translateX(20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
   @keyframes scaleIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
   @keyframes scaleOut { from { transform: scale(1); opacity: 1; } to { transform: scale(0.95); opacity: 0; } }
-  @keyframes bounceIn { 0% { opacity: 0; transform: scale(0.3); } 50% { opacity: 1; transform: scale(1.05); } 70% { transform: scale(0.9); } 100% { transform: scale(1); } }
 
   /* Reduce motion respect */
   @media (prefers-reduced-motion: reduce) {
     .icon-spin, .icon-pulse, .icon-bounce,
     .fade-in, .fade-out, .slide-in-up, .slide-in-down, .slide-in-left, .slide-in-right,
-    .scale-in, .scale-out, .bounce-in {
+    .scale-in, .scale-out {
       animation: none !important;
     }
     .transition-fast, .transition-base, .transition-slow {
@@ -1686,7 +1684,7 @@
 
   /* Feature Grid */
   .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr)); gap: var(--gap-component); }
-  .feature-card { padding: var(--space-6); border: var(--border-card); border-radius: var(--radius-lg); transition: all var(--duration-base); display: flex; flex-direction: column; }
+  .feature-card { padding: var(--space-6); border: var(--border-card); border-radius: var(--radius-lg); transition: border-color var(--duration-base), background-color var(--duration-base); display: flex; flex-direction: column; }
   .feature-card:hover { border-color: var(--color-accent); background: var(--color-subtle); }
 
   /* CTA Card */
@@ -1694,7 +1692,7 @@
 
   /* Pricing Grid */
   .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr)); gap: var(--gap-component); }
-  .price-card { padding: var(--space-6); border: var(--border-card); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: var(--space-3); transition: all var(--duration-base); }
+  .price-card { padding: var(--space-6); border: var(--border-card); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: var(--space-3); transition: border-color var(--duration-base), background-color var(--duration-base), box-shadow var(--duration-base); }
   .price-card-highlight { border-color: var(--color-accent); background: var(--color-subtle); box-shadow: 0 8px 24px color-mix(in oklch, var(--color-accent) 20%, transparent); }
   .price-val { font-size: clamp(1.5rem, 4vw, 2.5rem); font-weight: 700; margin: var(--space-2) 0; }
   .price-features { list-style: none; padding: 0; margin: var(--space-3) 0; }
@@ -1703,7 +1701,7 @@
   .price-features li:last-child { border-bottom: none; }
 
   /* Blog Cards */
-  .blog-card { padding: var(--space-6); border: var(--border-card); border-radius: var(--radius-lg); display: flex; flex-direction: column; transition: all var(--duration-base); }
+  .blog-card { padding: var(--space-6); border: var(--border-card); border-radius: var(--radius-lg); display: flex; flex-direction: column; transition: border-color var(--duration-base), background-color var(--duration-base); }
   .blog-card:hover { border-color: var(--color-accent); }
   .blog-card-image { aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--radius-lg); }
   .blog-card-category { margin-bottom: var(--space-2); }
