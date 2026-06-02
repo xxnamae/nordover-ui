@@ -648,4 +648,4 @@ Control style application order:
 
 **License:** MIT  
 **Last Updated:** 2026-06-01  
-**Nordover Version:** 3.0.0
+**Nordover Version:** 1.2.0

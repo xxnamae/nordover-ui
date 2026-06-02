@@ -1,6 +1,6 @@
 # Nordover Design System — Framework Integration Guides
 
-**Version:** 3.0.0  
+**Version:** 1.2.0  
 **Last Updated:** 2026-06-01  
 **Status:** Production Ready
 
@@ -610,4 +610,4 @@ The grid automatically wraps at `16rem` minimum, making it responsive.
 
 **License:** MIT  
 **Last Updated:** 2026-06-01  
-**Version:** 3.0.0 (Production-Perfect)
+**Version:** 1.2.0 (Production-Perfect)
