@@ -30,6 +30,7 @@
     "docs/visual/components/components-web.css",
     "docs/visual/components/components-app.css",
     "README.md",
+    "CHANGELOG.md",
     "LICENSE"
   ],
   "main": "docs/visual/components/components-web.css",

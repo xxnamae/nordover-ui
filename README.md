@@ -7,7 +7,7 @@ Production-ready CSS framework combining semantic tokens, reusable components, a
 ## Features
 
 ✅ **Dual Packages** — Web (editorial) & App (SaaS) variants with appropriate defaults  
-✅ **Complete Components** — Buttons, forms, data tables, modals, date pickers, more  
+✅ **34 Core Components** — Buttons, forms, cards, tables, modals, navigation, layout primitives, more  
 ✅ **Semantic Tokens** — OKLCH colors, fluid typography, spacing, motion, shadows  
 ✅ **Utility Classes** — 100+ utilities for rapid composition without custom CSS  
 ✅ **Accessibility** — WCAG AA, keyboard navigation, motion preferences, focus management  
@@ -109,10 +109,10 @@ See [Real-World Examples](docs/handoff/real-world-examples.md) for Vue, React, S
 
 | Package | Tokens | Components | Combined |
 |---------|--------|-----------|----------|
-| Web | 15 KB | 35 KB | **~50 KB** |
-| App | 15 KB | 30 KB | **~45 KB** |
+| Web | 20 KB | 84 KB | **~104 KB** |
+| App | 20 KB | 72 KB | **~92 KB** |
 
-All sizes are uncompressed. With gzip: ~12 KB tokens, ~8-10 KB components.
+All sizes are uncompressed. With gzip: ~4-5 KB tokens, ~13-16 KB components (total ~17.5 KB web).
 
 ## Browser Support
 

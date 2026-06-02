@@ -193,6 +193,6 @@ All 25 components carry forward from v2.x. Breaking changes:
 
 ---
 
-**Last Audit:** 2026-06-01  
-**Next Review:** Post-release (v1.0 GA)
+**Last Audit:** 2026-06-02  
+**Next Review:** Post-release (v1.2.0 GA)
 
