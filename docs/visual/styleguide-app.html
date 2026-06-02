@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Nordover App Framework Styleguide — Production-ready design system with 40+ components, WCAG AA compliant, responsive framework.">
 <title>Nordover — App Styleguide</title>
 <link rel="preconnect" href="https://rsms.me/">
 <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
@@ -137,6 +138,16 @@
             <span class="badge badge-info" title="Touch-optimized for mobile">Touch-Ready</span>
           </div>
         </div>
+        <section class="quick-links-section">
+          <h2 class="quick-links-title">Quick Links</h2>
+          <div class="quick-links-grid">
+            <a href="https://github.com/xxnamae/nordover-ui/blob/main/CHANGELOG.md" class="quick-link-btn" title="View latest changes and releases">Changelog</a>
+            <a href="https://github.com/xxnamae/nordover-ui/blob/main/docs/COMPONENT-INVENTORY.md" class="quick-link-btn" title="Complete component inventory and status">Inventory</a>
+            <a href="https://github.com/xxnamae/nordover-ui/blob/main/docs/BROWSER-SUPPORT-MATRIX.md" class="quick-link-btn" title="Browser and platform support matrix">Browser Support</a>
+            <a href="https://github.com/xxnamae/nordover-ui/issues" class="quick-link-btn" title="Report issues or request features">Issues</a>
+          </div>
+        </section>
+
 
         <!-- COLORS — Foundation tokens -->
         <section class="doc-section" id="colors" data-section="foundation" data-category="colors">
@@ -434,12 +445,20 @@
           </div>
         </section>
 
+        <!-- ============================================ -->
+        <!-- COMPONENTS SECTION -->
+        <!-- ============================================ -->
+
         <!-- COMPONENT API REFERENCE -->
         <!-- This section is included from component-api-reference.html -->
         <!-- Load externally to avoid duplication between styleguides -->
         <section class="doc-section" id="component-api" data-section="components" data-category="api-reference">
           <div id="component-api-content"></div>
         </section>
+
+        <!-- ============================================ -->
+        <!-- INTERACTIVE COMPONENTS -->
+        <!-- ============================================ -->
 
         <!-- BUTTONS — Interactive CTAs with variants -->
         <section class="doc-section" id="buttons" data-section="components" data-category="buttons">
@@ -629,6 +648,10 @@
           </div>
         </section>
 
+        <!-- ============================================ -->
+        <!-- DATA DISPLAY COMPONENTS -->
+        <!-- ============================================ -->
+
         <!-- TABLE — Data table with sort and filter -->
         <section class="doc-section" id="table" data-section="components" data-category="data-table">
           <h2 class="doc-section-title">Data Tables</h2>
@@ -802,6 +825,10 @@
             </div>
           </div>
         </section>
+
+        <!-- ============================================ -->
+        <!-- FEEDBACK & STATUS COMPONENTS -->
+        <!-- ============================================ -->
 
         <!-- BADGES — Status indicators with colors -->
         <section class="doc-section" id="badges" data-section="components" data-category="badges">
@@ -980,6 +1007,10 @@
           </div>
         </section>
 
+        <!-- ============================================ -->
+        <!-- PICKERS & SELECTION COMPONENTS -->
+        <!-- ============================================ -->
+
         <!-- DATE PICKER — Calendar widget (app variant) -->
         <section class="doc-section" id="date-picker" data-section="components" data-category="date-picker">
           <h2 class="doc-section-title">Date Picker</h2>
@@ -1098,6 +1129,9 @@
           </div>
         </section>
 
+        <!-- ============================================ -->
+        <!-- OVERLAYS & MODALS COMPONENTS -->
+        <!-- ============================================ -->
 
         <!-- MODAL DIALOG SYSTEM — Advanced modals with variants -->
         <section class="doc-section" id="modal-variants" data-section="components" data-category="modals">
@@ -3708,7 +3742,59 @@ function validate(e) {
           Nordover App Styleguide · Production · 2026-05-30<br>Using canonical CSS framework (tokens-app.css + components-app.css)
         </footer>
       </div>
-    </main>
+    
+        <!-- STYLEGUIDE FOOTER — Meta information and support links -->
+        <footer class="styleguide-footer">
+          <div class="footer-section">
+            <h3 class="footer-section-title">About Nordover</h3>
+            <p style="color: var(--color-muted); font-size: var(--text-sm); line-height: 1.6; margin-bottom: 0;">
+              Nordover is a universal, production-ready design system — a foundation for all applications and websites.
+              Built on Nordic minimalism with Apple HIG inspiration and Linear-like SaaS density reference.
+            </p>
+          </div>
+
+          <div class="footer-section">
+            <h3 class="footer-section-title">Framework Resources</h3>
+            <div class="footer-links">
+              <a href="https://github.com/xxnamae/nordover-ui" class="footer-link">GitHub Repository</a>
+              <a href="https://github.com/xxnamae/nordover-ui/blob/main/CHANGELOG.md" class="footer-link">Changelog</a>
+              <a href="https://github.com/xxnamae/nordover-ui/blob/main/docs/COMPONENT-INVENTORY.md" class="footer-link">Component Inventory</a>
+              <a href="https://github.com/xxnamae/nordover-ui/blob/main/docs/BROWSER-SUPPORT-MATRIX.md" class="footer-link">Browser Support</a>
+              <a href="https://github.com/xxnamae/nordover-ui/issues" class="footer-link">Issue Tracker</a>
+              <a href="https://github.com/xxnamae/nordover-ui/blob/main/LICENSE" class="footer-link">License (MIT)</a>
+            </div>
+          </div>
+
+          <div class="footer-section">
+            <h3 class="footer-section-title">Framework Information</h3>
+            <div class="footer-meta">
+              <div class="footer-meta-item">
+                <span class="footer-meta-label">Current Version</span>
+                <span class="footer-meta-value">1.1.0</span>
+              </div>
+              <div class="footer-meta-item">
+                <span class="footer-meta-label">Last Updated</span>
+                <span class="footer-meta-value">2026-06-02</span>
+              </div>
+              <div class="footer-meta-item">
+                <span class="footer-meta-label">WCAG Compliance</span>
+                <span class="footer-meta-value">Level AA</span>
+              </div>
+              <div class="footer-meta-item">
+                <span class="footer-meta-label">License</span>
+                <span class="footer-meta-value">MIT</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-copyright">
+            <p style="margin: 0;">
+              Nordover is a universal design system foundation.
+              <a href="https://github.com/xxnamae/nordover-ui" style="color: var(--color-accent); text-decoration: none;">View on GitHub</a>
+            </p>
+          </div>
+        </footer>
+</main>
 
     <footer role="contentinfo" style="padding: var(--space-6); border-top: 1px solid var(--color-border); margin-top: var(--space-8); color: var(--color-muted);">
       <p style="font-size: var(--text-sm);">© 2026 Nordover Design System. MIT Licensed. <a href="https://github.com/xxnamae/nordover-ui" style="color: var(--color-accent);">View on GitHub</a></p>
