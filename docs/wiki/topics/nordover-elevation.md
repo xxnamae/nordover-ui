@@ -37,12 +37,15 @@ Tokens lagt til `@theme` i begge token-pakker. Genererer `shadow-xs`/`sm`/`md`/`
 På toppen av t-shirt-navnene. Komponenter foretrekker disse:
 
 ```css
+--shadow-inset: inset 0 1px 2px 0 rgb(0 0 0 / 0.06);  /* primitiv — web; app 0.05 */
 --shadow-tooltip: var(--shadow-sm);
 --shadow-popover: var(--shadow-md);
 --shadow-modal: var(--shadow-lg);
 --shadow-drawer: var(--shadow-xl);
---shadow-card-hover: var(--shadow-xs);
+--shadow-card-hover: var(--shadow-md);
 ```
+
+`--shadow-inset` er en egen primitiv (ikke et alias) — verdien deepens i dark mode (alpha 0.3). De øvrige aliaser elevation-skalaen og arver dermed dark-mode-redefineringene automatisk.
 
 **Hvorfor begge lag:** t-shirt-skala er primitiv (mappes til Tailwind-utility), semantisk gir kontekst. Brand kan endre `--shadow-modal` uten å rotere alle `--shadow-lg`-bruk.
 
@@ -50,24 +53,24 @@ På toppen av t-shirt-navnene. Komponenter foretrekker disse:
 
 I Scandi-min editorial er borders ofte riktigere enn shadows. Et kort med tynn border ser mer "norsk" ut enn ett med drop-shadow.
 
-Lagt til `:root` i begge token-pakker (samme verdier):
+Lagt til `:root` i begge token-pakker (samme verdier). Bredde-primitivene heter `--bw-*` (ikke `--border-width-*`):
 
 ```css
---border-width-hairline: 0.5px;     /* Luksuriøst på retina, snaps til 1px på lavoppløst */
---border-width-thin: 1px;            /* Standard */
---border-width-medium: 2px;          /* Vekt, fremheving */
+--bw-hairline: 0.5px;     /* Luksuriøst på retina, snaps til 1px på lavoppløst */
+--bw-thin: 1px;           /* Standard */
+--bw-medium: 2px;         /* Vekt, fremheving (også brukt av fokus-outline) */
 
---border-card: var(--border-width-thin) solid var(--color-border);
---border-input: var(--border-width-thin) solid var(--color-border);
---border-divider: var(--border-width-thin) solid var(--color-border);
---border-focus: var(--focus-ring-width) solid var(--color-focus);
+--border-card: var(--bw-thin) solid var(--color-border);
+--border-divider: var(--bw-thin) solid var(--color-border);
 ```
+
+> Det finnes kun to ferdig-komponerte border-shorthands i tokens: `--border-card` og `--border-divider`. Inputs og fokus-ringer komponeres direkte fra `--bw-*` i komponent-CSS (fokus-outline bruker f.eks. `var(--bw-medium) solid var(--color-focus)`), ikke via egne `--border-input`/`--border-focus`-tokens.
 
 Brand kan overstyre til hairline for ekstra editorial:
 ```css
 /* clients/<brand>.css */
 :root {
-  --border-card: var(--border-width-hairline) solid var(--color-border);
+  --border-card: var(--bw-hairline) solid var(--color-border);
 }
 ```
 
@@ -139,9 +142,47 @@ Lift-tokens i `:root`:
 
 **Tommelregel:** flytende UI (popovers, modaler, tooltips) bruker shadows. Innholds-grupperinger (kort, paneler, seksjoner) starter med borders. Hover-states kan introdusere shadow.
 
+## Surface-elevation — tonal elevation (Material 3-mønster)
+
+I tillegg til shadows og borders finnes en **surface-elevation-skala** `--surface-1..5`. I dark mode lysner overflaten progressivt med høyden (Material 3 tonal elevation) — et høyere element får en lysere bakgrunn i stedet for å lene seg utelukkende på skygge, som er svak mot mørk bakgrunn.
+
+**tokens-web — light (alle nivåer holder seg nær-hvitt/subtilt):**
+```css
+--surface-1: var(--color-surface);
+--surface-2: var(--gray-50);
+--surface-3: var(--gray-100);
+--surface-4: var(--color-surface);
+--surface-5: var(--color-surface);
+```
+
+**tokens-web — dark (lysner progressivt fra gray-900):**
+```css
+--surface-1: var(--gray-900);                               /* base */
+--surface-2: oklch(0.17 var(--neutral-c) var(--neutral-h)); /* kort */
+--surface-3: oklch(0.21 var(--neutral-c) var(--neutral-h)); /* popover/dropdown */
+--surface-4: oklch(0.24 var(--neutral-c) var(--neutral-h)); /* modal/drawer */
+--surface-5: oklch(0.27 var(--neutral-c) var(--neutral-h)); /* topp-sheet */
+```
+
+`tokens-app` bruker identiske verdier for `--surface-1..5` (mirrored).
+
+**Nivå-mapping:**
+
+| Token | Høyde | Typisk bruk |
+|---|---|---|
+| `--surface-1` | base | sidebakgrunn / grunnflate |
+| `--surface-2` | lav | kort |
+| `--surface-3` | middels | popover, dropdown |
+| `--surface-4` | høy | modal, drawer |
+| `--surface-5` | topp | sheet på toppen av alt |
+
+`--color-surface` forblir en egen kontrakt; `--surface-*` er additivt. I light mode er nivåene visuelt nesten like (Scandi-min holder lyst flatt) — det er i dark mode tonal elevation gjør jobben.
+
 ## Dark mode
 
 Shadow-verdiene overstyres i `:root:has(#dark:checked)` med høyere alpha (0.25-0.7 i stedet for 0.03-0.12) for å være synlige mot mørk bakgrunn. Allerede inkludert i tokens-spec. *(Merknad: v1-spec brukte `[data-theme="dark"]` — reversert av [v3 Rebuilding](../decisions/2026-05-27-v3-rebuilding.md).)*
+
+I dark mode kombineres dette med tonal **surface-elevation** (se over): høyere elementer får lysere bakgrunn via `--surface-2..5`, ikke bare sterkere skygge.
 
 **Border-tokens trenger ikke override** — de bruker `--color-border` som allerede skifter i dark mode.
 

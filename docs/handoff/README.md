@@ -1,6 +1,6 @@
 # Nordover Design System — Implementation Handoff
 
-> **For implementers:** This directory contains comprehensive guides for integrating Nordover into any project. Nordover is a production-perfect, pure CSS design system with 41 components, WCAG 2.1 AA compliance, and dark mode support.
+> **For implementers:** This directory contains comprehensive guides for integrating Nordover into any project. Nordover is a production-perfect, pure CSS design system with 34 core components (+ variants), WCAG 2.1 AA compliance, and dark mode with tonal surface elevation.
 
 **In Norwegian:** Hvis du snakker Norsk, se `docs/handoff/README-NO.md` for introduksjon på Bokmål.
 

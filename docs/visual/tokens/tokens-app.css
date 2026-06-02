@@ -96,6 +96,9 @@
 
     /* === Vekter === */
     --fw-normal: 400; --fw-medium: 500; --fw-semibold: 600; --fw-bold: 700;
+    /* Fine-calibrated variable-font weights (slightly heavier than web for SaaS density) */
+    --fw-display-lg: 440; --fw-heading-lg: 520; --fw-heading-md: 540;
+    --fw-body-sm: 500; --fw-eyebrow: 600; --fw-caption: 520;
 
     /* === Line-height-skala (unitless) === */
     --leading-none: 1; --leading-tight: 1.2; --leading-snug: 1.35;
@@ -104,20 +107,50 @@
     /* === Letter-spacing-skala === */
     --tracking-tighter: -0.04em; --tracking-tight: -0.02em; --tracking-normal: 0;
     --tracking-wide: 0.01em; --tracking-wider: 0.04em; --tracking-widest: 0.08em;
+    /* Role-level tracking (Apple/M3 optical sizing) */
+    --tracking-display: -0.035em;
+    --tracking-heading: var(--tracking-tight);
+    --tracking-title: -0.01em;
 
-    /* === Nøytral OKLCH-gråskala === */
+    /* === Type role tokens (composable: size + leading + weight + tracking) ===
+       Apple/M3-parity roles, mappable to native text styles. Built from scale
+       tokens — app scale is more compact than tokens-web. */
+    --type-display-size: var(--text-6xl);
+    --type-display-leading: var(--leading-tight);
+    --type-display-weight: var(--fw-display-lg);
+    --type-display-tracking: var(--tracking-display);
+    --type-headline-size: var(--text-4xl);
+    --type-headline-leading: var(--leading-tight);
+    --type-headline-weight: var(--fw-heading-lg);
+    --type-headline-tracking: var(--tracking-heading);
+    --type-title-size: var(--text-xl);
+    --type-title-leading: var(--leading-snug);
+    --type-title-weight: var(--fw-semibold);
+    --type-title-tracking: var(--tracking-title);
+    --type-body-size: var(--text-base);
+    --type-body-leading: var(--leading-normal);
+    --type-body-weight: var(--fw-body-sm);
+    --type-body-tracking: var(--tracking-normal);
+    --type-label-size: var(--text-sm);
+    --type-label-leading: var(--leading-snug);
+    --type-label-weight: var(--fw-medium);
+    --type-label-tracking: var(--tracking-normal);
+
+    /* === Nøytral OKLCH-gråskala ===
+       L-axis perceptually evened (mirrors tokens-web). gray-500 held ≤0.52
+       to preserve --color-muted AA contrast; gray-200 kept subtle. */
     --neutral-h: 250; --neutral-c: 0.005;
     --gray-50:  oklch(0.985 var(--neutral-c) var(--neutral-h));
     --gray-100: oklch(0.96  var(--neutral-c) var(--neutral-h));
     --gray-200: oklch(0.92  var(--neutral-c) var(--neutral-h));
-    --gray-300: oklch(0.87  var(--neutral-c) var(--neutral-h));
-    --gray-400: oklch(0.72  var(--neutral-c) var(--neutral-h));
-    --gray-500: oklch(0.50  var(--neutral-c) var(--neutral-h));
-    --gray-600: oklch(0.44  var(--neutral-c) var(--neutral-h));
-    --gray-700: oklch(0.31  var(--neutral-c) var(--neutral-h));
-    --gray-800: oklch(0.19  var(--neutral-c) var(--neutral-h));
+    --gray-300: oklch(0.865 var(--neutral-c) var(--neutral-h));
+    --gray-400: oklch(0.70  var(--neutral-c) var(--neutral-h));
+    --gray-500: oklch(0.52  var(--neutral-c) var(--neutral-h));
+    --gray-600: oklch(0.435 var(--neutral-c) var(--neutral-h));
+    --gray-700: oklch(0.33  var(--neutral-c) var(--neutral-h));
+    --gray-800: oklch(0.22  var(--neutral-c) var(--neutral-h));
     --gray-900: oklch(0.13  var(--neutral-c) var(--neutral-h));
-    --gray-950: oklch(0.09  var(--neutral-c) var(--neutral-h));
+    --gray-950: oklch(0.08  var(--neutral-c) var(--neutral-h));
 
     /* === Semantiske farger (LIGHT default — brand-blå accent) === */
     --color-bg: var(--gray-50);
@@ -131,6 +164,21 @@
     --color-accent-hover: color-mix(in oklch, var(--color-accent) 88%, black);
     --color-accent-active: color-mix(in oklch, var(--color-accent) 76%, black);
     --color-focus: oklch(0.50 0.28 260);
+
+    /* === Surface elevation (M3 tonal elevation) ===
+       Light: all levels stay near-white/subtle. Dark redefines these to
+       lighten progressively. --color-surface stays a contract; these are additive. */
+    --surface-1: var(--color-surface);
+    --surface-2: var(--gray-50);
+    --surface-3: var(--gray-100);
+    --surface-4: var(--color-surface);
+    --surface-5: var(--color-surface);
+
+    /* === Accent tier (branded primary path — additive) === */
+    --accent-subtle: color-mix(in oklch, var(--color-accent) 12%, var(--color-bg));
+    --accent-muted: color-mix(in oklch, var(--color-accent) 30%, var(--color-bg));
+    --accent-emphasis: var(--color-accent);
+    --on-accent-subtle: var(--color-accent);
 
     /* === Semantiske tripletter (subtle / base / strong) === */
     --error: oklch(0.62 0.23 25);
@@ -188,11 +236,13 @@
     --gap-component: var(--space-4);      /* 16px (web: 1.5rem) */
     --gap-section: var(--space-8);        /* 48px */
     --spacing-section: clamp(var(--space-8), 8vw, var(--space-12));   /* 48 → 96px fluid, app-kompakt */
+    --spacing-section-sm: clamp(var(--space-6), 6vw, var(--space-8)); /* 32 → 48px — compact section */
+    --spacing-section-lg: clamp(var(--space-12), 12vw, var(--space-16)); /* 96 → 128px — hero section */
     --page-padding: clamp(var(--space-5), 3vw, var(--space-6));       /* 24 → 32px fluid, app-tett */
 
     /* === Radius === */
     --radius-xs: 2px; --radius-sm: 3px; --radius-md: 6px; --radius-lg: 8px;
-    --radius-xl: 12px; --radius-2xl: 16px; --radius-full: 9999px;
+    --radius-xl: 12px; --radius-2xl: 16px; --radius-3xl: 24px; --radius-full: 9999px;
 
     /* === Border-width === */
     --bw-hairline: 0.5px; --bw-thin: 1px; --bw-medium: 2px;
@@ -205,6 +255,16 @@
     --shadow-md: 0 2px 4px -1px rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.04);
     --shadow-lg: 0 8px 12px -3px rgb(0 0 0 / 0.08), 0 3px 5px -3px rgb(0 0 0 / 0.06);
     --shadow-xl: 0 16px 24px -6px rgb(0 0 0 / 0.1), 0 6px 10px -6px rgb(0 0 0 / 0.07);
+
+    /* === Semantic shadow aliases (component intent — wiki contract) ===
+       Inset is its own primitive; the rest alias the elevation scale, so they
+       inherit the dark-mode redefinitions automatically. */
+    --shadow-inset: inset 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-tooltip: var(--shadow-sm);
+    --shadow-popover: var(--shadow-md);
+    --shadow-modal: var(--shadow-lg);
+    --shadow-drawer: var(--shadow-xl);
+    --shadow-card-hover: var(--shadow-md);
 
     /* === Icon-size === */
     --size-icon-sm: 0.875rem; --size-icon: 1rem;
@@ -223,6 +283,8 @@
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     --ease-spring: cubic-bezier(0.2, 0.8, 0.2, 1);
     --ease-emphasized: cubic-bezier(0.3, 0, 0, 1);
+    /* True spring physics (overshoot) for signature interactions */
+    --ease-spring-physics: linear(0, 0.006, 0.025 2.8%, 0.101 6.1%, 0.539 18.9%, 0.721, 0.849, 0.937, 0.991, 1.02, 1.03, 1.017, 1.003, 0.998, 1);
 
     /* === Button (tactile default — gradient + inset highlight + bottom edge) === */
     --button-radius: var(--radius-md);
@@ -307,6 +369,18 @@
     --color-accent-hover: color-mix(in oklch, var(--color-accent) 88%, white);
     --color-accent-active: color-mix(in oklch, var(--color-accent) 76%, white);
 
+    /* Surface elevation (M3 tonal) — lighten progressively on dark.
+       L-steps tuned to be perceptually even from gray-900 (L 0.13) upward. */
+    --surface-1: var(--gray-900);
+    --surface-2: oklch(0.17 var(--neutral-c) var(--neutral-h));
+    --surface-3: oklch(0.21 var(--neutral-c) var(--neutral-h));
+    --surface-4: oklch(0.24 var(--neutral-c) var(--neutral-h));
+    --surface-5: oklch(0.27 var(--neutral-c) var(--neutral-h));
+
+    /* Accent tier — re-mix against dark --color-bg for correct contrast */
+    --accent-subtle: color-mix(in oklch, var(--color-accent) 12%, var(--color-bg));
+    --accent-muted: color-mix(in oklch, var(--color-accent) 30%, var(--color-bg));
+
     --error: oklch(0.68 0.22 25);
     --success: oklch(0.72 0.18 155);
     --warning: oklch(0.78 0.18 65);
@@ -328,5 +402,7 @@
     --shadow-md: 0 2px 4px -1px rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.3);
     --shadow-lg: 0 8px 12px -3px rgb(0 0 0 / 0.5), 0 3px 5px -3px rgb(0 0 0 / 0.4);
     --shadow-xl: 0 16px 24px -6px rgb(0 0 0 / 0.6), 0 6px 10px -6px rgb(0 0 0 / 0.45);
+    /* Inset deepened for dark (the aliasing shadows inherit the scale above) */
+    --shadow-inset: inset 0 1px 2px 0 rgb(0 0 0 / 0.3);
   }
 }

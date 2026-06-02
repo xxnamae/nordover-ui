@@ -25,7 +25,7 @@ I prosjektets rotmappe:
 npm install @xxnamae/nordover-ui
 ```
 
-Dette legger til `"@xxnamae/nordover-ui": "^1.0.0"` i `package.json`.
+Dette legger til `"@xxnamae/nordover-ui": "^1.2.0"` i `package.json`.
 
 ---
 

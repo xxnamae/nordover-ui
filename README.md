@@ -2,12 +2,12 @@
 
 Production-ready CSS framework combining semantic tokens, reusable components, and utilities for both marketing sites and SaaS dashboards.
 
-**Status:** v1.0.0-alpha ✨ | **Components:** 40+ | **CSS:** 1,850 lines | **WCAG:** AA compliant
+**Status:** v1.2.0 ✨ | **Components:** 34 core + variants | **WCAG:** AA compliant | **Dark mode:** tonal elevation
 
 ## Features
 
 ✅ **Dual Packages** — Web (editorial) & App (SaaS) variants with appropriate defaults  
-✅ **Complete Components** — Buttons, forms, data tables, modals, date pickers, more  
+✅ **34 Core Components** — Buttons, forms, cards, tables, modals, navigation, layout primitives, more  
 ✅ **Semantic Tokens** — OKLCH colors, fluid typography, spacing, motion, shadows  
 ✅ **Utility Classes** — 100+ utilities for rapid composition without custom CSS  
 ✅ **Accessibility** — WCAG AA, keyboard navigation, motion preferences, focus management  
@@ -109,10 +109,10 @@ See [Real-World Examples](docs/handoff/real-world-examples.md) for Vue, React, S
 
 | Package | Tokens | Components | Combined |
 |---------|--------|-----------|----------|
-| Web | 15 KB | 35 KB | **~50 KB** |
-| App | 15 KB | 30 KB | **~45 KB** |
+| Web | 20 KB | 84 KB | **~104 KB** |
+| App | 20 KB | 72 KB | **~92 KB** |
 
-All sizes are uncompressed. With gzip: ~12 KB tokens, ~8-10 KB components.
+All sizes are uncompressed. With gzip: ~4-5 KB tokens, ~13-16 KB components (total ~17.5 KB web).
 
 ## Browser Support
 
@@ -294,4 +294,4 @@ MIT License — See [LICENSE](LICENSE) for details.
 
 **Built for Nordic web with ❤️**
 
-Nordover v1.0.0-alpha | [Repository](https://github.com/xxnamae/nordover-ui) | [License](LICENSE)
+Nordover v1.2.0 | [Repository](https://github.com/xxnamae/nordover-ui) | [License](LICENSE)

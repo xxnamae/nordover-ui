@@ -39,7 +39,7 @@ Nordover's spacing system uses a consistent 4px base (rem-based) for precise, sc
 --space-48: 24rem;         /* 384px — rare use */
 ```
 
-**Ratio:** 1.5× scaling (0.25 → 0.375 → 0.5 → 0.75 → 1 → 1.5 → 2 → ...)
+**Skala-type:** Dette er en **t-shirt-/indeks-skala**, ikke en fast multiplikator. Navnet er en *indeks*, ikke en px/4-verdi: `--space-5` er **24px (ikke 20px)**, `--space-7` er 40px, `--space-10` er 64px osv. Steg-forholdet varierer bevisst — det starter tett (4 → 8 → 12 → 16 = +4px lineært), går så over til ~1.5× (16 → 24 → 32 → 48), og blir grovere i toppen (96 → 128 → 160 → …). Bruk alltid token-navnet og slå opp px-verdien i tabellen — ikke regn `navn × 4`.
 
 ---
 
@@ -57,8 +57,8 @@ For common use cases, semantic tokens reduce cognitive load:
 --spacing-section: clamp(var(--space-12), 12vw, var(--space-20));
   /* Mobile: 96px, desktop: 160px (responsive) */
 
---page-padding: clamp(var(--space-5), 4vw, var(--space-8));
-  /* Mobile: 24px, desktop: 48px (responsive) */
+--page-padding: clamp(var(--space-6), 4vw, var(--space-8));
+  /* Mobile: 32px, desktop: 48px (responsive) — web. App: clamp(--space-5, 3vw, --space-6) = 24→32px */
 ```
 
 ---
@@ -172,7 +172,7 @@ For common use cases, semantic tokens reduce cognitive load:
   display: flex;
   flex-direction: column;
   gap: var(--spacing-section);        /* Responsive: 96px → 160px */
-  padding-inline: var(--page-padding); /* Responsive: 24px → 48px */
+  padding-inline: var(--page-padding); /* Responsive: 32px → 48px (web) */
 }
 
 .page-section {
@@ -386,10 +386,10 @@ Tight spacing for data lists:
 | `--space-5` | Component gap (flex items) | 24px |
 | `--space-6` | Card padding, large gaps | 32px |
 | `--space-8` | Section gaps, hero padding vert | 48px |
-| `--gap-tight` | Form rows, tag lists | 8px |
+| `--gap-tight` | Form rows, tag lists | 8px (web) or 4px (app) |
 | `--gap-component` | Between components | 24px (web) or 16px (app) |
 | `--spacing-section` | Between major sections | 96–160px (web) or 48–96px (app) |
-| `--page-padding` | Page left/right padding | 24–48px |
+| `--page-padding` | Page left/right padding | 32–48px (web) or 24–32px (app) |
 
 ---
 

@@ -128,7 +128,7 @@ Nordover uses a **single-axis neutral system**: change `--neutral-h` (hue) to sh
 
 ---
 
-## Dark Mode (App Package Default)
+## Dark Mode (Web Package)
 
 Triggered by CSS selector: `:root:has(#dark:checked)`
 
@@ -142,25 +142,46 @@ Triggered by CSS selector: `:root:has(#dark:checked)`
   --color-fg: var(--gray-50);        /* white text */
   --color-surface: var(--gray-900);  /* dark cards */
   --color-subtle: var(--gray-800);   /* dark hover */
-  --color-accent: oklch(0.65 0.20 240); /* lighter blue for contrast */
+  --color-accent: var(--gray-50);    /* editorial: accent inverts to near-white */
+  --color-accent-fg: var(--gray-950);
+  --color-focus: oklch(0.60 0.20 260);
   --neutral-h: 250; /* maintain consistency */
 }
 ```
 
+> Merk: web-pakken er **editorial/monokrom** — accent er `--gray-900` i light og inverterer til `--gray-50` i dark (ikke en blå). App-pakken (`tokens-app.css`) bruker derimot en blå brand-accent: `oklch(0.50 0.22 260)` i light og `oklch(0.55 0.25 260)` i dark. Verifiser alltid mot riktig pakke.
+
 **Characteristics:**
 - Reduced eye strain in low-light environments
-- Accent is lighter/brighter
-- Surface details subtly elevated
-- Default for `tokens-app.css` (can toggle via checkbox)
+- Accent inverts (dark→light) in web; app accent brightens (blue)
+- Surface details subtly elevated via `--surface-1..5` (tonal elevation)
 
-### Dark Mode Contrast Verification
+### Dark Mode Contrast Verification (Web Package)
 
-| Element | Light | Dark | Ratio | WCAG |
-|---------|-------|------|-------|------|
-| **Text on bg** | gray-900 on white | gray-50 on gray-950 | 18:1 | ✅ AAA |
-| **Accent button** | gray-900 | oklch(0.65 0.20 240) | 8.5:1 | ✅ AA |
-| **Muted text** | gray-500 | gray-400 | 6.2:1 | ✅ AA |
-| **Success badge** | oklch(0.56 0.16 160) | oklch(0.60 0.18 160) | 4.5:1 | ✅ AA |
+Verdier verifisert mot `tokens-web.css` (dark-blokk):
+
+| Element | Light | Dark | WCAG |
+|---------|-------|------|------|
+| **Text on bg** | gray-900 on white | gray-50 on gray-950 | ✅ AAA |
+| **Accent button** | gray-900 bg / gray-50 fg | gray-50 bg / gray-950 fg | ✅ AAA |
+| **Muted text** | gray-500 on white | gray-400 on gray-950 | ✅ AA |
+| **Focus ring** | oklch(0.50 0.28 260) | oklch(0.60 0.20 260) | ✅ AA (mot bg) |
+| **Error text** | `--error-strong` (mot black) | `--error-strong` (mikser mot white) | ✅ AA på subtle-bg |
+
+---
+
+## Accent-tier (branded primary path)
+
+I tillegg til `--color-accent` finnes en additiv accent-tier for subtile/fremhevede flater. Identiske formler i begge pakker (de mikser mot `--color-bg`, så de følger light/dark automatisk):
+
+```css
+--accent-subtle: color-mix(in oklch, var(--color-accent) 12%, var(--color-bg)); /* svak flate-bg */
+--accent-muted:  color-mix(in oklch, var(--color-accent) 30%, var(--color-bg)); /* dempet flate */
+--accent-emphasis: var(--color-accent);                                         /* full styrke */
+--on-accent-subtle: var(--color-accent);  /* tekst/ikon PÅ --accent-subtle (light) */
+```
+
+> `--accent-emphasis` og `--on-accent-subtle` defineres i light-blokka; `--accent-subtle`/`--accent-muted` re-mikses også i dark mot dark `--color-bg`. Bruk `--on-accent-subtle` som forgrunn på `--accent-subtle`-bakgrunn.
 
 ---
 
@@ -201,6 +222,8 @@ In your project's CSS, add a `@layer brand` block:
 ---
 
 ## Semantic Color Usage
+
+> **WCAG-regel for tekst:** bruk alltid `-strong`-varianten som tekstfarge — de base-semantiske fargene (`--error`/`--success`/`--warning`/`--info`) er kalibrert for **fyll/ikoner/borders**, og flere av dem (særlig `--warning` og `--success`) ryker AA 4.5:1 som tekst på lys bakgrunn. `-strong` mikser mot svart i light (mot hvitt i dark) nettopp for å garantere tekst-kontrast på `*-subtle`-bakgrunn.
 
 ### Success
 - Background: `--success-subtle` (soft green)

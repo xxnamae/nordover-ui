@@ -13,22 +13,59 @@ Nordover's motion system provides consistent animations and transitions. All mot
 
 ### Duration
 
+Web og app divergerer bevisst: app-pakken er raskere (SaaS-tetthet, mindre bevegelse), web er litt roligere (editorial). Begge har syv durations, men med ulike verdier.
+
+**tokens-web:**
 ```css
---duration-fast: 150ms;    /* Quick feedback (button hover, focus) */
---duration-base: 300ms;    /* Standard animations (modal open, fade) */
---duration-slow: 500ms;    /* Emphasis animations (entrance, slide) */
+--duration-instant: 50ms;     /* Imperceptible state flip */
+--duration-fast: 150ms;       /* Quick feedback (button hover, focus) */
+--duration-moderate: 200ms;   /* Small UI transitions */
+--duration-base: 250ms;       /* Standard animations (fade, scale) */
+--duration-slow-base: 300ms;  /* Modal/popover open */
+--duration-slow: 400ms;       /* Emphasis (entrance, slide) */
+--duration-slower: 600ms;     /* Large drawer/sheet motion */
 ```
+
+**tokens-app (raskere defaults):**
+```css
+--duration-instant: 50ms;
+--duration-fast: 100ms;       /* App: 100ms, ikke 150ms */
+--duration-base: 150ms;       /* App: 150ms, ikke 250ms */
+--duration-moderate: 200ms;
+--duration-slow: 250ms;       /* App: 250ms, ikke 400ms */
+--duration-slow-base: 300ms;
+--duration-slower: 400ms;     /* App: 400ms, ikke 600ms */
+```
+
+> Merk: `--duration-base` betyr 250ms i web, men 150ms i app. Bruk alltid token-navnet, ikke en antatt ms-verdi.
 
 ### Easing
 
+Identisk i begge pakker, med ett tillegg i app:
+
 ```css
---ease-out: cubic-bezier(0.4, 0, 0.2, 1);     /* Deceleration (most common) */
---ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy spring */
+--ease-out: cubic-bezier(0.2, 0, 0, 1);        /* Deceleration (most common) */
+--ease-spring: cubic-bezier(0.2, 0.8, 0.2, 1); /* Strong ease-out (NO overshoot) */
+--ease-emphasized: cubic-bezier(0.3, 0, 0, 1); /* Material-style emphasized accel/decel */
+```
+
+App-pakken har i tillegg de klassiske inn/ut-kurvene:
+```css
+/* tokens-app only */
+--ease-in: cubic-bezier(0.4, 0, 1, 1);
+--ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+```
+
+For ekte fjær-fysikk med faktisk overshoot (signatur-interaksjoner) finnes en `linear()`-easing i begge pakker:
+```css
+--ease-spring-physics: linear(0, 0.006, 0.025 2.8%, 0.101 6.1%, 0.539 18.9%, 0.721, 0.849, 0.937, 0.991, 1.02, 1.03, 1.017, 1.003, 0.998, 1);
 ```
 
 **When to use:**
-- `--ease-out`: state changes (button, focus, hover)
-- `--ease-spring`: delightful interactions (entrance, bounce)
+- `--ease-out`: state changes (button, focus, hover) — standardvalget
+- `--ease-spring`: en **sterk ease-out** for entrance/scale. Den har IKKE overshoot — kontrollpunktene holder seg innenfor [0,1], så den «studser» ikke. Bruk den når du vil ha en tydelig, energisk decelerasjon, ikke en bounce.
+- `--ease-emphasized`: fremhevede transisjoner som skal trekke blikket (Material 3-mønster)
+- `--ease-spring-physics`: den ENESTE kurven med faktisk overshoot. Reservér for signatur-momenter der en liten studs er ønsket.
 
 ---
 
@@ -78,7 +115,7 @@ Nordover's motion system provides consistent animations and transitions. All mot
 }
 ```
 
-**Pattern:** All state-based transitions use `--duration-fast` (150ms).
+**Pattern:** All state-based transitions use `--duration-fast` (web 150ms / app 100ms).
 
 ---
 
@@ -94,7 +131,7 @@ Nordover's motion system provides consistent animations and transitions. All mot
 
 .icon-spin {
   animation: spin var(--duration-base) linear infinite;
-  /* 300ms per rotation, continuous */
+  /* One rotation per --duration-base (web 250ms / app 150ms), continuous */
 }
 ```
 
@@ -116,7 +153,7 @@ Nordover's motion system provides consistent animations and transitions. All mot
 
 .icon-pulse {
   animation: pulse var(--duration-slow) cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  /* 500ms fade cycle */
+  /* Fade cycle over --duration-slow (web 400ms / app 250ms) */
 }
 ```
 
@@ -136,7 +173,7 @@ Nordover's motion system provides consistent animations and transitions. All mot
 
 .icon-bounce {
   animation: bounce var(--duration-slow) ease-in-out infinite;
-  /* 500ms up-down cycle */
+  /* Up-down cycle over --duration-slow (web 400ms / app 250ms) */
 }
 ```
 
@@ -202,7 +239,8 @@ Nordover's motion system provides consistent animations and transitions. All mot
 
 .scale-in {
   animation: scaleIn var(--duration-base) var(--ease-spring) forwards;
-  /* 300ms grow from small → normal, with bounce */
+  /* Grow from small → normal over --duration-base (web 250ms / app 150ms).
+     --ease-spring is a strong ease-out — NO overshoot/bounce. */
 }
 ```
 
@@ -220,7 +258,8 @@ Nordover's motion system provides consistent animations and transitions. All mot
 
 .bounce-in {
   animation: bounceIn var(--duration-base) var(--ease-spring) forwards;
-  /* 300ms entrance with spring bounce */
+  /* Entrance over --duration-base (web 250ms / app 150ms). The overshoot
+     comes from the keyframes (scale 1.05), not from --ease-spring. */
 }
 ```
 
@@ -282,7 +321,7 @@ Nordover's motion system provides consistent animations and transitions. All mot
 }
 ```
 
-**Result:** Backdrop fades while content grows (300ms total).
+**Result:** Backdrop fades while content grows over `--duration-base` (web 250ms / app 150ms).
 
 ### Drawer Slide + Backdrop
 
@@ -294,12 +333,12 @@ Nordover's motion system provides consistent animations and transitions. All mot
 ```css
 .drawer-fade-in {
   animation: fadeIn var(--duration-slow) var(--ease-out) forwards;
-  /* 500ms backdrop fade */
+  /* Backdrop fade over --duration-slow (web 400ms / app 250ms) */
 }
 
 .drawer {
   animation: slideInLeft var(--duration-slow) var(--ease-out) forwards;
-  /* 500ms drawer slide from left */
+  /* Drawer slide from left over --duration-slow (web 400ms / app 250ms) */
 }
 ```
 
@@ -395,7 +434,7 @@ Animatable properties without layout cost:
 
 ## Motion Tokens in Components
 
-### Button Hover (150ms)
+### Button Hover (--duration-fast)
 
 ```css
 .btn {
@@ -403,7 +442,7 @@ Animatable properties without layout cost:
 }
 ```
 
-### Modal Open (300ms)
+### Modal Open (--duration-base)
 
 ```css
 .modal-content {
@@ -419,7 +458,7 @@ Animatable properties without layout cost:
 }
 ```
 
-### Drawer Open (500ms)
+### Drawer Open (--duration-slow)
 
 ```css
 .drawer {
@@ -541,7 +580,8 @@ Animatable properties without layout cost:
 
 - `components-web.css` line 450+: animation keyframes
 - `components-app.css` line 400+: app-optimized motion
-- `tokens-web.css` line 220+: motion variables
+- `tokens-web.css` line 274+: motion variables (durations + easings)
+- `tokens-app.css` line 275+: app motion variables (faster defaults)
 - [MDN: CSS Animations](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations)
 - [prefers-reduced-motion](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion)
 - [High Performance Animations](https://www.html5rocks.com/en/tutorials/speed/high-performance-animations/)

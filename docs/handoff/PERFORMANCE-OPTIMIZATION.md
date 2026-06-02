@@ -683,7 +683,7 @@ Improvement: -3.3 KB (19% reduction), -65ms faster
 ### Scenario 3: Full Feature Site
 
 **Maximum component usage:**
-- All 41 components documented
+- All 34 core components documented
 - Custom brand styling
 
 **Results:**
@@ -742,4 +742,4 @@ Alternative: Use smaller app package (14.4 KB) for simpler interfaces.
 
 **License:** MIT  
 **Last Updated:** 2026-06-01  
-**Nordover Version:** 3.0.0
+**Nordover Version:** 1.2.0

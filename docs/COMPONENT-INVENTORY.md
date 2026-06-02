@@ -1,7 +1,7 @@
 # Nordover Component Inventory
-**Framework Version:** 3.0.0  
-**Last Updated:** 2026-06-01  
-**Status:** Complete (25 core components + variants)
+**Framework Version:** 1.2.0  
+**Last Updated:** 2026-06-02  
+**Status:** Complete (34 core components + variants)
 
 ---
 
@@ -11,7 +11,7 @@
 
 | # | Component | CSS Classes | Variants | Status | Styleguide |
 |---|-----------|-------------|----------|--------|-----------|
-| 1 | Button | `.btn`, `.btn-primary`, `.btn-secondary`, `.btn-ghost`, `.btn-link`, `.btn-elevated`, `.btn-touch` | Primary/Secondary/Ghost/Link, Elevated, Small/Large, Touch-target | ✅ Complete | Web & App |
+| 1 | Button | `.btn`, `.btn-primary`, `.btn-secondary`, `.btn-ghost`, `.btn-link`, `.btn-elevated`, `.btn-destructive`, `.btn-tonal`, `.btn-touch` | Primary/Secondary/Ghost/Link/Destructive/Tonal, Elevated, Small/Large, Touch-target | ✅ Complete | Web & App |
 | 2 | Icon Button | `.btn.icon`, `.btn-icon` | All button variants apply | ✅ Complete | Web & App |
 | 3 | Button Group | `.button-group`, `.cluster` (flex wrapper) | Horizontal layout | ✅ Complete | Web & App |
 
@@ -45,7 +45,7 @@
 | # | Component | CSS Classes | Variants | Status | Styleguide |
 |---|-----------|-------------|----------|--------|-----------|
 | 13 | Table | `.data-table`, `.table-header`, `.table-body`, `.table-row` | Basic, striped, hover, with sorting/filtering | ✅ Complete | Web & App |
-| 14 | Badge | `.badge`, `.badge-primary`, `.badge-success`, `.badge-error`, `.badge-warning`, `.badge-info` | Semantic colors (5 variants), neutral, custom colors | ✅ Complete | Web & App |
+| 14 | Badge | `.badge`, `.badge-primary`, `.badge-success`, `.badge-error`, `.badge-warning`, `.badge-info` | Borderless tinted pills; semantic colors (5 variants), neutral | ✅ Complete | Web & App |
 | 15 | Alert | `.alert`, `.alert-success`, `.alert-error`, `.alert-warning`, `.alert-info` | Semantic colors with icons, dismissible variant | ✅ Complete | Web & App |
 
 ---
@@ -54,7 +54,7 @@
 
 | # | Component | CSS Classes | Variants | Status | Styleguide |
 |---|-----------|-------------|----------|--------|-----------|
-| 16 | Card | `.card` | Base container with border, padding, shadow; hover elevation | ✅ Complete | Web & App |
+| 16 | Card | `.card`, `.card-bordered`, `.card-elevated`, `.card-subtle`, `.card-interactive`, `.card-header`, `.card-title`, `.card-meta`, `.card-footer` | Bordered/Elevated/Subtle/Interactive; header/title/meta/footer parts | ✅ Complete | Web & App |
 | 17 | Feature Card | `.feature-card` | Content card with border and subtle shadow | ✅ Complete | Web & App |
 | 18 | Price Card | `.price-card`, `.price-card-highlight` | Price display with featured variant | ⚠️ Partial | Web |
 | 19 | Blog Card | `.blog-card`, `.blog-card-featured` | Article preview with image, title, meta | ⚠️ Partial | Web |
@@ -80,6 +80,7 @@
 | 25 | Cluster | `.cluster`, `.cluster-tight` | Flex row wrap with center alignment | ✅ Complete | Web & App |
 | 26 | Grid Auto | `.grid-auto` | CSS Grid with auto-fit, mobile-responsive | ✅ Complete | Web & App |
 | 27 | Page Container | `.page`, `.page-section`, `.page-content`, `.app-main`, `.app-content` | Full-page layout with responsive padding | ✅ Complete | Web & App |
+| 27b | Section | `.section`, `.section-sm`, `.section-lg`, `.section-bg-subtle`, `.section-bg-fg`, `.section-bg-accent` | Fluid vertical rhythm + container-query context; size & bg modifiers | ✅ Complete | Web & App |
 
 ---
 
@@ -101,21 +102,37 @@
 
 ---
 
+### 10. UI COMPONENTS & OVERLAYS (7 components, added v1.2.0)
+
+| # | Component | CSS Classes | Variants | Status | Styleguide |
+|---|-----------|-------------|----------|--------|-----------|
+| 32 | Tabs | `.tabs-list`, `.tabs-trigger`, `.tabs-content` | Underline indicator; `[aria-selected]` / `.active` | ✅ Complete | Web & App |
+| 33 | Avatar | `.avatar`, `.avatar-xs/-sm/-lg/-xl`, `.avatar-group` | Size scale, image/initials, overlapping group | ✅ Complete | Web & App |
+| 34 | Tooltip | `.tooltip`, `.tooltip-content` | Pure-CSS hover/focus-within | ✅ Complete | Web & App |
+| 35 | Menu / Dropdown | `.menu-content`, `.menu-item`, `.menu-separator` | Highlighted/focus states, separators | ✅ Complete | Web & App |
+| 36 | Toast | `.toast-viewport`, `.toast`, `.toast-success/-error/-warning/-info` | Semantic variants, entrance animation | ✅ Complete | Web & App |
+| 37 | Kbd | `.kbd` | Keyboard shortcut key cap | ✅ Complete | Web & App |
+| 38 | Skeleton | `.skeleton`, `.skeleton-text`, `.skeleton-circle` | Shimmer loading placeholder (reduced-motion safe) | ✅ Complete | Web & App |
+
+Also added v1.2.0: standalone Tag variants (`.tag-solid`, `.tag-outline`, `.tag-success`).
+
+---
+
 ## Status Summary
 
 | Status | Count | Examples |
 |--------|-------|----------|
-| ✅ Fully Documented & Complete | 25 | Buttons, Forms, Navigation, Layout, Typography |
+| ✅ Fully Documented & Complete | 34 | Buttons, Forms, Cards, Tabs, Avatar, Toast, Navigation, Layout, Typography |
 | ⚠️ Partial (in CSS, needs styleguide examples) | 2 | Price Card, Blog Card |
 | ❌ Undocumented (CSS exists, no examples) | 0 | (All components have styleguide demos) |
-| 🚀 Not Implemented (intentional) | 3 | Tooltip, Popover, Toast (lean by design) |
+| 🚀 Not Implemented (intentional) | 1 | Popover (lean by design — use Menu/Tooltip) |
 
 ---
 
 ## Component Statistics
 
-- **Core Components:** 25 (fully functional)
-- **Total CSS Classes:** 324 (web), 267 (app)
+- **Core Components:** 34 (fully functional)
+- **Total CSS Classes:** 269 tokens (web), 273 tokens (app) — see tokens-*.json
 - **Responsive Breakpoints:** 5 (mobile, tablet, desktop, wide, ultra)
 - **Dark Mode:** Supported on all components
 - **Touch Targets:** 44px minimum (enforced on buttons, improved on inputs/checkboxes)
@@ -176,6 +193,6 @@ All 25 components carry forward from v2.x. Breaking changes:
 
 ---
 
-**Last Audit:** 2026-06-01  
-**Next Review:** Post-release (v1.0 GA)
+**Last Audit:** 2026-06-02  
+**Next Review:** Post-release (v1.2.0 GA)
 

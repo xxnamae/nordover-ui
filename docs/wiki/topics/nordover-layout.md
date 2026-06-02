@@ -22,9 +22,9 @@ Lagt til i `:root` (ikke `@theme`, fordi de brukes via eksplisitte `@utility`-bl
 ```css
 :root {
   /* === Semantisk gap-skala === */
-  --gap-tight: 0.5rem;            /* 8px — innenfor en komponent */
-  --gap-component: 1.5rem;        /* 24px — mellom relaterte komponenter */
-  --gap-section: var(--spacing-section);  /* mellom seksjoner */
+  --gap-tight: var(--space-2);     /* 8px — innenfor en komponent */
+  --gap-component: var(--space-5); /* 24px — mellom relaterte komponenter */
+  --gap-section: var(--space-8);   /* 48px — mellom seksjoner */
 }
 ```
 
@@ -32,11 +32,13 @@ Lagt til i `:root` (ikke `@theme`, fordi de brukes via eksplisitte `@utility`-bl
 ```css
 :root {
   /* Tettere defaults for SaaS-info-tetthet */
-  --gap-tight: 0.375rem;          /* 6px */
-  --gap-component: 1rem;          /* 16px */
-  --gap-section: var(--spacing-section);
+  --gap-tight: var(--space-1);     /* 4px (ikke 6px) */
+  --gap-component: var(--space-4); /* 16px */
+  --gap-section: var(--space-8);   /* 48px */
 }
 ```
+
+> `--gap-section` peker på `--space-8` (48px) i begge pakker — ikke på `--spacing-section` (den fluid clamp-en er en egen token for seksjons-padding).
 
 ## Delte gap-utilities
 

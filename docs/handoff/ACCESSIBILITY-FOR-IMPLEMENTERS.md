@@ -467,4 +467,4 @@ Example issue title: `[a11y] Button focus indicator invisible on dark background
 
 **License:** MIT  
 **Last Updated:** 2026-06-01  
-**Nordover Version:** 3.0.0 (WCAG 2.1 Level AA)
+**Nordover Version:** 1.2.0 (WCAG 2.1 Level AA)

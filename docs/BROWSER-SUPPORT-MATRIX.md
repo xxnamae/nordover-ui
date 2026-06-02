@@ -1,7 +1,7 @@
 # Nordover Browser Support Matrix
 
-**Framework Version:** 3.0.0  
-**Last Updated:** 2026-06-01  
+**Framework Version:** 1.2.0  
+**Last Updated:** 2026-06-02  
 **Support Status:** Chrome/Safari/Firefox modern versions (past 2 years)
 
 ---
