@@ -61,28 +61,63 @@
     </div>
 
     <div class="app-sidebar-section-group">
-      <button class="app-sidebar-toggle" aria-expanded="true">Komponenter</button>
+      <button class="app-sidebar-toggle" aria-expanded="true">Components</button>
       <nav class="app-nav-group active">
         <a class="app-nav-item" href="#component-api"><strong>API Reference</strong></a>
+      </nav>
+    </div>
+
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="true">Interactive</button>
+      <nav class="app-nav-group active">
         <a class="app-nav-item" href="#buttons"><svg class="icon"><use href="#i-check"/></svg> Buttons</a>
-        <a class="app-nav-item" href="#forms"><svg class="icon"><use href="#i-edit"/></svg> Forms</a>
-        <a class="app-nav-item" href="#icons"><svg class="icon"><use href="#i-sparkles"/></svg> Icons</a>
+        <a class="app-nav-item" href="#forms"><svg class="icon"><use href="#i-edit"/></svg> Forms & Inputs</a>
+        <a class="app-nav-item" href="#complex-forms"><svg class="icon"><use href="#i-edit"/></svg> Complex Forms</a>
+      </nav>
+    </div>
+
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="true">Feedback & Status</button>
+      <nav class="app-nav-group active">
         <a class="app-nav-item" href="#badges"><svg class="icon"><use href="#i-check"/></svg> Badges & Status</a>
         <a class="app-nav-item" href="#alerts"><svg class="icon"><use href="#i-info"/></svg> Alerts</a>
-        <a class="app-nav-item" href="#table"><svg class="icon"><use href="#i-inbox"/></svg> Data Table</a>
+        <a class="app-nav-item" href="#empty-states"><svg class="icon"><use href="#i-info"/></svg> Empty States</a>
+      </nav>
+    </div>
+
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="true">Data Display</button>
+      <nav class="app-nav-group active">
+        <a class="app-nav-item" href="#table"><svg class="icon"><use href="#i-inbox"/></svg> Data Tables</a>
+        <a class="app-nav-item" href="#advanced-tables"><svg class="icon"><use href="#i-chart"/></svg> Advanced Tables</a>
+        <a class="app-nav-item" href="#data-patterns"><svg class="icon"><use href="#i-inbox"/></svg> Data Patterns</a>
         <a class="app-nav-item" href="#pagination"><svg class="icon"><use href="#i-chart"/></svg> Pagination</a>
-        <a class="app-nav-item" href="#layout"><svg class="icon"><use href="#i-chart"/></svg> Primitives</a>
+      </nav>
+    </div>
+
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="true">Pickers & Selection</button>
+      <nav class="app-nav-group active">
         <a class="app-nav-item" href="#date-picker"><svg class="icon"><use href="#i-edit"/></svg> Date Picker</a>
-        <a class="app-nav-item" href="#stepper"><svg class="icon"><use href="#i-check"/></svg> Stepper</a>
+        <a class="app-nav-item" href="#picker-components"><svg class="icon"><use href="#i-edit"/></svg> Pickers</a>
         <a class="app-nav-item" href="#file-upload"><svg class="icon"><use href="#i-copy"/></svg> File Upload</a>
         <a class="app-nav-item" href="#search-bar"><svg class="icon"><use href="#i-search"/></svg> Search Bar</a>
-        <a class="app-nav-item" href="#empty-states"><svg class="icon"><use href="#i-info"/></svg> Empty States</a>
-        <a class="app-nav-item" href="#modal-variants"><svg class="icon"><use href="#i-info"/></svg> Modal Advanced</a>
-        <a class="app-nav-item" href="#advanced-tables"><svg class="icon"><use href="#i-chart"/></svg> Advanced Tables</a>
-        <a class="app-nav-item" href="#complex-forms"><svg class="icon"><use href="#i-edit"/></svg> Complex Forms</a>
-        <a class="app-nav-item" href="#picker-components"><svg class="icon"><use href="#i-edit"/></svg> Pickers</a>
-        <a class="app-nav-item" href="#form-patterns"><svg class="icon"><use href="#i-edit"/></svg> Form Patterns</a>
-        <a class="app-nav-item" href="#data-patterns"><svg class="icon"><use href="#i-inbox"/></svg> Data Display</a>
+      </nav>
+    </div>
+
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="true">Overlays & Modals</button>
+      <nav class="app-nav-group active">
+        <a class="app-nav-item" href="#modal-variants"><svg class="icon"><use href="#i-info"/></svg> Modals</a>
+      </nav>
+    </div>
+
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="true">Progress & Utilities</button>
+      <nav class="app-nav-group active">
+        <a class="app-nav-item" href="#stepper"><svg class="icon"><use href="#i-check"/></svg> Stepper</a>
+        <a class="app-nav-item" href="#icons"><svg class="icon"><use href="#i-sparkles"/></svg> Icons</a>
+        <a class="app-nav-item" href="#layout"><svg class="icon"><use href="#i-chart"/></svg> Primitives</a>
       </nav>
     </div>
 
@@ -449,12 +484,20 @@
         <!-- COMPONENTS SECTION -->
         <!-- ============================================ -->
 
+        <!-- ============================================ -->
+        <!-- COMPONENTS SECTION -->
+        <!-- ============================================ -->
+
         <!-- COMPONENT API REFERENCE -->
         <!-- This section is included from component-api-reference.html -->
         <!-- Load externally to avoid duplication between styleguides -->
         <section class="doc-section" id="component-api" data-section="components" data-category="api-reference">
           <div id="component-api-content"></div>
         </section>
+
+        <!-- ============================================ -->
+        <!-- INTERACTIVE COMPONENTS -->
+        <!-- ============================================ -->
 
         <!-- ============================================ -->
         <!-- INTERACTIVE COMPONENTS -->
@@ -652,6 +695,10 @@
         <!-- DATA DISPLAY COMPONENTS -->
         <!-- ============================================ -->
 
+        <!-- ============================================ -->
+        <!-- DATA DISPLAY COMPONENTS -->
+        <!-- ============================================ -->
+
         <!-- TABLE — Data table with sort and filter -->
         <section class="doc-section" id="table" data-section="components" data-category="data-table">
           <h2 class="doc-section-title">Data Tables</h2>
@@ -825,6 +872,10 @@
             </div>
           </div>
         </section>
+
+        <!-- ============================================ -->
+        <!-- FEEDBACK & STATUS COMPONENTS -->
+        <!-- ============================================ -->
 
         <!-- ============================================ -->
         <!-- FEEDBACK & STATUS COMPONENTS -->
@@ -1011,6 +1062,10 @@
         <!-- PICKERS & SELECTION COMPONENTS -->
         <!-- ============================================ -->
 
+        <!-- ============================================ -->
+        <!-- PICKERS & SELECTION COMPONENTS -->
+        <!-- ============================================ -->
+
         <!-- DATE PICKER — Calendar widget (app variant) -->
         <section class="doc-section" id="date-picker" data-section="components" data-category="date-picker">
           <h2 class="doc-section-title">Date Picker</h2>
@@ -1128,6 +1183,10 @@
             <p class="t-body-sm" style="color:var(--color-muted);margin-top:var(--space-2)">Create your first entry to get started</p>
           </div>
         </section>
+
+        <!-- ============================================ -->
+        <!-- OVERLAYS & MODALS COMPONENTS -->
+        <!-- ============================================ -->
 
         <!-- ============================================ -->
         <!-- OVERLAYS & MODALS COMPONENTS -->
