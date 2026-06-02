@@ -236,7 +236,182 @@
           "value": 0.08,
           "unit": "em"
         }
+      },
+      "display": {
+        "$type": "dimension",
+        "$value": {
+          "value": -0.035,
+          "unit": "em"
+        }
+      },
+      "heading": {
+        "$value": "{font.letterSpacing.tight}"
+      },
+      "title": {
+        "$type": "dimension",
+        "$value": {
+          "value": -0.01,
+          "unit": "em"
+        }
       }
+    }
+  },
+  "misc": {
+    "type-display-size": {
+      "$value": "{font.size.6xl}"
+    },
+    "type-display-leading": {
+      "$value": "{font.lineHeight.tight}"
+    },
+    "type-display-weight": {
+      "$value": "{font.weight.display-lg}"
+    },
+    "type-display-tracking": {
+      "$value": "{font.letterSpacing.display}"
+    },
+    "type-headline-size": {
+      "$value": "{font.size.4xl}"
+    },
+    "type-headline-leading": {
+      "$value": "{font.lineHeight.tight}"
+    },
+    "type-headline-weight": {
+      "$value": "{font.weight.heading-lg}"
+    },
+    "type-headline-tracking": {
+      "$value": "{font.letterSpacing.heading}"
+    },
+    "type-title-size": {
+      "$value": "{font.size.xl}"
+    },
+    "type-title-leading": {
+      "$value": "{font.lineHeight.snug}"
+    },
+    "type-title-weight": {
+      "$value": "{font.weight.heading-sm}"
+    },
+    "type-title-tracking": {
+      "$value": "{font.letterSpacing.title}"
+    },
+    "type-body-size": {
+      "$value": "{font.size.base}"
+    },
+    "type-body-leading": {
+      "$value": "{font.lineHeight.normal}"
+    },
+    "type-body-weight": {
+      "$value": "{font.weight.body}"
+    },
+    "type-body-tracking": {
+      "$value": "{font.letterSpacing.normal}"
+    },
+    "type-label-size": {
+      "$value": "{font.size.sm}"
+    },
+    "type-label-leading": {
+      "$value": "{font.lineHeight.snug}"
+    },
+    "type-label-weight": {
+      "$value": "{font.weight.medium}"
+    },
+    "type-label-tracking": {
+      "$value": "{font.letterSpacing.normal}"
+    },
+    "surface-1": {
+      "$value": "{color.surface}",
+      "$extensions": {
+        "com.nordover.dark": {
+          "$value": "{color.gray.900}"
+        }
+      }
+    },
+    "surface-2": {
+      "$value": "{color.gray.50}",
+      "$extensions": {
+        "com.nordover.dark": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.17,
+              0.004,
+              250.0
+            ]
+          }
+        }
+      }
+    },
+    "surface-3": {
+      "$value": "{color.gray.100}",
+      "$extensions": {
+        "com.nordover.dark": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.21,
+              0.004,
+              250.0
+            ]
+          }
+        }
+      }
+    },
+    "surface-4": {
+      "$value": "{color.surface}",
+      "$extensions": {
+        "com.nordover.dark": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.24,
+              0.004,
+              250.0
+            ]
+          }
+        }
+      }
+    },
+    "surface-5": {
+      "$value": "{color.surface}",
+      "$extensions": {
+        "com.nordover.dark": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.27,
+              0.004,
+              250.0
+            ]
+          }
+        }
+      }
+    },
+    "accent-subtle": {
+      "$type": "other",
+      "$value": "color-mix(in oklch, var(--color-accent) 12%, var(--color-bg))",
+      "$extensions": {
+        "com.nordover.cssText": true,
+        "com.nordover.dark": {
+          "$value": "color-mix(in oklch, var(--color-accent) 12%, var(--color-bg))",
+          "cssText": true
+        }
+      }
+    },
+    "accent-muted": {
+      "$type": "other",
+      "$value": "color-mix(in oklch, var(--color-accent) 30%, var(--color-bg))",
+      "$extensions": {
+        "com.nordover.cssText": true,
+        "com.nordover.dark": {
+          "$value": "color-mix(in oklch, var(--color-accent) 30%, var(--color-bg))",
+          "cssText": true
+        }
+      }
+    },
+    "accent-emphasis": {
+      "$value": "{color.accent}"
+    },
+    "on-accent-subtle": {
+      "$value": "{color.accent}"
     }
   },
   "color": {
@@ -256,7 +431,7 @@
         "$value": {
           "colorSpace": "oklch",
           "components": [
-            0.99,
+            0.985,
             0.004,
             250.0
           ]
@@ -267,7 +442,7 @@
         "$value": {
           "colorSpace": "oklch",
           "components": [
-            0.965,
+            0.96,
             0.004,
             250.0
           ]
@@ -289,7 +464,7 @@
         "$value": {
           "colorSpace": "oklch",
           "components": [
-            0.87,
+            0.865,
             0.004,
             250.0
           ]
@@ -300,7 +475,7 @@
         "$value": {
           "colorSpace": "oklch",
           "components": [
-            0.72,
+            0.7,
             0.004,
             250.0
           ]
@@ -311,7 +486,7 @@
         "$value": {
           "colorSpace": "oklch",
           "components": [
-            0.5,
+            0.52,
             0.004,
             250.0
           ]
@@ -322,7 +497,7 @@
         "$value": {
           "colorSpace": "oklch",
           "components": [
-            0.43,
+            0.435,
             0.004,
             250.0
           ]
@@ -333,7 +508,7 @@
         "$value": {
           "colorSpace": "oklch",
           "components": [
-            0.3,
+            0.33,
             0.004,
             250.0
           ]
@@ -344,7 +519,7 @@
         "$value": {
           "colorSpace": "oklch",
           "components": [
-            0.17,
+            0.22,
             0.004,
             250.0
           ]
@@ -355,7 +530,7 @@
         "$value": {
           "colorSpace": "oklch",
           "components": [
-            0.1,
+            0.13,
             0.004,
             250.0
           ]
@@ -366,7 +541,7 @@
         "$value": {
           "colorSpace": "oklch",
           "components": [
-            0.07,
+            0.08,
             0.004,
             250.0
           ]
@@ -1067,6 +1242,13 @@
         "unit": "px"
       }
     },
+    "3xl": {
+      "$type": "dimension",
+      "$value": {
+        "value": 32.0,
+        "unit": "px"
+      }
+    },
     "full": {
       "$type": "dimension",
       "$value": {
@@ -1167,6 +1349,32 @@
           "cssText": true
         }
       }
+    },
+    "inset": {
+      "$type": "shadow",
+      "$value": "inset 0 1px 2px 0 rgb(0 0 0 / 0.06)",
+      "$extensions": {
+        "com.nordover.cssText": true,
+        "com.nordover.dark": {
+          "$value": "inset 0 1px 2px 0 rgb(0 0 0 / 0.3)",
+          "cssText": true
+        }
+      }
+    },
+    "tooltip": {
+      "$value": "{shadow.sm}"
+    },
+    "popover": {
+      "$value": "{shadow.md}"
+    },
+    "modal": {
+      "$value": "{shadow.lg}"
+    },
+    "drawer": {
+      "$value": "{shadow.xl}"
+    },
+    "card-hover": {
+      "$value": "{shadow.md}"
     }
   },
   "size": {
@@ -1400,6 +1608,13 @@
           0.0,
           1.0
         ]
+      },
+      "spring-physics": {
+        "$type": "other",
+        "$value": "linear(0, 0.006, 0.025 2.8%, 0.101 6.1%, 0.539 18.9%, 0.721, 0.849, 0.937, 0.991, 1.02, 1.03, 1.017, 1.003, 0.998, 1)",
+        "$extensions": {
+          "com.nordover.cssText": true
+        }
       }
     },
     "lift": {

@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Nordover App Framework Styleguide — Production-ready design system with 40+ components, WCAG AA compliant, responsive framework.">
 <title>Nordover — App Styleguide</title>
 <link rel="preconnect" href="https://rsms.me/">
 <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
@@ -13,6 +14,7 @@
 
 </head>
 <body>
+<a href="#main" class="sr-only" style="position: absolute; top: -40px; left: 0; background: var(--color-accent); color: white; padding: 8px; text-decoration: none; z-index: 100;" onmocus="this.style.top='0';" onblur="this.style.top='-40px';">Skip to main content</a>
 <input type="checkbox" id="dark" class="sr-only" checked role="switch" aria-label="Aktiver mørk modus">
 <input type="checkbox" id="nav" class="sr-only" aria-label="Åpne meny">
 
@@ -39,7 +41,14 @@
 
 <div class="app">
   <aside class="app-sidebar">
-    <div class="app-sidebar-brand"><span class="app-sidebar-brand-mark"><svg class="icon icon-sm"><use href="#i-home"/></svg></span> Nordover App</div>
+    <div class="app-sidebar-brand"><span class="app-sidebar-brand-mark"><svg class="icon icon-sm"><use href="#i-home"/></svg></span> <span>Nordover</span> <span class="text-xs" style="opacity: 0.6; margin-left: auto;">v1.1.0</span></div>
+    <div class="app-sidebar-tagline" style="padding: 0 var(--space-2); font-size: var(--text-xs); color: var(--color-muted); margin-bottom: var(--space-3);">App framework</div>
+    <nav class="app-sidebar-meta-links" style="padding: 0 var(--space-2); border-top: 1px solid var(--color-subtle); padding-top: var(--space-2); margin-bottom: var(--space-3);">
+      <a href="https://github.com/xxnamae/nordover-ui" class="app-nav-item" style="font-size: var(--text-xs);">GitHub</a>
+      <a href="https://github.com/xxnamae/nordover-ui/blob/main/CHANGELOG.md" class="app-nav-item" style="font-size: var(--text-xs);">Changelog</a>
+      <a href="https://github.com/xxnamae/nordover-ui/blob/main/docs/COMPONENT-INVENTORY.md" class="app-nav-item" style="font-size: var(--text-xs);">Inventory</a>
+      <a href="https://github.com/xxnamae/nordover-ui/blob/main/docs/BROWSER-SUPPORT-MATRIX.md" class="app-nav-item" style="font-size: var(--text-xs);">Browser Support</a>
+    </nav>
 
     <div class="app-sidebar-section-group">
       <button class="app-sidebar-toggle" aria-expanded="true">Foundation</button>
@@ -52,28 +61,63 @@
     </div>
 
     <div class="app-sidebar-section-group">
-      <button class="app-sidebar-toggle" aria-expanded="true">Komponenter</button>
+      <button class="app-sidebar-toggle" aria-expanded="true">Components</button>
       <nav class="app-nav-group active">
         <a class="app-nav-item" href="#component-api"><strong>API Reference</strong></a>
+      </nav>
+    </div>
+
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="true">Interactive</button>
+      <nav class="app-nav-group active">
         <a class="app-nav-item" href="#buttons"><svg class="icon"><use href="#i-check"/></svg> Buttons</a>
-        <a class="app-nav-item" href="#forms"><svg class="icon"><use href="#i-edit"/></svg> Forms</a>
-        <a class="app-nav-item" href="#icons"><svg class="icon"><use href="#i-sparkles"/></svg> Icons</a>
+        <a class="app-nav-item" href="#forms"><svg class="icon"><use href="#i-edit"/></svg> Forms & Inputs</a>
+        <a class="app-nav-item" href="#complex-forms"><svg class="icon"><use href="#i-edit"/></svg> Complex Forms</a>
+      </nav>
+    </div>
+
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="true">Feedback & Status</button>
+      <nav class="app-nav-group active">
         <a class="app-nav-item" href="#badges"><svg class="icon"><use href="#i-check"/></svg> Badges & Status</a>
         <a class="app-nav-item" href="#alerts"><svg class="icon"><use href="#i-info"/></svg> Alerts</a>
-        <a class="app-nav-item" href="#table"><svg class="icon"><use href="#i-inbox"/></svg> Data Table</a>
+        <a class="app-nav-item" href="#empty-states"><svg class="icon"><use href="#i-info"/></svg> Empty States</a>
+      </nav>
+    </div>
+
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="true">Data Display</button>
+      <nav class="app-nav-group active">
+        <a class="app-nav-item" href="#table"><svg class="icon"><use href="#i-inbox"/></svg> Data Tables</a>
+        <a class="app-nav-item" href="#advanced-tables"><svg class="icon"><use href="#i-chart"/></svg> Advanced Tables</a>
+        <a class="app-nav-item" href="#data-patterns"><svg class="icon"><use href="#i-inbox"/></svg> Data Patterns</a>
         <a class="app-nav-item" href="#pagination"><svg class="icon"><use href="#i-chart"/></svg> Pagination</a>
-        <a class="app-nav-item" href="#layout"><svg class="icon"><use href="#i-chart"/></svg> Primitives</a>
+      </nav>
+    </div>
+
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="true">Pickers & Selection</button>
+      <nav class="app-nav-group active">
         <a class="app-nav-item" href="#date-picker"><svg class="icon"><use href="#i-edit"/></svg> Date Picker</a>
-        <a class="app-nav-item" href="#stepper"><svg class="icon"><use href="#i-check"/></svg> Stepper</a>
+        <a class="app-nav-item" href="#picker-components"><svg class="icon"><use href="#i-edit"/></svg> Pickers</a>
         <a class="app-nav-item" href="#file-upload"><svg class="icon"><use href="#i-copy"/></svg> File Upload</a>
         <a class="app-nav-item" href="#search-bar"><svg class="icon"><use href="#i-search"/></svg> Search Bar</a>
-        <a class="app-nav-item" href="#empty-states"><svg class="icon"><use href="#i-info"/></svg> Empty States</a>
-        <a class="app-nav-item" href="#modal-variants"><svg class="icon"><use href="#i-info"/></svg> Modal Advanced</a>
-        <a class="app-nav-item" href="#advanced-tables"><svg class="icon"><use href="#i-chart"/></svg> Advanced Tables</a>
-        <a class="app-nav-item" href="#complex-forms"><svg class="icon"><use href="#i-edit"/></svg> Complex Forms</a>
-        <a class="app-nav-item" href="#picker-components"><svg class="icon"><use href="#i-edit"/></svg> Pickers</a>
-        <a class="app-nav-item" href="#form-patterns"><svg class="icon"><use href="#i-edit"/></svg> Form Patterns</a>
-        <a class="app-nav-item" href="#data-patterns"><svg class="icon"><use href="#i-inbox"/></svg> Data Display</a>
+      </nav>
+    </div>
+
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="true">Overlays & Modals</button>
+      <nav class="app-nav-group active">
+        <a class="app-nav-item" href="#modal-variants"><svg class="icon"><use href="#i-info"/></svg> Modals</a>
+      </nav>
+    </div>
+
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="true">Progress & Utilities</button>
+      <nav class="app-nav-group active">
+        <a class="app-nav-item" href="#stepper"><svg class="icon"><use href="#i-check"/></svg> Stepper</a>
+        <a class="app-nav-item" href="#icons"><svg class="icon"><use href="#i-sparkles"/></svg> Icons</a>
+        <a class="app-nav-item" href="#layout"><svg class="icon"><use href="#i-chart"/></svg> Primitives</a>
       </nav>
     </div>
 
@@ -116,13 +160,29 @@
       <label class="theme-toggle" for="dark" aria-label="Aktiver mørk modus"><svg class="icon t-moon"><use href="#i-moon"/></svg><svg class="icon t-sun"><use href="#i-sun"/></svg></label>
     </header>
 
-    <main class="app-content">
+    <main id="main" class="app-content">
       <div class="app-content-inner">
         <div class="doc-hero">
           <p class="doc-hero-eyebrow">Nordover · App Framework</p>
           <h1 class="doc-hero-title">App Styleguide</h1>
           <p class="doc-hero-desc">Komplett komponentbibliotek for applikasjoner. Tactile knapper, kompakt 14px-base, dark mode default. WCAG AA accessible, motion-respecting. Toggle tema oppe til høyre.</p>
+          <div style="margin-top: var(--space-3); display: flex; gap: var(--space-2); flex-wrap: wrap;">
+            <span class="badge badge-success" title="All components fully tested">✓ Complete</span>
+            <span class="badge badge-info" title="WCAG AA compliance verified">Accessible</span>
+            <span class="badge badge-info" title="Optimized for compact interfaces">Compact</span>
+            <span class="badge badge-info" title="Touch-optimized for mobile">Touch-Ready</span>
+          </div>
         </div>
+        <section class="quick-links-section">
+          <h2 class="quick-links-title">Quick Links</h2>
+          <div class="quick-links-grid">
+            <a href="https://github.com/xxnamae/nordover-ui/blob/main/CHANGELOG.md" class="quick-link-btn" title="View latest changes and releases">Changelog</a>
+            <a href="https://github.com/xxnamae/nordover-ui/blob/main/docs/COMPONENT-INVENTORY.md" class="quick-link-btn" title="Complete component inventory and status">Inventory</a>
+            <a href="https://github.com/xxnamae/nordover-ui/blob/main/docs/BROWSER-SUPPORT-MATRIX.md" class="quick-link-btn" title="Browser and platform support matrix">Browser Support</a>
+            <a href="https://github.com/xxnamae/nordover-ui/issues" class="quick-link-btn" title="Report issues or request features">Issues</a>
+          </div>
+        </section>
+
 
         <!-- COLORS — Foundation tokens -->
         <section class="doc-section" id="colors" data-section="foundation" data-category="colors">
@@ -420,6 +480,14 @@
           </div>
         </section>
 
+        <!-- ============================================ -->
+        <!-- COMPONENTS SECTION -->
+        <!-- ============================================ -->
+
+        <!-- ============================================ -->
+        <!-- COMPONENTS SECTION -->
+        <!-- ============================================ -->
+
         <!-- COMPONENT API REFERENCE -->
         <!-- This section is included from component-api-reference.html -->
         <!-- Load externally to avoid duplication between styleguides -->
@@ -427,9 +495,21 @@
           <div id="component-api-content"></div>
         </section>
 
+        <!-- ============================================ -->
+        <!-- INTERACTIVE COMPONENTS -->
+        <!-- ============================================ -->
+
+        <!-- ============================================ -->
+        <!-- INTERACTIVE COMPONENTS -->
+        <!-- ============================================ -->
+
         <!-- BUTTONS — Interactive CTAs with variants -->
         <section class="doc-section" id="buttons" data-section="components" data-category="buttons">
           <h2 class="doc-section-title">Buttons</h2>
+          <div class="component-metadata" data-status="complete" data-platforms="web,app">
+            <span class="metadata-status">✓ Complete</span>
+            <span class="metadata-platform">Available: Web & App</span>
+          </div>
           <p class="doc-section-desc">Tactile, touchable buttons for app interfaces. 5 variants × 3 sizes. Dark mode default, light mode supported.</p>
           <div class="chips"><span class="chip">.btn</span><span class="chip">.btn-primary</span><span class="chip">.btn-sm</span></div>
 
@@ -611,6 +691,14 @@
           </div>
         </section>
 
+        <!-- ============================================ -->
+        <!-- DATA DISPLAY COMPONENTS -->
+        <!-- ============================================ -->
+
+        <!-- ============================================ -->
+        <!-- DATA DISPLAY COMPONENTS -->
+        <!-- ============================================ -->
+
         <!-- TABLE — Data table with sort and filter -->
         <section class="doc-section" id="table" data-section="components" data-category="data-table">
           <h2 class="doc-section-title">Data Tables</h2>
@@ -784,6 +872,14 @@
             </div>
           </div>
         </section>
+
+        <!-- ============================================ -->
+        <!-- FEEDBACK & STATUS COMPONENTS -->
+        <!-- ============================================ -->
+
+        <!-- ============================================ -->
+        <!-- FEEDBACK & STATUS COMPONENTS -->
+        <!-- ============================================ -->
 
         <!-- BADGES — Status indicators with colors -->
         <section class="doc-section" id="badges" data-section="components" data-category="badges">
@@ -962,6 +1058,14 @@
           </div>
         </section>
 
+        <!-- ============================================ -->
+        <!-- PICKERS & SELECTION COMPONENTS -->
+        <!-- ============================================ -->
+
+        <!-- ============================================ -->
+        <!-- PICKERS & SELECTION COMPONENTS -->
+        <!-- ============================================ -->
+
         <!-- DATE PICKER — Calendar widget (app variant) -->
         <section class="doc-section" id="date-picker" data-section="components" data-category="date-picker">
           <h2 class="doc-section-title">Date Picker</h2>
@@ -1080,6 +1184,13 @@
           </div>
         </section>
 
+        <!-- ============================================ -->
+        <!-- OVERLAYS & MODALS COMPONENTS -->
+        <!-- ============================================ -->
+
+        <!-- ============================================ -->
+        <!-- OVERLAYS & MODALS COMPONENTS -->
+        <!-- ============================================ -->
 
         <!-- MODAL DIALOG SYSTEM — Advanced modals with variants -->
         <section class="doc-section" id="modal-variants" data-section="components" data-category="modals">
@@ -3690,7 +3801,59 @@ function validate(e) {
           Nordover App Styleguide · Production · 2026-05-30<br>Using canonical CSS framework (tokens-app.css + components-app.css)
         </footer>
       </div>
-    </main>
+    
+        <!-- STYLEGUIDE FOOTER — Meta information and support links -->
+        <footer class="styleguide-footer">
+          <div class="footer-section">
+            <h3 class="footer-section-title">About Nordover</h3>
+            <p style="color: var(--color-muted); font-size: var(--text-sm); line-height: 1.6; margin-bottom: 0;">
+              Nordover is a universal, production-ready design system — a foundation for all applications and websites.
+              Built on Nordic minimalism with Apple HIG inspiration and Linear-like SaaS density reference.
+            </p>
+          </div>
+
+          <div class="footer-section">
+            <h3 class="footer-section-title">Framework Resources</h3>
+            <div class="footer-links">
+              <a href="https://github.com/xxnamae/nordover-ui" class="footer-link">GitHub Repository</a>
+              <a href="https://github.com/xxnamae/nordover-ui/blob/main/CHANGELOG.md" class="footer-link">Changelog</a>
+              <a href="https://github.com/xxnamae/nordover-ui/blob/main/docs/COMPONENT-INVENTORY.md" class="footer-link">Component Inventory</a>
+              <a href="https://github.com/xxnamae/nordover-ui/blob/main/docs/BROWSER-SUPPORT-MATRIX.md" class="footer-link">Browser Support</a>
+              <a href="https://github.com/xxnamae/nordover-ui/issues" class="footer-link">Issue Tracker</a>
+              <a href="https://github.com/xxnamae/nordover-ui/blob/main/LICENSE" class="footer-link">License (MIT)</a>
+            </div>
+          </div>
+
+          <div class="footer-section">
+            <h3 class="footer-section-title">Framework Information</h3>
+            <div class="footer-meta">
+              <div class="footer-meta-item">
+                <span class="footer-meta-label">Current Version</span>
+                <span class="footer-meta-value">1.1.0</span>
+              </div>
+              <div class="footer-meta-item">
+                <span class="footer-meta-label">Last Updated</span>
+                <span class="footer-meta-value">2026-06-02</span>
+              </div>
+              <div class="footer-meta-item">
+                <span class="footer-meta-label">WCAG Compliance</span>
+                <span class="footer-meta-value">Level AA</span>
+              </div>
+              <div class="footer-meta-item">
+                <span class="footer-meta-label">License</span>
+                <span class="footer-meta-value">MIT</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-copyright">
+            <p style="margin: 0;">
+              Nordover is a universal design system foundation.
+              <a href="https://github.com/xxnamae/nordover-ui" style="color: var(--color-accent); text-decoration: none;">View on GitHub</a>
+            </p>
+          </div>
+        </footer>
+</main>
 
     <footer role="contentinfo" style="padding: var(--space-6); border-top: 1px solid var(--color-border); margin-top: var(--space-8); color: var(--color-muted);">
       <p style="font-size: var(--text-sm);">© 2026 Nordover Design System. MIT Licensed. <a href="https://github.com/xxnamae/nordover-ui" style="color: var(--color-accent);">View on GitHub</a></p>

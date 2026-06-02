@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-06-02
+
+### Added
+- `docs/handoff/AGENT-QUICKSTART.md` — action-oriented setup guide for consuming projects (app & website), written for Claude agents. Includes npm install recipe, app/web decision table, brand-layer pattern, and a CLAUDE.md block to paste into new projects.
+- Link to Agent Quickstart from handoff README
+
 ## [1.0.0] - 2026-06-02
 
 ### Added
