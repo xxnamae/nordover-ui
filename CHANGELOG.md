@@ -7,6 +7,51 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-06-02
+
+World-class visual upgrade across the entire system (tokens, components,
+styleguides), benchmarked against Apple HIG, Material Design 3, Linear and
+Fluent. No breaking changes — all additions are additive or value tweaks
+within WCAG AA limits. Class and token names remain public contracts.
+
+### Added
+- **Dark-mode tonal surface elevation** (`--surface-1..5`) — surfaces lighten
+  with elevation in dark mode (Material 3 parity). The single biggest dark-mode
+  quality lift. Mirrored web + app.
+- **Semantic shadow aliases**: `--shadow-inset/-tooltip/-popover/-modal/-drawer/-card-hover`
+- **Accent tier**: `--accent-subtle/-muted/-emphasis/--on-accent-subtle`
+- **Type-role tokens**: `--type-{display,headline,title,body,label}-{size,leading,weight,tracking}`
+  plus `--tracking-display/-heading/-title` (Apple/M3 parity, native-mapping ready)
+- `--radius-3xl` (32px web / 24px app), `--ease-spring-physics` (real spring via `linear()`)
+- App: finkalibrerte variable-font weights for parity with web
+- **New button variants**: `.btn-destructive` (app tactile w/ error hue, web flat),
+  `.btn-tonal` (accent-subtle tinted)
+- **New components** (built from spec, mirrored web + app, documented in styleguides):
+  Card family (`.card` + variants + header/title/meta/footer), Tabs, Avatar (+ group),
+  Tooltip, Menu/Dropdown, Toast, Kbd, Skeleton, standalone Tag variants
+
+### Changed
+- Grayscale L-axis perceptually evened (WCAG verified: `--color-muted` holds AA)
+- Web form controls (checkbox/radio/toggle/switch) now custom-styled (were native)
+- Badges → borderless tinted pills, mirrored web↔app
+- Tables → sticky header, zebra, tabular-nums numeric cells, row selection
+- Modal → backdrop blur + scale-in animation (reduced-motion guarded)
+- Unified `:focus-visible` rings using `--color-focus`
+- Elevated components (modal, drawer, popovers, app cards) use `--surface-*` for dark elevation
+- Wiki docs synced to CSS truth (motion, elevation, colors, layout, spacing)
+
+### Fixed
+- Web `.btn-sm` now actually small (removed 44px min-height floor)
+- Removed dead duplicate `.data-table` definition in web
+- App form controls gained disabled + hover states; mobile 44px touch targets
+- App `.app-nav-item` active state (`[aria-current]`)
+- Stray `</div>` in styleguide form fieldsets (HTML validity)
+
+### Decisions
+- ADR: Verdensklasse token-oppgradering
+- ADR: Nye komponenter, knappevarianter og web-flat-beslutning (web stays flat
+  editorial, app stays tactile — deliberate, documented divergence)
+
 ## [1.1.0] - 2026-06-02
 
 ### Added
