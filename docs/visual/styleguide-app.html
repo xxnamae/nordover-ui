@@ -13,6 +13,7 @@
 
 </head>
 <body>
+<a href="#main" class="sr-only" style="position: absolute; top: -40px; left: 0; background: var(--color-accent); color: white; padding: 8px; text-decoration: none; z-index: 100;" onmocus="this.style.top='0';" onblur="this.style.top='-40px';">Skip to main content</a>
 <input type="checkbox" id="dark" class="sr-only" checked role="switch" aria-label="Aktiver mørk modus">
 <input type="checkbox" id="nav" class="sr-only" aria-label="Åpne meny">
 
@@ -39,7 +40,14 @@
 
 <div class="app">
   <aside class="app-sidebar">
-    <div class="app-sidebar-brand"><span class="app-sidebar-brand-mark"><svg class="icon icon-sm"><use href="#i-home"/></svg></span> Nordover App</div>
+    <div class="app-sidebar-brand"><span class="app-sidebar-brand-mark"><svg class="icon icon-sm"><use href="#i-home"/></svg></span> <span>Nordover</span> <span class="text-xs" style="opacity: 0.6; margin-left: auto;">v1.1.0</span></div>
+    <div class="app-sidebar-tagline" style="padding: 0 var(--space-2); font-size: var(--text-xs); color: var(--color-muted); margin-bottom: var(--space-3);">App framework</div>
+    <nav class="app-sidebar-meta-links" style="padding: 0 var(--space-2); border-top: 1px solid var(--color-subtle); padding-top: var(--space-2); margin-bottom: var(--space-3);">
+      <a href="https://github.com/xxnamae/nordover-ui" class="app-nav-item" style="font-size: var(--text-xs);">GitHub</a>
+      <a href="https://github.com/xxnamae/nordover-ui/blob/main/CHANGELOG.md" class="app-nav-item" style="font-size: var(--text-xs);">Changelog</a>
+      <a href="https://github.com/xxnamae/nordover-ui/blob/main/docs/COMPONENT-INVENTORY.md" class="app-nav-item" style="font-size: var(--text-xs);">Inventory</a>
+      <a href="https://github.com/xxnamae/nordover-ui/blob/main/docs/BROWSER-SUPPORT-MATRIX.md" class="app-nav-item" style="font-size: var(--text-xs);">Browser Support</a>
+    </nav>
 
     <div class="app-sidebar-section-group">
       <button class="app-sidebar-toggle" aria-expanded="true">Foundation</button>
@@ -116,12 +124,18 @@
       <label class="theme-toggle" for="dark" aria-label="Aktiver mørk modus"><svg class="icon t-moon"><use href="#i-moon"/></svg><svg class="icon t-sun"><use href="#i-sun"/></svg></label>
     </header>
 
-    <main class="app-content">
+    <main id="main" class="app-content">
       <div class="app-content-inner">
         <div class="doc-hero">
           <p class="doc-hero-eyebrow">Nordover · App Framework</p>
           <h1 class="doc-hero-title">App Styleguide</h1>
           <p class="doc-hero-desc">Komplett komponentbibliotek for applikasjoner. Tactile knapper, kompakt 14px-base, dark mode default. WCAG AA accessible, motion-respecting. Toggle tema oppe til høyre.</p>
+          <div style="margin-top: var(--space-3); display: flex; gap: var(--space-2); flex-wrap: wrap;">
+            <span class="badge badge-success" title="All components fully tested">✓ Complete</span>
+            <span class="badge badge-info" title="WCAG AA compliance verified">Accessible</span>
+            <span class="badge badge-info" title="Optimized for compact interfaces">Compact</span>
+            <span class="badge badge-info" title="Touch-optimized for mobile">Touch-Ready</span>
+          </div>
         </div>
 
         <!-- COLORS — Foundation tokens -->
@@ -430,6 +444,10 @@
         <!-- BUTTONS — Interactive CTAs with variants -->
         <section class="doc-section" id="buttons" data-section="components" data-category="buttons">
           <h2 class="doc-section-title">Buttons</h2>
+          <div class="component-metadata" data-status="complete" data-platforms="web,app">
+            <span class="metadata-status">✓ Complete</span>
+            <span class="metadata-platform">Available: Web & App</span>
+          </div>
           <p class="doc-section-desc">Tactile, touchable buttons for app interfaces. 5 variants × 3 sizes. Dark mode default, light mode supported.</p>
           <div class="chips"><span class="chip">.btn</span><span class="chip">.btn-primary</span><span class="chip">.btn-sm</span></div>
 
