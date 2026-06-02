@@ -40,7 +40,7 @@
     line-gap-override: 0%;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { -webkit-text-size-adjust: 100%; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
   body {
     font-family: var(--font-sans);
     font-size: var(--text-base);
@@ -107,6 +107,7 @@
     --text-6xl: clamp(3.25rem, 2.54rem + 3.57vw, 5.75rem);
     --text-7xl: clamp(3.75rem, 2.68rem + 5.36vw, 7.5rem);
     --text-8xl: clamp(4.5rem, 2.93rem + 7.86vw, 10rem);
+    --text-9xl: clamp(4.25rem, 1.8rem + 11vw, 7.5rem);  /* hero display-2xl (mobile-safe min, capped at 120px for readability) */
 
     /* === Finkalibrerte vekter (variable font) === */
     --fw-display-xl: 380; --fw-display-lg: 400; --fw-display-md: 420;
@@ -137,8 +138,8 @@
     --gray-950: oklch(0.07  var(--neutral-c) var(--neutral-h));
 
     /* === Semantiske farger (LIGHT default — editorial, accent svart) === */
-    --color-bg: #FFFFFF;
-    --color-surface: #FFFFFF;
+    --color-bg: oklch(1 0 0);
+    --color-surface: oklch(1 0 0);
     --color-fg: var(--gray-900);
     --color-muted: var(--gray-500);
     --color-subtle: var(--gray-100);
@@ -147,7 +148,7 @@
     --color-accent-fg: var(--gray-50);
     --color-accent-hover: color-mix(in oklch, var(--color-accent) 85%, white);
     --color-accent-active: color-mix(in oklch, var(--color-accent) 70%, white);
-    --color-focus: #0066FF;
+    --color-focus: oklch(0.50 0.28 260);
     --color-backdrop: color-mix(in oklch, var(--color-fg) 50%, transparent);
 
     /* === Semantiske tripletter (subtle / base / strong) === */
@@ -195,7 +196,7 @@
 
     /* === Radius (px — dekorativt, skal ikke skalere med tekst) === */
     --radius-xs: 2px; --radius-sm: 4px; --radius-md: 8px; --radius-lg: 12px;
-    --radius-xl: 20px; --radius-2xl: 28px; --radius-full: 9999px;
+    --radius-xl: 16px; --radius-2xl: 24px; --radius-full: 9999px;
 
     /* === Border-width (px) === */
     --bw-hairline: 0.5px; --bw-thin: 1px; --bw-medium: 2px;
@@ -295,7 +296,7 @@
     --color-accent-fg: var(--gray-950);
     --color-accent-hover: color-mix(in oklch, var(--color-accent) 85%, black);
     --color-accent-active: color-mix(in oklch, var(--color-accent) 70%, black);
-    --color-focus: #4D8DFF;
+    --color-focus: oklch(0.60 0.20 260);
     --color-backdrop: color-mix(in oklch, var(--color-fg) 50%, transparent);
 
     /* Funksjonelle farger lysere i dark for kontrast */

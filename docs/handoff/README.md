@@ -1,8 +1,27 @@
-# Nordover — handoff for implementerings-agenter
+# Nordover Design System — Implementation Handoff
 
-> **Du som leser dette:** Du er en Claude Code-agent (eller utvikler) som skal bruke **Nordover-rammeverket** i et prosjekt. Denne fila er din kanoniske inngang. Den er **produkt-agnostisk** — den forklarer hvordan rammeverket konsumeres, ikke hva du skal bygge med det. Det vet du allerede.
+> **For implementers:** This directory contains comprehensive guides for integrating Nordover into any project. Nordover is a production-perfect, pure CSS design system with 41 components, WCAG 2.1 AA compliance, and dark mode support.
 
-## Hvordan du leser rammeverket (uansett hvor du jobber)
+**In Norwegian:** Hvis du snakker Norsk, se `docs/handoff/README-NO.md` for introduksjon på Bokmål.
+
+## Start Here: Implementation Guides
+
+We've created three comprehensive guides for different needs:
+
+### 1. **Framework Integration Guide** (`FRAMEWORK-INTEGRATION.md`)
+Start here for any framework setup. Covers React, Vue, Svelte, Web Components, Next.js, and more. Includes dark mode, customization, and common patterns.
+
+### 2. **CSS-in-JS Integration Guide** (`CSS-IN-JS-INTEGRATION.md`)
+If you're using Emotion, Styled Components, CSS Modules, or Vanilla Extract, this guide shows how to combine them with Nordover.
+
+### 3. **Accessibility for Implementers** (`ACCESSIBILITY-FOR-IMPLEMENTERS.md`)
+Essential guide for building accessible applications. Covers semantic HTML, ARIA, testing, and how to maintain WCAG 2.1 AA compliance.
+
+---
+
+## Legacy Documentation (Norsk)
+
+Gamle handoff-dokumentasjon på Bokmål
 
 `xxnamae/nordover-ui` er et **public** GitHub-repo (MIT-lisensiert). Du trenger ingen MCP-tilgang, ingen clone, ingen scope-utvidelse. Bruk innebygd `WebFetch` mot raw-URL-er:
 

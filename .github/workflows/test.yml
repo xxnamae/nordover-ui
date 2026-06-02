@@ -17,3 +17,14 @@ jobs:
         run: |
           echo "✓ Testing framework ready"
           echo "Manual tests documented in TESTING.md"
+
+  tokens:
+    name: Design Tokens (DTCG JSON in sync with CSS)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Verify token JSON matches CSS source
+        run: python3 scripts/build_tokens.py --check

@@ -4,12 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nordover — Design System for Nordic Web & Apps</title>
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
   <link rel="stylesheet" href="docs/visual/tokens/tokens-web.css">
   <link rel="stylesheet" href="docs/visual/components/components-web.css">
   <style>
     @layer components {
-      .nav { display: flex; align-items: center; justify-content: space-between; padding: var(--space-5) var(--page-padding); border-bottom: var(--border-divider); }
-      .nav-brand { font-size: var(--text-lg); font-weight: var(--fw-semibold); }
+      .nav { display: flex; align-items: center; justify-content: space-between; padding: var(--space-4) var(--page-padding); border-bottom: var(--border-divider); background: color-mix(in oklch, var(--color-bg) 98%, transparent); }
+      .nav-brand { font-size: var(--text-lg); font-weight: var(--fw-semibold); letter-spacing: -0.02em; }
       .nav-links { display: flex; gap: var(--space-5); align-items: center; }
       @media (max-width: 640px) {
         .nav-links { gap: var(--space-3); }
@@ -18,9 +20,61 @@
     }
     @layer brand {
       body { max-height: 100vh; overflow-y: auto; }
-      main { padding: var(--page-padding) 0; }
+      main { padding: 0; }
       section { padding: var(--spacing-section) var(--page-padding); }
       .section-inner { max-width: 72rem; margin: 0 auto; }
+
+      /* Hero — uses the system .hero-centered component full-bleed so its
+         built-in radial glow spans the full width. No page-level gradient or
+         section-inner wrapper (that confined the glow into a centred box). */
+      .hero { padding: 0; }
+      .hero h1 { margin: var(--space-4) 0 var(--space-5); }
+      .hero-sub { color: var(--color-muted); max-width: 52ch; margin-inline: auto; }
+      .hero-stats {
+        list-style: none; display: flex; flex-wrap: wrap;
+        justify-content: center; gap: var(--space-4) var(--space-7);
+        margin-top: var(--space-10);
+      }
+      .hero-stats li {
+        display: inline-flex; align-items: baseline; gap: var(--space-2);
+        color: var(--color-muted); font-size: var(--text-sm);
+      }
+      .hero-stats strong {
+        color: var(--color-fg); font-weight: var(--fw-semibold);
+        font-size: var(--text-base);
+      }
+
+      /* Feature cards — landing page brand polish (gradient hairline border) */
+      .feature-card {
+        background:
+          linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
+          linear-gradient(150deg, color-mix(in oklch, var(--color-border) 70%, var(--color-fg)), var(--color-border) 60%) border-box;
+      }
+      .feature-card:hover {
+        background:
+          linear-gradient(var(--color-subtle), var(--color-subtle)) padding-box,
+          linear-gradient(150deg, var(--color-accent), color-mix(in oklch, var(--color-accent) 45%, var(--color-bg)) 70%) border-box;
+      }
+      .feature-card-icon { color: var(--color-accent); margin-bottom: var(--space-6); }
+      .feature-card h3 { color: var(--color-fg); font-weight: var(--fw-semibold); }
+      .feature-card p { color: var(--color-muted); }
+
+      /* Footer — grid and link styling */
+      .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-8); }
+      .footer-col-title { font-weight: var(--fw-semibold); margin-bottom: var(--space-3); color: var(--color-fg); }
+      .footer-link { display: block; color: var(--color-muted); text-decoration: none; margin-bottom: var(--space-2); transition: color var(--duration-fast); }
+      .footer-link:hover { color: var(--color-fg); }
+
+      /* Section heading accents */
+      h2.t-heading-lg { color: var(--color-fg); letter-spacing: -0.01em; }
+
+      /* Theme toggle styling */
+      .theme-toggle { cursor: pointer; display: flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; border-radius: var(--radius-full); border: none; background: transparent; transition: background-color var(--duration-fast); }
+      .theme-toggle:hover { background-color: var(--color-subtle); }
+      .theme-toggle svg { width: 1.25rem; height: 1.25rem; }
+      .theme-toggle .t-sun { display: none; }
+      :root:has(#dark:checked) .theme-toggle .t-sun { display: block; }
+      :root:has(#dark:checked) .theme-toggle .t-moon { display: none; }
     }
   </style>
 </head>
@@ -49,19 +103,24 @@
 
   <main>
     <!-- Hero Section -->
-    <section style="padding: clamp(var(--space-16), 20vw, var(--space-24)) var(--page-padding);">
-      <div class="section-inner">
-        <div class="hero-centered">
-          <p class="t-eyebrow">Designsystem for nordiske nettsider og apper</p>
-          <h1 class="t-display-lg" style="margin: var(--space-5) 0;">Nordover</h1>
-          <p class="t-body-lg" style="color: var(--color-muted); max-width: 50ch; margin: 0 auto;">
-            Et komplett CSS-rammeverk og komponentbibliotek. Skandinavisk minimalisme, fluid typografi, full kontroll over tema og brand.
-          </p>
-          <div class="cluster" style="margin-top: var(--space-8); justify-content: center;">
-            <a href="#styleguides" class="btn btn-primary">Utforsk styleguides</a>
-            <a href="https://github.com/xxnamae/nordover-ui" class="btn btn-secondary">GitHub</a>
-          </div>
+    <section class="hero">
+      <div class="hero-centered">
+        <p class="t-eyebrow">Designsystem for nordiske nettsider og apper</p>
+        <h1 class="t-display-2xl">Nordover</h1>
+        <p class="t-body-lg hero-sub">
+          Et komplett CSS-rammeverk og komponentbibliotek. Skandinavisk minimalisme, fluid typografi, full kontroll over tema og brand.
+        </p>
+        <div class="cluster" style="margin-top: var(--space-8); justify-content: center;">
+          <a href="#styleguides" class="btn btn-primary">Utforsk styleguides</a>
+          <a href="https://github.com/xxnamae/nordover-ui" class="btn btn-secondary">GitHub</a>
         </div>
+        <ul class="hero-stats">
+          <li><strong>40+</strong> komponenter</li>
+          <li><strong>WCAG AA</strong> tilgjengelig</li>
+          <li><strong>Lys + Mørk</strong> innebygd</li>
+          <li><strong>Web + App</strong> pakker</li>
+          <li><strong>MIT</strong> lisensiert</li>
+        </ul>
       </div>
     </section>
 
@@ -172,8 +231,8 @@
     <section style="background: var(--color-subtle);">
       <div class="section-inner">
         <div class="cta-card">
-          <h2 class="t-heading-lg" style="margin-bottom: var(--space-3);">Klar til å komme i gang?</h2>
-          <p class="t-body-lg" style="color: var(--color-muted); margin-bottom: var(--space-6); max-width: 50ch; margin-left: auto; margin-right: auto;">
+          <h2 class="t-display-md" style="margin-bottom: var(--space-4);">Klar til å komme i gang?</h2>
+          <p class="t-body-lg" style="color: var(--color-fg); font-size: var(--text-lg); margin-bottom: var(--space-7); max-width: 50ch; margin-left: auto; margin-right: auto;">
             Les implementørguidansen og se hvordan du integrerer Nordover i ditt prosjekt.
           </p>
           <div class="cluster" style="justify-content: center;">
