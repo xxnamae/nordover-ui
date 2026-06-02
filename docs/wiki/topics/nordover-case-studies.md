@@ -1,8 +1,8 @@
 # Nordover Design System — Real-World Case Studies
 
-**Version:** 3.0.0  
-**Status:** Internal Implementation Examples  
-**Date:** 2026-06-01
+**Version:** 1.2.0  
+**Status:** Implementation Examples  
+**Date:** 2026-06-02
 
 ---
 
