@@ -131,6 +131,13 @@
         <a class="app-nav-item" href="#overlays"><svg class="icon"><use href="#i-info"/></svg> Modals</a>
         <a class="app-nav-item" href="#accordion"><svg class="icon"><use href="#i-edit"/></svg> Accordion</a>
         <a class="app-nav-item" href="#tags"><svg class="icon"><use href="#i-check"/></svg> Tags & Badges</a>
+        <a class="app-nav-item" href="#tabs"><svg class="icon"><use href="#i-folder"/></svg> Tabs</a>
+        <a class="app-nav-item" href="#avatars"><svg class="icon"><use href="#i-users"/></svg> Avatar</a>
+        <a class="app-nav-item" href="#tooltip"><svg class="icon"><use href="#i-info"/></svg> Tooltip</a>
+        <a class="app-nav-item" href="#menu"><svg class="icon"><use href="#i-menu"/></svg> Menu / Dropdown</a>
+        <a class="app-nav-item" href="#toast"><svg class="icon"><use href="#i-info"/></svg> Toast</a>
+        <a class="app-nav-item" href="#kbd"><svg class="icon"><use href="#i-edit"/></svg> Keyboard (Kbd)</a>
+        <a class="app-nav-item" href="#skeleton"><svg class="icon"><use href="#i-chart"/></svg> Skeleton</a>
         <a class="app-nav-item" href="#form-patterns"><svg class="icon"><use href="#i-edit"/></svg> Form Patterns</a>
         <a class="app-nav-item" href="#dashboard-pattern"><svg class="icon"><use href="#i-chart"/></svg> Dashboard</a>
         <a class="app-nav-item" href="#footers-app"><svg class="icon"><use href="#i-info"/></svg> Footers & Layout</a>
@@ -540,6 +547,28 @@
             <button class="btn btn-primary btn-lg">Large</button>
           </div>
 
+          <div class="doc-sub">Destructive & Tonal Variants</div>
+          <div class="chips"><span class="chip">.btn-destructive</span><span class="chip">.btn-tonal</span></div>
+          <p class="t-body-sm text-muted mb-2">Tactile destructive-knapp med error-hue for slett/avbryt-handlinger. Tonal-knapp er en dempet aksent-fylt mellomvariant mellom primary og secondary.</p>
+          <div class="component-states">
+            <div class="state-item">
+              <button class="btn btn-primary">Primary</button>
+              <span class="state-label">Primary</span>
+            </div>
+            <div class="state-item">
+              <button class="btn btn-tonal">Tonal</button>
+              <span class="state-label">Tonal</span>
+            </div>
+            <div class="state-item">
+              <button class="btn btn-secondary">Secondary</button>
+              <span class="state-label">Secondary</span>
+            </div>
+            <div class="state-item">
+              <button class="btn btn-destructive">Slett sak</button>
+              <span class="state-label">Destructive</span>
+            </div>
+          </div>
+
           <div class="doc-sub">Usage Guidelines</div>
           <div class="a11y-checklist">
             <div class="a11y-item">
@@ -644,6 +673,34 @@
               <input type="radio" name="priority" class="form-radio" id="rd2">
               <label for="rd2" class="text-sm">Medium</label>
             </div>
+          </div>
+
+          <div class="doc-sub">Custom Form Controls</div>
+          <div class="chips"><span class="chip">.form-checkbox</span><span class="chip">.form-radio</span><span class="chip">.form-toggle</span><span class="chip">.form-switch</span></div>
+          <p class="t-body-sm text-muted mb-2">Taktile, CSS-stylede kontroller bygd på semantiske <code>input</code>-elementer. Checkbox og radio bruker custom marker; toggle og switch transformerer <code>input[type="checkbox"]</code> til en glidebryter.</p>
+          <div class="doc-demo stack-tight max-w-xs">
+            <label style="display:flex;align-items:center;gap:var(--space-2);cursor:pointer">
+              <input type="checkbox" class="form-checkbox" checked>
+              <span class="text-sm">Checkbox (avkrysset)</span>
+            </label>
+            <div style="display:flex;align-items:center;gap:var(--space-4);margin-top:var(--space-2)">
+              <label style="display:flex;align-items:center;gap:var(--space-2);cursor:pointer">
+                <input type="radio" name="fc-demo" class="form-radio" checked>
+                <span class="text-sm">Radio A</span>
+              </label>
+              <label style="display:flex;align-items:center;gap:var(--space-2);cursor:pointer">
+                <input type="radio" name="fc-demo" class="form-radio">
+                <span class="text-sm">Radio B</span>
+              </label>
+            </div>
+            <label style="display:flex;align-items:center;gap:var(--space-2);cursor:pointer;margin-top:var(--space-2)">
+              <input type="checkbox" class="form-toggle" checked>
+              <span class="text-sm">Toggle (.form-toggle)</span>
+            </label>
+            <label style="display:flex;align-items:center;gap:var(--space-2);cursor:pointer">
+              <input type="checkbox" class="form-switch">
+              <span class="text-sm">Switch (.form-switch)</span>
+            </label>
           </div>
 
           <div class="doc-sub">Form Groups</div>
@@ -884,7 +941,7 @@
         <!-- BADGES — Status indicators with colors -->
         <section class="doc-section" id="badges" data-section="components" data-category="badges">
           <h2 class="doc-section-title">Badges & Status</h2>
-          <p class="doc-section-desc">Inline status indicators. Color variants: neutral, success, error, warning, info. Semantic signaling.</p>
+          <p class="doc-section-desc">Inline status-indikatorer som borderless, tintede pills. Color variants: neutral, success, error, warning, info. Semantic signaling.</p>
           <div class="chips"><span class="chip">.badge</span><span class="chip">.badge-neutral</span><span class="chip">.badge-success</span><span class="chip">.badge-error</span><span class="chip">.badge-warning</span><span class="chip">.badge-info</span></div>
 
           <div class="doc-sub">Status Variants</div>
@@ -1267,6 +1324,27 @@
               <tbody>
                 <tr><td><strong>Alice</strong></td><td>alice@example.com</td><td><span class="badge badge-success">Active</span></td></tr>
                 <tr><td><strong>Bob</strong></td><td>bob@example.com</td><td><span class="badge badge-warning">Pending</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="doc-sub">Zebra, Numeric Columns & Selected Row</div>
+          <div class="chips"><span class="chip">.data-table</span><span class="chip">.data-table-zebra</span><span class="chip">.data-table-cell-numeric</span><span class="chip">aria-selected="true"</span></div>
+          <p class="t-body-sm text-muted mb-3">Zebra-striping for tette datatabeller, høyrejusterte tabular-nums i numeriske kolonner, og en valgt rad markert med <code>aria-selected="true"</code>.</p>
+          <div class="overflow-x-auto">
+            <table class="data-table data-table-zebra" aria-label="Fakturaer" style="width:100%;min-width:480px">
+              <thead>
+                <tr>
+                  <th scope="col">Faktura</th>
+                  <th scope="col">Kunde</th>
+                  <th scope="col" class="data-table-cell-numeric">Beløp</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td data-label="Faktura">FAK-2041</td><td data-label="Kunde">Nordbygg AS</td><td data-label="Beløp" class="data-table-cell-numeric">12 500,00</td></tr>
+                <tr aria-selected="true"><td data-label="Faktura">FAK-2042</td><td data-label="Kunde">Fjordkraft</td><td data-label="Beløp" class="data-table-cell-numeric">3 980,50</td></tr>
+                <tr><td data-label="Faktura">FAK-2043</td><td data-label="Kunde">Sør Eiendom</td><td data-label="Beløp" class="data-table-cell-numeric">47 120,00</td></tr>
+                <tr><td data-label="Faktura">FAK-2044</td><td data-label="Kunde">Vestland Drift</td><td data-label="Beløp" class="data-table-cell-numeric">915,25</td></tr>
               </tbody>
             </table>
           </div>
@@ -2642,6 +2720,41 @@ function validate(e) {
             </div>
           </div>
 
+          <div class="doc-sub">Card Family — Variants</div>
+          <div class="chips"><span class="chip">.card</span><span class="chip">.card-bordered</span><span class="chip">.card-elevated</span><span class="chip">.card-subtle</span><span class="chip">.card-interactive</span><span class="chip">.card-title</span><span class="chip">.card-meta</span></div>
+          <p class="t-body-sm text-muted mb-2">Komplett kort-familie med fire overflate-stiler. <code>.card-interactive</code> løfter seg ved hover for klikkbare kort. <code>.card-header</code>, <code>.card-title</code>, <code>.card-meta</code> og <code>.card-footer</code> gir konsistent indre struktur.</p>
+          <div class="doc-demo grid-auto gap-2">
+            <article class="card card-bordered">
+              <div class="card-header">
+                <div>
+                  <div class="card-title">Vannlekkasje</div>
+                  <div class="card-meta">SAK-142 · Oppdatert i dag</div>
+                </div>
+                <span class="badge badge-warning">Haster</span>
+              </div>
+              <p class="t-body-sm">Lekkasje i kjeller, blokk B. Rørlegger er kontaktet.</p>
+              <div class="card-footer cluster cluster-tight">
+                <button class="btn btn-ghost btn-sm">Detaljer</button>
+                <button class="btn btn-primary btn-sm">Tildel</button>
+              </div>
+            </article>
+            <article class="card card-elevated">
+              <div class="card-title">Elevated</div>
+              <div class="card-meta">.card-elevated · skygge</div>
+              <p class="t-body-sm">Hevet overflate med myk skygge for flytende innhold.</p>
+            </article>
+            <article class="card card-subtle">
+              <div class="card-title">Subtle</div>
+              <div class="card-meta">.card-subtle · dempet flate</div>
+              <p class="t-body-sm">Borderless kort på dempet bakgrunn for sekundært innhold.</p>
+            </article>
+            <article class="card card-interactive" tabindex="0" role="button">
+              <div class="card-title">Interactive</div>
+              <div class="card-meta">.card-interactive · hover/fokus</div>
+              <p class="t-body-sm">Klikkbart kort som løfter seg ved hover. Hele kortet er trykkflate.</p>
+            </article>
+          </div>
+
           <div class="doc-sub">Typography Hierarchy</div>
           <div class="chips"><span class="chip">.t-heading-*</span><span class="chip">.t-body-*</span><span class="chip">.t-caption</span></div>
           <div class="doc-demo stack">
@@ -3149,6 +3262,152 @@ function validate(e) {
             <span class="tag">React <button class="tag-remove">×</button></span>
             <span class="tag">Vue <button class="tag-remove">×</button></span>
             <span class="tag">TypeScript <button class="tag-remove">×</button></span>
+          </div>
+
+          <div class="doc-sub">Tag Variants</div>
+          <div class="chips"><span class="chip">.tag</span><span class="chip">.tag-solid</span><span class="chip">.tag-outline</span><span class="chip">.tag-success</span></div>
+          <p class="t-body-sm text-muted mb-2">Stilvarianter av <code>.tag</code>: dempet (default), fylt aksent, outline og success-tint.</p>
+          <div class="cluster cluster-tight gap-2">
+            <span class="tag">Default</span>
+            <span class="tag tag-solid">Solid</span>
+            <span class="tag tag-outline">Outline</span>
+            <span class="tag tag-success">Success</span>
+          </div>
+        </section>
+
+        <!-- TABS — Segmented in-page navigation -->
+        <section class="doc-section" id="tabs" data-section="components" data-category="tabs">
+          <h2 class="doc-section-title">Tabs</h2>
+          <p class="doc-section-desc">Segmentert navigasjon innen en visning. Aktiv trigger markeres med <code>aria-selected="true"</code> og en aksent-understrek.</p>
+          <div class="chips"><span class="chip">.tabs-list</span><span class="chip">.tabs-trigger</span><span class="chip">.active</span><span class="chip">.tabs-content</span></div>
+
+          <div class="doc-sub">Tab Group</div>
+          <div role="tablist" class="tabs-list" aria-label="Sakdetaljer">
+            <button class="tabs-trigger active" role="tab" aria-selected="true">Oversikt</button>
+            <button class="tabs-trigger" role="tab" aria-selected="false">Aktivitet</button>
+            <button class="tabs-trigger" role="tab" aria-selected="false">Vedlegg</button>
+            <button class="tabs-trigger" role="tab" aria-selected="false">Historikk</button>
+          </div>
+          <div class="tabs-content" role="tabpanel">
+            <p class="t-body-sm">Oversikt over saken: status, ansvarlig og frist. Bytt fane for å se tilhørende innhold.</p>
+          </div>
+        </section>
+
+        <!-- AVATAR — User representation -->
+        <section class="doc-section" id="avatars" data-section="components" data-category="avatars">
+          <h2 class="doc-section-title">Avatar</h2>
+          <p class="doc-section-desc">Visuell representasjon av brukere med initialer eller bilde. Fem størrelser, samt overlappende grupper.</p>
+          <div class="chips"><span class="chip">.avatar</span><span class="chip">.avatar-xs</span><span class="chip">.avatar-sm</span><span class="chip">.avatar-lg</span><span class="chip">.avatar-xl</span><span class="chip">.avatar-group</span></div>
+
+          <div class="doc-sub">Sizes</div>
+          <div class="cluster cluster-tight" style="align-items:center">
+            <span class="avatar avatar-xs">EF</span>
+            <span class="avatar avatar-sm">AN</span>
+            <span class="avatar">PE</span>
+            <span class="avatar avatar-lg">KH</span>
+            <span class="avatar avatar-xl">MJ</span>
+          </div>
+
+          <div class="doc-sub">Avatar Group</div>
+          <p class="t-body-sm text-muted mb-2">Overlappende avatarer for delt eierskap eller team-deltakere.</p>
+          <div class="avatar-group">
+            <span class="avatar">EF</span>
+            <span class="avatar">AN</span>
+            <span class="avatar">PE</span>
+            <span class="avatar">+3</span>
+          </div>
+        </section>
+
+        <!-- TOOLTIP — Contextual hover hints -->
+        <section class="doc-section" id="tooltip" data-section="components" data-category="tooltip">
+          <h2 class="doc-section-title">Tooltip</h2>
+          <p class="doc-section-desc">Kort kontekstuell hjelpetekst som vises ved hover eller fokus. Hold pekeren over knappen for å se tooltipen.</p>
+          <div class="chips"><span class="chip">.tooltip</span><span class="chip">.tooltip-content</span></div>
+
+          <div class="doc-sub">Hover / Focus</div>
+          <span class="tooltip">
+            <button class="btn btn-secondary">Hold over meg</button>
+            <span class="tooltip-content" role="tooltip">Tildeler saken til deg</span>
+          </span>
+        </section>
+
+        <!-- MENU — Dropdown action lists -->
+        <section class="doc-section" id="menu" data-section="components" data-category="menu">
+          <h2 class="doc-section-title">Menu / Dropdown</h2>
+          <p class="doc-section-desc">Liste med handlinger i en flytende popover. Separator grupperer relaterte handlinger.</p>
+          <div class="chips"><span class="chip">.menu-content</span><span class="chip">.menu-item</span><span class="chip">.menu-separator</span></div>
+
+          <div class="doc-sub">Action Menu</div>
+          <div class="menu-content" role="menu">
+            <div class="menu-item" role="menuitem"><svg class="icon icon-sm"><use href="#i-edit"/></svg> Rediger</div>
+            <div class="menu-item" role="menuitem"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Dupliser</div>
+            <div class="menu-separator" role="separator"></div>
+            <div class="menu-item" role="menuitem"><svg class="icon icon-sm"><use href="#i-trash"/></svg> Slett</div>
+          </div>
+        </section>
+
+        <!-- TOAST — Transient notifications -->
+        <section class="doc-section" id="toast" data-section="components" data-category="toast">
+          <h2 class="doc-section-title">Toast</h2>
+          <p class="doc-section-desc">Forbigående varsler som vises midlertidig. Fire semantiske varianter med farget venstrekant. Plasseres normalt i en <code>.toast-viewport</code>.</p>
+          <div class="chips"><span class="chip">.toast</span><span class="chip">.toast-success</span><span class="chip">.toast-error</span><span class="chip">.toast-warning</span><span class="chip">.toast-info</span></div>
+
+          <div class="doc-sub">Variants</div>
+          <div class="stack-tight" style="max-width:24rem">
+            <div class="toast toast-success" role="status">
+              <svg class="icon icon-sm icon-success"><use href="#i-check"/></svg>
+              <div><strong class="text-sm">Lagret</strong><p class="t-body-sm text-muted m-0">Endringene dine er lagret.</p></div>
+            </div>
+            <div class="toast toast-error" role="alert">
+              <svg class="icon icon-sm icon-error"><use href="#i-x"/></svg>
+              <div><strong class="text-sm">Feilet</strong><p class="t-body-sm text-muted m-0">Kunne ikke lagre. Prøv igjen.</p></div>
+            </div>
+            <div class="toast toast-warning" role="status">
+              <svg class="icon icon-sm icon-warning"><use href="#i-info"/></svg>
+              <div><strong class="text-sm">Advarsel</strong><p class="t-body-sm text-muted m-0">Du har ulagrede endringer.</p></div>
+            </div>
+            <div class="toast toast-info" role="status">
+              <svg class="icon icon-sm icon-info"><use href="#i-info"/></svg>
+              <div><strong class="text-sm">Info</strong><p class="t-body-sm text-muted m-0">En ny versjon er tilgjengelig.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- KBD — Keyboard shortcuts -->
+        <section class="doc-section" id="kbd" data-section="components" data-category="kbd">
+          <h2 class="doc-section-title">Keyboard (Kbd)</h2>
+          <p class="doc-section-desc">Visuell representasjon av tastatursnarveier. Bruk <code>&lt;kbd&gt;</code> for semantikk.</p>
+          <div class="chips"><span class="chip">.kbd</span></div>
+
+          <div class="doc-sub">Shortcuts</div>
+          <div class="cluster cluster-tight" style="align-items:center">
+            <span class="t-body-sm">Søk:</span>
+            <kbd class="kbd">⌘</kbd><kbd class="kbd">K</kbd>
+            <span class="t-body-sm" style="margin-left:var(--space-3)">Lagre:</span>
+            <kbd class="kbd">Ctrl</kbd><kbd class="kbd">S</kbd>
+            <span class="t-body-sm" style="margin-left:var(--space-3)">Lukk:</span>
+            <kbd class="kbd">Esc</kbd>
+          </div>
+        </section>
+
+        <!-- SKELETON — Loading placeholders -->
+        <section class="doc-section" id="skeleton" data-section="components" data-category="skeleton">
+          <h2 class="doc-section-title">Skeleton</h2>
+          <p class="doc-section-desc">Plassholdere som indikerer innhold under lasting. Shimmer-animasjon respekterer prefers-reduced-motion.</p>
+          <div class="chips"><span class="chip">.skeleton</span><span class="chip">.skeleton-text</span><span class="chip">.skeleton-circle</span></div>
+
+          <div class="doc-sub">Loading Placeholder</div>
+          <div class="card card-bordered" style="max-width:22rem" aria-hidden="true">
+            <div class="cluster cluster-tight" style="align-items:center">
+              <div class="skeleton skeleton-circle" style="width:2.5rem;height:2.5rem"></div>
+              <div class="stack-tight" style="flex:1">
+                <div class="skeleton skeleton-text" style="width:60%"></div>
+                <div class="skeleton skeleton-text" style="width:40%"></div>
+              </div>
+            </div>
+            <div class="skeleton skeleton-text" style="width:100%;margin-top:var(--space-3)"></div>
+            <div class="skeleton skeleton-text" style="width:90%"></div>
+            <div class="skeleton" style="width:100%;height:6rem;margin-top:var(--space-3)"></div>
           </div>
         </section>
 

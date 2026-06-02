@@ -90,6 +90,20 @@
     </div>
 
     <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="true">UI Components</button>
+      <nav class="app-nav-group active">
+        <a class="app-nav-item" href="#cards">Cards</a>
+        <a class="app-nav-item" href="#tabs">Tabs</a>
+        <a class="app-nav-item" href="#avatar">Avatar</a>
+        <a class="app-nav-item" href="#tooltip">Tooltip</a>
+        <a class="app-nav-item" href="#menu">Menu / Dropdown</a>
+        <a class="app-nav-item" href="#toast">Toast</a>
+        <a class="app-nav-item" href="#kbd">Keyboard (Kbd)</a>
+        <a class="app-nav-item" href="#skeleton">Skeleton</a>
+      </nav>
+    </div>
+
+    <div class="app-sidebar-section-group">
       <button class="app-sidebar-toggle" aria-expanded="true">Pickers & Selection</button>
       <nav class="app-nav-group active">
         <a class="app-nav-item" href="#date-picker">Date Picker</a>
@@ -764,7 +778,7 @@
             <span class="metadata-platform">Available: Web & App</span>
           </div>
           <p class="doc-section-desc">5 variants (primary, secondary, ghost, link, elevated) × 3 sizes (sm, base, lg) × interactive states. All states keyboard accessible with focus indicators.</p>
-          <div class="chips"><span class="chip">.btn</span><span class="chip">.btn-primary</span><span class="chip">.btn-secondary</span><span class="chip">.btn-ghost</span><span class="chip">.btn-link</span></div>
+          <div class="chips"><span class="chip">.btn</span><span class="chip">.btn-primary</span><span class="chip">.btn-secondary</span><span class="chip">.btn-ghost</span><span class="chip">.btn-link</span><span class="chip">.btn-destructive</span><span class="chip">.btn-tonal</span></div>
 
           <!-- Button Variants -->
           <div class="doc-sub">Primary Button — All States</div>
@@ -798,6 +812,26 @@
             <button class="btn btn-ghost">Ghost</button>
             <a class="btn btn-link" href="#">Link</a>
             <button class="btn btn-primary btn-elevated" style="position: relative; z-index: 1;">Elevated</button>
+          </div>
+
+          <div class="doc-sub">Semantiske varianter</div>
+          <div class="component-states">
+            <div class="state-item">
+              <button class="btn btn-destructive">Slett konto</button>
+              <span class="state-label">.btn-destructive</span>
+            </div>
+            <div class="state-item">
+              <button class="btn btn-tonal">Lagre utkast</button>
+              <span class="state-label">.btn-tonal</span>
+            </div>
+            <div class="state-item">
+              <button class="btn btn-primary">Bekreft</button>
+              <span class="state-label">.btn-primary</span>
+            </div>
+            <div class="state-item">
+              <button class="btn btn-secondary">Avbryt</button>
+              <span class="state-label">.btn-secondary</span>
+            </div>
           </div>
 
           <div class="doc-sub">Sizes (Primary)</div>
@@ -865,7 +899,7 @@
             <span class="metadata-platform">Available: Web & App</span>
           </div>
           <p class="doc-section-desc">Complete form ecosystem: inputs, textareas, selects, checkboxes, radios with all states (normal, error, disabled, focus).</p>
-          <div class="chips"><span class="chip">.field</span><span class="chip">.field-label</span><span class="chip">.form-input</span><span class="chip">.form-select</span><span class="chip">.form-checkbox</span><span class="chip">.form-radio</span><span class="chip">.form-toggle</span></div>
+          <div class="chips"><span class="chip">.field</span><span class="chip">.field-label</span><span class="chip">.form-input</span><span class="chip">.form-select</span><span class="chip">.form-checkbox</span><span class="chip">.form-radio</span><span class="chip">.form-toggle</span><span class="chip">.form-switch</span></div>
 
           <div class="doc-sub">Text Inputs (All States)</div>
           <div class="stack max-w-sm">
@@ -926,8 +960,45 @@
               </select>
             </div>
             <div class="field">
-              <label class="field-label">Enable Feature</label>
+              <label class="field-label" for="toggle1">Enable Feature (.form-toggle)</label>
               <input type="checkbox" class="form-toggle" id="toggle1" checked>
+            </div>
+            <div class="field">
+              <label class="field-label" for="switch1">Synkroniser automatisk (.form-switch)</label>
+              <input type="checkbox" class="form-switch" id="switch1" checked>
+            </div>
+          </div>
+
+          <div class="doc-sub">Custom-stylede kontroller (alle states)</div>
+          <p class="t-body-sm text-muted mb-3">Avkrysningsbokser, radioknapper og brytere er nå fullstendig custom-stylet (ingen native rendering), med hover-, focus- og disabled-tilstander.</p>
+          <div class="component-states">
+            <div class="state-item">
+              <input type="checkbox" class="form-checkbox" id="cbs1" checked aria-label="Avkrysset">
+              <span class="state-label">Checkbox på</span>
+            </div>
+            <div class="state-item">
+              <input type="checkbox" class="form-checkbox" id="cbs2" aria-label="Ikke avkrysset">
+              <span class="state-label">Checkbox av</span>
+            </div>
+            <div class="state-item">
+              <input type="checkbox" class="form-checkbox" id="cbs3" checked disabled aria-label="Avkrysset deaktivert">
+              <span class="state-label">Checkbox disabled</span>
+            </div>
+            <div class="state-item">
+              <input type="radio" class="form-radio" name="cstate" id="rds1" checked aria-label="Valgt radio">
+              <span class="state-label">Radio på</span>
+            </div>
+            <div class="state-item">
+              <input type="radio" class="form-radio" name="cstate2" id="rds2" aria-label="Ikke valgt radio">
+              <span class="state-label">Radio av</span>
+            </div>
+            <div class="state-item">
+              <input type="checkbox" class="form-toggle" id="tgs1" checked aria-label="Toggle på">
+              <span class="state-label">.form-toggle</span>
+            </div>
+            <div class="state-item">
+              <input type="checkbox" class="form-switch" id="sws1" checked aria-label="Switch på">
+              <span class="state-label">.form-switch</span>
             </div>
           </div>
 
@@ -1314,6 +1385,47 @@
                   <td>Bob Smith</td>
                   <td><input class="data-table-inline-edit" type="text" value="Developer" style="border:var(--border-card);border-radius:var(--radius-sm);padding:var(--space-1) var(--space-2);font-size:var(--text-sm)"></td>
                   <td><span class="badge badge-warning">Away</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="doc-sub">Zebra-tabell med numerisk kolonne og valgt rad</div>
+          <p class="t-body-sm text-muted mb-3">.data-table-zebra striper annenhver rad. .data-table-cell-numeric høyrejusterer tall med tabulær-tall. Valgt rad markeres med aria-selected="true".</p>
+          <div class="overflow-x-auto">
+            <table class="data-table data-table-zebra">
+              <thead>
+                <tr>
+                  <th scope="col">Produkt</th>
+                  <th scope="col">Kategori</th>
+                  <th scope="col" class="data-table-cell-numeric">Antall</th>
+                  <th scope="col" class="data-table-cell-numeric">Pris (kr)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Skrivebordslampe</td>
+                  <td>Belysning</td>
+                  <td class="data-table-cell-numeric">128</td>
+                  <td class="data-table-cell-numeric">499,00</td>
+                </tr>
+                <tr aria-selected="true">
+                  <td>Ergonomisk stol</td>
+                  <td>Møbler</td>
+                  <td class="data-table-cell-numeric">42</td>
+                  <td class="data-table-cell-numeric">2 990,00</td>
+                </tr>
+                <tr>
+                  <td>Trådløst tastatur</td>
+                  <td>Tilbehør</td>
+                  <td class="data-table-cell-numeric">315</td>
+                  <td class="data-table-cell-numeric">749,00</td>
+                </tr>
+                <tr>
+                  <td>USB-C-hub</td>
+                  <td>Tilbehør</td>
+                  <td class="data-table-cell-numeric">87</td>
+                  <td class="data-table-cell-numeric">1 199,00</td>
                 </tr>
               </tbody>
             </table>
@@ -1791,11 +1903,319 @@
           </div>
         </section>
 
+        <!-- ============================================ -->
+        <!-- CARD FAMILY -->
+        <!-- ============================================ -->
+        <section class="doc-section" id="cards" data-section="components" data-category="cards">
+          <h2 class="doc-section-title">Cards</h2>
+          <div class="component-metadata" data-status="complete" data-platforms="web,app">
+            <span class="metadata-status">✓ Complete</span>
+            <span class="metadata-platform">Available: Web &amp; App</span>
+          </div>
+          <p class="doc-section-desc">Generisk container for gruppert innhold. Fire visuelle varianter (bordered, elevated, subtle, interactive) med valgfrie header-, title-, meta- og footer-deler.</p>
+          <div class="chips"><span class="chip">.card</span><span class="chip">.card-bordered</span><span class="chip">.card-elevated</span><span class="chip">.card-subtle</span><span class="chip">.card-interactive</span><span class="chip">.card-header</span><span class="chip">.card-title</span><span class="chip">.card-meta</span><span class="chip">.card-footer</span></div>
+
+          <div class="doc-sub">Varianter side om side</div>
+          <div class="feature-grid" style="grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:var(--space-4)">
+            <div class="card card-bordered">
+              <div class="card-header">
+                <div class="card-title">Bordered</div>
+                <span class="badge badge-info">.card-bordered</span>
+              </div>
+              <p class="card-meta">Tynn ramme rundt innholdet. Standard valg for nøytrale lister.</p>
+              <p>Passer i tette grensesnitt der kortene ligger på samme bakgrunn.</p>
+            </div>
+            <div class="card card-elevated">
+              <div class="card-header">
+                <div class="card-title">Elevated</div>
+                <span class="badge badge-info">.card-elevated</span>
+              </div>
+              <p class="card-meta">Hev kortet med skygge i stedet for ramme.</p>
+              <p>Brukes for å løfte fram primærinnhold over en jevn flate.</p>
+            </div>
+            <div class="card card-subtle">
+              <div class="card-header">
+                <div class="card-title">Subtle</div>
+                <span class="badge badge-info">.card-subtle</span>
+              </div>
+              <p class="card-meta">Dempet bakgrunn uten ramme.</p>
+              <p>Egner seg til sekundært innhold og grupperte seksjoner.</p>
+            </div>
+            <div class="card card-interactive" tabindex="0" role="button">
+              <div class="card-header">
+                <div class="card-title">Interactive</div>
+                <span class="badge badge-info">.card-interactive</span>
+              </div>
+              <p class="card-meta">Løfter seg ved hover og er fokuserbar.</p>
+              <p>Bruk når hele kortet er klikkbart (lenke eller knapp).</p>
+            </div>
+          </div>
+
+          <div class="doc-sub">Komplett kort med header, meta og footer</div>
+          <div class="card card-elevated" style="max-width:24rem">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Månedlig rapport</div>
+                <div class="card-meta">Oppdatert 2. juni 2026</div>
+              </div>
+              <span class="badge badge-success">Klar</span>
+            </div>
+            <p>Salget økte med 12 % sammenlignet med forrige måned. Tre nye kunder ble onboardet, og kundefrafallet holdt seg under målet på 2 %.</p>
+            <div class="card-footer cluster cluster-tight" style="gap:var(--space-2)">
+              <button class="btn btn-primary btn-sm">Åpne rapport</button>
+              <button class="btn btn-ghost btn-sm">Del</button>
+            </div>
+          </div>
+
+          <div class="doc-sub">HTML</div>
+          <div class="code-example mb-4"><code class="text-fg">&lt;div class="card card-elevated"&gt;
+  &lt;div class="card-header"&gt;
+    &lt;div&gt;
+      &lt;div class="card-title"&gt;Tittel&lt;/div&gt;
+      &lt;div class="card-meta"&gt;Undertekst&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;span class="badge badge-success"&gt;Klar&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;p&gt;Innhold …&lt;/p&gt;
+  &lt;div class="card-footer"&gt;
+    &lt;button class="btn btn-primary btn-sm"&gt;Handling&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- TABS -->
+        <!-- ============================================ -->
+        <section class="doc-section" id="tabs" data-section="components" data-category="tabs">
+          <h2 class="doc-section-title">Tabs</h2>
+          <div class="component-metadata" data-status="complete" data-platforms="web,app">
+            <span class="metadata-status">✓ Complete</span>
+            <span class="metadata-platform">Available: Web &amp; App</span>
+          </div>
+          <p class="doc-section-desc">Faner for å veksle mellom relaterte visninger. Aktiv fane markeres med <code>aria-selected="true"</code> og understrek i accent-fargen.</p>
+          <div class="chips"><span class="chip">.tabs-list</span><span class="chip">.tabs-trigger</span><span class="chip">.tabs-content</span><span class="chip">aria-selected</span></div>
+
+          <div class="doc-sub">Eksempel</div>
+          <div>
+            <div class="tabs-list" role="tablist" aria-label="Kontoinnstillinger">
+              <button class="tabs-trigger active" role="tab" aria-selected="true" type="button">Oversikt</button>
+              <button class="tabs-trigger" role="tab" aria-selected="false" type="button">Aktivitet</button>
+              <button class="tabs-trigger" role="tab" aria-selected="false" type="button">Innstillinger</button>
+            </div>
+            <div class="tabs-content" role="tabpanel">
+              <p>Oversikt viser et sammendrag av kontoen din: aktive abonnement, forbruk denne måneden og siste innlogginger. Velg en annen fane for mer detaljer.</p>
+            </div>
+          </div>
+
+          <div class="doc-sub">HTML</div>
+          <div class="code-example mb-4"><code class="text-fg">&lt;div class="tabs-list" role="tablist"&gt;
+  &lt;button class="tabs-trigger active" role="tab" aria-selected="true"&gt;Oversikt&lt;/button&gt;
+  &lt;button class="tabs-trigger" role="tab" aria-selected="false"&gt;Aktivitet&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="tabs-content" role="tabpanel"&gt;…&lt;/div&gt;</code></div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- AVATAR -->
+        <!-- ============================================ -->
+        <section class="doc-section" id="avatar" data-section="components" data-category="avatar">
+          <h2 class="doc-section-title">Avatar</h2>
+          <div class="component-metadata" data-status="complete" data-platforms="web,app">
+            <span class="metadata-status">✓ Complete</span>
+            <span class="metadata-platform">Available: Web &amp; App</span>
+          </div>
+          <p class="doc-section-desc">Sirkulær representasjon av en bruker — med initialer eller bilde. Fem størrelser og en overlappende gruppe.</p>
+          <div class="chips"><span class="chip">.avatar</span><span class="chip">.avatar-xs</span><span class="chip">.avatar-sm</span><span class="chip">.avatar-lg</span><span class="chip">.avatar-xl</span><span class="chip">.avatar-group</span></div>
+
+          <div class="doc-sub">Størrelser</div>
+          <div class="cluster" style="align-items:center;gap:var(--space-4)">
+            <span class="avatar avatar-xs" aria-label="Kari Nordmann">KN</span>
+            <span class="avatar avatar-sm" aria-label="Ola Hansen">OH</span>
+            <span class="avatar" aria-label="Ingrid Lie">IL</span>
+            <span class="avatar avatar-lg" aria-label="Per Solberg">PS</span>
+            <span class="avatar avatar-xl" aria-label="Mari Berg">MB</span>
+          </div>
+
+          <div class="doc-sub">Avatar-gruppe (overlapp)</div>
+          <div class="avatar-group" aria-label="Teammedlemmer">
+            <span class="avatar" aria-label="Kari Nordmann">KN</span>
+            <span class="avatar" aria-label="Ola Hansen">OH</span>
+            <span class="avatar" aria-label="Ingrid Lie">IL</span>
+            <span class="avatar" aria-label="3 flere medlemmer">+3</span>
+          </div>
+
+          <div class="doc-sub">HTML</div>
+          <div class="code-example mb-4"><code class="text-fg">&lt;span class="avatar avatar-lg" aria-label="Kari Nordmann"&gt;KN&lt;/span&gt;
+
+&lt;div class="avatar-group"&gt;
+  &lt;span class="avatar"&gt;KN&lt;/span&gt;
+  &lt;span class="avatar"&gt;OH&lt;/span&gt;
+  &lt;span class="avatar"&gt;+3&lt;/span&gt;
+&lt;/div&gt;</code></div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- TOOLTIP -->
+        <!-- ============================================ -->
+        <section class="doc-section" id="tooltip" data-section="components" data-category="tooltip">
+          <h2 class="doc-section-title">Tooltip</h2>
+          <div class="component-metadata" data-status="complete" data-platforms="web,app">
+            <span class="metadata-status">✓ Complete</span>
+            <span class="metadata-platform">Available: Web &amp; App</span>
+          </div>
+          <p class="doc-section-desc">Kort hjelpetekst som vises ved <strong>hover</strong> eller <strong>focus</strong> på det utløsende elementet. Posisjoneres over elementet.</p>
+          <div class="chips"><span class="chip">.tooltip</span><span class="chip">.tooltip-content</span></div>
+
+          <div class="doc-sub">Eksempel (hold over eller fokuser knappen)</div>
+          <div class="cluster" style="gap:var(--space-5)">
+            <span class="tooltip">
+              <button class="btn btn-secondary" type="button">Hold over meg</button>
+              <span class="tooltip-content" role="tooltip">Lagres automatisk hvert 30. sekund</span>
+            </span>
+            <span class="tooltip">
+              <button class="btn btn-ghost" type="button" aria-label="Hjelp">?</button>
+              <span class="tooltip-content" role="tooltip">Trykk for mer informasjon</span>
+            </span>
+          </div>
+
+          <div class="doc-sub">HTML</div>
+          <div class="code-example mb-4"><code class="text-fg">&lt;span class="tooltip"&gt;
+  &lt;button class="btn btn-secondary"&gt;Hold over meg&lt;/button&gt;
+  &lt;span class="tooltip-content" role="tooltip"&gt;Hjelpetekst&lt;/span&gt;
+&lt;/span&gt;</code></div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- MENU / DROPDOWN -->
+        <!-- ============================================ -->
+        <section class="doc-section" id="menu" data-section="components" data-category="menu">
+          <h2 class="doc-section-title">Menu / Dropdown</h2>
+          <div class="component-metadata" data-status="complete" data-platforms="web,app">
+            <span class="metadata-status">✓ Complete</span>
+            <span class="metadata-platform">Available: Web &amp; App</span>
+          </div>
+          <p class="doc-section-desc">Flytende meny med handlinger. <code>.menu-item</code> for hvert valg og <code>.menu-separator</code> for å gruppere relaterte valg.</p>
+          <div class="chips"><span class="chip">.menu-content</span><span class="chip">.menu-item</span><span class="chip">.menu-separator</span></div>
+
+          <div class="doc-sub">Eksempel (statisk vist)</div>
+          <div class="menu-content" role="menu" aria-label="Handlinger" style="position:static">
+            <div class="menu-item" role="menuitem" tabindex="0">Rediger</div>
+            <div class="menu-item" role="menuitem" tabindex="-1">Dupliser</div>
+            <div class="menu-item" role="menuitem" tabindex="-1">Del med team</div>
+            <div class="menu-separator" role="separator"></div>
+            <div class="menu-item" role="menuitem" tabindex="-1" style="color:var(--color-error)">Slett</div>
+          </div>
+
+          <div class="doc-sub">HTML</div>
+          <div class="code-example mb-4"><code class="text-fg">&lt;div class="menu-content" role="menu"&gt;
+  &lt;div class="menu-item" role="menuitem"&gt;Rediger&lt;/div&gt;
+  &lt;div class="menu-item" role="menuitem"&gt;Dupliser&lt;/div&gt;
+  &lt;div class="menu-separator" role="separator"&gt;&lt;/div&gt;
+  &lt;div class="menu-item" role="menuitem"&gt;Slett&lt;/div&gt;
+&lt;/div&gt;</code></div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- TOAST -->
+        <!-- ============================================ -->
+        <section class="doc-section" id="toast" data-section="components" data-category="toast">
+          <h2 class="doc-section-title">Toast</h2>
+          <div class="component-metadata" data-status="complete" data-platforms="web,app">
+            <span class="metadata-status">✓ Complete</span>
+            <span class="metadata-platform">Available: Web &amp; App</span>
+          </div>
+          <p class="doc-section-desc">Midlertidige varsler som dukker opp i en <code>.toast-viewport</code> (vanligvis nederst til høyre). Fire semantiske varianter med farget venstrekant.</p>
+          <div class="chips"><span class="chip">.toast-viewport</span><span class="chip">.toast</span><span class="chip">.toast-success</span><span class="chip">.toast-error</span><span class="chip">.toast-warning</span><span class="chip">.toast-info</span></div>
+
+          <div class="doc-sub">Alle fire varianter (statisk vist)</div>
+          <div class="stack" style="gap:var(--space-3)">
+            <div class="toast toast-success" role="status">
+              <svg class="icon-sm" style="color:var(--color-success)" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+              <div><strong>Lagret</strong><div class="t-body-sm text-muted">Endringene dine er lagret.</div></div>
+            </div>
+            <div class="toast toast-error" role="alert">
+              <svg class="icon-sm" style="color:var(--color-error)" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="12" y1="8" x2="12" y2="12" stroke="currentColor" stroke-width="1.5"/><line x1="12" y1="16" x2="12.01" y2="16" stroke="currentColor" stroke-width="1.5"/></svg>
+              <div><strong>Opplasting feilet</strong><div class="t-body-sm text-muted">Filen var for stor. Prøv igjen.</div></div>
+            </div>
+            <div class="toast toast-warning" role="status">
+              <svg class="icon-sm" style="color:var(--color-warning)" viewBox="0 0 24 24"><path d="M12 2L2 20h20L12 2" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="12" y1="9" x2="12" y2="13" stroke="currentColor" stroke-width="1.5"/><line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="1.5"/></svg>
+              <div><strong>Lavt lagringsrom</strong><div class="t-body-sm text-muted">Du har brukt 90 % av kvoten.</div></div>
+            </div>
+            <div class="toast toast-info" role="status">
+              <svg class="icon-sm" style="color:var(--color-info)" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="12" y1="16" x2="12" y2="12" stroke="currentColor" stroke-width="1.5"/><line x1="12" y1="8" x2="12.01" y2="8" stroke="currentColor" stroke-width="1.5"/></svg>
+              <div><strong>Ny versjon tilgjengelig</strong><div class="t-body-sm text-muted">Last inn på nytt for å oppdatere.</div></div>
+            </div>
+          </div>
+          <p class="t-body-sm text-muted" style="margin-top:var(--space-3)">I produksjon plasseres disse i en <code>.toast-viewport</code> med <code>position: fixed</code> nederst til høyre.</p>
+
+          <div class="doc-sub">HTML</div>
+          <div class="code-example mb-4"><code class="text-fg">&lt;div class="toast-viewport"&gt;
+  &lt;div class="toast toast-success" role="status"&gt;
+    &lt;svg class="icon-sm"&gt;…&lt;/svg&gt;
+    &lt;div&gt;&lt;strong&gt;Lagret&lt;/strong&gt;&lt;div class="t-body-sm text-muted"&gt;Endringene er lagret.&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- KBD -->
+        <!-- ============================================ -->
+        <section class="doc-section" id="kbd" data-section="components" data-category="kbd">
+          <h2 class="doc-section-title">Keyboard (Kbd)</h2>
+          <div class="component-metadata" data-status="complete" data-platforms="web,app">
+            <span class="metadata-status">✓ Complete</span>
+            <span class="metadata-platform">Available: Web &amp; App</span>
+          </div>
+          <p class="doc-section-desc">Visning av tastatursnarveier. Bruk <code>&lt;kbd&gt;</code>-elementet med klassen <code>.kbd</code> for semantisk korrekt markup.</p>
+          <div class="chips"><span class="chip">.kbd</span></div>
+
+          <div class="doc-sub">Eksempler</div>
+          <div class="cluster" style="align-items:center;gap:var(--space-4)">
+            <span>Åpne søk: <kbd class="kbd">⌘</kbd> <kbd class="kbd">K</kbd></span>
+            <span>Lagre: <kbd class="kbd">⌘</kbd> <kbd class="kbd">S</kbd></span>
+            <span>Avbryt: <kbd class="kbd">Esc</kbd></span>
+          </div>
+
+          <div class="doc-sub">HTML</div>
+          <div class="code-example mb-4"><code class="text-fg">Åpne søk: &lt;kbd class="kbd"&gt;⌘&lt;/kbd&gt; &lt;kbd class="kbd"&gt;K&lt;/kbd&gt;</code></div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- SKELETON -->
+        <!-- ============================================ -->
+        <section class="doc-section" id="skeleton" data-section="components" data-category="skeleton">
+          <h2 class="doc-section-title">Skeleton</h2>
+          <div class="component-metadata" data-status="complete" data-platforms="web,app">
+            <span class="metadata-status">✓ Complete</span>
+            <span class="metadata-platform">Available: Web &amp; App</span>
+          </div>
+          <p class="doc-section-desc">Plassholder som vises mens innhold lastes. <code>.skeleton-text</code> for tekstlinjer og <code>.skeleton-circle</code> for runde former (f.eks. avatar). Shimmer-animasjon respekterer redusert bevegelse.</p>
+          <div class="chips"><span class="chip">.skeleton</span><span class="chip">.skeleton-text</span><span class="chip">.skeleton-circle</span></div>
+
+          <div class="doc-sub">Laste-placeholder (kort)</div>
+          <div class="card card-bordered" style="max-width:24rem" aria-busy="true" aria-label="Laster innhold">
+            <div class="cluster" style="align-items:center;gap:var(--space-3)">
+              <span class="skeleton skeleton-circle" style="width:2.5rem;height:2.5rem"></span>
+              <div class="stack-tight" style="flex:1">
+                <span class="skeleton skeleton-text" style="width:60%"></span>
+                <span class="skeleton skeleton-text" style="width:40%"></span>
+              </div>
+            </div>
+            <span class="skeleton skeleton-text" style="width:100%;margin-top:var(--space-3)"></span>
+            <span class="skeleton skeleton-text" style="width:90%"></span>
+            <span class="skeleton skeleton-text" style="width:70%"></span>
+          </div>
+
+          <div class="doc-sub">HTML</div>
+          <div class="code-example mb-4"><code class="text-fg">&lt;span class="skeleton skeleton-circle" style="width:2.5rem;height:2.5rem"&gt;&lt;/span&gt;
+&lt;span class="skeleton skeleton-text" style="width:60%"&gt;&lt;/span&gt;</code></div>
+        </section>
+
         <!-- TAGS & BADGES -->
         <section class="doc-section" id="tags">
           <h2 class="doc-section-title">Tags & Badges</h2>
           <p class="doc-section-desc">Small labeled indicators for status, categories, or keywords. Badges are read-only; tags can be removable. Use for metadata, filters, status indicators.</p>
-          <div class="chips"><span class="chip">.badge</span><span class="chip">.badge-success</span><span class="chip">.badge-error</span><span class="chip">.tag</span><span class="chip">.tag-remove</span><span class="chip">.tag-input</span><span class="chip">.tag-list</span><span class="chip">.tag-suggestions</span></div>
+          <div class="chips"><span class="chip">.badge</span><span class="chip">.badge-success</span><span class="chip">.badge-error</span><span class="chip">.tag</span><span class="chip">.tag-solid</span><span class="chip">.tag-outline</span><span class="chip">.tag-success</span><span class="chip">.tag-remove</span><span class="chip">.tag-input</span><span class="chip">.tag-list</span><span class="chip">.tag-suggestions</span></div>
 
           <div class="doc-sub">Badges (Read-only)</div>
           <div class="cluster cluster-tight gap-2">
@@ -1818,6 +2238,27 @@
             <span class="tag">typescript <button class="tag-remove" aria-label="Remove tag">×</button></span>
             <span class="tag">accessibility <button class="tag-remove" aria-label="Remove tag">×</button></span>
             <span class="tag">components <button class="tag-remove" aria-label="Remove tag">×</button></span>
+          </div>
+
+          <div class="doc-sub">Tag-varianter</div>
+          <p class="t-body-sm text-muted mb-3">Utvidelser av <strong>.tag</strong>: solid (accent), outline (kun ramme) og success (tonet).</p>
+          <div class="component-states">
+            <div class="state-item">
+              <span class="tag tag-solid">Aktiv</span>
+              <span class="state-label">.tag-solid</span>
+            </div>
+            <div class="state-item">
+              <span class="tag tag-outline">Utkast</span>
+              <span class="state-label">.tag-outline</span>
+            </div>
+            <div class="state-item">
+              <span class="tag tag-success">Fullført</span>
+              <span class="state-label">.tag-success</span>
+            </div>
+            <div class="state-item">
+              <span class="tag">Standard</span>
+              <span class="state-label">.tag</span>
+            </div>
           </div>
 
           <div class="doc-sub">Tag Input with Suggestions</div>
