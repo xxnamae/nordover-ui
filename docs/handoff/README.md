@@ -6,7 +6,10 @@
 
 ## Start Here: Implementation Guides
 
-We've created three comprehensive guides for different needs:
+We've created comprehensive guides for different needs:
+
+### 0. **Agent Quickstart** (`AGENT-QUICKSTART.md`) — start here for new projects
+Short, action-oriented recipe for wiring a new project (app or website) to Nordover via npm. Written so a Claude agent can read it and set everything up. Includes the app/web decision table and a CLAUDE.md block to paste into the consuming project.
 
 ### 1. **Framework Integration Guide** (`FRAMEWORK-INTEGRATION.md`)
 Start here for any framework setup. Covers React, Vue, Svelte, Web Components, Next.js, and more. Includes dark mode, customization, and common patterns.
