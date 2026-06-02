@@ -850,6 +850,56 @@
   margin-bottom: var(--space-4);
 }
 
+/* Swatch grid — color palette showcase */
+.swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+  gap: var(--space-4);
+  margin: var(--space-6) 0;
+}
+
+.swatch {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.swatch-color {
+  height: 6rem;
+  width: 100%;
+}
+
+.swatch-meta {
+  padding: var(--space-3);
+  background: var(--color-surface);
+  font-size: 12px;
+}
+
+.swatch-name {
+  font-weight: 700;
+  color: var(--color-fg);
+}
+
+/* Feature cards showcase */
+.feature-card {
+  padding: var(--space-5);
+  background: var(--color-subtle);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.6;
+  color: var(--color-fg);
+}
+
+.grid-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: var(--space-4);
+  margin: var(--space-6) 0;
+}
+
 /* Phase 6C batch 4 — remaining reusable patterns */
 .max-w-xs { max-width: 20rem; }
 .max-w-lg { max-width: 28rem; }
