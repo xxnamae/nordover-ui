@@ -34,6 +34,20 @@
   ],
   "main": "docs/visual/components/components-web.css",
   "style": "docs/visual/components/components-web.css",
+  "exports": {
+    ".": {
+      "style": "./docs/visual/components/components-web.css"
+    },
+    "./tokens-web": "./docs/visual/tokens/tokens-web.css",
+    "./tokens-app": "./docs/visual/tokens/tokens-app.css",
+    "./tokens-web-json": "./docs/visual/tokens/tokens-web.json",
+    "./tokens-app-json": "./docs/visual/tokens/tokens-app.json",
+    "./components-web": "./docs/visual/components/components-web.css",
+    "./components-app": "./docs/visual/components/components-app.css"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build:tokens": "python3 scripts/build_tokens.py",
     "check:tokens": "python3 scripts/build_tokens.py --check",
