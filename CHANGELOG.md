@@ -29,6 +29,8 @@ within WCAG AA limits. Class and token names remain public contracts.
 - **New components** (built from spec, mirrored web + app, documented in styleguides):
   Card family (`.card` + variants + header/title/meta/footer), Tabs, Avatar (+ group),
   Tooltip, Menu/Dropdown, Toast, Kbd, Skeleton, standalone Tag variants
+- **Section utility** (`.section/-sm/-lg` + `-bg-subtle/-fg/-accent`) with fluid
+  vertical rhythm and container-query context; new `--spacing-section-sm/-lg` tokens
 
 ### Changed
 - Grayscale L-axis perceptually evened (WCAG verified: `--color-muted` holds AA)

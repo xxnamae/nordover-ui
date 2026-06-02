@@ -236,6 +236,8 @@
     --gap-component: var(--space-4);      /* 16px (web: 1.5rem) */
     --gap-section: var(--space-8);        /* 48px */
     --spacing-section: clamp(var(--space-8), 8vw, var(--space-12));   /* 48 → 96px fluid, app-kompakt */
+    --spacing-section-sm: clamp(var(--space-6), 6vw, var(--space-8)); /* 32 → 48px — compact section */
+    --spacing-section-lg: clamp(var(--space-12), 12vw, var(--space-16)); /* 96 → 128px — hero section */
     --page-padding: clamp(var(--space-5), 3vw, var(--space-6));       /* 24 → 32px fluid, app-tett */
 
     /* === Radius === */

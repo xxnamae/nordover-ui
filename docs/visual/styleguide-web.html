@@ -453,7 +453,7 @@
         <section class="doc-section" id="layout-primitives" data-section="foundation" data-category="layout">
           <h2 class="doc-section-title">Layout Primitives</h2>
           <p class="doc-section-desc">Core layout building blocks: stacks, clusters, and grids. These combine flexbox and grid with semantic gap tokens for consistent spacing across all layouts.</p>
-          <div class="chips"><span class="chip">.stack</span><span class="chip">.stack-tight</span><span class="chip">.cluster</span><span class="chip">.cluster-tight</span><span class="chip">.grid-auto</span><span class="chip">.page</span><span class="chip">.page-section</span><span class="chip">.page-content</span></div>
+          <div class="chips"><span class="chip">.stack</span><span class="chip">.stack-tight</span><span class="chip">.cluster</span><span class="chip">.cluster-tight</span><span class="chip">.grid-auto</span><span class="chip">.page</span><span class="chip">.page-section</span><span class="chip">.page-content</span><span class="chip">.section</span><span class="chip">.section-sm</span><span class="chip">.section-lg</span></div>
 
           <div class="doc-sub">Stack — Vertical Layout (.stack)</div>
           <p class="t-body-sm text-muted mb-3">Arranges children vertically (flex-direction: column) with consistent gap between items. Use .stack-tight for smaller gaps.</p>
@@ -524,6 +524,14 @@
   &lt;/section&gt;
 &lt;/div&gt;</code>
           </div>
+
+          <div class="doc-sub">Section — Vertical Rhythm (.section, .section-sm, .section-lg)</div>
+          <p class="t-body-sm text-muted mb-3">Establishes vertical rhythm via fluid <code>padding-block</code> and opens a <code>container-query</code> context so children can respond to section width. Size modifiers scale the padding; background modifiers tint the band.</p>
+          <div class="stack" style="gap:var(--space-2)">
+            <div class="section-sm section-bg-subtle" style="border-radius:var(--radius-md);text-align:center"><span class="t-body-sm">.section-sm · compact band</span></div>
+            <div class="section section-bg-accent" style="border-radius:var(--radius-md);text-align:center"><span class="t-body-sm">.section · default rhythm</span></div>
+          </div>
+          <div class="chips" style="margin-top:var(--space-2)"><span class="chip">.section</span><span class="chip">.section-sm</span><span class="chip">.section-lg</span><span class="chip">.section-bg-subtle</span><span class="chip">.section-bg-fg</span><span class="chip">.section-bg-accent</span></div>
 
           <div class="doc-sub">Layout Primitives Reference</div>
           <div class="stack-tight text-sm">

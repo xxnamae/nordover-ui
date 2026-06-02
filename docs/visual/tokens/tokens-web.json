@@ -412,6 +412,20 @@
     },
     "on-accent-subtle": {
       "$value": "{color.accent}"
+    },
+    "spacing-section-sm": {
+      "$type": "other",
+      "$value": "clamp(var(--space-8), 8vw, var(--space-12))",
+      "$extensions": {
+        "com.nordover.cssText": true
+      }
+    },
+    "spacing-section-lg": {
+      "$type": "other",
+      "$value": "clamp(var(--space-16), 16vw, var(--space-24))",
+      "$extensions": {
+        "com.nordover.cssText": true
+      }
     }
   },
   "color": {

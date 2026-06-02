@@ -2,7 +2,7 @@
 
 Production-ready CSS framework combining semantic tokens, reusable components, and utilities for both marketing sites and SaaS dashboards.
 
-**Status:** v1.0.0-alpha ✨ | **Components:** 40+ | **CSS:** 1,850 lines | **WCAG:** AA compliant
+**Status:** v1.2.0 ✨ | **Components:** 34 core + variants | **WCAG:** AA compliant | **Dark mode:** tonal elevation
 
 ## Features
 
@@ -294,4 +294,4 @@ MIT License — See [LICENSE](LICENSE) for details.
 
 **Built for Nordic web with ❤️**
 
-Nordover v1.0.0-alpha | [Repository](https://github.com/xxnamae/nordover-ui) | [License](LICENSE)
+Nordover v1.2.0 | [Repository](https://github.com/xxnamae/nordover-ui) | [License](LICENSE)

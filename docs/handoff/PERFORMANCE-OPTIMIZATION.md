@@ -683,7 +683,7 @@ Improvement: -3.3 KB (19% reduction), -65ms faster
 ### Scenario 3: Full Feature Site
 
 **Maximum component usage:**
-- All 41 components documented
+- All 34 core components documented
 - Custom brand styling
 
 **Results:**

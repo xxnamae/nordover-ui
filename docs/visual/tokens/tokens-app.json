@@ -486,6 +486,20 @@
     },
     "priority-none": {
       "$value": "{color.gray.300}"
+    },
+    "spacing-section-sm": {
+      "$type": "other",
+      "$value": "clamp(var(--space-6), 6vw, var(--space-8))",
+      "$extensions": {
+        "com.nordover.cssText": true
+      }
+    },
+    "spacing-section-lg": {
+      "$type": "other",
+      "$value": "clamp(var(--space-12), 12vw, var(--space-16))",
+      "$extensions": {
+        "com.nordover.cssText": true
+      }
     }
   },
   "color": {
