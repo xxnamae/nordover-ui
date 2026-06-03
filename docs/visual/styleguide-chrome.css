@@ -20,6 +20,11 @@
    ============================================================ */
 
 /* Styleguide-specific shell (not part of shipped framework) */
+.sg-app {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 100vh;
+}
 @media (min-width: 48rem) {
   .sg-app { grid-template-columns: 16rem 1fr; }
 }
@@ -218,7 +223,7 @@
 }
 
 /* Mobile backdrop — full-screen overlay when menu is open */
-.sg-mobile-backdrop {
+.mobile-backdrop {
   display: none;
   position: fixed;
   inset: 0;
@@ -227,8 +232,24 @@
   backdrop-filter: blur(4px);
 }
 @media (max-width: 48rem) {
-  #nav:checked ~ .sg-mobile-backdrop { display: block; }
-  #nav:checked ~ .sg-app .sg-sidebar { left: 0; }
+  #nav:checked ~ .mobile-backdrop { display: block; }
+}
+
+/* Mobile sidebar slides in from left */
+@media (max-width: 48rem) {
+  .sg-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 16rem;
+    transform: translateX(-100%);
+    transition: transform var(--duration-moderate) var(--ease-out);
+    z-index: 100;
+  }
+  #nav:checked ~ .sg-app .sg-sidebar {
+    transform: translateX(0);
+  }
 }
 
 /* ============================================================
