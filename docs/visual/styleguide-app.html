@@ -3,25 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Nordover App Framework Styleguide — Production-ready design system with 34 core components, WCAG AA compliant, responsive framework.">
+<meta name="description" content="Nordover App Framework Styleguide — Production-ready design system with 40+ components, WCAG AA compliant, responsive framework.">
 <title>Nordover — App Styleguide</title>
 <link rel="preconnect" href="https://rsms.me/">
 <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 <!-- Nordover canonical CSS framework (app package) -->
 <link rel="stylesheet" href="./tokens/tokens-app.css">
 <link rel="stylesheet" href="./components/components-app.css">
-<!-- Styleguide presentation chrome (token-only, not part of shipped framework). -->
-<link rel="stylesheet" href="./styleguide-chrome.css">
-<!-- Brand-layer example: Linear-like indigo. Demonstrates the brand pattern —
-     the same chrome above turns indigo purely from this override. -->
-<link rel="stylesheet" href="./styleguide-brand-linear.css">
+<link rel="stylesheet" href="./styleguide-enhancements.css">
 
 </head>
 <body>
 <a href="#main" class="sr-only" style="position: absolute; top: -40px; left: 0; background: var(--color-accent); color: white; padding: 8px; text-decoration: none; z-index: 100;" onmocus="this.style.top='0';" onblur="this.style.top='-40px';">Skip to main content</a>
 <input type="checkbox" id="dark" class="sr-only" checked role="switch" aria-label="Aktiver mørk modus">
 <input type="checkbox" id="nav" class="sr-only" aria-label="Åpne meny">
-<input type="checkbox" id="collapse" class="sr-only" aria-label="Collapse sidebar">
 
 <svg style="display:none"><defs>
 <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 12L12 3l9 9M5 10v10h14V10" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
@@ -40,141 +35,140 @@
 <symbol id="i-trash" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 6l-2 14a2 2 0 01-2 2H9a2 2 0 01-2-2L5 6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 <symbol id="i-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="3" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
 <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M12 3l1.9 5.9L19.5 11l-5.6 2.1L12 19l-1.9-5.9L4.5 11l5.6-2.1z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-<symbol id="i-chevron-left" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 </defs></svg>
 
 <label for="nav" class="mobile-backdrop" aria-hidden="true"></label>
 
-<div class="sg-app">
-  <aside class="sg-sidebar">
-    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-1);">
-      <div class="sg-sidebar-brand"><span class="sg-sidebar-brand-mark"><svg class="icon icon-sm"><use href="#i-home"/></svg></span> <span>Nordover</span> <span class="text-xs" style="opacity: 0.6;">v1.3.0</span></div>
-      <button class="sg-sidebar-close" aria-label="Lukk sidebar"><svg class="icon"><use href="#i-x"/></svg></button>
-    </div>
-    <div class="sg-sidebar-tagline" style="padding: 0 var(--space-2); font-size: var(--text-xs); color: var(--color-muted); margin-bottom: var(--space-4);">App framework</div>
+<div class="app">
+  <aside class="app-sidebar">
+    <div class="app-sidebar-brand"><span class="app-sidebar-brand-mark"><svg class="icon icon-sm"><use href="#i-home"/></svg></span> <span>Nordover</span> <span class="text-xs" style="opacity: 0.6; margin-left: auto;">v1.1.0</span></div>
+    <div class="app-sidebar-tagline" style="padding: 0 var(--space-2); font-size: var(--text-xs); color: var(--color-muted); margin-bottom: var(--space-3);">App framework</div>
+    <nav class="app-sidebar-meta-links" style="padding: 0 var(--space-2); border-top: 1px solid var(--color-subtle); padding-top: var(--space-2); margin-bottom: var(--space-3);">
+      <a href="https://github.com/xxnamae/nordover-ui" class="app-nav-item" style="font-size: var(--text-xs);">GitHub</a>
+      <a href="https://github.com/xxnamae/nordover-ui/blob/main/CHANGELOG.md" class="app-nav-item" style="font-size: var(--text-xs);">Changelog</a>
+      <a href="https://github.com/xxnamae/nordover-ui/blob/main/docs/COMPONENT-INVENTORY.md" class="app-nav-item" style="font-size: var(--text-xs);">Inventory</a>
+      <a href="https://github.com/xxnamae/nordover-ui/blob/main/docs/BROWSER-SUPPORT-MATRIX.md" class="app-nav-item" style="font-size: var(--text-xs);">Browser Support</a>
+    </nav>
 
-    <div class="sg-sidebar-section-group">
-      <button class="sg-sidebar-toggle" aria-expanded="true"><svg class="icon"><use href="#i-info"/></svg><span>Foundation</span></button>
-      <nav class="sg-nav-group active">
-        <a class="sg-nav-item" href="#colors"><svg class="icon"><use href="#i-folder"/></svg><span>Farger & gråskala</span></a>
-        <a class="sg-nav-item" href="#type"><svg class="icon"><use href="#i-edit"/></svg><span>Typografi</span></a>
-        <a class="sg-nav-item" href="#scales"><svg class="icon"><use href="#i-chart"/></svg><span>Skalaer & enheter</span></a>
-        <a class="sg-nav-item" href="#motion"><svg class="icon"><use href="#i-sparkles"/></svg><span>Motion</span></a>
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="true">Foundation</button>
+      <nav class="app-nav-group active">
+        <a class="app-nav-item" href="#colors"><svg class="icon"><use href="#i-folder"/></svg> Farger & gråskala</a>
+        <a class="app-nav-item" href="#type"><svg class="icon"><use href="#i-edit"/></svg> Typografi</a>
+        <a class="app-nav-item" href="#scales"><svg class="icon"><use href="#i-chart"/></svg> Skalaer & enheter</a>
+        <a class="app-nav-item" href="#motion"><svg class="icon"><use href="#i-sparkles"/></svg> Motion</a>
       </nav>
     </div>
 
-    <div class="sg-sidebar-section-group">
-      <button class="sg-sidebar-toggle" aria-expanded="true"><svg class="icon"><use href="#i-check"/></svg><span>Components</span></button>
-      <nav class="sg-nav-group active">
-        <a class="sg-nav-item" href="#component-api"><strong>API Reference</strong></a>
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="true">Components</button>
+      <nav class="app-nav-group active">
+        <a class="app-nav-item" href="#component-api"><strong>API Reference</strong></a>
       </nav>
     </div>
 
-    <div class="sg-sidebar-section-group">
-      <button class="sg-sidebar-toggle" aria-expanded="true"><svg class="icon"><use href="#i-check"/></svg><span>Interactive</span></button>
-      <nav class="sg-nav-group active">
-        <a class="sg-nav-item" href="#buttons"><svg class="icon"><use href="#i-check"/></svg><span>Buttons</span></a>
-        <a class="sg-nav-item" href="#forms"><svg class="icon"><use href="#i-edit"/></svg><span>Forms & Inputs</span></a>
-        <a class="sg-nav-item" href="#complex-forms"><svg class="icon"><use href="#i-edit"/></svg><span>Complex Forms</span></a>
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="true">Interactive</button>
+      <nav class="app-nav-group active">
+        <a class="app-nav-item" href="#buttons"><svg class="icon"><use href="#i-check"/></svg> Buttons</a>
+        <a class="app-nav-item" href="#forms"><svg class="icon"><use href="#i-edit"/></svg> Forms & Inputs</a>
+        <a class="app-nav-item" href="#complex-forms"><svg class="icon"><use href="#i-edit"/></svg> Complex Forms</a>
       </nav>
     </div>
 
-    <div class="sg-sidebar-section-group">
-      <button class="sg-sidebar-toggle" aria-expanded="true"><svg class="icon"><use href="#i-alert"/></svg><span>Feedback & Status</span></button>
-      <nav class="sg-nav-group active">
-        <a class="sg-nav-item" href="#badges"><svg class="icon"><use href="#i-check"/></svg><span>Badges & Status</span></a>
-        <a class="sg-nav-item" href="#alerts"><svg class="icon"><use href="#i-info"/></svg><span>Alerts</span></a>
-        <a class="sg-nav-item" href="#empty-states"><svg class="icon"><use href="#i-info"/></svg><span>Empty States</span></a>
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="true">Feedback & Status</button>
+      <nav class="app-nav-group active">
+        <a class="app-nav-item" href="#badges"><svg class="icon"><use href="#i-check"/></svg> Badges & Status</a>
+        <a class="app-nav-item" href="#alerts"><svg class="icon"><use href="#i-info"/></svg> Alerts</a>
+        <a class="app-nav-item" href="#empty-states"><svg class="icon"><use href="#i-info"/></svg> Empty States</a>
       </nav>
     </div>
 
-    <div class="sg-sidebar-section-group">
-      <button class="sg-sidebar-toggle" aria-expanded="true"><svg class="icon"><use href="#i-chart"/></svg><span>Data Display</span></button>
-      <nav class="sg-nav-group active">
-        <a class="sg-nav-item" href="#table"><svg class="icon"><use href="#i-inbox"/></svg><span>Data Tables</span></a>
-        <a class="sg-nav-item" href="#advanced-tables"><svg class="icon"><use href="#i-chart"/></svg><span>Advanced Tables</span></a>
-        <a class="sg-nav-item" href="#data-patterns"><svg class="icon"><use href="#i-inbox"/></svg><span>Data Patterns</span></a>
-        <a class="sg-nav-item" href="#pagination"><svg class="icon"><use href="#i-chart"/></svg><span>Pagination</span></a>
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="true">Data Display</button>
+      <nav class="app-nav-group active">
+        <a class="app-nav-item" href="#table"><svg class="icon"><use href="#i-inbox"/></svg> Data Tables</a>
+        <a class="app-nav-item" href="#advanced-tables"><svg class="icon"><use href="#i-chart"/></svg> Advanced Tables</a>
+        <a class="app-nav-item" href="#data-patterns"><svg class="icon"><use href="#i-inbox"/></svg> Data Patterns</a>
+        <a class="app-nav-item" href="#pagination"><svg class="icon"><use href="#i-chart"/></svg> Pagination</a>
       </nav>
     </div>
 
-    <div class="sg-sidebar-section-group">
-      <button class="sg-sidebar-toggle" aria-expanded="true"><svg class="icon"><use href="#i-check"/></svg><span>Pickers & Selection</span></button>
-      <nav class="sg-nav-group active">
-        <a class="sg-nav-item" href="#date-picker"><svg class="icon"><use href="#i-edit"/></svg><span>Date Picker</span></a>
-        <a class="sg-nav-item" href="#picker-components"><svg class="icon"><use href="#i-edit"/></svg><span>Pickers</span></a>
-        <a class="sg-nav-item" href="#file-upload"><svg class="icon"><use href="#i-copy"/></svg><span>File Upload</span></a>
-        <a class="sg-nav-item" href="#search-bar"><svg class="icon"><use href="#i-search"/></svg><span>Search Bar</span></a>
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="true">Pickers & Selection</button>
+      <nav class="app-nav-group active">
+        <a class="app-nav-item" href="#date-picker"><svg class="icon"><use href="#i-edit"/></svg> Date Picker</a>
+        <a class="app-nav-item" href="#picker-components"><svg class="icon"><use href="#i-edit"/></svg> Pickers</a>
+        <a class="app-nav-item" href="#file-upload"><svg class="icon"><use href="#i-copy"/></svg> File Upload</a>
+        <a class="app-nav-item" href="#search-bar"><svg class="icon"><use href="#i-search"/></svg> Search Bar</a>
       </nav>
     </div>
 
-    <div class="sg-sidebar-section-group">
-      <button class="sg-sidebar-toggle" aria-expanded="true"><svg class="icon"><use href="#i-check"/></svg><span>Overlays & Modals</span></button>
-      <nav class="sg-nav-group active">
-        <a class="sg-nav-item" href="#modal-variants"><svg class="icon"><use href="#i-info"/></svg><span>Modals</span></a>
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="true">Overlays & Modals</button>
+      <nav class="app-nav-group active">
+        <a class="app-nav-item" href="#modal-variants"><svg class="icon"><use href="#i-info"/></svg> Modals</a>
       </nav>
     </div>
 
-    <div class="sg-sidebar-section-group">
-      <button class="sg-sidebar-toggle" aria-expanded="true">Progress & Utilities</button>
-      <nav class="sg-nav-group active">
-        <a class="sg-nav-item" href="#stepper"><svg class="icon"><use href="#i-check"/></svg><span>Stepper</span></a>
-        <a class="sg-nav-item" href="#icons"><svg class="icon"><use href="#i-sparkles"/></svg><span>Icons</span></a>
-        <a class="sg-nav-item" href="#layout"><svg class="icon"><use href="#i-chart"/></svg><span>Primitives</span></a>
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="true">Progress & Utilities</button>
+      <nav class="app-nav-group active">
+        <a class="app-nav-item" href="#stepper"><svg class="icon"><use href="#i-check"/></svg> Stepper</a>
+        <a class="app-nav-item" href="#icons"><svg class="icon"><use href="#i-sparkles"/></svg> Icons</a>
+        <a class="app-nav-item" href="#layout"><svg class="icon"><use href="#i-chart"/></svg> Primitives</a>
       </nav>
     </div>
 
-    <div class="sg-sidebar-section-group">
-      <button class="sg-sidebar-toggle" aria-expanded="true"><svg class="icon"><use href="#i-sparkles"/></svg><span>Patterns</span></button>
-      <nav class="sg-nav-group active">
-        <a class="sg-nav-item" href="#states-interactions"><svg class="icon"><use href="#i-check"/></svg><span>States & Interactions</span></a>
-        <a class="sg-nav-item" href="#layout-techniques"><svg class="icon"><use href="#i-chart"/></svg><span>Layout Techniques</span></a>
-        <a class="sg-nav-item" href="#real-world-examples"><svg class="icon"><use href="#i-folder"/></svg><span>Real-World Examples</span></a>
-        <a class="sg-nav-item" href="#component-variants"><svg class="icon"><use href="#i-folder"/></svg><span>Component Variants</span></a>
-        <a class="sg-nav-item" href="#overlays"><svg class="icon"><use href="#i-info"/></svg><span>Modals</span></a>
-        <a class="sg-nav-item" href="#accordion"><svg class="icon"><use href="#i-edit"/></svg><span>Accordion</span></a>
-        <a class="sg-nav-item" href="#tags"><svg class="icon"><use href="#i-check"/></svg><span>Tags & Badges</span></a>
-        <a class="sg-nav-item" href="#tabs"><svg class="icon"><use href="#i-folder"/></svg><span>Tabs</span></a>
-        <a class="sg-nav-item" href="#avatars"><svg class="icon"><use href="#i-users"/></svg><span>Avatar</span></a>
-        <a class="sg-nav-item" href="#tooltip"><svg class="icon"><use href="#i-info"/></svg><span>Tooltip</span></a>
-        <a class="sg-nav-item" href="#menu"><svg class="icon"><use href="#i-menu"/></svg><span>Menu / Dropdown</span></a>
-        <a class="sg-nav-item" href="#toast"><svg class="icon"><use href="#i-info"/></svg><span>Toast</span></a>
-        <a class="sg-nav-item" href="#kbd"><svg class="icon"><use href="#i-edit"/></svg><span>Keyboard (Kbd)</span></a>
-        <a class="sg-nav-item" href="#skeleton"><svg class="icon"><use href="#i-chart"/></svg><span>Skeleton</span></a>
-        <a class="sg-nav-item" href="#form-patterns"><svg class="icon"><use href="#i-edit"/></svg><span>Form Patterns</span></a>
-        <a class="sg-nav-item" href="#dashboard-pattern"><svg class="icon"><use href="#i-chart"/></svg><span>Dashboard</span></a>
-        <a class="sg-nav-item" href="#footers-app"><svg class="icon"><use href="#i-info"/></svg><span>Footers & Layout</span></a>
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="true">Patterns</button>
+      <nav class="app-nav-group active">
+        <a class="app-nav-item" href="#states-interactions"><svg class="icon"><use href="#i-check"/></svg> States & Interactions</a>
+        <a class="app-nav-item" href="#layout-techniques"><svg class="icon"><use href="#i-chart"/></svg> Layout Techniques</a>
+        <a class="app-nav-item" href="#real-world-examples"><svg class="icon"><use href="#i-folder"/></svg> Real-World Examples</a>
+        <a class="app-nav-item" href="#component-variants"><svg class="icon"><use href="#i-folder"/></svg> Component Variants</a>
+        <a class="app-nav-item" href="#overlays"><svg class="icon"><use href="#i-info"/></svg> Modals</a>
+        <a class="app-nav-item" href="#accordion"><svg class="icon"><use href="#i-edit"/></svg> Accordion</a>
+        <a class="app-nav-item" href="#tags"><svg class="icon"><use href="#i-check"/></svg> Tags & Badges</a>
+        <a class="app-nav-item" href="#tabs"><svg class="icon"><use href="#i-folder"/></svg> Tabs</a>
+        <a class="app-nav-item" href="#avatars"><svg class="icon"><use href="#i-users"/></svg> Avatar</a>
+        <a class="app-nav-item" href="#tooltip"><svg class="icon"><use href="#i-info"/></svg> Tooltip</a>
+        <a class="app-nav-item" href="#menu"><svg class="icon"><use href="#i-menu"/></svg> Menu / Dropdown</a>
+        <a class="app-nav-item" href="#toast"><svg class="icon"><use href="#i-info"/></svg> Toast</a>
+        <a class="app-nav-item" href="#kbd"><svg class="icon"><use href="#i-edit"/></svg> Keyboard (Kbd)</a>
+        <a class="app-nav-item" href="#skeleton"><svg class="icon"><use href="#i-chart"/></svg> Skeleton</a>
+        <a class="app-nav-item" href="#form-patterns"><svg class="icon"><use href="#i-edit"/></svg> Form Patterns</a>
+        <a class="app-nav-item" href="#dashboard-pattern"><svg class="icon"><use href="#i-chart"/></svg> Dashboard</a>
+        <a class="app-nav-item" href="#footers-app"><svg class="icon"><use href="#i-info"/></svg> Footers & Layout</a>
       </nav>
     </div>
 
-    <div class="sg-sidebar-section-group">
-      <button class="sg-sidebar-toggle" aria-expanded="false"><svg class="icon"><use href="#i-info"/></svg><span>Guidelines</span></button>
-      <nav class="sg-nav-group">
-        <a class="sg-nav-item" href="#responsive"><svg class="icon"><use href="#i-chart"/></svg><span>Responsive</span></a>
-        <a class="sg-nav-item" href="#accessibility"><svg class="icon"><use href="#i-info"/></svg><span>Accessibility</span></a>
-        <a class="sg-nav-item" href="#advanced-aria-patterns"><svg class="icon"><use href="#i-info"/></svg><span>Advanced ARIA</span></a>
-        <a class="sg-nav-item" href="#animation-motion-patterns"><svg class="icon"><use href="#i-sparkles"/></svg><span>Animation & Motion</span></a>
-        <a class="sg-nav-item" href="#responsive-container-patterns"><svg class="icon"><use href="#i-chart"/></svg><span>Container Patterns</span></a>
-        <a class="sg-nav-item" href="#utilities"><svg class="icon"><use href="#i-sparkles"/></svg><span>Utilities</span></a>
-        <a class="sg-nav-item" href="#dark-mode-examples"><svg class="icon"><use href="#i-moon"/></svg><span>Dark Mode</span></a>
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="false">Guidelines</button>
+      <nav class="app-nav-group">
+        <a class="app-nav-item" href="#responsive"><svg class="icon"><use href="#i-chart"/></svg> Responsive</a>
+        <a class="app-nav-item" href="#accessibility"><svg class="icon"><use href="#i-info"/></svg> Accessibility</a>
+        <a class="app-nav-item" href="#advanced-aria-patterns"><svg class="icon"><use href="#i-info"/></svg> Advanced ARIA</a>
+        <a class="app-nav-item" href="#animation-motion-patterns"><svg class="icon"><use href="#i-sparkles"/></svg> Animation & Motion</a>
+        <a class="app-nav-item" href="#responsive-container-patterns"><svg class="icon"><use href="#i-chart"/></svg> Container Patterns</a>
+        <a class="app-nav-item" href="#utilities"><svg class="icon"><use href="#i-sparkles"/></svg> Utilities</a>
+        <a class="app-nav-item" href="#dark-mode-examples"><svg class="icon"><use href="#i-moon"/></svg> Dark Mode</a>
       </nav>
     </div>
   </aside>
 
-  <div class="sg-main">
-    <header class="sg-topbar">
+  <div class="app-main">
+    <header class="app-topbar">
       <div class="cluster cluster-tight">
         <label for="nav" class="hamburger" aria-label="Åpne navigasjonsmenyen"><svg class="icon"><use href="#i-menu"/></svg></label>
-        <span class="sg-topbar-title">App Styleguide</span>
+        <span class="app-topbar-title">App Styleguide</span>
       </div>
-      <div class="cluster cluster-tight">
-        <label for="collapse" class="collapse-toggle" aria-label="Toggle sidebar collapse" title="Collapse sidebar to icons"><svg class="icon"><use href="#i-chevron-left"/></svg></label>
-        <label class="theme-toggle" for="dark" aria-label="Aktiver mørk modus"><svg class="icon t-moon"><use href="#i-moon"/></svg><svg class="icon t-sun"><use href="#i-sun"/></svg></label>
-      </div>
+      <label class="theme-toggle" for="dark" aria-label="Aktiver mørk modus"><svg class="icon t-moon"><use href="#i-moon"/></svg><svg class="icon t-sun"><use href="#i-sun"/></svg></label>
     </header>
 
-    <main id="main" class="sg-content">
-      <div class="sg-content-inner">
+    <main id="main" class="app-content">
+      <div class="app-content-inner">
         <div class="doc-hero">
           <p class="doc-hero-eyebrow">Nordover · App Framework</p>
           <h1 class="doc-hero-title">App Styleguide</h1>
@@ -1113,17 +1107,17 @@
           <div class="doc-demo" style="max-width:14rem;border:var(--border-card);border-radius:var(--radius-md);padding:var(--space-3)">
             <div class="cluster" style="justify-content:space-between;align-items:center">
               <strong style="font-size:var(--text-sm)">Navigation</strong>
-              <button class="sg-sidebar-close" aria-label="Close sidebar">✕</button>
+              <button class="app-sidebar-close" aria-label="Close sidebar">✕</button>
             </div>
-            <div class="sg-sidebar-section">Foundation</div>
+            <div class="app-sidebar-section">Foundation</div>
             <nav class="stack-tight">
-              <a class="sg-nav-item" href="#"><span>Colors</span></a>
-              <a class="sg-nav-item" href="#"><span>Typography</span></a>
+              <a class="app-nav-item" href="#">Colors</a>
+              <a class="app-nav-item" href="#">Typography</a>
             </nav>
-            <div class="sg-sidebar-section">Components</div>
+            <div class="app-sidebar-section">Components</div>
             <nav class="stack-tight">
-              <a class="sg-nav-item" href="#"><span>Buttons</span></a>
-              <a class="sg-nav-item" href="#"><span>Forms</span></a>
+              <a class="app-nav-item" href="#">Buttons</a>
+              <a class="app-nav-item" href="#">Forms</a>
             </nav>
           </div>
         </section>
@@ -1428,12 +1422,12 @@
             <div class="stack">
               <div class="field">
                 <label class="field-label">Username</label>
-                <input class="form-input is-success" type="text" value="john_doe">
+                <input class="form-input" type="text" value="john_doe" style="border-color:var(--color-success)">
                 <span style="color:var(--color-success);font-size:var(--text-xs)">✓ Available</span>
               </div>
               <div class="field">
                 <label class="field-label">Email</label>
-                <input class="form-input is-error" type="email" value="john@example.c">
+                <input class="form-input" type="email" value="john@example.c" style="border-color:var(--color-error)">
                 <span class="field-error">Invalid format</span>
               </div>
               <div class="field">
@@ -1660,12 +1654,12 @@ function validate(e) {
             <div class="stack gap-2">
               <div class="field">
                 <label class="field-label text-xs">Username</label>
-                <input class="form-input is-error" type="text" value="jo" style="padding:var(--space-2) var(--space-3);font-size:var(--text-sm)">
+                <input class="form-input" type="text" value="jo" style="border-color:var(--color-error);padding:var(--space-2) var(--space-3);font-size:var(--text-sm)">
                 <span class="field-error">3+ characters required</span>
               </div>
               <div class="field">
                 <label class="field-label text-xs">Email <span style="color:var(--color-success)">✓</span></label>
-                <input class="form-input is-success" type="email" value="user@example.com" style="padding:var(--space-2) var(--space-3);font-size:var(--text-sm)">
+                <input class="form-input" type="email" value="user@example.com" style="border-color:var(--color-success);padding:var(--space-2) var(--space-3);font-size:var(--text-sm)">
               </div>
               <button class="btn btn-primary btn-sm" style="width:100%">Continue</button>
             </div>
@@ -2260,54 +2254,112 @@ function validate(e) {
           <p class="doc-section-desc">Complete interactive state documentation: buttons, forms, hover/focus/active/disabled states, loading indicators, and accessibility requirements. All components follow WCAG AA standards and respect prefers-reduced-motion.</p>
 
           <!-- BUTTON STATES MATRIX -->
-          <div class="doc-sub">Button States (Interactive)</div>
-          <div class="chips"><span class="chip">:hover</span><span class="chip">:active</span><span class="chip">:focus-visible</span><span class="chip">:disabled</span><span class="chip">aria-busy</span></div>
-          <p class="t-body-xs text-muted mb-3">Hover, click, and focus buttons below to see real CSS states from the framework.</p>
+          <div class="doc-sub">Button States Matrix (Compact App Sizing)</div>
+          <div class="chips"><span class="chip">:hover</span><span class="chip">:active</span><span class="chip">:focus</span><span class="chip">:disabled</span><span class="chip">loading</span></div>
           <div class="doc-demo flex flex-wrap gap-4 p-4">
+            <!-- PRIMARY BUTTONS -->
             <div class="stack" style="min-width:11rem">
               <span class="t-body-xs" style="color:var(--color-muted);text-transform:uppercase;letter-spacing:0.05em;font-weight:600;font-size:0.7rem">Primary</span>
               <div class="stack-tight">
                 <div class="stack-tight p-2 bg-subtle rounded-md">
-                  <span class="t-body-xs text-muted text-xs">Interactive</span>
-                  <button class="btn btn-primary btn-sm" aria-label="Primary button">Click me</button>
-                  <span class="t-caption text-muted">Hover/focus/click</span>
+                  <span class="t-body-xs text-muted text-xs">Rest</span>
+                  <button class="btn btn-primary btn-sm" disabled aria-label="Button rest">Rest</button>
+                  <span class="t-caption text-muted">cursor: pointer; opacity: 1</span>
+                </div>
+                <div class="stack-tight p-2 bg-subtle rounded-md">
+                  <span class="t-body-xs text-muted text-xs">Hover</span>
+                  <button class="btn btn-primary btn-sm" disabled style="opacity:0.85;cursor:pointer" aria-label="Button hover">Hover</button>
+                  <span class="t-caption text-muted">opacity: 0.85</span>
+                </div>
+                <div class="stack-tight p-2 bg-subtle rounded-md">
+                  <span class="t-body-xs text-muted text-xs">Active</span>
+                  <button class="btn btn-primary btn-sm" disabled style="transform:scale(0.95);box-shadow:inset 0 2px 4px rgba(0,0,0,0.1)" aria-label="Button active" aria-pressed="true">Active</button>
+                  <span class="t-caption text-muted">scale: 0.95; inset</span>
+                </div>
+                <div class="stack-tight p-2 bg-subtle rounded-md">
+                  <span class="t-body-xs text-muted text-xs">Focus</span>
+                  <button class="btn btn-primary btn-sm" disabled style="outline:2px solid var(--color-accent);outline-offset:2px" aria-label="Button focus">Focus</button>
+                  <span class="t-caption text-muted">outline: 2px</span>
                 </div>
                 <div class="stack-tight p-2 bg-subtle rounded-md">
                   <span class="t-body-xs text-muted text-xs">Disabled</span>
                   <button class="btn btn-primary btn-sm" disabled aria-disabled="true">Disabled</button>
                   <span class="t-caption text-muted">opacity: 0.5</span>
                 </div>
+                <div class="stack-tight p-2 bg-subtle rounded-md">
+                  <span class="t-body-xs text-muted text-xs">Loading</span>
+                  <button class="btn btn-primary btn-sm" disabled aria-busy="true">
+                    <span style="display:inline-block;width:0.75rem;height:0.75rem;border:2px solid currentColor;border-top-color:transparent;border-radius:50%;animation:spin 0.6s linear infinite;margin-right:var(--space-1)"></span>
+                    Loading
+                  </button>
+                </div>
               </div>
             </div>
 
+            <!-- SECONDARY BUTTONS -->
             <div class="stack" style="min-width:11rem">
               <span class="t-body-xs" style="color:var(--color-muted);text-transform:uppercase;letter-spacing:0.05em;font-weight:600;font-size:0.7rem">Secondary</span>
               <div class="stack-tight">
                 <div class="stack-tight p-2 bg-subtle rounded-md">
-                  <span class="t-body-xs text-muted text-xs">Interactive</span>
-                  <button class="btn btn-secondary btn-sm" aria-label="Secondary button">Click me</button>
-                  <span class="t-caption text-muted">Hover/focus/click</span>
+                  <span class="t-body-xs text-muted text-xs">Rest</span>
+                  <button class="btn btn-secondary btn-sm" disabled>Rest</button>
+                </div>
+                <div class="stack-tight p-2 bg-subtle rounded-md">
+                  <span class="t-body-xs text-muted text-xs">Hover</span>
+                  <button class="btn btn-secondary btn-sm" disabled style="opacity:0.85">Hover</button>
+                </div>
+                <div class="stack-tight p-2 bg-subtle rounded-md">
+                  <span class="t-body-xs text-muted text-xs">Active</span>
+                  <button class="btn btn-secondary btn-sm" disabled style="transform:scale(0.95);box-shadow:inset 0 2px 4px rgba(0,0,0,0.1)" aria-pressed="true">Active</button>
+                </div>
+                <div class="stack-tight p-2 bg-subtle rounded-md">
+                  <span class="t-body-xs text-muted text-xs">Focus</span>
+                  <button class="btn btn-secondary btn-sm" disabled style="outline:2px solid var(--color-accent);outline-offset:2px">Focus</button>
                 </div>
                 <div class="stack-tight p-2 bg-subtle rounded-md">
                   <span class="t-body-xs text-muted text-xs">Disabled</span>
                   <button class="btn btn-secondary btn-sm" disabled aria-disabled="true">Disabled</button>
-                  <span class="t-caption text-muted">opacity: 0.5</span>
+                </div>
+                <div class="stack-tight p-2 bg-subtle rounded-md">
+                  <span class="t-body-xs text-muted text-xs">Loading</span>
+                  <button class="btn btn-secondary btn-sm" disabled aria-busy="true">
+                    <span style="display:inline-block;width:0.75rem;height:0.75rem;border:2px solid currentColor;border-top-color:transparent;border-radius:50%;animation:spin 0.6s linear infinite;margin-right:var(--space-1)"></span>
+                    Loading
+                  </button>
                 </div>
               </div>
             </div>
 
+            <!-- GHOST BUTTONS -->
             <div class="stack" style="min-width:11rem">
               <span class="t-body-xs" style="color:var(--color-muted);text-transform:uppercase;letter-spacing:0.05em;font-weight:600;font-size:0.7rem">Ghost</span>
               <div class="stack-tight">
                 <div class="stack-tight p-2 bg-subtle rounded-md">
-                  <span class="t-body-xs text-muted text-xs">Interactive</span>
-                  <button class="btn btn-ghost btn-sm" aria-label="Ghost button">Click me</button>
-                  <span class="t-caption text-muted">Hover/focus/click</span>
+                  <span class="t-body-xs text-muted text-xs">Rest</span>
+                  <button class="btn btn-ghost btn-sm" disabled>Rest</button>
+                </div>
+                <div class="stack-tight p-2 bg-subtle rounded-md">
+                  <span class="t-body-xs text-muted text-xs">Hover</span>
+                  <button class="btn btn-ghost btn-sm" disabled style="background:var(--color-subtle);opacity:0.85">Hover</button>
+                </div>
+                <div class="stack-tight p-2 bg-subtle rounded-md">
+                  <span class="t-body-xs text-muted text-xs">Active</span>
+                  <button class="btn btn-ghost btn-sm" disabled style="transform:scale(0.95);background:var(--color-subtle)" aria-pressed="true">Active</button>
+                </div>
+                <div class="stack-tight p-2 bg-subtle rounded-md">
+                  <span class="t-body-xs text-muted text-xs">Focus</span>
+                  <button class="btn btn-ghost btn-sm" disabled style="outline:2px solid var(--color-accent);outline-offset:2px">Focus</button>
                 </div>
                 <div class="stack-tight p-2 bg-subtle rounded-md">
                   <span class="t-body-xs text-muted text-xs">Disabled</span>
                   <button class="btn btn-ghost btn-sm" disabled aria-disabled="true">Disabled</button>
-                  <span class="t-caption text-muted">opacity: 0.5</span>
+                </div>
+                <div class="stack-tight p-2 bg-subtle rounded-md">
+                  <span class="t-body-xs text-muted text-xs">Loading</span>
+                  <button class="btn btn-ghost btn-sm" disabled aria-busy="true">
+                    <span style="display:inline-block;width:0.75rem;height:0.75rem;border:2px solid currentColor;border-top-color:transparent;border-radius:50%;animation:spin 0.6s linear infinite;margin-right:var(--space-1)"></span>
+                    Loading
+                  </button>
                 </div>
               </div>
             </div>
@@ -2326,20 +2378,20 @@ function validate(e) {
             <div class="p-3 bg-subtle rounded-md">
               <span class="t-body-xs" style="color:var(--color-muted);display:block;margin-bottom:var(--space-1)">Focused State</span>
               <label class="field-label text-xs">Email address</label>
-              <input class="form-input" type="email" placeholder="you@example.com" style="outline:1px solid var(--color-accent);outline-offset:2px;font-size:var(--text-sm)" aria-label="Focused email">
+              <input class="form-input" type="email" placeholder="you@example.com" style="outline:2px solid var(--color-accent);outline-offset:2px;font-size:var(--text-sm)" aria-label="Focused email">
             </div>
 
             <div class="p-3 bg-subtle rounded-md">
               <span class="t-body-xs" style="color:var(--color-muted);display:block;margin-bottom:var(--space-1)">Error State</span>
               <label class="field-label text-xs" for="error-email-app">Email address <span style="color:var(--color-error)">*</span></label>
-              <input id="error-email-app" class="form-input is-error" type="email" value="invalid" style="font-size:var(--text-sm)" aria-invalid="true" aria-describedby="error-email-app-msg">
+              <input id="error-email-app" class="form-input" type="email" value="invalid" style="border-color:var(--color-error);border-width:2px;font-size:var(--text-sm)" aria-invalid="true" aria-describedby="error-email-app-msg">
               <span id="error-email-app-msg" class="t-body-xs" style="color:var(--color-error);margin-top:var(--space-1);display:block">Invalid format</span>
             </div>
 
             <div class="p-3 bg-subtle rounded-md">
               <span class="t-body-xs" style="color:var(--color-muted);display:block;margin-bottom:var(--space-1)">Success State</span>
               <label class="field-label text-xs">Email address</label>
-              <input class="form-input is-success" type="email" value="john@example.com" style="font-size:var(--text-sm)" aria-label="Valid email">
+              <input class="form-input" type="email" value="john@example.com" style="border-color:var(--color-success);border-width:2px;font-size:var(--text-sm)" aria-label="Valid email">
               <span class="t-body-xs" style="color:var(--color-success);margin-top:var(--space-1);display:block">✓ Verified</span>
             </div>
 
@@ -2355,11 +2407,11 @@ function validate(e) {
           <div class="chips"><span class="chip">:focus-visible</span><span class="chip">outline 2px</span><span class="chip">3:1 contrast</span></div>
           <div class="doc-demo stack p-4">
             <div class="p-3 bg-subtle rounded-md">
-              <p class="t-body-xs text-muted mb-2"><strong>Focus ring pattern:</strong> outline: 1px solid accent; outline-offset: 2px;</p>
+              <p class="t-body-xs text-muted mb-2"><strong>Focus ring pattern:</strong> outline: 2px solid accent; outline-offset: 2px;</p>
               <div class="cluster cluster-tight" style="gap:var(--space-2);flex-wrap:wrap">
-                <button class="btn btn-primary btn-sm" style="outline:1px solid var(--color-accent);outline-offset:2px">Primary</button>
-                <input class="form-input" type="text" placeholder="Input" style="outline:1px solid var(--color-accent);outline-offset:2px;max-width:10rem;font-size:var(--text-sm)">
-                <a href="#" style="padding:var(--space-1) var(--space-2);border-radius:var(--radius-sm);outline:1px solid var(--color-accent);outline-offset:2px;text-decoration:none;color:var(--color-accent);font-size:var(--text-sm)">Link</a>
+                <button class="btn btn-primary btn-sm" style="outline:2px solid var(--color-accent);outline-offset:2px">Primary</button>
+                <input class="form-input" type="text" placeholder="Input" style="outline:2px solid var(--color-accent);outline-offset:2px;max-width:10rem;font-size:var(--text-sm)">
+                <a href="#" style="padding:var(--space-1) var(--space-2);border-radius:var(--radius-sm);outline:2px solid var(--color-accent);outline-offset:2px;text-decoration:none;color:var(--color-accent);font-size:var(--text-sm)">Link</a>
               </div>
             </div>
 
@@ -3920,7 +3972,7 @@ function validate(e) {
             </div>
             <div class="field" style="margin-bottom:var(--space-3)">
               <label class="field-label">With Error</label>
-              <input class="form-input is-error" type="text" placeholder="Invalid">
+              <input class="form-input" type="text" placeholder="Invalid" style="border-color:var(--color-error)">
               <div class="field-error">Field required</div>
             </div>
             <div class="field">
@@ -4092,21 +4144,14 @@ function validate(e) {
 (function() {
   var navCheckbox = document.getElementById('nav');
   if (!navCheckbox) return;
-  var appMain = document.querySelector('main.sg-content');
-  if (!appMain) return;
+  var appMain = document.querySelector('main.app-main');
+  var appContent = document.querySelector('.app-content');
+  if (!appMain && !appContent) return;
 
-  var closeTarget = appMain;
+  var closeTarget = appMain || appContent;
   closeTarget.addEventListener('click', function() {
     navCheckbox.checked = false;
   });
-
-  // Close button functionality
-  var closeBtn = document.querySelector('.sg-sidebar-close');
-  if (closeBtn) {
-    closeBtn.addEventListener('click', function() {
-      navCheckbox.checked = false;
-    });
-  }
 })();
 
 // Copy to clipboard functionality
@@ -4136,7 +4181,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Sidebar toggle functionality for collapsible nav sections
-document.querySelectorAll('.sg-sidebar-toggle').forEach(btn => {
+document.querySelectorAll('.app-sidebar-toggle').forEach(btn => {
   btn.addEventListener('click', function() {
     var group = this.nextElementSibling;
     var isExpanded = this.getAttribute('aria-expanded') === 'true';
@@ -4144,81 +4189,6 @@ document.querySelectorAll('.sg-sidebar-toggle').forEach(btn => {
     group.classList.toggle('active');
   });
 });
-
-// Collapse toggle functionality
-var collapseCheckbox = document.getElementById('collapse');
-if (collapseCheckbox) {
-  collapseCheckbox.addEventListener('change', function() {
-    // Persist collapse state to localStorage
-    localStorage.setItem('nordover-sidebar-collapsed', this.checked);
-  });
-
-  // Restore collapse state from localStorage
-  var wasCollapsed = localStorage.getItem('nordover-sidebar-collapsed') === 'true';
-  if (wasCollapsed) {
-    collapseCheckbox.checked = true;
-  }
-}
-
-// Drag-to-resize sidebar
-(function() {
-  var sidebar = document.querySelector('.sg-sidebar');
-  var app = document.querySelector('.sg-app');
-  if (!sidebar || !app) return;
-
-  var isResizing = false;
-  var startX = 0;
-  var startWidth = 0;
-  var minWidth = 200;
-  var maxWidth = 400;
-
-  // Create resize handle
-  var handle = document.createElement('div');
-  handle.style.cssText = 'position: absolute; right: 0; top: 0; width: 4px; height: 100%; cursor: col-resize; background: transparent; hover:background: var(--color-accent); transition: background 200ms;';
-
-  // Only add resize handle on desktop
-  if (window.innerWidth >= 768) {
-    sidebar.style.position = 'relative';
-    sidebar.appendChild(handle);
-  }
-
-  handle.addEventListener('mousedown', function(e) {
-    isResizing = true;
-    startX = e.clientX;
-    startWidth = sidebar.offsetWidth;
-    document.addEventListener('mousemove', resize);
-    document.addEventListener('mouseup', stopResize);
-    handle.style.background = 'var(--color-accent)';
-  });
-
-  function resize(e) {
-    if (!isResizing) return;
-    var newWidth = startWidth + (e.clientX - startX);
-    if (newWidth >= minWidth && newWidth <= maxWidth) {
-      sidebar.style.width = newWidth + 'px';
-      // Update CSS variable
-      document.documentElement.style.setProperty('--sidebar-width', newWidth + 'px');
-    }
-  }
-
-  function stopResize() {
-    if (isResizing) {
-      isResizing = false;
-      document.removeEventListener('mousemove', resize);
-      document.removeEventListener('mouseup', stopResize);
-      handle.style.background = 'transparent';
-      // Save width to localStorage
-      localStorage.setItem('nordover-sidebar-width', sidebar.style.width || '18rem');
-    }
-  }
-
-  // Restore saved width
-  var savedWidth = localStorage.getItem('nordover-sidebar-width');
-  if (savedWidth) {
-    sidebar.style.width = savedWidth;
-    document.documentElement.style.setProperty('--sidebar-width', savedWidth);
-  }
-})();
 
 // Load Component API Reference
 fetch('./component-api-reference.html')

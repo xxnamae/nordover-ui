@@ -63,7 +63,7 @@
 
   /* Universell a11y — alle interaktive elementer arver dette uten ekstra arbeid */
   :focus-visible {
-    outline: var(--bw-thin, 1px) solid var(--color-focus, currentColor);
+    outline: var(--bw-medium, 2px) solid var(--color-focus, currentColor);
     outline-offset: 2px;
     border-radius: var(--radius-sm, 4px);
   }
@@ -102,11 +102,11 @@
 
     /* === Line-height-skala (unitless) === */
     --leading-none: 1; --leading-tight: 1.2; --leading-snug: 1.35;
-    --leading-normal: 1.5; --leading-relaxed: 1.625; --leading-loose: 1.8;
+    --leading-normal: 1.5; --leading-relaxed: 1.625; --leading-loose: 1.8; /* app-only */
 
     /* === Letter-spacing-skala === */
     --tracking-tighter: -0.04em; --tracking-tight: -0.02em; --tracking-normal: 0;
-    --tracking-wide: 0.01em; --tracking-wider: 0.04em; --tracking-widest: 0.08em;
+    --tracking-wide: 0.01em; --tracking-wider: 0.04em; /* app-only */ --tracking-widest: 0.08em;
     /* Role-level tracking (Apple/M3 optical sizing) */
     --tracking-display: -0.035em;
     --tracking-heading: var(--tracking-tight);
@@ -198,21 +198,21 @@
     --color-warning: var(--warning);
     --color-info: var(--info);
 
-    /* === Status (workflow — Linear-stil) === */
-    --status-backlog: var(--gray-500);
-    --status-todo: oklch(0.62 0.04 260);
-    --status-in-progress: oklch(0.66 0.17 65);
-    --status-in-review: oklch(0.55 0.25 280);
-    --status-done: oklch(0.65 0.17 155);
-    --status-canceled: var(--gray-600);
-    --status-blocked: oklch(0.55 0.20 25);
+    /* === Status (workflow — Linear-stil, app-only) === */
+    --status-backlog: var(--gray-500); /* app-only */
+    --status-todo: oklch(0.62 0.04 260); /* app-only */
+    --status-in-progress: oklch(0.66 0.17 65); /* app-only */
+    --status-in-review: oklch(0.55 0.25 280); /* app-only */
+    --status-done: oklch(0.65 0.17 155); /* app-only */
+    --status-canceled: var(--gray-600); /* app-only */
+    --status-blocked: oklch(0.55 0.20 25); /* app-only */
 
-    /* === Priority === */
-    --priority-urgent: oklch(0.52 0.20 25);
-    --priority-high: oklch(0.66 0.17 65);
-    --priority-medium: oklch(0.62 0.04 260);
-    --priority-low: var(--gray-600);
-    --priority-none: var(--gray-300);
+    /* === Priority (app-only) === */
+    --priority-urgent: oklch(0.52 0.20 25); /* app-only */
+    --priority-high: oklch(0.66 0.17 65); /* app-only */
+    --priority-medium: oklch(0.62 0.04 260); /* app-only */
+    --priority-low: var(--gray-600); /* app-only */
+    --priority-none: var(--gray-300); /* app-only */
 
     /* === Chart-palett (app — lysere for SaaS-visibility) === */
     --chart-1: oklch(0.62 0.20 145);
@@ -268,10 +268,10 @@
 
     /* === Icon-size === */
     --size-icon-sm: 0.875rem; --size-icon: 1rem;
-    --size-icon-lg: 1.25rem; --size-icon-xl: 1.5rem;
+    --size-icon-lg: 1.25rem; --size-icon-xl: 1.5rem; /* app-only */
 
     /* === Z-index === */
-    --z-base: 0; --z-dropdown: 10; --z-sticky: 20; --z-drawer: 25;
+    --z-base: 0; --z-dropdown: 10; --z-sticky: 20; --z-drawer: 25; /* app-only */
     --z-modal: 30; --z-toast: 40; --z-tooltip: 50;
 
     /* === Motion (app raskere — SaaS-tempo) === */
@@ -279,8 +279,8 @@
     --duration-base: 150ms; --duration-moderate: 200ms;
     --duration-slow: 250ms; --duration-slow-base: 300ms; --duration-slower: 400ms;
     --ease-out: cubic-bezier(0.2, 0, 0, 1);
-    --ease-in: cubic-bezier(0.4, 0, 1, 1);
-    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-in: cubic-bezier(0.4, 0, 1, 1); /* app-only */
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1); /* app-only */
     --ease-spring: cubic-bezier(0.2, 0.8, 0.2, 1);
     --ease-emphasized: cubic-bezier(0.3, 0, 0, 1);
     /* True spring physics (overshoot) for signature interactions */

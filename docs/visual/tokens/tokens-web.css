@@ -105,14 +105,14 @@
     --text-4xl: clamp(2.25rem, 1.89rem + 1.79vw, 3.5rem);
     --text-5xl: clamp(2.75rem, 2.25rem + 2.5vw, 4.5rem);
     --text-6xl: clamp(3.25rem, 2.54rem + 3.57vw, 5.75rem);
-    --text-7xl: clamp(3.75rem, 2.68rem + 5.36vw, 7.5rem);
-    --text-8xl: clamp(4.5rem, 2.93rem + 7.86vw, 10rem);
-    --text-9xl: clamp(4.25rem, 1.8rem + 11vw, 7.5rem);  /* hero display-2xl (mobile-safe min, capped at 120px for readability) */
+    --text-7xl: clamp(3.75rem, 2.68rem + 5.36vw, 7.5rem); /* web-only */
+    --text-8xl: clamp(4.5rem, 2.93rem + 7.86vw, 10rem); /* web-only */
+    --text-9xl: clamp(4.25rem, 1.8rem + 11vw, 7.5rem);  /* web-only: hero display-2xl (mobile-safe min, capped at 120px for readability) */
 
     /* === Finkalibrerte vekter (variable font) === */
-    --fw-display-xl: 380; --fw-display-lg: 400; --fw-display-md: 420;
-    --fw-heading-lg: 440; --fw-heading-md: 480; --fw-heading-sm: 500;
-    --fw-body: 400; --fw-body-sm: 520; --fw-eyebrow: 600; --fw-caption: 520;
+    --fw-display-xl: 380; /* web-only */ --fw-display-lg: 400; --fw-display-md: 420; /* web-only */
+    --fw-heading-lg: 440; --fw-heading-md: 480; --fw-heading-sm: 500; /* web-only */
+    --fw-body: 400; /* web-only */ --fw-body-sm: 520; --fw-eyebrow: 600; --fw-caption: 520;
     --fw-normal: 400; --fw-medium: 500; --fw-semibold: 600; --fw-bold: 700;
 
     /* === Line-height-skala (unitless) === */
@@ -270,7 +270,7 @@
     --size-icon-sm: 0.875rem; --size-icon: 1rem; --size-icon-lg: 1.25rem;
 
     /* === Z-index === */
-    --z-base: 0; --z-dropdown: 10; --z-sticky: 20; --z-overlay: 25;
+    --z-base: 0; --z-dropdown: 10; --z-sticky: 20; --z-overlay: 25; /* web-only */
     --z-modal: 30; --z-toast: 40; --z-tooltip: 50;
 
     /* === Motion (durations + easings) === */
