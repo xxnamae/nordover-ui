@@ -156,7 +156,7 @@
 }
 .sg-nav-item[aria-current="page"],
 .sg-nav-item.active {
-  background: var(--accent-subtle);
+  background: var(--color-subtle);
   color: var(--color-accent);
   font-weight: var(--fw-semibold);
 }
@@ -402,8 +402,8 @@
   color: var(--success-strong);
 }
 .metadata-platform {
-  background: var(--accent-subtle);
-  border: var(--bw-thin) solid var(--color-accent);
+  background: var(--color-subtle);
+  border: var(--bw-thin) solid var(--color-border);
   color: var(--color-accent);
 }
 
@@ -569,7 +569,7 @@
 .swatch-box {
   height: 4rem;
   width: 100%;
-  background: var(--accent-muted);
+  background: var(--color-subtle);
   border: var(--bw-thin) solid var(--color-border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-xs);
