@@ -31,8 +31,8 @@
 
 <label for="nav" class="mobile-backdrop" aria-hidden="true"></label>
 
-<div class="sg-app">
-  <aside class="sg-sidebar">
+<div class="app">
+  <aside class="app-sidebar">
     <div class="sg-sidebar-brand"><span class="sg-sidebar-brand-mark">N</span> <span>Nordover</span> <span class="text-xs" style="opacity: 0.6; margin-left: auto;">v1.3.0</span></div>
     <div class="sg-sidebar-tagline" style="padding: 0 var(--space-2); font-size: var(--text-xs); color: var(--color-muted); margin-bottom: var(--space-3);">Universal design system</div>
     <nav class="sg-sidebar-meta-links" style="padding: 0 var(--space-2); border-top: 1px solid var(--color-subtle); padding-top: var(--space-2); margin-bottom: var(--space-3);">
@@ -6761,11 +6761,10 @@ button { transition: all 250ms ease-out; }
 (function() {
   var navCheckbox = document.getElementById('nav');
   if (!navCheckbox) return;
-  var appMain = document.querySelector('main.app-main');
-  var appContent = document.querySelector('.app-content');
-  if (!appMain && !appContent) return;
+  var appMain = document.querySelector('main.sg-content');
+  if (!appMain) return;
 
-  var closeTarget = appMain || appContent;
+  var closeTarget = appMain;
   closeTarget.addEventListener('click', function() {
     navCheckbox.checked = false;
   });
@@ -6798,7 +6797,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Sidebar toggle functionality for collapsible nav sections
-document.querySelectorAll('.app-sidebar-toggle').forEach(btn => {
+document.querySelectorAll('.sg-sidebar-toggle').forEach(btn => {
   btn.addEventListener('click', function() {
     var group = this.nextElementSibling;
     var isExpanded = this.getAttribute('aria-expanded') === 'true';

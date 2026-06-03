@@ -4090,11 +4090,10 @@ function validate(e) {
 (function() {
   var navCheckbox = document.getElementById('nav');
   if (!navCheckbox) return;
-  var appMain = document.querySelector('main.app-main');
-  var appContent = document.querySelector('.app-content');
-  if (!appMain && !appContent) return;
+  var appMain = document.querySelector('main.sg-content');
+  if (!appMain) return;
 
-  var closeTarget = appMain || appContent;
+  var closeTarget = appMain;
   closeTarget.addEventListener('click', function() {
     navCheckbox.checked = false;
   });
@@ -4127,7 +4126,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Sidebar toggle functionality for collapsible nav sections
-document.querySelectorAll('.app-sidebar-toggle').forEach(btn => {
+document.querySelectorAll('.sg-sidebar-toggle').forEach(btn => {
   btn.addEventListener('click', function() {
     var group = this.nextElementSibling;
     var isExpanded = this.getAttribute('aria-expanded') === 'true';
