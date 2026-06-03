@@ -7,6 +7,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.4.0] - 2026-06-03
+
+Styleguide presentation rebuilt and shipped package slimmed. No changes
+to tokens or component APIs — class and token names remain contracts.
+
+### Removed
+- **Documentation chrome no longer ships in the package**: removed ~70
+  styleguide-only rules (`.doc-*`, `.swatch*`, `.chip(s)`) that had leaked
+  into `components-web.css` / `components-app.css`. These were never public
+  API — they styled the docs site, not consumer apps. Consumers get a
+  leaner stylesheet; component classes are unchanged.
+
+### Changed
+- **Styleguide chrome rebuilt** (`styleguide-chrome.css`): token-only, zero
+  hardcoded colors (was 27). Readable documentation sidebar, correct type
+  hierarchy, consistent spacing/radius. Defines every class the styleguides
+  use (previously several rendered as raw, unstyled elements — e.g. section
+  toggles showing as default buttons).
+- **Brand-layer demonstration**: web styleguide shows the honest Nordic
+  default (black accent); app styleguide layers `styleguide-brand-linear.css`
+  (a real `@layer brand` example) to render Linear-like indigo from the same
+  chrome — dogfooding the customization pattern.
+- Styleguide version label and component count corrected (34 core).
+
 ## [1.2.0] - 2026-06-02
 
 World-class visual upgrade across the entire system (tokens, components,
