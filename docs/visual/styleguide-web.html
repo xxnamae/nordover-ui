@@ -19,6 +19,7 @@
 <a href="#main" class="sr-only" style="position: absolute; top: -40px; left: 0; background: var(--color-accent); color: white; padding: 8px; text-decoration: none; z-index: 100;" onmocus="this.style.top='0';" onblur="this.style.top='-40px';">Skip to main content</a>
 <input type="checkbox" id="dark" class="sr-only" role="switch" aria-label="Aktiver mørk modus">
 <input type="checkbox" id="nav" class="sr-only" aria-label="Åpne meny">
+<input type="checkbox" id="collapse" class="sr-only" aria-label="Collapse sidebar">
 <svg style="display:none"><defs>
 <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
@@ -27,6 +28,8 @@
 <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="12" y1="16" x2="12" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="12" y1="8" x2="12.01" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
 <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 2L2 20h20L12 2z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="9" x2="12" y2="13" stroke="currentColor" stroke-width="1.5"/><line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="1.5"/></symbol>
 <symbol id="i-x" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+<symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M12 3l1.9 5.9L19.5 11l-5.6 2.1L12 19l-1.9-5.9L4.5 11l5.6-2.1z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-chevron-left" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 </defs></svg>
 
 <label for="nav" class="mobile-backdrop" aria-hidden="true"></label>
@@ -46,14 +49,14 @@
     </nav>
 
     <div class="sg-sidebar-section-group">
-      <button class="sg-sidebar-toggle" aria-expanded="true">Foundation</button>
+      <button class="sg-sidebar-toggle" aria-expanded="true"><span>Foundation</span></button>
       <nav class="sg-nav-group active">
-        <a class="sg-nav-item" href="#colors">Farger & gråskala</a>
-        <a class="sg-nav-item" href="#type">Typografi</a>
-        <a class="sg-nav-item" href="#scales">Skalaer & enheter</a>
-        <a class="sg-nav-item" href="#layout-primitives">Layout Primitives</a>
-        <a class="sg-nav-item" href="#motion">Motion</a>
-        <a class="sg-nav-item" href="#icons">Icons</a>
+        <a class="sg-nav-item" href="#colors"><svg class="icon"><use href="#i-info"/></svg><span>Farger & gråskala</span></a>
+        <a class="sg-nav-item" href="#type"><svg class="icon"><use href="#i-info"/></svg><span>Typografi</span></a>
+        <a class="sg-nav-item" href="#scales"><svg class="icon"><use href="#i-info"/></svg><span>Skalaer & enheter</span></a>
+        <a class="sg-nav-item" href="#layout-primitives"><svg class="icon"><use href="#i-info"/></svg><span>Layout Primitives</span></a>
+        <a class="sg-nav-item" href="#motion"><svg class="icon"><use href="#i-sparkles"/></svg><span>Motion</span></a>
+        <a class="sg-nav-item" href="#icons"><svg class="icon"><use href="#i-info"/></svg><span>Icons</span></a>
       </nav>
     </div>
 
@@ -65,13 +68,13 @@
     </div>
 
     <div class="sg-sidebar-section-group">
-      <button class="sg-sidebar-toggle" aria-expanded="true">Interactive</button>
+      <button class="sg-sidebar-toggle" aria-expanded="true"><span>Interactive</span></button>
       <nav class="sg-nav-group active">
-        <a class="sg-nav-item" href="#buttons">Buttons</a>
-        <a class="sg-nav-item" href="#button-variants">Button States</a>
-        <a class="sg-nav-item" href="#forms">Forms & Inputs</a>
-        <a class="sg-nav-item" href="#complex-forms">Complex Forms</a>
-        <a class="sg-nav-item" href="#form-patterns">Form Patterns</a>
+        <a class="sg-nav-item" href="#buttons"><svg class="icon"><use href="#i-check"/></svg><span>Buttons</span></a>
+        <a class="sg-nav-item" href="#button-variants"><svg class="icon"><use href="#i-check"/></svg><span>Button States</span></a>
+        <a class="sg-nav-item" href="#forms"><svg class="icon"><use href="#i-check"/></svg><span>Forms & Inputs</span></a>
+        <a class="sg-nav-item" href="#complex-forms"><svg class="icon"><use href="#i-check"/></svg><span>Complex Forms</span></a>
+        <a class="sg-nav-item" href="#form-patterns"><svg class="icon"><use href="#i-check"/></svg><span>Form Patterns</span></a>
       </nav>
     </div>
 
@@ -186,7 +189,10 @@
         <label for="nav" class="hamburger" aria-label="Åpne navigasjonsmenyen"><svg class="icon"><use href="#i-menu"/></svg></label>
         <span class="sg-topbar-title">Web Styleguide (Complete)</span>
       </div>
-      <label class="theme-toggle" for="dark" aria-label="Aktiver mørk modus"><svg class="icon t-moon"><use href="#i-moon"/></svg><svg class="icon t-sun"><use href="#i-sun"/></svg></label>
+      <div class="cluster cluster-tight">
+        <label for="collapse" class="collapse-toggle" aria-label="Toggle sidebar collapse" title="Collapse sidebar to icons"><svg class="icon"><use href="#i-chevron-left"/></svg></label>
+        <label class="theme-toggle" for="dark" aria-label="Aktiver mørk modus"><svg class="icon t-moon"><use href="#i-moon"/></svg><svg class="icon t-sun"><use href="#i-sun"/></svg></label>
+      </div>
     </header>
 
     <main id="main" class="sg-content">
@@ -6816,6 +6822,21 @@ document.querySelectorAll('.sg-sidebar-toggle').forEach(btn => {
     group.classList.toggle('active');
   });
 });
+
+// Collapse toggle functionality
+var collapseCheckbox = document.getElementById('collapse');
+if (collapseCheckbox) {
+  collapseCheckbox.addEventListener('change', function() {
+    // Persist collapse state to localStorage
+    localStorage.setItem('nordover-sidebar-collapsed', this.checked);
+  });
+
+  // Restore collapse state from localStorage
+  var wasCollapsed = localStorage.getItem('nordover-sidebar-collapsed') === 'true';
+  if (wasCollapsed) {
+    collapseCheckbox.checked = true;
+  }
+}
 
 // Load Component API Reference
 fetch('./component-api-reference.html')
