@@ -132,7 +132,8 @@ html, body {
   display: none;
 }
 
-#collapse:checked ~ .sg-app .sg-sidebar .sg-nav-item span:not(.icon) {
+#collapse:checked ~ .sg-app .sg-sidebar .sg-nav-item span:not(.icon),
+#collapse:checked ~ .sg-app .sg-sidebar .sg-nav-item strong {
   display: none;
 }
 
@@ -140,7 +141,8 @@ html, body {
   justify-content: center;
 }
 
-#collapse:checked ~ .sg-app .sg-sidebar .sg-sidebar-toggle span {
+#collapse:checked ~ .sg-app .sg-sidebar .sg-sidebar-toggle span,
+#collapse:checked ~ .sg-app .sg-sidebar .sg-sidebar-toggle::after {
   display: none;
 }
 
