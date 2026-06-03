@@ -209,6 +209,7 @@
 
 /* Close/dismiss button for mobile sidebar */
 .sg-sidebar-close {
+  display: none;
   background: none;
   border: none;
   cursor: pointer;
@@ -217,6 +218,10 @@
   padding: var(--space-2);
   border-radius: var(--radius-sm);
   transition: color var(--duration-fast) var(--ease-out);
+  flex-shrink: 0;
+}
+@media (max-width: 48rem) {
+  .sg-sidebar-close { display: flex; align-items: center; justify-content: center; }
 }
 .sg-sidebar-close:hover {
   color: var(--color-fg);
