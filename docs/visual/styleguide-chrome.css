@@ -80,7 +80,6 @@ html, body {
 
 .sg-sidebar {
   grid-column: 1;
-  grid-row: 1 / -1;
   width: var(--sidebar-width);
   padding: var(--space-4);
   background: var(--color-surface);
@@ -335,14 +334,12 @@ html, body {
   display: flex;
   flex-direction: column;
   grid-column: 1 / -1;
-  grid-row: 1 / -1;
   min-height: 100vh;
 }
 
 @media (min-width: var(--breakpoint-desktop)) {
   .sg-main {
     grid-column: 2;
-    grid-row: 1;
   }
 }
 
