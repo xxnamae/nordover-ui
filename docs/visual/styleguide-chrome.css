@@ -58,7 +58,7 @@ html, body {
   scrollbar-width: thin;
 }
 
-.sg-app {
+.app {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
@@ -68,7 +68,7 @@ html, body {
 }
 
 @media (min-width: var(--breakpoint-desktop)) {
-  .sg-app {
+  .app {
     grid-template-columns: var(--sidebar-width) 1fr;
   }
 }
@@ -77,7 +77,7 @@ html, body {
    2. SIDEBAR — DESKTOP & MOBILE
    ============================================================ */
 
-.sg-sidebar {
+.app-sidebar {
   grid-column: 1;
   width: var(--sidebar-width);
   padding: var(--space-4);
@@ -93,7 +93,7 @@ html, body {
 
 /* Mobile: sidebar is fixed, slides in from left */
 @media (max-width: calc(var(--breakpoint-desktop) - 1px)) {
-  .sg-sidebar {
+  .app-sidebar {
     position: fixed;
     left: 0;
     top: 0;
@@ -104,49 +104,49 @@ html, body {
     z-index: 100;
   }
 
-  #nav:checked ~ .sg-app .sg-sidebar {
+  #nav:checked ~ .app .app-sidebar {
     transform: translateX(0);
   }
 }
 
 /* Sidebar collapse state */
-#collapse:checked ~ .sg-app .sg-sidebar {
+#collapse:checked ~ .app .app-sidebar {
   width: var(--sidebar-width-collapsed);
 }
 
-#collapse:checked ~ .sg-app .sg-sidebar .sg-sidebar-brand span:not(.sg-sidebar-brand-mark) {
+#collapse:checked ~ .app .app-sidebar .app-sidebar-brand span:not(.app-sidebar-brand-mark) {
   display: none;
 }
 
-#collapse:checked ~ .sg-app .sg-sidebar .sg-sidebar-brand {
+#collapse:checked ~ .app .app-sidebar .app-sidebar-brand {
   justify-content: center;
 }
 
-#collapse:checked ~ .sg-app .sg-sidebar .sg-sidebar-tagline,
-#collapse:checked ~ .sg-app .sg-sidebar .sg-sidebar-meta-links,
-#collapse:checked ~ .sg-app .sg-nav-group {
+#collapse:checked ~ .app .app-sidebar .app-sidebar-tagline,
+#collapse:checked ~ .app .app-sidebar .app-sidebar-meta-links,
+#collapse:checked ~ .app .app-nav-group {
   display: none;
 }
 
-#collapse:checked ~ .sg-app .sg-sidebar .sg-nav-item span:not(.icon),
-#collapse:checked ~ .sg-app .sg-sidebar .sg-nav-item strong {
+#collapse:checked ~ .app .app-sidebar .app-nav-item span:not(.icon),
+#collapse:checked ~ .app .app-sidebar .app-nav-item strong {
   display: none;
 }
 
-#collapse:checked ~ .sg-app .sg-sidebar .sg-nav-item {
+#collapse:checked ~ .app .app-sidebar .app-nav-item {
   justify-content: center;
 }
 
-#collapse:checked ~ .sg-app .sg-sidebar .sg-sidebar-toggle span,
-#collapse:checked ~ .sg-app .sg-sidebar .sg-sidebar-toggle::after {
+#collapse:checked ~ .app .app-sidebar .app-sidebar-toggle span,
+#collapse:checked ~ .app .app-sidebar .app-sidebar-toggle::after {
   display: none;
 }
 
-#collapse:checked ~ .sg-app .sg-sidebar .sg-sidebar-toggle {
+#collapse:checked ~ .app .app-sidebar .app-sidebar-toggle {
   justify-content: center;
 }
 
-#collapse:checked ~ .sg-app {
+#collapse:checked ~ .app {
   grid-template-columns: var(--sidebar-width-collapsed) 1fr;
 }
 
@@ -154,7 +154,7 @@ html, body {
    3. SIDEBAR BRAND
    ============================================================ */
 
-.sg-sidebar-brand {
+.app-sidebar-brand {
   display: flex;
   align-items: center;
   gap: var(--space-2);
@@ -169,7 +169,7 @@ html, body {
   flex-wrap: wrap;
 }
 
-.sg-sidebar-brand-mark {
+.app-sidebar-brand-mark {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -183,7 +183,7 @@ html, body {
   flex-shrink: 0;
 }
 
-.sg-sidebar-tagline {
+.app-sidebar-tagline {
   padding: 0 var(--space-2);
   font-size: var(--text-xs);
   color: var(--color-muted);
@@ -194,11 +194,11 @@ html, body {
    5. SIDEBAR SECTIONS & TOGGLES
    ============================================================ */
 
-.sg-sidebar-section-group {
+.app-sidebar-section-group {
   margin-bottom: var(--space-4);
 }
 
-.sg-sidebar-toggle {
+.app-sidebar-toggle {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -217,11 +217,11 @@ html, body {
   transition: color var(--duration-fast) var(--ease-out);
 }
 
-.sg-sidebar-toggle:hover {
+.app-sidebar-toggle:hover {
   color: var(--color-fg);
 }
 
-.sg-sidebar-toggle::after {
+.app-sidebar-toggle::after {
   content: "";
   width: 0.5rem;
   height: 0.5rem;
@@ -233,7 +233,7 @@ html, body {
   flex-shrink: 0;
 }
 
-.sg-sidebar-toggle[aria-expanded="false"]::after {
+.app-sidebar-toggle[aria-expanded="false"]::after {
   transform: rotate(-45deg);
 }
 
@@ -241,18 +241,18 @@ html, body {
    6. NAVIGATION GROUPS & ITEMS
    ============================================================ */
 
-.sg-nav-group {
+.app-nav-group {
   display: none;
   flex-direction: column;
   gap: var(--space-px);
   margin-top: var(--space-1);
 }
 
-.sg-nav-group.active {
+.app-nav-group.active {
   display: flex;
 }
 
-.sg-nav-item {
+.app-nav-item {
   display: flex;
   align-items: center;
   gap: var(--space-2);
@@ -271,19 +271,19 @@ html, body {
   justify-content: flex-start;
 }
 
-.sg-nav-item:hover {
+.app-nav-item:hover {
   background: var(--color-subtle);
   color: var(--color-fg);
 }
 
-.sg-nav-item[aria-current="page"],
-.sg-nav-item.active {
+.app-nav-item[aria-current="page"],
+.app-nav-item.active {
   background: var(--color-subtle);
   color: var(--color-accent);
   font-weight: var(--fw-semibold);
 }
 
-.sg-nav-item .icon {
+.app-nav-item .icon {
   opacity: 0.7;
   flex-shrink: 0;
   width: 1rem;
@@ -294,7 +294,7 @@ html, body {
    7. CLOSE BUTTON (MOBILE)
    ============================================================ */
 
-.sg-sidebar-close {
+.app-sidebar-close {
   display: none;
   background: none;
   border: none;
@@ -307,18 +307,18 @@ html, body {
 }
 
 @media (max-width: calc(var(--breakpoint-desktop) - 1px)) {
-  .sg-sidebar-close {
+  .app-sidebar-close {
     display: flex;
     align-items: center;
     justify-content: center;
   }
 }
 
-.sg-sidebar-close:hover {
+.app-sidebar-close:hover {
   color: var(--color-fg);
 }
 
-.sg-sidebar-close .icon {
+.app-sidebar-close .icon {
   width: 1.25rem;
   height: 1.25rem;
 }
@@ -327,14 +327,14 @@ html, body {
    8. MAIN CONTENT AREA
    ============================================================ */
 
-.sg-main {
+.app-main {
   display: flex;
   flex-direction: column;
   grid-column: 1 / -1;
 }
 
 @media (min-width: var(--breakpoint-desktop)) {
-  .sg-main {
+  .app-main {
     grid-column: 2;
   }
 }
@@ -343,7 +343,7 @@ html, body {
    9. TOPBAR
    ============================================================ */
 
-.sg-topbar {
+.app-topbar {
   position: sticky;
   top: 0;
   z-index: 60;
@@ -359,7 +359,7 @@ html, body {
   flex-shrink: 0;
 }
 
-.sg-topbar-title {
+.app-topbar-title {
   font-size: var(--text-sm);
   font-weight: var(--fw-semibold);
   color: var(--color-fg);
@@ -453,7 +453,7 @@ html, body {
   height: 1.25rem;
 }
 
-#collapse:checked ~ .sg-app .sg-topbar .collapse-toggle .icon {
+#collapse:checked ~ .app .app-topbar .collapse-toggle .icon {
   transform: rotate(180deg);
 }
 
@@ -487,11 +487,11 @@ html, body {
   opacity: 1;
 }
 
-#dark:checked ~ .sg-app .sg-topbar .theme-toggle .t-moon {
+#dark:checked ~ .app .app-topbar .theme-toggle .t-moon {
   opacity: 0;
 }
 
-#dark:checked ~ .sg-app .sg-topbar .theme-toggle .t-sun {
+#dark:checked ~ .app .app-topbar .theme-toggle .t-sun {
   opacity: 1;
 }
 
@@ -499,7 +499,7 @@ html, body {
    10. CONTENT AREA
    ============================================================ */
 
-.sg-content {
+.app-content {
   flex: 1;
   padding: var(--space-3) var(--space-6) var(--space-10);
   background: var(--color-bg);
@@ -507,12 +507,12 @@ html, body {
 }
 
 @media (max-width: calc(var(--breakpoint-desktop) - 1px)) {
-  .sg-content {
+  .app-content {
     padding: var(--space-5) var(--space-4) var(--space-8);
   }
 }
 
-.sg-content-inner {
+.app-content-inner {
   max-width: 60rem;
   margin: 0 auto;
 }
