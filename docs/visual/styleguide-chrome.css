@@ -19,7 +19,7 @@
    CORE LAYOUT VARIABLES
    ============================================================ */
 :root {
-  --sidebar-width: 16rem;
+  --sidebar-width: 18rem;
   --sidebar-width-collapsed: 5rem;
   --topbar-height: 3.5rem;
   --breakpoint-desktop: 48rem;
@@ -34,12 +34,37 @@ html, body {
   padding: 0;
 }
 
+/* Subtle scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-muted);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-fg);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-color: var(--color-muted) transparent;
+  scrollbar-width: thin;
+}
+
 .sg-app {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
   min-height: 100vh;
   position: relative;
+  isolation: isolate;
 }
 
 @media (min-width: var(--breakpoint-desktop)) {
@@ -165,20 +190,6 @@ html, body {
   font-size: var(--text-xs);
   color: var(--color-muted);
   margin-bottom: var(--space-4);
-}
-
-/* ============================================================
-   4. SIDEBAR META LINKS
-   ============================================================ */
-
-.sg-sidebar-meta-links {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-px);
-  padding: var(--space-3) 0;
-  margin-bottom: var(--space-4);
-  border-top: var(--bw-thin) solid var(--color-border);
-  border-bottom: var(--bw-thin) solid var(--color-border);
 }
 
 /* ============================================================
@@ -359,7 +370,66 @@ html, body {
   color: var(--color-fg);
 }
 
+/* Hamburger button (mobile menu toggle) */
+.hamburger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-muted);
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+@media (min-width: var(--breakpoint-desktop)) {
+  .hamburger {
+    display: none;
+  }
+}
+
+.hamburger:hover {
+  color: var(--color-fg);
+}
+
+.hamburger .icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
 /* Collapse toggle button */
+/* Hamburger button (mobile menu toggle) */
+.hamburger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-muted);
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+@media (min-width: var(--breakpoint-desktop)) {
+  .hamburger {
+    display: none;
+  }
+}
+
+.hamburger:hover {
+  color: var(--color-fg);
+}
+
+.hamburger .icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Collapse toggle button (desktop only) */
 .collapse-toggle {
   display: none;
   background: none;
@@ -369,13 +439,13 @@ html, body {
   padding: var(--space-2);
   border-radius: var(--radius-sm);
   transition: color var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-out);
+  align-items: center;
+  justify-content: center;
 }
 
 @media (min-width: var(--breakpoint-desktop)) {
   .collapse-toggle {
     display: flex;
-    align-items: center;
-    justify-content: center;
   }
 }
 
@@ -390,6 +460,44 @@ html, body {
 
 #collapse:checked ~ .sg-app .sg-topbar .collapse-toggle .icon {
   transform: rotate(180deg);
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-muted);
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.theme-toggle:hover {
+  color: var(--color-fg);
+}
+
+.theme-toggle .icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  position: absolute;
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.theme-toggle .t-moon {
+  opacity: 1;
+}
+
+#dark:checked ~ .sg-app .sg-topbar .theme-toggle .t-moon {
+  opacity: 0;
+}
+
+#dark:checked ~ .sg-app .sg-topbar .theme-toggle .t-sun {
+  opacity: 1;
 }
 
 /* ============================================================
