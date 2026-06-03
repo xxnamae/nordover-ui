@@ -1,59 +1,19 @@
 # Token Consistency & Governance
 
-This document ensures that `tokens-web.css` and `tokens-app.css` remain maintainable despite separation.
+**153 shared tokens** exist in both files. Values differ, but names must not diverge.
 
-## Shared Token Names (Must Exist in Both Files)
+## Shared Token Categories
 
-The following 153 tokens **must be present** in both `tokens-web.css` and `tokens-app.css`. Values may differ (and are expected to differ). But the name must not diverge.
+**Color primitives:** `--gray-50` to `--gray-950`, `--neutral-h`, `--neutral-c`  
+**Color semantics:** `--color-{bg,surface,fg,subtle,muted,border}`, `--color-accent*`, `--error*`, `--success*`, `--warning*`, `--info*`  
+**Typography:** `--font-{sans,mono}`, `--text-{2xs..6xl}`, `--fw-*`, `--leading-*`, `--tracking-*`  
+**Spacing:** `--space-{0,px,1..48}`, `--gap-{tight,component}`  
+**Radius & borders:** `--radius-*`, `--bw-*`  
+**Shadows:** `--shadow-*`  
+**Motion:** `--duration-*`, `--ease-out`, `--ease-spring*`  
+**UI:** `--z-{base,dropdown,sticky,modal,toast,tooltip}`, `--size-icon-{sm,md,lg}`
 
-### Color Primitives
-- `--gray-50`, `--gray-100`, `--gray-200`, `--gray-300`, `--gray-400`, `--gray-500`, `--gray-600`, `--gray-700`, `--gray-800`, `--gray-900`
-
-### Color Semantics
-- `--color-bg`, `--color-surface`, `--color-subtle`, `--color-fg`, `--color-muted`, `--color-border`
-- `--color-accent`, `--color-accent-fg`, `--color-accent-hover`, `--color-accent-active`
-- `--error`, `--error-subtle`, `--error-strong`
-- `--success`, `--success-subtle`, `--success-strong`
-- `--warning`, `--warning-subtle`, `--warning-strong`
-- `--info`, `--info-subtle`, `--info-strong`
-
-### Typography
-- `--font-sans`, `--font-mono`, `--font-display`
-- `--text-2xs`, `--text-xs`, `--text-sm`, `--text-base`, `--text-lg`, `--text-xl`, `--text-2xl`, `--text-3xl`, `--text-4xl`, `--text-5xl`, `--text-6xl`, (web: `--text-7xl`, `--text-8xl`, `--text-9xl`)
-- (app: `--text-md`)
-
-### Font Weights
-- `--fw-eyebrow`, `--fw-caption`, `--fw-body-sm`, `--fw-body`, (web: `--fw-display-xl`), `--fw-display-lg`, `--fw-display-md`, `--fw-heading-lg`, `--fw-heading-md`, `--fw-heading-sm`, `--fw-semibold`, `--fw-medium`, `--fw-regular`, `--fw-bold`
-
-### Line Height
-- `--leading-none`, `--leading-tight`, `--leading-snug`, `--leading-normal`, `--leading-relaxed`, (app: `--leading-loose`)
-
-### Letter Spacing
-- `--tracking-tighter`, `--tracking-tight`, `--tracking-normal`, `--tracking-wide`, (app: `--tracking-wider`), `--tracking-widest`
-
-### Spacing (Gap, Padding, Margin)
-- `--space-1`, `--space-2`, `--space-3`, `--space-4`, `--space-5`, `--space-6`, `--space-7`, `--space-8`, `--space-10`, `--space-12`, `--space-16`, `--space-20`
-- `--gap-component`, `--gap-tight`
-
-### Border & Radius
-- `--radius-sm`, `--radius-md`, `--radius-lg`, `--radius-full`
-- `--bw-thin`, `--bw-medium`
-
-### Shadows
-- `--shadow-sm`, `--shadow-md`, `--shadow-lg`, `--shadow-xl`
-
-### Motion
-- `--duration-fast`, `--duration-moderate`, (web: `--duration-slow-base`), `--duration-slow`
-- `--ease-out`, `--ease-in`, `--ease-in-out`
-
-### Z-Index
-- `--z-sticky`, `--z-modal`, `--z-tooltip`
-
-### Sizing
-- `--size-icon-sm`, `--size-icon-md`, `--size-icon-lg`
-
-### Container Widths
-- (web: `--w-5xl`), (app: `--container-default`)
+**Full list:** See tokens-web.css `:root` block (lines 90–290)
 
 ---
 
