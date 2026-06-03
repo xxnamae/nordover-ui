@@ -57,22 +57,47 @@ The following 153 tokens **must be present** in both `tokens-web.css` and `token
 
 ---
 
-## Platform-Specific Tokens (Optional, Document Clearly)
+## Platform-Specific Tokens (Documented, Not Validated)
+
+These tokens exist in ONE platform only. They are intentional divergences and documented here (rather than validated by script, which would add complexity).
 
 ### App-Only Tokens
-These exist **only in `tokens-app.css`**. Mark with `/* app-only */` comment:
+
+These exist **only in `tokens-app.css`** — SaaS/dashboard UI requirements:
+
+**Workflow/Priority (not needed in marketing sites):**
 - `--priority-none`, `--priority-low`, `--priority-medium`, `--priority-high`, `--priority-urgent`
 - `--status-todo`, `--status-in-progress`, `--status-in-review`, `--status-done`, `--status-blocked`, `--status-canceled`, `--status-backlog`
-- `--nav-item-bg-active`
-- `--fw-display-lg`, `--text-md`, `--tracking-wider`, `--leading-loose`
+
+**Component-specific:**
+- `--nav-item-bg-active` (app sidebar hover state)
+- `--size-icon-xl` (larger icons for app density)
+- `--z-drawer` (drawer z-level)
+
+**SaaS-optimized motion (faster than web):**
+- `--ease-in`, `--ease-in-out` (app has these, web doesn't)
+- `--leading-loose` (app added for body comfort on compact scale)
+- `--tracking-wider` (app added for header breathing room)
+
+**Container constraints:**
+- `--container-default`, `--container-wide` (app dashboard breakpoints)
 
 ### Web-Only Tokens
-These exist **only in `tokens-web.css`**. Mark with `/* web-only */` comment:
-- `--font-display` (includes "Inter Tight" variant for web editorial)
-- `--text-7xl`, `--text-8xl`, `--text-9xl` (hero displays)
-- `--fw-display-xl`
-- `--color-backdrop` (mobile backdrop blur)
-- `--duration-slow-base`, `--container-edge`
+
+These exist **only in `tokens-web.css`** — editorial/marketing requirements:
+
+**Fluid type-scale for hero displays (not in compact app scale):**
+- `--text-7xl`, `--text-8xl`, `--text-9xl` (large clamp() scales up to 10rem)
+- `--fw-display-xl`, `--fw-display-md` (web's broader weight range)
+- `--fw-heading-sm`, `--fw-body` (editorial-specific weights)
+
+**Editorial UI:**
+- `--font-display` (includes "Inter Tight" variant for web typography hierarchy)
+- `--color-backdrop` (backdrop blur for modals in marketing sites)
+- `--z-overlay` (editorial modal positioning)
+
+**Editorial motion:**
+- `--duration-slow-base` (web's slower, more deliberate animations)
 
 ---
 
