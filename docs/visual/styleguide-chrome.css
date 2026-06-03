@@ -30,8 +30,17 @@
   background: var(--color-surface);
   border-right: var(--bw-thin) solid var(--color-border);
 }
+/* Desktop: pin sidebar to viewport and scroll its nav internally,
+   so navigation stays reachable no matter how far the page scrolls. */
 @media (min-width: 48rem) {
-  .app-sidebar { width: 16rem; }
+  .app-sidebar {
+    width: 16rem;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
 }
 
 /* Brand block */
@@ -194,7 +203,7 @@
 .doc-hero {
   padding: var(--space-8) var(--space-7);
   margin-bottom: var(--space-6);
-  background: linear-gradient(150deg, var(--accent-subtle) 0%, var(--color-surface) 75%);
+  background: linear-gradient(150deg, var(--color-subtle) 0%, var(--color-surface) 75%);
   border: var(--bw-thin) solid var(--color-border);
   border-radius: var(--radius-2xl);
   position: relative;
@@ -207,8 +216,8 @@
   right: -8%;
   width: 24rem;
   height: 24rem;
-  background: radial-gradient(circle, var(--accent-muted) 0%, transparent 70%);
-  opacity: 0.2;
+  background: radial-gradient(circle, var(--color-subtle) 0%, transparent 70%);
+  opacity: 0.5;
   pointer-events: none;
 }
 .doc-hero > * { position: relative; z-index: 1; }
@@ -393,7 +402,7 @@
 .spacing-demo {
   margin: var(--space-4) 0;
   padding: var(--space-5);
-  background: linear-gradient(180deg, var(--color-subtle) 0%, var(--accent-subtle) 100%);
+  background: linear-gradient(180deg, var(--surface-2) 0%, var(--color-subtle) 100%);
   border: var(--bw-thin) solid var(--color-border);
   border-radius: var(--radius-xl);
 }

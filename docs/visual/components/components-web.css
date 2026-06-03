@@ -193,7 +193,7 @@
     color: var(--color-accent);
   }
   .app-nav-item:focus-visible {
-    outline: 2px solid var(--color-accent);
+    outline: 1px solid var(--color-accent);
     outline-offset: 2px;
   }
 
@@ -254,7 +254,7 @@
     background: var(--color-subtle);
   }
   .hamburger:focus-visible {
-    outline: 2px solid var(--color-accent);
+    outline: 1px solid var(--color-accent);
     outline-offset: 2px;
   }
 
@@ -303,7 +303,7 @@
     background: var(--color-subtle);
   }
   .theme-toggle:focus-visible {
-    outline: 2px solid var(--color-accent);
+    outline: 1px solid var(--color-accent);
     outline-offset: 2px;
   }
   .theme-toggle .icon {
@@ -493,7 +493,7 @@
   .form-input:focus-visible,
   .form-select:focus-visible,
   .form-textarea:focus-visible {
-    outline: 2px solid var(--color-focus);
+    outline: 1px solid var(--color-focus);
     outline-offset: 2px;
   }
   .btn:active {
@@ -617,7 +617,7 @@
   .form-select:focus-visible,
   .form-textarea:focus-visible,
   textarea:focus-visible {
-    outline: 2px solid var(--color-focus);
+    outline: 1px solid var(--color-focus);
     outline-offset: 2px;
     border-color: var(--color-accent);
     background: var(--color-bg);
@@ -675,7 +675,7 @@
   .form-checkbox:hover { border-color: var(--color-fg); }
   .form-checkbox:checked { background: var(--color-accent); border-color: var(--color-accent); }
   .form-checkbox:checked::before { transform: scale(1); }
-  .form-checkbox:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+  .form-checkbox:focus-visible { outline: 1px solid var(--color-focus); outline-offset: 2px; }
   .form-checkbox:disabled { opacity: 0.5; cursor: not-allowed; }
 
   .form-radio {
@@ -693,7 +693,7 @@
   .form-radio:hover { border-color: var(--color-fg); }
   .form-radio:checked { background: var(--color-accent); border-color: var(--color-accent); }
   .form-radio:checked::before { transform: scale(1); }
-  .form-radio:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+  .form-radio:focus-visible { outline: 1px solid var(--color-focus); outline-offset: 2px; }
   .form-radio:disabled { opacity: 0.5; cursor: not-allowed; }
 
   .form-toggle,
@@ -717,7 +717,7 @@
   .form-toggle:checked::after,
   .form-switch:checked::after { left: calc(100% - 1.1875rem); }
   .form-toggle:focus-visible,
-  .form-switch:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+  .form-switch:focus-visible { outline: 1px solid var(--color-focus); outline-offset: 2px; }
   .form-toggle:disabled,
   .form-switch:disabled { opacity: 0.5; cursor: not-allowed; }
 
@@ -1713,7 +1713,7 @@
   .tabs-trigger { position: relative; padding: var(--space-2) var(--space-4); font-size: var(--text-sm); font-weight: var(--fw-medium); color: var(--color-muted); background: transparent; border: none; cursor: pointer; border-radius: var(--radius-md) var(--radius-md) 0 0; margin-bottom: -1px; transition: color var(--duration-fast) var(--ease-out), background var(--duration-fast) var(--ease-out); }
   .tabs-trigger:hover { color: var(--color-fg); background: var(--color-subtle); }
   .tabs-trigger[aria-selected="true"], .tabs-trigger.active { color: var(--color-fg); border-bottom: 2px solid var(--color-accent); }
-  .tabs-trigger:focus-visible { outline: 2px solid var(--color-focus); outline-offset: -2px; }
+  .tabs-trigger:focus-visible { outline: 1px solid var(--color-focus); outline-offset: -2px; }
   .tabs-content { padding-block: var(--gap-component); }
 
   /* Avatar — size scale + overlapping group */
@@ -1736,7 +1736,7 @@
   .menu-content { background: var(--surface-3); border: var(--border-card); border-radius: var(--radius-md); box-shadow: var(--shadow-popover); padding: var(--space-1); min-width: 12rem; z-index: var(--z-dropdown); }
   .menu-item { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-3); border-radius: var(--radius-sm); font-size: var(--text-sm); color: var(--color-fg); cursor: pointer; transition: background var(--duration-fast) var(--ease-out); }
   .menu-item:hover, .menu-item[data-highlighted] { background: var(--color-subtle); }
-  .menu-item:focus-visible { outline: 2px solid var(--color-focus); outline-offset: -2px; }
+  .menu-item:focus-visible { outline: 1px solid var(--color-focus); outline-offset: -2px; }
   .menu-separator { height: 1px; background: var(--color-border); margin: var(--space-1) 0; }
 
   /* Toast */
