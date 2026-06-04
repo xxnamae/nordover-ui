@@ -1,88 +1,94 @@
 # Styleguide Maintenance Policy
 
-**Status:** Active Policy  
-**Purpose:** Ensure styleguides are always authoritative, complete references of the framework
+**Status:** Active Policy (Updated 2026-06-04)  
+**Purpose:** Ensure styleguides are authoritative references of the framework building blocks
 
 ## Core Principle
 
-**Styleguides are the single source of truth for what exists in Nordover.**
+**The styleguide is the single source of truth for what exists in Nordover.**
 
-If a component exists in `components-web.css` or `components-app.css`, it **MUST** be shown in the corresponding styleguide. If it's not in a styleguide, it doesn't exist for users.
+If a component exists in `components-web.css` or `components-app.css`, it **MUST** be shown in the styleguide. If it's not documented, it doesn't exist for users.
 
 ---
 
-## Styleguide Files
+## Styleguide Architecture
 
-| File | Framework | Purpose |
-|------|-----------|---------|
-| `styleguide-web.html` | tokens-web.css + components-web.css | Editorial sites, marketing, content-rich apps |
-| `styleguide-app.html` | tokens-app.css + components-app.css | SaaS, dashboards, data-dense interfaces |
+| File | Purpose | Scope |
+|------|---------|-------|
+| **`styleguide.html`** (primary) | Unified reference for tokens + components | Both web and app with package switcher |
+| `styleguide-web.html` | Legacy reference (deprecated) | Keep for backward compatibility during transition |
+| `styleguide-app.html` | Legacy reference (deprecated) | Keep for backward compatibility during transition |
 
-Both must be linked to canonical CSS files (not embedded):
+The new unified styleguide must be linked to canonical CSS files (not embedded):
 ```html
-<link rel="stylesheet" href="./tokens/tokens-web.css">
+<link rel="stylesheet" href="./tokens/tokens-web.css" id="token-stylesheet">
 <link rel="stylesheet" href="./components/components-web.css">
+<link rel="stylesheet" href="./styleguide-chrome.css">
 ```
 
 ---
 
 ## Required Component Coverage
 
-### All styleguides must include:
+Per ADR 2026-06-04 (rammeverk-fokus-byggesteiner), Nordover focuses on Layer 1 + Layer 2 only:
+- **Layer 1:** Tokens (colors, typography, spacing, motion, etc.)
+- **Layer 2:** Building blocks (reusable primitives)
+- **Layer 3:** Patterns (removed — projects compose their own)
 
-**Foundation (Tokens & System)**
-- ✅ Colors & grayscale with swatches
-- ✅ Typography (all classes)
-- ✅ Spacing scale
-- ✅ Motion system with demos
-- ✅ Icons with sizing and color variants
+### Styleguide must document:
 
-**Interactive Components**
-- ✅ Buttons (all variants × sizes)
-- ✅ Forms (inputs, checkboxes, radios, selects, toggles, switches)
-- ✅ Form validation (errors, help text, disabled states)
+**Foundation (Layer 1: Tokens)**
+- ✅ Colors & semantic swatches (light/dark mode)
+- ✅ Typography scale (display, heading, body, caption)
+- ✅ Spacing & sizing scales
+- ✅ Motion durations & easing
+- ✅ Shadows, radius, borders
+
+**Interactive Components (Layer 2: Building Blocks)**
+- ✅ Buttons (all variants: primary, secondary, ghost, tonal, elevated, link; all sizes)
+- ✅ Forms (inputs, checkboxes, radios, selects, textarea, switches)
 - ✅ Badges (all color variants)
+- ✅ Alerts (all severity levels: success, error, warning, info)
 - ✅ Tags & Tag Input
-- ✅ Alerts (all types)
+- ✅ Cards (default, elevated, bordered, subtle)
 
-**Data Display**
-- ✅ Tables (standard + responsive)
+**Data Display (Layer 2)**
+- ✅ Tables (standard HTML tables with optional styling)
 - ✅ Pagination
-- ✅ Data filtering UI (if exists)
-- ✅ Inline editing hooks (if exists)
+- ✅ Avatar (all sizes)
+- ✅ Skeleton (loading placeholders)
+- ✅ Empty states (icon, title, description)
+- ✅ Breadcrumbs
+- ✅ Tooltip
 
-**Complex Components**
-- ✅ Modals & Dialogs (with states)
+**Complex Components (Layer 2)**
+- ✅ Modals & Dialogs (with header, content, footer)
 - ✅ Accordions/Details
+- ✅ Tabs
 - ✅ Date Picker
 - ✅ File Upload
-- ✅ Stepper (multi-step)
-- ✅ Search Bar with results
+- ✅ Stepper (multi-step process)
+- ✅ Search Bar
+- ✅ Menu/Dropdown
+- ✅ Toast/Notification
+- ✅ Kbd (keyboard key styling)
 
-**Patterns & Sections**
-- ✅ Hero sections (centered, split, editorial)
-- ✅ Feature grids
-- ✅ CTA cards
-- ✅ Pricing cards
-- ✅ FAQ/Accordion
-- ✅ Blog cards (web only)
-- ✅ Testimonials (web only)
-- ✅ Timeline (web only)
-- ✅ Footer (web only)
-- ✅ Mobile navigation drawer
+**Navigation (Layer 2)**
 - ✅ Breadcrumbs
 - ✅ Tabs
-- ✅ Empty states
+- ✅ Mobile navigation patterns
 
-**Utilities & Helpers**
-- ✅ Layout utilities (.stack, .cluster, .grid-auto, .page)
-- ✅ Display utilities (.flex, .block, .hidden, etc.)
-- ✅ Spacing utilities (.gap-*, .m-*, .p-*)
-- ✅ Typography utilities (.text-center, .uppercase, .truncate, etc.)
-- ✅ Animation utilities (.animate-fade-in, .slide-in-*, .bounce-in)
-- ✅ Color utilities (.text-accent, .bg-subtle, etc.)
-- ✅ Sizing utilities (.w-full, .max-w-*)
-- ✅ Shadow utilities (.shadow-sm, .shadow-md)
+**Layout Utilities (Layer 2)**
+- ✅ Layout primitives (.stack, .cluster, .grid-auto, .page, .section)
+- ✅ Display utilities (.flex, .block, .hidden, .invisible)
+- ✅ Spacing utilities (.gap-*, .m-*, .p-*, .mb-*, .mt-*)
+- ✅ Typography utilities (.text-center, .text-left, .uppercase, .truncate)
+- ✅ Animation utilities (.animate-fade-in, .slide-in-up, .scale-in)
+- ✅ Responsive utilities
+
+**NOT Documented (Layer 3: Removed)**
+- ❌ Patterns: Hero sections, pricing grids, blog cards, testimonials, feature grids, CTA cards, timelines, dashboard layouts
+- ❌ Page compositions (complete layouts — users compose these from building blocks)
 
 ---
 
@@ -134,35 +140,42 @@ Both must be linked to canonical CSS files (not embedded):
 
 ## Validation Checklist
 
-Before declaring styleguides "complete," verify:
+Before declaring styleguide complete, verify for **building blocks only** (Layer 2):
 
-- [ ] All classes in CSS file have corresponding demo
-- [ ] All variants are shown (color, size, state)
-- [ ] All interactive states visible (hover, focus, active, disabled)
-- [ ] Responsive behavior demonstrated (if applicable)
+- [ ] All button variants documented (primary, secondary, ghost, tonal, elevated, link)
+- [ ] All button sizes shown (sm, default, lg)
+- [ ] Form inputs complete (text, password, textarea, checkbox, radio, select, switch)
+- [ ] Badges and alerts with all color variants
+- [ ] Cards with all style variants (default, elevated, bordered)
+- [ ] Tables render correctly with proper cell alignment
+- [ ] Complex components functional (accordion opens/closes, tabs switch, date picker interactive)
+- [ ] Token gallery displays all semantic colors
+- [ ] Typography scale shows all levels
+- [ ] Spacing and sizing scales visual
 - [ ] Dark mode works (toggle in top-right)
-- [ ] Mobile navigation works (hamburger menu)
+- [ ] Mobile responsive (sidebar collapses on mobile, hamburger menu functional)
 - [ ] No broken links or missing icons
 - [ ] Component descriptions are accurate
-- [ ] CSS class names are documented
+- [ ] CSS class names clearly labeled in "chips"
+- [ ] Package switcher works (web ↔ app token switching)
 
 ---
 
 ## Why This Matters
 
-**Without complete styleguides:**
-- Users don't know what components exist
-- Developers duplicate work (re-implement what already exists)
-- Framework appears incomplete/immature
-- "What does Nordover provide?" becomes unanswerable
-- Quality perception drops (10/10 → 6/10)
+**Without a complete, accurate styleguide:**
+- Users don't know what building blocks exist
+- Developers reinvent components (pattern vs. block confusion)
+- Framework appears incomplete or over-engineered (includes patterns when only blocks are shipped)
+- "What is Nordover's actual scope?" becomes unclear
+- Quality perception drops (foundation seems untrustworthy)
 
-**With complete styleguides:**
-- Users discover all available components instantly
-- Clear reference for what works
-- Builds confidence in framework completeness
-- Developers can copy-paste live examples
-- Framework appears production-ready
+**With a complete styleguide documenting building blocks only:**
+- Users instantly see what they can build with
+- Clear boundary: tokens + blocks (foundation) vs. project patterns
+- Builds confidence: framework is focused and maintainable
+- Developers confidently compose projects on top (not fighting against "wrong" patterns)
+- Framework appears mature, well-scoped, reusable
 
 ---
 
@@ -181,5 +194,6 @@ Before declaring styleguides "complete," verify:
 
 | Date | Change |
 |------|--------|
+| 2026-06-04 | Unified styleguide created (building blocks only, no patterns per ADR 2026-06-04). New `styleguide.html` with web/app package switcher, token galleries, and zero inline styles. Legacy `styleguide-web.html` and `styleguide-app.html` marked deprecated. |
 | 2026-05-30 | Policy created. Styleguides migrated to canonical CSS. Component coverage audit shows ~40 components exist but <15 are documented. |
 
