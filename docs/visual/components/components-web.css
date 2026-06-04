@@ -973,43 +973,6 @@
     cursor: not-allowed;
   }
 
-  /* FAQ/Accordion */
-  .faq-item {
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    margin-bottom: var(--space-2);
-    overflow: hidden;
-  }
-  .faq-item[open] .faq-summary {
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .faq-summary {
-    cursor: pointer;
-    padding: var(--space-3);
-    background: var(--color-surface);
-    font-weight: 600;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    user-select: none;
-    transition: background-color var(--duration-moderate);
-    font-size: var(--text-sm);
-  }
-  .faq-summary:hover {
-    background: var(--color-subtle);
-  }
-  .faq-summary::marker {
-    color: var(--color-accent);
-  }
-
-  .faq-answer {
-    padding: var(--space-3);
-    color: var(--color-muted);
-    line-height: 1.6;
-    font-size: var(--text-sm);
-  }
-
   /* Empty state */
   .empty-state {
     padding: var(--space-6) var(--space-3);
@@ -1017,40 +980,6 @@
   }
   .empty-state h3 {
     margin-bottom: var(--space-2);
-  }
-
-  /* Footer */
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-2);
-    padding: 1.5rem 0;
-    border-top: 1px solid var(--color-border);
-  }
-  @media (min-width: 48rem) /* --bp-desktop */ {
-    .footer-grid {
-      grid-template-columns: repeat(4, 1fr);
-      gap: var(--space-4);
-    }
-  }
-
-  .footer-col-title {
-    font-weight: 600;
-    margin-bottom: var(--space-2);
-    color: var(--color-fg);
-    font-size: var(--text-sm);
-  }
-
-  .footer-link {
-    display: block;
-    color: var(--color-muted);
-    text-decoration: none;
-    margin-bottom: var(--space-1);
-    transition: color var(--duration-moderate);
-    font-size: var(--text-xs);
-  }
-  .footer-link:hover {
-    color: var(--color-accent);
   }
 
   /* Touch target sizes (44px minimum) */
@@ -1357,11 +1286,6 @@
   .pagination-btn { min-width: var(--space-7); height: var(--space-7); display: flex; align-items: center; justify-content: center; border: var(--border-card); border-radius: var(--radius-md); cursor: pointer; background: transparent; transition: background var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out); }
   .pagination-btn:hover { background: var(--color-subtle); border-color: var(--color-fg); }
   .pagination-btn.active { background: var(--color-accent); color: var(--color-accent-fg); border-color: var(--color-accent); }
-
-  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--space-6); }
-  .footer-col-title { font-size: var(--text-sm); font-weight: var(--fw-medium); margin-bottom: var(--space-2); }
-  .footer-link { display: block; font-size: var(--text-sm); color: var(--color-muted); padding: 0.125rem 0; transition: color var(--duration-fast) var(--ease-out); }
-  .footer-link:hover { color: var(--color-fg); }
 
   /* ============================================================
      PHASE 1J: HIGH-VALUE COMPLEX COMPONENTS
@@ -1719,10 +1643,6 @@
   .touch-area { position: relative; }
   .touch-area::before { content: ""; position: absolute; inset: -8px; pointer-events: none; }
 
-  /* Footer */
-  .footer-3col { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(14rem, 100%), 1fr)); gap: var(--space-8); }
-  .footer-4col { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(12rem, 100%), 1fr)); gap: var(--space-6); }
-
   .card-bordered { border: var(--border-card); }
   .card-elevated { border: none; background: var(--surface-2); box-shadow: var(--shadow-md); }
   .card-subtle { background: var(--color-subtle); border: none; }
@@ -1790,19 +1710,11 @@
   .skeleton-circle { border-radius: var(--radius-full); }
 
   /* Responsive utilities */
-  @media (min-width: 30rem) and (max-width: 48rem) /* tablet range 480–768px */ {
-    .footer-3col { grid-template-columns: repeat(2, 1fr); }
-    .footer-4col { grid-template-columns: repeat(2, 1fr); }
-  }
   @media (max-width: 60rem) /* --bp-wide */ {
-    .footer-grid { grid-template-columns: 1fr 1fr; }
     .mobile-nav-trigger { display: inline-flex; }
   }
   @media (max-width: 48rem) /* --bp-desktop */ {
-    .footer-grid { grid-template-columns: 1fr; }
-
     .date-picker-calendar { width: 100vw; max-width: 20rem; left: 50%; transform: translateX(-50%); }
-
   }
   @media (max-width: 36rem) /* --bp-tablet */ {
     html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
