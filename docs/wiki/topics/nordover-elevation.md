@@ -204,5 +204,4 @@ I dark mode kombineres dette med tonal **surface-elevation** (se over): høyere 
 
 - [Nordover-arkitektur — tokens](nordover-arkitektur.md)
 - [Nordover-layout](nordover-layout.md)
-- [Nordover-rammeverk — index](nordover-rammeverk.md)
 - [Decision: elevation-arkitektur](../decisions/2026-05-27-elevation-arkitektur.md)

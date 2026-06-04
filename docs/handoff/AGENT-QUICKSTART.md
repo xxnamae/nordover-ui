@@ -97,7 +97,7 @@ Bruk klassenavnene direkte i markup. De er offentlige kontrakter:
 </div>
 ```
 
-Full komponentliste: `docs/COMPONENT-INVENTORY.md`. Live eksempler: `docs/visual/styleguide-app.html` / `styleguide-web.html`.
+Full komponentliste: `docs/COMPONENT-INVENTORY.md`. Live examples: `docs/visual/styleguide.html` (unified).
 
 ---
 

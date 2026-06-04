@@ -1,7 +1,7 @@
 # STYLEGUIDE WORKFLOW
 
-**Status:** Effective 2026-05-31  
-**Policy:** Styleguides must always reflect 100% of framework CSS
+**Status:** Updated 2026-06-04  
+**Policy:** Unified styleguide must always reflect 100% of framework building blocks (tokens + components)
 
 ---
 
@@ -32,36 +32,37 @@ Add the component to `docs/visual/components/components-web.css` or `components-
 
 **DO NOT commit CSS without updating styleguides.** This is enforced by code review.
 
-Add a section to the appropriate styleguide:
+Add a section to `docs/visual/styleguide.html`:
 
-#### For `styleguide-web.html`:
 ```html
-<section class="styleguide-section" id="my-new-component">
-  <h2>My New Component</h2>
+<section class="doc-section" id="my-new-component">
+  <h2 class="doc-section-title">My New Component</h2>
+  <p class="doc-section-desc">Brief description of use case</p>
   
-  <h3>Basic</h3>
-  <div class="my-new-component">
-    Component example
+  <!-- CSS class names -->
+  <div class="chips">
+    <span class="chip">.my-new-component</span>
+    <span class="chip">.my-new-component--variant</span>
   </div>
   
-  <h3>Variant</h3>
-  <div class="my-new-component my-new-component--variant">
-    Variant example
+  <!-- Live demo section -->
+  <div class="doc-demo stack">
+    <div class="my-new-component">Component example</div>
+    <div class="my-new-component my-new-component--variant">Variant example</div>
   </div>
 </section>
 ```
 
-#### For `styleguide-app.html`:
-Same pattern, add to the appropriate section.
+The unified styleguide supports both web and app frameworks via package switcher.
 
 ### Step 3: Organize Within Styleguide
 
 Place in the correct section based on component category:
 - **Foundation** - Colors, typography, spacing, motion
-- **Components** - UI elements (buttons, forms, cards, etc.)
-- **Layout** - Layout primitives (.stack, .cluster, .grid-auto)
-- **Utilities** - Utility classes (display, spacing, text, etc.)
-- **Patterns** - Common layout patterns (dashboard, form page, etc.)
+- **Interactive Components** - Buttons, forms, badges, alerts, cards
+- **Data Display** - Tables, pagination, avatar, skeleton, empty states
+- **Complex Components** - Modals, accordion, tabs, date picker, file upload, stepper, search, menu, toast, breadcrumb
+- **Layout Utilities** - Layout primitives, spacing, display, typography utilities
 
 ### Step 4: Validate Completeness
 
@@ -130,18 +131,6 @@ Utilities must be organized into reference sections:
 - [ ] Transforms & Animation (transition, animation classes)
 - [ ] States (active, disabled, focus states)
 - [ ] Responsive (mobile-first breakpoint examples)
-
-### Patterns (100% coverage required)
-- [ ] Dashboard layout example
-- [ ] Form page layout example
-- [ ] Card grid example
-- [ ] Responsive stack example
-- [ ] Multi-step form example
-- [ ] Feature section example
-- [ ] Pricing section example
-- [ ] Blog card layout example
-- [ ] Hero section example
-- [ ] Footer layout example
 
 ---
 
@@ -212,7 +201,7 @@ A: No. This breaks the "single source of truth" principle. Updates must be in sa
 A: Check the "Criteria for NO styleguide update needed" section. If it's truly invisible, no update required, but document this reasoning in commit message.
 
 **Q: What if styleguide is already complete?**  
-A: It isn't (as of 2026-05-31, app is 46%, web is 4%). All PRs must improve coverage or maintain it.
+A: As of 2026-06-04, the unified styleguide documents all building blocks. All PRs must maintain 100% coverage or improve it.
 
 **Q: How do I know where to place a new component?**  
 A: Check "Organize Within Styleguide" section. If it doesn't fit an existing category, propose new section in code review.
@@ -224,6 +213,6 @@ A: Show mobile (default) and desktop (48rem+) for responsive components. Use `@m
 
 ## Related Documents
 
-- `docs/visual/STYLEGUIDE-MAINTENANCE.md` - Policy and principles
-- `docs/visual/STYLEGUIDE-AUDIT-2026-05-31.md` - Current coverage analysis
+- `docs/visual/STYLEGUIDE-MAINTENANCE.md` - Policy and principles (building blocks only)
+- `docs/visual/styleguide.html` - Unified interactive styleguide
 - `CLAUDE.md` - Foundational rules (Styleguides are authoritative)

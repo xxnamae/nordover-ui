@@ -128,6 +128,5 @@ graph TD
 
 ## Se også
 
-- [Nordover-rammeverk — index](nordover-rammeverk.md)
 - [Visuell spesimen (HTML)](../../visual/preview.html) — alle tokens og primitiver rendret
 - [Decisions-mappe](../decisions/)

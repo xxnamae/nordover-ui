@@ -15,13 +15,12 @@ Welcome to the Nordover design system documentation. This wiki contains comprehe
 - **[Data Display](topics/nordover-data-display.md)** - Tables, pagination, badges, alerts, modals
 - **[Icons](topics/nordover-icon-system.md)** - Icon sizing, color variants, animations
 - **[Motion](topics/nordover-motion.md)** - Animation keyframes, transitions, entrance/exit effects
-- **[Patterns](topics/nordover-patterns.md)** - Section patterns (hero, features, pricing, CTA), layout patterns
 
 ### 🏗️ Architecture & Decisions
+- **[Building Blocks Focus ADR](decisions/2026-06-04-rammeverk-fokus-byggesteiner.md)** - Framework scope: tokens + building blocks only (no patterns)
 - **[Component Library ADR](decisions/2026-05-30-comprehensive-component-library.md)** - Architecture of canonical CSS components
 - **[Variant System ADR](decisions/2026-05-30-variant-system.md)** - How to compose and combine variants
 - **[Testing Strategy ADR](decisions/2026-05-30-testing-strategy.md)** - Quality assurance approach
-- **[Shippable Components ADR](decisions/2026-05-30-shippbar-komponent-css.md)** - Why components are extracted to canonical CSS
 
 ### 🔍 Reference
 - **[Glossary](glossary.md)** - Terminology and concepts
@@ -38,63 +37,40 @@ Welcome to the Nordover design system documentation. This wiki contains comprehe
 
 ## Framework Status
 
-### ✅ Completed Phases
+### ✅ Completed Components (Layer 1 + Layer 2)
 
-**Fase 1A-1D: Foundation Components (560 lines)**
-- Buttons: 5 variants × 3 sizes
-- Forms: input, textarea, checkbox, radio, select, toggle
-- Sections: hero, feature grid, CTA cards, pricing
-- Data: tables, pagination, badges, alerts, modals
+**Layer 1: Tokens**
+- Colors (semantic OKLCH palette, light/dark modes)
+- Typography (display, heading, body, caption scales)
+- Spacing (8px base grid)
+- Motion (durations, easing functions)
+- Shadows, radius, borders
 
-**Fase 1J: High-Value Complex Components (120 lines)**
-- Date picker with calendar UI
-- Autocomplete/tag input
-- Multi-step stepper form
-- File upload with progress
-- Advanced data table
-
-**Fase 1K: Web-Only Content Components (100 lines)**
-- Blog cards with metadata
-- Testimonials and quotes
-- Timeline component
-- Search bar with suggestions
-- Accordion component
-
-**Fase 1L: Mobile & Responsive (80 lines)**
-- Mobile navigation drawer
-- Touch-friendly targets (44px+)
-- Responsive table wrapper
-- Container queries support
-- Responsive breakpoints
-
-**Fase 1M: Icon & Motion System (120 lines)**
-- Icon color variants
-- Animation utilities (spin, pulse, fade, slide, scale)
-- Transition utilities
-- Accessibility (prefers-reduced-motion)
-
-**UTILITIES: Composition Toolkit (200+ lines)**
-- Display utilities (.flex, .grid, .block)
-- Spacing utilities (.mt-*, .p-*, .gap-*)
-- Typography utilities (.text-center, .font-bold)
-- Color utilities (.text-accent, .bg-subtle)
-- Sizing utilities (.w-full, .max-w-*)
+**Layer 2: Building Blocks (Interactive Components)**
+- Buttons (6 variants × 3 sizes)
+- Forms (input, textarea, checkbox, radio, select, switch)
+- Badges & Alerts (4 color variants each)
+- Cards (default, elevated, bordered, subtle)
+- Data display (tables, pagination, avatar, skeleton, empty states)
+- Complex components (modal, accordion, tabs, date picker, file upload, stepper, search bar, tooltip, menu, toast, breadcrumb, kbd)
+- Layout primitives (.stack, .cluster, .grid-auto, .page, .section)
+- Utilities (100+ display, spacing, typography, animation, responsive classes)
 
 ### 📋 Documentation Completed
 
-**Fase 4: Component Specifications**
+**Component Specifications**
 - ✅ Button specifications (variants, sizes, states, accessibility)
 - ✅ Form specifications (inputs, validation, accessibility)
 - ✅ Data display specifications (tables, pagination, badges, alerts, modals)
 - ✅ Icon & Motion specifications (sizing, colors, animations, accessibility)
 
-**Fase 2: Variant System**
+**Variant System & Architecture**
 - ✅ Documented three-tier variant system
 - ✅ Created composition matrix
 - ✅ Established naming conventions
-- ✅ Behavioral variants roadmap
+- ✅ Layer system: tokens + building blocks (no patterns)
 
-**Fase 5: Real-World Examples**
+**Real-World Examples**
 - ✅ Plain HTML setup
 - ✅ Next.js integration
 - ✅ Vue 3 setup
@@ -104,45 +80,36 @@ Welcome to the Nordover design system documentation. This wiki contains comprehe
 - ✅ Monorepo patterns
 - ✅ Best practices & troubleshooting
 
-**Fase 2.5: Testing Strategy**
+**Testing & Quality Strategy**
 - ✅ Visual regression testing approach
 - ✅ Accessibility audit strategy (WCAG AA)
 - ✅ Performance testing targets
 - ✅ Browser compatibility matrix
-- ✅ Integration testing plans
-- ✅ CI/CD configuration
-- ✅ Pre-release checklist
 
-### 🔲 Pending Phases
+### 🔲 Upcoming Work
 
-**Fase 3: Documentation Completion (COMPLETE)**
-- ✅ Data display specifications (tables, pagination, badges, alerts, modals)
-- ✅ Icon system documentation (sizing, colors, animations)
-- ✅ Color system guide (OKLCH, semantic colors, dark mode, brand override)
-- ✅ Typography system guide (scales, weights, fluidity)
-- ✅ Spacing system guide (scales, responsive gaps, touch targets)
-- ✅ Motion system guide (animations, transitions, accessibility)
-- ✅ Pattern specifications (section patterns, layouts, footer)
-- ✅ Accessibility deep-dive (keyboard navigation, ARIA patterns, WCAG AA testing)
+**Documentation Enhancements**
+- [ ] Extend component specifications (all building blocks)
+- [ ] Add icon system documentation
+- [ ] Enhance color system guide
+- [ ] Expand typography system guide
+- [ ] Accessibility deep-dive (keyboard navigation, ARIA patterns, WCAG AA testing)
 
-**Fase 4: Real-World Integration (NEXT)**
+**Real-World Integration**
 - [ ] Validate in Next.js project
 - [ ] Validate in Vue 3 project
 - [ ] Validate in React project
 - [ ] Validate in Svelte project
-- [ ] Validate in plain HTML project
 - [ ] Performance profiling (CSS coverage, paint times)
 - [ ] Browser compatibility testing (Chrome, Firefox, Safari, Edge)
 - [ ] Screen reader testing (NVDA, VoiceOver)
 - [ ] Interactive component testing (date picker, file upload, stepper)
 
-**Fase 5: Release Preparation (THEN)**
-- [ ] Version numbering (v1.0.0)
+**Release & Distribution**
+- [ ] Version numbering (v1.2.0+)
 - [ ] CHANGELOG.md
 - [ ] Release notes
 - [ ] Contributing guidelines (CONTRIBUTING.md)
-- [ ] Code review checklist
-- [ ] Issue templates (bug, feature request, documentation)
 - [ ] npm package publishing
 - [ ] CDN hosting
 
@@ -172,14 +139,15 @@ Welcome to the Nordover design system documentation. This wiki contains comprehe
 ```
 docs/
 ├── visual/
+│   ├── styleguide.html         (Unified interactive styleguide)
+│   ├── styleguide-chrome.css   (Styleguide styling)
+│   ├── STYLEGUIDE-MAINTENANCE.md (Update guidelines)
 │   ├── tokens/
-│   │   ├── tokens-web.css      (291 lines)
-│   │   └── tokens-app.css      (299 lines)
+│   │   ├── tokens-web.css      (Semantic color, typography, spacing tokens)
+│   │   └── tokens-app.css      (App-specific tokens)
 │   ├── components/
-│   │   ├── components-web.css  (672 lines)
-│   │   └── components-app.css  (588 lines)
-│   ├── styleguide-web.html
-│   └── styleguide-app.html
+│   │   ├── components-web.css  (Canonical component CSS)
+│   │   └── components-app.css  (App component CSS)
 ├── handoff/
 │   ├── README.md               (Framework consumption guide)
 │   ├── monorepo-bootstrap.md   (Monorepo setup)
@@ -190,12 +158,12 @@ docs/
 │   ├── topics/
 │   │   ├── nordover-buttons.md
 │   │   ├── nordover-forms.md
-│   │   └── (more coming)
+│   │   └── more specifications
 │   └── decisions/
+│       ├── 2026-06-04-rammeverk-fokus-byggesteiner.md
 │       ├── 2026-05-30-comprehensive-component-library.md
 │       ├── 2026-05-30-variant-system.md
-│       ├── 2026-05-30-testing-strategy.md
-│       └── 2026-05-30-shippbar-komponent-css.md
+│       └── 2026-05-30-testing-strategy.md
 ```
 
 ## Key Metrics
@@ -248,5 +216,5 @@ See [CLAUDE.md](../../CLAUDE.md) for development guidelines.
 
 ---
 
-**Last updated:** 2026-05-30  
-**Status:** Nordover v1.0.0-alpha — Complete component library with comprehensive documentation
+**Last updated:** 2026-06-04  
+**Status:** Nordover v1.2.0 — Building blocks + tokens foundation, full documentation, no patterns (per ADR 2026-06-04)

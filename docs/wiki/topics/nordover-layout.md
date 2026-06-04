@@ -474,5 +474,4 @@ Dette betyr at samme `<Card>` blir kompakt når den ligger i en smal Section ell
 
 - [Nordover-arkitektur — tokens](nordover-arkitektur.md)
 - [Nordover-typografi](nordover-typografi.md)
-- [Nordover-rammeverk — index](nordover-rammeverk.md)
 - [Decision: layout-primitiver-arkitektur](../decisions/2026-05-27-layout-primitiver-arkitektur.md)

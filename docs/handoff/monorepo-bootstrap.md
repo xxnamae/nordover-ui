@@ -50,11 +50,11 @@ nordover-monorepo/
     ├── ui-app/                        ← felles React-komponenter for apper
     │   └── src/
     │
-    └── payload-blocks/                ← Payload Blocks som matcher Nordover-section-patterns
+    └── content-blocks/                ← Payload Blocks komponert fra Nordover building blocks
         ├── package.json
         └── src/
-            ├── HeroBlock.ts           ← matcher nordover-section-patterns.md § Hero
-            ├── FeatureGridBlock.ts    ← matcher § Feature Grid
+            ├── HeroBlock.ts           ← komponert fra .stack + .grid-auto + .t-display-lg
+            ├── FeatureGridBlock.ts    ← komponert fra .grid-auto + .cluster
             ├── CTABlock.ts
             └── ...
 ```
@@ -266,9 +266,9 @@ xxnamae/nordover-ui/docs/handoff/monorepo-bootstrap.md for denne monorepo-strukt
 [Påfyll etter hvert som monorepoet vokser — Payload-konvensjoner, Supabase-tilgangslag, etc.]
 ```
 
-## 7. Payload Blocks som matcher Nordover-section-patterns
+## 7. Payload Blocks komponert fra Nordover Building Blocks
 
-Når dere bygger Payload-blocks for kundesider, map dem direkte til Nordover-section-patterns (fra `docs/wiki/topics/nordover-section-patterns.md` og `nordover-patterns-utvidelser-2.md` i nordover-ui):
+Når dere bygger Payload-blocks for kundesider, kompon dem fra Nordover building blocks (tokens + komponenter). Nordover leverer IKKE ferdige patterns — hvert prosjekt komponerer sine egne:
 
 ```ts
 // packages/payload-blocks/src/HeroCenteredBlock.ts
@@ -291,10 +291,14 @@ Tilsvarende komponenter i `packages/ui-web/`:
 
 ```tsx
 // packages/ui-web/src/blocks/HeroCentered.tsx
-// Renderer Hero-centered med Nordover-tokens (class names matcher nordover-section-patterns.md)
+// Komponert fra Nordover building blocks:
+// - Layout: .stack + .section for struktur
+// - Typography: .t-display-lg, .t-heading-md for tekst
+// - Spacing: .gap-4, .p-6 for padding/gaps
+// - Components: .btn, .badge for interaktive elementer
 ```
 
-Dette gir Payload-redaktører Elementor-lignende blokk-bygging, men med disciplin: hver blokk er en Nordover-pattern, ikke tomme div'er med custom styling.
+Dette gir Payload-redaktører Elementor-lignende blokk-bygging, men med Nordover-disipliner: hver blokk komponeres fra documented building blocks, ikke custom styling.
 
 ## 8. Build & deploy
 

@@ -57,7 +57,7 @@ When you submit a PR, the workflow automatically posts a comment:
 
 Standard: WCAG 2.1 Level AA
 
-🔍 Review Details: Open `/docs/visual/accessibility-audit.html` for the interactive audit tool.
+🔍 Review Details: Open `/docs/visual/styleguide.html` for the interactive audit tool.
 
 ✓ No critical issues found.
 ```
@@ -97,8 +97,7 @@ Configures PA11y behavior:
     "args": ["--no-sandbox"]  // GitHub Actions Chrome settings
   },
   "urls": [
-    "docs/visual/styleguide-web.html",
-    "docs/visual/styleguide-app.html"
+    "docs/visual/styleguide.html",
   ]
 }
 ```
@@ -154,7 +153,7 @@ All tests passed! Components meet WCAG 2.1 Level AA.
 ```
 
 **What to do:**
-1. Open `/docs/visual/accessibility-audit.html`
+1. Open `/docs/visual/styleguide.html`
 2. Click "Audit Web Styleguide"
 3. Find the violations
 4. Read remediation guidance
@@ -181,7 +180,7 @@ All tests passed! Components meet WCAG 2.1 Level AA.
    ```
 
 2. **Or use interactive tool**
-   - Open `docs/visual/accessibility-audit.html`
+   - Use browser DevTools Axe extension on styleguide.html
    - Audit the styleguide
    - Read each violation's remediation
 
@@ -192,7 +191,7 @@ All tests passed! Components meet WCAG 2.1 Level AA.
 4. **Verify locally**
    ```bash
    # Re-run audit to confirm fix
-   pa11y docs/visual/styleguide-web.html --standard WCAG2AA
+   pa11y docs/visual/styleguide.html --standard WCAG2AA
    ```
 
 5. **Push and re-test**
@@ -233,7 +232,7 @@ Run the audit locally to catch issues before GitHub Actions:
 ### Quick Browser Method
 
 ```
-1. Open docs/visual/accessibility-audit.html in Firefox/Chrome
+1. Use browser DevTools on docs/visual/styleguide.html in Firefox/Chrome
 2. Click "Audit Web Styleguide"
 3. Wait for scan to complete
 4. Review violations
@@ -251,7 +250,7 @@ npm install -g pa11y pa11y-ci axe-core
 pa11y-ci --config .pa11yci.json
 
 # Or single page
-pa11y docs/visual/styleguide-web.html --standard WCAG2AA
+pa11y docs/visual/styleguide.html --standard WCAG2AA
 ```
 
 ### Dockerized Testing
@@ -306,8 +305,7 @@ Edit `.pa11yci.json`:
 ```json
 {
   "urls": [
-    "docs/visual/styleguide-web.html",
-    "docs/visual/styleguide-app.html",
+    "docs/visual/styleguide.html",
     "docs/visual/styleguide-custom.html"  // Add here
   ]
 }

@@ -16,8 +16,6 @@ If a component exists in `components-web.css` or `components-app.css`, it **MUST
 | File | Purpose | Scope |
 |------|---------|-------|
 | **`styleguide.html`** (primary) | Unified reference for tokens + components | Both web and app with package switcher |
-| `styleguide-web.html` | Legacy reference (deprecated) | Keep for backward compatibility during transition |
-| `styleguide-app.html` | Legacy reference (deprecated) | Keep for backward compatibility during transition |
 
 The new unified styleguide must be linked to canonical CSS files (not embedded):
 ```html
@@ -181,8 +179,8 @@ Before declaring styleguide complete, verify for **building blocks only** (Layer
 
 ## Related Files
 
-- `docs/visual/styleguide-web.html` — Web styleguide (editorial)
-- `docs/visual/styleguide-app.html` — App styleguide (SaaS)
+- `docs/visual/styleguide.html` — Unified interactive styleguide
+- `docs/visual/styleguide-chrome.css` — Styleguide styling
 - `docs/visual/components/components-web.css` — Component CSS (source of truth)
 - `docs/visual/components/components-app.css` — App component CSS (source of truth)
 - `docs/visual/tokens/tokens-web.css` — Token definitions
@@ -194,6 +192,6 @@ Before declaring styleguide complete, verify for **building blocks only** (Layer
 
 | Date | Change |
 |------|--------|
-| 2026-06-04 | Unified styleguide created (building blocks only, no patterns per ADR 2026-06-04). New `styleguide.html` with web/app package switcher, token galleries, and zero inline styles. Legacy `styleguide-web.html` and `styleguide-app.html` marked deprecated. |
+| 2026-06-04 | Unified styleguide created (building blocks only, no patterns per ADR 2026-06-04). New `styleguide.html` with web/app package switcher, token galleries, and zero inline styles. Legacy `styleguide-web.html` and `styleguide-app.html` deleted after migration. |
 | 2026-05-30 | Policy created. Styleguides migrated to canonical CSS. Component coverage audit shows ~40 components exist but <15 are documented. |
 

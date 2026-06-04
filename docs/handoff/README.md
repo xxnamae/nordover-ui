@@ -132,13 +132,14 @@ Bruk token-variabler i CSS:
 ## 3. Full dokumentasjon
 
 Se wiki-topics for detaljer:
-- `nordover-arkitektur.md` — tokens-spec og WCAG-tabell
-- `nordover-typografi.md` — font-vekter og headings
-- `nordover-buttons.md` — button-varianter
-- `nordover-forms.md` — input/select/checkbox
-- `nordover-patterns-basis.md` — Tag, Badge, Avatar osv.
-- `nordover-app-patterns.md` — Modal, Drawer, Toast osv.
-- `nordover-section-patterns.md` — Hero, Feature, CTA osv.
+- `nordover-buttons.md` — button-varianter (primary, secondary, ghost, tonal, elevated, link)
+- `nordover-forms.md` — input/select/checkbox, textarea, radio, switch
+- `nordover-data-display.md` — tables, pagination, badges, alerts, avatar, skeleton
+- `nordover-icon-system.md` — icon sizing, colors, animations
+- `nordover-motion.md` — animation utilities og transitions
+- `nordover-colors.md` — OKLCH palette, semantic colors, dark mode
+- `nordover-typography.md` — font scales, weights, fluid sizing
+- `nordover-accessibility.md` — WCAG AA compliance, keyboard navigation
 
 ---
 

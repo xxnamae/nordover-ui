@@ -603,8 +603,8 @@ Control style application order:
 ## Resources
 
 - **Token Reference:** `docs/visual/tokens/tokens-web.css`
-- **Component Examples:** `docs/visual/styleguide-web.html`
-- **Pattern Catalog:** `docs/wiki/topics/nordover-common-patterns.md`
+- **Component Examples:** `docs/visual/styleguide.html` (unified web + app)
+- **Architecture & Decisions:** `docs/wiki/decisions/`
 - **OKLCH Color Tool:** https://oklch.com/
 - **CSS Layers Explainer:** https://developer.mozilla.org/en-US/docs/Web/CSS/@layer
 
