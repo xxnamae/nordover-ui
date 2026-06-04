@@ -67,7 +67,7 @@ html, body {
   isolation: isolate;
 }
 
-@media (min-width: var(--breakpoint-desktop)) {
+@media (min-width: 48rem) /* --bp-desktop (var() not allowed in media queries) */ {
   .app {
     grid-template-columns: auto 1fr;
     grid-template-rows: 1fr;
@@ -99,7 +99,7 @@ html, body {
 }
 
 /* Desktop: sidebar is sticky in grid */
-@media (min-width: var(--breakpoint-desktop)) {
+@media (min-width: 48rem) /* --bp-desktop (var() not allowed in media queries) */ {
   .app-sidebar {
     grid-column: 1;
     grid-row: 1 / -1;
@@ -309,7 +309,7 @@ html, body {
   flex-shrink: 0;
 }
 
-@media (max-width: calc(var(--breakpoint-desktop) - 1px)) {
+@media (max-width: calc(48rem - 1px)) /* --bp-desktop (var() not allowed in media queries) */ {
   .app-sidebar-close {
     display: flex;
     align-items: center;
@@ -335,7 +335,7 @@ html, body {
   flex-direction: column;
 }
 
-@media (min-width: var(--breakpoint-desktop)) {
+@media (min-width: 48rem) /* --bp-desktop (var() not allowed in media queries) */ {
   .app-main {
     grid-column: 2;
     grid-row: 1 / -1;
@@ -382,7 +382,7 @@ html, body {
   transition: color var(--duration-fast) var(--ease-out);
 }
 
-@media (min-width: var(--breakpoint-desktop)) {
+@media (min-width: 48rem) /* --bp-desktop (var() not allowed in media queries) */ {
   .hamburger {
     display: none;
   }
@@ -411,7 +411,7 @@ html, body {
   justify-content: center;
 }
 
-@media (min-width: var(--breakpoint-desktop)) {
+@media (min-width: 48rem) /* --bp-desktop (var() not allowed in media queries) */ {
   .collapse-toggle {
     display: flex;
   }
@@ -479,7 +479,7 @@ html, body {
   overflow-y: auto;
 }
 
-@media (max-width: calc(var(--breakpoint-desktop) - 1px)) {
+@media (max-width: calc(48rem - 1px)) /* --bp-desktop (var() not allowed in media queries) */ {
   .app-content {
     padding: var(--space-5) var(--space-4) var(--space-8);
   }
@@ -503,7 +503,7 @@ html, body {
   backdrop-filter: blur(4px);
 }
 
-@media (max-width: calc(var(--breakpoint-desktop) - 1px)) {
+@media (max-width: calc(48rem - 1px)) /* --bp-desktop (var() not allowed in media queries) */ {
   #nav:checked ~ .mobile-backdrop {
     display: block;
   }
