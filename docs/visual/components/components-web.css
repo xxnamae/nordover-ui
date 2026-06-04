@@ -15,7 +15,7 @@
 @layer primitives {
   /* ============================================================
      APP LAYOUT SHELL · Mobile-first responsive sidebars + topbar
-     @layer components — moved from styleguide-web.html
+     Canonical source — styleguide.html links this file for reference.
      Token values (--color-bg, --color-surface, etc.) owned by tokens-web.css.
      ============================================================ */
 
@@ -62,7 +62,7 @@
 @layer components {
   /* ============================================================
      APP LAYOUT SHELL · Mobile-first responsive sidebars + topbar
-     Layout system imported from styleguide-web.html
+     Canonical source — styleguide.html links this file for reference.
      ============================================================ */
 
   /* Mobile backdrop for nav drawer */

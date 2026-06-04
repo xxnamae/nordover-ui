@@ -8,9 +8,9 @@
    Bruksområde: import som basis i @nordover/tokens-web npm-pakke.
    Konsument: import "@nordover/tokens-web";  // i app entry
 
-   Bygges fra: docs/visual/styleguide-web.html (handoff-source).
-   Sannhetskilde for endringer: oppdater BÅDE styleguide-web.html
-   OG denne fila samtidig. Endringer logges i docs/log.md.
+   Sannhetskilde: denne fila er kanonisk kilde for web-tokens.
+   docs/visual/styleguide.html lenker til den for referanse.
+   tokens-web.json genereres herfra (npm run build:tokens).
 
    Mekanisme-krav:
    - CSS @layer (Safari 15.4+, Chrome 99+, Firefox 97+)

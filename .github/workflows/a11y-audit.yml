@@ -38,7 +38,7 @@ jobs:
 
           echo "Starting accessibility audit..."
 
-          # Run PA11y with JSON output for both styleguides
+          # Run PA11y with JSON output for the unified styleguide
           pa11y-ci \
             --config .pa11yci.json \
             --json > audit-results/audit-report.json 2>&1 || true
@@ -146,14 +146,13 @@ jobs:
               </div>
 
               <div class="info">
-                <strong>ℹ️ Full Interactive Audit Tool</strong>
-                <p>For detailed results, open the interactive audit tool at <code>/docs/visual/accessibility-audit.html</code></p>
+                <strong>ℹ️ Interactive Styleguide</strong>
+                <p>For detailed results, open the unified styleguide at <code>/docs/visual/styleguide.html</code> and audit with the browser DevTools Axe extension.</p>
               </div>
 
-              <h2 style="margin-top: 2rem;">Styleguides Tested</h2>
+              <h2 style="margin-top: 2rem;">Styleguide Tested</h2>
               <ul style="margin-left: 1.5rem; line-height: 2;">
-                <li>✓ Web Styleguide: <code>docs/visual/styleguide-web.html</code></li>
-                <li>✓ App Styleguide: <code>docs/visual/styleguide-app.html</code></li>
+                <li>✓ Unified Styleguide: <code>docs/visual/styleguide.html</code> (web + app packages)</li>
               </ul>
 
               <h2 style="margin-top: 2rem;">Standard Tested</h2>

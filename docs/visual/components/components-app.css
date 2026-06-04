@@ -17,7 +17,7 @@
      APP LAYOUT SHELL · Mobile-first responsive sidebars + topbar
      Dark mode default + light toggle: respects :root:has(#dark:checked)
      Breakpoint: 48rem (768px) for desktop layout
-     @layer components — moved from styleguide-app.html
+     Canonical source — styleguide.html links this file for reference.
      ============================================================ */
 
   /* Light mode overrides (when dark toggle is OFF) */
@@ -73,7 +73,7 @@
 @layer components {
   /* ============================================================
      APP LAYOUT SHELL · Mobile-first responsive sidebars + topbar
-     Layout system imported from styleguide-app.html
+     Canonical source — styleguide.html links this file for reference.
      ============================================================ */
 
   /* Mobile backdrop for nav toggle */

@@ -8,9 +8,9 @@
    Bruksområde: import som basis i @nordover/tokens-app npm-pakke.
    Konsument: import "@nordover/tokens-app";  // i app entry
 
-   Bygges fra: docs/visual/styleguide-app.html (handoff-source).
-   Sannhetskilde for endringer: oppdater BÅDE styleguide-app.html
-   OG denne fila samtidig. Endringer logges i docs/log.md.
+   Sannhetskilde: denne fila er kanonisk kilde for app-tokens.
+   docs/visual/styleguide.html lenker til den for referanse.
+   tokens-app.json genereres herfra (npm run build:tokens).
 
    Mekanisme-krav: samme som tokens-web (se den fila).
 
