@@ -4,7 +4,7 @@ This repository contains the **shippable framework specification** for the Nordo
 
 ## Vision
 
-Nordover is a **universal, reusable styleguide of global top quality** — a foundation for all applications and websites. The goal is to **minimize design time on new projects** so that the only per-client work left is **brand styling** (colors, logo, font choice, tone), never structure, components, accessibility, or responsiveness.
+Nordover is a **universal foundation of building blocks of global top quality** — tokens and reusable primitives that every application and website builds on. The goal is to **minimize design time on new projects** by providing the structural, accessibility, and responsive foundation, so each project composes its own pages on top rather than reinventing the base. Nordover ships **tokens** and **building blocks** (button, form elements, card shell, badge, alert, table base, layout primitives, navigation, modal, accordion, tabs, etc.) — it deliberately does **not** ship finished page compositions (hero, pricing, blog, testimonials, dashboards); those are per-project design decisions. See `docs/wiki/decisions/2026-06-04-rammeverk-fokus-byggesteiner.md`.
 
 - **Market:** all-purpose (SaaS, editorial/marketing, e-commerce, consumer apps)
 - **Platform:** multi-platform (web-first, mappable to native iOS/Android and desktop)

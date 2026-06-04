@@ -442,38 +442,6 @@
     align-items: center;
   }
 
-  /* Feature card */
-  .feature-card {
-    padding: var(--space-2);
-    /* surface-2 → tonal elevation in dark, ~surface in light */
-    background: var(--surface-2);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    transition: all var(--duration-moderate);
-    cursor: default;
-    font-size: 0.8rem;
-    box-shadow: 0 1px 2px color-mix(in oklch, var(--color-fg) 8%, transparent);
-  }
-  .feature-card:hover {
-    border-color: var(--color-accent);
-    background: var(--color-subtle);
-    box-shadow: 0 3px 8px color-mix(in oklch, var(--color-fg) 12%, transparent);
-  }
-
-  /* Featured/prominent card variant for visual hierarchy */
-  .feature-card.featured,
-  .card-featured {
-    border-color: var(--color-accent);
-    background: color-mix(in oklch, var(--color-accent) 3%, var(--color-surface));
-    box-shadow: 0 4px 12px color-mix(in oklch, var(--color-accent) 18%, transparent);
-  }
-  .feature-card.featured:hover,
-  .card-featured:hover {
-    border-color: var(--color-accent-hover);
-    background: color-mix(in oklch, var(--color-accent) 6%, var(--color-surface));
-    box-shadow: 0 8px 20px color-mix(in oklch, var(--color-accent) 22%, transparent);
-  }
-
   /* Icon sizing */
   .icon {
     width: var(--space-5);
@@ -515,113 +483,6 @@
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--color-muted);
-  }
-
-  /* Hero centered pattern */
-  .hero-centered {
-    padding: var(--space-12) var(--space-4);
-    text-align: center;
-    background: linear-gradient(135deg, var(--color-subtle) 0%, transparent 100%);
-    border-radius: var(--radius-lg);
-    margin-bottom: var(--space-12);
-  }
-
-  /* Feature grid */
-  .feature-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-2);
-    margin-bottom: var(--space-3);
-  }
-
-  /* CTA card */
-  .cta-card {
-    padding: var(--space-3);
-    background: linear-gradient(135deg, var(--color-subtle) 0%, var(--color-surface) 100%);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    text-align: center;
-    margin-bottom: var(--space-3);
-  }
-
-  /* Pricing grid */
-  .pricing-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-2);
-    margin-bottom: var(--space-3);
-  }
-
-  /* Price card */
-  .price-card {
-    display: flex;
-    flex-direction: column;
-    padding: var(--space-3);
-    /* surface-2 → tonal elevation in dark, ~surface in light */
-    background: var(--surface-2);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    transition: all var(--duration-moderate);
-  }
-  .price-card:hover {
-    border-color: var(--color-accent);
-  }
-  .price-card-highlight {
-    border-color: var(--color-accent);
-    background: var(--color-subtle);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-    transform: scale(1.02);
-  }
-
-  .price-val {
-    font-size: var(--text-lg);
-    font-weight: 700;
-    margin: var(--space-3) 0;
-    color: var(--color-fg);
-  }
-
-  .price-features {
-    list-style: none;
-    padding: 0;
-    margin: var(--space-4) 0;
-    flex: 1;
-    font-size: var(--text-sm);
-    color: var(--color-muted);
-  }
-  .price-features li {
-    padding: var(--space-2) 0;
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-  }
-  .price-features li::before {
-    content: "✓";
-    color: var(--color-success);
-    font-weight: 700;
-  }
-
-  /* Blog card */
-  .blog-card {
-    padding: var(--space-2);
-    /* surface-2 → tonal elevation in dark, ~surface in light */
-    background: var(--surface-2);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    display: flex;
-    flex-direction: column;
-    font-size: 0.8rem;
-  }
-  .blog-card-category {
-    color: var(--color-accent);
-    margin-bottom: var(--space-2);
-  }
-  .blog-card-title {
-    margin-bottom: var(--space-3);
-  }
-  .blog-card-excerpt {
-    flex: 1;
-    color: var(--color-muted);
-    margin-bottom: var(--space-4);
   }
 
   /* Empty state */
@@ -881,18 +742,6 @@
     overflow-x: hidden;
     }
 
-    /* Desktop: 3-column feature grid */
-    .feature-grid {
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-3);
-    }
-
-    /* Desktop: 3-column pricing */
-    .pricing-grid {
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-3);
-    }
-
     /* Larger swatch grid */
     .swatch-grid {
       grid-template-columns: repeat(auto-fill, minmax(5.5rem, 1fr));
@@ -913,24 +762,10 @@
       margin-bottom: 1.25rem;
     }
 
-    .feature-grid {
-      grid-template-columns: 1fr;
-      gap: var(--space-2);
-    }
-
-    .pricing-grid {
-      grid-template-columns: 1fr;
-      gap: var(--space-2);
-    }
-
     .cluster {
       flex-direction: column;
       align-items: stretch;
       gap: var(--space-1);
-    }
-
-    .hero-centered {
-      padding: var(--space-3) 0.75rem;
     }
   }
 
@@ -1140,35 +975,6 @@
   .form-switch:checked::after { left: calc(100% - 1.1875rem); }
   .form-switch:focus-visible { outline: none; box-shadow: 0 0 0 2px color-mix(in oklch, var(--color-focus) 15%, transparent); }
   .form-switch:disabled { opacity: 0.5; cursor: not-allowed; }
-
-  /* ============================================================
-     PHASE 1C: TYPOGRAPHY & SECTION PATTERNS
-     ============================================================ */
-
-  .hero-centered { padding: var(--space-8) var(--space-5); text-align: center; position: relative; overflow: hidden; border-radius: var(--radius-lg); border: var(--border-card); }
-  .hero-centered::before { content: ""; position: absolute; inset: 0; background: var(--gradient-radial-accent); pointer-events: none; opacity: 0.03; }
-  .hero-centered > * { position: relative; z-index: 1; }
-
-  .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(12rem, 100%), 1fr)); gap: var(--space-3); }
-  .feature-card-icon { width: var(--space-5); height: var(--space-5); color: var(--color-accent); margin-bottom: var(--space-2); }
-
-  .cta-card { position: relative; background: var(--color-subtle); border-radius: var(--radius-xl); padding: var(--space-6) var(--space-5); text-align: center; overflow: hidden; }
-  .cta-card::before { content: ""; position: absolute; inset: 0; background: var(--gradient-radial-accent); pointer-events: none; opacity: 0.04; }
-  .cta-card > * { position: relative; z-index: 1; }
-
-  /* ============================================================
-     PHASE 1D: DATA & FEEDBACK
-     ============================================================ */
-
-  .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(12rem, 100%), 1fr)); gap: var(--space-3); }
-  .price-card { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-4); border: var(--border-card); border-radius: var(--radius-lg); position: relative; transition: border-color var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out); }
-  .price-card:hover { border-color: var(--color-fg); box-shadow: var(--shadow-md); }
-  .price-card-highlight { border-color: var(--color-fg); background: var(--color-subtle); }
-  .price-card-highlight::before { content: "Popular"; position: absolute; top: -0.5rem; left: 50%; transform: translateX(-50%); background: var(--color-accent); color: var(--color-accent-fg); font-size: 0.625rem; font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: var(--tracking-widest); padding: 0.125rem var(--space-2); border-radius: var(--radius-full); }
-  .price-val { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: var(--fw-display-md); line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
-  .price-features { list-style: none; display: flex; flex-direction: column; gap: var(--space-1); flex: 1; }
-  .price-features li { display: flex; gap: var(--space-2); font-size: var(--text-sm); }
-  .price-features li::before { content: "✓"; color: var(--color-success); font-weight: var(--fw-semibold); flex-shrink: 0; }
 
   .faq-item { border-bottom: var(--border-divider); }
   .faq-summary {
@@ -1519,13 +1325,6 @@
   .touch-area { position: relative; }
   .touch-area::before { content: ""; position: absolute; inset: -8px; pointer-events: none; }
 
-  /* ==========================================================================
-     Wave 3 — generic Card, Tabs, Avatar, Tooltip, Menu, Toast, Tag variants,
-     Kbd, Skeleton. App defaults: dark, SaaS-dense, tactile.
-     ========================================================================== */
-
-  /* Card — generic container (distinct from .feature-card / .card-featured) */
-  .card { background: var(--color-bg); border-radius: var(--radius-lg); padding: var(--gap-component); display: flex; flex-direction: column; gap: var(--gap-tight); position: relative; }
   .card-bordered { border: var(--border-card); }
   .card-elevated { border: none; background: var(--surface-2); box-shadow: var(--shadow-sm); }
   .card-subtle { background: var(--color-subtle); border: none; }
@@ -1599,8 +1398,7 @@
   }
   @media (max-width: 48rem) /* --bp-desktop */ {
     .footer-grid { grid-template-columns: 1fr; }
-    .feature-grid { grid-template-columns: 1fr; }
-    .pricing-grid { grid-template-columns: 1fr; }
+
     .date-picker-calendar { width: 100vw; max-width: 18rem; left: 50%; transform: translateX(-50%); }
   }
   @media (max-width: 36rem) /* --bp-tablet */ {
@@ -1617,11 +1415,9 @@
     .app-nav-item { font-size: 0.6875rem; padding: var(--space-1); }
     .app-sidebar-section { font-size: 0.6875rem; }
     .modal-dialog { max-width: 100%; width: 95vw; }
-    .hero-centered { padding: var(--space-4) var(--space-2); }
+    
     .empty-state { padding: var(--space-4) var(--space-2); }
-    .cta-card { padding: var(--space-4) var(--space-2); }
-    .price-card { padding: var(--space-3); }
-    .pricing-section { padding: var(--space-4) 0; }
+
     .form-select { padding: var(--space-2) var(--space-2); }
     /* Touch targets ≥44px on mobile (HIG) */
     .form-input, .form-select { min-height: 2.75rem; }
