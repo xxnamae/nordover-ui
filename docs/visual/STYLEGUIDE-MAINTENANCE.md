@@ -192,6 +192,7 @@ Before declaring styleguide complete, verify for **building blocks only** (Layer
 
 | Date | Change |
 |------|--------|
+| 2026-06-04 | Full coverage pass: `styleguide.html` now demonstrates 100% of building-block classes in `components-web.css` (added Icons, Tags, File Upload, Date Picker, Search, Stepper, Toast, Loading/Skeleton, Data Table, Modal, Tooltip, Menu, Mobile Nav, Sections/Dividers, Utilities). Removed `.footer-*` and `.faq-*` page-pattern leftovers from both packages. Added the full SVG icon symbol set (fixes previously undefined `#i-check`/`#i-alert`/`#i-info`). |
 | 2026-06-04 | Unified styleguide created (building blocks only, no patterns per ADR 2026-06-04). New `styleguide.html` with web/app package switcher, token galleries, and zero inline styles. Legacy `styleguide-web.html` and `styleguide-app.html` deleted after migration. |
 | 2026-05-30 | Policy created. Styleguides migrated to canonical CSS. Component coverage audit shows ~40 components exist but <15 are documented. |
 
