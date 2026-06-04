@@ -69,7 +69,8 @@ html, body {
 
 @media (min-width: var(--breakpoint-desktop)) {
   .app {
-    grid-template-columns: var(--sidebar-width) 1fr;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr;
   }
 }
 
@@ -78,34 +79,36 @@ html, body {
    ============================================================ */
 
 .app-sidebar {
-  grid-column: 1;
   width: var(--sidebar-width);
   padding: var(--space-4);
   background: var(--color-surface);
   border-right: var(--bw-thin) solid var(--color-border);
   overflow-y: auto;
   overscroll-behavior: contain;
-  position: sticky;
+  position: fixed;
+  left: 0;
   top: 0;
   height: 100vh;
-  z-index: 50;
+  transform: translateX(-100%);
+  transition: transform var(--duration-moderate) var(--ease-out);
+  z-index: 100;
 }
 
-/* Mobile: sidebar is fixed, slides in from left */
-@media (max-width: calc(var(--breakpoint-desktop) - 1px)) {
-  .app-sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: var(--sidebar-width);
-    height: 100vh;
-    transform: translateX(-100%);
-    transition: transform var(--duration-moderate) var(--ease-out);
-    z-index: 100;
-  }
+#nav:checked ~ .app .app-sidebar {
+  transform: translateX(0);
+}
 
-  #nav:checked ~ .app .app-sidebar {
-    transform: translateX(0);
+/* Desktop: sidebar is sticky in grid */
+@media (min-width: var(--breakpoint-desktop)) {
+  .app-sidebar {
+    grid-column: 1;
+    grid-row: 1 / -1;
+    position: sticky;
+    left: auto;
+    top: 0;
+    transform: none;
+    transition: width var(--duration-moderate) var(--ease-out);
+    z-index: 50;
   }
 }
 
@@ -330,12 +333,12 @@ html, body {
 .app-main {
   display: flex;
   flex-direction: column;
-  grid-column: 1 / -1;
 }
 
 @media (min-width: var(--breakpoint-desktop)) {
   .app-main {
     grid-column: 2;
+    grid-row: 1 / -1;
   }
 }
 
