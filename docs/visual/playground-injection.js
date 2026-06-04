@@ -100,7 +100,9 @@
     });
 
     // Insert after title
-    title.parentNode.insertBefore(linkContainer, title.nextSibling);
+    if (title.parentNode) {
+      title.parentNode.insertBefore(linkContainer, title.nextSibling);
+    }
   }
 
   // Initialize when script loads

@@ -105,7 +105,9 @@ class SearchModal {
 
     // Close button
     const closeBtn = this.modal.querySelector('.search-dialog-close');
-    closeBtn.addEventListener('click', () => this.close());
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => this.close());
+    }
 
     // Search input
     this.searchInput.addEventListener('input', (e) => {

@@ -1145,21 +1145,6 @@
   .fixed { position: fixed; }
   .inset-0 { inset: 0; }
 
-  .hidden { display: none; }
-  .invisible { visibility: hidden; }
-
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
-  }
-
   /* Aspect ratios */
   .aspect-square { aspect-ratio: 1 / 1; }
   .aspect-video { aspect-ratio: 16 / 9; }
