@@ -7,6 +7,40 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- **Component contract parity (web ↔ app):** both packages now expose an
+  identical set of component class *names*; pakke-spesifikke *verdier* beholdes.
+  Added to `components-app.css`: `.accordion*`, `.search-bar`/`.search-result*`,
+  `.section-divider*`, `.tag-input*`/`.tag-list`, `.btn-link`,
+  `.date-picker-weekday`, `.file-item-size`, `.table-sort`/`.table-filter`,
+  `.spinner`, `.animate-fade-in/-scale-in/-slide-up`. Added to
+  `components-web.css`: `.form-group`/`.form-group-item`, `.pagination-item`.
+  Additive and non-breaking — no class removed or renamed.
+- **Unified styleguide** (`styleguide.html`): single building-blocks-only
+  reference for both packages with a token-package switcher. Now demonstrates
+  100% of building-block classes (Icons, Tags, File Upload, Date Picker,
+  Search, Stepper, Toast, Loading/Skeleton, Data Table, Modal, Tooltip, Menu,
+  Mobile Nav, Sections/Dividers, layout primitives, full utility catalogue),
+  plus the complete SVG icon symbol set.
+
+### Changed
+- Mirroring rule extended from "shared component structure" to "shared
+  component *contracts*": a new component class added to one package must
+  appear (with package-tuned values) in the other in the same commit.
+
+### Removed
+- Page-pattern leftovers that contradicted the building-blocks-only scope:
+  `.footer-*` and `.faq-*` removed from both `components-web.css`
+  (−88 lines) and `components-app.css` (−54 lines). Legacy
+  `styleguide-web.html` / `styleguide-app.html` deleted after migration to
+  the unified styleguide.
+
+### Decisions
+- ADR: [Komponent-kontrakt-paritet på tvers av web og app](docs/wiki/decisions/2026-06-04-komponent-kontrakt-paritet.md)
+  — class names unify, values stay separate (builds on 2026-06-03 token separation)
+- ADR: [Rammeverk-fokus: byggesteiner](docs/wiki/decisions/2026-06-04-rammeverk-fokus-byggesteiner.md)
+  — Nordover ships Layer 1 (tokens) + Layer 2 (building blocks) only; no page patterns
+
 ## [1.2.0] - 2026-06-02
 
 World-class visual upgrade across the entire system (tokens, components,
