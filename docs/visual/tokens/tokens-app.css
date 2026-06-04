@@ -85,7 +85,7 @@
     --text-xs:  0.6875rem;  /* 11px */
     --text-sm:  0.8125rem;  /* 13px */
     --text-base: 0.875rem;  /* 14px */
-    --text-md:  1rem;       /* 16px — content-view (artikler, lange tekster) */
+    --text-md:  1rem;       /* 16px — content-view (artikler, lange tekster), app-only */
     --text-lg:  1.125rem;   /* 18px */
     --text-xl:  1.25rem;    /* 20px */
     --text-2xl: 1.5rem;     /* 24px */
@@ -313,7 +313,7 @@
 
     /* === Nav + Glass === */
     --nav-item-bg-hover: color-mix(in oklch, var(--color-fg) 6%, transparent);
-    --nav-item-bg-active: color-mix(in oklch, var(--color-fg) 10%, transparent);
+    --nav-item-bg-active: color-mix(in oklch, var(--color-fg) 10%, transparent);  /* app-only: sidebar active state */
     --glass-bg: color-mix(in oklch, var(--color-bg) 75%, transparent);
     --glass-bg-strong: color-mix(in oklch, var(--color-bg) 90%, transparent);
     --glass-blur: blur(10px) saturate(180%);
@@ -342,10 +342,10 @@
     --container-prose: 65ch;
 
     /* === Width scale (utilities) — compact SaaS sizing === */
-    --w-sm: 20rem;     /* 320px */
+    --w-sm: 20rem;     /* 320px, app-only */
     --w-md: 24rem;     /* 384px */
     --w-lg: 28rem;     /* 448px */
-    --w-xl: 32rem;     /* 512px */
+    --w-xl: 32rem;     /* 512px, app-only */
 
     /* === Grid sizing (auto-fit minmax values) === */
     --grid-min: 14rem; /* 224px — min column width for auto-fit grids */

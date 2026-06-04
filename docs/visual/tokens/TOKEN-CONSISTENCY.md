@@ -1,6 +1,6 @@
 # Token Consistency & Governance
 
-**153 shared tokens** exist in both files. Values differ, but names must not diverge.
+**212 shared tokens** exist in both files (16 web-only, 22 app-only). Values differ, but shared names must not diverge. Run `python3 scripts/validate-token-consistency.py` to verify.
 
 ## Shared Token Categories
 

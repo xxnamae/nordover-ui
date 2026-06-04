@@ -49,25 +49,23 @@ def extract_tokens(file_path: Path) -> tuple[set[str], dict[str, bool]]:
     else:
         raise ValueError(f"Unmatched braces in :root block in {file_path}")
 
-    # Extract token declarations: --name: value;
+    # Extract token declarations: --name: value;  /* optional comment */
+    # Match each declaration up to its terminating ; capturing any trailing
+    # comment (which may carry a /* web-only */ or /* app-only */ marker).
     tokens = set()
     platform_exclusive = {}
 
-    # Split by ; to get individual declarations
-    for line in root_body.split(";"):
-        line = line.strip()
-        if not line.startswith("--"):
-            continue
+    decl_re = re.compile(r"(--[\w-]+)\s*:\s*[^;]*;(?:[ \t]*/\*[^*]*\*/)?")
+    for match in decl_re.finditer(root_body):
+        token_name = match.group(1)
+        tokens.add(token_name)
 
-        # Extract token name (before :)
-        name_part = line.split(":")[0].strip()
-        if name_part.startswith("--"):
-            token_name = name_part
-            tokens.add(token_name)
-
-            # Check if this declaration has a platform-exclusive comment
-            is_exclusive = "/* web-only */" in line or "/* app-only */" in line
-            platform_exclusive[token_name] = is_exclusive
+        # Check the full matched declaration for a platform-exclusive marker.
+        # Accepts both bare markers (/* web-only */) and descriptive ones
+        # (/* web-only: hero display scale */).
+        decl_text = match.group(0)
+        is_exclusive = "web-only" in decl_text or "app-only" in decl_text
+        platform_exclusive[token_name] = is_exclusive
 
     return tokens, platform_exclusive
 
