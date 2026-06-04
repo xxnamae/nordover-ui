@@ -1,8 +1,8 @@
-# Nordover — Design System for Nordic Web & Apps
+# Nordover — Universal Design System Foundation
 
-Production-ready CSS framework combining semantic tokens, reusable components, and utilities for both marketing sites and SaaS dashboards.
+Production-ready CSS framework providing semantic tokens and building blocks for both web and app projects. Each project composes patterns and pages on top—Nordover provides the foundation, not finished compositions.
 
-**Status:** v1.2.0 ✨ | **Components:** 34 core + variants | **WCAG:** AA compliant | **Dark mode:** tonal elevation
+**Status:** v1.2.0 ✨ | **Building Blocks:** 30+ semantic components | **WCAG:** AA compliant | **Dark mode:** tonal elevation
 
 ## Features
 
@@ -16,6 +16,7 @@ Production-ready CSS framework combining semantic tokens, reusable components, a
 ✅ **Framework Agnostic** — Works with Next.js, Vue, React, plain HTML, static sites  
 ✅ **Production Ready** — Comprehensive testing strategy, CI/CD ready  
 ✅ **Well Documented** — Component specs, variant system, real-world examples, testing guides  
+✅ **Focused Scope** — Building blocks + tokens only (no patterns) — each project composes its own  
 
 ## Quick Start
 
@@ -63,41 +64,47 @@ See [Real-World Examples](docs/handoff/real-world-examples.md) for Vue, React, S
 | Topic | Links |
 |-------|-------|
 | **Getting Started** | [Handoff Guide](docs/handoff/README.md) • [Real-World Examples](docs/handoff/real-world-examples.md) • [Monorepo Setup](docs/handoff/monorepo-bootstrap.md) |
-| **Components** | [Buttons](docs/wiki/topics/nordover-buttons.md) • [Forms](docs/wiki/topics/nordover-forms.md) • [Styleguide](docs/visual/styleguide-web.html) |
+| **Components** | [Buttons](docs/wiki/topics/nordover-buttons.md) • [Forms](docs/wiki/topics/nordover-forms.md) • [Interactive Styleguide](docs/visual/styleguide.html) |
 | **Architecture** | [Component Library ADR](docs/wiki/decisions/2026-05-30-comprehensive-component-library.md) • [Variant System](docs/wiki/decisions/2026-05-30-variant-system.md) • [Testing Strategy](docs/wiki/decisions/2026-05-30-testing-strategy.md) |
 | **Full Wiki** | [Browse Documentation](docs/wiki/README.md) |
 
-## Component Overview
+## Building Blocks
 
-### Foundation (Fase 1A-1D)
-- **Buttons**: Primary, secondary, ghost, link, elevated (8 variants)
-- **Forms**: Input, textarea, checkbox, radio, select, toggle, range (10+ types)
-- **Sections**: Hero, feature grid, CTA cards, pricing cards
-- **Data Display**: Tables, pagination, badges, alerts, modals, FAQ
+Nordover provides tokens and semantic building blocks for construction, not finished compositions. Each project composes its own patterns and pages using the foundation.
 
-### High-Value (Fase 1J)
-- **Date Picker**: Calendar UI with month navigation
-- **Tag Input**: Autocomplete with suggestions
-- **Stepper**: Multi-step form with progress
-- **File Upload**: Drag-drop, progress tracking
-- **Data Table**: Sorting, filtering, inline editing
+### Tokens (Foundation)
+- **Colors**: Semantic OKLCH palette (light/dark modes)
+- **Typography**: Display, heading, body scales
+- **Spacing**: 8px base grid (--space-1 to --space-8)
+- **Motion**: Durations, easing functions
+- **Shadows, Radius, Borders**: Semantic system
 
-### Content (Fase 1K - Web Only)
-- **Blog Cards**: Metadata, categories, read time
-- **Testimonials**: Quote blocks with author info
-- **Timeline**: Event timeline with dates
-- **Search Bar**: Icon-overlaid input with results
-- **Accordion**: Collapsible content sections
+### Interactive Components
+- **Buttons**: Primary, secondary, ghost, tonal, elevated, link (3 sizes)
+- **Forms**: Inputs, textarea, checkbox, radio, select, switch
+- **Badges & Alerts**: Semantic color variants (success, error, warning, info)
+- **Cards**: Default, elevated, bordered, subtle
+- **Data Display**: Tables, pagination, avatar, skeleton, empty states
 
-### Responsive (Fase 1L)
-- Mobile navigation drawer with slide animation
-- Touch-friendly targets (44×44px minimum)
-- Responsive table wrapper
-- Responsive breakpoints (60rem, 48rem, 36rem)
-- Container queries for adaptive layouts
+### Complex Components
+- **Modals & Dialogs**: Header, content, footer sections
+- **Accordion**: Expandable content sections
+- **Tabs**: List triggers and content panes
+- **Date Picker**: Month calendar with navigation
+- **File Upload**: Drag-drop, file list, progress
+- **Stepper**: Multi-step progress indicator
+- **Search Bar**: Input with results dropdown
+- **Tooltip & Menu**: Popup, content, trigger patterns
+- **Toast & Notifications**: Viewport positioning
+- **Breadcrumb & Navigation**: Link trails
 
-### Polish (Fase 1M)
-- Icon color variants (primary, success, error, warning, info)
+### Layout Utilities
+- **Primitives**: `.stack`, `.cluster`, `.grid-auto`, `.page`, `.section`
+- **Spacing**: Gap, margin, padding utilities
+- **Typography**: Text alignment, sizing, weight utilities
+- **Display**: Flex, block, hidden utilities
+- **Animation**: Fade-in, slide, scale, spin utilities
+- **Responsive**: Mobile-first breakpoints, container queries
 - Animation utilities (spin, pulse, bounce, fade, slide, scale)
 - Transition utilities (fast, base, slow)
 - Full motion accessibility support
