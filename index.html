@@ -3,72 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nordover — Design System for Nordic Web & Apps</title>
+  <title>Nordover — Universelt designsystem-fundament</title>
+  <meta name="description" content="Nordover — tokens og byggesteiner for nordiske nettsider og apper. Et fundament hvert prosjekt bygger sine egne sider på.">
   <link rel="preconnect" href="https://rsms.me/">
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
   <link rel="stylesheet" href="docs/visual/tokens/tokens-web.css">
   <link rel="stylesheet" href="docs/visual/components/components-web.css">
   <style>
+    /* Landing page composition — the docs site composes its own page on top of
+       the framework. These classes are page-specific (prefix lp-) and are NOT
+       part of the shippable framework. Building blocks (.btn, .t-*, .grid-auto,
+       .footer-*) come from components-web.css. */
     @layer components {
-      .nav { display: flex; align-items: center; justify-content: space-between; padding: var(--space-4) var(--page-padding); border-bottom: var(--border-divider); background: color-mix(in oklch, var(--color-bg) 98%, transparent); }
+      .nav { display: flex; align-items: center; justify-content: space-between; padding: var(--space-4) var(--page-padding); border-bottom: var(--border-divider); position: sticky; top: 0; z-index: 10; background: color-mix(in oklch, var(--color-bg) 92%, transparent); backdrop-filter: blur(8px); }
       .nav-brand { font-size: var(--text-lg); font-weight: var(--fw-semibold); letter-spacing: -0.02em; }
-      .nav-links { display: flex; gap: var(--space-5); align-items: center; }
-      @media (max-width: 640px) {
-        .nav-links { gap: var(--space-3); }
-        .nav-link-text { display: none; }
-      }
+      .nav-links { display: flex; gap: var(--space-3); align-items: center; }
     }
     @layer brand {
-      body { max-height: 100vh; overflow-y: auto; }
+      body { min-height: 100vh; }
       main { padding: 0; }
-      section { padding: var(--spacing-section) var(--page-padding); }
-      .section-inner { max-width: 72rem; margin: 0 auto; }
+      .lp-section { padding: var(--spacing-section) var(--page-padding); }
+      .lp-inner { max-width: 72rem; margin: 0 auto; }
 
-      /* Hero — uses the system .hero-centered component full-bleed so its
-         built-in radial glow spans the full width. No page-level gradient or
-         section-inner wrapper (that confined the glow into a centred box). */
-      .hero { padding: 0; }
-      .hero h1 { margin: var(--space-4) 0 var(--space-5); }
-      .hero-sub { color: var(--color-muted); max-width: 52ch; margin-inline: auto; }
-      .hero-stats {
-        list-style: none; display: flex; flex-wrap: wrap;
-        justify-content: center; gap: var(--space-4) var(--space-7);
-        margin-top: var(--space-10);
-      }
-      .hero-stats li {
-        display: inline-flex; align-items: baseline; gap: var(--space-2);
-        color: var(--color-muted); font-size: var(--text-sm);
-      }
-      .hero-stats strong {
-        color: var(--color-fg); font-weight: var(--fw-semibold);
-        font-size: var(--text-base);
-      }
+      /* Hero */
+      .lp-hero { text-align: center; padding-block: var(--spacing-section-lg); }
+      .lp-hero h1 { margin: var(--space-4) 0 var(--space-5); }
+      .lp-hero-sub { color: var(--color-muted); max-width: 54ch; margin-inline: auto; }
+      .lp-stats { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-4) var(--space-7); margin-top: var(--space-10); padding: 0; }
+      .lp-stats li { display: inline-flex; align-items: baseline; gap: var(--space-2); color: var(--color-muted); font-size: var(--text-sm); }
+      .lp-stats strong { color: var(--color-fg); font-weight: var(--fw-semibold); font-size: var(--text-base); }
 
-      /* Feature cards — landing page brand polish (gradient hairline border) */
-      .feature-card {
-        background:
-          linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
-          linear-gradient(150deg, color-mix(in oklch, var(--color-border) 70%, var(--color-fg)), var(--color-border) 60%) border-box;
+      /* Cards (page-local, built from tokens) */
+      .lp-card {
+        display: flex; flex-direction: column; gap: var(--space-2);
+        padding: var(--space-6); border-radius: var(--radius-lg); text-decoration: none;
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        transition: border-color var(--duration-fast), box-shadow var(--duration-fast), transform var(--duration-fast);
       }
-      .feature-card:hover {
-        background:
-          linear-gradient(var(--color-subtle), var(--color-subtle)) padding-box,
-          linear-gradient(150deg, var(--color-accent), color-mix(in oklch, var(--color-accent) 45%, var(--color-bg)) 70%) border-box;
+      a.lp-card:hover { border-color: var(--color-accent); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+      .lp-card-icon { color: var(--color-accent); margin-bottom: var(--space-3); }
+      .lp-card h3 { color: var(--color-fg); font-weight: var(--fw-semibold); }
+      .lp-card p { color: var(--color-muted); }
+
+      /* Primary styleguide CTA card */
+      .lp-feature {
+        display: grid; gap: var(--space-6); align-items: center;
+        padding: var(--space-8); border-radius: var(--radius-lg);
+        background: var(--color-subtle);
       }
-      .feature-card-icon { color: var(--color-accent); margin-bottom: var(--space-6); }
-      .feature-card h3 { color: var(--color-fg); font-weight: var(--fw-semibold); }
-      .feature-card p { color: var(--color-muted); }
+      @media (min-width: 48rem) { .lp-feature { grid-template-columns: 1.5fr 1fr; } }
 
-      /* Footer — grid and link styling */
-      .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-8); }
-      .footer-col-title { font-weight: var(--fw-semibold); margin-bottom: var(--space-3); color: var(--color-fg); }
-      .footer-link { display: block; color: var(--color-muted); text-decoration: none; margin-bottom: var(--space-2); transition: color var(--duration-fast); }
-      .footer-link:hover { color: var(--color-fg); }
+      /* CTA band */
+      .lp-cta { text-align: center; padding: var(--space-10) var(--space-6); border-radius: var(--radius-lg); background: var(--color-subtle); }
+      .lp-cta h2 { margin-bottom: var(--space-4); }
+      .lp-cta p { color: var(--color-muted); max-width: 50ch; margin: 0 auto var(--space-7); }
 
-      /* Section heading accents */
-      h2.t-heading-lg { color: var(--color-fg); letter-spacing: -0.01em; }
-
-      /* Theme toggle styling */
+      /* Theme toggle */
       .theme-toggle { cursor: pointer; display: flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; border-radius: var(--radius-full); border: none; background: transparent; transition: background-color var(--duration-fast); }
       .theme-toggle:hover { background-color: var(--color-subtle); }
       .theme-toggle svg { width: 1.25rem; height: 1.25rem; }
@@ -83,8 +74,6 @@
   <svg style="display:none"><defs>
     <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
-    <symbol id="i-star" viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 17 14 18 21 12 17 6 21 7 14 2 9 9 9" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/></symbol>
-    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s-8-4-8-12V5l8-3 8 3v5c0 8-8 12-8 12z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="12" y1="16" x2="12" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="12" y1="8" x2="12.01" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   </defs></svg>
@@ -92,9 +81,9 @@
   <nav class="nav">
     <div class="nav-brand">Nordover</div>
     <div class="nav-links">
-      <a href="#styleguides" class="btn btn-ghost" style="font-size: var(--text-sm);">Styleguides</a>
+      <a href="docs/visual/styleguide.html" class="btn btn-ghost" style="font-size: var(--text-sm);">Styleguide</a>
       <a href="#docs" class="btn btn-ghost" style="font-size: var(--text-sm);">Docs</a>
-      <button class="theme-toggle">
+      <button class="theme-toggle" aria-label="Bytt tema">
         <svg class="icon t-moon"><use href="#i-moon"/></svg>
         <svg class="icon t-sun"><use href="#i-sun"/></svg>
       </button>
@@ -102,20 +91,20 @@
   </nav>
 
   <main>
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-centered">
-        <p class="t-eyebrow">Designsystem for nordiske nettsider og apper</p>
+    <!-- Hero -->
+    <section class="lp-section lp-hero">
+      <div class="lp-inner">
+        <p class="t-eyebrow">Fundament for nordiske nettsider og apper</p>
         <h1 class="t-display-2xl">Nordover</h1>
-        <p class="t-body-lg hero-sub">
-          Et komplett CSS-rammeverk og komponentbibliotek. Skandinavisk minimalisme, fluid typografi, full kontroll over tema og brand.
+        <p class="t-body-lg lp-hero-sub">
+          Tokens og byggesteiner av topp kvalitet — fundamentet hvert prosjekt bygger sine egne sider på. Skandinavisk minimalisme, full kontroll over tema og brand.
         </p>
         <div class="cluster" style="margin-top: var(--space-8); justify-content: center;">
-          <a href="#styleguides" class="btn btn-primary">Utforsk styleguides</a>
+          <a href="docs/visual/styleguide.html" class="btn btn-primary">Utforsk styleguide</a>
           <a href="https://github.com/xxnamae/nordover-ui" class="btn btn-secondary">GitHub</a>
         </div>
-        <ul class="hero-stats">
-          <li><strong>40+</strong> komponenter</li>
+        <ul class="lp-stats">
+          <li><strong>Tokens</strong> + byggesteiner</li>
           <li><strong>WCAG AA</strong> tilgjengelig</li>
           <li><strong>Lys + Mørk</strong> innebygd</li>
           <li><strong>Web + App</strong> pakker</li>
@@ -124,116 +113,100 @@
       </div>
     </section>
 
-    <!-- Styleguides Section -->
-    <section id="styleguides">
-      <div class="section-inner">
-        <h2 class="t-heading-lg" style="margin-bottom: var(--space-2);">Styleguides</h2>
-        <p class="t-body-lg" style="color: var(--color-muted); margin-bottom: var(--space-8);">
-          Se designsystemet i aksjon. Hver styleguide viser alle komponenter, tokens, og mønstre.
-        </p>
-        <div class="feature-grid">
-          <a href="docs/visual/styleguide-web.html" class="feature-card" style="text-decoration: none;">
-            <svg class="feature-card-icon" viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="2" y1="17" x2="22" y2="17"/><line x1="6" y1="21" x2="18" y2="21"/>
-            </svg>
-            <h3 class="t-heading-sm">Web Styleguide</h3>
-            <p class="t-body-sm" style="color: var(--color-muted); margin-top: var(--space-2);">Light-first design for marketing-nettsider. Fluid editorial typografi og romslige seksjoner.</p>
-          </a>
-          <a href="docs/visual/styleguide-app.html" class="feature-card" style="text-decoration: none;">
-            <svg class="feature-card-icon" viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="5" y="2" width="14" height="20" rx="2.18" ry="2.18"/><line x1="12" y1="19" x2="12.01" y2="19"/>
-            </svg>
-            <h3 class="t-heading-sm">App Styleguide</h3>
-            <p class="t-body-sm" style="color: var(--color-muted); margin-top: var(--space-2);">Dark-first design for SaaS dashboards. Kompakt spacing og taktile komponenter.</p>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Features Section -->
-    <section style="background: var(--color-subtle);">
-      <div class="section-inner">
-        <h2 class="t-heading-lg" style="margin-bottom: var(--space-8);">Design System Features</h2>
-        <div class="feature-grid">
-          <div class="feature-card">
-            <svg class="feature-card-icon" viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2L2 7V12C2 18.16 12 22 12 22S22 18.16 22 12V7L12 2Z"/>
-            </svg>
-            <h3 class="t-heading-sm">Accessibility First</h3>
-            <p class="t-body-sm" style="color: var(--color-muted); margin-top: var(--space-2);">WCAG AA-kompatibel. Fokus-indikatorer, contrast-ratio validering og reduced-motion støtte innebygd.</p>
+    <!-- Styleguide -->
+    <section class="lp-section">
+      <div class="lp-inner">
+        <div class="lp-feature">
+          <div class="stack">
+            <p class="t-eyebrow">Interaktiv styleguide</p>
+            <h2 class="t-heading-lg">Alle tokens og byggesteiner på ett sted</h2>
+            <p class="t-body-lg" style="color: var(--color-muted);">
+              Én samlet styleguide med pakke-velger for web og app. Se farger, typografi, spacing, motion — og hver byggestein med live demoer og klassenavn.
+            </p>
+            <div class="cluster">
+              <a href="docs/visual/styleguide.html" class="btn btn-primary">Åpne styleguide</a>
+            </div>
           </div>
-          <div class="feature-card">
-            <svg class="feature-card-icon" viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/><path d="M12 6V12L16 14"/>
-            </svg>
-            <h3 class="t-heading-sm">Fluid Typography</h3>
-            <p class="t-body-sm" style="color: var(--color-muted); margin-top: var(--space-2);">CSS clamp() skaler typografi flytende fra mobil til desktop uten breakpoints.</p>
-          </div>
-          <div class="feature-card">
-            <svg class="feature-card-icon" viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/>
-            </svg>
-            <h3 class="t-heading-sm">CSS Custom Properties</h3>
-            <p class="t-body-sm" style="color: var(--color-muted); margin-top: var(--space-2);">Alle tokens som CSS-variabler. Enkel theme-override uten å rebygge.</p>
-          </div>
-          <div class="feature-card">
-            <svg class="feature-card-icon" viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2C6.48 2 2 6.48 2 12S6.48 22 12 22 22 17.52 22 12 17.52 2 12 2M10 17L6 13L7.41 11.59L10 14.17L16.59 7.58L18 9L10 17Z"/>
-            </svg>
-            <h3 class="t-heading-sm">Light & Dark Mode</h3>
-            <p class="t-body-sm" style="color: var(--color-muted); margin-top: var(--space-2);">Innebygd tema-toggle via CSS :has() og localStorage-persistens.</p>
+          <div class="stack" style="gap: var(--space-3);">
+            <span class="badge badge-success">Buttons</span>
+            <span class="badge badge-info">Forms</span>
+            <span class="badge badge-neutral">Cards</span>
+            <span class="badge badge-warning">Tables</span>
+            <span class="badge badge-neutral">Modals</span>
+            <span class="badge badge-info">Navigation</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Documentation Section -->
-    <section id="docs">
-      <div class="section-inner">
+    <!-- Features -->
+    <section class="lp-section" style="background: var(--color-subtle);">
+      <div class="lp-inner">
+        <h2 class="t-heading-lg" style="margin-bottom: var(--space-8);">Hvorfor Nordover</h2>
+        <div class="grid-auto">
+          <div class="lp-card">
+            <svg class="lp-card-icon icon icon-lg"><use href="#i-check"/></svg>
+            <h3 class="t-heading-sm">Tilgjengelig først</h3>
+            <p class="t-body-sm">WCAG AA. Fokus-indikatorer, kontrast-validering og reduced-motion innebygd.</p>
+          </div>
+          <div class="lp-card">
+            <svg class="lp-card-icon icon icon-lg"><use href="#i-check"/></svg>
+            <h3 class="t-heading-sm">Fluid typografi</h3>
+            <p class="t-body-sm">CSS clamp() skalerer typografi flytende fra mobil til desktop uten breakpoints.</p>
+          </div>
+          <div class="lp-card">
+            <svg class="lp-card-icon icon icon-lg"><use href="#i-check"/></svg>
+            <h3 class="t-heading-sm">CSS-variabler</h3>
+            <p class="t-body-sm">Alle tokens som CSS custom properties. Enkel theme-override uten å rebygge.</p>
+          </div>
+          <div class="lp-card">
+            <svg class="lp-card-icon icon icon-lg"><use href="#i-check"/></svg>
+            <h3 class="t-heading-sm">Lys &amp; mørk modus</h3>
+            <p class="t-body-sm">Innebygd tema-toggle via CSS :has() — ingen JavaScript nødvendig.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Documentation -->
+    <section class="lp-section" id="docs">
+      <div class="lp-inner">
         <h2 class="t-heading-lg" style="margin-bottom: var(--space-2);">Dokumentasjon</h2>
         <p class="t-body-lg" style="color: var(--color-muted); margin-bottom: var(--space-8);">
-          Alt du trenger for å implementere Nordover i ditt prosjekt eller monorepo.
+          Alt du trenger for å bygge på Nordover i ditt prosjekt eller monorepo.
         </p>
-        <div class="feature-grid">
-          <a href="docs/handoff/README.md" class="feature-card" style="text-decoration: none; display: flex; flex-direction: column;">
-            <svg class="feature-card-icon" viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20V20H6.5A2.5 2.5 0 0 1 4 17.5V4.5A2.5 2.5 0 0 1 6.5 2Z"/>
-            </svg>
+        <div class="grid-auto">
+          <a href="docs/handoff/README.md" class="lp-card">
+            <svg class="lp-card-icon icon icon-lg"><use href="#i-info"/></svg>
             <h3 class="t-heading-sm">Framework Handoff</h3>
-            <p class="t-body-sm" style="color: var(--color-muted); margin-top: var(--space-2);">Implementørguidanse. Hvordan bruke tokens, komponenter, og mønstre i ditt prosjekt.</p>
+            <p class="t-body-sm">Implementørguidanse. Hvordan bruke tokens og byggesteiner i ditt prosjekt.</p>
           </a>
-          <a href="docs/handoff/monorepo-bootstrap.md" class="feature-card" style="text-decoration: none;">
-            <svg class="feature-card-icon" viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
-            </svg>
+          <a href="docs/handoff/monorepo-bootstrap.md" class="lp-card">
+            <svg class="lp-card-icon icon icon-lg"><use href="#i-info"/></svg>
             <h3 class="t-heading-sm">Monorepo Bootstrap</h3>
-            <p class="t-body-sm" style="color: var(--color-muted); margin-top: var(--space-2);">Struktur en Next.js + Payload monorepo med Nordover. Workspace-konfigurering.</p>
+            <p class="t-body-sm">Strukturer en Next.js + Payload monorepo med Nordover. Workspace-oppsett.</p>
           </a>
-          <a href="https://github.com/xxnamae/nordover-ui/tree/main/docs/wiki/topics" class="feature-card" style="text-decoration: none;">
-            <svg class="feature-card-icon" viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20V20H6.5A2.5 2.5 0 0 1 4 17.5V4.5A2.5 2.5 0 0 1 6.5 2Z"/>
-            </svg>
+          <a href="https://github.com/xxnamae/nordover-ui/tree/main/docs/wiki/topics" class="lp-card">
+            <svg class="lp-card-icon icon icon-lg"><use href="#i-info"/></svg>
             <h3 class="t-heading-sm">Component Topics</h3>
-            <p class="t-body-sm" style="color: var(--color-muted); margin-top: var(--space-2);">15+ spesifikasjoner. Hero, Feature Grid, CTA, Pricing, FAQ, Service List, og mer.</p>
+            <p class="t-body-sm">Spesifikasjoner for byggesteinene — buttons, forms, cards, og mer.</p>
           </a>
-          <a href="https://github.com/xxnamae/nordover-ui/tree/main/docs/wiki/decisions" class="feature-card" style="text-decoration: none;">
-            <svg class="feature-card-icon" viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15A2 2 0 0 1 19 17H5A2 2 0 0 1 3 15V7A2 2 0 0 1 5 5H19A2 2 0 0 1 21 7"/><line x1="17" y1="9" x2="7" y2="9"/>
-            </svg>
+          <a href="https://github.com/xxnamae/nordover-ui/tree/main/docs/wiki/decisions" class="lp-card">
+            <svg class="lp-card-icon icon icon-lg"><use href="#i-info"/></svg>
             <h3 class="t-heading-sm">Architecture Decisions</h3>
-            <p class="t-body-sm" style="color: var(--color-muted); margin-top: var(--space-2);">21+ ADRs. Hvorfor design-valg ble gjort, trade-offs, og historikk.</p>
+            <p class="t-body-sm">ADR-er. Hvorfor design-valg ble gjort, trade-offs, og historikk.</p>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- CTA Section -->
-    <section style="background: var(--color-subtle);">
-      <div class="section-inner">
-        <div class="cta-card">
-          <h2 class="t-display-md" style="margin-bottom: var(--space-4);">Klar til å komme i gang?</h2>
-          <p class="t-body-lg" style="color: var(--color-fg); font-size: var(--text-lg); margin-bottom: var(--space-7); max-width: 50ch; margin-left: auto; margin-right: auto;">
-            Les implementørguidansen og se hvordan du integrerer Nordover i ditt prosjekt.
+    <!-- CTA -->
+    <section class="lp-section">
+      <div class="lp-inner">
+        <div class="lp-cta">
+          <h2 class="t-display-md">Klar til å komme i gang?</h2>
+          <p class="t-body-lg">
+            Les implementørguidansen og se hvordan du bygger på Nordover i ditt prosjekt.
           </p>
           <div class="cluster" style="justify-content: center;">
             <a href="docs/handoff/README.md" class="btn btn-primary">Dokumentasjon</a>
@@ -245,18 +218,17 @@
 
     <!-- Footer -->
     <footer style="border-top: var(--border-divider); padding: var(--space-8) var(--page-padding);">
-      <div class="section-inner">
+      <div class="lp-inner">
         <div class="footer-grid">
           <div>
             <div class="footer-col-title">Nordover Design System</div>
             <p class="t-body-sm" style="color: var(--color-muted); margin-bottom: var(--space-3);">
-              CSS-rammeverk og komponentbibliotek for nordiske digitale produkter. MIT-lisensiert.
+              Tokens og byggesteiner for nordiske digitale produkter. MIT-lisensiert.
             </p>
           </div>
           <div>
-            <div class="footer-col-title">Resources</div>
-            <a href="docs/visual/styleguide-web.html" class="footer-link">Web Styleguide</a>
-            <a href="docs/visual/styleguide-app.html" class="footer-link">App Styleguide</a>
+            <div class="footer-col-title">Ressurser</div>
+            <a href="docs/visual/styleguide.html" class="footer-link">Styleguide</a>
             <a href="docs/handoff/README.md" class="footer-link">Handoff</a>
           </div>
           <div>
