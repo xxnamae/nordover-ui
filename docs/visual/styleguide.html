@@ -65,7 +65,7 @@
 
 <div class="app">
   <aside class="app-sidebar">
-    <div class="app-sidebar-brand"><span class="app-sidebar-brand-mark">N</span> <span>Nordover</span></div>
+    <div class="app-sidebar-brand"><span class="app-sidebar-brand-mark">N</span> <span>Nordover</span><label for="nav" class="app-sidebar-close" aria-label="Lukk menyen"><svg class="icon"><use href="#i-x"/></svg></label></div>
     <div class="pkg-switch" role="group" aria-label="Velg pakke">
       <label><input type="radio" name="package" value="web" checked><span>Web</span></label>
       <label><input type="radio" name="package" value="app"><span>App</span></label>
@@ -234,7 +234,33 @@
             <div class="state-item"><div class="fade-in" style="width: 2rem; height: 2rem; background: var(--color-accent); border-radius: var(--radius-md);"></div><span class="state-label">.fade-in</span></div>
             <div class="state-item"><div class="scale-in" style="width: 2rem; height: 2rem; background: var(--color-accent); border-radius: var(--radius-md);"></div><span class="state-label">.scale-in</span></div>
             <div class="state-item"><div class="slide-in-up" style="width: 2rem; height: 2rem; background: var(--color-accent); border-radius: var(--radius-md);"></div><span class="state-label">.slide-in-up</span></div>
+            <div class="state-item"><div class="slide-in-down" style="width: 2rem; height: 2rem; background: var(--color-accent); border-radius: var(--radius-md);"></div><span class="state-label">.slide-in-down</span></div>
             <div class="state-item"><div class="slide-in-left" style="width: 2rem; height: 2rem; background: var(--color-accent); border-radius: var(--radius-md);"></div><span class="state-label">.slide-in-left</span></div>
+            <div class="state-item"><div class="slide-in-right" style="width: 2rem; height: 2rem; background: var(--color-accent); border-radius: var(--radius-md);"></div><span class="state-label">.slide-in-right</span></div>
+          </div>
+          <div class="doc-sub">Editorial entrance (slower, web package)</div>
+          <div class="chips">
+            <span class="chip">.animate-fade-in</span><span class="chip">.animate-scale-in</span><span class="chip">.animate-slide-up</span>
+          </div>
+          <div class="doc-sub">Spring entrance (app package)</div>
+          <div class="component-grid">
+            <div class="state-item"><div class="bounce-in" style="width: 2rem; height: 2rem; background: var(--color-accent); border-radius: var(--radius-md);"></div><span class="state-label">.bounce-in</span></div>
+          </div>
+          <div class="doc-sub">Exit &amp; transition utilities</div>
+          <div class="chips">
+            <span class="chip">.fade-out</span><span class="chip">.scale-out</span>
+            <span class="chip">.transition-fast</span><span class="chip">.transition-base</span><span class="chip">.transition-slow</span>
+          </div>
+          <div class="doc-sub">Icon motion modifiers</div>
+          <div class="doc-demo">
+            <div class="cluster" style="align-items: center;">
+              <svg class="icon icon-spin icon-primary"><use href="#i-info"/></svg>
+              <svg class="icon icon-pulse icon-primary"><use href="#i-info"/></svg>
+              <svg class="icon icon-bounce icon-primary"><use href="#i-info"/></svg>
+            </div>
+            <div class="chips">
+              <span class="chip">.icon-spin</span><span class="chip">.icon-pulse</span><span class="chip">.icon-bounce</span>
+            </div>
           </div>
           <div class="doc-sub">Duration tokens</div>
           <div class="chips">
@@ -321,7 +347,7 @@
             <span class="chip">.field</span><span class="chip">.field-label</span><span class="chip">.form-input</span>
             <span class="chip">.form-textarea</span><span class="chip">.form-select</span><span class="chip">.form-checkbox</span>
             <span class="chip">.form-radio</span><span class="chip">.form-switch</span><span class="chip">.field-help</span>
-            <span class="chip">.field-error</span>
+            <span class="chip">.field-error</span><span class="chip">.form-group</span><span class="chip">.form-group-item</span>
           </div>
           <div class="doc-demo stack">
             <div class="field">
@@ -362,6 +388,14 @@
               <span class="field-label">Switch &amp; toggle</span>
               <label style="display: flex; gap: var(--space-2); align-items: center;"><input type="checkbox" class="form-switch" checked> .form-switch (on)</label>
               <label style="display: flex; gap: var(--space-2); align-items: center;"><input type="checkbox" class="form-toggle"> .form-toggle (off)</label>
+            </div>
+            <div class="field">
+              <span class="field-label">Inline group (.form-group) — horizontal layout of related options</span>
+              <div class="form-group">
+                <label class="form-group-item"><input type="radio" name="rg" class="form-radio" checked> Daily</label>
+                <label class="form-group-item"><input type="radio" name="rg" class="form-radio"> Weekly</label>
+                <label class="form-group-item"><input type="radio" name="rg" class="form-radio"> Monthly</label>
+              </div>
             </div>
           </div>
         </section>
@@ -665,6 +699,7 @@
           <p class="doc-section-desc">Avatars, pagination, keyboard keys, and dividers.</p>
           <div class="chips">
             <span class="chip">.avatar</span><span class="chip">.avatar-group</span><span class="chip">.pagination</span>
+            <span class="chip">.pagination-btn</span><span class="chip">.pagination-dot</span><span class="chip">.pagination-item</span>
             <span class="chip">.kbd</span><span class="chip">.divider</span>
           </div>
           <div class="doc-demo stack">
@@ -690,6 +725,13 @@
                 <button class="pagination-dot">2</button>
                 <button class="pagination-dot">3</button>
                 <button class="pagination-btn">›</button>
+              </div>
+              <div class="pagination" style="margin-top: var(--space-3);">
+                <button class="pagination-item">‹</button>
+                <button class="pagination-item" aria-current="page">1</button>
+                <button class="pagination-item">2</button>
+                <button class="pagination-item">3</button>
+                <button class="pagination-item">›</button>
               </div>
             </div>
             <div>
@@ -830,7 +872,12 @@
         <section class="doc-section" id="layout">
           <h2 class="doc-section-title">Layout Primitives</h2>
           <p class="doc-section-desc">Composition primitives for building interfaces without custom CSS.</p>
-          <div class="chips"><span class="chip">.stack</span><span class="chip">.cluster</span><span class="chip">.grid-auto</span><span class="chip">.page</span><span class="chip">.section</span></div>
+          <div class="chips">
+            <span class="chip">.stack</span><span class="chip">.cluster</span><span class="chip">.grid-auto</span>
+            <span class="chip">.page</span><span class="chip">.page-section</span><span class="chip">.page-content</span>
+            <span class="chip">.section</span><span class="chip">.section-sm</span><span class="chip">.section-lg</span>
+            <span class="chip">.responsive-stack</span><span class="chip">.touch-area</span>
+          </div>
           <div class="doc-demo stack">
             <div>
               <h3 class="t-body-sm">Stack (vertical)</h3>
@@ -854,6 +901,28 @@
                 <div style="background: var(--color-accent); color: var(--color-accent-fg); padding: var(--space-2); border-radius: var(--radius-sm);">2</div>
                 <div style="background: var(--color-accent); color: var(--color-accent-fg); padding: var(--space-2); border-radius: var(--radius-sm);">3</div>
               </div>
+            </div>
+            <div>
+              <h3 class="t-body-sm">Responsive Stack (.responsive-stack)</h3>
+              <p class="t-caption">Stacks vertically on narrow containers, switches to auto-fit grid at ≥20rem (container query).</p>
+              <div class="responsive-stack" style="background: var(--color-subtle); padding: var(--space-3); border-radius: var(--radius-md);">
+                <div style="background: var(--color-accent); color: var(--color-accent-fg); padding: var(--space-2); border-radius: var(--radius-sm);">One</div>
+                <div style="background: var(--color-accent); color: var(--color-accent-fg); padding: var(--space-2); border-radius: var(--radius-sm);">Two</div>
+                <div style="background: var(--color-accent); color: var(--color-accent-fg); padding: var(--space-2); border-radius: var(--radius-sm);">Three</div>
+              </div>
+            </div>
+            <div>
+              <h3 class="t-body-sm">Page wrappers &amp; section rhythm</h3>
+              <p class="t-caption">
+                <code>.page</code> → flex column with fluid <code>--page-padding</code> · <code>.page-section</code> → vertical section spacing · <code>.page-content</code> → max-width centered column.
+                <code>.section</code> establishes container-query context; <code>.section-sm</code> / <code>.section-lg</code> adjust block padding.
+              </p>
+              <div class="page-content" style="background: var(--color-subtle); padding: var(--space-3); border-radius: var(--radius-md); text-align: center;">.page-content — centered, max-width column</div>
+            </div>
+            <div>
+              <h3 class="t-body-sm">Touch area (.touch-area)</h3>
+              <p class="t-caption">Extends the hit target ~8px beyond the visual bounds without affecting layout — for small tap targets on touch devices.</p>
+              <button class="btn btn-secondary btn-sm touch-area">Small button</button>
             </div>
           </div>
         </section>
@@ -885,22 +954,40 @@
           <p class="doc-section-desc">100+ single-purpose utilities for rapid composition: display, flex, spacing, typography, color, sizing, borders, and shadows.</p>
           <div class="doc-sub">Display &amp; Flex</div>
           <div class="chips">
-            <span class="chip">.flex</span><span class="chip">.flex-col</span><span class="chip">.items-center</span>
-            <span class="chip">.justify-between</span><span class="chip">.block</span><span class="chip">.hidden</span>
+            <span class="chip">.block</span><span class="chip">.inline-block</span><span class="chip">.inline</span>
+            <span class="chip">.flex</span><span class="chip">.flex-col</span><span class="chip">.flex-wrap</span>
+            <span class="chip">.items-center</span><span class="chip">.justify-center</span><span class="chip">.justify-between</span>
           </div>
           <div class="doc-sub">Spacing</div>
           <div class="chips">
-            <span class="chip">.gap-1…5</span><span class="chip">.p-2…5</span><span class="chip">.mt-1…5</span><span class="chip">.mb-1…5</span><span class="chip">.mx-auto</span>
+            <span class="chip">.gap-1…5</span><span class="chip">.p-2…5</span><span class="chip">.m-0</span><span class="chip">.m-auto</span>
+            <span class="chip">.mx-auto</span><span class="chip">.mt-1…5</span><span class="chip">.mb-1…5</span>
           </div>
-          <div class="doc-sub">Typography &amp; Color</div>
+          <div class="doc-sub">Typography</div>
           <div class="chips">
-            <span class="chip">.text-center</span><span class="chip">.text-muted</span><span class="chip">.text-accent</span>
-            <span class="chip">.font-medium</span><span class="chip">.font-bold</span><span class="chip">.truncate</span>
+            <span class="chip">.text-left</span><span class="chip">.text-center</span><span class="chip">.text-right</span>
+            <span class="chip">.font-medium</span><span class="chip">.font-semibold</span><span class="chip">.font-bold</span>
+            <span class="chip">.uppercase</span><span class="chip">.truncate</span><span class="chip">.line-clamp-2</span>
+            <span class="chip">.leading-tight</span><span class="chip">.leading-normal</span><span class="chip">.leading-relaxed</span>
+          </div>
+          <div class="doc-sub">Color</div>
+          <div class="chips">
+            <span class="chip">.text-fg</span><span class="chip">.text-muted</span><span class="chip">.text-accent</span>
+            <span class="chip">.text-success</span><span class="chip">.text-error</span>
+            <span class="chip">.bg-subtle</span><span class="chip">.bg-accent</span>
           </div>
           <div class="doc-sub">Sizing, Borders &amp; Shadow</div>
           <div class="chips">
-            <span class="chip">.w-full</span><span class="chip">.max-w-2xl…6xl</span><span class="chip">.rounded</span>
-            <span class="chip">.rounded-lg</span><span class="chip">.border</span><span class="chip">.shadow-sm</span><span class="chip">.shadow-md</span>
+            <span class="chip">.w-full</span><span class="chip">.max-w-sm…6xl</span>
+            <span class="chip">.aspect-square</span><span class="chip">.aspect-video</span>
+            <span class="chip">.rounded</span><span class="chip">.rounded-lg</span>
+            <span class="chip">.border</span><span class="chip">.border-b</span><span class="chip">.shadow-sm</span><span class="chip">.shadow-md</span>
+          </div>
+          <div class="doc-sub">Position, Visibility &amp; Interaction</div>
+          <div class="chips">
+            <span class="chip">.relative</span><span class="chip">.absolute</span><span class="chip">.fixed</span><span class="chip">.inset-0</span>
+            <span class="chip">.hidden</span><span class="chip">.invisible</span><span class="chip">.opacity-50</span>
+            <span class="chip">.cursor-pointer</span><span class="chip">.cursor-not-allowed</span><span class="chip">.pointer-events-none</span>
           </div>
           <div class="doc-demo">
             <div class="flex items-center justify-between p-4 border rounded-lg shadow-sm">
