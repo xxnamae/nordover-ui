@@ -1576,7 +1576,7 @@
       "slow-base": {
         "$type": "duration",
         "$value": {
-          "value": 300.0,
+          "value": 500.0,
           "unit": "ms"
         }
       },

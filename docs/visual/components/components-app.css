@@ -412,13 +412,12 @@
     padding: var(--space-2) var(--space-3);
     padding-left: calc(var(--space-3) + var(--space-1));
     background: var(--color-subtle);
-    border: var(--bw-thin) solid var(--color-border);
     border-radius: var(--radius-md);
     font-size: var(--text-xs);
     line-height: 1.4;
     color: var(--color-fg);
   }
-  .alert::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--color-border); }
+  .alert::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--color-border); }
   .alert-icon { flex-shrink: 0; width: 1.25rem; height: 1.25rem; margin-top: 0.0625rem; color: var(--color-muted); }
 
   .alert-success::before { background: var(--color-success); }
@@ -472,6 +471,10 @@
     color: var(--color-accent-fg);
     border-color: var(--color-accent);
   }
+  /* Round variant — circular page controls */
+  .pagination-round .pagination-item,
+  .pagination-round .pagination-btn,
+  .pagination-round .pagination-dot { border-radius: var(--radius-full); width: var(--space-7); min-width: var(--space-7); padding: 0; }
   .pagination-btn:disabled {
     opacity: 0.5;
     cursor: not-allowed;
@@ -654,8 +657,7 @@
   .form-input::placeholder { color: var(--color-muted); }
   .form-input.is-error {
     border-color: var(--error);
-    background: rgb(40, 35, 33); /* fallback: dark red-ish */
-    background: color-mix(in oklch, var(--error) 8%, var(--color-surface));
+    background: var(--color-surface);
   }
   .form-input.is-error:focus-visible {
     border-color: var(--error);
@@ -664,8 +666,7 @@
   }
   .form-input.is-success {
     border-color: var(--success);
-    background: rgb(30, 40, 35); /* fallback: dark green-ish */
-    background: color-mix(in oklch, var(--success) 8%, var(--color-surface));
+    background: var(--color-surface);
   }
   .form-input.is-success:focus-visible {
     border-color: var(--success);
@@ -1112,13 +1113,13 @@
   .icon-bounce { animation: bounce var(--duration-base) ease-in-out infinite; }
 
   /* Motion utilities */
-  .fade-in { animation: fadeIn var(--duration-base) var(--ease-out); }
+  .fade-in { animation: fadeIn var(--duration-slow) var(--ease-out); }
   .fade-out { animation: fadeOut var(--duration-fast) var(--ease-out); }
-  .slide-in-up { animation: slideInUp var(--duration-base) var(--ease-out); }
-  .slide-in-down { animation: slideInDown var(--duration-base) var(--ease-out); }
-  .slide-in-left { animation: slideInLeft var(--duration-base) var(--ease-out); }
-  .slide-in-right { animation: slideInRight var(--duration-base) var(--ease-out); }
-  .scale-in { animation: scaleIn var(--duration-base) var(--ease-spring); }
+  .slide-in-up { animation: slideInUp var(--duration-slow) var(--ease-out); }
+  .slide-in-down { animation: slideInDown var(--duration-slow) var(--ease-out); }
+  .slide-in-left { animation: slideInLeft var(--duration-slow) var(--ease-out); }
+  .slide-in-right { animation: slideInRight var(--duration-slow) var(--ease-out); }
+  .scale-in { animation: scaleIn var(--duration-slow) var(--ease-spring); }
   .scale-out { animation: scaleOut var(--duration-fast) var(--ease-out); }
   .bounce-in { animation: bounceIn var(--duration-base) var(--ease-spring); }
 
@@ -1207,12 +1208,17 @@
 
   /* Gradient border — futuristic glow edge for cards/panels/inputs. */
   .gradient-border {
-    border: var(--bw-medium) solid transparent;
+    border: var(--bw-thin) solid transparent;
     background:
       linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
-      linear-gradient(135deg, var(--color-accent), color-mix(in oklch, var(--color-accent) 35%, var(--color-info))) border-box;
+      linear-gradient(135deg, color-mix(in oklch, var(--color-accent) 65%, transparent), color-mix(in oklch, var(--color-info) 50%, transparent)) border-box;
   }
-  .gradient-border-glow { box-shadow: 0 0 0 1px color-mix(in oklch, var(--color-accent) 25%, transparent), 0 8px 30px -8px color-mix(in oklch, var(--color-accent) 45%, transparent); }
+  .gradient-border-glow {
+    box-shadow:
+      0 0 0 1px color-mix(in oklch, var(--color-accent) 18%, transparent),
+      0 0 18px -2px color-mix(in oklch, var(--color-accent) 35%, transparent),
+      0 0 42px -6px color-mix(in oklch, var(--color-info) 30%, transparent);
+  }
 
   /* Tabs — underline indicator; supports [aria-selected] and static .is-active */
   .tabs-list { display: inline-flex; align-items: center; gap: 0.125rem; border-bottom: var(--border-divider); }
@@ -1247,7 +1253,7 @@
 
   /* Toast */
   .toast-viewport { position: fixed; bottom: var(--space-5); right: var(--space-5); display: flex; flex-direction: column; gap: var(--space-2); z-index: var(--z-toast); }
-  .toast { position: relative; overflow: hidden; display: flex; align-items: flex-start; gap: var(--space-3); background: var(--surface-4); border: var(--border-card); border-radius: var(--radius-md); box-shadow: var(--shadow-lg); padding: var(--space-3) var(--space-4); padding-left: calc(var(--space-4) + var(--space-1)); min-width: 18rem; max-width: 24rem; }
+  .toast { position: relative; overflow: hidden; display: flex; align-items: flex-start; gap: var(--space-3); background: var(--surface-4); border-radius: var(--radius-md); box-shadow: var(--shadow-lg); padding: var(--space-3) var(--space-4); padding-left: calc(var(--space-4) + var(--space-1)); min-width: 18rem; max-width: 24rem; }
   .toast::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--color-border); }
   @media (prefers-reduced-motion: no-preference) { .toast { animation: toast-in var(--duration-base) var(--ease-spring); } }
   @keyframes toast-in { from { opacity: 0; transform: translateX(1rem); } to { opacity: 1; transform: translateX(0); } }
