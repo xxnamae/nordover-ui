@@ -7,7 +7,40 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+> Targeting **2.0.0** — a clean-skeleton rebuild. Breaking by design; the
+> system had no downstream consumers yet, so naming was unified without
+> deprecation aliases. See ADR `2026-06-05-unifisert-navnekonvensjon.md`.
+
+### Changed (BREAKING)
+- **States now use `.is-*`**: `.active`→`.is-active`, `.open`→`.is-open`,
+  `.selected`→`.is-selected`, `.dragover`→`.is-dragover`,
+  `.completed`→`.is-completed`. Decoupled from component names (SMACSS).
+- **One `.table` system**: the parallel `.data-table*` set was removed and
+  folded into `.table` with opt-in modifiers — `.table-sticky`, `.table-zebra`,
+  `.table-numeric`, `.table-responsive`, `.table-inline-edit`, `.table-filter`.
+  Sort state moved from `.sort-asc/.sort-desc` to the native `[aria-sort]`
+  attribute (free a11y); `.table-sort` button removed in favour of
+  `th.sortable`.
+- **Single status vocabulary**: `.btn-destructive` → `.btn-error` so the
+  status word is always `error` (matching alert/badge/toast/text/tag).
+
+### Removed
+- Styleguide chrome (`.doc-*`, `.swatch*`, `.chip*`) deleted from both
+  shippable `components-*.css` files — it lives only in
+  `styleguide-chrome.css` now. Also removed a duplicate `.data-table` block
+  and a stray-paren bug in the web package.
+
 ### Added
+- **Material-3-level styleguide docs** across components: when-to-use,
+  live example, variant/modifier reference table, accessibility notes, and
+  copyable code (with copy-to-clipboard) — plus do/don't cards on core
+  components. New reusable doc-pattern chrome in `styleguide-chrome.css`.
+- **Elementor Pro / WordPress guide** (`docs/handoff/ELEMENTOR-WORDPRESS.md`):
+  token-first recipe mapping Nordover tokens into Elementor Global
+  Colors/Fonts/Variables.
+- ADR `2026-06-05-unifisert-navnekonvensjon.md` documenting the convention.
+
+### Added — earlier in this cycle
 - **Component contract parity (web ↔ app):** both packages now expose an
   identical set of component class *names*; pakke-spesifikke *verdier* beholdes.
   Added to `components-app.css`: `.accordion*`, `.search-bar`/`.search-result*`,

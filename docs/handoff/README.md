@@ -20,6 +20,9 @@ If you're using Emotion, Styled Components, CSS Modules, or Vanilla Extract, thi
 ### 3. **Accessibility for Implementers** (`ACCESSIBILITY-FOR-IMPLEMENTERS.md`)
 Essential guide for building accessible applications. Covers semantic HTML, ARIA, testing, and how to maintain WCAG 2.1 AA compliance.
 
+### 4. **Elementor Pro / WordPress** (`ELEMENTOR-WORDPRESS.md`)
+Token-first recipe for WordPress: map Nordover's design tokens into Elementor's Global Colors, Global Fonts, and Variables Manager, then build with native widgets that stay on-brand.
+
 ---
 
 ## Legacy Documentation (Norsk)
