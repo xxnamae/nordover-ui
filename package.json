@@ -29,6 +29,7 @@
     "docs/visual/tokens/tokens-app.json",
     "docs/visual/components/components-web.css",
     "docs/visual/components/components-app.css",
+    "docs/visual/behaviors/nordover.js",
     "README.md",
     "CHANGELOG.md",
     "LICENSE"
@@ -44,7 +45,8 @@
     "./tokens-web-json": "./docs/visual/tokens/tokens-web.json",
     "./tokens-app-json": "./docs/visual/tokens/tokens-app.json",
     "./components-web": "./docs/visual/components/components-web.css",
-    "./components-app": "./docs/visual/components/components-app.css"
+    "./components-app": "./docs/visual/components/components-app.css",
+    "./behaviors": "./docs/visual/behaviors/nordover.js"
   },
   "publishConfig": {
     "access": "public"
