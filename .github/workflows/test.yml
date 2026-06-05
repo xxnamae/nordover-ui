@@ -30,3 +30,5 @@ jobs:
         run: python3 scripts/build_tokens.py --check
       - name: Verify token names consistent across web/app
         run: python3 scripts/validate-token-consistency.py
+      - name: Verify semantic colour pairs meet WCAG AA (light + dark)
+        run: python3 scripts/check_contrast.py --strict
