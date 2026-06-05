@@ -872,7 +872,7 @@
   .tag { display: flex; align-items: center; gap: var(--space-1); padding: var(--space-1) var(--space-2); background: var(--color-subtle); border-radius: var(--radius-sm); font-size: var(--text-sm); }
   .tag-remove { cursor: pointer; opacity: 0.6; transition: opacity var(--duration-fast) var(--ease-out); }
   .tag-remove:hover { opacity: 1; }
-  .tag-suggestions { position: absolute; top: 100%; left: 0; right: 0; z-index: var(--z-dropdown); background: var(--surface-3); border: var(--border-card); border-top: none; border-radius: 0 0 var(--input-radius) var(--input-radius); max-height: 10rem; overflow-y: auto; box-shadow: var(--shadow-popover); }
+  .tag-suggestions { position: absolute; top: 100%; left: 0; right: 0; margin-top: var(--space-2); z-index: var(--z-dropdown); background: var(--surface-3); border: var(--border-card); border-radius: var(--radius-md); max-height: 10rem; overflow-y: auto; box-shadow: var(--shadow-popover); padding: var(--space-2) 0; }
   .tag-suggestion { padding: var(--space-2) var(--space-3); cursor: pointer; font-size: var(--text-sm); transition: background var(--duration-fast) var(--ease-out); }
   .tag-suggestion:hover { background: var(--color-subtle); }
 
@@ -1050,7 +1050,7 @@
     transition: border-color var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);
   }
   .search-input:focus-visible { outline: none; border-color: var(--color-focus); box-shadow: 0 0 0 2px color-mix(in oklch, var(--color-focus) 15%, transparent); }
-  .search-results { position: absolute; top: 100%; left: 0; right: 0; z-index: var(--z-dropdown); background: var(--surface-3); border: var(--border-card); border-top: none; border-radius: 0 0 var(--radius-lg) var(--radius-lg); max-height: 20rem; overflow-y: auto; box-shadow: var(--shadow-popover); }
+  .search-results { position: absolute; top: 100%; left: 0; right: 0; margin-top: var(--space-2); z-index: var(--z-dropdown); background: var(--surface-3); border: var(--border-card); border-radius: var(--radius-lg); max-height: 20rem; overflow-y: auto; box-shadow: var(--shadow-popover); padding: var(--space-2) 0; }
   .search-result { padding: var(--space-2) var(--space-3); border-bottom: var(--border-divider); cursor: pointer; transition: background var(--duration-fast) var(--ease-out); }
   .search-result:last-child { border-bottom: none; }
   .search-result:hover { background: var(--color-subtle); }
@@ -1070,7 +1070,7 @@
   .tag { display: flex; align-items: center; gap: var(--space-1); padding: var(--space-1) var(--space-2); background: var(--color-subtle); border-radius: var(--radius-sm); font-size: var(--text-sm); }
   .tag-remove { cursor: pointer; opacity: 0.6; transition: opacity var(--duration-fast) var(--ease-out); }
   .tag-remove:hover { opacity: 1; }
-  .tag-suggestions { position: absolute; top: 100%; left: 0; right: 0; z-index: var(--z-dropdown); background: var(--surface-3); border: var(--border-card); border-top: none; border-radius: 0 0 var(--input-radius) var(--input-radius); max-height: 12rem; overflow-y: auto; box-shadow: var(--shadow-popover); }
+  .tag-suggestions { position: absolute; top: 100%; left: 0; right: 0; margin-top: var(--space-2); z-index: var(--z-dropdown); background: var(--surface-3); border: var(--border-card); border-radius: var(--radius-md); max-height: 12rem; overflow-y: auto; box-shadow: var(--shadow-popover); padding: var(--space-2) 0; }
   .tag-suggestion { padding: var(--space-2) var(--space-3); cursor: pointer; transition: background var(--duration-fast) var(--ease-out); }
   .tag-suggestion:hover { background: var(--color-subtle); }
   .tag-list { display: flex; flex-wrap: wrap; gap: var(--space-2); }
@@ -1159,7 +1159,7 @@
      ============================================================ */
 
   /* Mobile Navigation */
-  .mobile-nav-trigger { display: none; width: var(--space-6); height: var(--space-6); border: var(--border-card); border-radius: var(--radius-md); background: transparent; color: var(--color-fg); cursor: pointer; place-items: center; }
+  .mobile-nav-trigger { display: none; width: var(--space-6); height: var(--space-6); border: var(--border-card); border-radius: var(--radius-md); background: transparent; color: var(--color-fg); cursor: pointer; align-items: center; justify-content: center; }
   .mobile-nav-trigger:hover { background: var(--color-subtle); }
   .mobile-nav { position: fixed; inset: 0 auto 0 0; width: 14rem; height: 100vh; z-index: var(--z-modal); background: var(--surface-4); border-right: var(--border-card); box-shadow: var(--shadow-drawer); transform: translateX(-100%); transition: transform var(--duration-base) var(--ease-out); overflow-y: auto; }
   .mobile-nav.is-open { transform: translateX(0); }
@@ -1175,7 +1175,8 @@
   /* Touch-friendly buttons */
   .btn-touch { min-height: 44px; min-width: 44px; }
 
-  /* Stack/column responsive */
+  /* Stack/column responsive — always spaced; upgrades to a row grid when wide */
+  .responsive-stack { display: flex; flex-direction: column; gap: var(--gap-component); }
   @supports (container-type: inline-size) {
     .responsive-stack { container-type: inline-size; }
     @container (min-width: 20rem) {
@@ -1245,7 +1246,7 @@
   .tooltip:hover .tooltip-content, .tooltip:focus-within .tooltip-content { opacity: 1; }
 
   /* Menu / Dropdown */
-  .menu-content { background: var(--surface-3); border: var(--border-card); border-radius: var(--radius-md); box-shadow: var(--shadow-popover); padding: var(--space-1); min-width: 12rem; z-index: var(--z-dropdown); }
+  .menu-content { background: var(--surface-3); border: var(--border-card); border-radius: var(--radius-md); box-shadow: var(--shadow-popover); padding: var(--space-2); min-width: 12rem; z-index: var(--z-dropdown); }
   .menu-item { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-3); border-radius: var(--radius-sm); font-size: var(--text-sm); color: var(--color-fg); cursor: pointer; transition: background var(--duration-fast) var(--ease-out); }
   .menu-item:hover, .menu-item[data-highlighted] { background: var(--color-subtle); }
   .menu-item:focus-visible { outline: 2px solid var(--color-focus); outline-offset: -2px; }

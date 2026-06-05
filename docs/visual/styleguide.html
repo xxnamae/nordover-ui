@@ -25,7 +25,7 @@
   /* Static-display overrides so floating/fixed components are visible in the styleguide */
   .sg-static-calendar { position: static !important; display: block !important; margin-top: 0 !important; }
   .sg-static-menu { position: static !important; }
-  .sg-static-results { position: static !important; display: block !important; margin-top: var(--space-1) !important; }
+  .sg-static-results { position: static !important; display: block !important; margin-top: var(--space-2) !important; }
   .sg-static-nav { position: static !important; transform: none !important; height: auto !important; width: 16rem; max-width: 100%; }
 </style>
 </head>
@@ -849,7 +849,7 @@
             <span class="chip">.date-picker</span><span class="chip">.date-picker-calendar</span><span class="chip">.date-picker-day</span>
           </div>
           <div class="doc-demo">
-            <div class="date-picker">
+            <div class="date-picker" style="display: flex; flex-direction: column; align-items: center;">
               <div class="date-picker-input" style="margin-bottom: var(--space-3);">
                 <input class="form-input" type="text" value="2026-06-04" readonly style="max-width: 12rem;">
               </div>
@@ -1574,6 +1574,14 @@
                 <button class="pagination-item">3</button>
                 <button class="pagination-item">›</button>
               </div>
+              <div class="pagination pagination-round" style="margin-top: var(--space-3);">
+                <button class="pagination-item">‹</button>
+                <button class="pagination-item" aria-current="page">1</button>
+                <button class="pagination-item">2</button>
+                <button class="pagination-item">3</button>
+                <button class="pagination-item">›</button>
+                <span class="t-caption" style="align-self: center; margin-left: var(--space-2);">.pagination-round</span>
+              </div>
             </div>
             <div>
               <h3 class="t-body-sm">Keyboard keys</h3>
@@ -2012,7 +2020,10 @@
                 <code>.page</code> → flex column with fluid <code>--page-padding</code> · <code>.page-section</code> → vertical section spacing · <code>.page-content</code> → max-width centered column.
                 <code>.section</code> establishes container-query context; <code>.section-sm</code> / <code>.section-lg</code> adjust block padding.
               </p>
-              <div class="page-content" style="background: var(--color-subtle); padding: var(--space-3); border-radius: var(--radius-md); text-align: center;">.page-content — centered, max-width column</div>
+              <div class="page-section" style="background: var(--color-subtle); border-radius: var(--radius-md);">
+                <div class="page-content" style="background: var(--color-surface); border: 1px solid var(--color-border); padding: var(--space-4); border-radius: var(--radius-md); text-align: center;">.page-content inside .page-section</div>
+              </div>
+              <p class="t-caption" style="margin-top: var(--space-2);">The tinted band is <code>.page-section</code>; its vertical padding (<code>--spacing-section</code>) is the breathing room above/below <code>.page-content</code>.</p>
             </div>
             <div>
               <h3 class="t-body-sm">Touch area (.touch-area)</h3>

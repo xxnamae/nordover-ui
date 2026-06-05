@@ -332,15 +332,22 @@ html, body {
 .app-main {
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  /* clip (not hidden) stops page-level horizontal overflow — which pushed the
+     sticky topbar wider than the viewport and shoved the theme toggle off-screen
+     — without creating a scroll container that would break position:sticky. */
+  overflow-x: clip;
 }
 
 @media (min-width: 48rem) /* --bp-desktop (var() not allowed in media queries) */ {
   .app-main {
     margin-left: var(--sidebar-width);
-    transition: margin-left var(--duration-moderate) var(--ease-out);
+    width: calc(100% - var(--sidebar-width));
+    transition: margin-left var(--duration-moderate) var(--ease-out), width var(--duration-moderate) var(--ease-out);
   }
   #collapse:checked ~ .app .app-main {
     margin-left: var(--sidebar-width-collapsed);
+    width: calc(100% - var(--sidebar-width-collapsed));
   }
 }
 
