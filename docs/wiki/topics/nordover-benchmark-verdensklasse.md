@@ -144,6 +144,27 @@ Nivå A (A1–A4) er fire avgrensede, additive token-/CSS-endringer som hver sty
 
 ---
 
+## Status 2026-06-05 — levert
+
+Hele veikartet er implementert (se ADR `2026-06-05-verdensklasse-loeft-interaksjon-glass-eksempler.md`):
+
+| Punkt | Status | Hvor |
+|---|---|---|
+| A1 state-layers | ✅ | `--state-*` i begge token-filer; brukt i btn-secondary hover |
+| A2 fokus-ring + to-tonet | ✅ | `--focus-ring-*`; `:focus-visible` token-drevet |
+| A3 target-size | ✅ | `--target-min`/`--target-comfortable`; btn/input-høyder |
+| A4 tilstandsmatrise | ✅ | Interaction Foundation-seksjon i styleguide |
+| B1 logiske egenskaper | ◑ | Layout-primitiver bruker `*-inline/-block`; videre opprydding ved behov |
+| B2 accelerate + preset | ✅ | `--ease-decelerate/-accelerate`, `--motion-smooth/-snappy/-bouncy` |
+| B3 density-token | ✅ | `--density` + `.density-compact/-comfortable` |
+| B4 APCA-dobbeltspor | ✅ | `nordover-colors.md` Lc-mål + `check_contrast.py` |
+| C1 tema-generator | ✅ | `scripts/generate_theme.py` (`npm run gen:theme`) |
+| C2 tone-kontrast-garanti | ✅ | `scripts/check_contrast.py` (`npm run check:contrast`) |
+| Liquid glass (raffinert) | ✅ | `.glass-liquid`; styleguide-demo |
+| Sidekomposisjoner (eksempler) | ✅ | `docs/examples/` (ikke-shippbart lag) |
+
+Estimert karakter etter løftet: **9–10/10** på fundamentet. Gjenstår som løpende QA: visuell verifisering på tvers av de tre breakpointene (krever nettleser), og full logisk-egenskap-konvertering (B1) i resten av `components-*.css`.
+
 ### Kilder (utvalg)
 Material 3: m3.material.io (color/roles, elevation, states, motion); material-components-android Motion.md.
 Apple HIG: developer.apple.com/design/human-interface-guidelines (typography, color, materials, motion, accessibility); SwiftUI spring-API.
