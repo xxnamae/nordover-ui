@@ -154,7 +154,7 @@ Hele veikartet er implementert (se ADR `2026-06-05-verdensklasse-loeft-interaksj
 | A2 fokus-ring + to-tonet | ✅ | `--focus-ring-*`; `:focus-visible` token-drevet |
 | A3 target-size | ✅ | `--target-min`/`--target-comfortable`; btn/input-høyder |
 | A4 tilstandsmatrise | ✅ | Interaction Foundation-seksjon i styleguide |
-| B1 logiske egenskaper | ◑ | Layout-primitiver bruker `*-inline/-block`; videre opprydding ved behov |
+| B1 logiske egenskaper | ✅ | Alle retnings-egenskaper konvertert (`*-inline/-block`, `inset-inline*`, `text-align: start/end`); `.text-start/-end` lagt til; kun sentrerings-triks og fysiske `.text-left/-right`-utilities beholdt |
 | B2 accelerate + preset | ✅ | `--ease-decelerate/-accelerate`, `--motion-smooth/-snappy/-bouncy` |
 | B3 density-token | ✅ | `--density` + `.density-compact/-comfortable` |
 | B4 APCA-dobbeltspor | ✅ | `nordover-colors.md` Lc-mål + `check_contrast.py` |
