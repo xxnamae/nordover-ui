@@ -692,8 +692,34 @@
 
         <section class="doc-section" id="badges-alerts">
           <h2 class="doc-section-title">Badges &amp; Alerts</h2>
-          <p class="doc-section-desc">Status indicators and inline alerts for feedback.</p>
-          <div class="chips"><span class="chip">.badge</span><span class="chip">.alert</span></div>
+          <p class="doc-section-desc">Two status patterns sharing one colour vocabulary. A <strong>badge</strong> labels a single item; an <strong>alert</strong> communicates a message about the current context.</p>
+          <div class="chips">
+            <span class="chip">.badge</span><span class="chip">.badge-success</span><span class="chip">.badge-error</span>
+            <span class="chip">.badge-warning</span><span class="chip">.badge-info</span><span class="chip">.badge-neutral</span>
+            <span class="chip">.alert</span><span class="chip">.alert-success</span><span class="chip">.alert-icon</span>
+          </div>
+
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li><strong>Badge</strong> — a compact status on a row, card, or tab (e.g. “Active”, “3”)</li>
+                <li><strong>Alert</strong> — an inline message about a form, page, or section</li>
+                <li>The same status words everywhere: success / error / warning / info</li>
+              </ul>
+            </div>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>Transient confirmations that should disappear — use a <a href="#toast">Toast</a></li>
+                <li>Badges as buttons — they aren't interactive</li>
+                <li>Walls of alerts; show the most important one</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Example</div>
           <div class="doc-demo stack">
             <div>
               <h3 class="t-body-sm">Badges</h3>
@@ -708,36 +734,134 @@
             <div>
               <h3 class="t-body-sm">Alerts</h3>
               <div class="stack">
-                <div class="alert alert-success"><svg class="icon alert-icon"><use href="#i-check"/></svg> Success alert message</div>
-                <div class="alert alert-error"><svg class="icon alert-icon"><use href="#i-alert"/></svg> Error alert message</div>
-                <div class="alert alert-warning"><svg class="icon alert-icon"><use href="#i-alert"/></svg> Warning alert message</div>
-                <div class="alert alert-info"><svg class="icon alert-icon"><use href="#i-info"/></svg> Info alert message</div>
+                <div class="alert alert-success" role="status"><svg class="icon alert-icon"><use href="#i-check"/></svg> Success alert message</div>
+                <div class="alert alert-error" role="alert"><svg class="icon alert-icon"><use href="#i-alert"/></svg> Error alert message</div>
+                <div class="alert alert-warning" role="alert"><svg class="icon alert-icon"><use href="#i-alert"/></svg> Warning alert message</div>
+                <div class="alert alert-info" role="status"><svg class="icon alert-icon"><use href="#i-info"/></svg> Info alert message</div>
               </div>
             </div>
+          </div>
+
+          <div class="doc-block-label">Status vocabulary</div>
+          <table class="props-table">
+            <thead><tr><th>Suffix</th><th>Meaning</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td><code>-success</code></td><td>Completed / healthy</td><td>Saved, Active, Paid</td></tr>
+              <tr><td><code>-error</code></td><td>Failure / blocking</td><td>Failed, Rejected, Overdue</td></tr>
+              <tr><td><code>-warning</code></td><td>Needs attention</td><td>Expiring, Low stock</td></tr>
+              <tr><td><code>-info</code></td><td>Neutral information</td><td>New, Beta, Syncing</td></tr>
+              <tr><td><code>-neutral</code></td><td>No status (badge only)</td><td>Draft, Archived</td></tr>
+            </tbody>
+          </table>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>Don't rely on colour alone — the label text carries the meaning.</li>
+                <li>Alerts that appear dynamically use <code>role="alert"</code> (assertive) or <code>role="status"</code> (polite).</li>
+                <li>Decorative <code>.alert-icon</code> SVGs are hidden from assistive tech (no label needed).</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;span class="badge badge-success"&gt;Active&lt;/span&gt;
+
+&lt;div class="alert alert-error" role="alert"&gt;
+  &lt;svg class="icon alert-icon"&gt;&lt;use href="#i-alert"/&gt;&lt;/svg&gt;
+  Could not save your changes.
+&lt;/div&gt;</pre>
           </div>
         </section>
 
         <section class="doc-section" id="toast">
           <h2 class="doc-section-title">Toast</h2>
-          <p class="doc-section-desc">Transient notifications. In production they stack in a fixed <code>.toast-viewport</code>; shown inline here.</p>
-          <div class="chips"><span class="chip">.toast-viewport</span><span class="chip">.toast</span><span class="chip">.toast-success</span></div>
+          <p class="doc-section-desc">Transient confirmation of an action. In production toasts stack in a fixed <code>.toast-viewport</code> and auto-dismiss; shown inline here.</p>
+          <div class="chips"><span class="chip">.toast-viewport</span><span class="chip">.toast</span><span class="chip">.toast-success</span><span class="chip">.toast-error</span><span class="chip">.toast-warning</span><span class="chip">.toast-info</span></div>
+
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li>Brief, self-dismissing feedback after an action (“Saved”)</li>
+                <li>Non-blocking results the user doesn't need to act on</li>
+              </ul>
+            </div>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>Critical errors that need a decision — use an inline alert or modal</li>
+                <li>Content the user must read fully — toasts disappear</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Example</div>
           <div class="doc-demo stack">
             <div class="toast toast-success"><svg class="icon icon-success"><use href="#i-check"/></svg><div><strong>Saved</strong><div class="t-caption">Your changes have been stored.</div></div></div>
             <div class="toast toast-error"><svg class="icon icon-error"><use href="#i-alert"/></svg><div><strong>Upload failed</strong><div class="t-caption">Please try again.</div></div></div>
             <div class="toast toast-warning"><svg class="icon icon-warning"><use href="#i-alert"/></svg><div><strong>Storage almost full</strong></div></div>
             <div class="toast toast-info"><svg class="icon icon-info"><use href="#i-info"/></svg><div><strong>New version available</strong></div></div>
           </div>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>The <code>.toast-viewport</code> is an <code>aria-live="polite"</code> region so new toasts are announced.</li>
+                <li>Keep them on screen long enough to read (≈4–6s) and pause on hover/focus.</li>
+                <li>Never put the only copy of important information in a toast.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;div class="toast-viewport" aria-live="polite"&gt;
+  &lt;div class="toast toast-success"&gt;
+    &lt;svg class="icon icon-success"&gt;&lt;use href="#i-check"/&gt;&lt;/svg&gt;
+    &lt;div&gt;&lt;strong&gt;Saved&lt;/strong&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+          </div>
         </section>
 
         <section class="doc-section" id="loading">
           <h2 class="doc-section-title">Loading &amp; Skeleton</h2>
-          <p class="doc-section-desc">Spinner for indeterminate waits; skeletons for content placeholders.</p>
+          <p class="doc-section-desc">Spinner for short indeterminate waits; skeletons to preserve layout while content loads.</p>
           <div class="chips"><span class="chip">.spinner</span><span class="chip">.skeleton</span><span class="chip">.skeleton-text</span><span class="chip">.skeleton-circle</span></div>
+
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li><strong>Spinner</strong> — short waits inside a button or small region</li>
+                <li><strong>Skeleton</strong> — page/list loads where the final shape is known</li>
+              </ul>
+            </div>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>Waits over ~10s with no progress — show real progress instead</li>
+                <li>Skeletons that don't match the real layout (causes jumpiness)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Example</div>
           <div class="doc-demo stack">
-            <div><h3 class="t-body-sm">Spinner</h3><div class="cluster" style="align-items: center;"><span class="spinner"></span></div></div>
+            <div><h3 class="t-body-sm">Spinner</h3><div class="cluster" style="align-items: center;"><span class="spinner" role="status" aria-label="Loading"></span></div></div>
             <div>
               <h3 class="t-body-sm">Skeleton</h3>
-              <div class="cluster" style="align-items: center; gap: var(--space-3);">
+              <div class="cluster" style="align-items: center; gap: var(--space-3);" aria-hidden="true">
                 <div class="skeleton skeleton-circle" style="width: 3rem; height: 3rem;"></div>
                 <div class="stack stack-tight" style="flex: 1;">
                   <div class="skeleton skeleton-text" style="width: 60%;"></div>
@@ -747,18 +871,85 @@
               </div>
             </div>
           </div>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>Give a spinner <code>role="status"</code> + <code>aria-label="Loading"</code> so it's announced.</li>
+                <li>Mark skeleton placeholders <code>aria-hidden="true"</code> and announce the region with <code>aria-busy="true"</code>.</li>
+                <li>The shimmer respects <code>prefers-reduced-motion</code>.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;span class="spinner" role="status" aria-label="Loading"&gt;&lt;/span&gt;
+
+&lt;div aria-busy="true"&gt;
+  &lt;div class="skeleton skeleton-text" style="width: 60%"&gt;&lt;/div&gt;
+  &lt;div class="skeleton skeleton-text" style="width: 90%"&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+          </div>
         </section>
 
         <section class="doc-section" id="empty-state">
           <h2 class="doc-section-title">Empty State</h2>
-          <p class="doc-section-desc">Placeholder for empty collections, with icon, title, and guidance text.</p>
-          <div class="chips"><span class="chip">.empty-state</span><span class="chip">.empty-state-title</span><span class="chip">.empty-state-text</span></div>
+          <p class="doc-section-desc">Turns an empty collection into a moment of guidance — icon, title, and a next step.</p>
+          <div class="chips"><span class="chip">.empty-state</span><span class="chip">.empty-state-icon</span><span class="chip">.empty-state-title</span><span class="chip">.empty-state-text</span></div>
+
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li>First-run states, empty search results, cleared inboxes</li>
+                <li>Pairing the message with one clear action to move forward</li>
+              </ul>
+            </div>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>Error states — those need an alert, not an empty state</li>
+                <li>Loading — use a skeleton while data is in flight</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Example</div>
           <div class="doc-demo">
             <div class="empty-state">
               <svg class="icon empty-state-icon icon-muted" style="width: 3rem; height: 3rem; opacity: 0.4;"><use href="#i-search"/></svg>
               <h3 class="empty-state-title">No items found</h3>
               <p class="empty-state-text">Try adjusting your filters or search terms.</p>
+              <button class="btn btn-secondary btn-sm">Clear filters</button>
             </div>
+          </div>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>The title is a real heading so it appears in the document outline.</li>
+                <li>The <code>.empty-state-icon</code> is decorative — keep it out of the accessibility tree.</li>
+                <li>If the state appears after a search, announce it via the results' live region.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;div class="empty-state"&gt;
+  &lt;svg class="icon empty-state-icon" aria-hidden="true"&gt;&lt;use href="#i-search"/&gt;&lt;/svg&gt;
+  &lt;h3 class="empty-state-title"&gt;No items found&lt;/h3&gt;
+  &lt;p class="empty-state-text"&gt;Try adjusting your filters.&lt;/p&gt;
+  &lt;button class="btn btn-secondary btn-sm"&gt;Clear filters&lt;/button&gt;
+&lt;/div&gt;</pre>
           </div>
         </section>
 
