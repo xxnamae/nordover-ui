@@ -1690,13 +1690,36 @@
           <h2 class="doc-section-title">Breadcrumbs</h2>
           <p class="doc-section-desc">Hierarchical navigation trail.</p>
           <div class="chips"><span class="chip">.breadcrumbs</span><span class="chip">.breadcrumb-item</span></div>
+
+          <div class="doc-block-label">Example</div>
           <div class="doc-demo">
-            <nav class="breadcrumbs">
+            <nav class="breadcrumbs" aria-label="Breadcrumb">
               <a class="breadcrumb-item" href="#">Home</a>
               <a class="breadcrumb-item" href="#">Products</a>
               <a class="breadcrumb-item" href="#">Category</a>
               <span class="breadcrumb-item" aria-current="page">Current Page</span>
             </nav>
+          </div>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>Wrap in <code>&lt;nav aria-label="Breadcrumb"&gt;</code>; the last item uses <code>aria-current="page"</code> and isn't a link.</li>
+                <li>Separators are added with CSS so they aren't announced as content.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;nav class="breadcrumbs" aria-label="Breadcrumb"&gt;
+  &lt;a class="breadcrumb-item" href="/"&gt;Home&lt;/a&gt;
+  &lt;a class="breadcrumb-item" href="/products"&gt;Products&lt;/a&gt;
+  &lt;span class="breadcrumb-item" aria-current="page"&gt;Detail&lt;/span&gt;
+&lt;/nav&gt;</pre>
           </div>
         </section>
 
@@ -1704,13 +1727,55 @@
           <h2 class="doc-section-title">Tabs</h2>
           <p class="doc-section-desc">Tabbed navigation with an underline indicator.</p>
           <div class="chips"><span class="chip">.tabs-list</span><span class="chip">.tabs-trigger</span><span class="chip">.tabs-content</span></div>
-          <div class="doc-demo">
-            <div class="tabs-list">
-              <button class="tabs-trigger" aria-selected="true">Overview</button>
-              <button class="tabs-trigger">Activity</button>
-              <button class="tabs-trigger">Settings</button>
+
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li>Switching between peer views of the same object</li>
+                <li>2–5 sections where only one is relevant at a time</li>
+              </ul>
             </div>
-            <div class="tabs-content">Overview tab content.</div>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>Sequential steps — use a <a href="#stepper">Stepper</a></li>
+                <li>Content users must compare at once — show it together</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Example</div>
+          <div class="doc-demo">
+            <div class="tabs-list" role="tablist">
+              <button class="tabs-trigger" role="tab" aria-selected="true">Overview</button>
+              <button class="tabs-trigger" role="tab" aria-selected="false">Activity</button>
+              <button class="tabs-trigger" role="tab" aria-selected="false">Settings</button>
+            </div>
+            <div class="tabs-content" role="tabpanel">Overview tab content.</div>
+          </div>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li><code>role="tablist"</code> → <code>role="tab"</code> with <code>aria-selected</code>; panel is <code>role="tabpanel"</code>.</li>
+                <li>Arrow keys move between tabs; the selected tab links to its panel via <code>aria-controls</code>.</li>
+                <li>Selection state is on <code>aria-selected</code> — never colour alone.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;div class="tabs-list" role="tablist"&gt;
+  &lt;button class="tabs-trigger" role="tab" aria-selected="true"&gt;Overview&lt;/button&gt;
+  &lt;button class="tabs-trigger" role="tab" aria-selected="false"&gt;Activity&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="tabs-content" role="tabpanel"&gt;…&lt;/div&gt;</pre>
           </div>
         </section>
 
@@ -1732,6 +1797,30 @@
                 <li class="mobile-nav-item">Contact</li>
               </ul>
             </div>
+          </div>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>The trigger has <code>aria-expanded</code> + <code>aria-controls</code> pointing at the drawer.</li>
+                <li>While open, focus is trapped in the drawer and <kbd class="kbd">Esc</kbd> closes it; the current item uses <code>aria-current="page"</code>.</li>
+                <li>The backdrop is inert and dismisses on click.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;button class="mobile-nav-trigger" aria-expanded="false" aria-controls="nav"&gt;☰&lt;/button&gt;
+&lt;nav id="nav" class="mobile-nav"&gt;
+  &lt;div class="mobile-nav-header"&gt;…&lt;/div&gt;
+  &lt;ul class="mobile-nav-list"&gt;
+    &lt;li class="mobile-nav-item is-active" aria-current="page"&gt;Home&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</pre>
           </div>
         </section>
 
