@@ -299,24 +299,46 @@
 
         <section class="doc-section" id="buttons">
           <h2 class="doc-section-title">Buttons</h2>
-          <p class="doc-section-desc">Interactive button component with multiple style variants, sizes, and states.</p>
+          <p class="doc-section-desc">Triggers an action or navigation. One <code>.btn</code> base with style variants, sizes, and states — pick the variant by emphasis, not by colour.</p>
           <div class="chips">
             <span class="chip">.btn</span><span class="chip">.btn-primary</span><span class="chip">.btn-secondary</span>
             <span class="chip">.btn-ghost</span><span class="chip">.btn-tonal</span><span class="chip">.btn-elevated</span>
             <span class="chip">.btn-link</span><span class="chip">.btn-error</span><span class="chip">.btn-sm</span>
             <span class="chip">.btn-lg</span><span class="chip">.btn-touch</span>
           </div>
+
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li>Committing an action (Save, Submit, Delete)</li>
+                <li>One <strong>primary</strong> button per view to signal the main path</li>
+                <li><code>.btn-error</code> for destructive actions, paired with confirmation</li>
+              </ul>
+            </div>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>Plain navigation between pages — use a link or <code>.btn-link</code></li>
+                <li>Multiple competing primaries in the same area</li>
+                <li>Long sentences — labels should be a verb or verb + noun</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Example</div>
           <div class="doc-demo stack">
             <div>
-              <h3 class="t-body-sm">Styles</h3>
+              <h3 class="t-body-sm">Styles (low → high emphasis)</h3>
               <div class="cluster">
-                <button class="btn btn-primary">Primary</button>
-                <button class="btn btn-secondary">Secondary</button>
+                <button class="btn btn-link">Link</button>
                 <button class="btn btn-ghost">Ghost</button>
                 <button class="btn btn-tonal">Tonal</button>
+                <button class="btn btn-secondary">Secondary</button>
+                <button class="btn btn-primary">Primary</button>
                 <button class="btn btn-elevated">Elevated</button>
-                <button class="btn btn-link">Link</button>
-                <button class="btn btn-error">Destructive</button>
+                <button class="btn btn-error">Error</button>
               </div>
             </div>
             <div>
@@ -337,6 +359,60 @@
               </div>
             </div>
           </div>
+
+          <div class="doc-block-label">Variants</div>
+          <table class="props-table">
+            <thead><tr><th>Class</th><th>Emphasis</th><th>Use for</th></tr></thead>
+            <tbody>
+              <tr><td><code>.btn-primary</code></td><td>Highest</td><td>The single main action of a view</td></tr>
+              <tr><td><code>.btn-secondary</code></td><td>High</td><td>Alternative action next to a primary</td></tr>
+              <tr><td><code>.btn-tonal</code></td><td>Medium</td><td>Tinted action that stays calm on busy surfaces</td></tr>
+              <tr><td><code>.btn-ghost</code></td><td>Low</td><td>Toolbar / repeated actions where chrome should recede</td></tr>
+              <tr><td><code>.btn-link</code></td><td>Lowest</td><td>Inline, text-like action</td></tr>
+              <tr><td><code>.btn-elevated</code></td><td>High</td><td>Floats above content (cards, sticky bars)</td></tr>
+              <tr><td><code>.btn-error</code></td><td>High</td><td>Destructive action (delete, remove)</td></tr>
+              <tr><td><code>.btn-sm</code> / <code>.btn-lg</code> / <code>.btn-touch</code></td><td>—</td><td>Size: compact / prominent / 44px touch target</td></tr>
+            </tbody>
+          </table>
+
+          <div class="doc-block-label">Guidelines</div>
+          <div class="doc-guidelines">
+            <div class="doc-card is-do">
+              <div class="doc-card-figure"><div class="cluster"><button class="btn btn-secondary">Cancel</button><button class="btn btn-primary">Save</button></div></div>
+              <div class="doc-card-body">
+                <div class="doc-card-label"><svg class="icon icon-sm"><use href="#i-check"/></svg> Do</div>
+                <p class="doc-card-note">One primary per group; pair it with a lower-emphasis secondary for the alternative.</p>
+              </div>
+            </div>
+            <div class="doc-card is-dont">
+              <div class="doc-card-figure"><div class="cluster"><button class="btn btn-primary">Save</button><button class="btn btn-primary">Cancel</button></div></div>
+              <div class="doc-card-body">
+                <div class="doc-card-label"><svg class="icon icon-sm"><use href="#i-x"/></svg> Don't</div>
+                <p class="doc-card-note">Don't make two primaries compete — the user can't tell which path is the default.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>Use a real <code>&lt;button&gt;</code> (or <code>&lt;a&gt;</code> for navigation) so keyboard and screen-reader support is free.</li>
+                <li>While loading, set <code>aria-busy="true"</code>; while disabled, the native <code>disabled</code> attribute removes it from the tab order.</li>
+                <li>Icon-only buttons need an <code>aria-label</code>; use <code>.btn-touch</code> to guarantee a 44px target.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;button class="btn btn-primary"&gt;Save&lt;/button&gt;
+&lt;button class="btn btn-secondary"&gt;Cancel&lt;/button&gt;
+&lt;button class="btn btn-error"&gt;Delete&lt;/button&gt;
+&lt;button class="btn btn-primary btn-touch" aria-busy="true"&gt;Saving…&lt;/button&gt;</pre>
+          </div>
         </section>
 
         <section class="doc-section" id="forms">
@@ -348,6 +424,28 @@
             <span class="chip">.form-radio</span><span class="chip">.form-switch</span><span class="chip">.field-help</span>
             <span class="chip">.field-error</span><span class="chip">.form-group</span><span class="chip">.form-group-item</span>
           </div>
+
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li>Collecting input — always wrap a control in <code>.field</code> with a <code>.field-label</code></li>
+                <li><code>.field-help</code> for guidance, <code>.field-error</code> for validation messages</li>
+                <li><code>.form-switch</code> for instant on/off; checkboxes for multi-select</li>
+              </ul>
+            </div>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>Placeholder text as the only label — it disappears on input</li>
+                <li>A switch where the change isn't applied immediately — use a checkbox</li>
+                <li>Colour alone to signal errors — pair with <code>.field-error</code> text</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Example</div>
           <div class="doc-demo stack">
             <div class="field">
               <label class="field-label" for="f-name">Text input</label>
@@ -396,6 +494,60 @@
                 <label class="form-group-item"><input type="radio" name="rg" class="form-radio"> Monthly</label>
               </div>
             </div>
+          </div>
+
+          <div class="doc-block-label">Anatomy of a field</div>
+          <div class="doc-anatomy">
+            <div class="doc-anatomy-figure">
+              <div class="field" style="width: 16rem;">
+                <label class="field-label" for="f-anat">Email</label>
+                <input id="f-anat" class="form-input" type="email" value="hei@nordover.no">
+                <div class="field-help">We never share your address.</div>
+              </div>
+            </div>
+            <ol class="doc-anatomy-list">
+              <li><strong>.field</strong> — the wrapper that stacks label, control, and message with consistent spacing</li>
+              <li><strong>.field-label</strong> — always present and bound via <code>for</code> / <code>id</code></li>
+              <li><strong>.form-input</strong> — the control; swap for <code>.form-select</code>, <code>.form-textarea</code></li>
+              <li><strong>.field-help</strong> / <strong>.field-error</strong> — guidance or validation below the control</li>
+            </ol>
+          </div>
+
+          <div class="doc-block-label">Controls</div>
+          <table class="props-table">
+            <thead><tr><th>Class</th><th>Control</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td><code>.form-input</code></td><td>text / email / number…</td><td>Add <code>.is-error</code> or <code>.is-success</code> for validation state</td></tr>
+              <tr><td><code>.form-textarea</code></td><td>multi-line text</td><td>Vertically resizable</td></tr>
+              <tr><td><code>.form-select</code></td><td>dropdown</td><td>Native <code>&lt;select&gt;</code> with custom chevron</td></tr>
+              <tr><td><code>.form-checkbox</code></td><td>multi-select</td><td>Zero or more options</td></tr>
+              <tr><td><code>.form-radio</code></td><td>single-select</td><td>Exactly one of a named group</td></tr>
+              <tr><td><code>.form-switch</code> / <code>.form-toggle</code></td><td>boolean</td><td>For settings applied immediately</td></tr>
+              <tr><td><code>.form-group</code> + <code>.form-group-item</code></td><td>layout</td><td>Lay related options out horizontally</td></tr>
+            </tbody>
+          </table>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>Every control has a <code>&lt;label&gt;</code> bound by <code>for</code>/<code>id</code> — or wraps the control.</li>
+                <li>On error set <code>aria-invalid="true"</code> and link the message with <code>aria-describedby</code>.</li>
+                <li><code>.field-help</code> / <code>.field-error</code> should also be referenced via <code>aria-describedby</code> so they're announced.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;div class="field"&gt;
+  &lt;label class="field-label" for="email"&gt;Email&lt;/label&gt;
+  &lt;input id="email" class="form-input" type="email"
+         aria-describedby="email-help"&gt;
+  &lt;div id="email-help" class="field-help"&gt;We never share your address.&lt;/div&gt;
+&lt;/div&gt;</pre>
           </div>
         </section>
 
