@@ -490,14 +490,14 @@
     cursor: pointer;
     transition: background-color var(--duration-moderate), color var(--duration-moderate), border-color var(--duration-moderate), opacity var(--duration-moderate), transform var(--duration-moderate);
     text-decoration: none;
-    min-height: 2.75rem;
+    min-height: max(var(--target-comfortable), var(--density-control-height));
   }
   .btn:focus-visible,
   .form-input:focus-visible,
   .form-select:focus-visible,
   .form-textarea:focus-visible {
-    outline: 2px solid var(--color-focus);
-    outline-offset: 2px;
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
   }
   .btn:active {
     transform: translateY(0);
@@ -518,8 +518,7 @@
     border: 1px solid var(--color-border);
   }
   .btn-secondary:hover {
-    background: rgb(245, 245, 245); /* fallback: light gray */
-    background: color-mix(in oklch, var(--color-accent) 10%, var(--color-subtle));
+    background: color-mix(in oklch, currentColor var(--state-hover), var(--color-subtle));
     border-color: var(--color-accent);
   }
 
@@ -614,7 +613,7 @@
     font-size: var(--text-sm);
     font-family: inherit;
     transition: border-color var(--duration-moderate), background-color var(--duration-moderate);
-    min-height: 2.75rem;
+    min-height: max(var(--target-comfortable), var(--density-control-height));
   }
   .form-input:focus-visible,
   .form-select:focus-visible,
@@ -882,6 +881,10 @@
   /* Background utilities */
   .bg-subtle { background: var(--color-subtle); }
   .bg-accent { background: var(--color-accent); color: var(--color-accent-fg); }
+
+  /* Density utilities — wrap any region to recompute control sizing (Linear-grade) */
+  .density-comfortable { --density: 1; }
+  .density-compact { --density: 0.82; }
 
   /* Layout utilities */
   .flex { display: flex; }
