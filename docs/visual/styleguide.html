@@ -73,7 +73,7 @@
 
     <div class="app-sidebar-section-group">
       <button class="app-sidebar-toggle" aria-expanded="true">Foundation</button>
-      <nav class="app-nav-group active">
+      <nav class="app-nav-group is-active">
         <a class="app-nav-item" href="#colors">Colors</a>
         <a class="app-nav-item" href="#typography">Typography</a>
         <a class="app-nav-item" href="#spacing">Spacing &amp; Sizing</a>
@@ -84,7 +84,7 @@
 
     <div class="app-sidebar-section-group">
       <button class="app-sidebar-toggle" aria-expanded="true">Actions &amp; Inputs</button>
-      <nav class="app-nav-group active">
+      <nav class="app-nav-group is-active">
         <a class="app-nav-item" href="#buttons">Buttons</a>
         <a class="app-nav-item" href="#forms">Forms &amp; Inputs</a>
         <a class="app-nav-item" href="#tags">Tags &amp; Tag Input</a>
@@ -97,7 +97,7 @@
 
     <div class="app-sidebar-section-group">
       <button class="app-sidebar-toggle" aria-expanded="true">Feedback</button>
-      <nav class="app-nav-group active">
+      <nav class="app-nav-group is-active">
         <a class="app-nav-item" href="#badges-alerts">Badges &amp; Alerts</a>
         <a class="app-nav-item" href="#toast">Toast</a>
         <a class="app-nav-item" href="#loading">Loading &amp; Skeleton</a>
@@ -107,10 +107,9 @@
 
     <div class="app-sidebar-section-group">
       <button class="app-sidebar-toggle" aria-expanded="true">Content &amp; Data</button>
-      <nav class="app-nav-group active">
+      <nav class="app-nav-group is-active">
         <a class="app-nav-item" href="#cards">Cards</a>
-        <a class="app-nav-item" href="#tables">Tables</a>
-        <a class="app-nav-item" href="#data-table">Data Table</a>
+        <a class="app-nav-item" href="#tables">Table</a>
         <a class="app-nav-item" href="#data-display">Data Display</a>
         <a class="app-nav-item" href="#accordion">Accordion</a>
       </nav>
@@ -118,7 +117,7 @@
 
     <div class="app-sidebar-section-group">
       <button class="app-sidebar-toggle" aria-expanded="true">Overlays</button>
-      <nav class="app-nav-group active">
+      <nav class="app-nav-group is-active">
         <a class="app-nav-item" href="#modal">Modal</a>
         <a class="app-nav-item" href="#tooltip">Tooltip</a>
         <a class="app-nav-item" href="#menu">Menu</a>
@@ -127,7 +126,7 @@
 
     <div class="app-sidebar-section-group">
       <button class="app-sidebar-toggle" aria-expanded="true">Navigation</button>
-      <nav class="app-nav-group active">
+      <nav class="app-nav-group is-active">
         <a class="app-nav-item" href="#breadcrumbs">Breadcrumbs</a>
         <a class="app-nav-item" href="#tabs">Tabs</a>
         <a class="app-nav-item" href="#mobile-nav">Mobile Nav</a>
@@ -136,7 +135,7 @@
 
     <div class="app-sidebar-section-group">
       <button class="app-sidebar-toggle" aria-expanded="true">Layout &amp; Utilities</button>
-      <nav class="app-nav-group active">
+      <nav class="app-nav-group is-active">
         <a class="app-nav-item" href="#layout">Layout Primitives</a>
         <a class="app-nav-item" href="#sections">Sections &amp; Dividers</a>
         <a class="app-nav-item" href="#utilities">Utility Classes</a>
@@ -145,7 +144,7 @@
 
     <div class="app-sidebar-section-group">
       <button class="app-sidebar-toggle" aria-expanded="true">Resources</button>
-      <nav class="app-nav-group active">
+      <nav class="app-nav-group is-active">
         <a class="app-nav-item" href="https://github.com/xxnamae/nordover-ui">GitHub</a>
         <a class="app-nav-item" href="https://github.com/xxnamae/nordover-ui/blob/main/CHANGELOG.md">Changelog</a>
       </nav>
@@ -304,7 +303,7 @@
           <div class="chips">
             <span class="chip">.btn</span><span class="chip">.btn-primary</span><span class="chip">.btn-secondary</span>
             <span class="chip">.btn-ghost</span><span class="chip">.btn-tonal</span><span class="chip">.btn-elevated</span>
-            <span class="chip">.btn-link</span><span class="chip">.btn-destructive</span><span class="chip">.btn-sm</span>
+            <span class="chip">.btn-link</span><span class="chip">.btn-error</span><span class="chip">.btn-sm</span>
             <span class="chip">.btn-lg</span><span class="chip">.btn-touch</span>
           </div>
           <div class="doc-demo stack">
@@ -317,7 +316,7 @@
                 <button class="btn btn-tonal">Tonal</button>
                 <button class="btn btn-elevated">Elevated</button>
                 <button class="btn btn-link">Link</button>
-                <button class="btn btn-destructive">Destructive</button>
+                <button class="btn btn-error">Destructive</button>
               </div>
             </div>
             <div>
@@ -529,7 +528,7 @@
           <div class="doc-demo">
             <div class="stepper" style="margin-bottom: 0;">
               <div class="stepper-step completed"><div class="stepper-circle"><svg class="icon icon-sm"><use href="#i-check"/></svg></div><div class="stepper-label">Account</div></div>
-              <div class="stepper-step active"><div class="stepper-circle">2</div><div class="stepper-label">Profile</div></div>
+              <div class="stepper-step is-active"><div class="stepper-circle">2</div><div class="stepper-label">Profile</div></div>
               <div class="stepper-step"><div class="stepper-circle">3</div><div class="stepper-label">Confirm</div></div>
             </div>
           </div>
@@ -647,50 +646,131 @@
         </section>
 
         <section class="doc-section" id="tables">
-          <h2 class="doc-section-title">Tables</h2>
-          <p class="doc-section-desc">Base table for simple tabular content.</p>
-          <div class="chips"><span class="chip">.table</span><span class="chip">.table-responsive</span><span class="chip">.table-sort</span><span class="chip">.table-filter</span></div>
+          <h2 class="doc-section-title">Table</h2>
+          <p class="doc-section-desc">One table system. Start with <code>.table</code>, then compose opt-in modifiers for sorting, density, numeric alignment, selection, and overflow handling.</p>
+          <div class="chips">
+            <span class="chip">.table</span><span class="chip">.table-sticky</span><span class="chip">.table-zebra</span>
+            <span class="chip">.table-numeric</span><span class="chip">.table-responsive</span><span class="chip">.table-inline-edit</span>
+            <span class="chip">.table-filter</span><span class="chip">th.sortable</span><span class="chip">[aria-sort]</span>
+          </div>
+
+          <!-- When to use -->
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li>Comparing structured records across shared columns</li>
+                <li>Dense data where rows/columns carry meaning (pricing, specs, status)</li>
+                <li>Sortable or filterable lists of the same entity type</li>
+              </ul>
+            </div>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>Page layout — use <code>.grid-auto</code> / <code>.stack</code> instead</li>
+                <li>Lists of one value per item — use a plain list</li>
+                <li>Key/value detail panels — use a description list</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Live demo -->
+          <div class="doc-block-label">Example</div>
           <div class="doc-demo">
             <div class="table-filter">
-              <input class="form-input" type="search" placeholder="Filter by name...">
-              <select class="form-select"><option>All roles</option><option>Engineer</option></select>
+              <input class="form-input" type="search" placeholder="Filter rows..." aria-label="Filter table">
+              <select class="form-select" aria-label="Filter by category"><option>All categories</option><option>Hardware</option><option>Software</option></select>
             </div>
             <div class="table-responsive">
-              <table class="table">
-                <thead><tr><th><button class="table-sort" aria-sort="ascending">Name</button></th><th><button class="table-sort">Role</button></th><th>Status</th></tr></thead>
+              <table class="table table-sticky table-zebra">
+                <thead>
+                  <tr>
+                    <th class="sortable" aria-sort="ascending">Product</th>
+                    <th class="sortable">Category</th>
+                    <th class="sortable table-numeric">Price</th>
+                  </tr>
+                </thead>
                 <tbody>
-                  <tr><td>Ada Lovelace</td><td>Engineer</td><td><span class="badge badge-success">Active</span></td></tr>
-                  <tr><td>Alan Turing</td><td>Researcher</td><td><span class="badge badge-neutral">Away</span></td></tr>
-                  <tr><td>Grace Hopper</td><td>Admiral</td><td><span class="badge badge-success">Active</span></td></tr>
+                  <tr aria-selected="true">
+                    <td class="table-inline-edit"><input class="form-input" value="Keyboard" aria-label="Product name" style="min-height: auto; padding: var(--space-1) var(--space-2);"></td>
+                    <td>Hardware</td>
+                    <td class="table-numeric">1 290</td>
+                  </tr>
+                  <tr><td>Monitor</td><td>Hardware</td><td class="table-numeric">4 990</td></tr>
+                  <tr><td>License</td><td>Software</td><td class="table-numeric">990</td></tr>
+                  <tr><td>Cable</td><td>Accessory</td><td class="table-numeric">149</td></tr>
                 </tbody>
               </table>
             </div>
           </div>
-        </section>
 
-        <section class="doc-section" id="data-table">
-          <h2 class="doc-section-title">Data Table</h2>
-          <p class="doc-section-desc">Advanced table: sortable headers, zebra striping, numeric alignment, selected rows, and a filter bar.</p>
-          <div class="chips">
-            <span class="chip">.data-table</span><span class="chip">.data-table-zebra</span><span class="chip">.data-table-cell-numeric</span>
-            <span class="chip">.data-table-filter</span><span class="chip">th.sortable</span>
+          <!-- Modifier reference -->
+          <div class="doc-block-label">Modifiers</div>
+          <table class="props-table">
+            <thead><tr><th>Class</th><th>Applies to</th><th>Effect</th></tr></thead>
+            <tbody>
+              <tr><td><code>.table</code></td><td>&lt;table&gt;</td><td>Base: full width, collapsed borders, header fill, row hover</td></tr>
+              <tr><td><code>.table-sticky</code></td><td>&lt;table&gt;</td><td>Header sticks to the top while the body scrolls</td></tr>
+              <tr><td><code>.table-zebra</code></td><td>&lt;table&gt;</td><td>Alternating row tint for scan-ability</td></tr>
+              <tr><td><code>.table-numeric</code></td><td>th / td</td><td>Right-aligns and uses tabular figures for numbers</td></tr>
+              <tr><td><code>.table-responsive</code></td><td>wrapper &lt;div&gt;</td><td>Horizontal scroll container so wide tables never overflow the page</td></tr>
+              <tr><td><code>.table-inline-edit</code></td><td>td</td><td>Hosts an inline input for editable cells</td></tr>
+              <tr><td><code>.table-filter</code></td><td>wrapper &lt;div&gt;</td><td>Filter/search bar row above the table</td></tr>
+              <tr><td><code>th.sortable</code> + <code>[aria-sort]</code></td><td>th</td><td>Sortable affordance; sort state shown via the native <code>aria-sort</code> attribute</td></tr>
+            </tbody>
+          </table>
+
+          <!-- Do / Don't -->
+          <div class="doc-block-label">Guidelines</div>
+          <div class="doc-guidelines">
+            <div class="doc-card is-do">
+              <div class="doc-card-figure"><span class="table-numeric" style="font-variant-numeric: tabular-nums; font-weight: 600;">1 290<br>4 990<br>149</span></div>
+              <div class="doc-card-body">
+                <div class="doc-card-label"><svg class="icon icon-sm"><use href="#i-check"/></svg> Do</div>
+                <p class="doc-card-note">Right-align numeric columns with <code>.table-numeric</code> so digits line up by place value.</p>
+              </div>
+            </div>
+            <div class="doc-card is-dont">
+              <div class="doc-card-figure"><span style="font-weight: 600;">1290<br>4990<br>149</span></div>
+              <div class="doc-card-body">
+                <div class="doc-card-label"><svg class="icon icon-sm"><use href="#i-x"/></svg> Don't</div>
+                <p class="doc-card-note">Don't left-align numbers or mix units in one column — it breaks visual comparison.</p>
+              </div>
+            </div>
           </div>
-          <div class="doc-demo">
-            <div class="data-table-filter">
-              <input class="form-input" type="search" placeholder="Filter rows...">
-              <button class="btn btn-secondary btn-sm">Filter</button>
+
+          <!-- Accessibility -->
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>Use real <code>&lt;th&gt;</code> with <code>scope="col"</code>/<code>scope="row"</code> so screen readers announce headers.</li>
+                <li>Sort state lives on <code>aria-sort="ascending|descending"</code> — it's announced natively; never rely on the ▲▼ glyph alone.</li>
+                <li>Selected rows use <code>aria-selected="true"</code>, not colour alone.</li>
+              </ul>
             </div>
-            <div class="table-responsive">
-              <table class="data-table data-table-zebra">
-                <thead><tr><th class="sortable sort-asc">Product</th><th class="sortable">Category</th><th class="data-table-cell-numeric sortable">Price</th></tr></thead>
-                <tbody>
-                  <tr aria-selected="true"><td class="data-table-inline-edit"><input class="form-input" value="Keyboard" style="min-height: auto; padding: var(--space-1) var(--space-2);"></td><td>Hardware</td><td class="data-table-cell-numeric">1 290</td></tr>
-                  <tr><td>Monitor</td><td>Hardware</td><td class="data-table-cell-numeric">4 990</td></tr>
-                  <tr><td>License</td><td>Software</td><td class="data-table-cell-numeric">990</td></tr>
-                  <tr><td>Cable</td><td>Accessory</td><td class="data-table-cell-numeric">149</td></tr>
-                </tbody>
-              </table>
-            </div>
+          </div>
+
+          <!-- Copyable code -->
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;div class="table-responsive"&gt;
+  &lt;table class="table table-sticky table-zebra"&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th scope="col" class="sortable" aria-sort="ascending"&gt;Product&lt;/th&gt;
+        &lt;th scope="col" class="sortable"&gt;Category&lt;/th&gt;
+        &lt;th scope="col" class="sortable table-numeric"&gt;Price&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;&lt;td&gt;Monitor&lt;/td&gt;&lt;td&gt;Hardware&lt;/td&gt;&lt;td class="table-numeric"&gt;4 990&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</pre>
           </div>
         </section>
 
@@ -850,13 +930,13 @@
           <div class="chips"><span class="chip">.mobile-nav-trigger</span><span class="chip">.mobile-nav</span><span class="chip">.mobile-nav-header</span><span class="chip">.mobile-nav-list</span><span class="chip">.mobile-nav-item</span></div>
           <div class="doc-demo stack">
             <div><button class="mobile-nav-trigger" style="display: inline-flex;"><svg class="icon icon-sm"><use href="#i-menu"/></svg></button> <span class="t-caption">.mobile-nav-trigger opens the drawer</span></div>
-            <div class="mobile-nav open sg-static-nav">
+            <div class="mobile-nav is-open sg-static-nav">
               <div class="mobile-nav-header">
                 <strong>Menu</strong>
                 <button class="mobile-nav-close"><svg class="icon icon-sm"><use href="#i-x"/></svg></button>
               </div>
               <ul class="mobile-nav-list">
-                <li class="mobile-nav-item active">Home</li>
+                <li class="mobile-nav-item is-active">Home</li>
                 <li class="mobile-nav-item">Products</li>
                 <li class="mobile-nav-item">About</li>
                 <li class="mobile-nav-item">Contact</li>
@@ -1009,6 +1089,21 @@
 document.querySelectorAll('input[name="package"]').forEach(radio => {
   radio.addEventListener('change', function() {
     document.getElementById('token-stylesheet').href = `./tokens/tokens-${this.value}.css`;
+  });
+});
+
+// Copy-to-clipboard for documentation code blocks
+document.querySelectorAll('.doc-code-copy').forEach(btn => {
+  btn.addEventListener('click', async function() {
+    const pre = this.parentElement.querySelector('pre');
+    if (!pre) return;
+    try {
+      await navigator.clipboard.writeText(pre.textContent);
+      const original = this.innerHTML;
+      this.classList.add('is-copied');
+      this.textContent = 'Copied';
+      setTimeout(() => { this.classList.remove('is-copied'); this.innerHTML = original; }, 1500);
+    } catch (e) { /* clipboard unavailable */ }
   });
 });
 </script>
