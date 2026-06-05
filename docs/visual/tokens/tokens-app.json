@@ -1635,21 +1635,21 @@
       "slow": {
         "$type": "duration",
         "$value": {
-          "value": 250.0,
+          "value": 400.0,
           "unit": "ms"
         }
       },
       "slow-base": {
         "$type": "duration",
         "$value": {
-          "value": 500.0,
+          "value": 600.0,
           "unit": "ms"
         }
       },
       "slower": {
         "$type": "duration",
         "$value": {
-          "value": 400.0,
+          "value": 800.0,
           "unit": "ms"
         }
       }

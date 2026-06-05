@@ -1576,21 +1576,21 @@
       "slow-base": {
         "$type": "duration",
         "$value": {
-          "value": 500.0,
+          "value": 700.0,
           "unit": "ms"
         }
       },
       "slow": {
         "$type": "duration",
         "$value": {
-          "value": 400.0,
+          "value": 800.0,
           "unit": "ms"
         }
       },
       "slower": {
         "$type": "duration",
         "$value": {
-          "value": 600.0,
+          "value": 1000.0,
           "unit": "ms"
         }
       }

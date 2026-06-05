@@ -849,9 +849,9 @@
             <span class="chip">.date-picker</span><span class="chip">.date-picker-calendar</span><span class="chip">.date-picker-day</span>
           </div>
           <div class="doc-demo">
-            <div class="date-picker" style="display: flex; flex-direction: column; align-items: center;">
-              <div class="date-picker-input" style="margin-bottom: var(--space-3);">
-                <input class="form-input" type="text" value="2026-06-04" readonly style="max-width: 12rem;">
+            <div class="date-picker" style="display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 20rem;">
+              <div class="date-picker-input" style="margin-bottom: var(--space-3); width: 100%;">
+                <input class="form-input" type="text" value="2026-06-04" readonly>
               </div>
               <div class="date-picker-calendar sg-static-calendar">
                 <div class="date-picker-header">
@@ -1574,13 +1574,15 @@
                 <button class="pagination-item">3</button>
                 <button class="pagination-item">›</button>
               </div>
-              <div class="pagination pagination-round" style="margin-top: var(--space-3);">
-                <button class="pagination-item">‹</button>
-                <button class="pagination-item" aria-current="page">1</button>
-                <button class="pagination-item">2</button>
-                <button class="pagination-item">3</button>
-                <button class="pagination-item">›</button>
-                <span class="t-caption" style="align-self: center; margin-left: var(--space-2);">.pagination-round</span>
+              <div>
+                <div class="pagination pagination-round" style="margin-top: var(--space-3);">
+                  <button class="pagination-item">‹</button>
+                  <button class="pagination-item" aria-current="page">1</button>
+                  <button class="pagination-item">2</button>
+                  <button class="pagination-item">3</button>
+                  <button class="pagination-item">›</button>
+                </div>
+                <p class="t-caption" style="margin-top: var(--space-2); margin-bottom: 0;">.pagination-round</p>
               </div>
             </div>
             <div>
@@ -2018,12 +2020,14 @@
               <h3 class="t-body-sm">Page wrappers &amp; section rhythm</h3>
               <p class="t-caption">
                 <code>.page</code> → flex column with fluid <code>--page-padding</code> · <code>.page-section</code> → vertical section spacing · <code>.page-content</code> → max-width centered column.
-                <code>.section</code> establishes container-query context; <code>.section-sm</code> / <code>.section-lg</code> adjust block padding.
               </p>
               <div class="page-section" style="background: var(--color-subtle); border-radius: var(--radius-md);">
-                <div class="page-content" style="background: var(--color-surface); border: 1px solid var(--color-border); padding: var(--space-4); border-radius: var(--radius-md); text-align: center;">.page-content inside .page-section</div>
+                <div class="page-content" style="background: var(--color-surface); border: 1px solid var(--color-border); padding: var(--space-4); border-radius: var(--radius-md);">Section 1</div>
               </div>
-              <p class="t-caption" style="margin-top: var(--space-2);">The tinted band is <code>.page-section</code>; its vertical padding (<code>--spacing-section</code>) is the breathing room above/below <code>.page-content</code>.</p>
+              <div class="page-section" style="background: var(--color-subtle); border-radius: var(--radius-md);">
+                <div class="page-content" style="background: var(--color-surface); border: 1px solid var(--color-border); padding: var(--space-4); border-radius: var(--radius-md);">Section 2</div>
+              </div>
+              <p class="t-caption" style="margin-top: var(--space-2);">Each tinted <code>.page-section</code> provides vertical breathing room around its <code>.page-content</code>. Stack multiple sections to show rhythm.</p>
             </div>
             <div>
               <h3 class="t-body-sm">Touch area (.touch-area)</h3>

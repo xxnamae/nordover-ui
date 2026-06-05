@@ -402,31 +402,28 @@
   .badge-info { background: var(--color-subtle); color: var(--color-fg); }
   .badge-info::before { background: var(--color-info); }
 
-  /* Alerts — neutral surface; severity via a flush full-height left edge + icon.
-     ::before strip (not border-left) so it reaches top & bottom cleanly. */
+  /* Alerts — neutral surface; severity via a colored left edge + icon.
+     Uses inset box-shadow for the colored edge, which respects border-radius naturally. */
   .alert {
-    position: relative;
-    overflow: hidden;
     display: flex;
     gap: var(--space-2);
     padding: var(--space-2) var(--space-3);
-    padding-left: calc(var(--space-3) + var(--space-1));
     background: var(--color-subtle);
     border-radius: var(--radius-md);
     font-size: var(--text-xs);
     line-height: 1.4;
     color: var(--color-fg);
+    box-shadow: inset 4px 0 0 0 var(--color-border);
   }
-  .alert::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--color-border); }
   .alert-icon { flex-shrink: 0; width: 1.25rem; height: 1.25rem; margin-top: 0.0625rem; color: var(--color-muted); }
 
-  .alert-success::before { background: var(--color-success); }
+  .alert-success { box-shadow: inset 4px 0 0 0 var(--color-success); }
   .alert-success .alert-icon { color: var(--color-success); }
-  .alert-error::before { background: var(--color-error); }
+  .alert-error { box-shadow: inset 4px 0 0 0 var(--color-error); }
   .alert-error .alert-icon { color: var(--color-error); }
-  .alert-warning::before { background: var(--color-warning); }
+  .alert-warning { box-shadow: inset 4px 0 0 0 var(--color-warning); }
   .alert-warning .alert-icon { color: var(--color-warning); }
-  .alert-info::before { background: var(--color-info); }
+  .alert-info { box-shadow: inset 4px 0 0 0 var(--color-info); }
   .alert-info .alert-icon { color: var(--color-info); }
 
   /* Pagination */
@@ -1212,13 +1209,13 @@
     border: var(--bw-thin) solid transparent;
     background:
       linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
-      linear-gradient(135deg, color-mix(in oklch, var(--color-accent) 65%, transparent), color-mix(in oklch, var(--color-info) 50%, transparent)) border-box;
+      linear-gradient(135deg, var(--color-accent), color-mix(in oklch, var(--color-accent) 30% white 70%)) border-box;
   }
   .gradient-border-glow {
     box-shadow:
-      0 0 0 1px color-mix(in oklch, var(--color-accent) 18%, transparent),
-      0 0 18px -2px color-mix(in oklch, var(--color-accent) 35%, transparent),
-      0 0 42px -6px color-mix(in oklch, var(--color-info) 30%, transparent);
+      0 0 0 1px color-mix(in oklch, var(--color-accent) 12%, transparent),
+      0 0 18px -2px color-mix(in oklch, var(--color-accent) 25%, transparent),
+      0 0 42px -6px color-mix(in oklch, var(--color-accent) 18%, transparent);
   }
 
   /* Tabs — underline indicator; supports [aria-selected] and static .is-active */
@@ -1254,14 +1251,13 @@
 
   /* Toast */
   .toast-viewport { position: fixed; bottom: var(--space-5); right: var(--space-5); display: flex; flex-direction: column; gap: var(--space-2); z-index: var(--z-toast); }
-  .toast { position: relative; overflow: hidden; display: flex; align-items: flex-start; gap: var(--space-3); background: var(--surface-4); border-radius: var(--radius-md); box-shadow: var(--shadow-lg); padding: var(--space-3) var(--space-4); padding-left: calc(var(--space-4) + var(--space-1)); min-width: 18rem; max-width: 24rem; }
-  .toast::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--color-border); }
+  .toast { position: relative; display: flex; align-items: flex-start; gap: var(--space-3); background: var(--surface-4); border-radius: var(--radius-md); box-shadow: var(--shadow-lg); padding: var(--space-3) var(--space-4); min-width: 18rem; max-width: 24rem; box-shadow: var(--shadow-lg), inset 3px 0 0 0 var(--color-border); }
   @media (prefers-reduced-motion: no-preference) { .toast { animation: toast-in var(--duration-base) var(--ease-spring); } }
   @keyframes toast-in { from { opacity: 0; transform: translateX(1rem); } to { opacity: 1; transform: translateX(0); } }
-  .toast-success::before { background: var(--color-success); }
-  .toast-error::before { background: var(--color-error); }
-  .toast-warning::before { background: var(--color-warning); }
-  .toast-info::before { background: var(--color-info); }
+  .toast-success { box-shadow: var(--shadow-lg), inset 3px 0 0 0 var(--color-success); }
+  .toast-error { box-shadow: var(--shadow-lg), inset 3px 0 0 0 var(--color-error); }
+  .toast-warning { box-shadow: var(--shadow-lg), inset 3px 0 0 0 var(--color-warning); }
+  .toast-info { box-shadow: var(--shadow-lg), inset 3px 0 0 0 var(--color-info); }
 
   /* Tag variants — extend the existing .tag (tag-input context), never rename */
   .tag-solid { background: var(--color-accent); color: var(--on-accent); }
