@@ -1553,48 +1553,132 @@
           <h2 class="doc-section-title">Modal</h2>
           <p class="doc-section-desc">Dialog with header, scrollable body, and footer actions. Shown inside a static demo frame.</p>
           <div class="chips"><span class="chip">.modal</span><span class="chip">.modal-dialog</span><span class="chip">.modal-header</span><span class="chip">.modal-body</span><span class="chip">.modal-footer</span></div>
+
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li>A focused task or decision that must interrupt the flow</li>
+                <li>Confirming destructive actions before they run</li>
+              </ul>
+            </div>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>Non-urgent info — use inline content or a <a href="#toast">Toast</a></li>
+                <li>Long forms or multi-step flows — use a dedicated page</li>
+                <li>Stacking modals on modals</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Example</div>
           <div class="doc-demo">
             <div class="modal-demo">
               <div class="modal-dialog" style="position: static; width: 100%; max-width: 22rem; max-height: none;">
                 <div class="modal-header" style="display: flex; justify-content: space-between; align-items: center;">
                   <span>Confirm action</span>
-                  <button class="btn btn-ghost btn-sm"><svg class="icon icon-sm"><use href="#i-x"/></svg></button>
+                  <button class="btn btn-ghost btn-sm" aria-label="Close dialog"><svg class="icon icon-sm"><use href="#i-x"/></svg></button>
                 </div>
                 <div class="modal-body">Are you sure you want to continue? This action cannot be undone.</div>
                 <div class="modal-footer">
                   <button class="btn btn-ghost">Cancel</button>
-                  <button class="btn btn-primary">Confirm</button>
+                  <button class="btn btn-error">Confirm</button>
                 </div>
               </div>
             </div>
+          </div>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>Use <code>&lt;dialog&gt;</code> or <code>role="dialog"</code> + <code>aria-modal="true"</code> with an <code>aria-labelledby</code> pointing at the header.</li>
+                <li>Trap focus while open, return focus to the trigger on close, and close on <kbd class="kbd">Esc</kbd>.</li>
+                <li>The backdrop is inert — clicking it dismisses; background content can't be tabbed to.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="t"&gt;
+  &lt;div class="modal-header"&gt;&lt;h2 id="t"&gt;Confirm action&lt;/h2&gt;&lt;/div&gt;
+  &lt;div class="modal-body"&gt;This cannot be undone.&lt;/div&gt;
+  &lt;div class="modal-footer"&gt;
+    &lt;button class="btn btn-ghost"&gt;Cancel&lt;/button&gt;
+    &lt;button class="btn btn-error"&gt;Delete&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
           </div>
         </section>
 
         <section class="doc-section" id="tooltip">
           <h2 class="doc-section-title">Tooltip</h2>
-          <p class="doc-section-desc">Pure-CSS tooltip shown on hover or focus.</p>
+          <p class="doc-section-desc">Short supplementary label shown on hover or focus. Pure CSS — no JavaScript.</p>
           <div class="chips"><span class="chip">.tooltip</span><span class="chip">.tooltip-content</span></div>
+
+          <div class="doc-block-label">Example</div>
           <div class="doc-demo">
             <div class="cluster" style="padding-top: var(--space-6);">
               <span class="tooltip" tabindex="0">
                 <button class="btn btn-secondary">Hover or focus me</button>
-                <span class="tooltip-content">Helpful tooltip text</span>
+                <span class="tooltip-content" role="tooltip">Helpful tooltip text</span>
               </span>
+            </div>
+          </div>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>Shows on <strong>focus</strong> as well as hover, so keyboard users get it too.</li>
+                <li>Mark the bubble <code>role="tooltip"</code> and link it with <code>aria-describedby</code>.</li>
+                <li>Never put essential info or actions in a tooltip — it's supplementary only.</li>
+              </ul>
             </div>
           </div>
         </section>
 
         <section class="doc-section" id="menu">
           <h2 class="doc-section-title">Menu</h2>
-          <p class="doc-section-desc">Dropdown menu surface with items and separators.</p>
+          <p class="doc-section-desc">Dropdown surface of actions, with items and separators. Anchor it to a trigger in production.</p>
           <div class="chips"><span class="chip">.menu-content</span><span class="chip">.menu-item</span><span class="chip">.menu-separator</span></div>
+
+          <div class="doc-block-label">Example</div>
           <div class="doc-demo">
-            <div class="menu-content sg-static-menu" style="max-width: 14rem;">
-              <div class="menu-item"><svg class="icon icon-sm"><use href="#i-edit"/></svg> Edit</div>
-              <div class="menu-item"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Duplicate</div>
-              <div class="menu-separator"></div>
-              <div class="menu-item" style="color: var(--color-error);"><svg class="icon icon-sm"><use href="#i-trash"/></svg> Delete</div>
+            <div class="menu-content sg-static-menu" style="max-width: 14rem;" role="menu">
+              <div class="menu-item" role="menuitem" tabindex="0"><svg class="icon icon-sm"><use href="#i-edit"/></svg> Edit</div>
+              <div class="menu-item" role="menuitem" tabindex="-1"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Duplicate</div>
+              <div class="menu-separator" role="separator"></div>
+              <div class="menu-item" role="menuitem" tabindex="-1" style="color: var(--color-error);"><svg class="icon icon-sm"><use href="#i-trash"/></svg> Delete</div>
             </div>
+          </div>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>Trigger has <code>aria-haspopup="menu"</code> + <code>aria-expanded</code>; the surface is <code>role="menu"</code> with <code>role="menuitem"</code> children.</li>
+                <li>Arrow keys move between items; <kbd class="kbd">Esc</kbd> closes and returns focus to the trigger.</li>
+                <li>Use a separator (<code>role="separator"</code>) to set destructive actions apart.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;div class="menu-content" role="menu"&gt;
+  &lt;button class="menu-item" role="menuitem"&gt;Edit&lt;/button&gt;
+  &lt;div class="menu-separator" role="separator"&gt;&lt;/div&gt;
+  &lt;button class="menu-item" role="menuitem"&gt;Delete&lt;/button&gt;
+&lt;/div&gt;</pre>
           </div>
         </section>
 
