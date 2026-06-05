@@ -27,6 +27,8 @@
   .sg-static-menu { position: static !important; }
   .sg-static-results { position: static !important; display: block !important; margin-top: var(--space-2) !important; }
   .sg-static-nav { position: static !important; transform: none !important; height: auto !important; width: 16rem; max-width: 100%; }
+  /* Elementor token export is the full token file — cap it to a scrollable viewport so it doesn't dominate the page (it's a copy source, not meant to be read line-by-line). */
+  #elementor-token-export { max-height: 22rem; overflow-y: auto; overscroll-behavior: contain; }
 </style>
 </head>
 <body>
@@ -2224,6 +2226,14 @@
         <section class="doc-section" id="docs">
           <h2 class="doc-section-title">Documentation</h2>
           <p class="doc-section-desc">Implementation guides for consuming Nordover — including WordPress / Elementor. These live in <code>docs/handoff/</code>.</p>
+
+          <div class="doc-sub">Copy tokens for Elementor / WordPress</div>
+          <p class="doc-section-desc">The block below is the <strong>currently selected package</strong> (toggle Web/App in the sidebar), <strong>flattened without the <code>@layer</code> wrapper</strong> so it pastes predictably into <em>Elementor → Site Settings → Custom CSS</em> even when a theme loads its styles in an awkward order. Only the token + dark-mode rules are included — no reset, so it won't fight your theme's body styles.</p>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre id="elementor-token-export">Loading tokens…</pre>
+          </div>
+
           <div class="doc-demo">
             <div class="grid-auto">
               <a class="card card-bordered card-interactive" href="../handoff/ELEMENTOR-WORDPRESS.md" style="text-decoration:none;color:inherit;">
@@ -2267,8 +2277,45 @@ document.querySelectorAll('input[name="package"]').forEach(radio => {
   radio.addEventListener('change', function() {
     document.getElementById('token-stylesheet').href = `./tokens/tokens-${this.value}.css`;
     document.getElementById('component-stylesheet').href = `./components/components-${this.value}.css`;
+    renderElementorExport(this.value);
   });
 });
+
+// Elementor / WordPress export — fetch the currently selected token file and
+// flatten the `@layer tokens { … }` block (tokens + dark-mode only, no reset)
+// so it pastes into Elementor's Custom CSS without @layer-cascade surprises.
+// Reads the live token file, so it can never drift from the framework.
+async function renderElementorExport(pkg) {
+  const pre = document.getElementById('elementor-token-export');
+  if (!pre) return;
+  const rawUrl = `https://raw.githubusercontent.com/xxnamae/nordover-ui/main/docs/visual/tokens/tokens-${pkg}.css`;
+  try {
+    const css = await (await fetch(`./tokens/tokens-${pkg}.css`)).text();
+    // Locate `@layer tokens {` (the block, not the layer-order statement) and
+    // brace-count to its matching close.
+    const open = css.search(/@layer\s+tokens\s*\{/);
+    if (open === -1) throw new Error('token layer not found');
+    const braceStart = css.indexOf('{', open);
+    let depth = 0, end = -1;
+    for (let i = braceStart; i < css.length; i++) {
+      if (css[i] === '{') depth++;
+      else if (css[i] === '}') { depth--; if (depth === 0) { end = i; break; } }
+    }
+    const inner = css.slice(braceStart + 1, end);
+    // De-indent by the common two-space layer indent.
+    const flat = inner.replace(/^ {2}/gm, '').replace(/^\n+|\s+$/g, '');
+    pre.textContent =
+      `/* Nordover design tokens — ${pkg} package (flattened for Elementor / WordPress) */\n` +
+      `/* Paste into Elementor → Site Settings → Custom CSS. Source: ${rawUrl} */\n\n` +
+      flat + '\n';
+  } catch (e) {
+    // file:// or offline — fall back to pointing at the raw file.
+    pre.textContent =
+      `/* Could not read the token file from here (likely opened via file://). */\n` +
+      `/* Grab the :root block from: */\n/* ${rawUrl} */`;
+  }
+}
+renderElementorExport('web');
 
 // Replay motion demos — reset and re-trigger class-based animations
 const replayBtn = document.getElementById('replay-motion');
