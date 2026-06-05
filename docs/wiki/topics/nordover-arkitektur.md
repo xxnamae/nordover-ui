@@ -91,7 +91,7 @@ Kanonisk kilde for v3-endringene: [decision: v2 hardening + v3 system-utvidelser
     /* === Motion-tokens (samme som v1, men brukt av animate-utilities) === */
     --duration-fast: 150ms;
     --duration-base: 250ms;
-    --duration-slow: 400ms;
+    --duration-slow: 800ms;
     --ease-out: cubic-bezier(0.2, 0, 0, 1);
     --ease-spring: cubic-bezier(0.2, 0.8, 0.2, 1);
   }
@@ -389,7 +389,7 @@ Begge pakker har:
   --ease-out: cubic-bezier(0.2, 0, 0, 1);
   --duration-fast: 150ms;
   --duration-base: 250ms;
-  --duration-slow: 400ms;
+  --duration-slow: 800ms;
 
   /* === Breakpoints === */
   --breakpoint-xs: 375px;
@@ -629,7 +629,7 @@ Begge pakker har:
   --ease-out: cubic-bezier(0.2, 0, 0, 1);
   --duration-fast: 100ms;
   --duration-base: 150ms;
-  --duration-slow: 250ms;
+  --duration-slow: 400ms;
 
   /* === Breakpoints === */
   --breakpoint-xs: 375px;

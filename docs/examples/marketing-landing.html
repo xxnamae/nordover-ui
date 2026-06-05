@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nordover — eksempel: marketing-landing</title>
+<meta name="description" content="Eksempel-komposisjon (ikke-shippbart): editorial landingsside bygget kun av Nordover-byggesteiner.">
+<link rel="preconnect" href="https://rsms.me/">
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap">
+<!-- Lenker de SHIPPBARE filene — aldri kopiert CSS -->
+<link rel="stylesheet" href="../visual/tokens/tokens-web.css">
+<link rel="stylesheet" href="../visual/components/components-web.css">
+<style>
+  /* Side-spesifikk komposisjon (per-prosjekt-pynt — hører hjemme i eksemplet, ikke rammeverket) */
+  .ex-nav { position: sticky; top: var(--space-3); z-index: var(--z-sticky); margin-inline: auto; max-width: var(--container-default);
+            display: flex; align-items: center; justify-content: space-between; gap: var(--space-4);
+            padding: var(--space-3) var(--space-5); border-radius: var(--radius-full); }
+  .ex-nav-links { display: flex; gap: var(--space-5); align-items: center; }
+  .ex-nav-links a { font-size: var(--text-sm); font-weight: var(--fw-medium); color: var(--color-muted); transition: color var(--motion-smooth); }
+  .ex-nav-links a:hover { color: var(--color-fg); }
+  .ex-hero { text-align: center; max-width: 56rem; margin-inline: auto; padding-block: var(--spacing-section-lg) var(--spacing-section); }
+  .ex-hero .t-eyebrow { display: block; margin-bottom: var(--space-4); }
+  .ex-hero p.lede { font-size: var(--text-xl); color: var(--color-muted); max-width: 40rem; margin: var(--space-5) auto var(--space-7); line-height: var(--leading-relaxed); }
+  .ex-logos { display: flex; flex-wrap: wrap; gap: var(--space-7); justify-content: center; align-items: center; opacity: 0.6; font-weight: var(--fw-semibold); color: var(--color-muted); }
+  .ex-feature-icon { display: inline-flex; padding: var(--space-3); border-radius: var(--radius-lg); background: var(--color-subtle); margin-bottom: var(--space-4); }
+  .ex-price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr)); gap: var(--gap-component); align-items: start; }
+  .ex-price-featured { border-color: var(--color-accent); box-shadow: var(--shadow-lg); }
+  .ex-cta { text-align: center; color: var(--color-accent-fg); border-radius: var(--radius-2xl); padding: var(--spacing-section-sm) var(--space-6); }
+  @media (min-width: 48rem) { .ex-nav-links.mobile-only { display: none; } }
+  @media (max-width: 47.99rem) { .ex-nav-links { display: none; } }
+</style>
+</head>
+<body>
+<input type="checkbox" id="dark" class="sr-only" aria-label="Mørk modus">
+<svg style="display:none"><defs>
+  <symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/><polyline points="2 17 12 22 22 17" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/><polyline points="2 12 12 17 22 12" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</defs></svg>
+
+<!-- NAV — liquid-glass byggestein over editorial bakgrunn -->
+<nav class="ex-nav glass-liquid">
+  <strong style="font-family: var(--font-display); font-size: var(--text-lg);">Nordover</strong>
+  <div class="ex-nav-links">
+    <a href="#features">Funksjoner</a>
+    <a href="#pricing">Priser</a>
+    <a href="#" >Dokumentasjon</a>
+  </div>
+  <div class="cluster-tight">
+    <label for="dark" class="btn btn-ghost btn-sm" style="cursor:pointer;">Tema</label>
+    <a href="#pricing" class="btn btn-primary btn-sm">Kom i gang</a>
+  </div>
+</nav>
+
+<main class="page">
+  <!-- HERO -->
+  <header class="ex-hero">
+    <span class="t-eyebrow">Universelt designfundament</span>
+    <h1 class="t-display-lg">Bygg verdensklasse-grensesnitt på minutter, ikke måneder</h1>
+    <p class="lede">Tokens og byggesteiner av global toppkvalitet — tilgjengelige, responsive og merkevare-klare fra første linje. Komponer dine egne sider på toppen.</p>
+    <div class="cluster" style="justify-content: center;">
+      <a href="#pricing" class="btn btn-primary btn-lg">Start gratis <svg class="icon icon-sm"><use href="#i-arrow-right"/></svg></a>
+      <a href="#features" class="btn btn-secondary btn-lg">Se funksjoner</a>
+    </div>
+    <div class="ex-logos" style="margin-top: var(--space-10);">
+      <span>NORDIC CO</span><span>FJORD</span><span>AURORA</span><span>SAGA LABS</span><span>MIDNATT</span>
+    </div>
+  </header>
+
+  <!-- FEATURES -->
+  <section id="features" class="page-content">
+    <div style="text-align:center; max-width: 40rem; margin: 0 auto var(--space-10);">
+      <span class="t-eyebrow">Fundament</span>
+      <h2 class="t-heading-xl" style="margin-top: var(--space-3);">Alt du trenger, ingenting du ikke trenger</h2>
+    </div>
+    <div class="grid-auto">
+      <article class="card">
+        <span class="ex-feature-icon"><svg class="icon icon-lg"><use href="#i-zap"/></svg></span>
+        <h3 class="card-title">Lynrask</h3>
+        <p class="card-meta">Ren CSS, ingen runtime. Komposiserte animasjoner og fart som standard.</p>
+      </article>
+      <article class="card">
+        <span class="ex-feature-icon"><svg class="icon icon-lg"><use href="#i-shield"/></svg></span>
+        <h3 class="card-title">Tilgjengelig</h3>
+        <p class="card-meta">WCAG AA innebygd — kontrast, fokus og treffområder garantert på alle byggesteiner.</p>
+      </article>
+      <article class="card">
+        <span class="ex-feature-icon"><svg class="icon icon-lg"><use href="#i-layers"/></svg></span>
+        <h3 class="card-title">Merkevare-klar</h3>
+        <p class="card-meta">Bytt tre variabler, få et helt tema. OKLCH gir forutsigbar kontrast i lys og mørk.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="page-content">
+    <div style="text-align:center; max-width: 40rem; margin: 0 auto var(--space-10);">
+      <span class="t-eyebrow">Priser</span>
+      <h2 class="t-heading-xl" style="margin-top: var(--space-3);">Enkelt og forutsigbart</h2>
+    </div>
+    <div class="ex-price-grid">
+      <article class="card card-lg">
+        <h3 class="card-title">Start</h3>
+        <p style="font-size: var(--text-4xl); font-weight: var(--fw-bold); margin: var(--space-3) 0;">0&thinsp;kr</p>
+        <p class="card-meta" style="margin-bottom: var(--space-5);">For hobbyprosjekter og læring.</p>
+        <ul class="stack-tight" style="list-style:none; margin-bottom: var(--space-6);">
+          <li class="cluster-tight"><svg class="icon icon-sm" style="color:var(--success)"><use href="#i-check"/></svg> Alle byggesteiner</li>
+          <li class="cluster-tight"><svg class="icon icon-sm" style="color:var(--success)"><use href="#i-check"/></svg> Lys + mørk modus</li>
+          <li class="cluster-tight"><svg class="icon icon-sm" style="color:var(--success)"><use href="#i-check"/></svg> MIT-lisens</li>
+        </ul>
+        <a href="#" class="btn btn-secondary" style="width:100%;">Velg Start</a>
+      </article>
+      <article class="card card-lg ex-price-featured">
+        <div class="cluster" style="justify-content: space-between;">
+          <h3 class="card-title">Pro</h3><span class="badge badge-info">Populær</span>
+        </div>
+        <p style="font-size: var(--text-4xl); font-weight: var(--fw-bold); margin: var(--space-3) 0;">490&thinsp;kr<span style="font-size:var(--text-base); color:var(--color-muted); font-weight:var(--fw-normal);">/mnd</span></p>
+        <p class="card-meta" style="margin-bottom: var(--space-5);">For team som bygger på alvor.</p>
+        <ul class="stack-tight" style="list-style:none; margin-bottom: var(--space-6);">
+          <li class="cluster-tight"><svg class="icon icon-sm" style="color:var(--success)"><use href="#i-check"/></svg> Alt i Start</li>
+          <li class="cluster-tight"><svg class="icon icon-sm" style="color:var(--success)"><use href="#i-check"/></svg> Tema-generator</li>
+          <li class="cluster-tight"><svg class="icon icon-sm" style="color:var(--success)"><use href="#i-check"/></svg> Prioritert støtte</li>
+        </ul>
+        <a href="#" class="btn btn-primary" style="width:100%;">Velg Pro</a>
+      </article>
+      <article class="card card-lg">
+        <h3 class="card-title">Enterprise</h3>
+        <p style="font-size: var(--text-4xl); font-weight: var(--fw-bold); margin: var(--space-3) 0;">Kontakt</p>
+        <p class="card-meta" style="margin-bottom: var(--space-5);">For organisasjoner med egne behov.</p>
+        <ul class="stack-tight" style="list-style:none; margin-bottom: var(--space-6);">
+          <li class="cluster-tight"><svg class="icon icon-sm" style="color:var(--success)"><use href="#i-check"/></svg> Alt i Pro</li>
+          <li class="cluster-tight"><svg class="icon icon-sm" style="color:var(--success)"><use href="#i-check"/></svg> SLA + onboarding</li>
+          <li class="cluster-tight"><svg class="icon icon-sm" style="color:var(--success)"><use href="#i-check"/></svg> Egen designrådgiver</li>
+        </ul>
+        <a href="#" class="btn btn-secondary" style="width:100%;">Ta kontakt</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="page-content">
+    <div class="ex-cta" style="background: var(--color-accent);">
+      <h2 class="t-heading-lg">Klar til å bygge?</h2>
+      <p style="opacity: 0.85; max-width: 32rem; margin: var(--space-4) auto var(--space-6);">Kom i gang på under ett minutt. Ingen kredittkort.</p>
+      <a href="#" class="btn btn-lg" style="background: var(--color-accent-fg); color: var(--color-accent);">Start gratis nå</a>
+    </div>
+  </section>
+</main>
+
+<footer class="page-content" style="padding-block: var(--space-10); color: var(--color-muted); border-top: var(--border-divider); margin-top: var(--space-10);">
+  <div class="cluster" style="justify-content: space-between;">
+    <span class="t-caption">© 2026 Nordover — eksempel-komposisjon, ikke en del av rammeverket.</span>
+    <span class="t-caption">Bygget kun av byggesteiner.</span>
+  </div>
+</footer>
+</body>
+</html>

@@ -21,20 +21,20 @@ Web og app divergerer bevisst: app-pakken er raskere (SaaS-tetthet, mindre beveg
 --duration-fast: 150ms;       /* Quick feedback (button hover, focus) */
 --duration-moderate: 200ms;   /* Small UI transitions */
 --duration-base: 250ms;       /* Standard animations (fade, scale) */
---duration-slow-base: 300ms;  /* Modal/popover open */
---duration-slow: 400ms;       /* Emphasis (entrance, slide) */
---duration-slower: 600ms;     /* Large drawer/sheet motion */
+--duration-slow-base: 700ms;  /* Modal/popover open */
+--duration-slow: 800ms;       /* Editorial entrance (slide, reveal) */
+--duration-slower: 1000ms;    /* Large drawer/sheet motion */
 ```
 
-**tokens-app (raskere defaults):**
+**tokens-app (raskere defaults — SaaS-tempo):**
 ```css
 --duration-instant: 50ms;
 --duration-fast: 100ms;       /* App: 100ms, ikke 150ms */
 --duration-base: 150ms;       /* App: 150ms, ikke 250ms */
 --duration-moderate: 200ms;
---duration-slow: 250ms;       /* App: 250ms, ikke 400ms */
---duration-slow-base: 300ms;
---duration-slower: 400ms;     /* App: 400ms, ikke 600ms */
+--duration-slow: 400ms;       /* App: 400ms entrance */
+--duration-slow-base: 600ms;
+--duration-slower: 800ms;
 ```
 
 > Merk: `--duration-base` betyr 250ms i web, men 150ms i app. Bruk alltid token-navnet, ikke en antatt ms-verdi.
@@ -153,7 +153,7 @@ For ekte fjær-fysikk med faktisk overshoot (signatur-interaksjoner) finnes en `
 
 .icon-pulse {
   animation: pulse var(--duration-slow) cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  /* Fade cycle over --duration-slow (web 400ms / app 250ms) */
+  /* Fade cycle over --duration-slow (web 800ms / app 400ms) */
 }
 ```
 
@@ -173,7 +173,7 @@ For ekte fjær-fysikk med faktisk overshoot (signatur-interaksjoner) finnes en `
 
 .icon-bounce {
   animation: bounce var(--duration-slow) ease-in-out infinite;
-  /* Up-down cycle over --duration-slow (web 400ms / app 250ms) */
+  /* Up-down cycle over --duration-slow (web 800ms / app 400ms) */
 }
 ```
 
@@ -333,12 +333,12 @@ For ekte fjær-fysikk med faktisk overshoot (signatur-interaksjoner) finnes en `
 ```css
 .drawer-fade-in {
   animation: fadeIn var(--duration-slow) var(--ease-out) forwards;
-  /* Backdrop fade over --duration-slow (web 400ms / app 250ms) */
+  /* Backdrop fade over --duration-slow (web 800ms / app 400ms) */
 }
 
 .drawer {
   animation: slideInLeft var(--duration-slow) var(--ease-out) forwards;
-  /* Drawer slide from left over --duration-slow (web 400ms / app 250ms) */
+  /* Drawer slide from left over --duration-slow (web 800ms / app 400ms) */
 }
 ```
 
