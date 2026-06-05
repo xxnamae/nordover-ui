@@ -408,12 +408,12 @@
             <span class="chip">--target-min: 24px</span><span class="chip">--target-comfortable: 44px</span>
           </div>
 
-          <div class="doc-block-label">Density — <code>.density-compact</code> vs default</div>
-          <p class="t-caption" style="margin-bottom: var(--space-3);">Wrap any region to recompute control sizing (Linear-grade SaaS compaction) without rewriting components.</p>
+          <div class="doc-block-label">Density — <code>.density-compact</code> vs <code>.density-comfortable</code> (default)</div>
+          <p class="t-caption" style="margin-bottom: var(--space-3);">Wrap any region to recompute control sizing (Linear-grade SaaS compaction) without rewriting components. <code>.density-comfortable</code> restores the default scale — useful to opt a sub-region back out of a compact ancestor.</p>
           <div class="doc-demo">
             <div class="cluster" style="align-items: flex-start; gap: var(--space-6);">
-              <div>
-                <span class="t-caption">Default</span>
+              <div class="density-comfortable">
+                <span class="t-caption">.density-comfortable (default)</span>
                 <div class="stack-tight" style="margin-top: var(--space-2);">
                   <input class="form-input" placeholder="Comfortable input">
                   <button class="btn btn-primary">Comfortable</button>
@@ -832,8 +832,9 @@
           <p class="doc-section-desc">Drag-and-drop upload dropzone with a file list and per-file progress.</p>
           <div class="chips">
             <span class="chip">.file-upload</span><span class="chip">.file-list</span><span class="chip">.file-item</span>
-            <span class="chip">.file-item-progress</span>
+            <span class="chip">.file-item-progress</span><span class="chip">.is-dragover</span>
           </div>
+          <p class="t-caption" style="margin-top: var(--space-2);">Add <code>.is-dragover</code> to <code>.file-upload</code> while a drag is over the dropzone (set it from your <code>dragenter</code>/<code>dragleave</code> handlers) to surface the active accent border and tint.</p>
 
           <div class="doc-block-label">When to use</div>
           <div class="doc-usage">
@@ -2164,10 +2165,12 @@
           <div class="doc-sub">Typography</div>
           <div class="chips">
             <span class="chip">.text-left</span><span class="chip">.text-center</span><span class="chip">.text-right</span>
+            <span class="chip">.text-start</span><span class="chip">.text-end</span>
             <span class="chip">.font-medium</span><span class="chip">.font-semibold</span><span class="chip">.font-bold</span>
             <span class="chip">.uppercase</span><span class="chip">.truncate</span><span class="chip">.line-clamp-2</span>
             <span class="chip">.leading-tight</span><span class="chip">.leading-normal</span><span class="chip">.leading-relaxed</span>
           </div>
+          <p class="t-caption" style="margin-top: var(--space-2);"><code>.text-start</code>/<code>.text-end</code> are logical (writing-direction aware) — they flip automatically under <code>dir="rtl"</code>, unlike the physical <code>.text-left</code>/<code>.text-right</code>.</p>
           <div class="doc-sub">Color</div>
           <div class="chips">
             <span class="chip">.text-fg</span><span class="chip">.text-muted</span><span class="chip">.text-accent</span>
