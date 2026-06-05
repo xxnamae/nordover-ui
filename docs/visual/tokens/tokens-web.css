@@ -75,8 +75,8 @@
 
   /* Universell a11y — alle interaktive elementer arver dette uten ekstra arbeid */
   :focus-visible {
-    outline: var(--bw-thin, 1px) solid var(--color-focus, currentColor);
-    outline-offset: 2px;
+    outline: var(--focus-ring-width, 2px) solid var(--focus-ring-color, currentColor);
+    outline-offset: var(--focus-ring-offset, 2px);
     border-radius: var(--radius-sm, 4px);
   }
   .sr-only {
@@ -279,9 +279,42 @@
     --duration-slow-base: 700ms; --duration-slow: 800ms; --duration-slower: 1000ms;
     --ease-out: cubic-bezier(0.2, 0, 0, 1);
     --ease-spring: cubic-bezier(0.2, 0.8, 0.2, 1);
+    /* Emphasized pair (M3-parity): decelerate on enter, accelerate on exit */
     --ease-emphasized: cubic-bezier(0.3, 0, 0, 1);
+    --ease-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);   /* enter — eases to rest */
+    --ease-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);   /* exit — eases away */
     /* True spring physics (overshoot) for signature interactions */
     --ease-spring-physics: linear(0, 0.006, 0.025 2.8%, 0.101 6.1%, 0.539 18.9%, 0.721, 0.849, 0.937, 0.991, 1.02, 1.03, 1.017, 1.003, 0.998, 1);
+    /* Named motion presets (Apple-parity): smooth=no overshoot, snappy=slight, bouncy=visible */
+    --motion-smooth: var(--duration-base) var(--ease-out);
+    --motion-snappy: var(--duration-fast) var(--ease-spring);
+    --motion-bouncy: var(--duration-slow-base) var(--ease-spring-physics);
+
+    /* === Interaction state layers (M3-parity overlay opacities) ===
+       Apply as: color-mix(in oklch, currentColor var(--state-hover), transparent).
+       One layer at a time; the content color carries the tint. */
+    --state-hover: 6%;
+    --state-focus: 10%;
+    --state-pressed: 12%;
+    --state-selected: 14%;
+    --state-dragged: 18%;
+    --state-disabled-opacity: 0.5;
+
+    /* === Focus ring (WCAG 2.4.13-grade, tokenised contract) ===
+       Two-tone ring (halo + core) stays visible on any background. */
+    --focus-ring-width: 2px;
+    --focus-ring-offset: 2px;
+    --focus-ring-color: var(--color-focus);
+    --focus-ring-halo: var(--color-bg);
+
+    /* === Target size (WCAG 2.5.8 AA floor + Apple-touch comfortable) === */
+    --target-min: 24px;          /* WCAG 2.2 AA minimum hit area */
+    --target-comfortable: 44px;  /* Apple HIG / touch-first */
+
+    /* === Density (Linear-grade compaction within one package) ===
+       Multiply control padding/heights by --density; compact swaps the var. */
+    --density: 1;
+    --density-control-height: calc(2.75rem * var(--density));  /* 44px @ density 1 */
 
     /* === Button (flat default — bruk btn-elevated for tactile) === */
     --button-radius: var(--radius-md);
