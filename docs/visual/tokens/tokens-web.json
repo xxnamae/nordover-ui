@@ -703,9 +703,9 @@
       "$value": {
         "colorSpace": "oklch",
         "components": [
-          0.55,
+          0.57,
           0.22,
-          28.0
+          25.0
         ]
       },
       "$extensions": {
@@ -713,9 +713,9 @@
           "$value": {
             "colorSpace": "oklch",
             "components": [
-              0.65,
-              0.22,
-              28.0
+              0.7,
+              0.2,
+              25.0
             ]
           }
         }
@@ -744,9 +744,9 @@
       "$value": {
         "colorSpace": "oklch",
         "components": [
-          0.56,
+          0.6,
           0.16,
-          160.0
+          150.0
         ]
       },
       "$extensions": {
@@ -754,9 +754,9 @@
           "$value": {
             "colorSpace": "oklch",
             "components": [
-              0.65,
-              0.16,
-              160.0
+              0.72,
+              0.15,
+              150.0
             ]
           }
         }
@@ -785,9 +785,9 @@
       "$value": {
         "colorSpace": "oklch",
         "components": [
-          0.66,
-          0.17,
-          65.0
+          0.7,
+          0.16,
+          75.0
         ]
       },
       "$extensions": {
@@ -795,9 +795,9 @@
           "$value": {
             "colorSpace": "oklch",
             "components": [
-              0.72,
-              0.17,
-              65.0
+              0.8,
+              0.15,
+              75.0
             ]
           }
         }
@@ -827,8 +827,8 @@
         "colorSpace": "oklch",
         "components": [
           0.58,
-          0.18,
-          245.0
+          0.19,
+          250.0
         ]
       },
       "$extensions": {
@@ -836,9 +836,9 @@
           "$value": {
             "colorSpace": "oklch",
             "components": [
-              0.68,
-              0.18,
-              245.0
+              0.72,
+              0.17,
+              250.0
             ]
           }
         }

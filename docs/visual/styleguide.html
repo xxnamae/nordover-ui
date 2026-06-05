@@ -181,17 +181,40 @@
 
         <section class="doc-section" id="colors">
           <h2 class="doc-section-title">Colors</h2>
-          <p class="doc-section-desc">Semantic color tokens for light and dark modes. Based on OKLCH color space.</p>
+          <p class="doc-section-desc">OKLCH-based tokens. Semantic roles adapt to light/dark automatically; the grayscale ramp is the neutral foundation; status colours share one modern palette.</p>
+
+          <div class="doc-block-label">Semantic roles</div>
           <div class="swatch-grid">
             <div class="swatch"><div class="swatch-color" style="background: var(--color-fg);"></div><div class="swatch-meta"><span class="swatch-name">Foreground</span><span class="t-caption">--color-fg</span></div></div>
             <div class="swatch"><div class="swatch-color" style="background: var(--color-bg);"></div><div class="swatch-meta"><span class="swatch-name">Background</span><span class="t-caption">--color-bg</span></div></div>
             <div class="swatch"><div class="swatch-color" style="background: var(--color-surface);"></div><div class="swatch-meta"><span class="swatch-name">Surface</span><span class="t-caption">--color-surface</span></div></div>
             <div class="swatch"><div class="swatch-color" style="background: var(--color-subtle);"></div><div class="swatch-meta"><span class="swatch-name">Subtle</span><span class="t-caption">--color-subtle</span></div></div>
-            <div class="swatch"><div class="swatch-color" style="background: var(--color-accent);"></div><div class="swatch-meta"><span class="swatch-name">Accent</span><span class="t-caption">--color-accent</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--color-border);"></div><div class="swatch-meta"><span class="swatch-name">Border</span><span class="t-caption">--color-border</span></div></div>
             <div class="swatch"><div class="swatch-color" style="background: var(--color-muted);"></div><div class="swatch-meta"><span class="swatch-name">Muted</span><span class="t-caption">--color-muted</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--color-accent);"></div><div class="swatch-meta"><span class="swatch-name">Accent</span><span class="t-caption">--color-accent</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--color-accent); color: var(--color-accent-fg); display: flex; align-items: center; justify-content: center; font-size: var(--text-2xs);">Aa</div><div class="swatch-meta"><span class="swatch-name">On accent</span><span class="t-caption">--color-accent-fg</span></div></div>
+          </div>
+
+          <div class="doc-block-label">Grayscale ramp (50 → 950)</div>
+          <div class="swatch-grid">
+            <div class="swatch"><div class="swatch-color" style="background: var(--gray-50);"></div><div class="swatch-meta"><span class="swatch-name">Gray 50</span><span class="t-caption">--gray-50</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--gray-100);"></div><div class="swatch-meta"><span class="swatch-name">Gray 100</span><span class="t-caption">--gray-100</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--gray-200);"></div><div class="swatch-meta"><span class="swatch-name">Gray 200</span><span class="t-caption">--gray-200</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--gray-300);"></div><div class="swatch-meta"><span class="swatch-name">Gray 300</span><span class="t-caption">--gray-300</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--gray-400);"></div><div class="swatch-meta"><span class="swatch-name">Gray 400</span><span class="t-caption">--gray-400</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--gray-500);"></div><div class="swatch-meta"><span class="swatch-name">Gray 500</span><span class="t-caption">--gray-500</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--gray-600);"></div><div class="swatch-meta"><span class="swatch-name">Gray 600</span><span class="t-caption">--gray-600</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--gray-700);"></div><div class="swatch-meta"><span class="swatch-name">Gray 700</span><span class="t-caption">--gray-700</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--gray-800);"></div><div class="swatch-meta"><span class="swatch-name">Gray 800</span><span class="t-caption">--gray-800</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--gray-900);"></div><div class="swatch-meta"><span class="swatch-name">Gray 900</span><span class="t-caption">--gray-900</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--gray-950);"></div><div class="swatch-meta"><span class="swatch-name">Gray 950</span><span class="t-caption">--gray-950</span></div></div>
+          </div>
+
+          <div class="doc-block-label">Status palette</div>
+          <div class="swatch-grid">
             <div class="swatch"><div class="swatch-color" style="background: var(--color-success);"></div><div class="swatch-meta"><span class="swatch-name">Success</span><span class="t-caption">--color-success</span></div></div>
-            <div class="swatch"><div class="swatch-color" style="background: var(--color-error);"></div><div class="swatch-meta"><span class="swatch-name">Error</span><span class="t-caption">--color-error</span></div></div>
             <div class="swatch"><div class="swatch-color" style="background: var(--color-warning);"></div><div class="swatch-meta"><span class="swatch-name">Warning</span><span class="t-caption">--color-warning</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--color-error);"></div><div class="swatch-meta"><span class="swatch-name">Error</span><span class="t-caption">--color-error</span></div></div>
             <div class="swatch"><div class="swatch-color" style="background: var(--color-info);"></div><div class="swatch-meta"><span class="swatch-name">Info</span><span class="t-caption">--color-info</span></div></div>
           </div>
         </section>

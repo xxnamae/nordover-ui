@@ -182,16 +182,16 @@
     --on-accent-subtle: var(--color-accent);
 
     /* === Semantiske tripletter (subtle / base / strong) === */
-    --error: oklch(0.62 0.23 25);
+    --error: oklch(0.62 0.22 25);
     --error-subtle: color-mix(in oklch, var(--error) 12%, var(--color-bg));
     --error-strong: color-mix(in oklch, var(--error) 70%, black);
-    --success: oklch(0.66 0.18 155);
+    --success: oklch(0.64 0.16 150);
     --success-subtle: color-mix(in oklch, var(--success) 12%, var(--color-bg));
     --success-strong: color-mix(in oklch, var(--success) 62%, black);
-    --warning: oklch(0.74 0.18 65);
+    --warning: oklch(0.74 0.16 75);
     --warning-subtle: color-mix(in oklch, var(--warning) 16%, var(--color-bg));
     --warning-strong: color-mix(in oklch, var(--warning) 68%, black);
-    --info: oklch(0.62 0.18 245);
+    --info: oklch(0.62 0.19 250);
     --info-subtle: color-mix(in oklch, var(--info) 12%, var(--color-bg));
     --info-strong: color-mix(in oklch, var(--info) 65%, black);
     --color-error: var(--error);
@@ -382,10 +382,10 @@
     --accent-subtle: color-mix(in oklch, var(--color-accent) 12%, var(--color-bg));
     --accent-muted: color-mix(in oklch, var(--color-accent) 30%, var(--color-bg));
 
-    --error: oklch(0.68 0.22 25);
-    --success: oklch(0.72 0.18 155);
-    --warning: oklch(0.78 0.18 65);
-    --info: oklch(0.68 0.18 245);
+    --error: oklch(0.72 0.20 25);
+    --success: oklch(0.74 0.15 150);
+    --warning: oklch(0.82 0.15 75);
+    --info: oklch(0.72 0.17 250);
 
     /* -strong mikser mot HVITT i dark — ellers mørk-på-mørk på subtle-bg. Speiler tokens-web.css. */
     --error-strong: color-mix(in oklch, var(--error) 70%, white);
