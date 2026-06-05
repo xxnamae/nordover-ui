@@ -1,7 +1,7 @@
 # Unifisert navnekonvensjon (Nordover v2.0)
 
 **Dato:** 2026-06-05
-**Status:** Vurdert (til godkjenning — IKKE implementert ennå)
+**Status:** Aktiv (godkjent 2026-06-05)
 **Forgjenger:** [2026-06-04 Komponent-kontrakt-paritet](2026-06-04-komponent-kontrakt-paritet.md)
 
 **Kontekst:**
