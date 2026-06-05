@@ -315,14 +315,40 @@ For use in charts, data visualizations, and multi-series displays:
 
 ---
 
+## Contrast: dual-track (WCAG 2.2 today, APCA-ready)
+
+Nordover ships against **WCAG 2.2 AA** as the legal/compliance baseline, and
+additionally targets **APCA** (the perceptual model headed into WCAG 3) during
+design so dark-mode and thin-weight text read correctly in the real world. Keep
+both; never ship APCA-only.
+
+**WCAG 2 minimums (must hold):** normal text ≥ 4.5:1 · large text (≥ 24px, or
+≥ 18.66px bold) ≥ 3:1 · UI components, borders, icons, focus rings ≥ 3:1.
+
+**APCA Lc targets (design-time, perceptual):**
+
+| Use | Min Lc | Preferred Lc |
+|---|---|---|
+| Body text (≥ 16px/400) | 75 | 90 |
+| Non-body / secondary text | 60 | 75 |
+| Large / heavy headlines | 45 | 60 |
+| Spot text, disabled hints | 30 | — |
+
+`--color-fg` (gray-900, L 0.13) on `--color-bg` (L 1.0) clears Lc 90 comfortably.
+`--color-muted` (gray-500, L ≤ 0.52) is held at the AA floor on white — verify it
+against **Lc ≥ 60** before lowering. The accent and status pairs should be checked
+against **Lc ≥ 75** when used for body-size text. `scripts/generate_theme.py` emits
+a contrast note for generated themes; spot-check accent pairs in an APCA tool.
+
 ## Testing Your Color System
 
 ### Contrast Checker
-Use [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/) to verify:
+Use [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/) for
+WCAG 2, and [APCA Contrast Calculator](https://www.myndex.com/APCA/) for Lc:
 ```
 Foreground: oklch(0.55 0.20 230)
 Background: #FFFFFF
-Ratio: 5.2:1 ✅
+WCAG: 5.2:1 ✅   ·   APCA: ~Lc 78 ✅ (body)
 ```
 
 ### Dark Mode Testing
