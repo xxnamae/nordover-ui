@@ -663,7 +663,7 @@
 
   /* Checkboxes and radios — custom-styled (mirrors app structure, light default) */
   .form-checkbox {
-    appearance: none; width: var(--space-5); height: var(--space-5);
+    appearance: none; width: 1.125rem; height: 1.125rem; vertical-align: -0.2em;
     border: 1px solid var(--color-border); border-radius: var(--radius-sm);
     background: var(--color-surface); cursor: pointer;
     display: inline-grid; place-content: center; flex-shrink: 0;
@@ -682,7 +682,7 @@
   .form-checkbox:disabled { opacity: 0.5; cursor: not-allowed; }
 
   .form-radio {
-    appearance: none; width: var(--space-5); height: var(--space-5);
+    appearance: none; width: 1.125rem; height: 1.125rem; vertical-align: -0.2em;
     border: 1px solid var(--color-border); border-radius: 50%;
     background: var(--color-surface); cursor: pointer;
     display: inline-grid; place-content: center; flex-shrink: 0;
@@ -849,13 +849,12 @@
     margin-bottom: var(--space-2);
   }
 
-  /* Touch target sizes (44px minimum) */
+  /* Touch target sizes. Checkbox/radio keep their small visual size — the
+     wrapping <label> provides the larger hit area (best practice). */
   button,
   a.btn,
   .hamburger,
-  .theme-toggle,
-  input[type="checkbox"],
-  input[type="radio"] {
+  .theme-toggle {
     min-height: 2.25rem;
     min-width: 2.25rem;
   }

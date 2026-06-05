@@ -661,7 +661,7 @@
   .form-textarea:disabled { opacity: 0.5; cursor: not-allowed; background: var(--color-subtle); }
 
   .form-checkbox {
-    appearance: none; width: var(--space-5); height: var(--space-5);
+    appearance: none; width: 1rem; height: 1rem; vertical-align: -0.15em;
     border: var(--border-card); border-radius: var(--radius-sm);
     background: var(--color-surface); cursor: pointer;
     display: inline-grid; place-content: center; flex-shrink: 0;
@@ -680,7 +680,7 @@
   .form-checkbox:disabled { opacity: 0.5; cursor: not-allowed; }
 
   .form-radio {
-    appearance: none; width: var(--space-5); height: var(--space-5);
+    appearance: none; width: 1rem; height: 1rem; vertical-align: -0.15em;
     border: var(--border-card); border-radius: 50%;
     background: var(--color-surface); cursor: pointer;
     display: inline-grid; place-content: center; flex-shrink: 0;
