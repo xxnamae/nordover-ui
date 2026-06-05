@@ -20,6 +20,8 @@
   .ex-delta-up { color: var(--success); }
   .ex-delta-down { color: var(--error); }
   .ex-section-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-3); }
+  /* Keep currency figures on one line so the MRR column never breaks mid-number */
+  .ex-content table td.text-right { white-space: nowrap; }
 </style>
 </head>
 <body>

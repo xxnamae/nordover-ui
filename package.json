@@ -54,6 +54,7 @@
     "check:tokens": "python3 scripts/build_tokens.py --check",
     "check:contrast": "python3 scripts/check_contrast.py --strict",
     "gen:theme": "python3 scripts/generate_theme.py",
+    "shots": "PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node scripts/screenshots.cjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
