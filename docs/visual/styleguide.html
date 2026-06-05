@@ -111,6 +111,7 @@
         <a class="app-nav-item" href="#spacing">Spacing &amp; Sizing</a>
         <a class="app-nav-item" href="#shadows">Shadows</a>
         <a class="app-nav-item" href="#motion">Motion &amp; Animation</a>
+        <a class="app-nav-item" href="#interaction">Interaction Foundation</a>
         <a class="app-nav-item" href="#icons">Icons</a>
       </nav>
     </div>
@@ -364,8 +365,68 @@
           <div class="chips">
             <span class="chip">--duration-fast: 150ms</span>
             <span class="chip">--duration-base: 250ms</span>
-            <span class="chip">--duration-slow-base: 350ms</span>
-            <span class="chip">--duration-slow: 500ms</span>
+            <span class="chip">--duration-slow-base: 700ms</span>
+            <span class="chip">--duration-slow: 800ms</span>
+            <span class="chip">--duration-slower: 1000ms</span>
+          </div>
+          <div class="doc-sub">Easing pair &amp; named presets</div>
+          <div class="chips">
+            <span class="chip">--ease-decelerate (enter)</span>
+            <span class="chip">--ease-accelerate (exit)</span>
+            <span class="chip">--motion-smooth</span>
+            <span class="chip">--motion-snappy</span>
+            <span class="chip">--motion-bouncy</span>
+          </div>
+        </section>
+
+        <section class="doc-section" id="interaction">
+          <h2 class="doc-section-title">Interaction Foundation</h2>
+          <p class="doc-section-desc">State layers, focus ring, target sizing and density — the tokenised interaction contract every building block inherits.</p>
+
+          <div class="doc-block-label">State layers (M3-parity overlay opacities)</div>
+          <p class="t-caption" style="margin-bottom: var(--space-3);">Applied as <code>color-mix(in oklch, currentColor var(--state-*), transparent)</code> — one layer at a time, the content colour carries the tint.</p>
+          <div class="chips">
+            <span class="chip">--state-hover: 6%</span><span class="chip">--state-focus: 10%</span>
+            <span class="chip">--state-pressed: 12%</span><span class="chip">--state-selected: 14%</span>
+            <span class="chip">--state-dragged: 18%</span>
+          </div>
+
+          <div class="doc-block-label">Focus ring (tokenised, WCAG 2.4.13-grade)</div>
+          <div class="doc-demo">
+            <div class="cluster">
+              <button class="btn btn-secondary">Tab to me</button>
+              <a href="#interaction" class="btn btn-ghost">Or me</a>
+            </div>
+            <div class="chips">
+              <span class="chip">--focus-ring-width: 2px</span><span class="chip">--focus-ring-offset: 2px</span>
+              <span class="chip">--focus-ring-color</span><span class="chip">--focus-ring-halo</span>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Target size (WCAG 2.5.8 AA + Apple-touch)</div>
+          <div class="chips">
+            <span class="chip">--target-min: 24px</span><span class="chip">--target-comfortable: 44px</span>
+          </div>
+
+          <div class="doc-block-label">Density — <code>.density-compact</code> vs default</div>
+          <p class="t-caption" style="margin-bottom: var(--space-3);">Wrap any region to recompute control sizing (Linear-grade SaaS compaction) without rewriting components.</p>
+          <div class="doc-demo">
+            <div class="cluster" style="align-items: flex-start; gap: var(--space-6);">
+              <div>
+                <span class="t-caption">Default</span>
+                <div class="stack-tight" style="margin-top: var(--space-2);">
+                  <input class="form-input" placeholder="Comfortable input">
+                  <button class="btn btn-primary">Comfortable</button>
+                </div>
+              </div>
+              <div class="density-compact">
+                <span class="t-caption">.density-compact</span>
+                <div class="stack-tight" style="margin-top: var(--space-2);">
+                  <input class="form-input" placeholder="Compact input">
+                  <button class="btn btn-primary">Compact</button>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
