@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nordover — Universelt designsystem-fundament</title>
-  <meta name="description" content="Nordover — tokens og byggesteiner for nordiske nettsider og apper. Et fundament hvert prosjekt bygger sine egne sider på.">
+  <meta name="description" content="Nordover — tokens og byggesteiner i verdensklasse for nordiske nettsider og apper. Et fundament hvert prosjekt bygger sine egne sider på.">
   <link rel="preconnect" href="https://rsms.me/">
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,170 +13,269 @@
   <link rel="stylesheet" href="docs/visual/tokens/tokens-web.css">
   <link rel="stylesheet" href="docs/visual/components/components-web.css">
   <style>
-    /* Landing page composition — the docs site composes its own page on top of
-       the framework. These classes are page-specific (prefix lp-) and are NOT
-       part of the shippable framework. Building blocks (.btn, .t-*, .grid-auto)
-       come from components-web.css. The footer is a page pattern (per ADR
-       2026-06-04-rammeverk-fokus-byggesteiner), so its styles live here locally
-       rather than in the framework. */
-    @layer components {
-      .nav { display: flex; align-items: center; justify-content: space-between; padding: var(--space-4) var(--page-padding); border-bottom: var(--border-divider); position: sticky; top: 0; z-index: 10; background: color-mix(in oklch, var(--color-bg) 92%, transparent); backdrop-filter: blur(8px); }
-      .nav-brand { font-size: var(--text-lg); font-weight: var(--fw-semibold); letter-spacing: -0.02em; }
-      .nav-links { display: flex; gap: var(--space-3); align-items: center; }
-    }
+    /* Landing-page composition — the docs site composes its own page on top of
+       the framework (per ADR 2026-06-04-rammeverk-fokus-byggesteiner). Page
+       classes are prefixed .lp-/.nav- and are NOT shippable. Building blocks
+       (.btn, .badge, .card, .glass-liquid, .gradient-border, .t-*) come from
+       components-web.css; everything below only composes tokens + blocks. */
     @layer brand {
+      html { scroll-behavior: smooth; }
       body { min-height: 100vh; }
       main { padding: 0; }
-      .lp-section { padding: var(--spacing-section) var(--page-padding); }
-      .lp-inner { max-width: 72rem; margin: 0 auto; }
+      .lp-inner { max-width: 74rem; margin-inline: auto; padding-inline: var(--page-padding); }
+      .lp-section { padding-block: var(--spacing-section); }
 
-      /* Hero */
-      .lp-hero { text-align: center; padding-block: var(--spacing-section-lg); }
-      .lp-hero h1 { margin: var(--space-4) 0 var(--space-5); }
-      .lp-hero-sub { color: var(--color-muted); max-width: 54ch; margin-inline: auto; }
-      .lp-stats { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-4) var(--space-7); margin-top: var(--space-10); padding: 0; }
-      .lp-stats li { display: inline-flex; align-items: baseline; gap: var(--space-2); color: var(--color-muted); font-size: var(--text-sm); }
-      .lp-stats strong { color: var(--color-fg); font-weight: var(--fw-semibold); font-size: var(--text-base); }
+      /* ---- Top nav (glass) ---- */
+      .nav { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between;
+             gap: var(--space-4); padding: var(--space-3) var(--page-padding);
+             border-bottom: var(--bw-thin) solid color-mix(in oklch, var(--color-border) 70%, transparent);
+             background: color-mix(in oklch, var(--color-bg) 72%, transparent);
+             -webkit-backdrop-filter: saturate(160%) blur(14px); backdrop-filter: saturate(160%) blur(14px); }
+      .nav-brand { display: inline-flex; align-items: center; gap: var(--space-2); font-family: var(--font-display);
+                   font-weight: var(--fw-bold); font-size: var(--text-lg); letter-spacing: var(--tracking-title); color: var(--color-fg); text-decoration: none; }
+      .nav-brand-mark { display: inline-flex; align-items: center; justify-content: center; width: 1.75rem; height: 1.75rem;
+                        background: var(--color-accent); color: var(--color-accent-fg); border-radius: var(--radius-md); font-weight: var(--fw-bold); font-size: var(--text-sm); }
+      .nav-links { display: flex; gap: var(--space-1); align-items: center; }
+      .nav-link { padding: var(--space-2) var(--space-3); border-radius: var(--radius-md); font-size: var(--text-sm); font-weight: var(--fw-medium);
+                  color: var(--color-muted); text-decoration: none; transition: color var(--duration-fast) var(--ease-out), background var(--duration-fast) var(--ease-out); }
+      .nav-link:hover { color: var(--color-fg); background: var(--color-subtle); }
+      @media (max-width: 48rem) { .nav-link.is-optional { display: none; } }
 
-      /* Cards (page-local, built from tokens) */
-      .lp-card {
-        display: flex; flex-direction: column; gap: var(--space-2);
-        padding: var(--space-6); border-radius: var(--radius-lg); text-decoration: none;
-        background: var(--color-surface);
-        border: 1px solid var(--color-border);
-        transition: border-color var(--duration-fast), box-shadow var(--duration-fast), transform var(--duration-fast);
-      }
-      a.lp-card:hover { border-color: var(--color-accent); box-shadow: var(--shadow-md); transform: translateY(-2px); }
-      .lp-card-icon { color: var(--color-accent); margin-bottom: var(--space-3); }
-      .lp-card h3 { color: var(--color-fg); font-weight: var(--fw-semibold); }
-      .lp-card p { color: var(--color-muted); }
-
-      /* Primary styleguide CTA card */
-      .lp-feature {
-        display: grid; gap: var(--space-6); align-items: center;
-        padding: var(--space-8); border-radius: var(--radius-lg);
-        background: var(--color-subtle);
-      }
-      @media (min-width: 48rem) { .lp-feature { grid-template-columns: 1.5fr 1fr; } }
-
-      /* CTA band */
-      .lp-cta { text-align: center; padding: var(--space-10) var(--space-6); border-radius: var(--radius-lg); background: var(--color-subtle); }
-      .lp-cta h2 { margin-bottom: var(--space-4); }
-      .lp-cta p { color: var(--color-muted); max-width: 50ch; margin: 0 auto var(--space-7); }
-
-      /* Theme toggle */
-      .theme-toggle { cursor: pointer; display: flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; border-radius: var(--radius-full); border: none; background: transparent; transition: background-color var(--duration-fast); }
-      .theme-toggle:hover { background-color: var(--color-subtle); }
-      .theme-toggle svg { width: 1.25rem; height: 1.25rem; }
+      .theme-toggle { cursor: pointer; display: inline-flex; align-items: center; justify-content: center; width: 2.25rem; height: 2.25rem;
+                      border-radius: var(--radius-md); border: none; background: transparent; color: var(--color-muted); transition: background var(--duration-fast), color var(--duration-fast); }
+      .theme-toggle:hover { background: var(--color-subtle); color: var(--color-fg); }
+      .theme-toggle svg { width: 1.2rem; height: 1.2rem; }
       .theme-toggle .t-sun { display: none; }
       :root:has(#dark:checked) .theme-toggle .t-sun { display: block; }
       :root:has(#dark:checked) .theme-toggle .t-moon { display: none; }
 
-      /* Footer (page-local — footers are page patterns, not framework blocks) */
+      /* ---- Hero ---- */
+      .lp-hero { position: relative; overflow: hidden; text-align: center; padding-block: var(--space-12); }
+      .lp-hero::before { content: ""; position: absolute; inset-block-start: -30%; inset-inline-start: 50%; transform: translateX(-50%);
+                         width: min(64rem, 130%); aspect-ratio: 1.6 / 1;
+                         background: radial-gradient(ellipse at center, color-mix(in oklch, var(--color-accent) 16%, transparent) 0%, transparent 68%);
+                         pointer-events: none; z-index: 0; }
+      .lp-hero::after { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+                        background:
+                          radial-gradient(closest-side, color-mix(in oklch, var(--color-accent) 6%, transparent), transparent) -10% 120% / 40rem 40rem no-repeat;
+                        opacity: 0.7; }
+      .lp-hero > * { position: relative; z-index: 1; }
+      .lp-eyebrow { display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-1) var(--space-3);
+                    border: var(--bw-thin) solid var(--color-border); border-radius: var(--radius-full);
+                    background: color-mix(in oklch, var(--color-surface) 80%, transparent);
+                    font-size: var(--text-xs); font-weight: var(--fw-medium); color: var(--color-muted); margin-bottom: var(--space-6); }
+      .lp-eyebrow .dot { width: 0.5rem; height: 0.5rem; border-radius: var(--radius-full); background: var(--color-success); }
+      .lp-hero h1 { margin: 0 auto var(--space-5); max-width: 15ch; font-size: clamp(2.75rem, 6vw, 5rem); line-height: 1.03; letter-spacing: -0.025em; }
+      .lp-gradient-text { background: linear-gradient(115deg, var(--color-fg) 28%, var(--color-accent) 96%);
+                          -webkit-background-clip: text; background-clip: text; color: transparent; }
+      .lp-hero-sub { color: var(--color-muted); max-width: 56ch; margin-inline: auto; }
+      .lp-hero-cta { margin-top: var(--space-8); justify-content: center; }
+      .lp-trust { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-3) var(--space-6);
+                  margin: var(--space-8) 0 0; padding: 0; }
+      .lp-trust li { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--color-muted); font-size: var(--text-sm); }
+      .lp-trust .icon { width: 1rem; height: 1rem; color: var(--color-success); }
+
+      /* ---- Product preview (dogfooded mock built from blocks) ---- */
+      .lp-preview { margin-top: var(--space-12); border-radius: var(--radius-xl); overflow: hidden;
+                    background: var(--color-surface); border: var(--bw-thin) solid var(--color-border); box-shadow: var(--shadow-2xl); }
+      .lp-preview-bar { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-3) var(--space-4);
+                        border-bottom: var(--bw-thin) solid var(--color-border); background: var(--color-subtle); }
+      .lp-preview-dots { display: inline-flex; gap: 0.4rem; }
+      .lp-preview-dots span { width: 0.7rem; height: 0.7rem; border-radius: var(--radius-full); background: var(--color-border); }
+      .lp-preview-title { font-size: var(--text-xs); color: var(--color-muted); margin-inline: auto; }
+      .lp-preview-body { display: grid; grid-template-columns: 1fr; gap: var(--space-5); padding: var(--space-5); background: var(--color-bg); }
+      @media (min-width: 56rem) { .lp-preview-body { grid-template-columns: 13rem 1fr; } }
+      .lp-mockrail { display: none; flex-direction: column; gap: var(--space-1); }
+      @media (min-width: 56rem) { .lp-mockrail { display: flex; } }
+      .lp-mockrail-item { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-3);
+                          border-radius: var(--radius-md); font-size: var(--text-sm); color: var(--color-muted); }
+      .lp-mockrail-item .icon { width: 1rem; height: 1rem; opacity: 0.7; }
+      .lp-mockrail-item.is-active { background: var(--color-subtle); color: var(--color-accent); font-weight: var(--fw-semibold); }
+      .lp-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-3); margin-bottom: var(--space-4); }
+      @media (max-width: 30rem) { .lp-kpis { grid-template-columns: 1fr; } }
+      .lp-kpi { padding: var(--space-4); border-radius: var(--radius-lg); border: var(--bw-thin) solid var(--color-border); background: var(--color-surface); }
+      .lp-kpi-label { font-size: var(--text-xs); color: var(--color-muted); text-transform: uppercase; letter-spacing: var(--tracking-wide); }
+      .lp-kpi-value { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: var(--fw-bold); color: var(--color-fg); margin-top: var(--space-1); }
+      .lp-mocklist { border: var(--bw-thin) solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; background: var(--color-surface); }
+      .lp-mocklist-row { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4); border-bottom: var(--bw-thin) solid var(--color-border); font-size: var(--text-sm); }
+      .lp-mocklist-row:last-child { border-bottom: none; }
+      .lp-mocklist-row .name { color: var(--color-fg); font-weight: var(--fw-medium); }
+      .lp-mocklist-row .spacer { margin-inline-start: auto; }
+
+      /* ---- Feature rows (alternating) ---- */
+      .lp-feature { display: grid; gap: var(--space-8); align-items: center; }
+      @media (min-width: 56rem) { .lp-feature { grid-template-columns: 1fr 1fr; }
+        .lp-feature.is-reverse .lp-feature-visual { order: -1; } }
+      .lp-feature h2 { margin: var(--space-3) 0 var(--space-4); }
+      .lp-feature p { color: var(--color-muted); }
+      .lp-feature-visual { padding: var(--space-7); border-radius: var(--radius-xl); border: var(--bw-thin) solid var(--color-border);
+                           background: linear-gradient(160deg, var(--color-subtle), var(--color-surface)); min-height: 14rem;
+                           display: flex; flex-direction: column; gap: var(--space-4); justify-content: center; }
+
+      /* ---- Bento grid ---- */
+      .lp-bento { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: var(--space-4); }
+      .lp-tile { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-6);
+                 border-radius: var(--radius-xl); border: var(--bw-thin) solid var(--color-border); background: var(--color-surface);
+                 transition: border-color var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-out); }
+      .lp-tile:hover { border-color: color-mix(in oklch, var(--color-accent) 60%, var(--color-border)); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+      .lp-tile-icon { display: inline-flex; align-items: center; justify-content: center; width: 2.25rem; height: 2.25rem; margin-bottom: var(--space-2);
+                      border-radius: var(--radius-md); background: color-mix(in oklch, var(--color-accent) 12%, transparent); color: var(--color-accent); }
+      .lp-tile-icon .icon { width: 1.2rem; height: 1.2rem; }
+      .lp-tile h3 { color: var(--color-fg); }
+      .lp-tile p { color: var(--color-muted); }
+
+      /* ---- CTA band (glass) ---- */
+      .lp-cta { text-align: center; padding: var(--space-12) var(--space-6); border-radius: var(--radius-2xl); }
+      .lp-cta h2 { margin-bottom: var(--space-4); }
+      .lp-cta p { color: var(--color-muted); max-width: 52ch; margin: 0 auto var(--space-7); }
+
+      /* ---- Footer ---- */
+      .lp-footer { border-top: var(--bw-thin) solid var(--color-border); padding-block: var(--space-10); margin-top: var(--space-8); }
       .lp-footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--space-6); }
-      .lp-footer-col-title { font-size: var(--text-sm); font-weight: var(--fw-medium); margin-bottom: var(--space-2); }
-      .lp-footer-link { display: block; font-size: var(--text-sm); color: var(--color-muted); padding: 0.125rem 0; transition: color var(--duration-fast) var(--ease-out); }
+      .lp-footer-col-title { font-size: var(--text-sm); font-weight: var(--fw-semibold); margin-bottom: var(--space-3); color: var(--color-fg); }
+      .lp-footer-link { display: block; font-size: var(--text-sm); color: var(--color-muted); padding: 0.15rem 0; text-decoration: none; transition: color var(--duration-fast) var(--ease-out); }
       .lp-footer-link:hover { color: var(--color-fg); }
       @media (max-width: 60rem) { .lp-footer-grid { grid-template-columns: 1fr 1fr; } }
-      @media (max-width: 48rem) { .lp-footer-grid { grid-template-columns: 1fr; } }
+      @media (max-width: 40rem) { .lp-footer-grid { grid-template-columns: 1fr; } }
     }
   </style>
 </head>
 <body>
   <input type="checkbox" id="dark" class="sr-only" role="switch" aria-label="Aktiver mørk modus">
-  <svg style="display:none"><defs>
+  <svg style="display:none" aria-hidden="true"><defs>
     <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
-    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="12" y1="16" x2="12" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="12" y1="8" x2="12.01" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
-    <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="4.2" y1="19.8" x2="5.6" y2="18.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="18.4" y1="5.6" x2="19.8" y2="4.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><polyline points="13 6 19 12 13 18" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/><polyline points="2 17 12 22 22 17" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/><polyline points="2 12 12 17 22 12" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/></symbol>
+    <symbol id="i-contrast" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5l8-3z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/><polyline points="9 12 11.5 14.5 16 9.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><polyline points="8 6 2 12 8 18" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18" stroke="currentColor" stroke-width="1.5" fill="none"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 10v10h14V10" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><line x1="4" y1="20" x2="20" y2="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><rect x="6" y="11" width="3" height="6" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="11" y="7" width="3" height="10" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="16" y="13" width="3" height="4" stroke="currentColor" stroke-width="1.5" fill="none"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   </defs></svg>
 
   <nav class="nav">
-    <div class="nav-brand">Nordover</div>
+    <a href="#top" class="nav-brand"><span class="nav-brand-mark">N</span> Nordover</a>
     <div class="nav-links">
-      <a href="docs/visual/styleguide.html" class="btn btn-ghost" style="font-size: var(--text-sm);">Styleguide</a>
-      <a href="#docs" class="btn btn-ghost" style="font-size: var(--text-sm);">Docs</a>
-      <button class="theme-toggle" aria-label="Bytt tema">
-        <svg class="icon t-moon"><use href="#i-moon"/></svg>
-        <svg class="icon t-sun"><use href="#i-sun"/></svg>
+      <a href="#features" class="nav-link is-optional">Funksjoner</a>
+      <a href="#docs" class="nav-link is-optional">Dokumentasjon</a>
+      <a href="https://github.com/xxnamae/nordover-ui" class="nav-link is-optional">GitHub</a>
+      <button class="theme-toggle" aria-label="Bytt mellom lys og mørk modus" onclick="document.getElementById('dark').click()">
+        <svg class="t-moon"><use href="#i-moon"/></svg>
+        <svg class="t-sun"><use href="#i-sun"/></svg>
       </button>
+      <a href="docs/visual/styleguide.html" class="btn btn-primary btn-sm">Åpne styleguide</a>
     </div>
   </nav>
 
-  <main>
+  <main id="top">
     <!-- Hero -->
-    <section class="lp-section lp-hero">
+    <header class="lp-hero">
       <div class="lp-inner">
-        <p class="t-eyebrow">Fundament for nordiske nettsider og apper</p>
-        <h1 class="t-display-2xl">Nordover</h1>
+        <span class="lp-eyebrow"><span class="dot"></span> v2.0 · WCAG AA ved konstruksjon</span>
+        <h1 class="t-display-2xl"><span class="lp-gradient-text">Et fundament i verdensklasse</span></h1>
         <p class="t-body-lg lp-hero-sub">
-          Tokens og byggesteiner av topp kvalitet — fundamentet hvert prosjekt bygger sine egne sider på. Skandinavisk minimalisme, full kontroll over tema og brand.
+          Nordover gir deg tokens og byggesteiner av topp kvalitet — fundamentet hvert prosjekt bygger sine egne sider på.
+          Skandinavisk minimalisme, full kontroll over tema og brand, lys og mørk innebygd.
         </p>
-        <div class="cluster" style="margin-top: var(--space-8); justify-content: center;">
-          <a href="docs/visual/styleguide.html" class="btn btn-primary">Utforsk styleguide</a>
-          <a href="https://github.com/xxnamae/nordover-ui" class="btn btn-secondary">GitHub</a>
+        <div class="cluster lp-hero-cta">
+          <a href="docs/visual/styleguide.html" class="btn btn-primary btn-lg">Utforsk styleguide <svg class="icon icon-sm"><use href="#i-arrow-right"/></svg></a>
+          <a href="https://github.com/xxnamae/nordover-ui" class="btn btn-secondary btn-lg">Se på GitHub</a>
         </div>
-        <ul class="lp-stats">
-          <li><strong>Tokens</strong> + byggesteiner</li>
-          <li><strong>WCAG AA</strong> tilgjengelig</li>
-          <li><strong>Lys + Mørk</strong> innebygd</li>
-          <li><strong>Web + App</strong> pakker</li>
-          <li><strong>MIT</strong> lisensiert</li>
+        <ul class="lp-trust">
+          <li><svg class="icon"><use href="#i-check"/></svg> WCAG AA-kontrast</li>
+          <li><svg class="icon"><use href="#i-check"/></svg> Lys + mørk modus</li>
+          <li><svg class="icon"><use href="#i-check"/></svg> Web + app-pakker</li>
+          <li><svg class="icon"><use href="#i-check"/></svg> MIT-lisensiert</li>
         </ul>
-      </div>
-    </section>
 
-    <!-- Styleguide -->
-    <section class="lp-section">
-      <div class="lp-inner">
-        <div class="lp-feature">
-          <div class="stack">
-            <p class="t-eyebrow">Interaktiv styleguide</p>
-            <h2 class="t-heading-lg">Alle tokens og byggesteiner på ett sted</h2>
-            <p class="t-body-lg" style="color: var(--color-muted);">
-              Én samlet styleguide med pakke-velger for web og app. Se farger, typografi, spacing, motion — og hver byggestein med live demoer og klassenavn.
-            </p>
-            <div class="cluster">
-              <a href="docs/visual/styleguide.html" class="btn btn-primary">Åpne styleguide</a>
+        <!-- Product preview — a mock built entirely from shipped building blocks -->
+        <div class="lp-preview gradient-border-glow">
+          <div class="lp-preview-bar">
+            <span class="lp-preview-dots"><span></span><span></span><span></span></span>
+            <span class="lp-preview-title">nordover-app · oversikt</span>
+          </div>
+          <div class="lp-preview-body">
+            <nav class="lp-mockrail" aria-hidden="true">
+              <span class="lp-mockrail-item is-active"><svg class="icon"><use href="#i-home"/></svg> Oversikt</span>
+              <span class="lp-mockrail-item"><svg class="icon"><use href="#i-chart"/></svg> Analyse</span>
+              <span class="lp-mockrail-item"><svg class="icon"><use href="#i-layers"/></svg> Prosjekter</span>
+              <span class="lp-mockrail-item"><svg class="icon"><use href="#i-settings"/></svg> Innstillinger</span>
+            </nav>
+            <div>
+              <div class="lp-kpis">
+                <div class="lp-kpi"><div class="lp-kpi-label">Aktive</div><div class="lp-kpi-value">2 480</div></div>
+                <div class="lp-kpi"><div class="lp-kpi-label">MRR</div><div class="lp-kpi-value">kr 149k</div></div>
+                <div class="lp-kpi"><div class="lp-kpi-label">Oppetid</div><div class="lp-kpi-value">99,98 %</div></div>
+              </div>
+              <div class="lp-mocklist">
+                <div class="lp-mocklist-row"><svg class="icon icon-sm" style="color:var(--color-muted)"><use href="#i-layers"/></svg> <span class="name">Designsystem-migrering</span> <span class="badge badge-success spacer">Fullført</span></div>
+                <div class="lp-mocklist-row"><svg class="icon icon-sm" style="color:var(--color-muted)"><use href="#i-bolt"/></svg> <span class="name">Interaksjons-fundament</span> <span class="badge badge-info spacer">Pågår</span></div>
+                <div class="lp-mocklist-row"><svg class="icon icon-sm" style="color:var(--color-muted)"><use href="#i-shield"/></svg> <span class="name">Tilgjengelighets-revisjon</span> <span class="badge badge-warning spacer">Venter</span></div>
+              </div>
             </div>
           </div>
-          <div class="stack" style="gap: var(--space-3);">
-            <span class="badge badge-success">Buttons</span>
-            <span class="badge badge-info">Forms</span>
-            <span class="badge badge-neutral">Cards</span>
-            <span class="badge badge-warning">Tables</span>
-            <span class="badge badge-neutral">Modals</span>
-            <span class="badge badge-info">Navigation</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Feature rows -->
+    <section class="lp-section" id="features">
+      <div class="lp-inner stack" style="gap: var(--space-16);">
+
+        <div class="lp-feature">
+          <div class="stack">
+            <p class="t-eyebrow">Interaksjons-fundament</p>
+            <h2 class="t-heading-lg">State-layers, fokus-ring og target-size — innebygd</h2>
+            <p class="t-body-lg">
+              Hver interaktiv byggestein har M3-paritet på hover/fokus/trykk, en to-tonet fokus-ring (WCAG 2.4.13) og 44px komfortabel
+              trykkflate. Du arver oppførselen i stedet for å gjenoppfinne den.
+            </p>
+            <div class="cluster"><a href="docs/visual/styleguide.html#interaction" class="btn btn-secondary">Se interaksjons-tokens <svg class="icon icon-sm"><use href="#i-arrow-right"/></svg></a></div>
+          </div>
+          <div class="lp-feature-visual">
+            <div class="cluster"><button class="btn btn-primary">Primær</button><button class="btn btn-secondary">Sekundær</button><button class="btn btn-ghost">Ghost</button></div>
+            <div class="cluster"><button class="btn btn-success btn-sm">Bekreft</button><button class="btn btn-error btn-sm">Slett</button><button class="btn btn-primary btn-sm" disabled>Deaktivert</button></div>
+            <div class="cluster" style="gap: var(--space-2);"><span class="badge badge-success">success</span><span class="badge badge-warning">warning</span><span class="badge badge-error">error</span><span class="badge badge-info">info</span></div>
           </div>
         </div>
+
+        <div class="lp-feature is-reverse">
+          <div class="stack">
+            <p class="t-eyebrow">Materiale &amp; tema</p>
+            <h2 class="t-heading-lg">Liquid glass og 3-variabel tema — uten å forlate roen</h2>
+            <p class="t-body-lg">
+              Et raffinert translusent materiale (blur + opplyst kant + specular-sheen) brukt sparsomt, og en Linear-stil tema-generator
+              på OKLCH. Bytt mellom lys og mørk her oppe i hjørnet — alt følger med.
+            </p>
+            <div class="cluster"><a href="docs/visual/styleguide.html#colors" class="btn btn-secondary">Se farger &amp; tema <svg class="icon icon-sm"><use href="#i-arrow-right"/></svg></a></div>
+          </div>
+          <div class="lp-feature-visual glass-liquid">
+            <p class="t-eyebrow" style="color: var(--color-fg);">.glass-liquid</p>
+            <p class="t-body-sm" style="color: var(--color-fg);">Translusent materiale med opplyst kant og dybde-skygge — faller tilbake til en opak flate ved <code>prefers-reduced-transparency</code>.</p>
+            <div class="cluster"><span class="badge badge-neutral">OKLCH</span><span class="badge badge-neutral">Lys + mørk</span><span class="badge badge-neutral">Brand-accent</span></div>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- Features -->
+    <!-- Bento grid -->
     <section class="lp-section" style="background: var(--color-subtle);">
       <div class="lp-inner">
-        <h2 class="t-heading-lg" style="margin-bottom: var(--space-8);">Hvorfor Nordover</h2>
-        <div class="grid-auto">
-          <div class="lp-card">
-            <svg class="lp-card-icon icon icon-lg"><use href="#i-check"/></svg>
-            <h3 class="t-heading-sm">Tilgjengelig først</h3>
-            <p class="t-body-sm">WCAG AA. Fokus-indikatorer, kontrast-validering og reduced-motion innebygd.</p>
-          </div>
-          <div class="lp-card">
-            <svg class="lp-card-icon icon icon-lg"><use href="#i-check"/></svg>
-            <h3 class="t-heading-sm">Fluid typografi</h3>
-            <p class="t-body-sm">CSS clamp() skalerer typografi flytende fra mobil til desktop uten breakpoints.</p>
-          </div>
-          <div class="lp-card">
-            <svg class="lp-card-icon icon icon-lg"><use href="#i-check"/></svg>
-            <h3 class="t-heading-sm">CSS-variabler</h3>
-            <p class="t-body-sm">Alle tokens som CSS custom properties. Enkel theme-override uten å rebygge.</p>
-          </div>
-          <div class="lp-card">
-            <svg class="lp-card-icon icon icon-lg"><use href="#i-check"/></svg>
-            <h3 class="t-heading-sm">Lys &amp; mørk modus</h3>
-            <p class="t-body-sm">Innebygd tema-toggle via CSS :has() — ingen JavaScript nødvendig.</p>
-          </div>
+        <p class="t-eyebrow" style="text-align:center;">Hvorfor Nordover</p>
+        <h2 class="t-heading-lg" style="text-align:center; margin: var(--space-3) 0 var(--space-10);">Bygd for å tåle sammenligning med de beste</h2>
+        <div class="lp-bento">
+          <div class="lp-tile"><span class="lp-tile-icon"><svg class="icon"><use href="#i-shield"/></svg></span><h3 class="t-heading-sm">Tilgjengelig først</h3><p class="t-body-sm">WCAG AA håndhevet i CI. Kontrast-garanti i lys og mørk, fokus-ringer og reduced-motion innebygd.</p></div>
+          <div class="lp-tile"><span class="lp-tile-icon"><svg class="icon"><use href="#i-bolt"/></svg></span><h3 class="t-heading-sm">Fluid typografi</h3><p class="t-body-sm">CSS <code>clamp()</code> skalerer skriften flytende fra mobil til desktop uten breakpoints.</p></div>
+          <div class="lp-tile"><span class="lp-tile-icon"><svg class="icon"><use href="#i-contrast"/></svg></span><h3 class="t-heading-sm">Lys &amp; mørk</h3><p class="t-body-sm">Tonal elevasjon i mørk modus. Bytt via CSS <code>:has()</code> — null JavaScript nødvendig.</p></div>
+          <div class="lp-tile"><span class="lp-tile-icon"><svg class="icon"><use href="#i-layers"/></svg></span><h3 class="t-heading-sm">Web + app</h3><p class="t-body-sm">To pakker, identiske klassekontrakter — luftig editorial eller tett Linear-grad SaaS.</p></div>
+          <div class="lp-tile"><span class="lp-tile-icon"><svg class="icon"><use href="#i-code"/></svg></span><h3 class="t-heading-sm">Tokens som kontrakt</h3><p class="t-body-sm">Alle tokens som CSS-variabler + DTCG-JSON. Override tema uten å rebygge noe.</p></div>
+          <div class="lp-tile"><span class="lp-tile-icon"><svg class="icon"><use href="#i-globe"/></svg></span><h3 class="t-heading-sm">RTL-korrekt</h3><p class="t-body-sm">Logiske egenskaper hele veien — speilvender automatisk under <code>dir="rtl"</code>.</p></div>
         </div>
       </div>
     </section>
@@ -184,31 +283,16 @@
     <!-- Documentation -->
     <section class="lp-section" id="docs">
       <div class="lp-inner">
-        <h2 class="t-heading-lg" style="margin-bottom: var(--space-2);">Dokumentasjon</h2>
-        <p class="t-body-lg" style="color: var(--color-muted); margin-bottom: var(--space-8);">
-          Alt du trenger for å bygge på Nordover i ditt prosjekt eller monorepo.
+        <p class="t-eyebrow">Dokumentasjon</p>
+        <h2 class="t-heading-lg" style="margin: var(--space-3) 0 var(--space-2);">Alt du trenger for å bygge videre</h2>
+        <p class="t-body-lg" style="color: var(--color-muted); margin-bottom: var(--space-10); max-width: 60ch;">
+          Implementørguider for hvert miljø — fra rene rammeverk til Elementor — pluss det valgfrie JS-atferdslaget.
         </p>
-        <div class="grid-auto">
-          <a href="docs/handoff/README.md" class="lp-card">
-            <svg class="lp-card-icon icon icon-lg"><use href="#i-info"/></svg>
-            <h3 class="t-heading-sm">Framework Handoff</h3>
-            <p class="t-body-sm">Implementørguidanse. Hvordan bruke tokens og byggesteiner i ditt prosjekt.</p>
-          </a>
-          <a href="docs/handoff/monorepo-bootstrap.md" class="lp-card">
-            <svg class="lp-card-icon icon icon-lg"><use href="#i-info"/></svg>
-            <h3 class="t-heading-sm">Monorepo Bootstrap</h3>
-            <p class="t-body-sm">Strukturer en Next.js + Payload monorepo med Nordover. Workspace-oppsett.</p>
-          </a>
-          <a href="https://github.com/xxnamae/nordover-ui/tree/main/docs/wiki/topics" class="lp-card">
-            <svg class="lp-card-icon icon icon-lg"><use href="#i-info"/></svg>
-            <h3 class="t-heading-sm">Component Topics</h3>
-            <p class="t-body-sm">Spesifikasjoner for byggesteinene — buttons, forms, cards, og mer.</p>
-          </a>
-          <a href="https://github.com/xxnamae/nordover-ui/tree/main/docs/wiki/decisions" class="lp-card">
-            <svg class="lp-card-icon icon icon-lg"><use href="#i-info"/></svg>
-            <h3 class="t-heading-sm">Architecture Decisions</h3>
-            <p class="t-body-sm">ADR-er. Hvorfor design-valg ble gjort, trade-offs, og historikk.</p>
-          </a>
+        <div class="lp-bento">
+          <a href="docs/handoff/README.md" class="lp-tile" style="text-decoration:none;"><span class="lp-tile-icon"><svg class="icon"><use href="#i-layers"/></svg></span><h3 class="t-heading-sm">Framework-handoff</h3><p class="t-body-sm">React, Vue, Svelte, Next.js — hvordan bruke tokens og byggesteiner i ditt prosjekt.</p></a>
+          <a href="docs/handoff/BEHAVIORS-JS.md" class="lp-tile" style="text-decoration:none;"><span class="lp-tile-icon"><svg class="icon"><use href="#i-bolt"/></svg></span><h3 class="t-heading-sm">JS-atferdslag</h3><p class="t-body-sm">Valgfri, avhengighetsfri <code>nordover.js</code> — tabs, modal, meny og drawer via data-attributter.</p></a>
+          <a href="docs/handoff/ELEMENTOR-WORDPRESS.md" class="lp-tile" style="text-decoration:none;"><span class="lp-tile-icon"><svg class="icon"><use href="#i-globe"/></svg></span><h3 class="t-heading-sm">Elementor / WordPress</h3><p class="t-body-sm">Token-først-oppskrift: map Nordover inn i Elementors Global Colors og Fonts.</p></a>
+          <a href="https://github.com/xxnamae/nordover-ui/tree/main/docs/wiki/decisions" class="lp-tile" style="text-decoration:none;"><span class="lp-tile-icon"><svg class="icon"><use href="#i-code"/></svg></span><h3 class="t-heading-sm">Arkitektur-beslutninger</h3><p class="t-body-sm">ADR-er. Hvorfor design-valg ble tatt, trade-offs og historikk.</p></a>
         </div>
       </div>
     </section>
@@ -216,44 +300,44 @@
     <!-- CTA -->
     <section class="lp-section">
       <div class="lp-inner">
-        <div class="lp-cta">
-          <h2 class="t-display-md">Klar til å komme i gang?</h2>
-          <p class="t-body-lg">
-            Les implementørguidansen og se hvordan du bygger på Nordover i ditt prosjekt.
-          </p>
+        <div class="lp-cta glass-liquid">
+          <h2 class="t-display-md">Klar til å bygge på Nordover?</h2>
+          <p class="t-body-lg">Åpne den interaktive styleguiden, eller les implementørguidansen og kom i gang i ditt eget prosjekt.</p>
           <div class="cluster" style="justify-content: center;">
-            <a href="docs/handoff/README.md" class="btn btn-primary">Dokumentasjon</a>
-            <a href="https://github.com/xxnamae/nordover-ui" class="btn btn-secondary">Se på GitHub</a>
+            <a href="docs/visual/styleguide.html" class="btn btn-primary btn-lg">Åpne styleguide <svg class="icon icon-sm"><use href="#i-arrow-right"/></svg></a>
+            <a href="docs/handoff/README.md" class="btn btn-secondary btn-lg">Les dokumentasjonen</a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer style="border-top: var(--border-divider); padding: var(--space-8) var(--page-padding);">
+    <footer class="lp-footer">
       <div class="lp-inner">
         <div class="lp-footer-grid">
           <div>
-            <div class="lp-footer-col-title">Nordover Design System</div>
-            <p class="t-body-sm" style="color: var(--color-muted); margin-bottom: var(--space-3);">
-              Tokens og byggesteiner for nordiske digitale produkter. MIT-lisensiert.
+            <a href="#top" class="nav-brand" style="margin-bottom: var(--space-3);"><span class="nav-brand-mark">N</span> Nordover</a>
+            <p class="t-body-sm" style="color: var(--color-muted); max-width: 36ch;">
+              Tokens og byggesteiner for nordiske digitale produkter. Et fundament — ikke ferdige sider. MIT-lisensiert.
             </p>
           </div>
           <div>
-            <div class="lp-footer-col-title">Ressurser</div>
+            <div class="lp-footer-col-title">Produkt</div>
             <a href="docs/visual/styleguide.html" class="lp-footer-link">Styleguide</a>
-            <a href="docs/handoff/README.md" class="lp-footer-link">Handoff</a>
+            <a href="#features" class="lp-footer-link">Funksjoner</a>
+            <a href="docs/handoff/BEHAVIORS-JS.md" class="lp-footer-link">JS-atferdslag</a>
           </div>
           <div>
-            <div class="lp-footer-col-title">Docs</div>
-            <a href="docs/handoff/monorepo-bootstrap.md" class="lp-footer-link">Monorepo Guide</a>
-            <a href="https://github.com/xxnamae/nordover-ui/tree/main/docs/wiki/decisions" class="lp-footer-link">Decisions (ADRs)</a>
-            <a href="docs/wiki/glossary.md" class="lp-footer-link">Glossar</a>
+            <div class="lp-footer-col-title">Dokumentasjon</div>
+            <a href="docs/handoff/README.md" class="lp-footer-link">Handoff</a>
+            <a href="docs/handoff/monorepo-bootstrap.md" class="lp-footer-link">Monorepo-guide</a>
+            <a href="https://github.com/xxnamae/nordover-ui/tree/main/docs/wiki/decisions" class="lp-footer-link">Beslutninger (ADR)</a>
           </div>
           <div>
             <div class="lp-footer-col-title">Repository</div>
             <a href="https://github.com/xxnamae/nordover-ui" class="lp-footer-link">GitHub</a>
-            <a href="https://github.com/xxnamae/nordover-ui/blob/main/LICENSE" class="lp-footer-link">MIT License</a>
+            <a href="https://github.com/xxnamae/nordover-ui/blob/main/LICENSE" class="lp-footer-link">MIT-lisens</a>
+            <a href="https://github.com/xxnamae/nordover-ui/blob/main/CHANGELOG.md" class="lp-footer-link">Endringslogg</a>
           </div>
         </div>
       </div>
