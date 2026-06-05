@@ -768,28 +768,32 @@
   .badge-info { background: var(--color-subtle); color: var(--color-fg); }
   .badge-info::before { background: var(--color-info); }
 
-  /* Alerts — neutral surface; severity shown by a colored left edge + icon
-     (grayscale-first, no tinted fill). */
+  /* Alerts — neutral surface; severity via a flush full-height left edge + icon.
+     The edge is a ::before strip (not border-left) so it reaches top & bottom
+     cleanly inside the rounded corners. */
   .alert {
+    position: relative;
+    overflow: hidden;
     display: flex;
     gap: var(--space-3);
     padding: var(--space-4);
+    padding-left: calc(var(--space-4) + var(--space-1));
     background: var(--color-subtle);
     border: var(--bw-thin) solid var(--color-border);
-    border-left: 3px solid var(--color-border);
     border-radius: var(--radius-lg);
     color: var(--color-fg);
     font-size: var(--text-sm);
   }
+  .alert::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--color-border); }
   .alert-icon { flex-shrink: 0; width: var(--space-5); height: var(--space-5); margin-top: 0.125rem; color: var(--color-muted); }
 
-  .alert-success { border-left-color: var(--color-success); }
+  .alert-success::before { background: var(--color-success); }
   .alert-success .alert-icon { color: var(--color-success); }
-  .alert-error { border-left-color: var(--color-error); }
+  .alert-error::before { background: var(--color-error); }
   .alert-error .alert-icon { color: var(--color-error); }
-  .alert-warning { border-left-color: var(--color-warning); }
+  .alert-warning::before { background: var(--color-warning); }
   .alert-warning .alert-icon { color: var(--color-warning); }
-  .alert-info { border-left-color: var(--color-info); }
+  .alert-info::before { background: var(--color-info); }
   .alert-info .alert-icon { color: var(--color-info); }
 
   /* Table lives in the TABLE section below (single source of truth). */
@@ -1349,7 +1353,7 @@
   .spinner { display: inline-block; width: var(--space-5); height: var(--space-5); border: 2px solid var(--color-border); border-top-color: var(--color-accent); border-radius: 50%; animation: spin var(--duration-base) linear infinite; }
   .breadcrumbs { display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-2); font-size: var(--text-sm); }
   .breadcrumb-item { display: flex; align-items: center; }
-  .breadcrumb-item::after { content: "/"; margin-left: var(--space-2); color: var(--color-muted); }
+  .breadcrumb-item::after { content: "•"; margin-left: var(--space-2); color: var(--color-muted); }
   .breadcrumb-item:last-child::after { display: none; }
   .empty-state { text-align: center; padding: var(--space-10) var(--space-6); }
   .empty-state-icon { width: 3rem; height: 3rem; color: var(--color-muted); margin-bottom: var(--space-4); }
@@ -1539,13 +1543,14 @@
 
   /* Toast */
   .toast-viewport { position: fixed; bottom: var(--space-5); right: var(--space-5); display: flex; flex-direction: column; gap: var(--space-2); z-index: var(--z-toast); }
-  .toast { display: flex; align-items: flex-start; gap: var(--space-3); background: var(--surface-4); border: var(--border-card); border-radius: var(--radius-md); box-shadow: var(--shadow-lg); padding: var(--space-3) var(--space-4); min-width: 18rem; max-width: 24rem; }
+  .toast { position: relative; overflow: hidden; display: flex; align-items: flex-start; gap: var(--space-3); background: var(--surface-4); border: var(--border-card); border-radius: var(--radius-md); box-shadow: var(--shadow-lg); padding: var(--space-3) var(--space-4); padding-left: calc(var(--space-4) + var(--space-1)); min-width: 18rem; max-width: 24rem; }
+  .toast::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--color-border); }
   @media (prefers-reduced-motion: no-preference) { .toast { animation: toast-in var(--duration-base) var(--ease-spring); } }
   @keyframes toast-in { from { opacity: 0; transform: translateX(1rem); } to { opacity: 1; transform: translateX(0); } }
-  .toast-success { border-left: 3px solid var(--success); }
-  .toast-error { border-left: 3px solid var(--error); }
-  .toast-warning { border-left: 3px solid var(--warning); }
-  .toast-info { border-left: 3px solid var(--info); }
+  .toast-success::before { background: var(--color-success); }
+  .toast-error::before { background: var(--color-error); }
+  .toast-warning::before { background: var(--color-warning); }
+  .toast-info::before { background: var(--color-info); }
 
   /* Tag variants — extend the existing .tag (tag-input context), never rename */
   .tag-solid { background: var(--color-accent); color: var(--on-accent); }

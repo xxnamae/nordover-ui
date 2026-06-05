@@ -2024,12 +2024,13 @@
 </div>
 
 <script>
-// Package switcher — swaps the token package so the preview reflects each
-// package's visual defaults (typography scale, density, light/dark base).
-// Components share the same class contracts across packages.
+// Package switcher — swaps BOTH the token and component stylesheets so the
+// preview matches each package exactly (typography scale, density, control
+// sizes). Class contracts are identical; only the values differ.
 document.querySelectorAll('input[name="package"]').forEach(radio => {
   radio.addEventListener('change', function() {
     document.getElementById('token-stylesheet').href = `./tokens/tokens-${this.value}.css`;
+    document.getElementById('component-stylesheet').href = `./components/components-${this.value}.css`;
   });
 });
 

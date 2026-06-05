@@ -69,8 +69,7 @@ html, body {
 
 @media (min-width: 48rem) /* --bp-desktop (var() not allowed in media queries) */ {
   .app {
-    grid-template-columns: auto 1fr;
-    grid-template-rows: 1fr;
+    display: block; /* sidebar is fixed; main is offset by margin-left */
   }
 }
 
@@ -98,14 +97,14 @@ html, body {
   transform: translateX(0);
 }
 
-/* Desktop: sidebar is sticky in grid */
+/* Desktop: sidebar is truly fixed full-height; main content is offset by its width */
 @media (min-width: 48rem) /* --bp-desktop (var() not allowed in media queries) */ {
   .app-sidebar {
-    grid-column: 1;
-    grid-row: 1 / -1;
-    position: sticky;
-    left: auto;
+    position: fixed;
+    left: 0;
     top: 0;
+    height: 100vh;
+    height: 100dvh;
     transform: none;
     transition: width var(--duration-moderate) var(--ease-out);
     z-index: 50;
@@ -337,8 +336,11 @@ html, body {
 
 @media (min-width: 48rem) /* --bp-desktop (var() not allowed in media queries) */ {
   .app-main {
-    grid-column: 2;
-    grid-row: 1 / -1;
+    margin-left: var(--sidebar-width);
+    transition: margin-left var(--duration-moderate) var(--ease-out);
+  }
+  #collapse:checked ~ .app .app-main {
+    margin-left: var(--sidebar-width-collapsed);
   }
 }
 
@@ -699,7 +701,7 @@ html, body {
 }
 
 .metadata-status {
-  background: var(--success-subtle);
+  background: var(--color-subtle);
   border: var(--bw-thin) solid var(--success);
   color: var(--success-strong);
 }
@@ -992,7 +994,7 @@ html, body {
 .a11y-checklist {
   margin: var(--space-4) 0;
   padding: var(--space-5);
-  background: var(--success-subtle);
+  background: var(--color-subtle);
   border: var(--bw-thin) solid var(--color-border);
   border-left: 4px solid var(--success);
   border-radius: var(--radius-xl);
@@ -1166,8 +1168,9 @@ html, body {
   gap: var(--space-3);
   padding: var(--space-3);
   border-radius: var(--radius-md);
-  background: var(--info-subtle);
-  border: 1px solid color-mix(in oklch, var(--color-accent) 25%, transparent);
+  background: var(--color-subtle);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-info);
   margin-bottom: var(--space-3);
 }
 .doc-a11y .icon { color: var(--color-accent); flex-shrink: 0; margin-top: 0.1rem; }
