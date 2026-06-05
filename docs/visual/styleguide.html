@@ -559,6 +559,28 @@
             <span class="chip">.tag-success</span><span class="chip">.tag-input</span><span class="chip">.tag-list</span>
             <span class="chip">.tag-suggestions</span>
           </div>
+
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li>Labelling items with keywords, categories, or filters</li>
+                <li><code>.tag-input</code> for free-form, removable multi-value entry</li>
+                <li>Semantic colour (<code>.tag-success</code>) only when it carries meaning</li>
+              </ul>
+            </div>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>Status of a whole row — use a <a href="#badges-alerts">Badge</a></li>
+                <li>Primary actions — tags aren't buttons</li>
+                <li>Fixed single-choice sets — use radios or a select</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Example</div>
           <div class="doc-demo stack">
             <div>
               <h3 class="t-body-sm">Tag variants</h3>
@@ -586,6 +608,40 @@
                 </div>
               </div>
             </div>
+          </div>
+
+          <div class="doc-block-label">Variants</div>
+          <table class="props-table">
+            <thead><tr><th>Class</th><th>Axis</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td><code>.tag</code></td><td>Base</td><td>Tinted pill; add <code>.tag-remove</code> for a dismiss control</td></tr>
+              <tr><td><code>.tag-solid</code> / <code>.tag-outline</code></td><td>Fill style</td><td>A separate axis from colour — pick one fill</td></tr>
+              <tr><td><code>.tag-success</code> (… <code>-error</code>/<code>-warning</code>/<code>-info</code>)</td><td>Status</td><td>Same status vocabulary as badges/alerts</td></tr>
+              <tr><td><code>.tag-input</code> · <code>.tag-list</code> · <code>.tag-input-field</code></td><td>Input</td><td>Container, current tags, and the entry field</td></tr>
+              <tr><td><code>.tag-suggestions</code> · <code>.tag-suggestion</code></td><td>Input</td><td>Autocomplete popover and its options</td></tr>
+            </tbody>
+          </table>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>Each <code>.tag-remove</code> is a real button with an <code>aria-label</code> like “Remove React”.</li>
+                <li>The tag input pairs with <code>role="listbox"</code> suggestions and <code>aria-activedescendant</code> for keyboard navigation.</li>
+                <li>Don't convey a tag's meaning with colour alone — keep the text label.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;span class="tag"&gt;React
+  &lt;button class="tag-remove" aria-label="Remove React"&gt;
+    &lt;svg class="icon icon-sm"&gt;&lt;use href="#i-x"/&gt;&lt;/svg&gt;
+  &lt;/button&gt;
+&lt;/span&gt;</pre>
           </div>
         </section>
 
@@ -965,6 +1021,28 @@
             <span class="chip">.card-interactive</span><span class="chip">.card-header</span><span class="chip">.card-title</span>
             <span class="chip">.card-meta</span><span class="chip">.card-footer</span>
           </div>
+
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li>Grouping related content into a scannable unit</li>
+                <li><code>.card-interactive</code> when the whole card is one link/action</li>
+                <li>Repeating items in a <code>.grid-auto</code> (products, settings, summaries)</li>
+              </ul>
+            </div>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>Nesting cards inside cards — flatten the hierarchy instead</li>
+                <li>A single block of text — a card adds no structure there</li>
+                <li>Tabular data — use a <a href="#tables">Table</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Example</div>
           <div class="doc-demo">
             <div class="grid-auto">
               <div class="card-bordered" style="padding: var(--space-4); border-radius: var(--radius-lg);">
@@ -979,12 +1057,64 @@
                 <div class="card-header"><span class="card-title">Subtle</span></div>
                 <p class="card-meta">Filled with a subtle background.</p>
               </div>
-              <div class="card-interactive" style="padding: var(--space-4); border-radius: var(--radius-lg); display: flex; flex-direction: column;">
+              <a href="#cards" class="card-interactive" style="padding: var(--space-4); border-radius: var(--radius-lg); display: flex; flex-direction: column; text-decoration: none; color: inherit;">
                 <div class="card-header"><span class="card-title">Interactive</span></div>
-                <p class="card-meta">Hover to lift. Includes a footer.</p>
-                <div class="card-footer"><button class="btn btn-ghost btn-sm">Action</button></div>
+                <p class="card-meta">The whole card is a link. Hover to lift.</p>
+                <div class="card-footer"><span class="btn btn-ghost btn-sm">Open →</span></div>
+              </a>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Variants &amp; parts</div>
+          <table class="props-table">
+            <thead><tr><th>Class</th><th>Role</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td><code>.card-bordered</code></td><td>Surface</td><td>Lowest emphasis — a hairline border</td></tr>
+              <tr><td><code>.card-subtle</code></td><td>Surface</td><td>Filled background, no border</td></tr>
+              <tr><td><code>.card-elevated</code></td><td>Surface</td><td>Shadow elevation; floats above the page</td></tr>
+              <tr><td><code>.card-interactive</code></td><td>Surface</td><td>Hover-lift; use on a real <code>&lt;a&gt;</code>/<code>&lt;button&gt;</code></td></tr>
+              <tr><td><code>.card-header</code> · <code>.card-title</code></td><td>Part</td><td>Top region and its heading</td></tr>
+              <tr><td><code>.card-meta</code> · <code>.card-footer</code></td><td>Part</td><td>Secondary text and an actions row</td></tr>
+            </tbody>
+          </table>
+
+          <div class="doc-guidelines">
+            <div class="doc-card is-do">
+              <div class="doc-card-figure"><div class="card-bordered" style="padding: var(--space-3); border-radius: var(--radius-md);"><span class="card-title">Plan</span><p class="card-meta" style="margin:0;">Flat, one level</p></div></div>
+              <div class="doc-card-body">
+                <div class="doc-card-label"><svg class="icon icon-sm"><use href="#i-check"/></svg> Do</div>
+                <p class="doc-card-note">Keep cards flat — one surface level per region.</p>
               </div>
             </div>
+            <div class="doc-card is-dont">
+              <div class="doc-card-figure"><div class="card-bordered" style="padding: var(--space-3); border-radius: var(--radius-md);"><div class="card-elevated" style="padding: var(--space-2);"><span class="card-meta" style="margin:0;">Nested</span></div></div></div>
+              <div class="doc-card-body">
+                <div class="doc-card-label"><svg class="icon icon-sm"><use href="#i-x"/></svg> Don't</div>
+                <p class="doc-card-note">Don't nest cards inside cards — depth becomes ambiguous.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>For a clickable card, make the wrapper a real <code>&lt;a&gt;</code> or <code>&lt;button&gt;</code> so it's focusable.</li>
+                <li>Use one clear link per card; avoid multiple nested interactive targets.</li>
+                <li><code>.card-title</code> should map to a heading level that fits the page outline.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;article class="card-elevated"&gt;
+  &lt;div class="card-header"&gt;&lt;h3 class="card-title"&gt;Title&lt;/h3&gt;&lt;/div&gt;
+  &lt;p class="card-meta"&gt;Supporting text.&lt;/p&gt;
+  &lt;div class="card-footer"&gt;&lt;button class="btn btn-ghost btn-sm"&gt;Action&lt;/button&gt;&lt;/div&gt;
+&lt;/article&gt;</pre>
           </div>
         </section>
 
@@ -1125,6 +1255,28 @@
             <span class="chip">.pagination-btn</span><span class="chip">.pagination-dot</span><span class="chip">.pagination-item</span>
             <span class="chip">.kbd</span><span class="chip">.divider</span>
           </div>
+
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li><strong>Avatar</strong> — representing a person or entity; group for overlap</li>
+                <li><strong>Pagination</strong> — splitting long lists into navigable pages</li>
+                <li><strong>Kbd</strong> — naming a keyboard shortcut in help text</li>
+              </ul>
+            </div>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>Infinite feeds — prefer load-more / virtual scroll over pagination</li>
+                <li>Avatars as buttons without a label</li>
+                <li><code>.divider</code> where spacing alone would group content</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Example</div>
           <div class="doc-demo stack">
             <div>
               <h3 class="t-body-sm">Avatars</h3>
@@ -1162,12 +1314,67 @@
               <div class="cluster" style="align-items: center;"><kbd class="kbd">⌘</kbd><span>+</span><kbd class="kbd">K</kbd></div>
             </div>
           </div>
+
+          <div class="doc-block-label">Reference</div>
+          <table class="props-table">
+            <thead><tr><th>Class</th><th>Element</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td><code>.avatar</code> + <code>.avatar-xs…xl</code></td><td>Person</td><td>Initials or image; size suffix sets the diameter</td></tr>
+              <tr><td><code>.avatar-group</code></td><td>People</td><td>Overlaps children to show a set</td></tr>
+              <tr><td><code>.pagination</code> + <code>.pagination-item</code></td><td>Nav</td><td>Square page controls; mark the current with <code>aria-current="page"</code></td></tr>
+              <tr><td><code>.pagination-btn</code> / <code>.pagination-dot</code></td><td>Nav</td><td>Prev/next arrows and the compact dot variant</td></tr>
+              <tr><td><code>.kbd</code></td><td>Inline</td><td>Styles a keyboard key inside <code>&lt;kbd&gt;</code></td></tr>
+              <tr><td><code>.divider</code></td><td>Separator</td><td>Hairline rule between groups</td></tr>
+            </tbody>
+          </table>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>Wrap pagination in <code>&lt;nav aria-label="Pagination"&gt;</code> and mark the current page with <code>aria-current="page"</code>.</li>
+                <li>Image avatars need <code>alt</code>; initials-only avatars should carry the full name as a label.</li>
+                <li>A standalone <code>.divider</code> is decorative; a semantic break can use <code>&lt;hr&gt;</code>.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;nav class="pagination" aria-label="Pagination"&gt;
+  &lt;button class="pagination-item"&gt;‹&lt;/button&gt;
+  &lt;button class="pagination-item" aria-current="page"&gt;1&lt;/button&gt;
+  &lt;button class="pagination-item"&gt;2&lt;/button&gt;
+&lt;/nav&gt;</pre>
+          </div>
         </section>
 
         <section class="doc-section" id="accordion">
           <h2 class="doc-section-title">Accordion</h2>
-          <p class="doc-section-desc">Expandable content sections built on native <code>&lt;details&gt;</code>.</p>
-          <div class="chips"><span class="chip">.accordion</span><span class="chip">.accordion-item</span><span class="chip">.accordion-header</span><span class="chip">.accordion-content</span></div>
+          <p class="doc-section-desc">Expandable content sections built on the native <code>&lt;details&gt;</code> element — no JavaScript required.</p>
+          <div class="chips"><span class="chip">.accordion</span><span class="chip">.accordion-item</span><span class="chip">.accordion-header</span><span class="chip">.accordion-icon</span><span class="chip">.accordion-content</span></div>
+
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li>FAQs and progressive disclosure of secondary detail</li>
+                <li>Long forms broken into collapsible sections</li>
+              </ul>
+            </div>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>Content users need to compare side by side — use <a href="#tabs">Tabs</a></li>
+                <li>Hiding critical information behind a click</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Example</div>
           <div class="doc-demo">
             <div class="accordion">
               <details class="accordion-item" open>
@@ -1179,6 +1386,32 @@
                 <div class="accordion-content">No — Nordover ships building blocks only. Each project composes its own patterns and pages.</div>
               </details>
             </div>
+          </div>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>Built on <code>&lt;details&gt;</code>/<code>&lt;summary&gt;</code> — keyboard toggle and expanded state are native.</li>
+                <li>The <code>.accordion-icon</code> rotates via the open state; it's decorative, not a separate control.</li>
+                <li>Put the most useful section <code>open</code> by default so content isn't fully hidden.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;div class="accordion"&gt;
+  &lt;details class="accordion-item" open&gt;
+    &lt;summary class="accordion-header"&gt;
+      &lt;span&gt;Question&lt;/span&gt;
+      &lt;svg class="accordion-icon icon"&gt;&lt;use href="#i-chevron-down"/&gt;&lt;/svg&gt;
+    &lt;/summary&gt;
+    &lt;div class="accordion-content"&gt;Answer.&lt;/div&gt;
+  &lt;/details&gt;
+&lt;/div&gt;</pre>
           </div>
         </section>
 
