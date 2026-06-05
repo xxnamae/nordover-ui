@@ -90,7 +90,7 @@
   :root {
     /* === Font-stacks (med Inter Fallback for null CLS) === */
     --font-sans: "Inter Variable", "Inter Fallback", system-ui, sans-serif;
-    --font-display: "Inter Tight", "Inter Tight Variable", "Inter Tight Fallback", "Inter Variable", system-ui, sans-serif;  /* web-only: editorial display typography */
+    --font-display: "Inter Tight", "Inter Tight Variable", "Inter Tight Fallback", "Inter Variable", system-ui, sans-serif;  /* shared: Inter Tight display/heading (both packages) */
     --font-mono: ui-monospace, "SF Mono", "Menlo", "Cascadia Code", monospace;
 
     /* === Fluid type-skala (rem-clamp, ratio 1.2 → 1.333) === */
