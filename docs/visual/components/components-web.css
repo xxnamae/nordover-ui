@@ -1121,12 +1121,12 @@
      Sort state via [aria-sort], affordance via th.sortable.
      ============================================================ */
   .table { width: 100%; border-collapse: collapse; font-size: var(--text-sm); }
-  .table th { text-align: left; font-weight: var(--fw-medium); color: var(--color-fg); padding: var(--space-3) var(--space-4); background: var(--color-subtle); border-bottom: var(--border-divider); }
-  .table td { padding: var(--space-3) var(--space-4); border-bottom: var(--border-divider); vertical-align: top; }
-  .table tr:hover {
-    background: rgb(252, 252, 252); /* fallback: very light gray */
-    background: color-mix(in oklch, var(--color-fg) 2%, var(--color-bg));
-  }
+  /* Modern header: no fill, muted uppercase label, single divider (Stripe/Linear style) */
+  .table th { text-align: left; font-weight: var(--fw-semibold); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-muted); padding: var(--space-3) var(--space-4); background: transparent; border-bottom: var(--bw-thin) solid var(--color-border); white-space: nowrap; }
+  .table td { padding: var(--space-3) var(--space-4); border-bottom: var(--bw-thin) solid var(--color-border); vertical-align: middle; }
+  .table tbody tr:last-child td { border-bottom: none; }
+  .table tbody tr { transition: background var(--duration-fast) var(--ease-out); }
+  .table tbody tr:hover { background: color-mix(in oklch, var(--color-fg) 3%, var(--color-bg)); }
   .table tbody tr[aria-selected="true"], .table tbody tr.is-selected { background: var(--accent-subtle); }
 
   /* Sortable headers — state via [aria-sort], affordance via .sortable */
@@ -1509,6 +1509,16 @@
   .card-title { font-size: var(--text-lg); font-weight: var(--fw-semibold); line-height: var(--leading-snug); }
   .card-meta { font-size: var(--text-sm); color: var(--color-muted); line-height: var(--leading-normal); }
   .card-footer { margin-top: auto; padding-top: var(--space-4); border-top: var(--border-divider); }
+
+  /* Gradient border — futuristic glow edge for cards/panels/inputs.
+     Uses padding-box/border-box layering so the fill stays solid. */
+  .gradient-border {
+    border: var(--bw-medium) solid transparent;
+    background:
+      linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
+      linear-gradient(135deg, var(--color-accent), color-mix(in oklch, var(--color-accent) 35%, var(--color-info))) border-box;
+  }
+  .gradient-border-glow { box-shadow: 0 0 0 1px color-mix(in oklch, var(--color-accent) 25%, transparent), 0 8px 30px -8px color-mix(in oklch, var(--color-accent) 45%, transparent); }
 
   /* Tabs — underline indicator; supports [aria-selected] and static .is-active */
   .tabs-list { display: inline-flex; align-items: center; gap: 0.125rem; border-bottom: var(--border-divider); }

@@ -178,6 +178,7 @@
     <div class="app-sidebar-section-group">
       <button class="app-sidebar-toggle" aria-expanded="true">Resources</button>
       <nav class="app-nav-group is-active">
+        <a class="app-nav-item" href="#docs">Documentation</a>
         <a class="app-nav-item" href="https://github.com/xxnamae/nordover-ui">GitHub</a>
         <a class="app-nav-item" href="https://github.com/xxnamae/nordover-ui/blob/main/CHANGELOG.md">Changelog</a>
       </nav>
@@ -1324,6 +1325,14 @@
             </div>
           </div>
 
+          <div class="doc-block-label">Gradient border (futuristic) — <code>.gradient-border</code> · <code>.gradient-border-glow</code></div>
+          <div class="doc-demo">
+            <div class="grid-auto">
+              <div class="card gradient-border"><div class="card-header"><span class="card-title">Gradient edge</span></div><p class="card-meta">.card.gradient-border — accent→info gradient border.</p></div>
+              <div class="card gradient-border gradient-border-glow"><div class="card-header"><span class="card-title">With glow</span></div><p class="card-meta">Add .gradient-border-glow for an accent halo.</p></div>
+            </div>
+          </div>
+
           <div class="doc-block-label">Variants &amp; parts</div>
           <table class="props-table">
             <thead><tr><th>Class</th><th>Role</th><th>Notes</th></tr></thead>
@@ -1426,11 +1435,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr aria-selected="true">
-                    <td class="table-inline-edit"><input class="form-input" value="Keyboard" aria-label="Product name" style="min-height: auto; padding: var(--space-1) var(--space-2);"></td>
-                    <td>Hardware</td>
-                    <td class="table-numeric">1 290</td>
-                  </tr>
+                  <tr aria-selected="true"><td>Keyboard</td><td>Hardware</td><td class="table-numeric">1 290</td></tr>
                   <tr><td>Monitor</td><td>Hardware</td><td class="table-numeric">4 990</td></tr>
                   <tr><td>License</td><td>Software</td><td class="table-numeric">990</td></tr>
                   <tr><td>Cable</td><td>Accessory</td><td class="table-numeric">149</td></tr>
@@ -2095,6 +2100,42 @@
             <div class="flex items-center justify-between p-4 border rounded-lg shadow-sm">
               <span class="font-semibold">.flex .items-center .justify-between</span>
               <span class="text-muted">.text-muted</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================================
+             DOCUMENTATION / RESOURCES
+             ============================================================ -->
+        <section class="doc-section" id="docs">
+          <h2 class="doc-section-title">Documentation</h2>
+          <p class="doc-section-desc">Implementation guides for consuming Nordover — including WordPress / Elementor. These live in <code>docs/handoff/</code>.</p>
+          <div class="doc-demo">
+            <div class="grid-auto">
+              <a class="card card-bordered card-interactive" href="../handoff/ELEMENTOR-WORDPRESS.md" style="text-decoration:none;color:inherit;">
+                <div class="card-header"><span class="card-title">Elementor / WordPress</span></div>
+                <p class="card-meta">Token-first recipe: map Nordover tokens into Elementor Global Colors, Fonts &amp; Variables, then build with native widgets.</p>
+              </a>
+              <a class="card card-bordered card-interactive" href="../handoff/AGENT-QUICKSTART.md" style="text-decoration:none;color:inherit;">
+                <div class="card-header"><span class="card-title">Agent Quickstart</span></div>
+                <p class="card-meta">Action-oriented setup for agents styling sites &amp; apps on Nordover.</p>
+              </a>
+              <a class="card card-bordered card-interactive" href="../handoff/FRAMEWORK-INTEGRATION.md" style="text-decoration:none;color:inherit;">
+                <div class="card-header"><span class="card-title">Framework Integration</span></div>
+                <p class="card-meta">React, Vue, Svelte, Web Components, Next.js — dark mode, customization, patterns.</p>
+              </a>
+              <a class="card card-bordered card-interactive" href="../handoff/CUSTOMIZATION-GUIDE.md" style="text-decoration:none;color:inherit;">
+                <div class="card-header"><span class="card-title">Customization</span></div>
+                <p class="card-meta">Override tokens, build a brand layer, theme the system safely.</p>
+              </a>
+              <a class="card card-bordered card-interactive" href="../handoff/ACCESSIBILITY-FOR-IMPLEMENTERS.md" style="text-decoration:none;color:inherit;">
+                <div class="card-header"><span class="card-title">Accessibility</span></div>
+                <p class="card-meta">Semantic HTML, ARIA, and maintaining WCAG 2.1 AA in your build.</p>
+              </a>
+              <a class="card card-bordered card-interactive" href="../wiki/decisions/" style="text-decoration:none;color:inherit;">
+                <div class="card-header"><span class="card-title">Architecture Decisions</span></div>
+                <p class="card-meta">ADRs — why each design decision was made, with trade-offs.</p>
+              </a>
             </div>
           </div>
         </section>
