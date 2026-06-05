@@ -652,6 +652,26 @@
             <span class="chip">.file-upload</span><span class="chip">.file-list</span><span class="chip">.file-item</span>
             <span class="chip">.file-item-progress</span>
           </div>
+
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li>Uploading one or more files with drag-and-drop or click</li>
+                <li>Showing per-file progress and a removable list</li>
+              </ul>
+            </div>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>A single avatar/logo swap — a plain file button is enough</li>
+                <li>Hiding accepted types/limits — always state them up front</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Example</div>
           <div class="doc-demo stack">
             <label class="file-upload">
               <svg class="icon file-upload-icon icon-muted" style="width: 2rem; height: 2rem;"><use href="#i-upload"/></svg>
@@ -672,9 +692,32 @@
                   <span class="file-item-name">photo.jpg</span>
                   <span class="file-item-size">820 KB</span>
                 </div>
-                <button class="btn btn-ghost btn-sm"><svg class="icon icon-sm"><use href="#i-trash"/></svg></button>
+                <button class="btn btn-ghost btn-sm" aria-label="Remove photo.jpg"><svg class="icon icon-sm"><use href="#i-trash"/></svg></button>
               </div>
             </div>
+          </div>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>The dropzone is a <code>&lt;label&gt;</code> wrapping a real <code>&lt;input type="file"&gt;</code> — click and keyboard work natively.</li>
+                <li>Announce progress with <code>aria-live</code>; each remove button has an <code>aria-label</code> naming its file.</li>
+                <li>Drag-and-drop always has a click fallback.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;label class="file-upload"&gt;
+  &lt;svg class="icon file-upload-icon" aria-hidden="true"&gt;&lt;use href="#i-upload"/&gt;&lt;/svg&gt;
+  &lt;div class="file-upload-text"&gt;Drag files here or click to browse&lt;/div&gt;
+  &lt;div class="file-upload-hint"&gt;PNG, JPG, PDF up to 10MB&lt;/div&gt;
+  &lt;input type="file" multiple&gt;
+&lt;/label&gt;</pre>
           </div>
         </section>
 
@@ -701,12 +744,34 @@
                 <div class="date-picker-days">
                   <button class="date-picker-day other-month">31</button>
                   <button class="date-picker-day">1</button><button class="date-picker-day">2</button><button class="date-picker-day">3</button>
-                  <button class="date-picker-day selected">4</button>
+                  <button class="date-picker-day is-selected">4</button>
                   <button class="date-picker-day">5</button><button class="date-picker-day">6</button><button class="date-picker-day">7</button>
                   <button class="date-picker-day">8</button><button class="date-picker-day">9</button><button class="date-picker-day">10</button>
                   <button class="date-picker-day">11</button><button class="date-picker-day">12</button><button class="date-picker-day">13</button>
                 </div>
               </div>
+            </div>
+          </div>
+
+          <div class="doc-block-label">States</div>
+          <table class="props-table">
+            <thead><tr><th>Class</th><th>State</th></tr></thead>
+            <tbody>
+              <tr><td><code>.date-picker-day.is-selected</code></td><td>The chosen date</td></tr>
+              <tr><td><code>.date-picker-day.other-month</code></td><td>Spillover day from the adjacent month (dimmed)</td></tr>
+              <tr><td><code>.date-picker-nav</code></td><td>Previous/next month controls</td></tr>
+            </tbody>
+          </table>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>Days are real <code>&lt;button&gt;</code>s; arrow keys move focus and the selected day carries <code>aria-selected="true"</code>.</li>
+                <li>Always offer a typed-date input as well — a calendar alone is slow for keyboard and screen-reader users.</li>
+                <li>The month grid uses a <code>&lt;table&gt;</code> with weekday headers in production.</li>
+              </ul>
             </div>
           </div>
         </section>
@@ -723,22 +788,87 @@
               <div class="search-results sg-static-results">
                 <div class="search-result"><div class="search-result-title">Buttons</div><div class="search-result-excerpt">Interactive button component</div></div>
                 <div class="search-result"><div class="search-result-title">Badges &amp; Alerts</div><div class="search-result-excerpt">Status indicators and feedback</div></div>
-                <div class="search-result"><div class="search-result-title">Data Table</div><div class="search-result-excerpt">Sortable, filterable data grid</div></div>
+                <div class="search-result"><div class="search-result-title">Table</div><div class="search-result-excerpt">Sortable, filterable data grid</div></div>
               </div>
             </div>
+          </div>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>Use <code>&lt;input type="search"&gt;</code> with a label (visually hidden is fine).</li>
+                <li>Wire up <code>role="combobox"</code> + <code>aria-expanded</code> on the input and <code>role="listbox"</code>/<code>option</code> on results.</li>
+                <li>Announce result counts via an <code>aria-live</code> region.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;div class="search-bar"&gt;
+  &lt;input class="search-input" type="search" aria-label="Search"&gt;
+  &lt;div class="search-results"&gt;
+    &lt;a class="search-result"&gt;&lt;div class="search-result-title"&gt;Buttons&lt;/div&gt;&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
           </div>
         </section>
 
         <section class="doc-section" id="stepper">
           <h2 class="doc-section-title">Stepper</h2>
           <p class="doc-section-desc">Multi-step progress indicator with completed, active, and upcoming states.</p>
-          <div class="chips"><span class="chip">.stepper</span><span class="chip">.stepper-step</span><span class="chip">.stepper-circle</span></div>
+          <div class="chips"><span class="chip">.stepper</span><span class="chip">.stepper-step</span><span class="chip">.stepper-circle</span><span class="chip">.stepper-label</span><span class="chip">.is-active</span><span class="chip">.is-completed</span></div>
+
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li>Linear multi-step flows (checkout, onboarding, wizards)</li>
+                <li>Showing where the user is and how much remains</li>
+              </ul>
+            </div>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>Non-linear navigation — use <a href="#tabs">Tabs</a></li>
+                <li>More than ~5 steps — group or paginate instead</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Example</div>
           <div class="doc-demo">
             <div class="stepper" style="margin-bottom: 0;">
-              <div class="stepper-step completed"><div class="stepper-circle"><svg class="icon icon-sm"><use href="#i-check"/></svg></div><div class="stepper-label">Account</div></div>
+              <div class="stepper-step is-completed"><div class="stepper-circle"><svg class="icon icon-sm"><use href="#i-check"/></svg></div><div class="stepper-label">Account</div></div>
               <div class="stepper-step is-active"><div class="stepper-circle">2</div><div class="stepper-label">Profile</div></div>
               <div class="stepper-step"><div class="stepper-circle">3</div><div class="stepper-label">Confirm</div></div>
             </div>
+          </div>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>Mark the current step with <code>aria-current="step"</code>.</li>
+                <li>Don't rely on the circle colour alone — completed steps show a check, the current step is labelled.</li>
+                <li>If steps are clickable, each is a real button; otherwise they're plain text.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;ol class="stepper"&gt;
+  &lt;li class="stepper-step is-completed"&gt;&lt;span class="stepper-circle"&gt;✓&lt;/span&gt;&lt;span class="stepper-label"&gt;Account&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="stepper-step is-active" aria-current="step"&gt;&lt;span class="stepper-circle"&gt;2&lt;/span&gt;&lt;span class="stepper-label"&gt;Profile&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="stepper-step"&gt;&lt;span class="stepper-circle"&gt;3&lt;/span&gt;&lt;span class="stepper-label"&gt;Confirm&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;</pre>
           </div>
         </section>
 
