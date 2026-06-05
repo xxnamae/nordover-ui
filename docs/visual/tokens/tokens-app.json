@@ -9,6 +9,13 @@
           "com.nordover.cssText": true
         }
       },
+      "display": {
+        "$type": "other",
+        "$value": "\"Inter Tight\", \"Inter Tight Variable\", \"Inter Tight Fallback\", \"Inter Variable\", system-ui, sans-serif",
+        "$extensions": {
+          "com.nordover.cssText": true
+        }
+      },
       "mono": {
         "$type": "other",
         "$value": "ui-monospace, \"SF Mono\", \"Menlo\", \"Cascadia Code\", monospace",

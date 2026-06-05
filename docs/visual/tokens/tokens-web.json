@@ -11,7 +11,7 @@
       },
       "display": {
         "$type": "other",
-        "$value": "\"Inter Tight Variable\", \"Inter Tight Fallback\", \"Inter Variable\", system-ui, sans-serif",
+        "$value": "\"Inter Tight\", \"Inter Tight Variable\", \"Inter Tight Fallback\", \"Inter Variable\", system-ui, sans-serif",
         "$extensions": {
           "com.nordover.cssText": true
         }
@@ -118,7 +118,7 @@
       },
       "9xl": {
         "$type": "dimension",
-        "$value": "clamp(4.25rem, 1.8rem + 11vw, 7.5rem)",
+        "$value": "clamp(5rem, 3rem + 9vw, 12rem)",
         "$extensions": {
           "com.nordover.cssText": true
         }

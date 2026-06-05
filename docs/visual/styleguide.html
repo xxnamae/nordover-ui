@@ -7,6 +7,9 @@
 <title>Nordover Design System</title>
 <link rel="preconnect" href="https://rsms.me/">
 <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap">
 <!-- Nordover framework: tokens + components + styleguide chrome -->
 <link rel="stylesheet" href="./tokens/tokens-web.css" id="token-stylesheet">
 <link rel="stylesheet" href="./components/components-web.css" id="component-stylesheet">
@@ -195,15 +198,28 @@
 
         <section class="doc-section" id="typography">
           <h2 class="doc-section-title">Typography</h2>
-          <p class="doc-section-desc">Semantic typography scale with display, heading, and body styles.</p>
+          <p class="doc-section-desc">Complete semantic scale. <strong>Display</strong> &amp; <strong>Heading</strong> use Inter Tight (<code>--font-display</code>); <strong>Body</strong> uses Inter (<code>--font-sans</code>). Each role has even <code>sm → xl</code> steps.</p>
+
+          <div class="doc-block-label">Display — Inter Tight, for hero &amp; marketing</div>
           <div class="doc-demo stack">
             <div><div class="t-display-2xl">Display 2XL</div><span class="t-caption">.t-display-2xl</span></div>
             <div><div class="t-display-xl">Display XL</div><span class="t-caption">.t-display-xl</span></div>
             <div><div class="t-display-lg">Display Large</div><span class="t-caption">.t-display-lg</span></div>
             <div><div class="t-display-md">Display Medium</div><span class="t-caption">.t-display-md</span></div>
+            <div><div class="t-display-sm">Display Small</div><span class="t-caption">.t-display-sm</span></div>
+          </div>
+
+          <div class="doc-block-label">Heading — Inter Tight, for section titles</div>
+          <div class="doc-demo stack">
+            <div><div class="t-heading-xl">Heading XL</div><span class="t-caption">.t-heading-xl</span></div>
             <div><div class="t-heading-lg">Heading Large</div><span class="t-caption">.t-heading-lg</span></div>
             <div><div class="t-heading-md">Heading Medium</div><span class="t-caption">.t-heading-md</span></div>
             <div><div class="t-heading-sm">Heading Small</div><span class="t-caption">.t-heading-sm</span></div>
+          </div>
+
+          <div class="doc-block-label">Body &amp; labels — Inter, for content</div>
+          <div class="doc-demo stack">
+            <div><div class="t-body-xl">Body XL — large lead paragraph for introductions</div><span class="t-caption">.t-body-xl</span></div>
             <div><div class="t-body-lg">Body Large — for prominent content and introductions</div><span class="t-caption">.t-body-lg</span></div>
             <div><div class="t-body">Body — default reading text</div><span class="t-caption">.t-body</span></div>
             <div><div class="t-body-sm">Body Small — for secondary content</div><span class="t-caption">.t-body-sm</span></div>
