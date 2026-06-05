@@ -1512,16 +1512,16 @@
   /* Gradient border — futuristic glow edge for cards/panels/inputs.
      Uses padding-box/border-box layering so the fill stays solid. */
   .gradient-border {
-    border: var(--bw-thin) solid transparent;
+    border: var(--bw-medium) solid transparent;
     background:
       linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
-      linear-gradient(135deg, var(--color-accent), color-mix(in oklch, var(--color-accent) 30% white 70%)) border-box;
+      linear-gradient(135deg, var(--color-accent), color-mix(in oklch, var(--color-accent) 55%, white)) border-box;
   }
   .gradient-border-glow {
     box-shadow:
-      0 0 0 1px color-mix(in oklch, var(--color-accent) 12%, transparent),
-      0 0 18px -2px color-mix(in oklch, var(--color-accent) 25%, transparent),
-      0 0 42px -6px color-mix(in oklch, var(--color-accent) 18%, transparent);
+      0 0 0 1px color-mix(in oklch, var(--color-accent) 8%, transparent),
+      0 0 10px -3px color-mix(in oklch, var(--color-accent) 14%, transparent),
+      0 0 24px -10px color-mix(in oklch, var(--color-accent) 9%, transparent);
   }
 
   /* Liquid glass — refined translucent material (Apple-parity, used sparingly).

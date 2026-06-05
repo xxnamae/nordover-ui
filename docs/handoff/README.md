@@ -23,6 +23,9 @@ Essential guide for building accessible applications. Covers semantic HTML, ARIA
 ### 4. **Elementor Pro / WordPress** (`ELEMENTOR-WORDPRESS.md`)
 Token-first recipe for WordPress: map Nordover's design tokens into Elementor's Global Colors, Global Fonts, and Variables Manager, then build with native widgets that stay on-brand.
 
+### 5. **Behaviours — the optional JS layer** (`BEHAVIORS-JS.md`)
+Opt-in, dependency-free `nordover.js` that makes tabs, modal, menu, and drawer interactive via data-attributes + ARIA. The framework stays CSS-first; this is a progressive-enhancement add-on. (Accordion and tooltip need no JS.)
+
 ---
 
 ## Legacy Documentation (Norsk)

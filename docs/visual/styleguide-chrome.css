@@ -139,13 +139,21 @@ html, body {
   justify-content: center;
 }
 
-#collapse:checked ~ .app .app-sidebar .app-sidebar-toggle span,
-#collapse:checked ~ .app .app-sidebar .app-sidebar-toggle::after {
+#collapse:checked ~ .app .app-sidebar .app-sidebar-toggle-label,
+#collapse:checked ~ .app .app-sidebar .app-sidebar-toggle::after,
+#collapse:checked ~ .app .app-sidebar .pkg-switch {
   display: none;
 }
 
 #collapse:checked ~ .app .app-sidebar .app-sidebar-toggle {
   justify-content: center;
+  padding: var(--space-2) 0;
+}
+
+#collapse:checked ~ .app .app-sidebar .app-sidebar-toggle .icon {
+  opacity: 1;
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 #collapse:checked ~ .app {
@@ -203,7 +211,8 @@ html, body {
 .app-sidebar-toggle {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: var(--space-2);
   width: 100%;
   padding: var(--space-2);
   border: none;
@@ -216,11 +225,25 @@ html, body {
   letter-spacing: var(--tracking-widest);
   color: var(--color-muted);
   border-radius: var(--radius-sm);
-  transition: color var(--duration-fast) var(--ease-out);
+  transition: color var(--duration-fast) var(--ease-out),
+              background-color var(--duration-fast) var(--ease-out);
 }
 
 .app-sidebar-toggle:hover {
   color: var(--color-fg);
+  background: var(--color-subtle);
+}
+
+.app-sidebar-toggle .icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.app-sidebar-toggle-label {
+  flex: 1 1 auto;
+  text-align: start;
 }
 
 .app-sidebar-toggle::after {
@@ -233,6 +256,7 @@ html, body {
   transition: transform var(--duration-fast) var(--ease-out);
   opacity: 0.6;
   flex-shrink: 0;
+  margin-inline-start: auto;
 }
 
 .app-sidebar-toggle[aria-expanded="false"]::after {
@@ -635,8 +659,8 @@ html, body {
 
 .doc-section {
   scroll-margin-top: var(--space-12);
-  padding: var(--space-7);
-  margin-bottom: var(--space-6);
+  padding: var(--space-8);
+  margin-bottom: var(--space-8);
   background: var(--color-surface);
   border: var(--bw-thin) solid var(--color-border);
   border-radius: var(--radius-xl);
@@ -658,7 +682,7 @@ html, body {
   color: var(--color-muted);
   line-height: var(--leading-normal);
   max-width: 68ch;
-  margin-bottom: var(--space-5);
+  margin-bottom: var(--space-7);
 }
 
 .doc-sub {
@@ -667,8 +691,8 @@ html, body {
   text-transform: uppercase;
   letter-spacing: var(--tracking-widest);
   color: var(--color-muted);
-  margin-top: var(--space-6);
-  margin-bottom: var(--space-3);
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-4);
   padding-bottom: var(--space-2);
   border-bottom: var(--bw-thin) solid var(--color-border);
 }
@@ -676,9 +700,9 @@ html, body {
 .doc-demo {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
-  padding: var(--space-5);
-  margin-bottom: var(--space-4);
+  gap: var(--space-4);
+  padding: var(--space-6);
+  margin-bottom: var(--space-6);
   background: var(--color-bg);
   border: var(--bw-thin) solid var(--color-border);
   border-radius: var(--radius-lg);
@@ -723,7 +747,7 @@ html, body {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-5);
 }
 
 .chip {
@@ -748,8 +772,8 @@ html, body {
 .type-showcase,
 .component-grid,
 .spacing-demo {
-  margin: var(--space-4) 0;
-  padding: var(--space-5);
+  margin: var(--space-6) 0;
+  padding: var(--space-6);
   background: linear-gradient(180deg, var(--surface-2) 0%, var(--color-subtle) 100%);
   border: var(--bw-thin) solid var(--color-border);
   border-radius: var(--radius-xl);
@@ -1003,8 +1027,9 @@ html, body {
   padding: var(--space-5);
   background: var(--color-subtle);
   border: var(--bw-thin) solid var(--color-border);
-  border-left: 4px solid var(--success);
   border-radius: var(--radius-xl);
+  /* inset edge follows the rounded corners (matches shipped .alert) */
+  box-shadow: inset 4px 0 0 0 var(--success);
 }
 
 .a11y-item {
@@ -1056,7 +1081,7 @@ html, body {
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--color-muted);
-  margin: var(--space-4) 0 var(--space-2);
+  margin: var(--space-7) 0 var(--space-3);
 }
 
 /* "When to use" — two-column usage guidance */
@@ -1093,6 +1118,7 @@ html, body {
   margin-bottom: var(--space-3);
 }
 .doc-card {
+  position: relative;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -1119,9 +1145,20 @@ html, body {
   margin-bottom: var(--space-1);
 }
 .doc-card-note { font-size: var(--text-xs); color: var(--color-muted); line-height: 1.5; }
-.doc-card.is-do { border-top: 3px solid var(--color-success); }
+/* Colored top edge — a clipped strip (parent's overflow:hidden + radius rounds
+   its corners) so the colour follows the rounded corners instead of squaring off. */
+.doc-card.is-do::before,
+.doc-card.is-dont::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline: 0;
+  height: 3px;
+  z-index: 2;
+}
+.doc-card.is-do::before { background: var(--color-success); }
 .doc-card.is-do .doc-card-label { color: var(--color-success); }
-.doc-card.is-dont { border-top: 3px solid var(--color-error); }
+.doc-card.is-dont::before { background: var(--color-error); }
 .doc-card.is-dont .doc-card-label { color: var(--color-error); }
 
 /* Anatomy — numbered callouts beside a specimen */
@@ -1177,8 +1214,9 @@ html, body {
   border-radius: var(--radius-md);
   background: var(--color-subtle);
   border: 1px solid var(--color-border);
-  border-left: 3px solid var(--color-info);
   margin-bottom: var(--space-3);
+  /* inset edge follows the rounded corners (matches shipped .alert) */
+  box-shadow: inset 3px 0 0 0 var(--color-info);
 }
 .doc-a11y .icon { color: var(--color-accent); flex-shrink: 0; margin-top: 0.1rem; }
 .doc-a11y-body { font-size: var(--text-xs); color: var(--color-fg); line-height: 1.55; }
