@@ -1328,8 +1328,23 @@
           <div class="doc-block-label">Gradient border (futuristic) — <code>.gradient-border</code> · <code>.gradient-border-glow</code></div>
           <div class="doc-demo">
             <div class="grid-auto">
-              <div class="card gradient-border"><div class="card-header"><span class="card-title">Gradient edge</span></div><p class="card-meta">.card.gradient-border — accent→info gradient border.</p></div>
+              <div class="card gradient-border"><div class="card-header"><span class="card-title">Gradient edge</span></div><p class="card-meta">.card.gradient-border — accent→light-grey gradient border.</p></div>
               <div class="card gradient-border gradient-border-glow"><div class="card-header"><span class="card-title">With glow</span></div><p class="card-meta">Add .gradient-border-glow for an accent halo.</p></div>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Liquid glass (refined translucency) — <code>.glass-liquid</code> · <code>.glass-liquid-strong</code></div>
+          <p class="t-caption" style="margin-bottom: var(--space-3);">Apple-inspired translucent material — blur + saturate, a lit top rim and a soft diagonal specular sheen. Used <em>sparingly</em> on key surfaces (nav, modal, hero cards). Falls back to a solid surface under <code>prefers-reduced-transparency</code>.</p>
+          <div class="doc-demo" style="background: linear-gradient(120deg, oklch(0.62 0.19 250), oklch(0.55 0.20 295) 55%, oklch(0.60 0.16 150)); padding: var(--space-7); border-radius: var(--radius-lg);">
+            <div class="grid-auto">
+              <div class="glass-liquid" style="padding: var(--space-5);">
+                <h3 class="t-heading-sm" style="margin-bottom: var(--space-2);">.glass-liquid</h3>
+                <p class="t-body-sm" style="margin: 0;">Translucent panel with lit rim and specular sheen, floating over a vivid backdrop.</p>
+              </div>
+              <div class="glass-liquid glass-liquid-strong" style="padding: var(--space-5);">
+                <h3 class="t-heading-sm" style="margin-bottom: var(--space-2);">.glass-liquid-strong</h3>
+                <p class="t-body-sm" style="margin: 0;">Stronger blur + more opaque fill for denser content over busy backgrounds.</p>
+              </div>
             </div>
           </div>
 

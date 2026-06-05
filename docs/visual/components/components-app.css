@@ -1222,6 +1222,36 @@
       0 0 42px -6px color-mix(in oklch, var(--color-accent) 18%, transparent);
   }
 
+  /* Liquid glass — refined translucent material (Apple-parity, used sparingly).
+     Sheen is a background layer (not a pseudo) so content never sits under it. */
+  .glass-liquid {
+    background:
+      linear-gradient(135deg, var(--glass-sheen), transparent 42%),
+      var(--glass-bg);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+    border: var(--glass-border);
+    border-radius: var(--radius-lg);
+    box-shadow:
+      inset 0 1px 0 0 var(--glass-highlight),
+      inset 0 -1px 0 0 color-mix(in oklch, var(--color-fg) 4%, transparent),
+      var(--glass-depth-shadow);
+  }
+  .glass-liquid-strong {
+    background:
+      linear-gradient(135deg, var(--glass-sheen), transparent 42%),
+      var(--glass-bg-strong);
+    -webkit-backdrop-filter: var(--glass-blur-strong);
+    backdrop-filter: var(--glass-blur-strong);
+  }
+  @media (prefers-reduced-transparency: reduce) {
+    .glass-liquid, .glass-liquid-strong {
+      background: var(--color-surface);
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+    }
+  }
+
   /* Tabs — underline indicator; supports [aria-selected] and static .is-active */
   .tabs-list { display: inline-flex; align-items: center; gap: 0.125rem; border-bottom: var(--border-divider); }
   .tabs-trigger { position: relative; padding: var(--space-2) var(--space-4); font-size: var(--text-sm); font-weight: var(--fw-medium); color: var(--color-muted); background: transparent; border: none; cursor: pointer; border-radius: var(--radius-md) var(--radius-md) 0 0; margin-bottom: -1px; transition: color var(--duration-fast) var(--ease-out), background var(--duration-fast) var(--ease-out); }

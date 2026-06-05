@@ -339,6 +339,10 @@
     --glass-blur: blur(12px) saturate(180%);
     --glass-blur-strong: blur(20px) saturate(180%);
     --glass-border: var(--bw-thin) solid color-mix(in oklch, var(--color-border) 50%, transparent);
+    /* Liquid glass (Apple-parity, restrained): lit rim + soft specular sheen */
+    --glass-highlight: color-mix(in oklch, white 55%, transparent);  /* top-edge lit rim */
+    --glass-sheen: color-mix(in oklch, white 22%, transparent);      /* diagonal specular */
+    --glass-depth-shadow: 0 8px 32px -8px rgb(0 0 0 / 0.18), 0 2px 8px -4px rgb(0 0 0 / 0.12);
     --nav-item-bg-hover: color-mix(in oklch, var(--color-fg) 6%, transparent);
 
     /* === Breakpoints (mobile-first) === */

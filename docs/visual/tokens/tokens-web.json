@@ -1860,6 +1860,27 @@
       "$extensions": {
         "com.nordover.cssText": true
       }
+    },
+    "glass-highlight": {
+      "$type": "gradient",
+      "$value": "color-mix(in oklch, white 55%, transparent)",
+      "$extensions": {
+        "com.nordover.cssText": true
+      }
+    },
+    "glass-sheen": {
+      "$type": "gradient",
+      "$value": "color-mix(in oklch, white 22%, transparent)",
+      "$extensions": {
+        "com.nordover.cssText": true
+      }
+    },
+    "glass-depth-shadow": {
+      "$type": "gradient",
+      "$value": "0 8px 32px -8px rgb(0 0 0 / 0.18), 0 2px 8px -4px rgb(0 0 0 / 0.12)",
+      "$extensions": {
+        "com.nordover.cssText": true
+      }
     }
   },
   "breakpoint": {

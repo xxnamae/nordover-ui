@@ -351,6 +351,10 @@
     --glass-blur: blur(10px) saturate(180%);
     --glass-blur-strong: blur(18px) saturate(180%);
     --glass-border: var(--bw-thin) solid color-mix(in oklch, var(--color-border) 50%, transparent);
+    /* Liquid glass (Apple-parity, restrained): lit rim + soft specular sheen */
+    --glass-highlight: color-mix(in oklch, white 55%, transparent);
+    --glass-sheen: color-mix(in oklch, white 22%, transparent);
+    --glass-depth-shadow: 0 8px 32px -8px rgb(0 0 0 / 0.18), 0 2px 8px -4px rgb(0 0 0 / 0.12);
 
     /* Mirrors tokens-web.css — referenced by .hero-centered::before and
        .cta-card::before overlays in components-app.css. */
