@@ -1003,8 +1003,9 @@ html, body {
   padding: var(--space-5);
   background: var(--color-subtle);
   border: var(--bw-thin) solid var(--color-border);
-  border-left: 4px solid var(--success);
   border-radius: var(--radius-xl);
+  /* inset edge follows the rounded corners (matches shipped .alert) */
+  box-shadow: inset 4px 0 0 0 var(--success);
 }
 
 .a11y-item {
@@ -1093,6 +1094,7 @@ html, body {
   margin-bottom: var(--space-3);
 }
 .doc-card {
+  position: relative;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -1119,9 +1121,20 @@ html, body {
   margin-bottom: var(--space-1);
 }
 .doc-card-note { font-size: var(--text-xs); color: var(--color-muted); line-height: 1.5; }
-.doc-card.is-do { border-top: 3px solid var(--color-success); }
+/* Colored top edge — a clipped strip (parent's overflow:hidden + radius rounds
+   its corners) so the colour follows the rounded corners instead of squaring off. */
+.doc-card.is-do::before,
+.doc-card.is-dont::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline: 0;
+  height: 3px;
+  z-index: 2;
+}
+.doc-card.is-do::before { background: var(--color-success); }
 .doc-card.is-do .doc-card-label { color: var(--color-success); }
-.doc-card.is-dont { border-top: 3px solid var(--color-error); }
+.doc-card.is-dont::before { background: var(--color-error); }
 .doc-card.is-dont .doc-card-label { color: var(--color-error); }
 
 /* Anatomy — numbered callouts beside a specimen */
@@ -1177,8 +1190,9 @@ html, body {
   border-radius: var(--radius-md);
   background: var(--color-subtle);
   border: 1px solid var(--color-border);
-  border-left: 3px solid var(--color-info);
   margin-bottom: var(--space-3);
+  /* inset edge follows the rounded corners (matches shipped .alert) */
+  box-shadow: inset 3px 0 0 0 var(--color-info);
 }
 .doc-a11y .icon { color: var(--color-accent); flex-shrink: 0; margin-top: 0.1rem; }
 .doc-a11y-body { font-size: var(--text-xs); color: var(--color-fg); line-height: 1.55; }

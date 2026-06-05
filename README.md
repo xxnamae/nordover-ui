@@ -2,7 +2,7 @@
 
 Production-ready CSS framework providing semantic tokens and building blocks for both web and app projects. Each project composes patterns and pages on top—Nordover provides the foundation, not finished compositions.
 
-**Status:** v1.2.0 ✨ | **Building Blocks:** 30+ semantic components | **WCAG:** AA compliant | **Dark mode:** tonal elevation
+**Status:** v2.0.0 ✨ | **Building Blocks:** 34 semantic components | **WCAG:** AA compliant | **Dark mode:** tonal elevation
 
 ## Features
 
@@ -301,4 +301,4 @@ MIT License — See [LICENSE](LICENSE) for details.
 
 **Built for Nordic web with ❤️**
 
-Nordover v1.2.0 | [Repository](https://github.com/xxnamae/nordover-ui) | [License](LICENSE)
+Nordover v2.0.0 | [Repository](https://github.com/xxnamae/nordover-ui) | [License](LICENSE)
