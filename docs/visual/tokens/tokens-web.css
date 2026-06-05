@@ -8,9 +8,9 @@
    Bruksområde: import som basis i @nordover/tokens-web npm-pakke.
    Konsument: import "@nordover/tokens-web";  // i app entry
 
-   Bygges fra: docs/visual/styleguide-web.html (handoff-source).
-   Sannhetskilde for endringer: oppdater BÅDE styleguide-web.html
-   OG denne fila samtidig. Endringer logges i docs/log.md.
+   Sannhetskilde: denne fila er kanonisk kilde for web-tokens.
+   docs/visual/styleguide.html lenker til den for referanse.
+   tokens-web.json genereres herfra (npm run build:tokens).
 
    Mekanisme-krav:
    - CSS @layer (Safari 15.4+, Chrome 99+, Firefox 97+)
@@ -90,7 +90,7 @@
   :root {
     /* === Font-stacks (med Inter Fallback for null CLS) === */
     --font-sans: "Inter Variable", "Inter Fallback", system-ui, sans-serif;
-    --font-display: "Inter Tight Variable", "Inter Tight Fallback", "Inter Variable", system-ui, sans-serif;  /* web-only: editorial display typography */
+    --font-display: "Inter Tight", "Inter Tight Variable", "Inter Tight Fallback", "Inter Variable", system-ui, sans-serif;  /* shared: Inter Tight display/heading (both packages) */
     --font-mono: ui-monospace, "SF Mono", "Menlo", "Cascadia Code", monospace;
 
     /* === Fluid type-skala (rem-clamp, ratio 1.2 → 1.333) === */
@@ -107,7 +107,7 @@
     --text-6xl: clamp(3.25rem, 2.54rem + 3.57vw, 5.75rem);
     --text-7xl: clamp(3.75rem, 2.68rem + 5.36vw, 7.5rem); /* web-only */
     --text-8xl: clamp(4.5rem, 2.93rem + 7.86vw, 10rem); /* web-only */
-    --text-9xl: clamp(4.25rem, 1.8rem + 11vw, 7.5rem);  /* web-only: hero display-2xl (mobile-safe min, capped at 120px for readability) */
+    --text-9xl: clamp(5rem, 3rem + 9vw, 12rem);  /* web-only: hero display-2xl — largest step, must exceed --text-8xl */
 
     /* === Finkalibrerte vekter (variable font) === */
     --fw-display-xl: 380; /* web-only */ --fw-display-lg: 400; --fw-display-md: 420; /* web-only */
@@ -196,16 +196,16 @@
     --on-accent-subtle: var(--color-accent);
 
     /* === Semantiske tripletter (subtle / base / strong) === */
-    --error: oklch(0.55 0.22 28);
+    --error: oklch(0.57 0.22 25);
     --error-subtle: color-mix(in oklch, var(--error) 10%, var(--color-bg));
     --error-strong: color-mix(in oklch, var(--error) 75%, black);
-    --success: oklch(0.56 0.16 160);
+    --success: oklch(0.60 0.16 150);
     --success-subtle: color-mix(in oklch, var(--success) 10%, var(--color-bg));
     --success-strong: color-mix(in oklch, var(--success) 70%, black);
-    --warning: oklch(0.66 0.17 65);
+    --warning: oklch(0.70 0.16 75);
     --warning-subtle: color-mix(in oklch, var(--warning) 14%, var(--color-bg));
     --warning-strong: color-mix(in oklch, var(--warning) 72%, black);
-    --info: oklch(0.58 0.18 245);
+    --info: oklch(0.58 0.19 250);
     --info-subtle: color-mix(in oklch, var(--info) 10%, var(--color-bg));
     --info-strong: color-mix(in oklch, var(--info) 68%, black);
     /* Bakoverkompatible aliaser (tidligere navnerom) */
@@ -370,10 +370,10 @@
     --accent-muted: color-mix(in oklch, var(--color-accent) 30%, var(--color-bg));
 
     /* Funksjonelle farger lysere i dark for kontrast */
-    --error: oklch(0.65 0.22 28);
-    --success: oklch(0.65 0.16 160);
-    --warning: oklch(0.72 0.17 65);
-    --info: oklch(0.68 0.18 245);
+    --error: oklch(0.70 0.20 25);
+    --success: oklch(0.72 0.15 150);
+    --warning: oklch(0.80 0.15 75);
+    --info: oklch(0.72 0.17 250);
 
     /* -strong må mikse mot HVITT i dark (mot svart i light) — ellers
        blir sterk tekst mørk-på-mørk på subtle-bakgrunn. Paritetskritisk. */

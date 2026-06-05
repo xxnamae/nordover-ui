@@ -249,8 +249,8 @@ nordover-ui/
 │   │   ├── components/         # Canonical CSS components
 │   │   │   ├── components-web.css
 │   │   │   └── components-app.css
-│   │   ├── styleguide-web.html (Interactive component showcase)
-│   │   └── styleguide-app.html
+│   │   ├── styleguide.html     # Unified interactive styleguide
+│   │   └── styleguide-chrome.css
 │   └── wiki/                   # Documentation
 │       ├── topics/             (Component specifications)
 │       ├── decisions/          (ADRs)

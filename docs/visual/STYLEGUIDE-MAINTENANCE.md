@@ -15,16 +15,16 @@ If a component exists in `components-web.css` or `components-app.css`, it **MUST
 
 | File | Purpose | Scope |
 |------|---------|-------|
-| **`styleguide.html`** (primary) | Unified reference for tokens + components | Both web and app with package switcher |
-| `styleguide-web.html` | Legacy reference (deprecated) | Keep for backward compatibility during transition |
-| `styleguide-app.html` | Legacy reference (deprecated) | Keep for backward compatibility during transition |
+| **`styleguide.html`** (primary) | Unified reference for tokens + components | Both web and app (identical components, token switcher only) |
 
-The new unified styleguide must be linked to canonical CSS files (not embedded):
+The unified styleguide demonstrates the same component set for both packages. Token defaults differ (web = generous editorial spacing, app = compact SaaS density), but all building-block classes exist in both packages. Styleguide links canonical CSS files:
 ```html
 <link rel="stylesheet" href="./tokens/tokens-web.css" id="token-stylesheet">
 <link rel="stylesheet" href="./components/components-web.css">
 <link rel="stylesheet" href="./styleguide-chrome.css">
 ```
+
+Package switcher swaps token defaults only (via `id="token-stylesheet"` link), not component CSS.
 
 ---
 
@@ -181,8 +181,8 @@ Before declaring styleguide complete, verify for **building blocks only** (Layer
 
 ## Related Files
 
-- `docs/visual/styleguide-web.html` — Web styleguide (editorial)
-- `docs/visual/styleguide-app.html` — App styleguide (SaaS)
+- `docs/visual/styleguide.html` — Unified interactive styleguide
+- `docs/visual/styleguide-chrome.css` — Styleguide styling
 - `docs/visual/components/components-web.css` — Component CSS (source of truth)
 - `docs/visual/components/components-app.css` — App component CSS (source of truth)
 - `docs/visual/tokens/tokens-web.css` — Token definitions
@@ -194,6 +194,9 @@ Before declaring styleguide complete, verify for **building blocks only** (Layer
 
 | Date | Change |
 |------|--------|
-| 2026-06-04 | Unified styleguide created (building blocks only, no patterns per ADR 2026-06-04). New `styleguide.html` with web/app package switcher, token galleries, and zero inline styles. Legacy `styleguide-web.html` and `styleguide-app.html` marked deprecated. |
+| 2026-06-04 | Documentation-debt clearance: styleguide now demonstrates the unified component set + previously-undocumented primitives. Added demos/chips for `.form-group`/`.form-group-item`, `.pagination-item`, `.animate-*`, `.bounce-in`, exit/transition utilities (`.fade-out`, `.scale-out`, `.transition-*`), icon motion (`.icon-pulse`, `.icon-bounce`), layout primitives (`.page-content`, `.page-section`, `.section-sm`/`-lg`, `.responsive-stack`, `.touch-area`), and the `.app-sidebar-close` shell control. Completed the utility-class catalogue (position, visibility, interaction, aspect, full color/typography families). Verified in headless Chromium: all new elements render, no sidebar/content overlap. |
+| 2026-06-04 | Component set unification: `components-web.css` and `components-app.css` now have identical component class contracts. Added to app: accordion, search bar, section divider, tag input, button-link, date-picker-weekday, file-item-size, table-sort/filter, spinner, animate-fade-in/scale-in/slide-up. Added to web: form-group, pagination-item. Remaining divergence (gap-5, padding variants, width utilities) is intentional, reflecting each package's token defaults (editorial vs. SaaS density). Unification enables unified styleguide and simplifies developer mental model. |
+| 2026-06-04 | Full coverage pass: `styleguide.html` now demonstrates 100% of building-block classes in `components-web.css` (added Icons, Tags, File Upload, Date Picker, Search, Stepper, Toast, Loading/Skeleton, Data Table, Modal, Tooltip, Menu, Mobile Nav, Sections/Dividers, Utilities). Removed `.footer-*` and `.faq-*` page-pattern leftovers from both packages. Added the full SVG icon symbol set (fixes previously undefined `#i-check`/`#i-alert`/`#i-info`). |
+| 2026-06-04 | Unified styleguide created (building blocks only, no patterns per ADR 2026-06-04). New `styleguide.html` with web/app package switcher, token galleries, and zero inline styles. Legacy `styleguide-web.html` and `styleguide-app.html` deleted after migration. |
 | 2026-05-30 | Policy created. Styleguides migrated to canonical CSS. Component coverage audit shows ~40 components exist but <15 are documented. |
 

@@ -167,11 +167,11 @@ Identiske `@layer`, gråskala, triplets, spacing og motion som tokens-web. Forsk
   }
 
   /* tone-danger og tone-success overstyrer --button-surface-shadow-rest
-     med color-mix på respektive tone-farger. Se styleguide-app.html. */
+     med color-mix på respektive tone-farger. Se styleguide.html. */
 }
 ```
 
-Se [`docs/visual/styleguide-app.html`](../../visual/styleguide-app.html) og [`docs/visual/styleguide-web.html`](../../visual/styleguide-web.html) for fullt rendrede v3-blokker med alle utilities, komponenter og handoff-tabeller.
+Se [`docs/visual/styleguide.html`](../../visual/styleguide.html) for fullt rendrede v3-blokker med alle utilities, komponenter og handoff-tabeller (unified web + app styleguide).
 
 ### Brand-overstyring (tokens-brand.css)
 

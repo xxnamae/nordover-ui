@@ -36,15 +36,15 @@ Nordover is committed to **WCAG 2.1 Level AA** accessibility compliance. This di
 
 The framework includes:
 
-### Interactive Audit Tool
-File: `/docs/visual/accessibility-audit.html`
+### Unified Interactive Styleguide
+File: `/docs/visual/styleguide.html`
 
-- ✅ **Scan styleguides** — Runs axe-core on both web and app versions
-- ✅ **View violations** — See issues grouped by severity
-- ✅ **Remediation help** — Every violation includes fix guidance
-- ✅ **Export results** — Download as Markdown or JSON
+- ✅ **Inspect components** — Browse all building blocks with live examples
+- ✅ **Test accessibility** — Use browser DevTools axe extension or PA11y
+- ✅ **Web and app variants** — Toggle between web (editorial) and app (SaaS) frameworks
+- ✅ **Dark mode testing** — Toggle dark mode to verify contrast in both themes
 
-**No installation needed** — Open in browser and click "Audit"
+**No installation needed** — Open in browser
 
 ### GitHub Actions CI/CD
 File: `.github/workflows/a11y-audit.yml`
@@ -76,13 +76,13 @@ File: `.github/workflows/a11y-audit.yml`
 ### Option 1: Interactive Browser Tool (Easiest)
 
 ```
-1. Open docs/visual/accessibility-audit.html
-2. Click "Audit Web Styleguide"
-3. Wait for scan to complete
+1. Open docs/visual/styleguide.html
+2. Use browser DevTools (F12) → Axe DevTools extension
+3. Run scan (click "Scan ALL of my page")
 4. Review violations with fixes
 ```
 
-No setup required. Results display in browser.
+No setup required. Install Axe DevTools extension from your browser's extension store.
 
 ### Option 2: Command Line (Advanced)
 
@@ -94,7 +94,7 @@ npm install -g pa11y pa11y-ci axe-core
 pa11y-ci --config .pa11yci.json
 
 # Audit individual styleguide
-pa11y docs/visual/styleguide-web.html --standard WCAG2AA
+pa11y docs/visual/styleguide.html --standard WCAG2AA
 ```
 
 ### Option 3: CI Pipeline (Automatic)
@@ -197,10 +197,8 @@ docs/
 │   ├── A11Y-STANDARDS.md       # Framework requirements
 │   └── CI-INTEGRATION.md       # GitHub Actions setup
 ├── visual/
-│   ├── accessibility-audit.html    # Interactive audit tool
 │   ├── ACCESSIBILITY-AUDIT-RESULTS.md
-│   ├── styleguide-web.html     # Web styleguide
-│   ├── styleguide-app.html     # App styleguide
+│   ├── styleguide.html              # Unified interactive styleguide
 │   └── ...
 └── wiki/
     ├── README.md

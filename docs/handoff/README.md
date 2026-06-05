@@ -20,6 +20,9 @@ If you're using Emotion, Styled Components, CSS Modules, or Vanilla Extract, thi
 ### 3. **Accessibility for Implementers** (`ACCESSIBILITY-FOR-IMPLEMENTERS.md`)
 Essential guide for building accessible applications. Covers semantic HTML, ARIA, testing, and how to maintain WCAG 2.1 AA compliance.
 
+### 4. **Elementor Pro / WordPress** (`ELEMENTOR-WORDPRESS.md`)
+Token-first recipe for WordPress: map Nordover's design tokens into Elementor's Global Colors, Global Fonts, and Variables Manager, then build with native widgets that stay on-brand.
+
 ---
 
 ## Legacy Documentation (Norsk)
@@ -132,13 +135,14 @@ Bruk token-variabler i CSS:
 ## 3. Full dokumentasjon
 
 Se wiki-topics for detaljer:
-- `nordover-arkitektur.md` — tokens-spec og WCAG-tabell
-- `nordover-typografi.md` — font-vekter og headings
-- `nordover-buttons.md` — button-varianter
-- `nordover-forms.md` — input/select/checkbox
-- `nordover-patterns-basis.md` — Tag, Badge, Avatar osv.
-- `nordover-app-patterns.md` — Modal, Drawer, Toast osv.
-- `nordover-section-patterns.md` — Hero, Feature, CTA osv.
+- `nordover-buttons.md` — button-varianter (primary, secondary, ghost, tonal, elevated, link)
+- `nordover-forms.md` — input/select/checkbox, textarea, radio, switch
+- `nordover-data-display.md` — tables, pagination, badges, alerts, avatar, skeleton
+- `nordover-icon-system.md` — icon sizing, colors, animations
+- `nordover-motion.md` — animation utilities og transitions
+- `nordover-colors.md` — OKLCH palette, semantic colors, dark mode
+- `nordover-typography.md` — font scales, weights, fluid sizing
+- `nordover-accessibility.md` — WCAG AA compliance, keyboard navigation
 
 ---
 

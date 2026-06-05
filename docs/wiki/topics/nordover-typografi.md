@@ -380,5 +380,4 @@ Brukes på statistikk-blokker, datoer, prislisting der tall skal aligne (`tabula
 ## Se også
 
 - [Nordover-arkitektur — tokens](nordover-arkitektur.md)
-- [Nordover-rammeverk — index](nordover-rammeverk.md)
 - [Decision: typografi-utilities-arkitektur](../decisions/2026-05-27-typografi-utilities-arkitektur.md)

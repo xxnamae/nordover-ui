@@ -592,10 +592,9 @@ The grid automatically wraps at `16rem` minimum, making it responsive.
 
 ## Additional Resources
 
-- **API Reference:** `docs/visual/styleguide-web.html` (web) / `styleguide-app.html` (app)
-- **Component Playground:** `docs/visual/playground.html`
+- **Interactive Styleguide:** `docs/visual/styleguide.html` (unified web + app reference with package switcher)
 - **Performance Benchmarks:** `docs/performance/METRICS.md`
-- **Accessibility Testing:** `docs/visual/accessibility-audit.html`
+- **Accessibility Guidelines:** `docs/accessibility/`
 - **GitHub Repo:** [xxnamae/nordover-ui](https://github.com/xxnamae/nordover-ui)
 
 ---

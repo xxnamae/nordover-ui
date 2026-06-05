@@ -7,13 +7,18 @@
   <meta name="description" content="Nordover — tokens og byggesteiner for nordiske nettsider og apper. Et fundament hvert prosjekt bygger sine egne sider på.">
   <link rel="preconnect" href="https://rsms.me/">
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="docs/visual/tokens/tokens-web.css">
   <link rel="stylesheet" href="docs/visual/components/components-web.css">
   <style>
     /* Landing page composition — the docs site composes its own page on top of
        the framework. These classes are page-specific (prefix lp-) and are NOT
-       part of the shippable framework. Building blocks (.btn, .t-*, .grid-auto,
-       .footer-*) come from components-web.css. */
+       part of the shippable framework. Building blocks (.btn, .t-*, .grid-auto)
+       come from components-web.css. The footer is a page pattern (per ADR
+       2026-06-04-rammeverk-fokus-byggesteiner), so its styles live here locally
+       rather than in the framework. */
     @layer components {
       .nav { display: flex; align-items: center; justify-content: space-between; padding: var(--space-4) var(--page-padding); border-bottom: var(--border-divider); position: sticky; top: 0; z-index: 10; background: color-mix(in oklch, var(--color-bg) 92%, transparent); backdrop-filter: blur(8px); }
       .nav-brand { font-size: var(--text-lg); font-weight: var(--fw-semibold); letter-spacing: -0.02em; }
@@ -66,6 +71,14 @@
       .theme-toggle .t-sun { display: none; }
       :root:has(#dark:checked) .theme-toggle .t-sun { display: block; }
       :root:has(#dark:checked) .theme-toggle .t-moon { display: none; }
+
+      /* Footer (page-local — footers are page patterns, not framework blocks) */
+      .lp-footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--space-6); }
+      .lp-footer-col-title { font-size: var(--text-sm); font-weight: var(--fw-medium); margin-bottom: var(--space-2); }
+      .lp-footer-link { display: block; font-size: var(--text-sm); color: var(--color-muted); padding: 0.125rem 0; transition: color var(--duration-fast) var(--ease-out); }
+      .lp-footer-link:hover { color: var(--color-fg); }
+      @media (max-width: 60rem) { .lp-footer-grid { grid-template-columns: 1fr 1fr; } }
+      @media (max-width: 48rem) { .lp-footer-grid { grid-template-columns: 1fr; } }
     }
   </style>
 </head>
@@ -219,28 +232,28 @@
     <!-- Footer -->
     <footer style="border-top: var(--border-divider); padding: var(--space-8) var(--page-padding);">
       <div class="lp-inner">
-        <div class="footer-grid">
+        <div class="lp-footer-grid">
           <div>
-            <div class="footer-col-title">Nordover Design System</div>
+            <div class="lp-footer-col-title">Nordover Design System</div>
             <p class="t-body-sm" style="color: var(--color-muted); margin-bottom: var(--space-3);">
               Tokens og byggesteiner for nordiske digitale produkter. MIT-lisensiert.
             </p>
           </div>
           <div>
-            <div class="footer-col-title">Ressurser</div>
-            <a href="docs/visual/styleguide.html" class="footer-link">Styleguide</a>
-            <a href="docs/handoff/README.md" class="footer-link">Handoff</a>
+            <div class="lp-footer-col-title">Ressurser</div>
+            <a href="docs/visual/styleguide.html" class="lp-footer-link">Styleguide</a>
+            <a href="docs/handoff/README.md" class="lp-footer-link">Handoff</a>
           </div>
           <div>
-            <div class="footer-col-title">Docs</div>
-            <a href="docs/handoff/monorepo-bootstrap.md" class="footer-link">Monorepo Guide</a>
-            <a href="https://github.com/xxnamae/nordover-ui/tree/main/docs/wiki/decisions" class="footer-link">Decisions (ADRs)</a>
-            <a href="docs/wiki/glossary.md" class="footer-link">Glossar</a>
+            <div class="lp-footer-col-title">Docs</div>
+            <a href="docs/handoff/monorepo-bootstrap.md" class="lp-footer-link">Monorepo Guide</a>
+            <a href="https://github.com/xxnamae/nordover-ui/tree/main/docs/wiki/decisions" class="lp-footer-link">Decisions (ADRs)</a>
+            <a href="docs/wiki/glossary.md" class="lp-footer-link">Glossar</a>
           </div>
           <div>
-            <div class="footer-col-title">Repository</div>
-            <a href="https://github.com/xxnamae/nordover-ui" class="footer-link">GitHub</a>
-            <a href="https://github.com/xxnamae/nordover-ui/blob/main/LICENSE" class="footer-link">MIT License</a>
+            <div class="lp-footer-col-title">Repository</div>
+            <a href="https://github.com/xxnamae/nordover-ui" class="lp-footer-link">GitHub</a>
+            <a href="https://github.com/xxnamae/nordover-ui/blob/main/LICENSE" class="lp-footer-link">MIT License</a>
           </div>
         </div>
       </div>

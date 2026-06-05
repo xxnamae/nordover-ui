@@ -7,18 +7,26 @@
 <title>Nordover Design System</title>
 <link rel="preconnect" href="https://rsms.me/">
 <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap">
 <!-- Nordover framework: tokens + components + styleguide chrome -->
 <link rel="stylesheet" href="./tokens/tokens-web.css" id="token-stylesheet">
-<link rel="stylesheet" href="./components/components-web.css">
+<link rel="stylesheet" href="./components/components-web.css" id="component-stylesheet">
 <link rel="stylesheet" href="./styleguide-chrome.css">
 <style>
   /* Compact package switcher (page-local styleguide chrome) */
-  .pkg-switch { display: inline-flex; padding: 2px; gap: 2px; margin: 0 var(--space-2) var(--space-3); background: var(--color-subtle); border-radius: var(--radius-md); }
+  .pkg-switch { display: inline-flex; padding: 1px; gap: 1px; margin: 0 var(--space-2) var(--space-2); background: var(--color-subtle); border-radius: var(--radius-md); }
   .pkg-switch label { flex: 1; }
   .pkg-switch input { position: absolute; opacity: 0; pointer-events: none; }
-  .pkg-switch span { display: block; text-align: center; font-size: var(--text-xs); font-weight: var(--fw-medium); color: var(--color-muted); padding: 3px 10px; border-radius: calc(var(--radius-md) - 2px); cursor: pointer; transition: background var(--duration-fast), color var(--duration-fast); }
+  .pkg-switch span { display: block; text-align: center; font-size: 0.65rem; font-weight: var(--fw-medium); color: var(--color-muted); padding: 2px 6px; border-radius: calc(var(--radius-md) - 2px); cursor: pointer; transition: background var(--duration-fast), color var(--duration-fast); }
   .pkg-switch input:checked + span { background: var(--color-surface); color: var(--color-fg); box-shadow: var(--shadow-xs); }
   .pkg-switch input:focus-visible + span { outline: 2px solid var(--color-accent); outline-offset: 1px; }
+  /* Static-display overrides so floating/fixed components are visible in the styleguide */
+  .sg-static-calendar { position: static !important; display: block !important; margin-top: 0 !important; }
+  .sg-static-menu { position: static !important; }
+  .sg-static-results { position: static !important; display: block !important; margin-top: var(--space-1) !important; }
+  .sg-static-nav { position: static !important; transform: none !important; height: auto !important; width: 16rem; max-width: 100%; }
 </style>
 </head>
 <body>
@@ -42,13 +50,25 @@
 <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
 <symbol id="i-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="3" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
 <symbol id="i-chevron-left" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-chevron-down" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="9" x2="12" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+<symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="12" y1="11" x2="12" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="12" y1="8" x2="12.01" y2="8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+<symbol id="i-upload" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><polyline points="17 8 12 3 7 8" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="3" x2="12" y2="15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+<symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="1.5"/></symbol>
+<symbol id="i-more" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.5" fill="currentColor"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/><circle cx="12" cy="19" r="1.5" fill="currentColor"/></symbol>
+<symbol id="i-edit" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-trash" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 </defs></svg>
 
 <label for="nav" class="mobile-backdrop" aria-hidden="true"></label>
 
 <div class="app">
   <aside class="app-sidebar">
-    <div class="app-sidebar-brand"><span class="app-sidebar-brand-mark">N</span> <span>Nordover</span></div>
+    <div class="app-sidebar-brand"><span class="app-sidebar-brand-mark">N</span> <span>Nordover</span><label for="nav" class="app-sidebar-close" aria-label="Lukk menyen"><svg class="icon"><use href="#i-x"/></svg></label></div>
     <div class="pkg-switch" role="group" aria-label="Velg pakke">
       <label><input type="radio" name="package" value="web" checked><span>Web</span></label>
       <label><input type="radio" name="package" value="app"><span>App</span></label>
@@ -56,32 +76,78 @@
 
     <div class="app-sidebar-section-group">
       <button class="app-sidebar-toggle" aria-expanded="true">Foundation</button>
-      <nav class="app-nav-group active">
+      <nav class="app-nav-group is-active">
         <a class="app-nav-item" href="#colors">Colors</a>
         <a class="app-nav-item" href="#typography">Typography</a>
         <a class="app-nav-item" href="#spacing">Spacing &amp; Sizing</a>
         <a class="app-nav-item" href="#motion">Motion &amp; Animation</a>
+        <a class="app-nav-item" href="#icons">Icons</a>
       </nav>
     </div>
 
     <div class="app-sidebar-section-group">
-      <button class="app-sidebar-toggle" aria-expanded="true">Components</button>
-      <nav class="app-nav-group active">
+      <button class="app-sidebar-toggle" aria-expanded="true">Actions &amp; Inputs</button>
+      <nav class="app-nav-group is-active">
         <a class="app-nav-item" href="#buttons">Buttons</a>
         <a class="app-nav-item" href="#forms">Forms &amp; Inputs</a>
+        <a class="app-nav-item" href="#tags">Tags &amp; Tag Input</a>
+        <a class="app-nav-item" href="#file-upload">File Upload</a>
+        <a class="app-nav-item" href="#date-picker">Date Picker</a>
+        <a class="app-nav-item" href="#search">Search Bar</a>
+        <a class="app-nav-item" href="#stepper">Stepper</a>
+      </nav>
+    </div>
+
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="true">Feedback</button>
+      <nav class="app-nav-group is-active">
         <a class="app-nav-item" href="#badges-alerts">Badges &amp; Alerts</a>
+        <a class="app-nav-item" href="#toast">Toast</a>
+        <a class="app-nav-item" href="#loading">Loading &amp; Skeleton</a>
+        <a class="app-nav-item" href="#empty-state">Empty State</a>
+      </nav>
+    </div>
+
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="true">Content &amp; Data</button>
+      <nav class="app-nav-group is-active">
         <a class="app-nav-item" href="#cards">Cards</a>
-        <a class="app-nav-item" href="#tables">Tables</a>
+        <a class="app-nav-item" href="#tables">Table</a>
         <a class="app-nav-item" href="#data-display">Data Display</a>
-        <a class="app-nav-item" href="#modals-overlays">Modals &amp; Overlays</a>
-        <a class="app-nav-item" href="#navigation">Navigation</a>
-        <a class="app-nav-item" href="#utilities">Layout Utilities</a>
+        <a class="app-nav-item" href="#accordion">Accordion</a>
+      </nav>
+    </div>
+
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="true">Overlays</button>
+      <nav class="app-nav-group is-active">
+        <a class="app-nav-item" href="#modal">Modal</a>
+        <a class="app-nav-item" href="#tooltip">Tooltip</a>
+        <a class="app-nav-item" href="#menu">Menu</a>
+      </nav>
+    </div>
+
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="true">Navigation</button>
+      <nav class="app-nav-group is-active">
+        <a class="app-nav-item" href="#breadcrumbs">Breadcrumbs</a>
+        <a class="app-nav-item" href="#tabs">Tabs</a>
+        <a class="app-nav-item" href="#mobile-nav">Mobile Nav</a>
+      </nav>
+    </div>
+
+    <div class="app-sidebar-section-group">
+      <button class="app-sidebar-toggle" aria-expanded="true">Layout &amp; Utilities</button>
+      <nav class="app-nav-group is-active">
+        <a class="app-nav-item" href="#layout">Layout Primitives</a>
+        <a class="app-nav-item" href="#sections">Sections &amp; Dividers</a>
+        <a class="app-nav-item" href="#utilities">Utility Classes</a>
       </nav>
     </div>
 
     <div class="app-sidebar-section-group">
       <button class="app-sidebar-toggle" aria-expanded="true">Resources</button>
-      <nav class="app-nav-group active">
+      <nav class="app-nav-group is-active">
         <a class="app-nav-item" href="https://github.com/xxnamae/nordover-ui">GitHub</a>
         <a class="app-nav-item" href="https://github.com/xxnamae/nordover-ui/blob/main/CHANGELOG.md">Changelog</a>
       </nav>
@@ -103,193 +169,224 @@
     <main id="main" class="app-content">
       <div class="app-content-inner">
 
+        <div class="doc-hero">
+          <div class="doc-hero-eyebrow">Building blocks · v1.2.0</div>
+          <h1 class="doc-hero-title">Nordover Design System</h1>
+          <p class="doc-hero-desc">Universal foundation of tokens and building blocks for web and app interfaces. Every component below is shipped in <code>components-web.css</code> / <code>components-app.css</code>. Toggle the package switcher to preview web vs. app token defaults.</p>
+        </div>
+
         <!-- ============================================================
-             FOUNDATION: TOKENS
+             FOUNDATION
              ============================================================ -->
 
         <section class="doc-section" id="colors">
           <h2 class="doc-section-title">Colors</h2>
-          <p class="doc-section-desc">Semantic color tokens for light and dark modes. Based on OKLCH color space.</p>
+          <p class="doc-section-desc">OKLCH-based tokens. Semantic roles adapt to light/dark automatically; the grayscale ramp is the neutral foundation; status colours share one modern palette.</p>
 
+          <div class="doc-block-label">Semantic roles</div>
           <div class="swatch-grid">
-            <div class="swatch">
-              <div class="swatch-color" style="background: var(--color-fg);"></div>
-              <div class="swatch-meta">
-                <span class="swatch-name">Foreground</span>
-                <span class="t-caption">--color-fg</span>
-              </div>
-            </div>
-            <div class="swatch">
-              <div class="swatch-color" style="background: var(--color-bg);"></div>
-              <div class="swatch-meta">
-                <span class="swatch-name">Background</span>
-                <span class="t-caption">--color-bg</span>
-              </div>
-            </div>
-            <div class="swatch">
-              <div class="swatch-color" style="background: var(--color-surface);"></div>
-              <div class="swatch-meta">
-                <span class="swatch-name">Surface</span>
-                <span class="t-caption">--color-surface</span>
-              </div>
-            </div>
-            <div class="swatch">
-              <div class="swatch-color" style="background: var(--color-accent);"></div>
-              <div class="swatch-meta">
-                <span class="swatch-name">Accent</span>
-                <span class="t-caption">--color-accent</span>
-              </div>
-            </div>
-            <div class="swatch">
-              <div class="swatch-color" style="background: var(--color-muted);"></div>
-              <div class="swatch-meta">
-                <span class="swatch-name">Muted</span>
-                <span class="t-caption">--color-muted</span>
-              </div>
-            </div>
-            <div class="swatch">
-              <div class="swatch-color" style="background: var(--color-subtle);"></div>
-              <div class="swatch-meta">
-                <span class="swatch-name">Subtle</span>
-                <span class="t-caption">--color-subtle</span>
-              </div>
-            </div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--color-fg);"></div><div class="swatch-meta"><span class="swatch-name">Foreground</span><span class="t-caption">--color-fg</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--color-bg);"></div><div class="swatch-meta"><span class="swatch-name">Background</span><span class="t-caption">--color-bg</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--color-surface);"></div><div class="swatch-meta"><span class="swatch-name">Surface</span><span class="t-caption">--color-surface</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--color-subtle);"></div><div class="swatch-meta"><span class="swatch-name">Subtle</span><span class="t-caption">--color-subtle</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--color-border);"></div><div class="swatch-meta"><span class="swatch-name">Border</span><span class="t-caption">--color-border</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--color-muted);"></div><div class="swatch-meta"><span class="swatch-name">Muted</span><span class="t-caption">--color-muted</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--color-accent);"></div><div class="swatch-meta"><span class="swatch-name">Accent</span><span class="t-caption">--color-accent</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--color-accent); color: var(--color-accent-fg); display: flex; align-items: center; justify-content: center; font-size: var(--text-2xs);">Aa</div><div class="swatch-meta"><span class="swatch-name">On accent</span><span class="t-caption">--color-accent-fg</span></div></div>
+          </div>
+
+          <div class="doc-block-label">Grayscale ramp (50 → 950)</div>
+          <div class="swatch-grid">
+            <div class="swatch"><div class="swatch-color" style="background: var(--gray-50);"></div><div class="swatch-meta"><span class="swatch-name">Gray 50</span><span class="t-caption">--gray-50</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--gray-100);"></div><div class="swatch-meta"><span class="swatch-name">Gray 100</span><span class="t-caption">--gray-100</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--gray-200);"></div><div class="swatch-meta"><span class="swatch-name">Gray 200</span><span class="t-caption">--gray-200</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--gray-300);"></div><div class="swatch-meta"><span class="swatch-name">Gray 300</span><span class="t-caption">--gray-300</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--gray-400);"></div><div class="swatch-meta"><span class="swatch-name">Gray 400</span><span class="t-caption">--gray-400</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--gray-500);"></div><div class="swatch-meta"><span class="swatch-name">Gray 500</span><span class="t-caption">--gray-500</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--gray-600);"></div><div class="swatch-meta"><span class="swatch-name">Gray 600</span><span class="t-caption">--gray-600</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--gray-700);"></div><div class="swatch-meta"><span class="swatch-name">Gray 700</span><span class="t-caption">--gray-700</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--gray-800);"></div><div class="swatch-meta"><span class="swatch-name">Gray 800</span><span class="t-caption">--gray-800</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--gray-900);"></div><div class="swatch-meta"><span class="swatch-name">Gray 900</span><span class="t-caption">--gray-900</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--gray-950);"></div><div class="swatch-meta"><span class="swatch-name">Gray 950</span><span class="t-caption">--gray-950</span></div></div>
+          </div>
+
+          <div class="doc-block-label">Status palette</div>
+          <div class="swatch-grid">
+            <div class="swatch"><div class="swatch-color" style="background: var(--color-success);"></div><div class="swatch-meta"><span class="swatch-name">Success</span><span class="t-caption">--color-success</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--color-warning);"></div><div class="swatch-meta"><span class="swatch-name">Warning</span><span class="t-caption">--color-warning</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--color-error);"></div><div class="swatch-meta"><span class="swatch-name">Error</span><span class="t-caption">--color-error</span></div></div>
+            <div class="swatch"><div class="swatch-color" style="background: var(--color-info);"></div><div class="swatch-meta"><span class="swatch-name">Info</span><span class="t-caption">--color-info</span></div></div>
           </div>
         </section>
 
         <section class="doc-section" id="typography">
           <h2 class="doc-section-title">Typography</h2>
-          <p class="doc-section-desc">Semantic typography scale with display, heading, and body styles.</p>
+          <p class="doc-section-desc">Complete semantic scale. <strong>Display</strong> &amp; <strong>Heading</strong> use Inter Tight (<code>--font-display</code>); <strong>Body</strong> uses Inter (<code>--font-sans</code>). Each role has even <code>sm → xl</code> steps.</p>
 
+          <div class="doc-block-label">Display — Inter Tight, for hero &amp; marketing</div>
           <div class="doc-demo stack">
-            <div>
-              <div class="t-display-2xl">Display 2XL</div>
-              <div class="swatch-token" style="margin-top: var(--space-1);">--text-9xl / --fw-display-xl</div>
-            </div>
-            <div>
-              <div class="t-display-xl">Display XL</div>
-              <div class="swatch-token" style="margin-top: var(--space-1);">--text-8xl / --fw-display-xl</div>
-            </div>
-            <div>
-              <div class="t-heading-lg">Heading Large</div>
-              <div class="swatch-token" style="margin-top: var(--space-1);">--text-3xl / --fw-heading-lg</div>
-            </div>
-            <div>
-              <div class="t-heading-md">Heading Medium</div>
-              <div class="swatch-token" style="margin-top: var(--space-1);">--text-2xl / --fw-heading-md</div>
-            </div>
-            <div>
-              <div class="t-body-lg">Body Large — For prominent content and introductions</div>
-              <div class="swatch-token" style="margin-top: var(--space-1);">--text-lg / --leading-normal</div>
-            </div>
-            <div>
-              <div class="t-body">Body — Default reading text</div>
-              <div class="swatch-token" style="margin-top: var(--space-1);">--text-base / --leading-normal</div>
-            </div>
-            <div>
-              <div class="t-body-sm">Body Small — For secondary content</div>
-              <div class="swatch-token" style="margin-top: var(--space-1);">--text-sm / --fw-body-sm</div>
-            </div>
-            <div>
-              <div class="t-caption">Caption — For labels and hints</div>
-              <div class="swatch-token" style="margin-top: var(--space-1);">--text-xs / --fw-caption</div>
-            </div>
+            <div><div class="t-display-2xl">Display 2XL</div><span class="t-caption">.t-display-2xl</span></div>
+            <div><div class="t-display-xl">Display XL</div><span class="t-caption">.t-display-xl</span></div>
+            <div><div class="t-display-lg">Display Large</div><span class="t-caption">.t-display-lg</span></div>
+            <div><div class="t-display-md">Display Medium</div><span class="t-caption">.t-display-md</span></div>
+            <div><div class="t-display-sm">Display Small</div><span class="t-caption">.t-display-sm</span></div>
+          </div>
+
+          <div class="doc-block-label">Heading — Inter Tight, for section titles</div>
+          <div class="doc-demo stack">
+            <div><div class="t-heading-xl">Heading XL</div><span class="t-caption">.t-heading-xl</span></div>
+            <div><div class="t-heading-lg">Heading Large</div><span class="t-caption">.t-heading-lg</span></div>
+            <div><div class="t-heading-md">Heading Medium</div><span class="t-caption">.t-heading-md</span></div>
+            <div><div class="t-heading-sm">Heading Small</div><span class="t-caption">.t-heading-sm</span></div>
+          </div>
+
+          <div class="doc-block-label">Body &amp; labels — Inter, for content</div>
+          <div class="doc-demo stack">
+            <div><div class="t-body-xl">Body XL — large lead paragraph for introductions</div><span class="t-caption">.t-body-xl</span></div>
+            <div><div class="t-body-lg">Body Large — for prominent content and introductions</div><span class="t-caption">.t-body-lg</span></div>
+            <div><div class="t-body">Body — default reading text</div><span class="t-caption">.t-body</span></div>
+            <div><div class="t-body-sm">Body Small — for secondary content</div><span class="t-caption">.t-body-sm</span></div>
+            <div><div class="t-eyebrow">Eyebrow label</div><span class="t-caption">.t-eyebrow</span></div>
+            <div><div class="t-caption">Caption — for labels and hints</div><span class="t-caption">.t-caption</span></div>
           </div>
         </section>
 
         <section class="doc-section" id="spacing">
           <h2 class="doc-section-title">Spacing &amp; Sizing</h2>
-          <p class="doc-section-desc">Consistent spacing scale: --space-1 (4px) to --space-8 (64px).</p>
-
-          <div class="stack">
-            <div>
-              <h3 class="t-body-sm">Spacing scale</h3>
-              <div class="doc-demo stack" style="gap: var(--space-4);">
-                <div style="background: var(--color-accent); height: var(--space-1); width: 100%;"></div>
-                <div style="background: var(--color-accent); height: var(--space-2); width: 100%;"></div>
-                <div style="background: var(--color-accent); height: var(--space-3); width: 100%;"></div>
-                <div style="background: var(--color-accent); height: var(--space-4); width: 100%;"></div>
-                <div style="background: var(--color-accent); height: var(--space-6); width: 100%;"></div>
-                <div style="background: var(--color-accent); height: var(--space-8); width: 100%;"></div>
-              </div>
-            </div>
-            <div>
-              <h3 class="t-body-sm">Max-width containers</h3>
-              <div style="font-size: var(--text-xs); color: var(--color-muted);">
-                <div>--w-sm: 24rem (384px)</div>
-                <div>--w-md: 28rem (448px)</div>
-                <div>--w-lg: 32rem (512px)</div>
-                <div>--w-xl: 36rem (576px)</div>
-                <div>--w-2xl: 42rem (672px)</div>
-                <div>--w-3xl: 48rem (768px)</div>
-                <div>--w-4xl: 56rem (896px)</div>
-                <div>--w-5xl: 64rem (1024px)</div>
-              </div>
-            </div>
+          <p class="doc-section-desc">Consistent spacing scale built on an 8px base grid.</p>
+          <div class="doc-demo stack" style="gap: var(--space-3);">
+            <div class="cluster cluster-tight" style="align-items: center;"><span style="background: var(--color-accent); height: 1rem; width: var(--space-1);"></span><span class="t-caption">--space-1</span></div>
+            <div class="cluster cluster-tight" style="align-items: center;"><span style="background: var(--color-accent); height: 1rem; width: var(--space-2);"></span><span class="t-caption">--space-2</span></div>
+            <div class="cluster cluster-tight" style="align-items: center;"><span style="background: var(--color-accent); height: 1rem; width: var(--space-3);"></span><span class="t-caption">--space-3</span></div>
+            <div class="cluster cluster-tight" style="align-items: center;"><span style="background: var(--color-accent); height: 1rem; width: var(--space-4);"></span><span class="t-caption">--space-4</span></div>
+            <div class="cluster cluster-tight" style="align-items: center;"><span style="background: var(--color-accent); height: 1rem; width: var(--space-6);"></span><span class="t-caption">--space-6</span></div>
+            <div class="cluster cluster-tight" style="align-items: center;"><span style="background: var(--color-accent); height: 1rem; width: var(--space-8);"></span><span class="t-caption">--space-8</span></div>
           </div>
         </section>
 
         <section class="doc-section" id="motion">
           <h2 class="doc-section-title">Motion &amp; Animation</h2>
-          <p class="doc-section-desc">Predefined durations and easing functions for consistent interactions.</p>
-
-          <div class="doc-demo stack">
-            <div>
-              <h3 class="t-body-sm">Durations</h3>
-              <div style="font-size: var(--text-xs); color: var(--color-muted); gap: var(--space-2);" class="stack">
-                <div>--duration-fast: 150ms</div>
-                <div>--duration-base: 250ms</div>
-                <div>--duration-slow-base: 350ms</div>
-                <div>--duration-slow: 500ms</div>
-                <div>--duration-slow-in: 600ms</div>
-              </div>
+          <p class="doc-section-desc">Animation utility classes and duration tokens. All respect <code>prefers-reduced-motion</code>.</p>
+          <div class="doc-sub">Animation utilities</div>
+          <div class="component-grid">
+            <div class="state-item"><div class="fade-in" style="width: 2rem; height: 2rem; background: var(--color-accent); border-radius: var(--radius-md);"></div><span class="state-label">.fade-in</span></div>
+            <div class="state-item"><div class="scale-in" style="width: 2rem; height: 2rem; background: var(--color-accent); border-radius: var(--radius-md);"></div><span class="state-label">.scale-in</span></div>
+            <div class="state-item"><div class="slide-in-up" style="width: 2rem; height: 2rem; background: var(--color-accent); border-radius: var(--radius-md);"></div><span class="state-label">.slide-in-up</span></div>
+            <div class="state-item"><div class="slide-in-down" style="width: 2rem; height: 2rem; background: var(--color-accent); border-radius: var(--radius-md);"></div><span class="state-label">.slide-in-down</span></div>
+            <div class="state-item"><div class="slide-in-left" style="width: 2rem; height: 2rem; background: var(--color-accent); border-radius: var(--radius-md);"></div><span class="state-label">.slide-in-left</span></div>
+            <div class="state-item"><div class="slide-in-right" style="width: 2rem; height: 2rem; background: var(--color-accent); border-radius: var(--radius-md);"></div><span class="state-label">.slide-in-right</span></div>
+          </div>
+          <div class="doc-sub">Editorial entrance (slower, web package)</div>
+          <div class="chips">
+            <span class="chip">.animate-fade-in</span><span class="chip">.animate-scale-in</span><span class="chip">.animate-slide-up</span>
+          </div>
+          <div class="doc-sub">Spring entrance (app package)</div>
+          <div class="component-grid">
+            <div class="state-item"><div class="bounce-in" style="width: 2rem; height: 2rem; background: var(--color-accent); border-radius: var(--radius-md);"></div><span class="state-label">.bounce-in</span></div>
+          </div>
+          <div class="doc-sub">Exit &amp; transition utilities</div>
+          <div class="chips">
+            <span class="chip">.fade-out</span><span class="chip">.scale-out</span>
+            <span class="chip">.transition-fast</span><span class="chip">.transition-base</span><span class="chip">.transition-slow</span>
+          </div>
+          <div class="doc-sub">Icon motion modifiers</div>
+          <div class="doc-demo">
+            <div class="cluster" style="align-items: center;">
+              <svg class="icon icon-spin icon-primary"><use href="#i-info"/></svg>
+              <svg class="icon icon-pulse icon-primary"><use href="#i-info"/></svg>
+              <svg class="icon icon-bounce icon-primary"><use href="#i-info"/></svg>
             </div>
-            <div>
-              <h3 class="t-body-sm">Animation demo</h3>
-              <div style="display: flex; gap: var(--space-4); padding: var(--space-4); background: var(--color-subtle); border-radius: var(--radius-md);">
-                <div style="width: 40px; height: 40px; background: var(--color-accent); border-radius: 50%; animation: fade-in var(--duration-fast) ease;"></div>
-                <div style="width: 40px; height: 40px; background: var(--color-accent); border-radius: 50%; animation: scale-in var(--duration-base) ease;"></div>
-                <div style="width: 40px; height: 40px; background: var(--color-accent); border-radius: 50%; animation: slide-in-up var(--duration-slow-base) ease;"></div>
-              </div>
+            <div class="chips">
+              <span class="chip">.icon-spin</span><span class="chip">.icon-pulse</span><span class="chip">.icon-bounce</span>
+            </div>
+          </div>
+          <div class="doc-sub">Duration tokens</div>
+          <div class="chips">
+            <span class="chip">--duration-fast: 150ms</span>
+            <span class="chip">--duration-base: 250ms</span>
+            <span class="chip">--duration-slow-base: 350ms</span>
+            <span class="chip">--duration-slow: 500ms</span>
+          </div>
+        </section>
+
+        <section class="doc-section" id="icons">
+          <h2 class="doc-section-title">Icons</h2>
+          <p class="doc-section-desc">Stroke icon system with semantic color variants and motion modifiers.</p>
+          <div class="chips">
+            <span class="chip">.icon</span><span class="chip">.icon-sm</span><span class="chip">.icon-lg</span>
+            <span class="chip">.icon-primary</span><span class="chip">.icon-success</span><span class="chip">.icon-spin</span>
+          </div>
+          <div class="doc-demo">
+            <div class="cluster" style="align-items: center;">
+              <svg class="icon icon-sm"><use href="#i-info"/></svg>
+              <svg class="icon"><use href="#i-info"/></svg>
+              <svg class="icon icon-lg"><use href="#i-info"/></svg>
+              <svg class="icon icon-primary"><use href="#i-check"/></svg>
+              <svg class="icon icon-success"><use href="#i-check"/></svg>
+              <svg class="icon icon-warning"><use href="#i-alert"/></svg>
+              <svg class="icon icon-error"><use href="#i-alert"/></svg>
+              <svg class="icon icon-muted"><use href="#i-search"/></svg>
+              <svg class="icon icon-subtle"><use href="#i-search"/></svg>
+              <svg class="icon icon-spin icon-primary"><use href="#i-info"/></svg>
             </div>
           </div>
         </section>
 
         <!-- ============================================================
-             COMPONENTS: INTERACTIVE
+             ACTIONS & INPUTS
              ============================================================ -->
 
         <section class="doc-section" id="buttons">
           <h2 class="doc-section-title">Buttons</h2>
-          <p class="doc-section-desc">Interactive button component with multiple style variants and sizes.</p>
-
+          <p class="doc-section-desc">Triggers an action or navigation. One <code>.btn</code> base with style variants, sizes, and states — pick the variant by emphasis, not by colour.</p>
           <div class="chips">
-            <span class="chip">.btn</span>
-            <span class="chip">.btn-primary</span>
-            <span class="chip">.btn-secondary</span>
-            <span class="chip">.btn-ghost</span>
-            <span class="chip">.btn-sm</span>
-            <span class="chip">.btn-lg</span>
+            <span class="chip">.btn</span><span class="chip">.btn-primary</span><span class="chip">.btn-secondary</span>
+            <span class="chip">.btn-ghost</span><span class="chip">.btn-tonal</span><span class="chip">.btn-elevated</span>
+            <span class="chip">.btn-link</span><span class="chip">.btn-error</span><span class="chip">.btn-sm</span>
+            <span class="chip">.btn-lg</span><span class="chip">.btn-touch</span>
           </div>
 
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li>Committing an action (Save, Submit, Delete)</li>
+                <li>One <strong>primary</strong> button per view to signal the main path</li>
+                <li><code>.btn-error</code> for destructive actions, paired with confirmation</li>
+              </ul>
+            </div>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>Plain navigation between pages — use a link or <code>.btn-link</code></li>
+                <li>Multiple competing primaries in the same area</li>
+                <li>Long sentences — labels should be a verb or verb + noun</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Example</div>
           <div class="doc-demo stack">
             <div>
-              <h3 class="t-body-sm">Styles</h3>
+              <h3 class="t-body-sm">Styles (low → high emphasis)</h3>
               <div class="cluster">
-                <button class="btn btn-primary">Primary</button>
-                <button class="btn btn-secondary">Secondary</button>
+                <button class="btn btn-link">Link</button>
                 <button class="btn btn-ghost">Ghost</button>
                 <button class="btn btn-tonal">Tonal</button>
+                <button class="btn btn-secondary">Secondary</button>
+                <button class="btn btn-primary">Primary</button>
                 <button class="btn btn-elevated">Elevated</button>
-                <button class="btn btn-link">Link</button>
+                <button class="btn btn-error">Error</button>
               </div>
             </div>
             <div>
               <h3 class="t-body-sm">Sizes</h3>
-              <div class="cluster">
+              <div class="cluster" style="align-items: center;">
                 <button class="btn btn-primary btn-sm">Small</button>
                 <button class="btn btn-primary">Default</button>
                 <button class="btn btn-primary btn-lg">Large</button>
+                <button class="btn btn-primary btn-touch">Touch (44px)</button>
               </div>
             </div>
             <div>
@@ -297,88 +394,557 @@
               <div class="cluster">
                 <button class="btn btn-primary">Normal</button>
                 <button class="btn btn-primary" disabled>Disabled</button>
+                <button class="btn btn-primary" aria-busy="true"><span class="spinner" style="width: 1rem; height: 1rem;"></span> Loading</button>
               </div>
             </div>
+          </div>
+
+          <div class="doc-block-label">Variants</div>
+          <table class="props-table">
+            <thead><tr><th>Class</th><th>Emphasis</th><th>Use for</th></tr></thead>
+            <tbody>
+              <tr><td><code>.btn-primary</code></td><td>Highest</td><td>The single main action of a view</td></tr>
+              <tr><td><code>.btn-secondary</code></td><td>High</td><td>Alternative action next to a primary</td></tr>
+              <tr><td><code>.btn-tonal</code></td><td>Medium</td><td>Tinted action that stays calm on busy surfaces</td></tr>
+              <tr><td><code>.btn-ghost</code></td><td>Low</td><td>Toolbar / repeated actions where chrome should recede</td></tr>
+              <tr><td><code>.btn-link</code></td><td>Lowest</td><td>Inline, text-like action</td></tr>
+              <tr><td><code>.btn-elevated</code></td><td>High</td><td>Floats above content (cards, sticky bars)</td></tr>
+              <tr><td><code>.btn-error</code></td><td>High</td><td>Destructive action (delete, remove)</td></tr>
+              <tr><td><code>.btn-sm</code> / <code>.btn-lg</code> / <code>.btn-touch</code></td><td>—</td><td>Size: compact / prominent / 44px touch target</td></tr>
+            </tbody>
+          </table>
+
+          <div class="doc-block-label">Guidelines</div>
+          <div class="doc-guidelines">
+            <div class="doc-card is-do">
+              <div class="doc-card-figure"><div class="cluster"><button class="btn btn-secondary">Cancel</button><button class="btn btn-primary">Save</button></div></div>
+              <div class="doc-card-body">
+                <div class="doc-card-label"><svg class="icon icon-sm"><use href="#i-check"/></svg> Do</div>
+                <p class="doc-card-note">One primary per group; pair it with a lower-emphasis secondary for the alternative.</p>
+              </div>
+            </div>
+            <div class="doc-card is-dont">
+              <div class="doc-card-figure"><div class="cluster"><button class="btn btn-primary">Save</button><button class="btn btn-primary">Cancel</button></div></div>
+              <div class="doc-card-body">
+                <div class="doc-card-label"><svg class="icon icon-sm"><use href="#i-x"/></svg> Don't</div>
+                <p class="doc-card-note">Don't make two primaries compete — the user can't tell which path is the default.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>Use a real <code>&lt;button&gt;</code> (or <code>&lt;a&gt;</code> for navigation) so keyboard and screen-reader support is free.</li>
+                <li>While loading, set <code>aria-busy="true"</code>; while disabled, the native <code>disabled</code> attribute removes it from the tab order.</li>
+                <li>Icon-only buttons need an <code>aria-label</code>; use <code>.btn-touch</code> to guarantee a 44px target.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;button class="btn btn-primary"&gt;Save&lt;/button&gt;
+&lt;button class="btn btn-secondary"&gt;Cancel&lt;/button&gt;
+&lt;button class="btn btn-error"&gt;Delete&lt;/button&gt;
+&lt;button class="btn btn-primary btn-touch" aria-busy="true"&gt;Saving…&lt;/button&gt;</pre>
           </div>
         </section>
 
         <section class="doc-section" id="forms">
           <h2 class="doc-section-title">Forms &amp; Inputs</h2>
-          <p class="doc-section-desc">Text inputs, checkboxes, radios, selects, and switches.</p>
-
+          <p class="doc-section-desc">Text inputs, textareas, selects, checkboxes, radios, switches, plus label/help/error helpers.</p>
           <div class="chips">
-            <span class="chip">.field</span>
-            <span class="chip">input</span>
-            <span class="chip">.form-checkbox</span>
-            <span class="chip">.form-radio</span>
-            <span class="chip">.form-switch</span>
+            <span class="chip">.field</span><span class="chip">.field-label</span><span class="chip">.form-input</span>
+            <span class="chip">.form-textarea</span><span class="chip">.form-select</span><span class="chip">.form-checkbox</span>
+            <span class="chip">.form-radio</span><span class="chip">.form-switch</span><span class="chip">.field-help</span>
+            <span class="chip">.field-error</span><span class="chip">.form-group</span><span class="chip">.form-group-item</span>
           </div>
 
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li>Collecting input — always wrap a control in <code>.field</code> with a <code>.field-label</code></li>
+                <li><code>.field-help</code> for guidance, <code>.field-error</code> for validation messages</li>
+                <li><code>.form-switch</code> for instant on/off; checkboxes for multi-select</li>
+              </ul>
+            </div>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>Placeholder text as the only label — it disappears on input</li>
+                <li>A switch where the change isn't applied immediately — use a checkbox</li>
+                <li>Colour alone to signal errors — pair with <code>.field-error</code> text</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Example</div>
+          <div class="doc-demo stack">
+            <div class="field">
+              <label class="field-label" for="f-name">Text input</label>
+              <input id="f-name" class="form-input" type="text" placeholder="Enter text...">
+              <div class="field-help">Helper text appears below the field.</div>
+            </div>
+            <div class="field">
+              <label class="field-label" for="f-err">With error state</label>
+              <input id="f-err" class="form-input is-error" type="text" value="invalid@">
+              <div class="field-error">Please enter a valid email address.</div>
+            </div>
+            <div class="field">
+              <label class="field-label" for="f-ok">With success state</label>
+              <input id="f-ok" class="form-input is-success" type="text" value="hei@nordover.no">
+            </div>
+            <div class="field">
+              <label class="field-label" for="f-area">Textarea</label>
+              <textarea id="f-area" class="form-textarea" placeholder="Multi-line text..."></textarea>
+            </div>
+            <div class="field">
+              <label class="field-label" for="f-sel">Select</label>
+              <select id="f-sel" class="form-select">
+                <option>Choose an option</option><option>Option 1</option><option>Option 2</option>
+              </select>
+            </div>
+            <div class="field">
+              <span class="field-label">Checkboxes</span>
+              <label style="display: flex; gap: var(--space-2); align-items: center;"><input type="checkbox" class="form-checkbox" checked> Option 1</label>
+              <label style="display: flex; gap: var(--space-2); align-items: center;"><input type="checkbox" class="form-checkbox"> Option 2</label>
+            </div>
+            <div class="field">
+              <span class="field-label">Radio buttons</span>
+              <label style="display: flex; gap: var(--space-2); align-items: center;"><input type="radio" name="r1" class="form-radio" checked> Option A</label>
+              <label style="display: flex; gap: var(--space-2); align-items: center;"><input type="radio" name="r1" class="form-radio"> Option B</label>
+            </div>
+            <div class="field">
+              <span class="field-label">Switch &amp; toggle</span>
+              <label style="display: flex; gap: var(--space-2); align-items: center;"><input type="checkbox" class="form-switch" checked> .form-switch (on)</label>
+              <label style="display: flex; gap: var(--space-2); align-items: center;"><input type="checkbox" class="form-toggle"> .form-toggle (off)</label>
+            </div>
+            <div class="field">
+              <span class="field-label">Inline group (.form-group) — horizontal layout of related options</span>
+              <div class="form-group">
+                <label class="form-group-item"><input type="radio" name="rg" class="form-radio" checked> Daily</label>
+                <label class="form-group-item"><input type="radio" name="rg" class="form-radio"> Weekly</label>
+                <label class="form-group-item"><input type="radio" name="rg" class="form-radio"> Monthly</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Anatomy of a field</div>
+          <div class="doc-anatomy">
+            <div class="doc-anatomy-figure">
+              <div class="field" style="width: 16rem;">
+                <label class="field-label" for="f-anat">Email</label>
+                <input id="f-anat" class="form-input" type="email" value="hei@nordover.no">
+                <div class="field-help">We never share your address.</div>
+              </div>
+            </div>
+            <ol class="doc-anatomy-list">
+              <li><strong>.field</strong> — the wrapper that stacks label, control, and message with consistent spacing</li>
+              <li><strong>.field-label</strong> — always present and bound via <code>for</code> / <code>id</code></li>
+              <li><strong>.form-input</strong> — the control; swap for <code>.form-select</code>, <code>.form-textarea</code></li>
+              <li><strong>.field-help</strong> / <strong>.field-error</strong> — guidance or validation below the control</li>
+            </ol>
+          </div>
+
+          <div class="doc-block-label">Controls</div>
+          <table class="props-table">
+            <thead><tr><th>Class</th><th>Control</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td><code>.form-input</code></td><td>text / email / number…</td><td>Add <code>.is-error</code> or <code>.is-success</code> for validation state</td></tr>
+              <tr><td><code>.form-textarea</code></td><td>multi-line text</td><td>Vertically resizable</td></tr>
+              <tr><td><code>.form-select</code></td><td>dropdown</td><td>Native <code>&lt;select&gt;</code> with custom chevron</td></tr>
+              <tr><td><code>.form-checkbox</code></td><td>multi-select</td><td>Zero or more options</td></tr>
+              <tr><td><code>.form-radio</code></td><td>single-select</td><td>Exactly one of a named group</td></tr>
+              <tr><td><code>.form-switch</code> / <code>.form-toggle</code></td><td>boolean</td><td>For settings applied immediately</td></tr>
+              <tr><td><code>.form-group</code> + <code>.form-group-item</code></td><td>layout</td><td>Lay related options out horizontally</td></tr>
+            </tbody>
+          </table>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>Every control has a <code>&lt;label&gt;</code> bound by <code>for</code>/<code>id</code> — or wraps the control.</li>
+                <li>On error set <code>aria-invalid="true"</code> and link the message with <code>aria-describedby</code>.</li>
+                <li><code>.field-help</code> / <code>.field-error</code> should also be referenced via <code>aria-describedby</code> so they're announced.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;div class="field"&gt;
+  &lt;label class="field-label" for="email"&gt;Email&lt;/label&gt;
+  &lt;input id="email" class="form-input" type="email"
+         aria-describedby="email-help"&gt;
+  &lt;div id="email-help" class="field-help"&gt;We never share your address.&lt;/div&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <section class="doc-section" id="tags">
+          <h2 class="doc-section-title">Tags &amp; Tag Input</h2>
+          <p class="doc-section-desc">Inline tags/chips and a tokenized tag input field with suggestions.</p>
+          <div class="chips">
+            <span class="chip">.tag</span><span class="chip">.tag-solid</span><span class="chip">.tag-outline</span>
+            <span class="chip">.tag-success</span><span class="chip">.tag-input</span><span class="chip">.tag-list</span>
+            <span class="chip">.tag-suggestions</span>
+          </div>
+
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li>Labelling items with keywords, categories, or filters</li>
+                <li><code>.tag-input</code> for free-form, removable multi-value entry</li>
+                <li>Semantic colour (<code>.tag-success</code>) only when it carries meaning</li>
+              </ul>
+            </div>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>Status of a whole row — use a <a href="#badges-alerts">Badge</a></li>
+                <li>Primary actions — tags aren't buttons</li>
+                <li>Fixed single-choice sets — use radios or a select</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Example</div>
           <div class="doc-demo stack">
             <div>
-              <label class="field">
-                <span>Text input</span>
-                <input type="text" placeholder="Enter text...">
-              </label>
+              <h3 class="t-body-sm">Tag variants</h3>
+              <div class="cluster">
+                <span class="tag">Default <span class="tag-remove"><svg class="icon icon-sm"><use href="#i-x"/></svg></span></span>
+                <span class="tag tag-solid">Solid</span>
+                <span class="tag tag-outline">Outline</span>
+                <span class="tag tag-success">Success</span>
+              </div>
             </div>
             <div>
-              <label class="field">
-                <span>Password input</span>
-                <input type="password" placeholder="••••••••">
-              </label>
+              <h3 class="t-body-sm">Tag input</h3>
+              <div class="tag-input-demo">
+                <div class="tag-input">
+                  <div class="tag-list">
+                    <span class="tag">React <span class="tag-remove"><svg class="icon icon-sm"><use href="#i-x"/></svg></span></span>
+                    <span class="tag">CSS <span class="tag-remove"><svg class="icon icon-sm"><use href="#i-x"/></svg></span></span>
+                  </div>
+                  <input class="tag-input-field" placeholder="Add tag...">
+                </div>
+                <div class="tag-suggestions sg-static-results" style="position: static; display: block;">
+                  <div class="tag-suggestion">JavaScript</div>
+                  <div class="tag-suggestion">TypeScript</div>
+                  <div class="tag-suggestion">HTML</div>
+                </div>
+              </div>
             </div>
-            <div>
-              <label class="field">
-                <span>Textarea</span>
-                <textarea placeholder="Multi-line text..."></textarea>
-              </label>
+          </div>
+
+          <div class="doc-block-label">Variants</div>
+          <table class="props-table">
+            <thead><tr><th>Class</th><th>Axis</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td><code>.tag</code></td><td>Base</td><td>Tinted pill; add <code>.tag-remove</code> for a dismiss control</td></tr>
+              <tr><td><code>.tag-solid</code> / <code>.tag-outline</code></td><td>Fill style</td><td>A separate axis from colour — pick one fill</td></tr>
+              <tr><td><code>.tag-success</code> (… <code>-error</code>/<code>-warning</code>/<code>-info</code>)</td><td>Status</td><td>Same status vocabulary as badges/alerts</td></tr>
+              <tr><td><code>.tag-input</code> · <code>.tag-list</code> · <code>.tag-input-field</code></td><td>Input</td><td>Container, current tags, and the entry field</td></tr>
+              <tr><td><code>.tag-suggestions</code> · <code>.tag-suggestion</code></td><td>Input</td><td>Autocomplete popover and its options</td></tr>
+            </tbody>
+          </table>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>Each <code>.tag-remove</code> is a real button with an <code>aria-label</code> like “Remove React”.</li>
+                <li>The tag input pairs with <code>role="listbox"</code> suggestions and <code>aria-activedescendant</code> for keyboard navigation.</li>
+                <li>Don't convey a tag's meaning with colour alone — keep the text label.</li>
+              </ul>
             </div>
-            <div>
-              <fieldset class="field">
-                <legend>Checkboxes</legend>
-                <label style="display: flex; gap: var(--space-2);">
-                  <input type="checkbox" class="form-checkbox"> Option 1
-                </label>
-                <label style="display: flex; gap: var(--space-2);">
-                  <input type="checkbox" class="form-checkbox"> Option 2
-                </label>
-              </fieldset>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;span class="tag"&gt;React
+  &lt;button class="tag-remove" aria-label="Remove React"&gt;
+    &lt;svg class="icon icon-sm"&gt;&lt;use href="#i-x"/&gt;&lt;/svg&gt;
+  &lt;/button&gt;
+&lt;/span&gt;</pre>
+          </div>
+        </section>
+
+        <section class="doc-section" id="file-upload">
+          <h2 class="doc-section-title">File Upload</h2>
+          <p class="doc-section-desc">Drag-and-drop upload dropzone with a file list and per-file progress.</p>
+          <div class="chips">
+            <span class="chip">.file-upload</span><span class="chip">.file-list</span><span class="chip">.file-item</span>
+            <span class="chip">.file-item-progress</span>
+          </div>
+
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li>Uploading one or more files with drag-and-drop or click</li>
+                <li>Showing per-file progress and a removable list</li>
+              </ul>
             </div>
-            <div>
-              <fieldset class="field">
-                <legend>Radio buttons</legend>
-                <label style="display: flex; gap: var(--space-2);">
-                  <input type="radio" name="option" class="form-radio"> Option A
-                </label>
-                <label style="display: flex; gap: var(--space-2);">
-                  <input type="radio" name="option" class="form-radio"> Option B
-                </label>
-              </fieldset>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>A single avatar/logo swap — a plain file button is enough</li>
+                <li>Hiding accepted types/limits — always state them up front</li>
+              </ul>
             </div>
-            <div>
-              <label class="field">
-                <span>Select dropdown</span>
-                <select>
-                  <option>Choose an option</option>
-                  <option>Option 1</option>
-                  <option>Option 2</option>
-                </select>
-              </label>
+          </div>
+
+          <div class="doc-block-label">Example</div>
+          <div class="doc-demo stack">
+            <label class="file-upload">
+              <svg class="icon file-upload-icon icon-muted" style="width: 2rem; height: 2rem;"><use href="#i-upload"/></svg>
+              <div class="file-upload-text">Drag files here or click to browse</div>
+              <div class="file-upload-hint">PNG, JPG, PDF up to 10MB</div>
+              <input type="file">
+            </label>
+            <div class="file-list">
+              <div class="file-item">
+                <div class="file-item-info">
+                  <span class="file-item-name">report.pdf</span>
+                  <span class="file-item-size">2.4 MB</span>
+                </div>
+                <div class="file-item-progress"><div class="file-item-progress-bar" style="width: 70%;"></div></div>
+              </div>
+              <div class="file-item">
+                <div class="file-item-info">
+                  <span class="file-item-name">photo.jpg</span>
+                  <span class="file-item-size">820 KB</span>
+                </div>
+                <button class="btn btn-ghost btn-sm" aria-label="Remove photo.jpg"><svg class="icon icon-sm"><use href="#i-trash"/></svg></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>The dropzone is a <code>&lt;label&gt;</code> wrapping a real <code>&lt;input type="file"&gt;</code> — click and keyboard work natively.</li>
+                <li>Announce progress with <code>aria-live</code>; each remove button has an <code>aria-label</code> naming its file.</li>
+                <li>Drag-and-drop always has a click fallback.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;label class="file-upload"&gt;
+  &lt;svg class="icon file-upload-icon" aria-hidden="true"&gt;&lt;use href="#i-upload"/&gt;&lt;/svg&gt;
+  &lt;div class="file-upload-text"&gt;Drag files here or click to browse&lt;/div&gt;
+  &lt;div class="file-upload-hint"&gt;PNG, JPG, PDF up to 10MB&lt;/div&gt;
+  &lt;input type="file" multiple&gt;
+&lt;/label&gt;</pre>
+          </div>
+        </section>
+
+        <section class="doc-section" id="date-picker">
+          <h2 class="doc-section-title">Date Picker</h2>
+          <p class="doc-section-desc">Month calendar with navigation, selected and out-of-month day states.</p>
+          <div class="chips">
+            <span class="chip">.date-picker</span><span class="chip">.date-picker-calendar</span><span class="chip">.date-picker-day</span>
+          </div>
+          <div class="doc-demo">
+            <div class="date-picker">
+              <div class="date-picker-input" style="margin-bottom: var(--space-3);">
+                <input class="form-input" type="text" value="2026-06-04" readonly style="max-width: 12rem;">
+              </div>
+              <div class="date-picker-calendar sg-static-calendar">
+                <div class="date-picker-header">
+                  <button class="date-picker-nav"><svg class="icon icon-sm"><use href="#i-chevron-left"/></svg></button>
+                  <span>June 2026</span>
+                  <button class="date-picker-nav" style="transform: rotate(180deg);"><svg class="icon icon-sm"><use href="#i-chevron-left"/></svg></button>
+                </div>
+                <div class="date-picker-weekdays">
+                  <span class="date-picker-weekday">Ma</span><span class="date-picker-weekday">Ti</span><span class="date-picker-weekday">On</span><span class="date-picker-weekday">To</span><span class="date-picker-weekday">Fr</span><span class="date-picker-weekday">Lø</span><span class="date-picker-weekday">Sø</span>
+                </div>
+                <div class="date-picker-days">
+                  <button class="date-picker-day other-month">31</button>
+                  <button class="date-picker-day">1</button><button class="date-picker-day">2</button><button class="date-picker-day">3</button>
+                  <button class="date-picker-day is-selected">4</button>
+                  <button class="date-picker-day">5</button><button class="date-picker-day">6</button><button class="date-picker-day">7</button>
+                  <button class="date-picker-day">8</button><button class="date-picker-day">9</button><button class="date-picker-day">10</button>
+                  <button class="date-picker-day">11</button><button class="date-picker-day">12</button><button class="date-picker-day">13</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-block-label">States</div>
+          <table class="props-table">
+            <thead><tr><th>Class</th><th>State</th></tr></thead>
+            <tbody>
+              <tr><td><code>.date-picker-day.is-selected</code></td><td>The chosen date</td></tr>
+              <tr><td><code>.date-picker-day.other-month</code></td><td>Spillover day from the adjacent month (dimmed)</td></tr>
+              <tr><td><code>.date-picker-nav</code></td><td>Previous/next month controls</td></tr>
+            </tbody>
+          </table>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>Days are real <code>&lt;button&gt;</code>s; arrow keys move focus and the selected day carries <code>aria-selected="true"</code>.</li>
+                <li>Always offer a typed-date input as well — a calendar alone is slow for keyboard and screen-reader users.</li>
+                <li>The month grid uses a <code>&lt;table&gt;</code> with weekday headers in production.</li>
+              </ul>
             </div>
           </div>
         </section>
 
-        <section class="doc-section" id="badges-alerts">
-          <h2 class="doc-section-title">Badges &amp; Alerts</h2>
-          <p class="doc-section-desc">Status indicators and inline alerts for feedback.</p>
-
+        <section class="doc-section" id="search">
+          <h2 class="doc-section-title">Search Bar</h2>
+          <p class="doc-section-desc">Input with a results dropdown. The dropdown opens on focus; shown statically here.</p>
           <div class="chips">
-            <span class="chip">.badge</span>
-            <span class="chip">.alert</span>
-            <span class="chip">.alert-success</span>
-            <span class="chip">.alert-error</span>
+            <span class="chip">.search-bar</span><span class="chip">.search-input</span><span class="chip">.search-results</span><span class="chip">.search-result</span>
+          </div>
+          <div class="doc-demo">
+            <div class="search-bar">
+              <input class="search-input" type="search" placeholder="Search components...">
+              <div class="search-results sg-static-results">
+                <div class="search-result"><div class="search-result-title">Buttons</div><div class="search-result-excerpt">Interactive button component</div></div>
+                <div class="search-result"><div class="search-result-title">Badges &amp; Alerts</div><div class="search-result-excerpt">Status indicators and feedback</div></div>
+                <div class="search-result"><div class="search-result-title">Table</div><div class="search-result-excerpt">Sortable, filterable data grid</div></div>
+              </div>
+            </div>
           </div>
 
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>Use <code>&lt;input type="search"&gt;</code> with a label (visually hidden is fine).</li>
+                <li>Wire up <code>role="combobox"</code> + <code>aria-expanded</code> on the input and <code>role="listbox"</code>/<code>option</code> on results.</li>
+                <li>Announce result counts via an <code>aria-live</code> region.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;div class="search-bar"&gt;
+  &lt;input class="search-input" type="search" aria-label="Search"&gt;
+  &lt;div class="search-results"&gt;
+    &lt;a class="search-result"&gt;&lt;div class="search-result-title"&gt;Buttons&lt;/div&gt;&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <section class="doc-section" id="stepper">
+          <h2 class="doc-section-title">Stepper</h2>
+          <p class="doc-section-desc">Multi-step progress indicator with completed, active, and upcoming states.</p>
+          <div class="chips"><span class="chip">.stepper</span><span class="chip">.stepper-step</span><span class="chip">.stepper-circle</span><span class="chip">.stepper-label</span><span class="chip">.is-active</span><span class="chip">.is-completed</span></div>
+
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li>Linear multi-step flows (checkout, onboarding, wizards)</li>
+                <li>Showing where the user is and how much remains</li>
+              </ul>
+            </div>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>Non-linear navigation — use <a href="#tabs">Tabs</a></li>
+                <li>More than ~5 steps — group or paginate instead</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Example</div>
+          <div class="doc-demo">
+            <div class="stepper" style="margin-bottom: 0;">
+              <div class="stepper-step is-completed"><div class="stepper-circle"><svg class="icon icon-sm"><use href="#i-check"/></svg></div><div class="stepper-label">Account</div></div>
+              <div class="stepper-step is-active"><div class="stepper-circle">2</div><div class="stepper-label">Profile</div></div>
+              <div class="stepper-step"><div class="stepper-circle">3</div><div class="stepper-label">Confirm</div></div>
+            </div>
+          </div>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>Mark the current step with <code>aria-current="step"</code>.</li>
+                <li>Don't rely on the circle colour alone — completed steps show a check, the current step is labelled.</li>
+                <li>If steps are clickable, each is a real button; otherwise they're plain text.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;ol class="stepper"&gt;
+  &lt;li class="stepper-step is-completed"&gt;&lt;span class="stepper-circle"&gt;✓&lt;/span&gt;&lt;span class="stepper-label"&gt;Account&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="stepper-step is-active" aria-current="step"&gt;&lt;span class="stepper-circle"&gt;2&lt;/span&gt;&lt;span class="stepper-label"&gt;Profile&lt;/span&gt;&lt;/li&gt;
+  &lt;li class="stepper-step"&gt;&lt;span class="stepper-circle"&gt;3&lt;/span&gt;&lt;span class="stepper-label"&gt;Confirm&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;</pre>
+          </div>
+        </section>
+
+        <!-- ============================================================
+             FEEDBACK
+             ============================================================ -->
+
+        <section class="doc-section" id="badges-alerts">
+          <h2 class="doc-section-title">Badges &amp; Alerts</h2>
+          <p class="doc-section-desc">Two status patterns sharing one colour vocabulary. A <strong>badge</strong> labels a single item; an <strong>alert</strong> communicates a message about the current context.</p>
+          <div class="chips">
+            <span class="chip">.badge</span><span class="chip">.badge-success</span><span class="chip">.badge-error</span>
+            <span class="chip">.badge-warning</span><span class="chip">.badge-info</span><span class="chip">.badge-neutral</span>
+            <span class="chip">.alert</span><span class="chip">.alert-success</span><span class="chip">.alert-icon</span>
+          </div>
+
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li><strong>Badge</strong> — a compact status on a row, card, or tab (e.g. “Active”, “3”)</li>
+                <li><strong>Alert</strong> — an inline message about a form, page, or section</li>
+                <li>The same status words everywhere: success / error / warning / info</li>
+              </ul>
+            </div>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>Transient confirmations that should disappear — use a <a href="#toast">Toast</a></li>
+                <li>Badges as buttons — they aren't interactive</li>
+                <li>Walls of alerts; show the most important one</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Example</div>
           <div class="doc-demo stack">
             <div>
               <h3 class="t-body-sm">Badges</h3>
@@ -393,250 +959,1061 @@
             <div>
               <h3 class="t-body-sm">Alerts</h3>
               <div class="stack">
-                <div class="alert alert-success">
-                  <svg class="icon alert-icon"><use href="#i-check"/></svg>
-                  Success alert message
-                </div>
-                <div class="alert alert-error">
-                  <svg class="icon alert-icon"><use href="#i-alert"/></svg>
-                  Error alert message
-                </div>
-                <div class="alert alert-warning">
-                  <svg class="icon alert-icon"><use href="#i-alert"/></svg>
-                  Warning alert message
-                </div>
-                <div class="alert alert-info">
-                  <svg class="icon alert-icon"><use href="#i-info"/></svg>
-                  Info alert message
+                <div class="alert alert-success" role="status"><svg class="icon alert-icon"><use href="#i-check"/></svg> Success alert message</div>
+                <div class="alert alert-error" role="alert"><svg class="icon alert-icon"><use href="#i-alert"/></svg> Error alert message</div>
+                <div class="alert alert-warning" role="alert"><svg class="icon alert-icon"><use href="#i-alert"/></svg> Warning alert message</div>
+                <div class="alert alert-info" role="status"><svg class="icon alert-icon"><use href="#i-info"/></svg> Info alert message</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Status vocabulary</div>
+          <table class="props-table">
+            <thead><tr><th>Suffix</th><th>Meaning</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td><code>-success</code></td><td>Completed / healthy</td><td>Saved, Active, Paid</td></tr>
+              <tr><td><code>-error</code></td><td>Failure / blocking</td><td>Failed, Rejected, Overdue</td></tr>
+              <tr><td><code>-warning</code></td><td>Needs attention</td><td>Expiring, Low stock</td></tr>
+              <tr><td><code>-info</code></td><td>Neutral information</td><td>New, Beta, Syncing</td></tr>
+              <tr><td><code>-neutral</code></td><td>No status (badge only)</td><td>Draft, Archived</td></tr>
+            </tbody>
+          </table>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>Don't rely on colour alone — the label text carries the meaning.</li>
+                <li>Alerts that appear dynamically use <code>role="alert"</code> (assertive) or <code>role="status"</code> (polite).</li>
+                <li>Decorative <code>.alert-icon</code> SVGs are hidden from assistive tech (no label needed).</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;span class="badge badge-success"&gt;Active&lt;/span&gt;
+
+&lt;div class="alert alert-error" role="alert"&gt;
+  &lt;svg class="icon alert-icon"&gt;&lt;use href="#i-alert"/&gt;&lt;/svg&gt;
+  Could not save your changes.
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <section class="doc-section" id="toast">
+          <h2 class="doc-section-title">Toast</h2>
+          <p class="doc-section-desc">Transient confirmation of an action. In production toasts stack in a fixed <code>.toast-viewport</code> and auto-dismiss; shown inline here.</p>
+          <div class="chips"><span class="chip">.toast-viewport</span><span class="chip">.toast</span><span class="chip">.toast-success</span><span class="chip">.toast-error</span><span class="chip">.toast-warning</span><span class="chip">.toast-info</span></div>
+
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li>Brief, self-dismissing feedback after an action (“Saved”)</li>
+                <li>Non-blocking results the user doesn't need to act on</li>
+              </ul>
+            </div>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>Critical errors that need a decision — use an inline alert or modal</li>
+                <li>Content the user must read fully — toasts disappear</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Example</div>
+          <div class="doc-demo stack">
+            <div class="toast toast-success"><svg class="icon icon-success"><use href="#i-check"/></svg><div><strong>Saved</strong><div class="t-caption">Your changes have been stored.</div></div></div>
+            <div class="toast toast-error"><svg class="icon icon-error"><use href="#i-alert"/></svg><div><strong>Upload failed</strong><div class="t-caption">Please try again.</div></div></div>
+            <div class="toast toast-warning"><svg class="icon icon-warning"><use href="#i-alert"/></svg><div><strong>Storage almost full</strong></div></div>
+            <div class="toast toast-info"><svg class="icon icon-info"><use href="#i-info"/></svg><div><strong>New version available</strong></div></div>
+          </div>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>The <code>.toast-viewport</code> is an <code>aria-live="polite"</code> region so new toasts are announced.</li>
+                <li>Keep them on screen long enough to read (≈4–6s) and pause on hover/focus.</li>
+                <li>Never put the only copy of important information in a toast.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;div class="toast-viewport" aria-live="polite"&gt;
+  &lt;div class="toast toast-success"&gt;
+    &lt;svg class="icon icon-success"&gt;&lt;use href="#i-check"/&gt;&lt;/svg&gt;
+    &lt;div&gt;&lt;strong&gt;Saved&lt;/strong&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <section class="doc-section" id="loading">
+          <h2 class="doc-section-title">Loading &amp; Skeleton</h2>
+          <p class="doc-section-desc">Spinner for short indeterminate waits; skeletons to preserve layout while content loads.</p>
+          <div class="chips"><span class="chip">.spinner</span><span class="chip">.skeleton</span><span class="chip">.skeleton-text</span><span class="chip">.skeleton-circle</span></div>
+
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li><strong>Spinner</strong> — short waits inside a button or small region</li>
+                <li><strong>Skeleton</strong> — page/list loads where the final shape is known</li>
+              </ul>
+            </div>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>Waits over ~10s with no progress — show real progress instead</li>
+                <li>Skeletons that don't match the real layout (causes jumpiness)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Example</div>
+          <div class="doc-demo stack">
+            <div><h3 class="t-body-sm">Spinner</h3><div class="cluster" style="align-items: center;"><span class="spinner" role="status" aria-label="Loading"></span></div></div>
+            <div>
+              <h3 class="t-body-sm">Skeleton</h3>
+              <div class="cluster" style="align-items: center; gap: var(--space-3);" aria-hidden="true">
+                <div class="skeleton skeleton-circle" style="width: 3rem; height: 3rem;"></div>
+                <div class="stack stack-tight" style="flex: 1;">
+                  <div class="skeleton skeleton-text" style="width: 60%;"></div>
+                  <div class="skeleton skeleton-text" style="width: 90%;"></div>
+                  <div class="skeleton skeleton-text" style="width: 75%;"></div>
                 </div>
               </div>
             </div>
           </div>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>Give a spinner <code>role="status"</code> + <code>aria-label="Loading"</code> so it's announced.</li>
+                <li>Mark skeleton placeholders <code>aria-hidden="true"</code> and announce the region with <code>aria-busy="true"</code>.</li>
+                <li>The shimmer respects <code>prefers-reduced-motion</code>.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;span class="spinner" role="status" aria-label="Loading"&gt;&lt;/span&gt;
+
+&lt;div aria-busy="true"&gt;
+  &lt;div class="skeleton skeleton-text" style="width: 60%"&gt;&lt;/div&gt;
+  &lt;div class="skeleton skeleton-text" style="width: 90%"&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+          </div>
         </section>
+
+        <section class="doc-section" id="empty-state">
+          <h2 class="doc-section-title">Empty State</h2>
+          <p class="doc-section-desc">Turns an empty collection into a moment of guidance — icon, title, and a next step.</p>
+          <div class="chips"><span class="chip">.empty-state</span><span class="chip">.empty-state-icon</span><span class="chip">.empty-state-title</span><span class="chip">.empty-state-text</span></div>
+
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li>First-run states, empty search results, cleared inboxes</li>
+                <li>Pairing the message with one clear action to move forward</li>
+              </ul>
+            </div>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>Error states — those need an alert, not an empty state</li>
+                <li>Loading — use a skeleton while data is in flight</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Example</div>
+          <div class="doc-demo">
+            <div class="empty-state">
+              <svg class="icon empty-state-icon icon-muted" style="width: 3rem; height: 3rem; opacity: 0.4;"><use href="#i-search"/></svg>
+              <h3 class="empty-state-title">No items found</h3>
+              <p class="empty-state-text">Try adjusting your filters or search terms.</p>
+              <button class="btn btn-secondary btn-sm">Clear filters</button>
+            </div>
+          </div>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>The title is a real heading so it appears in the document outline.</li>
+                <li>The <code>.empty-state-icon</code> is decorative — keep it out of the accessibility tree.</li>
+                <li>If the state appears after a search, announce it via the results' live region.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;div class="empty-state"&gt;
+  &lt;svg class="icon empty-state-icon" aria-hidden="true"&gt;&lt;use href="#i-search"/&gt;&lt;/svg&gt;
+  &lt;h3 class="empty-state-title"&gt;No items found&lt;/h3&gt;
+  &lt;p class="empty-state-text"&gt;Try adjusting your filters.&lt;/p&gt;
+  &lt;button class="btn btn-secondary btn-sm"&gt;Clear filters&lt;/button&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <!-- ============================================================
+             CONTENT & DATA
+             ============================================================ -->
 
         <section class="doc-section" id="cards">
           <h2 class="doc-section-title">Cards</h2>
-          <p class="doc-section-desc">Flexible card containers for content organization.</p>
-
+          <p class="doc-section-desc">Start with the <code>.card</code> base (built-in padding, radius, surface, internal rhythm — generous on web, compact on app), then add a surface variant and optional size.</p>
           <div class="chips">
-            <span class="chip">.card</span>
-            <span class="chip">.card-elevated</span>
-            <span class="chip">.card-bordered</span>
+            <span class="chip">.card</span><span class="chip">.card-bordered</span><span class="chip">.card-elevated</span><span class="chip">.card-subtle</span>
+            <span class="chip">.card-interactive</span><span class="chip">.card-sm</span><span class="chip">.card-lg</span>
+            <span class="chip">.card-header</span><span class="chip">.card-title</span><span class="chip">.card-meta</span><span class="chip">.card-footer</span>
           </div>
 
-          <div class="doc-demo stack">
-            <div style="padding: var(--space-4); border: 1px solid var(--color-border); border-radius: var(--radius-md);">
-              <div class="card-header">Card Header</div>
-              <div>This is a default card with a header and content area.</div>
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li>Grouping related content into a scannable unit</li>
+                <li><code>.card-interactive</code> when the whole card is one link/action</li>
+                <li>Repeating items in a <code>.grid-auto</code> (products, settings, summaries)</li>
+              </ul>
             </div>
-            <div style="padding: var(--space-4); background: var(--surface-2); border-radius: var(--radius-md); box-shadow: var(--shadow-md);">
-              <div class="card-header">Elevated Card</div>
-              <div>This card has elevation shadow for prominence.</div>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>Nesting cards inside cards — flatten the hierarchy instead</li>
+                <li>A single block of text — a card adds no structure there</li>
+                <li>Tabular data — use a <a href="#tables">Table</a></li>
+              </ul>
             </div>
-            <div style="padding: var(--space-4); background: var(--color-subtle); border-radius: var(--radius-md);">
-              <div class="card-header">Bordered Card</div>
-              <div>This card has a border instead of shadow.</div>
+          </div>
+
+          <div class="doc-block-label">Surface variants</div>
+          <div class="doc-demo">
+            <div class="grid-auto">
+              <div class="card card-bordered">
+                <div class="card-header"><span class="card-title">Bordered</span></div>
+                <p class="card-meta">A card with a simple hairline border.</p>
+              </div>
+              <div class="card card-elevated">
+                <div class="card-header"><span class="card-title">Elevated</span></div>
+                <p class="card-meta">Raised with elevation shadow.</p>
+              </div>
+              <div class="card card-subtle">
+                <div class="card-header"><span class="card-title">Subtle</span></div>
+                <p class="card-meta">Filled with a subtle background.</p>
+              </div>
+              <a href="#cards" class="card card-interactive" style="text-decoration: none; color: inherit;">
+                <div class="card-header"><span class="card-title">Interactive</span></div>
+                <p class="card-meta">The whole card is a link. Hover to lift.</p>
+                <div class="card-footer"><span class="btn btn-ghost btn-sm">Open →</span></div>
+              </a>
             </div>
+          </div>
+
+          <div class="doc-block-label">Sizes (built-in air: .card-sm · .card · .card-lg)</div>
+          <div class="doc-demo">
+            <div class="grid-auto">
+              <div class="card card-sm card-bordered"><div class="card-header"><span class="card-title">Compact</span></div><p class="card-meta">.card-sm — tighter padding.</p></div>
+              <div class="card card-bordered"><div class="card-header"><span class="card-title">Default</span></div><p class="card-meta">.card — generous editorial air on web.</p></div>
+              <div class="card card-lg card-bordered"><div class="card-header"><span class="card-title">Spacious</span></div><p class="card-meta">.card-lg — maximum air for hero cards.</p></div>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Variants &amp; parts</div>
+          <table class="props-table">
+            <thead><tr><th>Class</th><th>Role</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td><code>.card</code></td><td>Base</td><td>Padding, radius, surface &amp; internal rhythm — start here</td></tr>
+              <tr><td><code>.card-sm</code> / <code>.card-lg</code></td><td>Size</td><td>Less / more built-in air</td></tr>
+              <tr><td><code>.card-bordered</code></td><td>Surface</td><td>Lowest emphasis — a hairline border</td></tr>
+              <tr><td><code>.card-subtle</code></td><td>Surface</td><td>Filled background, no border</td></tr>
+              <tr><td><code>.card-elevated</code></td><td>Surface</td><td>Shadow elevation; floats above the page</td></tr>
+              <tr><td><code>.card-interactive</code></td><td>Surface</td><td>Hover-lift; use on a real <code>&lt;a&gt;</code>/<code>&lt;button&gt;</code></td></tr>
+              <tr><td><code>.card-header</code> · <code>.card-title</code></td><td>Part</td><td>Top region and its heading</td></tr>
+              <tr><td><code>.card-meta</code> · <code>.card-footer</code></td><td>Part</td><td>Secondary text and an actions row</td></tr>
+            </tbody>
+          </table>
+
+          <div class="doc-guidelines">
+            <div class="doc-card is-do">
+              <div class="doc-card-figure"><div class="card-bordered" style="padding: var(--space-3); border-radius: var(--radius-md);"><span class="card-title">Plan</span><p class="card-meta" style="margin:0;">Flat, one level</p></div></div>
+              <div class="doc-card-body">
+                <div class="doc-card-label"><svg class="icon icon-sm"><use href="#i-check"/></svg> Do</div>
+                <p class="doc-card-note">Keep cards flat — one surface level per region.</p>
+              </div>
+            </div>
+            <div class="doc-card is-dont">
+              <div class="doc-card-figure"><div class="card-bordered" style="padding: var(--space-3); border-radius: var(--radius-md);"><div class="card-elevated" style="padding: var(--space-2);"><span class="card-meta" style="margin:0;">Nested</span></div></div></div>
+              <div class="doc-card-body">
+                <div class="doc-card-label"><svg class="icon icon-sm"><use href="#i-x"/></svg> Don't</div>
+                <p class="doc-card-note">Don't nest cards inside cards — depth becomes ambiguous.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>For a clickable card, make the wrapper a real <code>&lt;a&gt;</code> or <code>&lt;button&gt;</code> so it's focusable.</li>
+                <li>Use one clear link per card; avoid multiple nested interactive targets.</li>
+                <li><code>.card-title</code> should map to a heading level that fits the page outline.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;article class="card card-elevated"&gt;
+  &lt;div class="card-header"&gt;&lt;h3 class="card-title"&gt;Title&lt;/h3&gt;&lt;/div&gt;
+  &lt;p class="card-meta"&gt;Supporting text.&lt;/p&gt;
+  &lt;div class="card-footer"&gt;&lt;button class="btn btn-ghost btn-sm"&gt;Action&lt;/button&gt;&lt;/div&gt;
+&lt;/article&gt;</pre>
           </div>
         </section>
 
         <section class="doc-section" id="tables">
-          <h2 class="doc-section-title">Tables</h2>
-          <p class="doc-section-desc">Data table component with support for sorting and filtering.</p>
-
+          <h2 class="doc-section-title">Table</h2>
+          <p class="doc-section-desc">One table system. Start with <code>.table</code>, then compose opt-in modifiers for sorting, density, numeric alignment, selection, and overflow handling.</p>
           <div class="chips">
-            <span class="chip">.table</span>
-            <span class="chip">.data-table</span>
+            <span class="chip">.table</span><span class="chip">.table-sticky</span><span class="chip">.table-zebra</span>
+            <span class="chip">.table-numeric</span><span class="chip">.table-responsive</span><span class="chip">.table-inline-edit</span>
+            <span class="chip">.table-filter</span><span class="chip">th.sortable</span><span class="chip">[aria-sort]</span>
           </div>
 
+          <!-- When to use -->
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li>Comparing structured records across shared columns</li>
+                <li>Dense data where rows/columns carry meaning (pricing, specs, status)</li>
+                <li>Sortable or filterable lists of the same entity type</li>
+              </ul>
+            </div>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>Page layout — use <code>.grid-auto</code> / <code>.stack</code> instead</li>
+                <li>Lists of one value per item — use a plain list</li>
+                <li>Key/value detail panels — use a description list</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Live demo -->
+          <div class="doc-block-label">Example</div>
           <div class="doc-demo">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Column 1</th>
-                  <th>Column 2</th>
-                  <th>Column 3</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Data 1</td>
-                  <td>Data 2</td>
-                  <td>Data 3</td>
-                </tr>
-                <tr>
-                  <td>Data 1</td>
-                  <td>Data 2</td>
-                  <td>Data 3</td>
-                </tr>
-                <tr>
-                  <td>Data 1</td>
-                  <td>Data 2</td>
-                  <td>Data 3</td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="table-filter">
+              <input class="form-input" type="search" placeholder="Filter rows..." aria-label="Filter table">
+              <select class="form-select" aria-label="Filter by category"><option>All categories</option><option>Hardware</option><option>Software</option></select>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-sticky table-zebra">
+                <thead>
+                  <tr>
+                    <th class="sortable" aria-sort="ascending">Product</th>
+                    <th class="sortable">Category</th>
+                    <th class="sortable table-numeric">Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr aria-selected="true">
+                    <td class="table-inline-edit"><input class="form-input" value="Keyboard" aria-label="Product name" style="min-height: auto; padding: var(--space-1) var(--space-2);"></td>
+                    <td>Hardware</td>
+                    <td class="table-numeric">1 290</td>
+                  </tr>
+                  <tr><td>Monitor</td><td>Hardware</td><td class="table-numeric">4 990</td></tr>
+                  <tr><td>License</td><td>Software</td><td class="table-numeric">990</td></tr>
+                  <tr><td>Cable</td><td>Accessory</td><td class="table-numeric">149</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Modifier reference -->
+          <div class="doc-block-label">Modifiers</div>
+          <table class="props-table">
+            <thead><tr><th>Class</th><th>Applies to</th><th>Effect</th></tr></thead>
+            <tbody>
+              <tr><td><code>.table</code></td><td>&lt;table&gt;</td><td>Base: full width, collapsed borders, header fill, row hover</td></tr>
+              <tr><td><code>.table-sticky</code></td><td>&lt;table&gt;</td><td>Header sticks to the top while the body scrolls</td></tr>
+              <tr><td><code>.table-zebra</code></td><td>&lt;table&gt;</td><td>Alternating row tint for scan-ability</td></tr>
+              <tr><td><code>.table-numeric</code></td><td>th / td</td><td>Right-aligns and uses tabular figures for numbers</td></tr>
+              <tr><td><code>.table-responsive</code></td><td>wrapper &lt;div&gt;</td><td>Horizontal scroll container so wide tables never overflow the page</td></tr>
+              <tr><td><code>.table-inline-edit</code></td><td>td</td><td>Hosts an inline input for editable cells</td></tr>
+              <tr><td><code>.table-filter</code></td><td>wrapper &lt;div&gt;</td><td>Filter/search bar row above the table</td></tr>
+              <tr><td><code>th.sortable</code> + <code>[aria-sort]</code></td><td>th</td><td>Sortable affordance; sort state shown via the native <code>aria-sort</code> attribute</td></tr>
+            </tbody>
+          </table>
+
+          <!-- Do / Don't -->
+          <div class="doc-block-label">Guidelines</div>
+          <div class="doc-guidelines">
+            <div class="doc-card is-do">
+              <div class="doc-card-figure"><span class="table-numeric" style="font-variant-numeric: tabular-nums; font-weight: 600;">1 290<br>4 990<br>149</span></div>
+              <div class="doc-card-body">
+                <div class="doc-card-label"><svg class="icon icon-sm"><use href="#i-check"/></svg> Do</div>
+                <p class="doc-card-note">Right-align numeric columns with <code>.table-numeric</code> so digits line up by place value.</p>
+              </div>
+            </div>
+            <div class="doc-card is-dont">
+              <div class="doc-card-figure"><span style="font-weight: 600;">1290<br>4990<br>149</span></div>
+              <div class="doc-card-body">
+                <div class="doc-card-label"><svg class="icon icon-sm"><use href="#i-x"/></svg> Don't</div>
+                <p class="doc-card-note">Don't left-align numbers or mix units in one column — it breaks visual comparison.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Accessibility -->
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>Use real <code>&lt;th&gt;</code> with <code>scope="col"</code>/<code>scope="row"</code> so screen readers announce headers.</li>
+                <li>Sort state lives on <code>aria-sort="ascending|descending"</code> — it's announced natively; never rely on the ▲▼ glyph alone.</li>
+                <li>Selected rows use <code>aria-selected="true"</code>, not colour alone.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Copyable code -->
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;div class="table-responsive"&gt;
+  &lt;table class="table table-sticky table-zebra"&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th scope="col" class="sortable" aria-sort="ascending"&gt;Product&lt;/th&gt;
+        &lt;th scope="col" class="sortable"&gt;Category&lt;/th&gt;
+        &lt;th scope="col" class="sortable table-numeric"&gt;Price&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;&lt;td&gt;Monitor&lt;/td&gt;&lt;td&gt;Hardware&lt;/td&gt;&lt;td class="table-numeric"&gt;4 990&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</pre>
           </div>
         </section>
 
         <section class="doc-section" id="data-display">
           <h2 class="doc-section-title">Data Display</h2>
-          <p class="doc-section-desc">Components for displaying structured data.</p>
-
+          <p class="doc-section-desc">Avatars, pagination, keyboard keys, and dividers.</p>
           <div class="chips">
-            <span class="chip">.avatar</span>
-            <span class="chip">.skeleton</span>
-            <span class="chip">.empty-state</span>
-            <span class="chip">.pagination</span>
+            <span class="chip">.avatar</span><span class="chip">.avatar-group</span><span class="chip">.pagination</span>
+            <span class="chip">.pagination-btn</span><span class="chip">.pagination-dot</span><span class="chip">.pagination-item</span>
+            <span class="chip">.kbd</span><span class="chip">.divider</span>
           </div>
 
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li><strong>Avatar</strong> — representing a person or entity; group for overlap</li>
+                <li><strong>Pagination</strong> — splitting long lists into navigable pages</li>
+                <li><strong>Kbd</strong> — naming a keyboard shortcut in help text</li>
+              </ul>
+            </div>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>Infinite feeds — prefer load-more / virtual scroll over pagination</li>
+                <li>Avatars as buttons without a label</li>
+                <li><code>.divider</code> where spacing alone would group content</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Example</div>
           <div class="doc-demo stack">
             <div>
               <h3 class="t-body-sm">Avatars</h3>
-              <div class="cluster">
-                <div class="avatar avatar-sm">A</div>
-                <div class="avatar">B</div>
-                <div class="avatar avatar-lg">C</div>
+              <div class="cluster" style="align-items: center;">
+                <div class="avatar avatar-xs">XS</div>
+                <div class="avatar avatar-sm">SM</div>
+                <div class="avatar">MD</div>
+                <div class="avatar avatar-lg">LG</div>
+                <div class="avatar avatar-xl">XL</div>
+                <div class="avatar-group">
+                  <div class="avatar">A</div><div class="avatar">B</div><div class="avatar">C</div>
+                </div>
               </div>
             </div>
-            <div>
-              <h3 class="t-body-sm">Skeleton loaders</h3>
-              <div class="stack">
-                <div class="skeleton" style="height: 20px; width: 100%;"></div>
-                <div class="skeleton" style="height: 20px; width: 80%;"></div>
-                <div class="skeleton" style="height: 20px; width: 90%;"></div>
-              </div>
-            </div>
-            <div>
-              <h3 class="t-body-sm">Empty state</h3>
-              <div class="empty-state">
-                <svg class="icon empty-state-icon" style="width: 3rem; height: 3rem; opacity: 0.3;"><use href="#i-info"/></svg>
-                <h3 class="empty-state-title">No items found</h3>
-                <p class="empty-state-text">Try adjusting your filters or search terms</p>
-              </div>
-            </div>
+            <div class="divider"></div>
             <div>
               <h3 class="t-body-sm">Pagination</h3>
               <div class="pagination">
-                <button class="pagination-btn">Previous</button>
+                <button class="pagination-btn">‹</button>
                 <button class="pagination-dot" aria-current="page">1</button>
                 <button class="pagination-dot">2</button>
                 <button class="pagination-dot">3</button>
-                <button class="pagination-btn">Next</button>
+                <button class="pagination-btn">›</button>
+              </div>
+              <div class="pagination" style="margin-top: var(--space-3);">
+                <button class="pagination-item">‹</button>
+                <button class="pagination-item" aria-current="page">1</button>
+                <button class="pagination-item">2</button>
+                <button class="pagination-item">3</button>
+                <button class="pagination-item">›</button>
               </div>
             </div>
+            <div>
+              <h3 class="t-body-sm">Keyboard keys</h3>
+              <div class="cluster" style="align-items: center;"><kbd class="kbd">⌘</kbd><span>+</span><kbd class="kbd">K</kbd></div>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Reference</div>
+          <table class="props-table">
+            <thead><tr><th>Class</th><th>Element</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td><code>.avatar</code> + <code>.avatar-xs…xl</code></td><td>Person</td><td>Initials or image; size suffix sets the diameter</td></tr>
+              <tr><td><code>.avatar-group</code></td><td>People</td><td>Overlaps children to show a set</td></tr>
+              <tr><td><code>.pagination</code> + <code>.pagination-item</code></td><td>Nav</td><td>Square page controls; mark the current with <code>aria-current="page"</code></td></tr>
+              <tr><td><code>.pagination-btn</code> / <code>.pagination-dot</code></td><td>Nav</td><td>Prev/next arrows and the compact dot variant</td></tr>
+              <tr><td><code>.kbd</code></td><td>Inline</td><td>Styles a keyboard key inside <code>&lt;kbd&gt;</code></td></tr>
+              <tr><td><code>.divider</code></td><td>Separator</td><td>Hairline rule between groups</td></tr>
+            </tbody>
+          </table>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>Wrap pagination in <code>&lt;nav aria-label="Pagination"&gt;</code> and mark the current page with <code>aria-current="page"</code>.</li>
+                <li>Image avatars need <code>alt</code>; initials-only avatars should carry the full name as a label.</li>
+                <li>A standalone <code>.divider</code> is decorative; a semantic break can use <code>&lt;hr&gt;</code>.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;nav class="pagination" aria-label="Pagination"&gt;
+  &lt;button class="pagination-item"&gt;‹&lt;/button&gt;
+  &lt;button class="pagination-item" aria-current="page"&gt;1&lt;/button&gt;
+  &lt;button class="pagination-item"&gt;2&lt;/button&gt;
+&lt;/nav&gt;</pre>
           </div>
         </section>
 
-        <section class="doc-section" id="modals-overlays">
-          <h2 class="doc-section-title">Modals &amp; Overlays</h2>
-          <p class="doc-section-desc">Dialogs, accordion, tabs, and other overlay components.</p>
+        <section class="doc-section" id="accordion">
+          <h2 class="doc-section-title">Accordion</h2>
+          <p class="doc-section-desc">Expandable content sections built on the native <code>&lt;details&gt;</code> element — no JavaScript required.</p>
+          <div class="chips"><span class="chip">.accordion</span><span class="chip">.accordion-item</span><span class="chip">.accordion-header</span><span class="chip">.accordion-icon</span><span class="chip">.accordion-content</span></div>
 
-          <div class="chips">
-            <span class="chip">.modal</span>
-            <span class="chip">.accordion</span>
-            <span class="chip">.tabs</span>
-            <span class="chip">.tooltip</span>
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li>FAQs and progressive disclosure of secondary detail</li>
+                <li>Long forms broken into collapsible sections</li>
+              </ul>
+            </div>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>Content users need to compare side by side — use <a href="#tabs">Tabs</a></li>
+                <li>Hiding critical information behind a click</li>
+              </ul>
+            </div>
           </div>
 
-          <div class="doc-demo stack">
-            <div>
-              <h3 class="t-body-sm">Accordion</h3>
-              <div class="accordion">
-                <details class="accordion-item" open>
-                  <summary class="accordion-header">
-                    <span>Section 1</span>
-                    <svg class="accordion-icon icon"><use href="#i-chevron-left"/></svg>
-                  </summary>
-                  <div class="accordion-content">Content for section 1</div>
-                </details>
-                <details class="accordion-item">
-                  <summary class="accordion-header">
-                    <span>Section 2</span>
-                    <svg class="accordion-icon icon"><use href="#i-chevron-left"/></svg>
-                  </summary>
-                  <div class="accordion-content">Content for section 2</div>
-                </details>
-              </div>
+          <div class="doc-block-label">Example</div>
+          <div class="doc-demo">
+            <div class="accordion">
+              <details class="accordion-item" open>
+                <summary class="accordion-header"><span>What is Nordover?</span><svg class="accordion-icon icon"><use href="#i-chevron-down"/></svg></summary>
+                <div class="accordion-content">A universal foundation of tokens and building blocks for web and app interfaces.</div>
+              </details>
+              <details class="accordion-item">
+                <summary class="accordion-header"><span>Does it ship page patterns?</span><svg class="accordion-icon icon"><use href="#i-chevron-down"/></svg></summary>
+                <div class="accordion-content">No — Nordover ships building blocks only. Each project composes its own patterns and pages.</div>
+              </details>
             </div>
-            <div>
-              <h3 class="t-body-sm">Tabs</h3>
-              <div style="border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden;">
-                <div class="tabs-list">
-                  <button class="tabs-trigger" aria-selected="true">Tab 1</button>
-                  <button class="tabs-trigger">Tab 2</button>
-                  <button class="tabs-trigger">Tab 3</button>
+          </div>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>Built on <code>&lt;details&gt;</code>/<code>&lt;summary&gt;</code> — keyboard toggle and expanded state are native.</li>
+                <li>The <code>.accordion-icon</code> rotates via the open state; it's decorative, not a separate control.</li>
+                <li>Put the most useful section <code>open</code> by default so content isn't fully hidden.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;div class="accordion"&gt;
+  &lt;details class="accordion-item" open&gt;
+    &lt;summary class="accordion-header"&gt;
+      &lt;span&gt;Question&lt;/span&gt;
+      &lt;svg class="accordion-icon icon"&gt;&lt;use href="#i-chevron-down"/&gt;&lt;/svg&gt;
+    &lt;/summary&gt;
+    &lt;div class="accordion-content"&gt;Answer.&lt;/div&gt;
+  &lt;/details&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <!-- ============================================================
+             OVERLAYS
+             ============================================================ -->
+
+        <section class="doc-section" id="modal">
+          <h2 class="doc-section-title">Modal</h2>
+          <p class="doc-section-desc">Dialog with header, scrollable body, and footer actions. Shown inside a static demo frame.</p>
+          <div class="chips"><span class="chip">.modal</span><span class="chip">.modal-dialog</span><span class="chip">.modal-header</span><span class="chip">.modal-body</span><span class="chip">.modal-footer</span></div>
+
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li>A focused task or decision that must interrupt the flow</li>
+                <li>Confirming destructive actions before they run</li>
+              </ul>
+            </div>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>Non-urgent info — use inline content or a <a href="#toast">Toast</a></li>
+                <li>Long forms or multi-step flows — use a dedicated page</li>
+                <li>Stacking modals on modals</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Example</div>
+          <div class="doc-demo">
+            <div class="modal-demo">
+              <div class="modal-dialog" style="position: static; width: 100%; max-width: 22rem; max-height: none;">
+                <div class="modal-header" style="display: flex; justify-content: space-between; align-items: center;">
+                  <span>Confirm action</span>
+                  <button class="btn btn-ghost btn-sm" aria-label="Close dialog"><svg class="icon icon-sm"><use href="#i-x"/></svg></button>
                 </div>
-                <div class="tabs-content">Tab 1 content</div>
+                <div class="modal-body">Are you sure you want to continue? This action cannot be undone.</div>
+                <div class="modal-footer">
+                  <button class="btn btn-ghost">Cancel</button>
+                  <button class="btn btn-error">Confirm</button>
+                </div>
               </div>
             </div>
-            <div>
-              <h3 class="t-body-sm">Tooltip</h3>
-              <button class="btn btn-secondary" title="This is a tooltip">Hover for tooltip</button>
+          </div>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>Use <code>&lt;dialog&gt;</code> or <code>role="dialog"</code> + <code>aria-modal="true"</code> with an <code>aria-labelledby</code> pointing at the header.</li>
+                <li>Trap focus while open, return focus to the trigger on close, and close on <kbd class="kbd">Esc</kbd>.</li>
+                <li>The backdrop is inert — clicking it dismisses; background content can't be tabbed to.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="t"&gt;
+  &lt;div class="modal-header"&gt;&lt;h2 id="t"&gt;Confirm action&lt;/h2&gt;&lt;/div&gt;
+  &lt;div class="modal-body"&gt;This cannot be undone.&lt;/div&gt;
+  &lt;div class="modal-footer"&gt;
+    &lt;button class="btn btn-ghost"&gt;Cancel&lt;/button&gt;
+    &lt;button class="btn btn-error"&gt;Delete&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <section class="doc-section" id="tooltip">
+          <h2 class="doc-section-title">Tooltip</h2>
+          <p class="doc-section-desc">Short supplementary label shown on hover or focus. Pure CSS — no JavaScript.</p>
+          <div class="chips"><span class="chip">.tooltip</span><span class="chip">.tooltip-content</span></div>
+
+          <div class="doc-block-label">Example</div>
+          <div class="doc-demo">
+            <div class="cluster" style="padding-top: var(--space-6);">
+              <span class="tooltip" tabindex="0">
+                <button class="btn btn-secondary">Hover or focus me</button>
+                <span class="tooltip-content" role="tooltip">Helpful tooltip text</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>Shows on <strong>focus</strong> as well as hover, so keyboard users get it too.</li>
+                <li>Mark the bubble <code>role="tooltip"</code> and link it with <code>aria-describedby</code>.</li>
+                <li>Never put essential info or actions in a tooltip — it's supplementary only.</li>
+              </ul>
             </div>
           </div>
         </section>
 
-        <section class="doc-section" id="navigation">
-          <h2 class="doc-section-title">Navigation</h2>
-          <p class="doc-section-desc">Navigation components including breadcrumbs and menus.</p>
+        <section class="doc-section" id="menu">
+          <h2 class="doc-section-title">Menu</h2>
+          <p class="doc-section-desc">Dropdown surface of actions, with items and separators. Anchor it to a trigger in production.</p>
+          <div class="chips"><span class="chip">.menu-content</span><span class="chip">.menu-item</span><span class="chip">.menu-separator</span></div>
 
-          <div class="chips">
-            <span class="chip">.breadcrumbs</span>
-            <span class="chip">.menu</span>
+          <div class="doc-block-label">Example</div>
+          <div class="doc-demo">
+            <div class="menu-content sg-static-menu" style="max-width: 14rem;" role="menu">
+              <div class="menu-item" role="menuitem" tabindex="0"><svg class="icon icon-sm"><use href="#i-edit"/></svg> Edit</div>
+              <div class="menu-item" role="menuitem" tabindex="-1"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Duplicate</div>
+              <div class="menu-separator" role="separator"></div>
+              <div class="menu-item" role="menuitem" tabindex="-1" style="color: var(--color-error);"><svg class="icon icon-sm"><use href="#i-trash"/></svg> Delete</div>
+            </div>
           </div>
 
-          <div class="doc-demo stack">
-            <div>
-              <h3 class="t-body-sm">Breadcrumbs</h3>
-              <nav class="breadcrumbs">
-                <a class="breadcrumb-item" href="#">Home</a>
-                <a class="breadcrumb-item" href="#">Products</a>
-                <a class="breadcrumb-item" href="#">Category</a>
-                <span class="breadcrumb-item" aria-current="page">Current Page</span>
-              </nav>
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>Trigger has <code>aria-haspopup="menu"</code> + <code>aria-expanded</code>; the surface is <code>role="menu"</code> with <code>role="menuitem"</code> children.</li>
+                <li>Arrow keys move between items; <kbd class="kbd">Esc</kbd> closes and returns focus to the trigger.</li>
+                <li>Use a separator (<code>role="separator"</code>) to set destructive actions apart.</li>
+              </ul>
             </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;div class="menu-content" role="menu"&gt;
+  &lt;button class="menu-item" role="menuitem"&gt;Edit&lt;/button&gt;
+  &lt;div class="menu-separator" role="separator"&gt;&lt;/div&gt;
+  &lt;button class="menu-item" role="menuitem"&gt;Delete&lt;/button&gt;
+&lt;/div&gt;</pre>
           </div>
         </section>
 
-        <section class="doc-section" id="utilities">
-          <h2 class="doc-section-title">Layout Utilities</h2>
-          <p class="doc-section-desc">Layout primitives and utility classes for building interfaces.</p>
+        <!-- ============================================================
+             NAVIGATION
+             ============================================================ -->
 
-          <div class="chips">
-            <span class="chip">.stack</span>
-            <span class="chip">.cluster</span>
-            <span class="chip">.grid-auto</span>
-            <span class="chip">.page</span>
-            <span class="chip">.section</span>
+        <section class="doc-section" id="breadcrumbs">
+          <h2 class="doc-section-title">Breadcrumbs</h2>
+          <p class="doc-section-desc">Hierarchical navigation trail.</p>
+          <div class="chips"><span class="chip">.breadcrumbs</span><span class="chip">.breadcrumb-item</span></div>
+
+          <div class="doc-block-label">Example</div>
+          <div class="doc-demo">
+            <nav class="breadcrumbs" aria-label="Breadcrumb">
+              <a class="breadcrumb-item" href="#">Home</a>
+              <a class="breadcrumb-item" href="#">Products</a>
+              <a class="breadcrumb-item" href="#">Category</a>
+              <span class="breadcrumb-item" aria-current="page">Current Page</span>
+            </nav>
           </div>
 
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>Wrap in <code>&lt;nav aria-label="Breadcrumb"&gt;</code>; the last item uses <code>aria-current="page"</code> and isn't a link.</li>
+                <li>Separators are added with CSS so they aren't announced as content.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;nav class="breadcrumbs" aria-label="Breadcrumb"&gt;
+  &lt;a class="breadcrumb-item" href="/"&gt;Home&lt;/a&gt;
+  &lt;a class="breadcrumb-item" href="/products"&gt;Products&lt;/a&gt;
+  &lt;span class="breadcrumb-item" aria-current="page"&gt;Detail&lt;/span&gt;
+&lt;/nav&gt;</pre>
+          </div>
+        </section>
+
+        <section class="doc-section" id="tabs">
+          <h2 class="doc-section-title">Tabs</h2>
+          <p class="doc-section-desc">Tabbed navigation with an underline indicator.</p>
+          <div class="chips"><span class="chip">.tabs-list</span><span class="chip">.tabs-trigger</span><span class="chip">.tabs-content</span></div>
+
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li>Switching between peer views of the same object</li>
+                <li>2–5 sections where only one is relevant at a time</li>
+              </ul>
+            </div>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>Sequential steps — use a <a href="#stepper">Stepper</a></li>
+                <li>Content users must compare at once — show it together</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Example</div>
+          <div class="doc-demo">
+            <div class="tabs-list" role="tablist">
+              <button class="tabs-trigger" role="tab" aria-selected="true">Overview</button>
+              <button class="tabs-trigger" role="tab" aria-selected="false">Activity</button>
+              <button class="tabs-trigger" role="tab" aria-selected="false">Settings</button>
+            </div>
+            <div class="tabs-content" role="tabpanel">Overview tab content.</div>
+          </div>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li><code>role="tablist"</code> → <code>role="tab"</code> with <code>aria-selected</code>; panel is <code>role="tabpanel"</code>.</li>
+                <li>Arrow keys move between tabs; the selected tab links to its panel via <code>aria-controls</code>.</li>
+                <li>Selection state is on <code>aria-selected</code> — never colour alone.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;div class="tabs-list" role="tablist"&gt;
+  &lt;button class="tabs-trigger" role="tab" aria-selected="true"&gt;Overview&lt;/button&gt;
+  &lt;button class="tabs-trigger" role="tab" aria-selected="false"&gt;Activity&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="tabs-content" role="tabpanel"&gt;…&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <section class="doc-section" id="mobile-nav">
+          <h2 class="doc-section-title">Mobile Nav</h2>
+          <p class="doc-section-desc">Slide-in drawer navigation for small screens. Shown statically (drawer is fixed in production).</p>
+          <div class="chips"><span class="chip">.mobile-nav-trigger</span><span class="chip">.mobile-nav</span><span class="chip">.mobile-nav-header</span><span class="chip">.mobile-nav-list</span><span class="chip">.mobile-nav-item</span></div>
+          <div class="doc-demo stack">
+            <div><button class="mobile-nav-trigger" style="display: inline-flex;"><svg class="icon icon-sm"><use href="#i-menu"/></svg></button> <span class="t-caption">.mobile-nav-trigger opens the drawer</span></div>
+            <div class="mobile-nav is-open sg-static-nav">
+              <div class="mobile-nav-header">
+                <strong>Menu</strong>
+                <button class="mobile-nav-close"><svg class="icon icon-sm"><use href="#i-x"/></svg></button>
+              </div>
+              <ul class="mobile-nav-list">
+                <li class="mobile-nav-item is-active">Home</li>
+                <li class="mobile-nav-item">Products</li>
+                <li class="mobile-nav-item">About</li>
+                <li class="mobile-nav-item">Contact</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>The trigger has <code>aria-expanded</code> + <code>aria-controls</code> pointing at the drawer.</li>
+                <li>While open, focus is trapped in the drawer and <kbd class="kbd">Esc</kbd> closes it; the current item uses <code>aria-current="page"</code>.</li>
+                <li>The backdrop is inert and dismisses on click.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;button class="mobile-nav-trigger" aria-expanded="false" aria-controls="nav"&gt;☰&lt;/button&gt;
+&lt;nav id="nav" class="mobile-nav"&gt;
+  &lt;div class="mobile-nav-header"&gt;…&lt;/div&gt;
+  &lt;ul class="mobile-nav-list"&gt;
+    &lt;li class="mobile-nav-item is-active" aria-current="page"&gt;Home&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</pre>
+          </div>
+        </section>
+
+        <!-- ============================================================
+             LAYOUT & UTILITIES
+             ============================================================ -->
+
+        <section class="doc-section" id="layout">
+          <h2 class="doc-section-title">Layout Primitives</h2>
+          <p class="doc-section-desc">Composition primitives for building interfaces without custom CSS.</p>
+          <div class="chips">
+            <span class="chip">.stack</span><span class="chip">.cluster</span><span class="chip">.grid-auto</span>
+            <span class="chip">.page</span><span class="chip">.page-section</span><span class="chip">.page-content</span>
+            <span class="chip">.section</span><span class="chip">.section-sm</span><span class="chip">.section-lg</span>
+            <span class="chip">.responsive-stack</span><span class="chip">.touch-area</span>
+          </div>
           <div class="doc-demo stack">
             <div>
-              <h3 class="t-body-sm">Stack (vertical layout)</h3>
+              <h3 class="t-body-sm">Stack (vertical)</h3>
               <div class="stack" style="background: var(--color-subtle); padding: var(--space-3); border-radius: var(--radius-md);">
-                <div style="background: var(--color-accent); padding: var(--space-2);">Item 1</div>
-                <div style="background: var(--color-accent); padding: var(--space-2);">Item 2</div>
-                <div style="background: var(--color-accent); padding: var(--space-2);">Item 3</div>
+                <div style="background: var(--color-accent); color: var(--color-accent-fg); padding: var(--space-2); border-radius: var(--radius-sm);">Item 1</div>
+                <div style="background: var(--color-accent); color: var(--color-accent-fg); padding: var(--space-2); border-radius: var(--radius-sm);">Item 2</div>
               </div>
             </div>
             <div>
               <h3 class="t-body-sm">Cluster (horizontal wrap)</h3>
               <div class="cluster" style="background: var(--color-subtle); padding: var(--space-3); border-radius: var(--radius-md);">
-                <div style="background: var(--color-accent); padding: var(--space-2);">Item 1</div>
-                <div style="background: var(--color-accent); padding: var(--space-2);">Item 2</div>
-                <div style="background: var(--color-accent); padding: var(--space-2);">Item 3</div>
-                <div style="background: var(--color-accent); padding: var(--space-2);">Item 4</div>
+                <div style="background: var(--color-accent); color: var(--color-accent-fg); padding: var(--space-2); border-radius: var(--radius-sm);">A</div>
+                <div style="background: var(--color-accent); color: var(--color-accent-fg); padding: var(--space-2); border-radius: var(--radius-sm);">B</div>
+                <div style="background: var(--color-accent); color: var(--color-accent-fg); padding: var(--space-2); border-radius: var(--radius-sm);">C</div>
               </div>
             </div>
             <div>
-              <h3 class="t-body-sm">Grid Auto (responsive grid)</h3>
+              <h3 class="t-body-sm">Grid Auto (responsive)</h3>
               <div class="grid-auto" style="background: var(--color-subtle); padding: var(--space-3); border-radius: var(--radius-md);">
-                <div style="background: var(--color-accent); padding: var(--space-2);">1</div>
-                <div style="background: var(--color-accent); padding: var(--space-2);">2</div>
-                <div style="background: var(--color-accent); padding: var(--space-2);">3</div>
-                <div style="background: var(--color-accent); padding: var(--space-2);">4</div>
+                <div style="background: var(--color-accent); color: var(--color-accent-fg); padding: var(--space-2); border-radius: var(--radius-sm);">1</div>
+                <div style="background: var(--color-accent); color: var(--color-accent-fg); padding: var(--space-2); border-radius: var(--radius-sm);">2</div>
+                <div style="background: var(--color-accent); color: var(--color-accent-fg); padding: var(--space-2); border-radius: var(--radius-sm);">3</div>
               </div>
+            </div>
+            <div>
+              <h3 class="t-body-sm">Responsive Stack (.responsive-stack)</h3>
+              <p class="t-caption">Stacks vertically on narrow containers, switches to auto-fit grid at ≥20rem (container query).</p>
+              <div class="responsive-stack" style="background: var(--color-subtle); padding: var(--space-3); border-radius: var(--radius-md);">
+                <div style="background: var(--color-accent); color: var(--color-accent-fg); padding: var(--space-2); border-radius: var(--radius-sm);">One</div>
+                <div style="background: var(--color-accent); color: var(--color-accent-fg); padding: var(--space-2); border-radius: var(--radius-sm);">Two</div>
+                <div style="background: var(--color-accent); color: var(--color-accent-fg); padding: var(--space-2); border-radius: var(--radius-sm);">Three</div>
+              </div>
+            </div>
+            <div>
+              <h3 class="t-body-sm">Page wrappers &amp; section rhythm</h3>
+              <p class="t-caption">
+                <code>.page</code> → flex column with fluid <code>--page-padding</code> · <code>.page-section</code> → vertical section spacing · <code>.page-content</code> → max-width centered column.
+                <code>.section</code> establishes container-query context; <code>.section-sm</code> / <code>.section-lg</code> adjust block padding.
+              </p>
+              <div class="page-content" style="background: var(--color-subtle); padding: var(--space-3); border-radius: var(--radius-md); text-align: center;">.page-content — centered, max-width column</div>
+            </div>
+            <div>
+              <h3 class="t-body-sm">Touch area (.touch-area)</h3>
+              <p class="t-caption">Extends the hit target ~8px beyond the visual bounds without affecting layout — for small tap targets on touch devices.</p>
+              <button class="btn btn-secondary btn-sm touch-area">Small button</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="sections">
+          <h2 class="doc-section-title">Sections &amp; Dividers</h2>
+          <p class="doc-section-desc">Section background variants and divider primitives for vertical rhythm.</p>
+          <div class="chips">
+            <span class="chip">.section-bg-subtle</span><span class="chip">.section-bg-fg</span><span class="chip">.section-bg-accent</span>
+            <span class="chip">.divider</span><span class="chip">.section-divider</span><span class="chip">.section-divider-icon</span>
+          </div>
+          <div class="doc-demo stack">
+            <div class="section-bg-subtle" style="padding: var(--space-4); border-radius: var(--radius-md);">.section-bg-subtle</div>
+            <div class="section-bg-fg" style="padding: var(--space-4); border-radius: var(--radius-md);">.section-bg-fg</div>
+            <div class="section-bg-accent" style="padding: var(--space-4); border-radius: var(--radius-md);">.section-bg-accent</div>
+            <div>
+              <span class="t-caption">.divider</span>
+              <div class="divider"></div>
+              <span class="t-caption">.section-divider</span>
+              <div class="section-divider"></div>
+              <span class="t-caption">.section-divider-icon</span>
+              <div class="section-divider-icon"><div><svg class="icon icon-muted"><use href="#i-check"/></svg></div></div>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Reference</div>
+          <table class="props-table">
+            <thead><tr><th>Class</th><th>Role</th></tr></thead>
+            <tbody>
+              <tr><td><code>.section-bg-subtle</code></td><td>Tinted section background to separate bands of content</td></tr>
+              <tr><td><code>.section-bg-fg</code> / <code>.section-bg-accent</code></td><td>Inverted / accent section backgrounds (text colour flips automatically)</td></tr>
+              <tr><td><code>.divider</code></td><td>Hairline rule between items</td></tr>
+              <tr><td><code>.section-divider</code></td><td>Soft gradient rule for larger gaps between page sections</td></tr>
+              <tr><td><code>.section-divider-icon</code></td><td>Centered icon/label sitting on the rule</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="doc-section" id="utilities">
+          <h2 class="doc-section-title">Utility Classes</h2>
+          <p class="doc-section-desc">100+ single-purpose utilities for rapid composition: display, flex, spacing, typography, color, sizing, borders, and shadows.</p>
+          <div class="doc-sub">Display &amp; Flex</div>
+          <div class="chips">
+            <span class="chip">.block</span><span class="chip">.inline-block</span><span class="chip">.inline</span>
+            <span class="chip">.flex</span><span class="chip">.flex-col</span><span class="chip">.flex-wrap</span>
+            <span class="chip">.items-center</span><span class="chip">.justify-center</span><span class="chip">.justify-between</span>
+          </div>
+          <div class="doc-sub">Spacing</div>
+          <div class="chips">
+            <span class="chip">.gap-1…5</span><span class="chip">.p-2…5</span><span class="chip">.m-0</span><span class="chip">.m-auto</span>
+            <span class="chip">.mx-auto</span><span class="chip">.mt-1…5</span><span class="chip">.mb-1…5</span>
+          </div>
+          <div class="doc-sub">Typography</div>
+          <div class="chips">
+            <span class="chip">.text-left</span><span class="chip">.text-center</span><span class="chip">.text-right</span>
+            <span class="chip">.font-medium</span><span class="chip">.font-semibold</span><span class="chip">.font-bold</span>
+            <span class="chip">.uppercase</span><span class="chip">.truncate</span><span class="chip">.line-clamp-2</span>
+            <span class="chip">.leading-tight</span><span class="chip">.leading-normal</span><span class="chip">.leading-relaxed</span>
+          </div>
+          <div class="doc-sub">Color</div>
+          <div class="chips">
+            <span class="chip">.text-fg</span><span class="chip">.text-muted</span><span class="chip">.text-accent</span>
+            <span class="chip">.text-success</span><span class="chip">.text-error</span>
+            <span class="chip">.bg-subtle</span><span class="chip">.bg-accent</span>
+          </div>
+          <div class="doc-sub">Sizing, Borders &amp; Shadow</div>
+          <div class="chips">
+            <span class="chip">.w-full</span><span class="chip">.max-w-sm…6xl</span>
+            <span class="chip">.aspect-square</span><span class="chip">.aspect-video</span>
+            <span class="chip">.rounded</span><span class="chip">.rounded-lg</span>
+            <span class="chip">.border</span><span class="chip">.border-b</span><span class="chip">.shadow-sm</span><span class="chip">.shadow-md</span>
+          </div>
+          <div class="doc-sub">Position, Visibility &amp; Interaction</div>
+          <div class="chips">
+            <span class="chip">.relative</span><span class="chip">.absolute</span><span class="chip">.fixed</span><span class="chip">.inset-0</span>
+            <span class="chip">.hidden</span><span class="chip">.invisible</span><span class="chip">.opacity-50</span>
+            <span class="chip">.cursor-pointer</span><span class="chip">.cursor-not-allowed</span><span class="chip">.pointer-events-none</span>
+          </div>
+          <div class="doc-demo">
+            <div class="flex items-center justify-between p-4 border rounded-lg shadow-sm">
+              <span class="font-semibold">.flex .items-center .justify-between</span>
+              <span class="text-muted">.text-muted</span>
             </div>
           </div>
         </section>
@@ -647,12 +2024,27 @@
 </div>
 
 <script>
-// Package switcher
+// Package switcher — swaps the token package so the preview reflects each
+// package's visual defaults (typography scale, density, light/dark base).
+// Components share the same class contracts across packages.
 document.querySelectorAll('input[name="package"]').forEach(radio => {
   radio.addEventListener('change', function() {
-    const tokenSheet = document.getElementById('token-stylesheet');
-    const newHref = `./tokens/tokens-${this.value}.css`;
-    tokenSheet.href = newHref;
+    document.getElementById('token-stylesheet').href = `./tokens/tokens-${this.value}.css`;
+  });
+});
+
+// Copy-to-clipboard for documentation code blocks
+document.querySelectorAll('.doc-code-copy').forEach(btn => {
+  btn.addEventListener('click', async function() {
+    const pre = this.parentElement.querySelector('pre');
+    if (!pre) return;
+    try {
+      await navigator.clipboard.writeText(pre.textContent);
+      const original = this.innerHTML;
+      this.classList.add('is-copied');
+      this.textContent = 'Copied';
+      setTimeout(() => { this.classList.remove('is-copied'); this.innerHTML = original; }, 1500);
+    } catch (e) { /* clipboard unavailable */ }
   });
 });
 </script>

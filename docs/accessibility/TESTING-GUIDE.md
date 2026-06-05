@@ -6,7 +6,7 @@ Nordover implements automated accessibility testing for WCAG 2.1 Level AA compli
 
 ### Interactive Audit Tool (Browser)
 
-1. Open `docs/visual/accessibility-audit.html` in any modern browser
+1. Open `docs/visual/styleguide.html` in any modern browser
 2. Click **"Audit Web Styleguide"** or **"Audit App Styleguide"**
 3. Wait for the scan to complete
 4. Review violations by severity level
@@ -31,8 +31,8 @@ Run accessibility audit:
 pa11y-ci --config .pa11yci.json
 
 # Or audit individual styleguides
-pa11y docs/visual/styleguide-web.html --standard WCAG2AA
-pa11y docs/visual/styleguide-app.html --standard WCAG2AA
+pa11y docs/visual/styleguide.html --standard WCAG2AA
+pa11y docs/visual/styleguide.html --standard WCAG2AA
 ```
 
 ## Standards & Compliance
@@ -71,7 +71,7 @@ Command-line accessibility testing with multiple runners.
 Ensures valid HTML structure (prerequisite for accessibility).
 
 ```bash
-html-validate docs/visual/styleguide-web.html
+html-validate docs/visual/styleguide.html
 ```
 
 ## Common Violations & Fixes
@@ -368,7 +368,7 @@ Different tools use different rulesets and may flag different issues. If axe and
 Some tools flag issues that aren't actually violations:
 
 - Incomplete review items in axe often require manual assessment
-- Run the interactive audit tool (`accessibility-audit.html`) for better context
+
 
 ### Styleguide HTML Issues
 
