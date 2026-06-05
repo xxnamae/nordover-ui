@@ -104,7 +104,7 @@
     </div>
 
     <div class="app-sidebar-section-group">
-      <button class="app-sidebar-toggle" aria-expanded="true">Foundation</button>
+      <button class="app-sidebar-toggle" aria-expanded="true" title="Foundation"><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><span class="app-sidebar-toggle-label">Foundation</span></button>
       <nav class="app-nav-group is-active">
         <a class="app-nav-item" href="#colors">Colors</a>
         <a class="app-nav-item" href="#typography">Typography</a>
@@ -117,7 +117,7 @@
     </div>
 
     <div class="app-sidebar-section-group">
-      <button class="app-sidebar-toggle" aria-expanded="true">Actions &amp; Inputs</button>
+      <button class="app-sidebar-toggle" aria-expanded="true" title="Actions &amp; Inputs"><svg class="icon" aria-hidden="true"><use href="#i-edit"/></svg><span class="app-sidebar-toggle-label">Actions &amp; Inputs</span></button>
       <nav class="app-nav-group is-active">
         <a class="app-nav-item" href="#buttons">Buttons</a>
         <a class="app-nav-item" href="#forms">Forms &amp; Inputs</a>
@@ -130,7 +130,7 @@
     </div>
 
     <div class="app-sidebar-section-group">
-      <button class="app-sidebar-toggle" aria-expanded="true">Feedback</button>
+      <button class="app-sidebar-toggle" aria-expanded="true" title="Feedback"><svg class="icon" aria-hidden="true"><use href="#i-bell"/></svg><span class="app-sidebar-toggle-label">Feedback</span></button>
       <nav class="app-nav-group is-active">
         <a class="app-nav-item" href="#badges-alerts">Badges &amp; Alerts</a>
         <a class="app-nav-item" href="#toast">Toast</a>
@@ -140,7 +140,7 @@
     </div>
 
     <div class="app-sidebar-section-group">
-      <button class="app-sidebar-toggle" aria-expanded="true">Content &amp; Data</button>
+      <button class="app-sidebar-toggle" aria-expanded="true" title="Content &amp; Data"><svg class="icon" aria-hidden="true"><use href="#i-folder"/></svg><span class="app-sidebar-toggle-label">Content &amp; Data</span></button>
       <nav class="app-nav-group is-active">
         <a class="app-nav-item" href="#cards">Cards</a>
         <a class="app-nav-item" href="#tables">Table</a>
@@ -150,7 +150,7 @@
     </div>
 
     <div class="app-sidebar-section-group">
-      <button class="app-sidebar-toggle" aria-expanded="true">Overlays</button>
+      <button class="app-sidebar-toggle" aria-expanded="true" title="Overlays"><svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg><span class="app-sidebar-toggle-label">Overlays</span></button>
       <nav class="app-nav-group is-active">
         <a class="app-nav-item" href="#modal">Modal</a>
         <a class="app-nav-item" href="#tooltip">Tooltip</a>
@@ -159,7 +159,7 @@
     </div>
 
     <div class="app-sidebar-section-group">
-      <button class="app-sidebar-toggle" aria-expanded="true">Navigation</button>
+      <button class="app-sidebar-toggle" aria-expanded="true" title="Navigation"><svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg><span class="app-sidebar-toggle-label">Navigation</span></button>
       <nav class="app-nav-group is-active">
         <a class="app-nav-item" href="#breadcrumbs">Breadcrumbs</a>
         <a class="app-nav-item" href="#tabs">Tabs</a>
@@ -168,7 +168,7 @@
     </div>
 
     <div class="app-sidebar-section-group">
-      <button class="app-sidebar-toggle" aria-expanded="true">Layout &amp; Utilities</button>
+      <button class="app-sidebar-toggle" aria-expanded="true" title="Layout &amp; Utilities"><svg class="icon" aria-hidden="true"><use href="#i-settings"/></svg><span class="app-sidebar-toggle-label">Layout &amp; Utilities</span></button>
       <nav class="app-nav-group is-active">
         <a class="app-nav-item" href="#layout">Layout Primitives</a>
         <a class="app-nav-item" href="#sections">Sections &amp; Dividers</a>
@@ -177,7 +177,7 @@
     </div>
 
     <div class="app-sidebar-section-group">
-      <button class="app-sidebar-toggle" aria-expanded="true">Resources</button>
+      <button class="app-sidebar-toggle" aria-expanded="true" title="Resources"><svg class="icon" aria-hidden="true"><use href="#i-help"/></svg><span class="app-sidebar-toggle-label">Resources</span></button>
       <nav class="app-nav-group is-active">
         <a class="app-nav-item" href="#docs">Documentation</a>
         <a class="app-nav-item" href="https://github.com/xxnamae/nordover-ui">GitHub</a>
@@ -2274,6 +2274,22 @@ document.querySelectorAll('.doc-code-copy').forEach(btn => {
       this.textContent = 'Copied';
       setTimeout(() => { this.classList.remove('is-copied'); this.innerHTML = original; }, 1500);
     } catch (e) { /* clipboard unavailable */ }
+  });
+});
+
+// Sidebar section groups — collapse/expand each group via its header chevron.
+// When the rail is collapsed to icons, clicking a section icon expands the rail
+// again (so the icons stay actionable instead of being a dead end).
+document.querySelectorAll('.app-sidebar-toggle').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const collapse = document.getElementById('collapse');
+    if (collapse && collapse.checked) { collapse.checked = false; return; }
+    const group = btn.nextElementSibling; // the .app-nav-group
+    const isOpen = btn.getAttribute('aria-expanded') !== 'false';
+    btn.setAttribute('aria-expanded', String(!isOpen));
+    if (group && group.classList.contains('app-nav-group')) {
+      group.classList.toggle('is-active', !isOpen);
+    }
   });
 });
 </script>
