@@ -1184,11 +1184,11 @@
 
         <section class="doc-section" id="cards">
           <h2 class="doc-section-title">Cards</h2>
-          <p class="doc-section-desc">Flexible card containers. Compose <code>.card-*</code> surfaces with header, title, meta, and footer.</p>
+          <p class="doc-section-desc">Start with the <code>.card</code> base (built-in padding, radius, surface, internal rhythm — generous on web, compact on app), then add a surface variant and optional size.</p>
           <div class="chips">
-            <span class="chip">.card-bordered</span><span class="chip">.card-elevated</span><span class="chip">.card-subtle</span>
-            <span class="chip">.card-interactive</span><span class="chip">.card-header</span><span class="chip">.card-title</span>
-            <span class="chip">.card-meta</span><span class="chip">.card-footer</span>
+            <span class="chip">.card</span><span class="chip">.card-bordered</span><span class="chip">.card-elevated</span><span class="chip">.card-subtle</span>
+            <span class="chip">.card-interactive</span><span class="chip">.card-sm</span><span class="chip">.card-lg</span>
+            <span class="chip">.card-header</span><span class="chip">.card-title</span><span class="chip">.card-meta</span><span class="chip">.card-footer</span>
           </div>
 
           <div class="doc-block-label">When to use</div>
@@ -1211,22 +1211,22 @@
             </div>
           </div>
 
-          <div class="doc-block-label">Example</div>
+          <div class="doc-block-label">Surface variants</div>
           <div class="doc-demo">
             <div class="grid-auto">
-              <div class="card-bordered" style="padding: var(--space-4); border-radius: var(--radius-lg);">
+              <div class="card card-bordered">
                 <div class="card-header"><span class="card-title">Bordered</span></div>
-                <p class="card-meta">A card with a simple border.</p>
+                <p class="card-meta">A card with a simple hairline border.</p>
               </div>
-              <div class="card-elevated" style="padding: var(--space-4); border-radius: var(--radius-lg);">
+              <div class="card card-elevated">
                 <div class="card-header"><span class="card-title">Elevated</span></div>
                 <p class="card-meta">Raised with elevation shadow.</p>
               </div>
-              <div class="card-subtle" style="padding: var(--space-4); border-radius: var(--radius-lg);">
+              <div class="card card-subtle">
                 <div class="card-header"><span class="card-title">Subtle</span></div>
                 <p class="card-meta">Filled with a subtle background.</p>
               </div>
-              <a href="#cards" class="card-interactive" style="padding: var(--space-4); border-radius: var(--radius-lg); display: flex; flex-direction: column; text-decoration: none; color: inherit;">
+              <a href="#cards" class="card card-interactive" style="text-decoration: none; color: inherit;">
                 <div class="card-header"><span class="card-title">Interactive</span></div>
                 <p class="card-meta">The whole card is a link. Hover to lift.</p>
                 <div class="card-footer"><span class="btn btn-ghost btn-sm">Open →</span></div>
@@ -1234,10 +1234,21 @@
             </div>
           </div>
 
+          <div class="doc-block-label">Sizes (built-in air: .card-sm · .card · .card-lg)</div>
+          <div class="doc-demo">
+            <div class="grid-auto">
+              <div class="card card-sm card-bordered"><div class="card-header"><span class="card-title">Compact</span></div><p class="card-meta">.card-sm — tighter padding.</p></div>
+              <div class="card card-bordered"><div class="card-header"><span class="card-title">Default</span></div><p class="card-meta">.card — generous editorial air on web.</p></div>
+              <div class="card card-lg card-bordered"><div class="card-header"><span class="card-title">Spacious</span></div><p class="card-meta">.card-lg — maximum air for hero cards.</p></div>
+            </div>
+          </div>
+
           <div class="doc-block-label">Variants &amp; parts</div>
           <table class="props-table">
             <thead><tr><th>Class</th><th>Role</th><th>Notes</th></tr></thead>
             <tbody>
+              <tr><td><code>.card</code></td><td>Base</td><td>Padding, radius, surface &amp; internal rhythm — start here</td></tr>
+              <tr><td><code>.card-sm</code> / <code>.card-lg</code></td><td>Size</td><td>Less / more built-in air</td></tr>
               <tr><td><code>.card-bordered</code></td><td>Surface</td><td>Lowest emphasis — a hairline border</td></tr>
               <tr><td><code>.card-subtle</code></td><td>Surface</td><td>Filled background, no border</td></tr>
               <tr><td><code>.card-elevated</code></td><td>Surface</td><td>Shadow elevation; floats above the page</td></tr>
@@ -1279,7 +1290,7 @@
           <div class="doc-block-label">Code</div>
           <div class="doc-code">
             <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
-            <pre>&lt;article class="card-elevated"&gt;
+            <pre>&lt;article class="card card-elevated"&gt;
   &lt;div class="card-header"&gt;&lt;h3 class="card-title"&gt;Title&lt;/h3&gt;&lt;/div&gt;
   &lt;p class="card-meta"&gt;Supporting text.&lt;/p&gt;
   &lt;div class="card-footer"&gt;&lt;button class="btn btn-ghost btn-sm"&gt;Action&lt;/button&gt;&lt;/div&gt;
