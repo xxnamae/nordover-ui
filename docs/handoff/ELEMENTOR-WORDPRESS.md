@@ -31,6 +31,12 @@ dense app-like dashboards.
 `:root { … }` block from `docs/visual/tokens/tokens-web.css` into the Custom
 CSS field. This is the most robust for WordPress hosting.
 
+> **Shortcut:** the [styleguide](https://xxnamae.github.io/nordover-ui/docs/visual/styleguide.html)
+> has a one-click **"Copy tokens for Elementor / WordPress"** block in its
+> *Documentation* section. It serves the selected package (Web/App) already
+> flattened — no `@layer` wrapper, no reset — which is exactly option B,
+> paste-ready.
+
 Either way you now have the full token set available globally.
 
 ---
