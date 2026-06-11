@@ -638,12 +638,12 @@
     border-color: var(--error);
     background: var(--color-bg);
   }
-  .form-input.is-error:focus-visible { border-color: var(--error); outline-color: var(--error); }
+  .form-input.is-error:focus-visible { border-color: var(--focus-ring-error); outline-color: var(--focus-ring-error); }
   .form-input.is-success {
     border-color: var(--success);
     background: var(--color-bg);
   }
-  .form-input.is-success:focus-visible { border-color: var(--success); outline-color: var(--success); }
+  .form-input.is-success:focus-visible { border-color: var(--focus-ring-success); outline-color: var(--focus-ring-success); }
 
   .field-help,
   .field-error {

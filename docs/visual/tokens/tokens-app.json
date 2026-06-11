@@ -221,12 +221,16 @@
       "display": {
         "$type": "dimension",
         "$value": {
-          "value": -0.035,
+          "value": -0.04,
           "unit": "em"
         }
       },
       "heading": {
-        "$value": "{font.letterSpacing.tight}"
+        "$type": "dimension",
+        "$value": {
+          "value": -0.01,
+          "unit": "em"
+        }
       },
       "title": {
         "$type": "dimension",
@@ -503,7 +507,7 @@
     },
     "spacing-section-lg": {
       "$type": "other",
-      "$value": "clamp(var(--space-12), 12vw, var(--space-16))",
+      "$value": "clamp(6.875rem, 12vw, 9.375rem)",
       "$extensions": {
         "com.nordover.cssText": true
       }
@@ -601,6 +605,12 @@
     },
     "focus-ring-halo": {
       "$value": "{color.bg}"
+    },
+    "focus-ring-error": {
+      "$value": "{color.error}"
+    },
+    "focus-ring-success": {
+      "$value": "{color.success}"
     },
     "target-min": {
       "$type": "dimension",
@@ -1398,7 +1408,7 @@
       },
       "spacing-section": {
         "$type": "other",
-        "$value": "clamp(var(--space-8), 8vw, var(--space-12))",
+        "$value": "clamp(3.75rem, 8vw, 6.875rem)",
         "$extensions": {
           "com.nordover.cssText": true
         }

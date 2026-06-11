@@ -775,7 +775,7 @@
     "e-gv-7fee1ef": {
       "type": "global-custom-size-variable",
       "label": "spacing-section",
-      "value": "clamp(6rem, 12vw, 10rem)",
+      "value": "clamp(7rem, 12vw, 11.25rem)",
       "order": 91,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
@@ -791,7 +791,7 @@
     "e-gv-f0f4771": {
       "type": "global-custom-size-variable",
       "label": "spacing-section-lg",
-      "value": "clamp(8rem, 16vw, 12rem)",
+      "value": "clamp(8.75rem, 16vw, 13.25rem)",
       "order": 93,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"

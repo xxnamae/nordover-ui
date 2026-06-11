@@ -122,9 +122,9 @@
     /* === Letter-spacing-skala (em — relativt til font-size) === */
     --tracking-tighter: -0.04em; --tracking-tight: -0.02em;
     --tracking-normal: 0; --tracking-wide: 0.01em; --tracking-widest: 0.08em;
-    /* Role-level tracking (Apple/M3 optical sizing) */
-    --tracking-display: -0.035em;
-    --tracking-heading: var(--tracking-tight);
+    /* Role-level tracking (Apple/M3 optical sizing — Inter Tight optimized) */
+    --tracking-display: -0.05em;   /* tettere for display (Inter Tight tåler det) */
+    --tracking-heading: -0.015em;  /* subtil tightning for headline */
     --tracking-title: -0.01em;
 
     /* === Type role tokens (composable: size + leading + weight + tracking) ===
@@ -235,9 +235,9 @@
     --gap-tight: var(--space-2);          /* 8px — innenfor komponent */
     --gap-component: var(--space-5);      /* 24px — mellom komponenter */
     --gap-section: var(--space-8);        /* 48px — mellom seksjoner */
-    --spacing-section: clamp(var(--space-12), 12vw, var(--space-20));  /* 96 → 160px */
+    --spacing-section: clamp(7rem, 12vw, 11.25rem);  /* 110 → 180px — mer luftig */
     --spacing-section-sm: clamp(var(--space-8), 8vw, var(--space-12)); /* 48 → 96px — compact section */
-    --spacing-section-lg: clamp(var(--space-16), 16vw, var(--space-24)); /* 128 → 192px — hero section */
+    --spacing-section-lg: clamp(8.75rem, 16vw, 13.25rem); /* 140 → 212px — generøs hero */
     --page-padding: clamp(var(--space-6), 4vw, var(--space-8));        /* 32 → 48px */
 
     /* === Radius (px — dekorativt, skal ikke skalere med tekst) === */
@@ -316,6 +316,9 @@
     --focus-ring-offset: 2px;
     --focus-ring-color: var(--color-focus);
     --focus-ring-halo: var(--color-bg);
+    /* Status-specific focus colors (form error/success states) */
+    --focus-ring-error: var(--error);
+    --focus-ring-success: var(--success);
 
     /* === Target size (WCAG 2.5.8 AA floor + Apple-touch comfortable) === */
     --target-min: 24px;          /* WCAG 2.2 AA minimum hit area */

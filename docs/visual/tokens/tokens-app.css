@@ -108,9 +108,9 @@
     /* === Letter-spacing-skala === */
     --tracking-tighter: -0.04em; --tracking-tight: -0.02em; --tracking-normal: 0;
     --tracking-wide: 0.01em; --tracking-wider: 0.04em; /* app-only */ --tracking-widest: 0.08em;
-    /* Role-level tracking (Apple/M3 optical sizing) */
-    --tracking-display: -0.035em;
-    --tracking-heading: var(--tracking-tight);
+    /* Role-level tracking (Apple/M3 optical sizing — Inter Tight optimized) */
+    --tracking-display: -0.04em;   /* app: strammere enn web, men driv fra tightness */
+    --tracking-heading: -0.01em;   /* subtle tightning for headline */
     --tracking-title: -0.01em;
 
     /* === Type role tokens (composable: size + leading + weight + tracking) ===
@@ -236,9 +236,9 @@
     --gap-tight: var(--space-1);          /* 4px */
     --gap-component: var(--space-4);      /* 16px (web: 1.5rem) */
     --gap-section: var(--space-8);        /* 48px */
-    --spacing-section: clamp(var(--space-8), 8vw, var(--space-12));   /* 48 → 96px fluid, app-kompakt */
+    --spacing-section: clamp(3.75rem, 8vw, 6.875rem);   /* 60 → 110px — mer luftig enn før, app-kompakt */
     --spacing-section-sm: clamp(var(--space-6), 6vw, var(--space-8)); /* 32 → 48px — compact section */
-    --spacing-section-lg: clamp(var(--space-12), 12vw, var(--space-16)); /* 96 → 128px — hero section */
+    --spacing-section-lg: clamp(6.875rem, 12vw, 9.375rem); /* 110 → 150px — generøs hero, fremdeles kompakt */
     --page-padding: clamp(var(--space-5), 3vw, var(--space-6));       /* 24 → 32px fluid, app-tett */
 
     /* === Radius === */
@@ -317,6 +317,9 @@
     --focus-ring-offset: 2px;
     --focus-ring-color: var(--color-focus);
     --focus-ring-halo: var(--color-bg);
+    /* Status-specific focus colors (form error/success states) */
+    --focus-ring-error: var(--error);
+    --focus-ring-success: var(--success);
 
     /* === Target size (WCAG 2.5.8 AA floor + Apple-touch comfortable) === */
     --target-min: 24px;
