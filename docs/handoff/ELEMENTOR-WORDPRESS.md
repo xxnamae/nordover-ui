@@ -159,10 +159,63 @@ selector {
 
 ---
 
+## Native Variables for Editor V4 (Elementor 3.33+/4.x)
+
+If you run **Editor V4**, you don't have to map tokens by hand — Nordover ships
+a ready-made **Variables Manager** import that recreates the whole token set as
+native v4 variables (so they appear in every colour/typography/size picker).
+
+**Files** (generated from the canonical CSS, never hand-edited):
+
+| Package | File |
+|---|---|
+| Web (editorial) | `docs/handoff/nordover-elementor-v4-web.json` |
+| App (dense UI) | `docs/handoff/nordover-elementor-v4-app.json` |
+
+**Import:** Elementor → *Variables Manager* → import the JSON (or drop it into a
+kit and use **Tools → Import**), then **Tools → Regenerate CSS & Data**.
+
+**What you get** — four native variable types, mapped from the tokens:
+
+| Elementor type | From | Example |
+|---|---|---|
+| `global-color-variable` | colours (OKLCH/`color-mix` **resolved to hex**) | `color-accent → #060709` |
+| `global-font-variable` | font stacks (first family) | `font-display → Inter Tight` |
+| `global-size-variable` | simple dimensions | `space-4 → 1rem` |
+| `global-custom-size-variable` | fluid values (**`clamp()` kept intact**) | `text-4xl → clamp(2.25rem, …, 3.5rem)` |
+
+**Regenerate** after any token change: `npm run build:elementor` (CI enforces
+the JSON stays in sync with the CSS, exactly like the DTCG token JSON).
+
+### Honest limitations of the native route
+
+- **Colours are concrete hex.** Elementor v4 colour variables can't hold OKLCH
+  or `color-mix()`, so they're pre-resolved. You lose the runtime-derived
+  relationship (e.g. changing `--color-accent` no longer recomputes
+  `accent-hover`); you get a faithful **snapshot** instead.
+- **No light/dark per variable.** Each variable holds one value, so the export
+  is the **light/base** set. Dark mode still needs the Custom-CSS route (with the
+  `:has(#dark:checked)` block) or a duplicate variable set.
+- **Excluded by design:** weights, line-height/letter-spacing, motion (durations/
+  easings), shadows, gradients and glass — none map to a v4 variable *type*. Use
+  the Custom-CSS paste for those.
+- **`watermark` is best-effort.** Elementor recomputes its internal sync counter
+  on import; the generated value is a placeholder.
+
+> **Which route?** Native variables give the best **editing UX** (real pickers,
+> on-brand by default). The Custom-CSS paste (top of this doc) is the most
+> **faithful** (keeps fluid type, derived colours and dark mode). They're not
+> exclusive — many teams import the variables *and* paste the CSS for the parts
+> variables can't express.
+
+---
+
 ## Summary
 
-1. Load `tokens-web.css` once in Site Settings → Custom CSS.
-2. Recreate Nordover's semantic colours/fonts as Elementor Global Colors/Fonts.
+1. Load `tokens-web.css` once in Site Settings → Custom CSS (most faithful), **or**
+   import `nordover-elementor-v4-web.json` into the Variables Manager (best UX).
+2. Recreate Nordover's semantic colours/fonts as Elementor Global Colors/Fonts
+   (only needed for the Custom-CSS route).
 3. Build with native Elementor widgets; reference `var(--…)` where you need
    custom styling.
 

@@ -108,9 +108,9 @@
     /* === Letter-spacing-skala === */
     --tracking-tighter: -0.04em; --tracking-tight: -0.02em; --tracking-normal: 0;
     --tracking-wide: 0.01em; --tracking-wider: 0.04em; /* app-only */ --tracking-widest: 0.08em;
-    /* Role-level tracking (Apple/M3 optical sizing) */
-    --tracking-display: -0.035em;
-    --tracking-heading: var(--tracking-tight);
+    /* Role-level tracking (Apple/M3 optical sizing — Inter Tight optimized) */
+    --tracking-display: -0.04em;   /* app: strammere enn web, men driv fra tightness */
+    --tracking-heading: -0.01em;   /* subtle tightning for headline */
     --tracking-title: -0.01em;
 
     /* === Type role tokens (composable: size + leading + weight + tracking) ===
@@ -236,9 +236,9 @@
     --gap-tight: var(--space-1);          /* 4px */
     --gap-component: var(--space-4);      /* 16px (web: 1.5rem) */
     --gap-section: var(--space-8);        /* 48px */
-    --spacing-section: clamp(var(--space-8), 8vw, var(--space-12));   /* 48 → 96px fluid, app-kompakt */
+    --spacing-section: clamp(3.75rem, 8vw, 6.875rem);   /* 60 → 110px — mer luftig enn før, app-kompakt */
     --spacing-section-sm: clamp(var(--space-6), 6vw, var(--space-8)); /* 32 → 48px — compact section */
-    --spacing-section-lg: clamp(var(--space-12), 12vw, var(--space-16)); /* 96 → 128px — hero section */
+    --spacing-section-lg: clamp(6.875rem, 12vw, 9.375rem); /* 110 → 150px — generøs hero, fremdeles kompakt */
     --page-padding: clamp(var(--space-5), 3vw, var(--space-6));       /* 24 → 32px fluid, app-tett */
 
     /* === Radius === */
@@ -250,12 +250,14 @@
     --border-card: var(--bw-thin) solid var(--color-border);
     --border-divider: var(--bw-thin) solid var(--color-border);
 
-    /* === Shadows (tettere for SaaS) === */
-    --shadow-xs: 0 1px 1px 0 rgb(0 0 0 / 0.03);
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.04), 0 1px 1px -1px rgb(0 0 0 / 0.03);
-    --shadow-md: 0 2px 4px -1px rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.04);
-    --shadow-lg: 0 8px 12px -3px rgb(0 0 0 / 0.08), 0 3px 5px -3px rgb(0 0 0 / 0.06);
-    --shadow-xl: 0 16px 24px -6px rgb(0 0 0 / 0.1), 0 6px 10px -6px rgb(0 0 0 / 0.07);
+    /* === Shadows (tettere for SaaS — lagdelt Stripe-stil, men strammere enn web) ===
+       Samme stablede struktur som web, men kortere offsets og lavere opasitet
+       for et kompakt, rolig dybdeinntrykk i tette grensesnitt. */
+    --shadow-xs: 0 1px 1px 0 rgb(0 0 0 / 0.03), 0 1px 2px -1px rgb(0 0 0 / 0.03);
+    --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 0.04), 0 1px 3px -1px rgb(0 0 0 / 0.03), 0 2px 4px -2px rgb(0 0 0 / 0.03);
+    --shadow-md: 0 1px 2px -1px rgb(0 0 0 / 0.04), 0 2px 4px -1px rgb(0 0 0 / 0.04), 0 4px 8px -2px rgb(0 0 0 / 0.04);
+    --shadow-lg: 0 2px 4px -2px rgb(0 0 0 / 0.05), 0 6px 12px -3px rgb(0 0 0 / 0.05), 0 12px 20px -6px rgb(0 0 0 / 0.05);
+    --shadow-xl: 0 4px 8px -3px rgb(0 0 0 / 0.06), 0 10px 18px -5px rgb(0 0 0 / 0.06), 0 16px 28px -8px rgb(0 0 0 / 0.07);
 
     /* === Semantic shadow aliases (component intent — wiki contract) ===
        Inset is its own primitive; the rest alias the elevation scale, so they
@@ -294,6 +296,13 @@
     --motion-snappy: var(--duration-fast) var(--ease-spring);
     --motion-bouncy: var(--duration-slow-base) var(--ease-spring-physics);
 
+    /* === Mikrobevegelse (interaktiv press/løft — tokenisert kontrakt) ===
+       Strammere enn web (app er tett/snappy): mindre løft, samme trykk-følelse.
+       Den globale prefers-reduced-motion-guarden nullstiller transition-
+       varighet, så bevegelsen blir umiddelbar (samme kontrakt som hover). */
+    --press-y: 0.5px;      /* :active nedover-nudge — føles som et trykk */
+    --hover-lift-y: -1px;  /* :hover heving for hevede kontroller (knapper) */
+
     /* === Interaction state layers (M3-parity overlay opacities) ===
        Apply as: color-mix(in oklch, currentColor var(--state-hover), transparent). */
     --state-hover: 6%;
@@ -308,6 +317,9 @@
     --focus-ring-offset: 2px;
     --focus-ring-color: var(--color-focus);
     --focus-ring-halo: var(--color-bg);
+    /* Status-specific focus colors (form error/success states) */
+    --focus-ring-error: var(--error);
+    --focus-ring-success: var(--success);
 
     /* === Target size (WCAG 2.5.8 AA floor + Apple-touch comfortable) === */
     --target-min: 24px;
@@ -433,11 +445,12 @@
     --chart-5: oklch(0.75 0.15 195); --chart-6: oklch(0.72 0.22 350);
     --chart-7: oklch(0.80 0.14 220); --chart-8: oklch(0.72 0.18 30);
 
-    --shadow-xs: 0 1px 1px 0 rgb(0 0 0 / 0.25);
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3), 0 1px 1px -1px rgb(0 0 0 / 0.25);
-    --shadow-md: 0 2px 4px -1px rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.3);
-    --shadow-lg: 0 8px 12px -3px rgb(0 0 0 / 0.5), 0 3px 5px -3px rgb(0 0 0 / 0.4);
-    --shadow-xl: 0 16px 24px -6px rgb(0 0 0 / 0.6), 0 6px 10px -6px rgb(0 0 0 / 0.45);
+    /* Lagdelt struktur som lys app-skala, høyere opasitet for mørk bakgrunn. */
+    --shadow-xs: 0 1px 1px 0 rgb(0 0 0 / 0.25), 0 1px 2px -1px rgb(0 0 0 / 0.25);
+    --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 0.3), 0 1px 3px -1px rgb(0 0 0 / 0.25), 0 2px 4px -2px rgb(0 0 0 / 0.25);
+    --shadow-md: 0 1px 2px -1px rgb(0 0 0 / 0.35), 0 2px 4px -1px rgb(0 0 0 / 0.35), 0 4px 8px -2px rgb(0 0 0 / 0.3);
+    --shadow-lg: 0 2px 4px -2px rgb(0 0 0 / 0.4), 0 6px 12px -3px rgb(0 0 0 / 0.45), 0 12px 20px -6px rgb(0 0 0 / 0.4);
+    --shadow-xl: 0 4px 8px -3px rgb(0 0 0 / 0.45), 0 10px 18px -5px rgb(0 0 0 / 0.5), 0 16px 28px -8px rgb(0 0 0 / 0.55);
     /* Inset deepened for dark (the aliasing shadows inherit the scale above) */
     --shadow-inset: inset 0 1px 2px 0 rgb(0 0 0 / 0.3);
   }

@@ -240,12 +240,16 @@
       "display": {
         "$type": "dimension",
         "$value": {
-          "value": -0.035,
+          "value": -0.05,
           "unit": "em"
         }
       },
       "heading": {
-        "$value": "{font.letterSpacing.tight}"
+        "$type": "dimension",
+        "$value": {
+          "value": -0.015,
+          "unit": "em"
+        }
       },
       "title": {
         "$type": "dimension",
@@ -422,7 +426,7 @@
     },
     "spacing-section-lg": {
       "$type": "other",
-      "$value": "clamp(var(--space-16), 16vw, var(--space-24))",
+      "$value": "clamp(8.75rem, 16vw, 13.25rem)",
       "$extensions": {
         "com.nordover.cssText": true
       }
@@ -446,6 +450,20 @@
       "$value": "var(--duration-slow-base) var(--ease-spring-physics)",
       "$extensions": {
         "com.nordover.cssText": true
+      }
+    },
+    "press-y": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1.0,
+        "unit": "px"
+      }
+    },
+    "hover-lift-y": {
+      "$type": "dimension",
+      "$value": {
+        "value": -1.0,
+        "unit": "px"
       }
     },
     "state-hover": {
@@ -506,6 +524,12 @@
     },
     "focus-ring-halo": {
       "$value": "{color.bg}"
+    },
+    "focus-ring-error": {
+      "$value": "{color.error}"
+    },
+    "focus-ring-success": {
+      "$value": "{color.success}"
     },
     "target-min": {
       "$type": "dimension",
@@ -1304,7 +1328,7 @@
       },
       "spacing-section": {
         "$type": "other",
-        "$value": "clamp(var(--space-12), 12vw, var(--space-20))",
+        "$value": "clamp(7rem, 12vw, 11.25rem)",
         "$extensions": {
           "com.nordover.cssText": true
         }
@@ -1416,55 +1440,55 @@
   "shadow": {
     "xs": {
       "$type": "shadow",
-      "$value": "0 1px 2px 0 rgb(0 0 0 / 0.04)",
+      "$value": "0 1px 1px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.04)",
       "$extensions": {
         "com.nordover.cssText": true,
         "com.nordover.dark": {
-          "$value": "0 1px 2px 0 rgb(0 0 0 / 0.3)",
+          "$value": "0 1px 1px 0 rgb(0 0 0 / 0.3), 0 1px 2px -1px rgb(0 0 0 / 0.3)",
           "cssText": true
         }
       }
     },
     "sm": {
       "$type": "shadow",
-      "$value": "0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.04)",
+      "$value": "0 1px 2px -1px rgb(0 0 0 / 0.05), 0 2px 4px -1px rgb(0 0 0 / 0.04), 0 4px 6px -2px rgb(0 0 0 / 0.03)",
       "$extensions": {
         "com.nordover.cssText": true,
         "com.nordover.dark": {
-          "$value": "0 1px 3px 0 rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.3)",
+          "$value": "0 1px 2px -1px rgb(0 0 0 / 0.4), 0 2px 4px -1px rgb(0 0 0 / 0.3), 0 4px 6px -2px rgb(0 0 0 / 0.25)",
           "cssText": true
         }
       }
     },
     "md": {
       "$type": "shadow",
-      "$value": "0 4px 8px -2px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.05)",
+      "$value": "0 1px 2px -1px rgb(0 0 0 / 0.05), 0 4px 8px -2px rgb(0 0 0 / 0.05), 0 8px 16px -4px rgb(0 0 0 / 0.05)",
       "$extensions": {
         "com.nordover.cssText": true,
         "com.nordover.dark": {
-          "$value": "0 4px 8px -2px rgb(0 0 0 / 0.5), 0 2px 4px -2px rgb(0 0 0 / 0.4)",
+          "$value": "0 1px 2px -1px rgb(0 0 0 / 0.4), 0 4px 8px -2px rgb(0 0 0 / 0.4), 0 8px 16px -4px rgb(0 0 0 / 0.35)",
           "cssText": true
         }
       }
     },
     "lg": {
       "$type": "shadow",
-      "$value": "0 12px 20px -4px rgb(0 0 0 / 0.1), 0 6px 8px -4px rgb(0 0 0 / 0.06)",
+      "$value": "0 2px 4px -2px rgb(0 0 0 / 0.05), 0 8px 16px -4px rgb(0 0 0 / 0.06), 0 16px 32px -8px rgb(0 0 0 / 0.06)",
       "$extensions": {
         "com.nordover.cssText": true,
         "com.nordover.dark": {
-          "$value": "0 12px 20px -4px rgb(0 0 0 / 0.6), 0 6px 8px -4px rgb(0 0 0 / 0.4)",
+          "$value": "0 2px 4px -2px rgb(0 0 0 / 0.4), 0 8px 16px -4px rgb(0 0 0 / 0.5), 0 16px 32px -8px rgb(0 0 0 / 0.45)",
           "cssText": true
         }
       }
     },
     "xl": {
       "$type": "shadow",
-      "$value": "0 24px 40px -8px rgb(0 0 0 / 0.12), 0 10px 16px -8px rgb(0 0 0 / 0.08)",
+      "$value": "0 4px 8px -3px rgb(0 0 0 / 0.06), 0 12px 24px -6px rgb(0 0 0 / 0.07), 0 24px 48px -12px rgb(0 0 0 / 0.08)",
       "$extensions": {
         "com.nordover.cssText": true,
         "com.nordover.dark": {
-          "$value": "0 24px 40px -8px rgb(0 0 0 / 0.7), 0 10px 16px -8px rgb(0 0 0 / 0.5)",
+          "$value": "0 4px 8px -3px rgb(0 0 0 / 0.5), 0 12px 24px -6px rgb(0 0 0 / 0.55), 0 24px 48px -12px rgb(0 0 0 / 0.6)",
           "cssText": true
         }
       }

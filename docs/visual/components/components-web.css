@@ -497,7 +497,7 @@
     outline-offset: var(--focus-ring-offset);
   }
   .btn:active {
-    transform: translateY(0);
+    transform: translateY(var(--press-y));
   }
 
   .btn-primary {
@@ -506,7 +506,11 @@
   }
   .btn-primary:hover {
     opacity: 0.9;
-    transform: translateY(-1px);
+    transform: translateY(var(--hover-lift-y));
+  }
+  /* Press wins over hover-lift: tactile compression on the raised button */
+  .btn-primary:active {
+    transform: translateY(var(--press-y));
   }
 
   .btn-secondary {
@@ -634,12 +638,12 @@
     border-color: var(--error);
     background: var(--color-bg);
   }
-  .form-input.is-error:focus-visible { border-color: var(--error); outline-color: var(--error); }
+  .form-input.is-error:focus-visible { border-color: var(--focus-ring-error); outline-color: var(--focus-ring-error); }
   .form-input.is-success {
     border-color: var(--success);
     background: var(--color-bg);
   }
-  .form-input.is-success:focus-visible { border-color: var(--success); outline-color: var(--success); }
+  .form-input.is-success:focus-visible { border-color: var(--focus-ring-success); outline-color: var(--focus-ring-success); }
 
   .field-help,
   .field-error {

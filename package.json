@@ -54,6 +54,8 @@
   "scripts": {
     "build:tokens": "python3 scripts/build_tokens.py",
     "check:tokens": "python3 scripts/build_tokens.py --check",
+    "build:elementor": "python3 scripts/build_elementor.py",
+    "check:elementor": "python3 scripts/build_elementor.py --check",
     "check:contrast": "python3 scripts/check_contrast.py --strict",
     "gen:theme": "python3 scripts/generate_theme.py",
     "shots": "node scripts/screenshots.cjs",

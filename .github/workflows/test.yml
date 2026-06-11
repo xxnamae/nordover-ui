@@ -32,3 +32,5 @@ jobs:
         run: python3 scripts/validate-token-consistency.py
       - name: Verify semantic colour pairs meet WCAG AA (light + dark)
         run: python3 scripts/check_contrast.py --strict
+      - name: Verify Elementor v4 variables JSON matches CSS source
+        run: python3 scripts/build_elementor.py --check

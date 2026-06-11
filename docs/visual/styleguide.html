@@ -308,7 +308,7 @@
 
         <section class="doc-section" id="shadows">
           <h2 class="doc-section-title">Shadows &amp; Elevation</h2>
-          <p class="doc-section-desc">Elevation scale plus semantic aliases. In dark mode, surfaces also lighten tonally (Material-3 style) in addition to shadow.</p>
+          <p class="doc-section-desc">Layered, Stripe-style elevation: each level stacks 2–3 shadows with progressive blur and low opacity for a soft, realistic falloff. In dark mode, surfaces also lighten tonally (Material-3 style) in addition to deeper shadow.</p>
           <div class="doc-block-label">Elevation scale</div>
           <div class="doc-demo">
             <div class="grid-auto">
@@ -378,6 +378,18 @@
             <span class="chip">--motion-smooth</span>
             <span class="chip">--motion-snappy</span>
             <span class="chip">--motion-bouncy</span>
+          </div>
+          <div class="doc-sub">Interactive micro-motion (hover lift + active press)</div>
+          <p class="t-caption" style="margin-bottom: var(--space-2);">Tiny by design (≤1px / ≤2%): tactile feedback that never distracts. Every <code>.btn</code> nudges down on press; raised buttons lift on hover. Disabled instantly under <code>prefers-reduced-motion</code> via the global guard. Try pressing a button below.</p>
+          <div class="doc-demo">
+            <div class="cluster" style="align-items: center;">
+              <button class="btn btn-primary" type="button">Press me</button>
+              <button class="btn btn-secondary" type="button">Press me</button>
+            </div>
+            <div class="chips">
+              <span class="chip">--press-y</span>
+              <span class="chip">--hover-lift-y</span>
+            </div>
           </div>
         </section>
 
