@@ -1,7 +1,7 @@
 # ADR: Designløft Token Studio — spor B (komponentestetikk oppstrøms)
 
 - **Dato:** 2026-06-11
-- **Status:** Vedtatt (Eirik ga mandat: «designe på intuisjon og research fra globale ledere»)
+- **Status:** Implementert (alle fem kandidater levert; to commit-økter)
 - **Kontekst-lenker:** `docs/wiki/topics/nordover-visjon.md`, `docs/wiki/decisions/2026-06-05-unifisert-navnekonvensjon.md`
 
 ## Kontekst
@@ -30,19 +30,22 @@ Vi løfter komponent- og token-estetikken i nordover-ui langs en prioritert
 kandidatliste. Alle endringer respekterer rammeverkets ufravikelige regler:
 **WCAG AA-kontrast** og **`prefers-reduced-motion`** (global guard i `:root`).
 
-Kandidatliste (prioritert):
+Kandidatliste (prioritert, alle levert):
 
-1. **Skygge-/elevasjonsskala** — mykere, lagdelte skygger (Stripe-stil): flere
-   stablede lag med progressiv blur og lav opasitet for et roligere, mer
-   realistisk dybdeinntrykk. *(denne økten)*
-2. **Hover/active-mikrobevegelse** på interaktive flater — tokenisert
-   trykk/løft, reduced-motion-trygt via eksisterende global guard. *(denne økten)*
-3. **Strammere typografisk skala** for display-størrelser — Inter Tight utnyttes
-   bedre i store snitt (tettere tracking + leading). *(neste økt)*
-4. **Form-elementenes fokusring og feiltilstand harmoniseres** — én tokenisert
-   ring-kontrakt, konsekvent feil-/suksess-fokus. *(neste økt)*
-5. **Section-patterns: mer luft i default-rytmen** (luftig som referanse).
-   *(neste økt)*
+1. ✅ **Skygge-/elevasjonsskala** — mykere, lagdelte skygger (Stripe-stil): hver
+   nivå stabler 2–3 skygger med progressiv blur og lav opasitet for roligere
+   dybde. Web romslig, app strammere; lys + mørk. *(d0d7eb8)*
+2. ✅ **Hover/active-mikrobevegelse** på interaktive flater — `--press-y` (`:active`)
+   og `--hover-lift-y` (`:hover`), reduced-motion-trygt, ≤1px. *(d0d7eb8)*
+3. ✅ **Strammere typografisk skala** for display-størrelser —
+   `--tracking-display: -0.05em` (web), `-0.04em` (app) for Inter Tight;
+   `--tracking-heading` harmonisert. *(509bf0c)*
+4. ✅ **Form-fokusring + feiltilstand harmonisert** — nye tokens
+   `--focus-ring-error` + `--focus-ring-success` for eksplisitt kontraktfesting.
+   *(509bf0c)*
+5. ✅ **Section-patterns: mer luft** — `--spacing-section` økt til 110–180px
+   (web) / 60–110px (app); `--spacing-section-lg` til 140–212px (web) / 110–150px
+   (app). *(509bf0c)*
 
 ## Prinsipper
 
@@ -66,9 +69,24 @@ Kandidatliste (prioritert):
   oppstrøms).
 - Mobil-first redesign av editor-panelet (spor A, egen oppgave).
 
+## Gjennomføring
+
+Spor B gjennomførtes i to økter, begge i denne sesjonen:
+
+**Økt 1** (commit `d0d7eb8`): Punkt 1–2
+- Lagdelt Stripe-stil elevassjonsskala (mykere falloff, lagdelt)
+- Tokenisert mikrobevegelse (`--press-y`, `--hover-lift-y`) redusert-motion-trygt
+
+**Økt 2** (commit `509bf0c`): Punkt 3–5
+- Strammere tracking for display/heading (Inter Tight, -0.05em / -0.04em)
+- Fokusring-tokens for error/success (`--focus-ring-error/success`)
+- Økt default-seksjonsspacing (110–180px web, 60–110px app)
+
+Alle CI-sjekker grønne; visuelt verifisert ved render på alle breakpoints × lys/mørk.
+
 ## Konsekvenser
 
 - Konsumenter (kundesider + Token Studio-preview) høster den løftede estetikken
   automatisk ved neste sync.
-- Skygge- og bevegelses-tokenene er kontrakter: navnene består, verdiene mykere.
-- Punkt 3–5 dokumenteres som oppfølging i samme ADR-spor når de implementeres.
+- Skygge-, bevegelse-, typografi-, fokus- og spacing-tokenene er nå kontrakter.
+- Token-navnene består stabile; verdiene er mykere/luftigere per benchmark.
