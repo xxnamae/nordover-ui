@@ -497,7 +497,7 @@
     outline-offset: var(--focus-ring-offset);
   }
   .btn:active {
-    transform: translateY(0);
+    transform: translateY(var(--press-y));
   }
 
   .btn-primary {
@@ -506,7 +506,11 @@
   }
   .btn-primary:hover {
     opacity: 0.9;
-    transform: translateY(-1px);
+    transform: translateY(var(--hover-lift-y));
+  }
+  /* Press wins over hover-lift: tactile compression on the raised button */
+  .btn-primary:active {
+    transform: translateY(var(--press-y));
   }
 
   .btn-secondary {
