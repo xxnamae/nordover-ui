@@ -98,7 +98,8 @@
     /* === Vekter === */
     --fw-normal: 400; --fw-medium: 500; --fw-semibold: 600; --fw-bold: 700;
     /* Fine-calibrated variable-font weights (slightly heavier than web for SaaS density) */
-    --fw-display-lg: 440; --fw-heading-lg: 520; --fw-heading-md: 540;
+    --fw-display-xl: 420; --fw-display-lg: 440; --fw-display-md: 460;
+    --fw-heading-lg: 520; --fw-heading-md: 540; --fw-heading-sm: 560;
     --fw-body-sm: 500; --fw-eyebrow: 600; --fw-caption: 520;
 
     /* === Line-height-skala (unitless) === */

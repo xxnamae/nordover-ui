@@ -127,9 +127,17 @@
         "$type": "number",
         "$value": 700
       },
+      "display-xl": {
+        "$type": "number",
+        "$value": 420
+      },
       "display-lg": {
         "$type": "number",
         "$value": 440
+      },
+      "display-md": {
+        "$type": "number",
+        "$value": 460
       },
       "heading-lg": {
         "$type": "number",
@@ -138,6 +146,10 @@
       "heading-md": {
         "$type": "number",
         "$value": 540
+      },
+      "heading-sm": {
+        "$type": "number",
+        "$value": 560
       },
       "body-sm": {
         "$type": "number",
