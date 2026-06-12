@@ -1398,6 +1398,9 @@
         "value": 9999.0,
         "unit": "px"
       }
+    },
+    "input": {
+      "$value": "{radius.md}"
     }
   },
   "border": {
