@@ -108,6 +108,8 @@
     <div class="app-sidebar-section-group">
       <button class="app-sidebar-toggle" aria-expanded="true" title="Foundation"><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><span class="app-sidebar-toggle-label">Foundation</span></button>
       <nav class="app-nav-group is-active">
+        <a class="app-nav-item" href="#getting-started"><strong>↓ Getting Started</strong></a>
+
         <a class="app-nav-item" href="#colors">Colors</a>
         <a class="app-nav-item" href="#typography">Typography</a>
         <a class="app-nav-item" href="#spacing">Spacing &amp; Sizing</a>
@@ -208,6 +210,71 @@
           <h1 class="doc-hero-title">Nordover Design System</h1>
           <p class="doc-hero-desc">Universal foundation of tokens and building blocks for web and app interfaces. Every component below is shipped in <code>components-web.css</code> / <code>components-app.css</code>. Toggle the package switcher to preview web vs. app token defaults.</p>
         </div>
+
+        <!-- ============================================================
+             GETTING STARTED
+             ============================================================ -->
+
+        <section class="doc-section" id="getting-started">
+          <h2 class="doc-section-title">Getting Started — Elementor Integration</h2>
+          <p class="doc-section-desc">Use Nordover in your WordPress site. Two paths: Elementor v3 (manual setup) or v4 (automatic). Pick your version below.</p>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); margin-bottom: var(--space-8);">
+            <!-- V3 Path -->
+            <div style="border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6); background: var(--color-surface);">
+              <h3 style="margin-bottom: var(--space-3); font-size: var(--text-lg); font-weight: 600;">Elementor v3 (Classic Editor)</h3>
+              <p style="color: var(--color-muted); margin-bottom: var(--space-4); font-size: var(--text-sm);">Manual mapping — 30 min setup</p>
+
+              <div style="background: var(--color-subtle); border-radius: var(--radius-md); padding: var(--space-4); margin-bottom: var(--space-4); font-family: var(--font-mono); font-size: 0.75rem; overflow-x: auto; line-height: 1.5;">
+<span style="color: var(--color-muted);">/* Step 1: Paste tokens in Site Settings → Custom CSS */</span>
+<span style="display: block; margin-top: var(--space-2);">:root {
+  <span style="color: var(--color-success);">--color-accent: #060709;</span>
+  <span style="color: var(--color-success);">--color-fg: #1a1a1a;</span>
+  <span style="color: var(--color-success);">--space-4: 1rem;</span>
+  <span style="color: var(--color-muted);">/* ... all 254 tokens ... */</span>
+}</div>
+
+              <ol style="font-size: var(--text-sm); color: var(--color-fg); margin: 0; padding-left: var(--space-6); line-height: 1.8;">
+                <li style="margin-bottom: var(--space-2);"><strong>Paste all tokens</strong> from <code style="background: var(--color-subtle); padding: 2px 4px; border-radius: 2px;">tokens-web.css</code> into Site Settings → Custom CSS</li>
+                <li style="margin-bottom: var(--space-2);"><strong>Map colors manually:</strong> Elementor → Dashboard → Global Colors, create each one with <code style="background: var(--color-subtle); padding: 2px 4px; border-radius: 2px;">var(--color-*)</code></li>
+                <li style="margin-bottom: var(--space-2);"><strong>Map fonts:</strong> Global Fonts, reference <code style="background: var(--color-subtle); padding: 2px 4px; border-radius: 2px;">--font-sans</code>, <code style="background: var(--color-subtle); padding: 2px 4px; border-radius: 2px;">--font-display</code></li>
+                <li><strong>Build:</strong> Use Elementor widgets; add <code style="background: var(--color-subtle); padding: 2px 4px; border-radius: 2px;">var(--space-4)</code>, <code style="background: var(--color-subtle); padding: 2px 4px; border-radius: 2px;">var(--radius-md)</code> in Custom CSS fields</li>
+              </ol>
+            </div>
+
+            <!-- V4 Path -->
+            <div style="border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6); background: var(--color-surface);">
+              <h3 style="margin-bottom: var(--space-3); font-size: var(--text-lg); font-weight: 600;">Elementor v4 (Editor V4) <span style="font-size: 0.8rem; color: var(--color-success); font-weight: 500;">⭐ Recommended</span></h3>
+              <p style="color: var(--color-muted); margin-bottom: var(--space-4); font-size: var(--text-sm);">JSON import — 5 min setup</p>
+
+              <div style="background: var(--color-subtle); border-radius: var(--radius-md); padding: var(--space-4); margin-bottom: var(--space-4); font-family: var(--font-mono); font-size: 0.75rem; overflow-x: auto; line-height: 1.5;">
+<span style="color: var(--color-muted);">/* No manual work needed! Import the JSON, */</span>
+<span style="display: block; margin-top: var(--space-2);">/* all 254 tokens appear in every picker. */</span>
+<span style="display: block; margin-top: var(--space-2); color: var(--color-success);">✓ Download: nordover-elementor-v4-web.json</span></div>
+
+              <ol style="font-size: var(--text-sm); color: var(--color-fg); margin: 0; padding-left: var(--space-6); line-height: 1.8;">
+                <li style="margin-bottom: var(--space-2);">Download <code style="background: var(--color-subtle); padding: 2px 4px; border-radius: 2px;">nordover-elementor-v4-web.json</code> (or <code style="background: var(--color-subtle); padding: 2px 4px; border-radius: 2px;">v4-app.json</code> for dense dashboards)</li>
+                <li style="margin-bottom: var(--space-2);"><strong>Import:</strong> Elementor Dashboard → Kits → Tools → Import (or drag file)</li>
+                <li style="margin-bottom: var(--space-2);"><strong>Regenerate:</strong> Tools → Regenerate CSS & Data</li>
+                <li><strong>Build:</strong> All tokens now in color/typography/sizing pickers automatically</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Which package?</strong>
+              <ul>
+                <li><strong>v4-web.json</strong> or <strong>tokens-web.css</strong> → marketing/editorial sites (airy spacing, large type)</li>
+                <li><strong>v4-app.json</strong> or <strong>tokens-app.css</strong> → app-like dashboards (compact, dense)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Full integration guide</div>
+          <p style="font-size: var(--text-sm); color: var(--color-muted); margin-bottom: var(--space-3);">See <code style="background: var(--color-subtle); padding: 2px 4px; border-radius: 2px;">docs/handoff/ELEMENTOR-WORDPRESS.md</code> for detailed steps, gotchas, and light/dark mode setup.</p>
+        </section>
 
         <!-- ============================================================
              FOUNDATION
