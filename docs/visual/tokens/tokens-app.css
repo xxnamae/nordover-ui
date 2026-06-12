@@ -177,14 +177,14 @@
     --color-focus: oklch(0.50 0.28 260);
     --color-backdrop: color-mix(in oklch, var(--color-fg) 50%, transparent);  /* modal/drawer backdrop scrim */
 
-    /* === Surface elevation (M3 tonal elevation) ===
-       Light: all levels stay near-white/subtle. Dark redefines these to
-       lighten progressively. --color-surface stays a contract; these are additive. */
-    --surface-1: var(--color-surface);
-    --surface-2: var(--gray-50);
-    --surface-3: var(--gray-100);
-    --surface-4: var(--color-surface);
-    --surface-5: var(--color-surface);
+    /* === Surface elevation via L-axis stepping (Linear/M3 approach) ===
+       Light mode: step up from bg (0.98) toward white (1.0).
+       Each level: +0.01 L. Used for elevated containers, cards, panels. */
+    --surface-1: oklch(0.98 0 0);   /* = --color-bg (base, no elevation) */
+    --surface-2: oklch(0.99 0 0);   /* subtle elevation */
+    --surface-3: oklch(1.0 0 0);    /* elevated panel/card */
+    --surface-4: oklch(0.99 0 0);   /* = surface-2 (same elevation tier) */
+    --surface-5: oklch(0.98 0 0);   /* = surface-1 (return to base) */
 
     /* === Accent tier (branded primary path — additive) === */
     --accent-subtle: color-mix(in oklch, var(--color-accent) 12%, var(--color-bg));
@@ -440,13 +440,14 @@
     --color-accent-hover: color-mix(in oklch, var(--color-accent) 88%, white);
     --color-accent-active: color-mix(in oklch, var(--color-accent) 76%, white);
 
-    /* Surface elevation (M3 tonal) — lighten progressively on dark.
-       L-steps tuned to be perceptually even from gray-900 (L 0.13) upward. */
-    --surface-1: var(--gray-900);
-    --surface-2: oklch(0.17 var(--neutral-c) var(--neutral-h));
-    --surface-3: oklch(0.21 var(--neutral-c) var(--neutral-h));
-    --surface-4: oklch(0.24 var(--neutral-c) var(--neutral-h));
-    --surface-5: oklch(0.27 var(--neutral-c) var(--neutral-h));
+    /* Surface elevation via L-axis stepping (Linear/M3 approach) ===
+       Dark mode: step up from bg (0.13) with +0.04, +0.04, +0.03, +0.03 L-increments.
+       Perceptually even progression for visible depth hierarchy. */
+    --surface-1: oklch(0.13 var(--neutral-c) var(--neutral-h));  /* = --color-bg (base, no elevation) */
+    --surface-2: oklch(0.17 var(--neutral-c) var(--neutral-h));  /* +0.04 L (subtle elevation) */
+    --surface-3: oklch(0.21 var(--neutral-c) var(--neutral-h));  /* +0.04 L (elevated panel/card) */
+    --surface-4: oklch(0.24 var(--neutral-c) var(--neutral-h));  /* +0.03 L (stronger elevation) */
+    --surface-5: oklch(0.27 var(--neutral-c) var(--neutral-h));  /* +0.03 L (maximum elevation) */
 
     /* Accent tier — re-mix against dark --color-bg for correct contrast */
     --accent-subtle: color-mix(in oklch, var(--color-accent) 12%, var(--color-bg));

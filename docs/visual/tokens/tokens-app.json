@@ -323,15 +323,38 @@
       "$value": "{font.letterSpacing.normal}"
     },
     "surface-1": {
-      "$value": "{color.surface}",
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.98,
+          0.0,
+          0.0
+        ]
+      },
       "$extensions": {
         "com.nordover.dark": {
-          "$value": "{color.gray.900}"
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.13,
+              0.005,
+              250.0
+            ]
+          }
         }
       }
     },
     "surface-2": {
-      "$value": "{color.gray.50}",
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.99,
+          0.0,
+          0.0
+        ]
+      },
       "$extensions": {
         "com.nordover.dark": {
           "$value": {
@@ -346,7 +369,15 @@
       }
     },
     "surface-3": {
-      "$value": "{color.gray.100}",
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
       "$extensions": {
         "com.nordover.dark": {
           "$value": {
@@ -361,7 +392,15 @@
       }
     },
     "surface-4": {
-      "$value": "{color.surface}",
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.99,
+          0.0,
+          0.0
+        ]
+      },
       "$extensions": {
         "com.nordover.dark": {
           "$value": {
@@ -376,7 +415,15 @@
       }
     },
     "surface-5": {
-      "$value": "{color.surface}",
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.98,
+          0.0,
+          0.0
+        ]
+      },
       "$extensions": {
         "com.nordover.dark": {
           "$value": {
