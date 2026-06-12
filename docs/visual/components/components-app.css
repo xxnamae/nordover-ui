@@ -42,7 +42,7 @@
   .page-section { padding-block: var(--spacing-section); }
   .page-content { max-width: var(--container-default); margin-inline: auto; }
   /* Section — vertical rhythm + container-query context (size + bg variants) */
-  .section { container-type: inline-size; container-name: section; padding-block: var(--spacing-section); }
+  .section { container-type: inline-size; container-name: content-section; padding-block: var(--spacing-section); }
   .section-sm { padding-block: var(--spacing-section-sm); }
   .section-lg { padding-block: var(--spacing-section-lg); }
   .section-bg-subtle { background: var(--color-subtle); }
@@ -71,9 +71,6 @@
   .t-body-xs { font-size: var(--text-sm); font-weight: var(--fw-body-sm); }
   .t-eyebrow { font-size: var(--text-2xs); font-weight: var(--fw-eyebrow); text-transform: uppercase; letter-spacing: var(--tracking-widest); color: var(--color-muted); }
   .t-caption { font-size: var(--text-xs); font-weight: var(--fw-caption); color: var(--color-muted); }
-
-  /* A11y utilities */
-  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
 }
 
 @layer components {
