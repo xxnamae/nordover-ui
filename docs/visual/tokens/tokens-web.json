@@ -90,14 +90,14 @@
       },
       "5xl": {
         "$type": "dimension",
-        "$value": "clamp(2.75rem, 2.25rem + 2.5vw, 4.5rem)",
+        "$value": "clamp(2.25rem, 1.89rem + 1.79vw, 4rem)",
         "$extensions": {
           "com.nordover.cssText": true
         }
       },
       "6xl": {
         "$type": "dimension",
-        "$value": "clamp(3.25rem, 2.54rem + 3.57vw, 5.75rem)",
+        "$value": "clamp(3.25rem, 2.54rem + 2.5vw, 5rem)",
         "$extensions": {
           "com.nordover.cssText": true
         }
