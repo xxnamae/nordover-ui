@@ -1,0 +1,138 @@
+{
+  "version": "0.4",
+  "title": "Contact Form — Multi-Field",
+  "type": "section",
+  "description": "Contact form section with name, email, subject, message fields. Validation and success messages included.",
+  "elements": [
+    {
+      "id": "contact-form-section",
+      "elType": "section",
+      "settings": {
+        "_title": "Contact Form Section",
+        "background_background": "classic",
+        "background_color": "var(--color-bg)",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "20",
+          "bottom": "80",
+          "left": "20",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "contact-container",
+          "elType": "container",
+          "settings": {
+            "_title": "Contact Container",
+            "layout": "flex",
+            "flex_direction": "column",
+            "gap": {
+              "unit": "px",
+              "size": "48"
+            },
+            "max_width": {
+              "unit": "px",
+              "size": "600"
+            },
+            "margin": {
+              "unit": "px",
+              "top": "0",
+              "right": "auto",
+              "bottom": "0",
+              "left": "auto"
+            }
+          },
+          "elements": [
+            {
+              "id": "contact-header",
+              "elType": "container",
+              "settings": {
+                "_title": "Contact Header",
+                "layout": "flex",
+                "flex_direction": "column",
+                "gap": {
+                  "unit": "px",
+                  "size": "16"
+                }
+              },
+              "elements": [
+                {
+                  "id": "contact-title",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "_title": "Contact Title",
+                    "title": "Get in Touch",
+                    "header_size": "h2",
+                    "html_tag": "h2",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": "40"
+                    },
+                    "text_color": "var(--color-fg)"
+                  }
+                },
+                {
+                  "id": "contact-description",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "_title": "Contact Description",
+                    "editor": "<p class=\"t-body-lg\" style=\"color: var(--color-muted); margin: 0;\">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "contact-form",
+              "elType": "widget",
+              "widgetType": "form",
+              "settings": {
+                "_title": "Contact Form",
+                "form_name": "contact_form",
+                "form_fields": [
+                  {
+                    "field_type": "text",
+                    "field_label": "Name",
+                    "field_value": "",
+                    "required": "yes",
+                    "placeholder": "Your name"
+                  },
+                  {
+                    "field_type": "email",
+                    "field_label": "Email",
+                    "field_value": "",
+                    "required": "yes",
+                    "placeholder": "your@email.com"
+                  },
+                  {
+                    "field_type": "text",
+                    "field_label": "Subject",
+                    "field_value": "",
+                    "required": "yes",
+                    "placeholder": "How can we help?"
+                  },
+                  {
+                    "field_type": "textarea",
+                    "field_label": "Message",
+                    "field_value": "",
+                    "required": "yes",
+                    "placeholder": "Tell us more..."
+                  }
+                ],
+                "form_button_text": "Send Message",
+                "form_button_custom_class": "btn btn-primary",
+                "form_messages": {
+                  "form_label_submit": "Send",
+                  "success_message": "Thank you for contacting us! We'll be in touch soon."
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
