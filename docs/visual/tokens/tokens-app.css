@@ -304,6 +304,11 @@
     --press-y: 0.5px;      /* :active nedover-nudge — føles som et trykk */
     --hover-lift-y: -1px;  /* :hover heving for hevede kontroller (knapper) */
 
+    /* === Scroll-driven animations (CSS animation-timeline: view()) ===
+       App tuned: faster scroll-response (350ms). Respects prefers-reduced-motion. */
+    --duration-scroll: 350ms;    /* scroll-animation timing — snappier for app */
+    --ease-scroll: var(--ease-out);  /* reduced-motion fallback gets instant */
+
     /* === Interaction state layers (M3-parity overlay opacities) ===
        Apply as: color-mix(in oklch, currentColor var(--state-hover), transparent). */
     --state-hover: 6%;

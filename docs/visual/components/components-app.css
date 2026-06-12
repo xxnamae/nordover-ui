@@ -1312,6 +1312,25 @@
   .skeleton-text { height: 1em; }
   .skeleton-circle { border-radius: var(--radius-full); }
 
+  /* Scroll-driven animations (CSS animation-timeline: view()) */
+  @media (prefers-reduced-motion: no-preference) {
+    /* Fade-in on scroll: element fades from opacity 0 to 1 as it enters viewport */
+    .animate-on-scroll-fade { animation: scroll-fade-in var(--duration-scroll) var(--ease-scroll) forwards; animation-timeline: view(); animation-range: entry 0% cover 30%; }
+    @keyframes scroll-fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+    /* Slide-up on scroll: element slides up (translateY) as it enters viewport */
+    .animate-on-scroll-slide { animation: scroll-slide-up var(--duration-scroll) var(--ease-scroll) forwards; animation-timeline: view(); animation-range: entry 0% cover 30%; }
+    @keyframes scroll-slide-up { from { opacity: 0; transform: translateY(1rem); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Scale-in on scroll: element scales up (0.95 → 1) as it enters viewport */
+    .animate-on-scroll-scale { animation: scroll-scale-in var(--duration-scroll) var(--ease-scroll) forwards; animation-timeline: view(); animation-range: entry 0% cover 30%; }
+    @keyframes scroll-scale-in { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+  }
+  /* Fallback: instant opacity/transform when prefers-reduced-motion enabled */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-on-scroll-fade, .animate-on-scroll-slide, .animate-on-scroll-scale { opacity: 1; transform: none; }
+  }
+
   /* Responsive utilities */
   @media (max-width: 60rem) /* --bp-wide */ {
     .mobile-nav-trigger { display: inline-flex; }

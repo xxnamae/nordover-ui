@@ -301,6 +301,11 @@
     --press-y: 1px;        /* :active nedover-nudge — føles som et trykk */
     --hover-lift-y: -1px;  /* :hover heving for hevede kontroller (knapper) */
 
+    /* === Scroll-driven animations (CSS animation-timeline: view()) ===
+       Respects prefers-reduced-motion via global guard (opacity/transform are instant). */
+    --duration-scroll: 400ms;    /* scroll-animation timing — smooth viewport-relative fade/slide */
+    --ease-scroll: var(--ease-out);  /* reduced-motion fallback gets instant (duration-instant) */
+
     /* === Interaction state layers (M3-parity overlay opacities) ===
        Apply as: color-mix(in oklch, currentColor var(--state-hover), transparent).
        One layer at a time; the content color carries the tint. */

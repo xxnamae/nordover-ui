@@ -1725,6 +1725,13 @@
           "value": 1000.0,
           "unit": "ms"
         }
+      },
+      "scroll": {
+        "$type": "duration",
+        "$value": {
+          "value": 400.0,
+          "unit": "ms"
+        }
       }
     },
     "easing": {
@@ -1779,6 +1786,9 @@
         "$extensions": {
           "com.nordover.cssText": true
         }
+      },
+      "scroll": {
+        "$value": "{motion.easing.out}"
       }
     },
     "lift": {
