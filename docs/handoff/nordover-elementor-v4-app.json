@@ -411,7 +411,7 @@
     "e-gv-65084dd": {
       "type": "global-color-variable",
       "label": "error-subtle",
-      "value": "#e2ecff",
+      "value": "#d8ddff",
       "order": 48,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -438,7 +438,7 @@
     "e-gv-7c53eaa": {
       "type": "global-color-variable",
       "label": "success-subtle",
-      "value": "#dfeffb",
+      "value": "#c7e7f6",
       "order": 51,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -465,7 +465,7 @@
     "e-gv-64feba9": {
       "type": "global-color-variable",
       "label": "warning-subtle",
-      "value": "#d9f2fc",
+      "value": "#c7eff5",
       "order": 54,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -492,7 +492,7 @@
     "e-gv-69bf2d3": {
       "type": "global-color-variable",
       "label": "info-subtle",
-      "value": "#deedfe",
+      "value": "#c9e3fe",
       "order": 57,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -843,11 +843,19 @@
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
+    "e-gv-cd5c205": {
+      "type": "global-size-variable",
+      "label": "radius-input",
+      "value": "6px",
+      "order": 100,
+      "created_at": "2026-06-10 00:00:00",
+      "updated_at": "2026-06-10 00:00:00"
+    },
     "e-gv-e4761b9": {
       "type": "global-size-variable",
       "label": "bw-hairline",
       "value": "0.5px",
-      "order": 100,
+      "order": 101,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -855,7 +863,7 @@
       "type": "global-size-variable",
       "label": "bw-thin",
       "value": "1px",
-      "order": 101,
+      "order": 102,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -863,7 +871,7 @@
       "type": "global-size-variable",
       "label": "bw-medium",
       "value": "2px",
-      "order": 102,
+      "order": 103,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -871,7 +879,7 @@
       "type": "global-size-variable",
       "label": "size-icon-sm",
       "value": "0.875rem",
-      "order": 103,
+      "order": 104,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -879,7 +887,7 @@
       "type": "global-size-variable",
       "label": "size-icon",
       "value": "1rem",
-      "order": 104,
+      "order": 105,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -887,7 +895,7 @@
       "type": "global-size-variable",
       "label": "size-icon-lg",
       "value": "1.25rem",
-      "order": 105,
+      "order": 106,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -895,7 +903,7 @@
       "type": "global-size-variable",
       "label": "size-icon-xl",
       "value": "1.5rem",
-      "order": 106,
+      "order": 107,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -903,7 +911,7 @@
       "type": "global-size-variable",
       "label": "target-min",
       "value": "24px",
-      "order": 107,
+      "order": 108,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -911,7 +919,7 @@
       "type": "global-size-variable",
       "label": "target-comfortable",
       "value": "44px",
-      "order": 108,
+      "order": 109,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -919,7 +927,7 @@
       "type": "global-custom-size-variable",
       "label": "density-control-height",
       "value": "calc(2.5rem * 0.9)",
-      "order": 109,
+      "order": 110,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -927,7 +935,7 @@
       "type": "global-size-variable",
       "label": "container-narrow",
       "value": "40rem",
-      "order": 110,
+      "order": 111,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -935,7 +943,7 @@
       "type": "global-size-variable",
       "label": "container-default",
       "value": "80rem",
-      "order": 111,
+      "order": 112,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -943,7 +951,7 @@
       "type": "global-size-variable",
       "label": "container-wide",
       "value": "100%",
-      "order": 112,
+      "order": 113,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -951,7 +959,7 @@
       "type": "global-size-variable",
       "label": "container-prose",
       "value": "65ch",
-      "order": 113,
+      "order": 114,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -959,7 +967,7 @@
       "type": "global-size-variable",
       "label": "w-sm",
       "value": "20rem",
-      "order": 114,
+      "order": 115,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -967,7 +975,7 @@
       "type": "global-size-variable",
       "label": "w-md",
       "value": "24rem",
-      "order": 115,
+      "order": 116,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -975,7 +983,7 @@
       "type": "global-size-variable",
       "label": "w-lg",
       "value": "28rem",
-      "order": 116,
+      "order": 117,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -983,7 +991,7 @@
       "type": "global-size-variable",
       "label": "w-xl",
       "value": "32rem",
-      "order": 117,
+      "order": 118,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -991,11 +999,11 @@
       "type": "global-size-variable",
       "label": "grid-min",
       "value": "14rem",
-      "order": 118,
+      "order": 119,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     }
   },
-  "watermark": 118,
+  "watermark": 119,
   "version": 1
 }
