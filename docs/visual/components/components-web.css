@@ -1604,7 +1604,7 @@
   .toast-info { box-shadow: var(--shadow-lg), inset 3px 0 0 0 var(--color-info); }
 
   /* Tag variants — extend the existing .tag (tag-input context), never rename */
-  .tag-solid { background: var(--color-accent); color: var(--color-accent-fg); }
+  .tag-solid { background: var(--color-accent); color: var(--on-accent); }
   .tag-outline { background: transparent; border: var(--border-card); }
   .tag-success { background: var(--accent-subtle); color: var(--color-fg); }
 

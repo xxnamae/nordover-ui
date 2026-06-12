@@ -192,6 +192,7 @@
     --accent-subtle: color-mix(in oklch, var(--color-accent) 12%, var(--color-bg));
     --accent-muted: color-mix(in oklch, var(--color-accent) 30%, var(--color-bg));
     --accent-emphasis: var(--color-accent);
+    --on-accent: var(--color-accent-fg);
     --on-accent-subtle: var(--color-accent);
 
     /* === Semantiske tripletter (subtle / base / strong) === */
@@ -423,6 +424,8 @@
     /* Accent tier — re-mix against dark --color-bg for correct contrast */
     --accent-subtle: color-mix(in oklch, var(--color-accent) 12%, var(--color-bg));
     --accent-muted: color-mix(in oklch, var(--color-accent) 30%, var(--color-bg));
+    --on-accent: var(--color-accent-fg);
+    --on-accent-subtle: var(--color-accent);
 
     /* Funksjonelle farger lysere i dark for kontrast */
     --error: oklch(0.70 0.20 25);

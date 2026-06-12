@@ -407,8 +407,21 @@
     "accent-emphasis": {
       "$value": "{color.accent}"
     },
+    "on-accent": {
+      "$value": "{color.accent-fg}",
+      "$extensions": {
+        "com.nordover.dark": {
+          "$value": "{color.accent-fg}"
+        }
+      }
+    },
     "on-accent-subtle": {
-      "$value": "{color.accent}"
+      "$value": "{color.accent}",
+      "$extensions": {
+        "com.nordover.dark": {
+          "$value": "{color.accent}"
+        }
+      }
     },
     "status-backlog": {
       "$value": "{color.gray.500}"
@@ -522,6 +535,13 @@
       "$value": "clamp(6.875rem, 12vw, 9.375rem)",
       "$extensions": {
         "com.nordover.cssText": true
+      }
+    },
+    "app-sidebar-w": {
+      "$type": "dimension",
+      "$value": {
+        "value": 13.0,
+        "unit": "rem"
       }
     },
     "motion-smooth": {

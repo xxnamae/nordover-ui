@@ -112,7 +112,7 @@
     inset-inline-start: 0;
     top: 0;
     bottom: 0;
-    width: 13rem;
+    width: var(--app-sidebar-w);
     background: var(--color-surface);
     border-inline-end: 1px solid var(--color-border);
     overflow-y: auto;
@@ -502,7 +502,7 @@
   @media (min-width: 48rem) /* --bp-desktop */ {
     /* Desktop: 2-column layout with fixed sidebar */
     .app {
-      grid-template-columns: 13rem 1fr;
+      grid-template-columns: var(--app-sidebar-w) 1fr;
       grid-template-rows: auto 1fr;
     }
 
@@ -1300,7 +1300,7 @@
   .toast-info { box-shadow: var(--shadow-lg), inset 3px 0 0 0 var(--color-info); }
 
   /* Tag variants — extend the existing .tag (tag-input context), never rename */
-  .tag-solid { background: var(--color-accent); color: var(--color-accent-fg); }
+  .tag-solid { background: var(--color-accent); color: var(--on-accent); }
   .tag-outline { background: transparent; border: var(--border-card); }
   .tag-success { background: var(--accent-subtle); color: var(--color-fg); }
 

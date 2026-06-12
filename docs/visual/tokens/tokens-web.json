@@ -407,8 +407,21 @@
     "accent-emphasis": {
       "$value": "{color.accent}"
     },
+    "on-accent": {
+      "$value": "{color.accent-fg}",
+      "$extensions": {
+        "com.nordover.dark": {
+          "$value": "{color.accent-fg}"
+        }
+      }
+    },
     "on-accent-subtle": {
-      "$value": "{color.accent}"
+      "$value": "{color.accent}",
+      "$extensions": {
+        "com.nordover.dark": {
+          "$value": "{color.accent}"
+        }
+      }
     },
     "spacing-section-sm": {
       "$type": "other",
