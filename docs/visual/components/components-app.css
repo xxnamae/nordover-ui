@@ -840,7 +840,7 @@
     /* surface-3 → tonal elevation for floating popover in dark */
     background: var(--surface-3); border: var(--border-card); border-radius: var(--radius-lg);
     box-shadow: var(--shadow-popover); padding: var(--space-3); margin-top: var(--space-1);
-    width: 16rem; display: none;
+    width: var(--w-dialog); display: none;
   }
   .date-picker-calendar.is-open { display: block; }
   .date-picker-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-2); font-weight: var(--fw-semibold); font-size: var(--text-sm); }

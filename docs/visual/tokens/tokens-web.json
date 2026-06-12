@@ -1708,6 +1708,13 @@
           "value": 72.0,
           "unit": "rem"
         }
+      },
+      "dialog": {
+        "$type": "dimension",
+        "$value": {
+          "value": 18.0,
+          "unit": "rem"
+        }
       }
     },
     "grid": {

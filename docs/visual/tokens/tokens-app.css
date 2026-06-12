@@ -436,6 +436,7 @@
     --w-md: 24rem;     /* 384px */
     --w-lg: 28rem;     /* 448px */
     --w-xl: 32rem;     /* 512px, app-only */
+    --w-dialog: 16rem; /* 256px — date picker calendar, app-only */
 
     /* === Grid sizing (auto-fit minmax values) === */
     --grid-min: 14rem; /* 224px — min column width for auto-fit grids */

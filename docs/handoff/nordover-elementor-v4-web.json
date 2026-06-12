@@ -1044,15 +1044,23 @@
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
+    "e-gv-667e767": {
+      "type": "global-size-variable",
+      "label": "w-dialog",
+      "value": "18rem",
+      "order": 125,
+      "created_at": "2026-06-10 00:00:00",
+      "updated_at": "2026-06-10 00:00:00"
+    },
     "e-gv-34cdbc7": {
       "type": "global-size-variable",
       "label": "grid-min",
       "value": "16rem",
-      "order": 125,
+      "order": 126,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     }
   },
-  "watermark": 125,
+  "watermark": 126,
   "version": 1
 }
