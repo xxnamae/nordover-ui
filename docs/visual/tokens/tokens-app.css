@@ -166,6 +166,7 @@
     --color-accent-hover: color-mix(in oklch, var(--color-accent) 88%, black);
     --color-accent-active: color-mix(in oklch, var(--color-accent) 76%, black);
     --color-focus: oklch(0.50 0.28 260);
+    --color-backdrop: color-mix(in oklch, var(--color-fg) 50%, transparent);  /* modal/drawer backdrop scrim */
 
     /* === Surface elevation (M3 tonal elevation) ===
        Light: all levels stay near-white/subtle. Dark redefines these to

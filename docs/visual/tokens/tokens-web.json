@@ -53,6 +53,13 @@
           "unit": "rem"
         }
       },
+      "md": {
+        "$type": "dimension",
+        "$value": "clamp(1.0625rem, 1.04rem + 0.11vw, 1.125rem)",
+        "$extensions": {
+          "com.nordover.cssText": true
+        }
+      },
       "lg": {
         "$type": "dimension",
         "$value": "clamp(1.125rem, 1.089rem + 0.18vw, 1.25rem)",

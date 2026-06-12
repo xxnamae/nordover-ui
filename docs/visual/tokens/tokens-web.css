@@ -98,6 +98,7 @@
     --text-xs: 0.75rem;
     --text-sm: 0.875rem;
     --text-base: 1rem;
+    --text-md: clamp(1.0625rem, 1.04rem + 0.11vw, 1.125rem);
     --text-lg: clamp(1.125rem, 1.089rem + 0.18vw, 1.25rem);
     --text-xl: clamp(1.25rem, 1.18rem + 0.36vw, 1.5rem);
     --text-2xl: clamp(1.5rem, 1.36rem + 0.71vw, 2rem);
@@ -176,7 +177,7 @@
     --color-accent-hover: color-mix(in oklch, var(--color-accent) 85%, white);
     --color-accent-active: color-mix(in oklch, var(--color-accent) 70%, white);
     --color-focus: oklch(0.50 0.28 260);
-    --color-backdrop: color-mix(in oklch, var(--color-fg) 50%, transparent);  /* web-only: modal backdrop blur */
+    --color-backdrop: color-mix(in oklch, var(--color-fg) 50%, transparent);  /* modal/drawer backdrop scrim */
 
     /* === Surface elevation (M3 tonal elevation) ===
        Light: all levels stay near-white/subtle. Dark redefines these to

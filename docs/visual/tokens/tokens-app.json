@@ -919,6 +919,13 @@
         }
       }
     },
+    "backdrop": {
+      "$type": "color",
+      "$value": "color-mix(in oklch, var(--color-fg) 50%, transparent)",
+      "$extensions": {
+        "com.nordover.cssText": true
+      }
+    },
     "error": {
       "$type": "color",
       "$value": {

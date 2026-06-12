@@ -51,8 +51,8 @@
   .t-heading-lg { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: var(--fw-heading-lg); line-height: 1.2; letter-spacing: -0.02em; }
   .t-heading-md { font-family: var(--font-display); font-size: var(--text-xl); font-weight: var(--fw-heading-md); line-height: 1.3; }
   .t-heading-sm { font-family: var(--font-display); font-size: var(--text-lg); font-weight: var(--fw-heading-sm); line-height: 1.4; }
-  .t-body-xl { font-size: var(--text-xl); line-height: var(--leading-normal); }
-  .t-body-lg { font-size: var(--text-lg); line-height: var(--leading-normal); }
+  .t-body-xl { font-size: var(--text-lg); line-height: var(--leading-normal); }
+  .t-body-lg { font-size: var(--text-md); line-height: var(--leading-normal); }
   .t-body {  font-size: var(--text-base); line-height: var(--leading-normal); }
   .t-body-sm { font-size: var(--text-sm); font-weight: var(--fw-body-sm); }
   .t-eyebrow { font-size: var(--text-2xs); font-weight: var(--fw-eyebrow); text-transform: uppercase; letter-spacing: var(--tracking-widest); color: var(--color-muted); }
@@ -1604,7 +1604,7 @@
   .toast-info { box-shadow: var(--shadow-lg), inset 3px 0 0 0 var(--color-info); }
 
   /* Tag variants — extend the existing .tag (tag-input context), never rename */
-  .tag-solid { background: var(--color-accent); color: var(--on-accent); }
+  .tag-solid { background: var(--color-accent); color: var(--color-accent-fg); }
   .tag-outline { background: transparent; border: var(--border-card); }
   .tag-success { background: var(--accent-subtle); color: var(--color-fg); }
 
