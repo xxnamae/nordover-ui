@@ -925,7 +925,7 @@
             <span class="chip">.date-picker</span><span class="chip">.date-picker-calendar</span><span class="chip">.date-picker-day</span>
           </div>
           <div class="doc-demo">
-            <div class="date-picker" style="display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 20rem;">
+            <div class="date-picker" style="display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 18rem;">
               <div class="date-picker-input" style="margin-bottom: var(--space-3); width: 100%;">
                 <input class="form-input" type="text" value="2026-06-04" readonly>
               </div>
@@ -939,12 +939,16 @@
                   <span class="date-picker-weekday">Ma</span><span class="date-picker-weekday">Ti</span><span class="date-picker-weekday">On</span><span class="date-picker-weekday">To</span><span class="date-picker-weekday">Fr</span><span class="date-picker-weekday">Lø</span><span class="date-picker-weekday">Sø</span>
                 </div>
                 <div class="date-picker-days">
-                  <button class="date-picker-day other-month">31</button>
+                  <!-- June 2026: 1 June is a Monday, so the grid opens flush in the Ma column -->
                   <button class="date-picker-day">1</button><button class="date-picker-day">2</button><button class="date-picker-day">3</button>
-                  <button class="date-picker-day is-selected">4</button>
+                  <button class="date-picker-day is-selected" aria-selected="true">4</button>
                   <button class="date-picker-day">5</button><button class="date-picker-day">6</button><button class="date-picker-day">7</button>
                   <button class="date-picker-day">8</button><button class="date-picker-day">9</button><button class="date-picker-day">10</button>
-                  <button class="date-picker-day">11</button><button class="date-picker-day">12</button><button class="date-picker-day">13</button>
+                  <button class="date-picker-day">11</button><button class="date-picker-day">12</button><button class="date-picker-day">13</button><button class="date-picker-day">14</button>
+                  <button class="date-picker-day">15</button><button class="date-picker-day">16</button><button class="date-picker-day">17</button><button class="date-picker-day">18</button><button class="date-picker-day">19</button><button class="date-picker-day">20</button><button class="date-picker-day">21</button>
+                  <button class="date-picker-day">22</button><button class="date-picker-day">23</button><button class="date-picker-day">24</button><button class="date-picker-day">25</button><button class="date-picker-day">26</button><button class="date-picker-day">27</button><button class="date-picker-day">28</button>
+                  <button class="date-picker-day">29</button><button class="date-picker-day">30</button>
+                  <button class="date-picker-day other-month">1</button><button class="date-picker-day other-month">2</button><button class="date-picker-day other-month">3</button><button class="date-picker-day other-month">4</button><button class="date-picker-day other-month">5</button>
                 </div>
               </div>
             </div>

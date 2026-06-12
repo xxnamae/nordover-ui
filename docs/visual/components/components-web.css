@@ -770,6 +770,7 @@
      Uses inset box-shadow for the colored edge, which respects border-radius naturally. */
   .alert {
     display: flex;
+    align-items: center;
     gap: var(--space-3);
     padding: var(--space-4);
     background: var(--color-subtle);
@@ -778,7 +779,7 @@
     font-size: var(--text-sm);
     box-shadow: inset 4px 0 0 0 var(--color-border);
   }
-  .alert-icon { flex-shrink: 0; width: var(--space-5); height: var(--space-5); margin-top: 0.125rem; color: var(--color-muted); }
+  .alert-icon { flex-shrink: 0; width: var(--space-5); height: var(--space-5); color: var(--color-muted); }
 
   .alert-success { box-shadow: inset 4px 0 0 0 var(--color-success); }
   .alert-success .alert-icon { color: var(--color-success); }
