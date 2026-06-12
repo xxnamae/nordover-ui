@@ -303,6 +303,24 @@ def first_family(stack: str) -> str:
 # Build
 # ---------------------------------------------------------------------------
 def gv_id(label: str) -> str:
+    """Generate deterministic, stable Elementor global variable ID.
+
+    Algorithm (FORMAT-CONTRACT.md § Elementor Global Variable ID Contract):
+      Input:  CSS token name WITHOUT '--' prefix (e.g., 'color-accent')
+      Hash:   MD5(label).hexdigest()[:7]
+      Format: 'e-gv-' + hash
+      Result: e.g., 'e-gv-99f8157'
+
+    Guarantees:
+      • Deterministic: Same label → same ID across regenerations
+      • Stable: IDs never recycled or reassigned
+      • Immutable: Once assigned, frozen for variable lifetime
+      • Consumer-reproducible: Token Studio using MD5(label) produces identical IDs
+      • Round-trippable: Export kit → modify in Elementor → re-import updates
+        (matches IDs prevent duplication)
+
+    See: docs/visual/FORMAT-CONTRACT.md for full contract.
+    """
     return "e-gv-" + hashlib.md5(label.encode()).hexdigest()[:7]
 
 
