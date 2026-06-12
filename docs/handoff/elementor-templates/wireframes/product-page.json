@@ -1,0 +1,87 @@
+{
+  "version": "0.4",
+  "title": "Wireframe — Product / Service Page",
+  "type": "wireframe",
+  "description": "Detailed product page with hero, features, pricing comparison, FAQ, testimonials, and footer.",
+  "sections": [
+    {
+      "ref": "header-navigation.json",
+      "section_id": "product-header",
+      "title": "Navigation Header"
+    },
+    {
+      "ref": "hero-classic.json",
+      "section_id": "product-hero",
+      "title": "Product Hero with Video/Image"
+    },
+    {
+      "ref": "features-grid.json",
+      "section_id": "product-features",
+      "title": "Key Features (3-column)"
+    },
+    {
+      "ref": "pricing-cards.json",
+      "section_id": "product-pricing",
+      "title": "Pricing Tiers"
+    },
+    {
+      "ref": "comparison-table.json",
+      "section_id": "product-comparison",
+      "title": "Feature Comparison Table"
+    },
+    {
+      "ref": "faq-accordion.json",
+      "section_id": "product-faq",
+      "title": "Frequently Asked Questions"
+    },
+    {
+      "ref": "testimonials-cards.json",
+      "section_id": "product-testimonials",
+      "title": "Customer Testimonials"
+    },
+    {
+      "ref": "cta-minimal.json",
+      "section_id": "product-final-cta",
+      "title": "Final Call to Action"
+    },
+    {
+      "ref": "footer.json",
+      "section_id": "product-footer",
+      "title": "Footer"
+    }
+  ],
+  "metadata": {
+    "page_type": "product",
+    "target_audience": "buyers, decision-makers",
+    "conversion_goal": "purchase_or_trial_signup",
+    "estimated_fold_position": "pricing",
+    "breakpoints_tested": ["mobile", "tablet", "desktop"],
+    "wcag_compliance": "AA",
+    "estimated_page_length": "3000–4000px"
+  },
+  "customization_guide": {
+    "hero_image": "Product screenshot or demo video (1200×800px minimum)",
+    "hero_headline": "Your product's main benefit (60 characters)",
+    "hero_subheading": "One-line supporting statement",
+    "features": "Update 3 core features with icons and descriptions",
+    "pricing": "Input your 3 tier names, prices, and feature lists",
+    "comparison": "Customize feature row labels and include/exclude logic",
+    "faq": "Add 8–12 real customer questions and answers",
+    "testimonials": "Replace with 3+ verified customer quotes and avatars",
+    "final_cta": "Primary action: 'Start Free Trial' or 'Buy Now'"
+  },
+  "seo_considerations": {
+    "meta_title": "40–60 characters, include product name and key benefit",
+    "meta_description": "120–160 characters, summarize product value",
+    "h1": "Page hero headline (should be unique, not repeated elsewhere)",
+    "structured_data": "Add Product or SoftwareApplication schema.org markup",
+    "image_alt_text": "Descriptive alt text for all product images (SEO + a11y)"
+  },
+  "conversion_optimization": {
+    "form_fields": "Keep to minimum (name, email, company at top of funnel)",
+    "cta_button_placement": "Above fold (hero), mid-page (after features), bottom (footer)",
+    "social_proof": "Include customer logos, testimonials, case studies",
+    "trust_signals": "SSL badge, awards, certifications, user counts"
+  },
+  "notes": "Product pages need to balance education with conversion. This wireframe combines 9 sections optimized for buyers at different decision stages. Hero → Features → Pricing → Comparison → FAQ → Testimonials → Final CTA."
+}

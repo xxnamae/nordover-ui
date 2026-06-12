@@ -1,0 +1,61 @@
+{
+  "version": "0.4",
+  "title": "Wireframe — Landing Page",
+  "type": "wireframe",
+  "description": "Complete landing page template combining header, hero, features, testimonials, CTA, newsletter, and footer.",
+  "sections": [
+    {
+      "ref": "header-navigation.json",
+      "section_id": "landing-header",
+      "title": "Navigation Header"
+    },
+    {
+      "ref": "hero-classic.json",
+      "section_id": "landing-hero",
+      "title": "Hero Section"
+    },
+    {
+      "ref": "features-grid.json",
+      "section_id": "landing-features",
+      "title": "Features Showcase"
+    },
+    {
+      "ref": "testimonials-cards.json",
+      "section_id": "landing-testimonials",
+      "title": "Social Proof"
+    },
+    {
+      "ref": "cta-minimal.json",
+      "section_id": "landing-cta",
+      "title": "Call to Action"
+    },
+    {
+      "ref": "newsletter-signup.json",
+      "section_id": "landing-newsletter",
+      "title": "Newsletter Signup"
+    },
+    {
+      "ref": "footer.json",
+      "section_id": "landing-footer",
+      "title": "Footer"
+    }
+  ],
+  "metadata": {
+    "page_type": "landing",
+    "target_audience": "all",
+    "conversion_goal": "email_signup",
+    "estimated_fold_position": "testimonials",
+    "breakpoints_tested": ["mobile", "tablet", "desktop"],
+    "wcag_compliance": "AA"
+  },
+  "customization_guide": {
+    "hero_image": "Replace with your product image (1200×600px minimum, WebP recommended)",
+    "hero_headline": "Update to your value proposition (60–80 characters)",
+    "hero_cta": "Change button text and link destination",
+    "features": "Update 3 feature titles and descriptions",
+    "testimonials": "Add 3–5 real customer testimonials with avatars",
+    "newsletter_form": "Connect to your email service provider",
+    "footer_links": "Update company info, legal links, social URLs"
+  },
+  "notes": "This wireframe combines 7 pre-built sections into a high-converting landing page. All sections use Nordover tokens for consistent branding. Modify text, images, and form actions without touching CSS."
+}
