@@ -138,7 +138,7 @@
     display: flex;
     align-items: center;
     gap: var(--space-2);
-    font-weight: 600;
+    font-weight: var(--fw-semibold);
     font-size: var(--text-sm);
     margin-bottom: var(--space-4);
     padding: var(--space-2);
@@ -153,7 +153,7 @@
     background: var(--color-accent);
     color: var(--color-accent-fg);
     border-radius: var(--radius-md);
-    font-weight: 700;
+    font-weight: var(--fw-bold);
     flex-shrink: 0;
     font-size: var(--text-sm);
   }
@@ -161,9 +161,9 @@
   /* Sidebar section headers */
   .app-sidebar-section {
     font-size: var(--text-2xs);
-    font-weight: 600;
+    font-weight: var(--fw-semibold);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: var(--tracking-widest);
     color: var(--color-muted);
     margin-top: var(--space-3);
     margin-bottom: var(--space-2);
@@ -232,7 +232,7 @@
 
   .app-topbar-title {
     font-size: var(--text-base);
-    font-weight: 600;
+    font-weight: var(--fw-semibold);
     color: var(--color-fg);
   }
 
@@ -534,7 +534,7 @@
   .field-label {
     display: block;
     font-size: var(--text-sm);
-    font-weight: 600;
+    font-weight: var(--fw-semibold);
     margin-bottom: var(--space-1);
     color: var(--color-fg);
   }
@@ -677,7 +677,7 @@
     border: none;
     border-radius: var(--radius-full);
     font-size: var(--text-xs);
-    font-weight: 600;
+    font-weight: var(--fw-semibold);
     white-space: nowrap;
   }
   /* Status dot */
@@ -810,7 +810,7 @@
   .text-error { color: var(--color-error); }
 
   .font-medium { font-weight: 500; }
-  .font-bold { font-weight: 700; }
+  .font-bold { font-weight: var(--fw-bold); }
   .uppercase { text-transform: uppercase; }
 
   .truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -955,7 +955,7 @@
   }
 
   .file-upload-text {
-    font-weight: 600;
+    font-weight: var(--fw-semibold);
     margin-bottom: var(--space-1);
     font-size: var(--text-sm);
   }
@@ -1510,7 +1510,7 @@
   /* Avatar — size scale + overlapping group */
   .avatar { display: inline-flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; border-radius: var(--radius-full); background: var(--color-subtle); color: var(--color-fg); font-weight: var(--fw-medium); font-size: var(--text-sm); overflow: hidden; flex-shrink: 0; user-select: none; }
   .avatar img { width: 100%; height: 100%; object-fit: cover; }
-  .avatar-xs { width: 1.5rem; height: 1.5rem; font-size: 0.625rem; }
+  .avatar-xs { width: 1.5rem; height: 1.5rem; font-size: var(--text-2xs); }
   .avatar-sm { width: 2rem; height: 2rem; font-size: var(--text-xs); }
   .avatar-lg { width: 3rem; height: 3rem; }
   .avatar-xl { width: 4rem; height: 4rem; font-size: var(--text-lg); }
@@ -1586,7 +1586,7 @@
     .app, .app-main { width: 100%; max-width: 100%; overflow-x: hidden; }
     .page { padding-inline: var(--space-3); width: 100%; max-width: 100%; overflow-x: hidden; }
     .page-section, .page-content { width: 100%; max-width: 100%; }
-    .app-topbar-title { font-size: var(--text-sm); font-weight: 600; }
+    .app-topbar-title { font-size: var(--text-sm); font-weight: var(--fw-semibold); }
     .app-sidebar { padding: var(--space-3); padding-top: var(--space-4); }
     .app-sidebar-brand { font-size: var(--text-sm); }
     .app-nav-item { font-size: var(--text-xs); padding: var(--space-2); }
