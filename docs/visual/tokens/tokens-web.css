@@ -106,8 +106,6 @@
     --text-5xl: clamp(2.25rem, 1.89rem + 1.79vw, 4rem);
     --text-6xl: clamp(3.25rem, 2.54rem + 2.5vw, 5rem);
     --text-7xl: clamp(3.75rem, 2.68rem + 5.36vw, 7.5rem); /* web-only */
-    --text-8xl: clamp(4.5rem, 2.93rem + 7.86vw, 10rem); /* web-only */
-    --text-9xl: clamp(5rem, 3rem + 9vw, 12rem);  /* web-only: hero display-2xl — largest step, must exceed --text-8xl */
 
     /* === Finkalibrerte vekter (variable font) === */
     --fw-display-xl: 380; /* web-only */ --fw-display-lg: 400; --fw-display-md: 420; /* web-only */
