@@ -23,7 +23,7 @@
   .pkg-switch input { position: absolute; opacity: 0; pointer-events: none; }
   .pkg-switch span { display: block; text-align: center; font-size: 0.65rem; font-weight: var(--fw-medium); color: var(--color-muted); padding: 2px 6px; border-radius: calc(var(--radius-md) - 2px); cursor: pointer; transition: background var(--duration-fast), color var(--duration-fast); }
   .pkg-switch input:checked + span { background: var(--color-surface); color: var(--color-fg); box-shadow: var(--shadow-xs); }
-  .pkg-switch input:focus-visible + span { outline: 2px solid var(--color-accent); outline-offset: 1px; }
+  .pkg-switch input:focus-visible + span { outline: 2px solid var(--color-accent); outline-offset: var(--focus-ring-offset); }
   /* Static-display overrides so floating/fixed components are visible in the styleguide */
   .sg-static-calendar { position: static !important; display: block !important; margin-top: 0 !important; margin-left: auto !important; margin-right: auto !important; }
   .sg-static-menu { position: static !important; }
@@ -105,8 +105,8 @@
   <aside class="app-sidebar">
     <div class="app-sidebar-brand"><span class="app-sidebar-brand-mark">N</span> <span>Nordover</span><div class="app-sidebar-brand-actions"><label for="collapse" class="collapse-toggle" aria-label="Slå sammen/utvid sidestolpen" title="Minimer sidebar"><svg class="icon"><use href="#i-chevron-left"/></svg></label><label for="nav" class="app-sidebar-close" aria-label="Lukk menyen"><svg class="icon"><use href="#i-x"/></svg></label></div></div>
     <div class="pkg-switch" role="group" aria-label="Velg pakke">
-      <label><input type="radio" name="package" value="web"><span>Web</span></label>
-      <label><input type="radio" name="package" value="app" checked><span>App</span></label>
+      <label><input type="radio" name="package" value="web" aria-label="Web package"><span>Web</span></label>
+      <label><input type="radio" name="package" value="app" checked aria-label="App package"><span>App</span></label>
     </div>
 
     <div class="app-sidebar-section-group">
