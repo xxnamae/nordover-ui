@@ -872,6 +872,18 @@
           0.0,
           0.0
         ]
+      },
+      "$extensions": {
+        "com.nordover.dark": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
       }
     },
     "accent-hover": {
@@ -923,7 +935,11 @@
       "$type": "color",
       "$value": "color-mix(in oklch, var(--color-fg) 50%, transparent)",
       "$extensions": {
-        "com.nordover.cssText": true
+        "com.nordover.cssText": true,
+        "com.nordover.dark": {
+          "$value": "color-mix(in oklch, var(--color-fg) 50%, transparent)",
+          "cssText": true
+        }
       }
     },
     "error": {

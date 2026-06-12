@@ -422,6 +422,8 @@
     --color-border: var(--gray-700);
     --color-accent: oklch(0.55 0.25 260);
     --color-focus: oklch(0.60 0.20 260);          /* Brand blue lighter — WCAG AA på mørk bg (5.63), lysere enn light-mode accent for synlighet */
+    --color-accent-fg: oklch(0 0 0);              /* Black text on bright accent in dark mode */
+    --color-backdrop: color-mix(in oklch, var(--color-fg) 50%, transparent);  /* modal/drawer backdrop scrim */
     --color-accent-hover: color-mix(in oklch, var(--color-accent) 88%, white);
     --color-accent-active: color-mix(in oklch, var(--color-accent) 76%, white);
 
