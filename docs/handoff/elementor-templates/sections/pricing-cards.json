@@ -1,0 +1,215 @@
+{
+  "version": "0.4",
+  "title": "Pricing — 3-Tier Card Layout (Vercel-inspired)",
+  "type": "section",
+  "description": "Modern pricing section with 3 pricing tiers. Highlight, features list, CTA button per tier.",
+  "elements": [
+    {
+      "id": "pricing-section",
+      "elType": "section",
+      "settings": {
+        "_title": "Pricing Section",
+        "background_background": "classic",
+        "background_color": "var(--color-bg)",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "20",
+          "bottom": "80",
+          "left": "20",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "pricing-container",
+          "elType": "container",
+          "settings": {
+            "_title": "Pricing Container",
+            "layout": "flex",
+            "flex_direction": "column",
+            "gap": {
+              "unit": "px",
+              "size": "64"
+            },
+            "max_width": {
+              "unit": "px",
+              "size": "1200"
+            },
+            "margin": {
+              "unit": "px",
+              "top": "0",
+              "right": "auto",
+              "bottom": "0",
+              "left": "auto"
+            },
+            "align_items_flex_start": "center",
+            "justify_content_flex_start": "center"
+          },
+          "elements": [
+            {
+              "id": "pricing-header",
+              "elType": "container",
+              "settings": {
+                "_title": "Pricing Header",
+                "layout": "flex",
+                "flex_direction": "column",
+                "gap": {
+                  "unit": "px",
+                  "size": "16"
+                },
+                "align_items_flex_start": "center",
+                "justify_content_flex_start": "center",
+                "text_align": "center",
+                "max_width": {
+                  "unit": "px",
+                  "size": "600"
+                }
+              },
+              "elements": [
+                {
+                  "id": "pricing-title",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "_title": "Pricing Title",
+                    "title": "Simple, Transparent Pricing",
+                    "header_size": "h2",
+                    "html_tag": "h2",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": "48"
+                    },
+                    "text_color": "var(--color-fg)"
+                  }
+                },
+                {
+                  "id": "pricing-desc",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "_title": "Pricing Description",
+                    "editor": "<p class=\"t-body-lg\" style=\"color: var(--color-muted); margin: 0;\">Choose the perfect plan for your needs.</p>"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "pricing-grid",
+              "elType": "container",
+              "settings": {
+                "_title": "Pricing Cards Grid",
+                "layout": "grid",
+                "grid_columns": {
+                  "size": "3",
+                  "unit": ""
+                },
+                "gap": {
+                  "unit": "px",
+                  "size": "24"
+                },
+                "width": {
+                  "unit": "%",
+                  "size": "100"
+                }
+              },
+              "elements": [
+                {
+                  "id": "pricing-card-starter",
+                  "elType": "container",
+                  "settings": {
+                    "_title": "Starter Plan",
+                    "layout": "flex",
+                    "flex_direction": "column",
+                    "gap": {
+                      "unit": "px",
+                      "size": "24"
+                    },
+                    "background_background": "classic",
+                    "background_color": "var(--color-surface)",
+                    "border_border": "solid",
+                    "border_width": {
+                      "unit": "px",
+                      "top": "1",
+                      "right": "1",
+                      "bottom": "1",
+                      "left": "1",
+                      "isLinked": true
+                    },
+                    "border_color": "var(--color-border)",
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "16",
+                      "right": "16",
+                      "bottom": "16",
+                      "left": "16",
+                      "isLinked": true
+                    },
+                    "padding": {
+                      "unit": "px",
+                      "top": "40",
+                      "right": "32",
+                      "bottom": "40",
+                      "left": "32",
+                      "isLinked": false
+                    }
+                  },
+                  "elements": [
+                    {
+                      "id": "pricing-plan-name",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "_title": "Plan Name",
+                        "title": "Starter",
+                        "header_size": "h3",
+                        "html_tag": "h3",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": "20"
+                        },
+                        "text_color": "var(--color-fg)"
+                      }
+                    },
+                    {
+                      "id": "pricing-price",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "settings": {
+                        "_title": "Price",
+                        "editor": "<p style=\"font-size: 32px; font-weight: 600; margin: 0; color: var(--color-fg);\">$29<span style=\"font-size: 16px; color: var(--color-muted);\">/mo</span></p>"
+                      }
+                    },
+                    {
+                      "id": "pricing-features",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "settings": {
+                        "_title": "Features",
+                        "editor": "<ul class=\"t-body-sm\" style=\"list-style: none; padding: 0; margin: 0; color: var(--color-muted);\">\n<li style=\"margin-bottom: 8px;\">✓ 5 Projects</li>\n<li style=\"margin-bottom: 8px;\">✓ Basic Support</li>\n<li style=\"margin-bottom: 8px;\">✓ 1 Team Member</li>\n</ul>"
+                      }
+                    },
+                    {
+                      "id": "pricing-btn-starter",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "settings": {
+                        "_title": "CTA Button",
+                        "text": "Get Started",
+                        "link": {
+                          "url": "#",
+                          "is_external": false
+                        },
+                        "button_custom_attributes": "class=\"btn btn-ghost\""
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

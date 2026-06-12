@@ -1,0 +1,100 @@
+{
+  "version": "0.4",
+  "title": "CTA — Minimal (Apple-inspired)",
+  "type": "section",
+  "description": "High-converting call-to-action section. Simple, focused, elegant. Works as footer or mid-page section.",
+  "elements": [
+    {
+      "id": "cta-section",
+      "elType": "section",
+      "settings": {
+        "_title": "CTA Section",
+        "background_background": "classic",
+        "background_color": "var(--color-surface-1)",
+        "padding": {
+          "unit": "px",
+          "top": "120",
+          "right": "40",
+          "bottom": "120",
+          "left": "40",
+          "isLinked": false
+        },
+        "text_align": "center"
+      },
+      "elements": [
+        {
+          "id": "cta-container",
+          "elType": "container",
+          "settings": {
+            "_title": "CTA Container",
+            "layout": "flex",
+            "flex_direction": "column",
+            "gap": {
+              "unit": "px",
+              "size": "32"
+            },
+            "max_width": {
+              "unit": "px",
+              "size": "700"
+            },
+            "margin": {
+              "unit": "px",
+              "top": "0",
+              "right": "auto",
+              "bottom": "0",
+              "left": "auto"
+            },
+            "align_items_flex_start": "center",
+            "justify_content_flex_start": "center"
+          },
+          "elements": [
+            {
+              "id": "cta-headline",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "_title": "CTA Headline",
+                "title": "Ready to get started?",
+                "header_size": "h2",
+                "html_tag": "h2",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": "44"
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": "1.2"
+                },
+                "text_color": "var(--color-fg)"
+              }
+            },
+            {
+              "id": "cta-subheading",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "_title": "CTA Subheading",
+                "editor": "<p class=\"t-body-lg\" style=\"color: var(--color-muted); margin: 0;\">Join thousands of teams using Nordover. Set up your first project in 5 minutes.</p>"
+              }
+            },
+            {
+              "id": "cta-button",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "_title": "CTA Button",
+                "text": "Start Free Trial",
+                "link": {
+                  "url": "#",
+                  "is_external": false
+                },
+                "size": "lg",
+                "button_custom_attributes": "class=\"btn btn-primary\""
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

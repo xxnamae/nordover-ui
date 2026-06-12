@@ -1,0 +1,197 @@
+{
+  "version": "0.4",
+  "title": "Team — Grid Layout (Social Links)",
+  "type": "section",
+  "description": "Team members grid with photo, name, role, and social links. Responsive on all breakpoints.",
+  "elements": [
+    {
+      "id": "team-section",
+      "elType": "section",
+      "settings": {
+        "_title": "Team Section",
+        "background_background": "classic",
+        "background_color": "var(--color-bg)",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "20",
+          "bottom": "80",
+          "left": "20",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "team-container",
+          "elType": "container",
+          "settings": {
+            "_title": "Team Container",
+            "layout": "flex",
+            "flex_direction": "column",
+            "gap": {
+              "unit": "px",
+              "size": "64"
+            },
+            "max_width": {
+              "unit": "px",
+              "size": "1200"
+            },
+            "margin": {
+              "unit": "px",
+              "top": "0",
+              "right": "auto",
+              "bottom": "0",
+              "left": "auto"
+            },
+            "align_items_flex_start": "center",
+            "justify_content_flex_start": "center"
+          },
+          "elements": [
+            {
+              "id": "team-header",
+              "elType": "container",
+              "settings": {
+                "_title": "Team Header",
+                "layout": "flex",
+                "flex_direction": "column",
+                "gap": {
+                  "unit": "px",
+                  "size": "16"
+                },
+                "align_items_flex_start": "center",
+                "justify_content_flex_start": "center",
+                "text_align": "center",
+                "max_width": {
+                  "unit": "px",
+                  "size": "600"
+                }
+              },
+              "elements": [
+                {
+                  "id": "team-title",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "_title": "Team Title",
+                    "title": "Meet Our Team",
+                    "header_size": "h2",
+                    "html_tag": "h2",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": "48"
+                    },
+                    "text_color": "var(--color-fg)"
+                  }
+                },
+                {
+                  "id": "team-desc",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "_title": "Team Description",
+                    "editor": "<p class=\"t-body-lg\" style=\"color: var(--color-muted); margin: 0;\">Talented individuals working to make design systems better.</p>"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "team-grid",
+              "elType": "container",
+              "settings": {
+                "_title": "Team Grid",
+                "layout": "grid",
+                "grid_columns": {
+                  "size": "3",
+                  "unit": ""
+                },
+                "gap": {
+                  "unit": "px",
+                  "size": "40"
+                },
+                "width": {
+                  "unit": "%",
+                  "size": "100"
+                }
+              },
+              "elements": [
+                {
+                  "id": "team-member-1",
+                  "elType": "container",
+                  "settings": {
+                    "_title": "Team Member Card",
+                    "layout": "flex",
+                    "flex_direction": "column",
+                    "gap": {
+                      "unit": "px",
+                      "size": "16"
+                    },
+                    "align_items_flex_start": "center",
+                    "justify_content_flex_start": "flex-start"
+                  },
+                  "elements": [
+                    {
+                      "id": "team-photo",
+                      "elType": "widget",
+                      "widgetType": "image",
+                      "settings": {
+                        "_title": "Team Photo",
+                        "image": {
+                          "url": "https://via.placeholder.com/300x300",
+                          "id": "",
+                          "size": "",
+                          "sizes": {},
+                          "source": "library"
+                        },
+                        "image_size": "full",
+                        "css_classes": "avatar avatar-lg",
+                        "width": {
+                          "unit": "%",
+                          "size": "100"
+                        },
+                        "aspect_ratio": "1:1"
+                      }
+                    },
+                    {
+                      "id": "team-name",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "_title": "Team Member Name",
+                        "title": "Jane Designer",
+                        "header_size": "h3",
+                        "html_tag": "h3",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": "20"
+                        },
+                        "text_color": "var(--color-fg)"
+                      }
+                    },
+                    {
+                      "id": "team-role",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "settings": {
+                        "_title": "Team Role",
+                        "editor": "<p class=\"t-body-sm\" style=\"color: var(--color-muted); margin: 0;\">Design Lead</p>"
+                      }
+                    },
+                    {
+                      "id": "team-bio",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "settings": {
+                        "_title": "Team Bio",
+                        "editor": "<p class=\"t-body-sm\" style=\"color: var(--color-muted); text-align: center; margin: 0;\">10+ years designing beautiful interfaces.</p>"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
