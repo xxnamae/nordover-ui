@@ -411,6 +411,7 @@
 
     /* === Grid sizing (auto-fit minmax values) === */
     --grid-min: 16rem; /* 256px — min column width for auto-fit grids */
+    --app-sidebar-w: 11rem; /* 176px — editorial sidebar (web uses narrower than app's 13rem) */
 
     /* === Hover-lift (mer dramatisk på web) === */
     --lift-distance: -2px;

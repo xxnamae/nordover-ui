@@ -655,7 +655,6 @@
   }
   .form-input.is-error:focus-visible {
     border-color: var(--error);
-    box-shadow: 0 0 0 2px rgba(226, 80, 59, 0.15); /* fallback: pale red ring */
     box-shadow: 0 0 0 2px color-mix(in oklch, var(--error) 15%, transparent);
   }
   .form-input.is-success {

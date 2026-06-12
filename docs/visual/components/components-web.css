@@ -101,7 +101,7 @@
     inset-inline-start: 0;
     top: 0;
     bottom: 0;
-    width: 11rem;
+    width: var(--app-sidebar-w);
     background: var(--color-surface);
     border-inline-end: 1px solid var(--color-border);
     overflow-y: auto;
@@ -1129,7 +1129,6 @@
   .tag-input { display: flex; flex-wrap: wrap; gap: var(--space-2); padding: var(--space-2); border: var(--border-card); border-radius: var(--input-radius); background: var(--color-surface); align-items: center; transition: border-color var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out); }
   .tag-input:focus-within {
     border-color: var(--color-focus);
-    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15); /* fallback: pale blue ring */
     box-shadow: 0 0 0 2px color-mix(in oklch, var(--color-focus) 15%, transparent);
   }
   .tag-input input { flex: 1; min-width: var(--space-12); border: none; background: transparent; font-size: var(--text-base); color: var(--color-fg); outline: none; }

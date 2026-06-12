@@ -568,6 +568,13 @@
       "$extensions": {
         "com.nordover.cssText": true
       }
+    },
+    "app-sidebar-w": {
+      "$type": "dimension",
+      "$value": {
+        "value": 11.0,
+        "unit": "rem"
+      }
     }
   },
   "color": {
