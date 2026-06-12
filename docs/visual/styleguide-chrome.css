@@ -459,7 +459,7 @@ html, body {
   height: 1.25rem;
 }
 
-#collapse:checked ~ .app .app-topbar .collapse-toggle .icon {
+#collapse:checked ~ .app .app-sidebar .collapse-toggle .icon {
   transform: rotate(180deg);
 }
 
@@ -547,8 +547,8 @@ html, body {
    ============================================================ */
 
 .doc-hero {
-  padding: var(--space-8) var(--space-7);
-  margin-bottom: var(--space-6);
+  padding: var(--space-12) var(--space-10);
+  margin-bottom: var(--space-12);
   background: linear-gradient(150deg, var(--color-subtle) 0%, var(--color-surface) 75%);
   border: var(--bw-thin) solid var(--color-border);
   border-radius: var(--radius-2xl);

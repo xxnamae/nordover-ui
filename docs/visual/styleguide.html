@@ -99,7 +99,7 @@
 
 <div class="app">
   <aside class="app-sidebar">
-    <div class="app-sidebar-brand"><span class="app-sidebar-brand-mark">N</span> <span>Nordover</span><label for="nav" class="app-sidebar-close" aria-label="Lukk menyen"><svg class="icon"><use href="#i-x"/></svg></label></div>
+    <div class="app-sidebar-brand"><span class="app-sidebar-brand-mark">N</span> <span>Nordover</span><div style="display: flex; gap: var(--space-2); margin-left: auto;"><label for="collapse" class="collapse-toggle" aria-label="Slå sammen/utvid sidestolpen" title="Minimer sidebar"><svg class="icon"><use href="#i-chevron-left"/></svg></label><label for="nav" class="app-sidebar-close" aria-label="Lukk menyen"><svg class="icon"><use href="#i-x"/></svg></label></div></div>
     <div class="pkg-switch" role="group" aria-label="Velg pakke">
       <label><input type="radio" name="package" value="web" checked><span>Web</span></label>
       <label><input type="radio" name="package" value="app"><span>App</span></label>
@@ -197,7 +197,6 @@
         <span class="app-topbar-title">Nordover Design System</span>
       </div>
       <div class="cluster cluster-tight">
-        <label for="collapse" class="collapse-toggle" aria-label="Slå sammen/utvid sidestolpen"><svg class="icon"><use href="#i-chevron-left"/></svg></label>
         <label class="theme-toggle" for="dark" aria-label="Aktiver mørk modus"><svg class="icon t-moon"><use href="#i-moon"/></svg><svg class="icon t-sun"><use href="#i-sun"/></svg></label>
       </div>
     </header>
