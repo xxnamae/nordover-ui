@@ -1,0 +1,40 @@
+#!/bin/bash
+# Pre-commit hook to regenerate token artifacts when CSS changes
+# Install with: git config core.hooksPath .githooks
+
+set -e
+
+# Check if any CSS token files have been staged for commit
+CSS_CHANGED=$(git diff --cached --name-only | grep -E "docs/visual/tokens/.*\.css" || true)
+ELEMENTOR_CHANGED=$(git diff --cached --name-only | grep -E "docs/handoff/elementor-templates" || true)
+
+if [ -n "$CSS_CHANGED" ]; then
+  echo "🔄 CSS tokens detected — regenerating JSON artifacts..."
+  npm run build:tokens
+  npm run build:elementor
+
+  # Check if artifacts changed
+  if ! git diff --quiet docs/visual/tokens/*.json; then
+    echo "✅ Token JSON updated — staging changes"
+    git add docs/visual/tokens/*.json
+  fi
+
+  if ! git diff --quiet docs/handoff/nordover-elementor-*.json; then
+    echo "✅ Elementor v4 JSON updated — staging changes"
+    git add docs/handoff/nordover-elementor-*.json
+  fi
+
+  echo "✅ Token regeneration complete"
+fi
+
+if [ -n "$ELEMENTOR_CHANGED" ]; then
+  echo "🔄 Elementor templates detected — regenerating v4 JSON..."
+  npm run build:elementor
+
+  if ! git diff --quiet docs/handoff/nordover-elementor-*.json; then
+    echo "✅ Elementor v4 JSON updated — staging changes"
+    git add docs/handoff/nordover-elementor-*.json
+  fi
+fi
+
+exit 0
