@@ -617,7 +617,7 @@
 
         <section class="doc-section" id="icons">
           <h2 class="doc-section-title">Icons</h2>
-          <p class="doc-section-desc">Stroke icon system with semantic color variants and motion modifiers.</p>
+          <p class="doc-section-desc">24 stroke-based glyphs, 24×24px grid, stroke 1.5, currentColor. Organized by semantic category: navigation, status, action, content. See <a href="./icons/ICON-MANIFEST.md" class="link">ICON-MANIFEST.md</a> for documentation.</p>
           <div class="chips">
             <span class="chip">.icon</span><span class="chip">.icon-sm</span><span class="chip">.icon-lg</span>
             <span class="chip">.icon-primary</span><span class="chip">.icon-success</span><span class="chip">.icon-spin</span>
@@ -637,24 +637,67 @@
               <svg class="icon icon-spin icon-primary"><use href="#i-info"/></svg>
             </div>
           </div>
-          <div class="doc-block-label">Library</div>
+
+          <div class="doc-block-label">Navigation (7)</div>
           <div class="doc-demo">
             <div class="cluster" style="gap: var(--space-4); align-items: center;">
-              <svg class="icon"><use href="#i-home"/></svg><svg class="icon"><use href="#i-user"/></svg><svg class="icon"><use href="#i-settings"/></svg>
-              <svg class="icon"><use href="#i-bell"/></svg><svg class="icon"><use href="#i-mail"/></svg><svg class="icon"><use href="#i-search"/></svg>
-              <svg class="icon"><use href="#i-filter"/></svg><svg class="icon"><use href="#i-plus"/></svg><svg class="icon"><use href="#i-minus"/></svg>
-              <svg class="icon"><use href="#i-edit"/></svg><svg class="icon"><use href="#i-trash"/></svg><svg class="icon"><use href="#i-copy"/></svg>
-              <svg class="icon"><use href="#i-download"/></svg><svg class="icon"><use href="#i-upload"/></svg><svg class="icon"><use href="#i-refresh"/></svg>
-              <svg class="icon"><use href="#i-check"/></svg><svg class="icon"><use href="#i-x"/></svg><svg class="icon"><use href="#i-info"/></svg>
-              <svg class="icon"><use href="#i-alert"/></svg><svg class="icon"><use href="#i-help"/></svg><svg class="icon"><use href="#i-lock"/></svg>
+              <svg class="icon"><use href="./icons/icon-chevron-down.svg#icon-chevron-down"/></svg>
+              <svg class="icon"><use href="./icons/icon-chevron-right.svg#icon-chevron-right"/></svg>
+              <svg class="icon"><use href="./icons/icon-chevron-up.svg#icon-chevron-up"/></svg>
+              <svg class="icon"><use href="./icons/icon-menu.svg#icon-menu"/></svg>
+              <svg class="icon"><use href="./icons/icon-x-close.svg#icon-x-close"/></svg>
+              <svg class="icon"><use href="./icons/icon-arrow-external.svg#icon-arrow-external"/></svg>
+              <svg class="icon"><use href="./icons/icon-search.svg#icon-search"/></svg>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Status (4)</div>
+          <div class="doc-demo">
+            <div class="cluster" style="gap: var(--space-4); align-items: center;">
+              <svg class="icon icon-success"><use href="./icons/icon-check.svg#icon-check"/></svg>
+              <svg class="icon icon-error"><use href="./icons/icon-x-mark.svg#icon-x-mark"/></svg>
+              <svg class="icon icon-warning"><use href="./icons/icon-alert-triangle.svg#icon-alert-triangle"/></svg>
+              <svg class="icon"><use href="./icons/icon-info-circle.svg#icon-info-circle"/></svg>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Action (7)</div>
+          <div class="doc-demo">
+            <div class="cluster" style="gap: var(--space-4); align-items: center;">
+              <svg class="icon"><use href="./icons/icon-download.svg#icon-download"/></svg>
+              <svg class="icon"><use href="./icons/icon-copy.svg#icon-copy"/></svg>
+              <svg class="icon"><use href="./icons/icon-edit.svg#icon-edit"/></svg>
+              <svg class="icon icon-error"><use href="./icons/icon-trash-2.svg#icon-trash-2"/></svg>
+              <svg class="icon icon-primary"><use href="./icons/icon-plus.svg#icon-plus"/></svg>
+              <svg class="icon"><use href="./icons/icon-settings.svg#icon-settings"/></svg>
+              <svg class="icon"><use href="./icons/icon-reload.svg#icon-reload"/></svg>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Content (7)</div>
+          <div class="doc-demo">
+            <div class="cluster" style="gap: var(--space-4); align-items: center;">
+              <svg class="icon"><use href="./icons/icon-calendar.svg#icon-calendar"/></svg>
+              <svg class="icon"><use href="./icons/icon-clock.svg#icon-clock"/></svg>
+              <svg class="icon"><use href="./icons/icon-user.svg#icon-user"/></svg>
+              <svg class="icon"><use href="./icons/icon-folder.svg#icon-folder"/></svg>
+              <svg class="icon"><use href="./icons/icon-image.svg#icon-image"/></svg>
+              <svg class="icon"><use href="./icons/icon-mail.svg#icon-mail"/></svg>
+              <svg class="icon"><use href="./icons/icon-phone.svg#icon-phone"/></svg>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Legacy library (extended set for supplementary use)</div>
+          <div class="doc-demo">
+            <div class="cluster" style="gap: var(--space-4); align-items: center;">
+              <svg class="icon"><use href="#i-home"/></svg><svg class="icon"><use href="#i-settings"/></svg>
+              <svg class="icon"><use href="#i-bell"/></svg><svg class="icon"><use href="#i-filter"/></svg><svg class="icon"><use href="#i-minus"/></svg>
+              <svg class="icon"><use href="#i-upload"/></svg><svg class="icon"><use href="#i-help"/></svg><svg class="icon"><use href="#i-lock"/></svg>
               <svg class="icon"><use href="#i-eye"/></svg><svg class="icon"><use href="#i-eye-off"/></svg><svg class="icon"><use href="#i-heart"/></svg>
-              <svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-clock"/></svg><svg class="icon"><use href="#i-calendar"/></svg>
-              <svg class="icon"><use href="#i-folder"/></svg><svg class="icon"><use href="#i-file"/></svg><svg class="icon"><use href="#i-image"/></svg>
-              <svg class="icon"><use href="#i-link"/></svg><svg class="icon"><use href="#i-external"/></svg><svg class="icon"><use href="#i-globe"/></svg>
+              <svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-link"/></svg><svg class="icon"><use href="#i-globe"/></svg>
               <svg class="icon"><use href="#i-play"/></svg><svg class="icon"><use href="#i-more"/></svg>
               <svg class="icon"><use href="#i-arrow-left"/></svg><svg class="icon"><use href="#i-arrow-right"/></svg>
-              <svg class="icon"><use href="#i-chevron-left"/></svg><svg class="icon"><use href="#i-chevron-right"/></svg>
-              <svg class="icon"><use href="#i-chevron-up"/></svg><svg class="icon"><use href="#i-chevron-down"/></svg>
+              <svg class="icon"><use href="#i-chevron-left"/></svg>
               <svg class="icon"><use href="#i-moon"/></svg><svg class="icon"><use href="#i-sun"/></svg>
             </div>
           </div>
