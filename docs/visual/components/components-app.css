@@ -20,10 +20,12 @@
      Canonical source — styleguide.html links this file for reference.
      ============================================================ */
 
-  /* Light mode overrides (when dark toggle is OFF) */
+  /* Light mode overrides (when dark toggle is OFF).
+     surface sits above bg (white cards on a light-gray canvas) so panels
+     read as elevated rather than sunk below the page. */
   :root:has(#dark:not(:checked)) {
-    --color-bg: oklch(0.98 0 0);
-    --color-surface: oklch(0.96 0 0);
+    --color-bg: oklch(0.975 0 0);
+    --color-surface: oklch(1 0 0);
     --color-subtle: oklch(0.92 0 0);
     --color-fg: oklch(0.15 0 0);
     --color-muted: oklch(0.45 0 0);

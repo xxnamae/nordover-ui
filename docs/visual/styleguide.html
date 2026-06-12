@@ -10,9 +10,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap">
-<!-- Nordover framework: tokens + components + styleguide chrome -->
-<link rel="stylesheet" href="./tokens/tokens-web.css" id="token-stylesheet">
-<link rel="stylesheet" href="./components/components-web.css" id="component-stylesheet">
+<!-- Nordover framework: tokens + components + styleguide chrome.
+     The styleguide ships as an app-style tool, so it loads the app package
+     by default; the switcher swaps to web for previewing that package. -->
+<link rel="stylesheet" href="./tokens/tokens-app.css" id="token-stylesheet">
+<link rel="stylesheet" href="./components/components-app.css" id="component-stylesheet">
 <link rel="stylesheet" href="./styleguide-chrome.css">
 <style>
   /* Compact package switcher (page-local styleguide chrome) */
@@ -101,8 +103,8 @@
   <aside class="app-sidebar">
     <div class="app-sidebar-brand"><span class="app-sidebar-brand-mark">N</span> <span>Nordover</span><div class="app-sidebar-brand-actions"><label for="collapse" class="collapse-toggle" aria-label="Slå sammen/utvid sidestolpen" title="Minimer sidebar"><svg class="icon"><use href="#i-chevron-left"/></svg></label><label for="nav" class="app-sidebar-close" aria-label="Lukk menyen"><svg class="icon"><use href="#i-x"/></svg></label></div></div>
     <div class="pkg-switch" role="group" aria-label="Velg pakke">
-      <label><input type="radio" name="package" value="web" checked><span>Web</span></label>
-      <label><input type="radio" name="package" value="app"><span>App</span></label>
+      <label><input type="radio" name="package" value="web"><span>Web</span></label>
+      <label><input type="radio" name="package" value="app" checked><span>App</span></label>
     </div>
 
     <div class="app-sidebar-section-group">
@@ -2630,7 +2632,7 @@ async function renderElementorExport(pkg) {
       `/* Grab the :root block from: */\n/* ${rawUrl} */`;
   }
 }
-renderElementorExport('web');
+renderElementorExport('app');
 
 // Replay motion demos — reset and re-trigger class-based animations
 const replayBtn = document.getElementById('replay-motion');
