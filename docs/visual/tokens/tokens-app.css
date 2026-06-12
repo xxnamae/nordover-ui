@@ -285,6 +285,27 @@
     --shadow-drawer: var(--shadow-xl);
     --shadow-card-hover: var(--shadow-md);
 
+    /* === Colored shadows (semantic hue tints, Linear-restrained) ===
+       Combine depth shadows with subtle semantic color tints. Use for status
+       indicators, semantic containers, validation feedback. Opacity kept low
+       (8-12%) for nuance, not drama (Stripe dybde → Linear ro).
+    */
+    --shadow-success:
+      0 1px 1px 0 rgb(0 0 0 / 0.03), 0 1px 2px -1px rgb(0 0 0 / 0.03),
+      0 1px 2px -1px oklch(0.64 0.16 150 / 0.08);
+    --shadow-error:
+      0 1px 1px 0 rgb(0 0 0 / 0.03), 0 1px 2px -1px rgb(0 0 0 / 0.03),
+      0 1px 2px -1px oklch(0.62 0.22 25 / 0.08);
+    --shadow-warning:
+      0 1px 1px 0 rgb(0 0 0 / 0.03), 0 1px 2px -1px rgb(0 0 0 / 0.03),
+      0 1px 2px -1px oklch(0.74 0.16 75 / 0.08);
+    --shadow-info:
+      0 1px 1px 0 rgb(0 0 0 / 0.03), 0 1px 2px -1px rgb(0 0 0 / 0.03),
+      0 1px 2px -1px oklch(0.62 0.19 250 / 0.08);
+    --shadow-accent:
+      0 1px 1px 0 rgb(0 0 0 / 0.03), 0 1px 2px -1px rgb(0 0 0 / 0.03),
+      0 1px 2px -1px oklch(0.50 0.22 260 / 0.08);
+
     /* === Icon-size === */
     --size-icon-sm: 0.875rem; --size-icon: 1rem;
     --size-icon-lg: 1.25rem; --size-icon-xl: 1.5rem; /* app-only */
@@ -479,5 +500,22 @@
     --shadow-xl: 0 4px 8px -3px rgb(0 0 0 / 0.45), 0 10px 18px -5px rgb(0 0 0 / 0.5), 0 16px 28px -8px rgb(0 0 0 / 0.55);
     /* Inset deepened for dark (the aliasing shadows inherit the scale above) */
     --shadow-inset: inset 0 1px 2px 0 rgb(0 0 0 / 0.3);
+
+    /* === Colored shadows dark mode (higher opacity for contrast on dark bg) === */
+    --shadow-success:
+      0 1px 1px 0 rgb(0 0 0 / 0.25), 0 1px 2px -1px rgb(0 0 0 / 0.25),
+      0 1px 2px -1px oklch(0.64 0.16 150 / 0.12);
+    --shadow-error:
+      0 1px 1px 0 rgb(0 0 0 / 0.25), 0 1px 2px -1px rgb(0 0 0 / 0.25),
+      0 1px 2px -1px oklch(0.62 0.22 25 / 0.12);
+    --shadow-warning:
+      0 1px 1px 0 rgb(0 0 0 / 0.25), 0 1px 2px -1px rgb(0 0 0 / 0.25),
+      0 1px 2px -1px oklch(0.74 0.16 75 / 0.12);
+    --shadow-info:
+      0 1px 1px 0 rgb(0 0 0 / 0.25), 0 1px 2px -1px rgb(0 0 0 / 0.25),
+      0 1px 2px -1px oklch(0.62 0.19 250 / 0.12);
+    --shadow-accent:
+      0 1px 1px 0 rgb(0 0 0 / 0.25), 0 1px 2px -1px rgb(0 0 0 / 0.25),
+      0 1px 2px -1px oklch(0.50 0.22 260 / 0.12);
   }
 }

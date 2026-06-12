@@ -1711,6 +1711,61 @@
     },
     "card-hover": {
       "$value": "{shadow.md}"
+    },
+    "success": {
+      "$type": "shadow",
+      "$value": "0 1px 1px 0 rgb(0 0 0 / 0.03), 0 1px 2px -1px rgb(0 0 0 / 0.03), 0 1px 2px -1px oklch(0.64 0.16 150 / 0.08)",
+      "$extensions": {
+        "com.nordover.cssText": true,
+        "com.nordover.dark": {
+          "$value": "0 1px 1px 0 rgb(0 0 0 / 0.25), 0 1px 2px -1px rgb(0 0 0 / 0.25), 0 1px 2px -1px oklch(0.64 0.16 150 / 0.12)",
+          "cssText": true
+        }
+      }
+    },
+    "error": {
+      "$type": "shadow",
+      "$value": "0 1px 1px 0 rgb(0 0 0 / 0.03), 0 1px 2px -1px rgb(0 0 0 / 0.03), 0 1px 2px -1px oklch(0.62 0.22 25 / 0.08)",
+      "$extensions": {
+        "com.nordover.cssText": true,
+        "com.nordover.dark": {
+          "$value": "0 1px 1px 0 rgb(0 0 0 / 0.25), 0 1px 2px -1px rgb(0 0 0 / 0.25), 0 1px 2px -1px oklch(0.62 0.22 25 / 0.12)",
+          "cssText": true
+        }
+      }
+    },
+    "warning": {
+      "$type": "shadow",
+      "$value": "0 1px 1px 0 rgb(0 0 0 / 0.03), 0 1px 2px -1px rgb(0 0 0 / 0.03), 0 1px 2px -1px oklch(0.74 0.16 75 / 0.08)",
+      "$extensions": {
+        "com.nordover.cssText": true,
+        "com.nordover.dark": {
+          "$value": "0 1px 1px 0 rgb(0 0 0 / 0.25), 0 1px 2px -1px rgb(0 0 0 / 0.25), 0 1px 2px -1px oklch(0.74 0.16 75 / 0.12)",
+          "cssText": true
+        }
+      }
+    },
+    "info": {
+      "$type": "shadow",
+      "$value": "0 1px 1px 0 rgb(0 0 0 / 0.03), 0 1px 2px -1px rgb(0 0 0 / 0.03), 0 1px 2px -1px oklch(0.62 0.19 250 / 0.08)",
+      "$extensions": {
+        "com.nordover.cssText": true,
+        "com.nordover.dark": {
+          "$value": "0 1px 1px 0 rgb(0 0 0 / 0.25), 0 1px 2px -1px rgb(0 0 0 / 0.25), 0 1px 2px -1px oklch(0.62 0.19 250 / 0.12)",
+          "cssText": true
+        }
+      }
+    },
+    "accent": {
+      "$type": "shadow",
+      "$value": "0 1px 1px 0 rgb(0 0 0 / 0.03), 0 1px 2px -1px rgb(0 0 0 / 0.03), 0 1px 2px -1px oklch(0.50 0.22 260 / 0.08)",
+      "$extensions": {
+        "com.nordover.cssText": true,
+        "com.nordover.dark": {
+          "$value": "0 1px 1px 0 rgb(0 0 0 / 0.25), 0 1px 2px -1px rgb(0 0 0 / 0.25), 0 1px 2px -1px oklch(0.50 0.22 260 / 0.12)",
+          "cssText": true
+        }
+      }
     }
   },
   "size": {
