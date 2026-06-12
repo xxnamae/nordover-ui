@@ -29,6 +29,8 @@
   .sg-static-menu { position: static !important; }
   .sg-static-results { position: static !important; display: block !important; margin-top: var(--space-2) !important; }
   .sg-static-nav { position: static !important; transform: none !important; height: auto !important; width: 16rem; max-width: 100%; }
+  /* Typography metadata — shows computed token values in styleguide */
+  .typo-meta { font-size: 0.7em; color: var(--color-muted); font-family: var(--font-mono); font-weight: normal; }
   /* Elementor token export is the full token file — cap it to a scrollable viewport so it doesn't dominate the page (it's a copy source, not meant to be read line-by-line). */
   #elementor-token-export { max-height: 22rem; overflow-y: auto; overscroll-behavior: contain; }
 </style>
@@ -386,29 +388,29 @@
 
           <div class="doc-block-label">Display — Inter Tight, for hero &amp; marketing</div>
           <div class="doc-demo stack">
-            <div><div class="t-display-2xl">Display 2XL</div><span class="t-caption">.t-display-2xl</span></div>
-            <div><div class="t-display-xl">Display XL</div><span class="t-caption">.t-display-xl</span></div>
-            <div><div class="t-display-lg">Display Large</div><span class="t-caption">.t-display-lg</span></div>
-            <div><div class="t-display-md">Display Medium</div><span class="t-caption">.t-display-md</span></div>
-            <div><div class="t-display-sm">Display Small</div><span class="t-caption">.t-display-sm</span></div>
+            <div><div class="t-display-2xl">Display 2XL</div><span class="t-caption">.t-display-2xl — <code class="typo-meta">var(--text-6xl) · fw 440</code></span></div>
+            <div><div class="t-display-xl">Display XL</div><span class="t-caption">.t-display-xl — <code class="typo-meta">var(--text-5xl) · fw 440</code></span></div>
+            <div><div class="t-display-lg">Display Large</div><span class="t-caption">.t-display-lg — <code class="typo-meta">var(--text-4xl) · fw 440</code></span></div>
+            <div><div class="t-display-md">Display Medium</div><span class="t-caption">.t-display-md — <code class="typo-meta">var(--text-3xl) · fw 520</code></span></div>
+            <div><div class="t-display-sm">Display Small</div><span class="t-caption">.t-display-sm — <code class="typo-meta">var(--text-2xl) · fw 520</code></span></div>
           </div>
 
           <div class="doc-block-label">Heading — Inter Tight, for section titles</div>
           <div class="doc-demo stack">
-            <div><div class="t-heading-xl">Heading XL</div><span class="t-caption">.t-heading-xl</span></div>
-            <div><div class="t-heading-lg">Heading Large</div><span class="t-caption">.t-heading-lg</span></div>
-            <div><div class="t-heading-md">Heading Medium</div><span class="t-caption">.t-heading-md</span></div>
-            <div><div class="t-heading-sm">Heading Small</div><span class="t-caption">.t-heading-sm</span></div>
+            <div><div class="t-heading-xl">Heading XL</div><span class="t-caption">.t-heading-xl — <code class="typo-meta">var(--text-3xl) · fw 520</code></span></div>
+            <div><div class="t-heading-lg">Heading Large</div><span class="t-caption">.t-heading-lg — <code class="typo-meta">var(--text-2xl) · fw 540</code></span></div>
+            <div><div class="t-heading-md">Heading Medium</div><span class="t-caption">.t-heading-md — <code class="typo-meta">var(--text-xl) · fw 540</code></span></div>
+            <div><div class="t-heading-sm">Heading Small</div><span class="t-caption">.t-heading-sm — <code class="typo-meta">var(--text-lg) · fw 540</code></span></div>
           </div>
 
           <div class="doc-block-label">Body &amp; labels — Inter, for content</div>
           <div class="doc-demo stack">
-            <div><div class="t-body-xl">Body XL — large lead paragraph for introductions</div><span class="t-caption">.t-body-xl</span></div>
-            <div><div class="t-body-lg">Body Large — for prominent content and introductions</div><span class="t-caption">.t-body-lg</span></div>
-            <div><div class="t-body">Body — default reading text</div><span class="t-caption">.t-body</span></div>
-            <div><div class="t-body-sm">Body Small — for secondary content</div><span class="t-caption">.t-body-sm</span></div>
-            <div><div class="t-eyebrow">Eyebrow label</div><span class="t-caption">.t-eyebrow</span></div>
-            <div><div class="t-caption">Caption — for labels and hints</div><span class="t-caption">.t-caption</span></div>
+            <div><div class="t-body-xl">Body XL — large lead paragraph for introductions</div><span class="t-caption">.t-body-xl — <code class="typo-meta">var(--text-lg) · 1.125rem / 18px</code></span></div>
+            <div><div class="t-body-lg">Body Large — for prominent content and introductions</div><span class="t-caption">.t-body-lg — <code class="typo-meta">var(--text-base) · 0.875rem / 14px</code></span></div>
+            <div><div class="t-body">Body — default reading text</div><span class="t-caption">.t-body — <code class="typo-meta">var(--text-base) · 0.875rem / 14px</code></span></div>
+            <div><div class="t-body-sm">Body Small — for secondary content</div><span class="t-caption">.t-body-sm — <code class="typo-meta">var(--text-sm) · 0.8125rem / 13px</code></span></div>
+            <div><div class="t-eyebrow">Eyebrow label</div><span class="t-caption">.t-eyebrow — <code class="typo-meta">var(--text-xs) · 0.6875rem / 11px</code></span></div>
+            <div><div class="t-caption">Caption — for labels and hints</div><span class="t-caption">.t-caption — <code class="typo-meta">var(--text-2xs) · 0.625rem / 10px</code></span></div>
           </div>
 
           <div class="doc-block-label">Type scale (fluid <code>clamp()</code> from <code>--text-lg</code> up)</div>
