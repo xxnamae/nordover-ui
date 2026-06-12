@@ -852,7 +852,7 @@
     },
     "error-subtle": {
       "$type": "color",
-      "$value": "color-mix(in oklch, var(--error) 10%, var(--color-bg))",
+      "$value": "color-mix(in oklch, var(--error) 20%, var(--color-bg))",
       "$extensions": {
         "com.nordover.cssText": true
       }
@@ -893,7 +893,7 @@
     },
     "success-subtle": {
       "$type": "color",
-      "$value": "color-mix(in oklch, var(--success) 10%, var(--color-bg))",
+      "$value": "color-mix(in oklch, var(--success) 20%, var(--color-bg))",
       "$extensions": {
         "com.nordover.cssText": true
       }
@@ -934,7 +934,7 @@
     },
     "warning-subtle": {
       "$type": "color",
-      "$value": "color-mix(in oklch, var(--warning) 14%, var(--color-bg))",
+      "$value": "color-mix(in oklch, var(--warning) 22%, var(--color-bg))",
       "$extensions": {
         "com.nordover.cssText": true
       }
@@ -975,7 +975,7 @@
     },
     "info-subtle": {
       "$type": "color",
-      "$value": "color-mix(in oklch, var(--info) 10%, var(--color-bg))",
+      "$value": "color-mix(in oklch, var(--info) 20%, var(--color-bg))",
       "$extensions": {
         "com.nordover.cssText": true
       }

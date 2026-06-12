@@ -183,16 +183,16 @@
 
     /* === Semantiske tripletter (subtle / base / strong) === */
     --error: oklch(0.62 0.22 25);
-    --error-subtle: color-mix(in oklch, var(--error) 12%, var(--color-bg));
+    --error-subtle: color-mix(in oklch, var(--error) 22%, var(--color-bg));
     --error-strong: color-mix(in oklch, var(--error) 70%, black);
     --success: oklch(0.64 0.16 150);
-    --success-subtle: color-mix(in oklch, var(--success) 12%, var(--color-bg));
+    --success-subtle: color-mix(in oklch, var(--success) 22%, var(--color-bg));
     --success-strong: color-mix(in oklch, var(--success) 62%, black);
     --warning: oklch(0.74 0.16 75);
-    --warning-subtle: color-mix(in oklch, var(--warning) 16%, var(--color-bg));
+    --warning-subtle: color-mix(in oklch, var(--warning) 24%, var(--color-bg));
     --warning-strong: color-mix(in oklch, var(--warning) 68%, black);
     --info: oklch(0.62 0.19 250);
-    --info-subtle: color-mix(in oklch, var(--info) 12%, var(--color-bg));
+    --info-subtle: color-mix(in oklch, var(--info) 22%, var(--color-bg));
     --info-strong: color-mix(in oklch, var(--info) 65%, black);
     --color-error: var(--error);
     --color-success: var(--success);
