@@ -1,0 +1,166 @@
+{
+  "version": "0.4",
+  "title": "Comparison Table — Feature Comparison",
+  "type": "section",
+  "description": "Comparison table with header row, feature rows, and checkmarks/cross marks. Responsive with horizontal scroll on mobile.",
+  "elements": [
+    {
+      "id": "comparison-section",
+      "elType": "section",
+      "settings": {
+        "_title": "Comparison Section",
+        "background_background": "classic",
+        "background_color": "var(--color-bg)",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "20",
+          "bottom": "80",
+          "left": "20",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "comparison-container",
+          "elType": "container",
+          "settings": {
+            "_title": "Comparison Container",
+            "layout": "flex",
+            "flex_direction": "column",
+            "gap": {
+              "unit": "px",
+              "size": "64"
+            },
+            "max_width": {
+              "unit": "px",
+              "size": "1200"
+            },
+            "margin": {
+              "unit": "px",
+              "top": "0",
+              "right": "auto",
+              "bottom": "0",
+              "left": "auto"
+            }
+          },
+          "elements": [
+            {
+              "id": "comparison-header",
+              "elType": "container",
+              "settings": {
+                "_title": "Comparison Header",
+                "layout": "flex",
+                "flex_direction": "column",
+                "gap": {
+                  "unit": "px",
+                  "size": "16"
+                },
+                "align_items_flex_start": "center",
+                "justify_content_flex_start": "center",
+                "text_align": "center",
+                "max_width": {
+                  "unit": "px",
+                  "size": "600"
+                }
+              },
+              "elements": [
+                {
+                  "id": "comparison-title",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "_title": "Comparison Title",
+                    "title": "Compare Plans",
+                    "header_size": "h2",
+                    "html_tag": "h2",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": "48"
+                    },
+                    "text_color": "var(--color-fg)"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "comparison-table-wrapper",
+              "elType": "container",
+              "settings": {
+                "_title": "Table Wrapper",
+                "layout": "flex",
+                "flex_direction": "column",
+                "gap": {
+                  "unit": "px",
+                  "size": "0"
+                },
+                "width": {
+                  "unit": "%",
+                  "size": "100"
+                },
+                "overflow": "auto"
+              },
+              "elements": [
+                {
+                  "id": "comparison-table",
+                  "elType": "widget",
+                  "widgetType": "table",
+                  "settings": {
+                    "_title": "Comparison Table",
+                    "content": [
+                      [
+                        "Feature",
+                        "Starter",
+                        "Professional",
+                        "Enterprise"
+                      ],
+                      [
+                        "Users",
+                        "1 user",
+                        "5 users",
+                        "Unlimited"
+                      ],
+                      [
+                        "Projects",
+                        "3 projects",
+                        "Unlimited",
+                        "Unlimited"
+                      ],
+                      [
+                        "Version Control",
+                        "✓",
+                        "✓",
+                        "✓"
+                      ],
+                      [
+                        "API Access",
+                        "—",
+                        "✓",
+                        "✓"
+                      ],
+                      [
+                        "Premium Support",
+                        "—",
+                        "✓",
+                        "✓"
+                      ],
+                      [
+                        "Custom Domain",
+                        "—",
+                        "—",
+                        "✓"
+                      ]
+                    ],
+                    "table_head": "yes",
+                    "striped": "yes",
+                    "table_class": "table table-striped"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

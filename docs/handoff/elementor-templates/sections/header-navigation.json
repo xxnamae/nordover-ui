@@ -1,0 +1,115 @@
+{
+  "version": "0.4",
+  "title": "Header — Navigation Bar",
+  "type": "section",
+  "description": "Sticky header with responsive navigation. Logo, menu items, CTA button. Mobile-friendly hamburger menu.",
+  "elements": [
+    {
+      "id": "header-section",
+      "elType": "section",
+      "settings": {
+        "_title": "Header Section",
+        "background_background": "classic",
+        "background_color": "var(--color-surface)",
+        "padding": {
+          "unit": "px",
+          "top": "16",
+          "right": "20",
+          "bottom": "16",
+          "left": "20",
+          "isLinked": false
+        },
+        "sticky": "top",
+        "z_index": "1000"
+      },
+      "elements": [
+        {
+          "id": "header-container",
+          "elType": "container",
+          "settings": {
+            "_title": "Header Container",
+            "layout": "flex",
+            "flex_direction": "row",
+            "gap": {
+              "unit": "px",
+              "size": "0"
+            },
+            "max_width": {
+              "unit": "px",
+              "size": "1200"
+            },
+            "margin": {
+              "unit": "px",
+              "top": "0",
+              "right": "auto",
+              "bottom": "0",
+              "left": "auto"
+            },
+            "align_items_flex_start": "center",
+            "justify_content_flex_start": "space-between",
+            "width": {
+              "unit": "%",
+              "size": "100"
+            }
+          },
+          "elements": [
+            {
+              "id": "header-logo",
+              "elType": "widget",
+              "widgetType": "image",
+              "settings": {
+                "_title": "Logo",
+                "image": {
+                  "url": "https://via.placeholder.com/120x40"
+                },
+                "image_size": "medium",
+                "caption": "Nordover"
+              }
+            },
+            {
+              "id": "header-nav-menu",
+              "elType": "widget",
+              "widgetType": "nav-menu",
+              "settings": {
+                "_title": "Main Navigation",
+                "nav_menu": "main-menu",
+                "layout": "horizontal",
+                "indicator": "none",
+                "pointer": "underline",
+                "submenu_icon": "none",
+                "text_color": "var(--color-fg)",
+                "text_hover_color": "var(--color-accent)"
+              }
+            },
+            {
+              "id": "header-cta-button",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "_title": "CTA Button",
+                "text": "Get Started",
+                "link": {
+                  "url": "#"
+                },
+                "button_type": "primary",
+                "size": "sm",
+                "custom_class": "btn btn-primary"
+              }
+            },
+            {
+              "id": "header-mobile-toggle",
+              "elType": "widget",
+              "widgetType": "toggle",
+              "settings": {
+                "_title": "Mobile Menu Toggle",
+                "text": "Menu",
+                "custom_class": "header-mobile-toggle",
+                "display": "none"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "version": "0.4",
+  "title": "Video Section — Embed with Text",
+  "type": "section",
+  "description": "Full-width video section with headline, description, and responsive video embed. Supports YouTube, Vimeo, self-hosted.",
+  "elements": [
+    {
+      "id": "video-section",
+      "elType": "section",
+      "settings": {
+        "_title": "Video Section",
+        "background_background": "classic",
+        "background_color": "var(--color-surface)",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "20",
+          "bottom": "80",
+          "left": "20",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "video-container",
+          "elType": "container",
+          "settings": {
+            "_title": "Video Container",
+            "layout": "flex",
+            "flex_direction": "column",
+            "gap": {
+              "unit": "px",
+              "size": "48"
+            },
+            "max_width": {
+              "unit": "px",
+              "size": "1200"
+            },
+            "margin": {
+              "unit": "px",
+              "top": "0",
+              "right": "auto",
+              "bottom": "0",
+              "left": "auto"
+            }
+          },
+          "elements": [
+            {
+              "id": "video-header",
+              "elType": "container",
+              "settings": {
+                "_title": "Video Header",
+                "layout": "flex",
+                "flex_direction": "column",
+                "gap": {
+                  "unit": "px",
+                  "size": "16"
+                },
+                "align_items_flex_start": "center",
+                "justify_content_flex_start": "center",
+                "text_align": "center",
+                "max_width": {
+                  "unit": "px",
+                  "size": "700"
+                }
+              },
+              "elements": [
+                {
+                  "id": "video-title",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "_title": "Video Title",
+                    "title": "See Nordover in Action",
+                    "header_size": "h2",
+                    "html_tag": "h2",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": "48"
+                    },
+                    "text_color": "var(--color-fg)"
+                  }
+                },
+                {
+                  "id": "video-description",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "_title": "Video Description",
+                    "editor": "<p class=\"t-body-lg\" style=\"color: var(--color-muted); margin: 0;\">Discover how Nordover accelerates design system implementation with production-ready tokens and components.</p>"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "video-embed",
+              "elType": "widget",
+              "widgetType": "video",
+              "settings": {
+                "_title": "Video Embed",
+                "video_type": "youtube",
+                "youtube_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                "aspect_ratio": "16:9",
+                "show_play_icon": "yes",
+                "controls": "yes",
+                "loop": "no",
+                "autoplay": "no",
+                "muted": "no",
+                "border_radius": {
+                  "unit": "px",
+                  "top": "12",
+                  "right": "12",
+                  "bottom": "12",
+                  "left": "12"
+                },
+                "box_shadow": "0 4px 12px rgba(0,0,0,0.1)"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

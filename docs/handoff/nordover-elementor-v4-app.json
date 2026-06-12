@@ -318,11 +318,20 @@
       "updated_at": "2026-06-10 00:00:00",
       "sync_to_v3": true
     },
+    "e-gv-b6d8e85": {
+      "type": "global-color-variable",
+      "label": "color-backdrop",
+      "value": "#06070980",
+      "order": 38,
+      "created_at": "2026-06-10 00:00:00",
+      "updated_at": "2026-06-10 00:00:00",
+      "sync_to_v3": true
+    },
     "e-gv-e0c6d4d": {
       "type": "global-color-variable",
       "label": "surface-1",
-      "value": "#ffffff",
-      "order": 38,
+      "value": "#f8f8f8",
+      "order": 39,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
       "sync_to_v3": true
@@ -330,8 +339,8 @@
     "e-gv-b191d3b": {
       "type": "global-color-variable",
       "label": "surface-2",
-      "value": "#f8fafd",
-      "order": 39,
+      "value": "#fcfcfc",
+      "order": 40,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
       "sync_to_v3": true
@@ -339,8 +348,8 @@
     "e-gv-3fb35ee": {
       "type": "global-color-variable",
       "label": "surface-3",
-      "value": "#eff2f5",
-      "order": 40,
+      "value": "#ffffff",
+      "order": 41,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
       "sync_to_v3": true
@@ -348,8 +357,8 @@
     "e-gv-dafffa5": {
       "type": "global-color-variable",
       "label": "surface-4",
-      "value": "#ffffff",
-      "order": 41,
+      "value": "#fcfcfc",
+      "order": 42,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
       "sync_to_v3": true
@@ -357,8 +366,8 @@
     "e-gv-da860ea": {
       "type": "global-color-variable",
       "label": "surface-5",
-      "value": "#ffffff",
-      "order": 42,
+      "value": "#f8f8f8",
+      "order": 43,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
       "sync_to_v3": true
@@ -367,7 +376,7 @@
       "type": "global-color-variable",
       "label": "accent-subtle",
       "value": "#d8e9fb",
-      "order": 43,
+      "order": 44,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
       "sync_to_v3": true
@@ -376,7 +385,7 @@
       "type": "global-color-variable",
       "label": "accent-muted",
       "value": "#abcef7",
-      "order": 44,
+      "order": 45,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
       "sync_to_v3": true
@@ -385,7 +394,7 @@
       "type": "global-color-variable",
       "label": "accent-emphasis",
       "value": "#0055dd",
-      "order": 45,
+      "order": 46,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
       "sync_to_v3": true
@@ -394,7 +403,7 @@
       "type": "global-color-variable",
       "label": "on-accent-subtle",
       "value": "#0055dd",
-      "order": 46,
+      "order": 47,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
       "sync_to_v3": true
@@ -403,7 +412,7 @@
       "type": "global-color-variable",
       "label": "error",
       "value": "#ee343b",
-      "order": 47,
+      "order": 48,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
       "sync_to_v3": true
@@ -412,7 +421,7 @@
       "type": "global-color-variable",
       "label": "error-subtle",
       "value": "#d8ddff",
-      "order": 48,
+      "order": 49,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
       "sync_to_v3": true
@@ -421,7 +430,7 @@
       "type": "global-color-variable",
       "label": "error-strong",
       "value": "#931c20",
-      "order": 49,
+      "order": 50,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
       "sync_to_v3": true
@@ -430,7 +439,7 @@
       "type": "global-color-variable",
       "label": "success",
       "value": "#2aa654",
-      "order": 50,
+      "order": 51,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
       "sync_to_v3": true
@@ -439,7 +448,7 @@
       "type": "global-color-variable",
       "label": "success-subtle",
       "value": "#c7e7f6",
-      "order": 51,
+      "order": 52,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
       "sync_to_v3": true
@@ -448,7 +457,7 @@
       "type": "global-color-variable",
       "label": "success-strong",
       "value": "#115528",
-      "order": 52,
+      "order": 53,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
       "sync_to_v3": true
@@ -457,7 +466,7 @@
       "type": "global-color-variable",
       "label": "warning",
       "value": "#e49900",
-      "order": 53,
+      "order": 54,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
       "sync_to_v3": true
@@ -466,7 +475,7 @@
       "type": "global-color-variable",
       "label": "warning-subtle",
       "value": "#c7eff5",
-      "order": 54,
+      "order": 55,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
       "sync_to_v3": true
@@ -475,7 +484,7 @@
       "type": "global-color-variable",
       "label": "warning-strong",
       "value": "#885900",
-      "order": 55,
+      "order": 56,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
       "sync_to_v3": true
@@ -484,7 +493,7 @@
       "type": "global-color-variable",
       "label": "info",
       "value": "#0088f2",
-      "order": 56,
+      "order": 57,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
       "sync_to_v3": true
@@ -493,7 +502,7 @@
       "type": "global-color-variable",
       "label": "info-subtle",
       "value": "#c9e3fe",
-      "order": 57,
+      "order": 58,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
       "sync_to_v3": true
@@ -502,7 +511,7 @@
       "type": "global-color-variable",
       "label": "info-strong",
       "value": "#004a87",
-      "order": 58,
+      "order": 59,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
       "sync_to_v3": true
@@ -511,7 +520,7 @@
       "type": "global-color-variable",
       "label": "chart-1",
       "value": "#00a327",
-      "order": 59,
+      "order": 60,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
       "sync_to_v3": true
@@ -520,7 +529,7 @@
       "type": "global-color-variable",
       "label": "chart-2",
       "value": "#dc8900",
-      "order": 60,
+      "order": 61,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
       "sync_to_v3": true
@@ -529,7 +538,7 @@
       "type": "global-color-variable",
       "label": "chart-3",
       "value": "#007ee6",
-      "order": 61,
+      "order": 62,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
       "sync_to_v3": true
@@ -538,7 +547,7 @@
       "type": "global-color-variable",
       "label": "chart-4",
       "value": "#8851eb",
-      "order": 62,
+      "order": 63,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
       "sync_to_v3": true
@@ -547,7 +556,7 @@
       "type": "global-color-variable",
       "label": "chart-5",
       "value": "#00aaab",
-      "order": 63,
+      "order": 64,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
       "sync_to_v3": true
@@ -556,7 +565,7 @@
       "type": "global-color-variable",
       "label": "chart-6",
       "value": "#df3798",
-      "order": 64,
+      "order": 65,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
       "sync_to_v3": true
@@ -565,7 +574,7 @@
       "type": "global-color-variable",
       "label": "chart-7",
       "value": "#00b0d6",
-      "order": 65,
+      "order": 66,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
       "sync_to_v3": true
@@ -574,7 +583,7 @@
       "type": "global-color-variable",
       "label": "chart-8",
       "value": "#d64938",
-      "order": 66,
+      "order": 67,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
       "sync_to_v3": true
@@ -583,7 +592,7 @@
       "type": "global-size-variable",
       "label": "space-0",
       "value": "0",
-      "order": 67,
+      "order": 68,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -591,7 +600,7 @@
       "type": "global-size-variable",
       "label": "space-px",
       "value": "1px",
-      "order": 68,
+      "order": 69,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -599,7 +608,7 @@
       "type": "global-size-variable",
       "label": "space-1",
       "value": "0.25rem",
-      "order": 69,
+      "order": 70,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -607,7 +616,7 @@
       "type": "global-size-variable",
       "label": "space-2",
       "value": "0.5rem",
-      "order": 70,
+      "order": 71,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -615,7 +624,7 @@
       "type": "global-size-variable",
       "label": "space-3",
       "value": "0.75rem",
-      "order": 71,
+      "order": 72,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -623,7 +632,7 @@
       "type": "global-size-variable",
       "label": "space-4",
       "value": "1rem",
-      "order": 72,
+      "order": 73,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -631,7 +640,7 @@
       "type": "global-size-variable",
       "label": "space-5",
       "value": "1.5rem",
-      "order": 73,
+      "order": 74,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -639,7 +648,7 @@
       "type": "global-size-variable",
       "label": "space-6",
       "value": "2rem",
-      "order": 74,
+      "order": 75,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -647,7 +656,7 @@
       "type": "global-size-variable",
       "label": "space-7",
       "value": "2.5rem",
-      "order": 75,
+      "order": 76,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -655,7 +664,7 @@
       "type": "global-size-variable",
       "label": "space-8",
       "value": "3rem",
-      "order": 76,
+      "order": 77,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -663,7 +672,7 @@
       "type": "global-size-variable",
       "label": "space-10",
       "value": "4rem",
-      "order": 77,
+      "order": 78,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -671,7 +680,7 @@
       "type": "global-size-variable",
       "label": "space-12",
       "value": "6rem",
-      "order": 78,
+      "order": 79,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -679,7 +688,7 @@
       "type": "global-size-variable",
       "label": "space-16",
       "value": "8rem",
-      "order": 79,
+      "order": 80,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -687,7 +696,7 @@
       "type": "global-size-variable",
       "label": "space-20",
       "value": "10rem",
-      "order": 80,
+      "order": 81,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -695,7 +704,7 @@
       "type": "global-size-variable",
       "label": "space-24",
       "value": "12rem",
-      "order": 81,
+      "order": 82,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -703,7 +712,7 @@
       "type": "global-size-variable",
       "label": "space-32",
       "value": "16rem",
-      "order": 82,
+      "order": 83,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -711,7 +720,7 @@
       "type": "global-size-variable",
       "label": "space-40",
       "value": "20rem",
-      "order": 83,
+      "order": 84,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -719,7 +728,7 @@
       "type": "global-size-variable",
       "label": "space-48",
       "value": "24rem",
-      "order": 84,
+      "order": 85,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -727,7 +736,7 @@
       "type": "global-size-variable",
       "label": "gap-tight",
       "value": "0.25rem",
-      "order": 85,
+      "order": 86,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -735,7 +744,7 @@
       "type": "global-size-variable",
       "label": "gap-component",
       "value": "1rem",
-      "order": 86,
+      "order": 87,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -743,7 +752,7 @@
       "type": "global-size-variable",
       "label": "gap-section",
       "value": "3rem",
-      "order": 87,
+      "order": 88,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -751,7 +760,7 @@
       "type": "global-custom-size-variable",
       "label": "spacing-section",
       "value": "clamp(3.75rem, 8vw, 6.875rem)",
-      "order": 88,
+      "order": 89,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -759,7 +768,7 @@
       "type": "global-custom-size-variable",
       "label": "spacing-section-sm",
       "value": "clamp(2rem, 6vw, 3rem)",
-      "order": 89,
+      "order": 90,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -767,7 +776,7 @@
       "type": "global-custom-size-variable",
       "label": "spacing-section-lg",
       "value": "clamp(6.875rem, 12vw, 9.375rem)",
-      "order": 90,
+      "order": 91,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -775,7 +784,7 @@
       "type": "global-custom-size-variable",
       "label": "page-padding",
       "value": "clamp(1.5rem, 3vw, 2rem)",
-      "order": 91,
+      "order": 92,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -783,7 +792,7 @@
       "type": "global-size-variable",
       "label": "radius-xs",
       "value": "2px",
-      "order": 92,
+      "order": 93,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -791,7 +800,7 @@
       "type": "global-size-variable",
       "label": "radius-sm",
       "value": "3px",
-      "order": 93,
+      "order": 94,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -799,7 +808,7 @@
       "type": "global-size-variable",
       "label": "radius-md",
       "value": "6px",
-      "order": 94,
+      "order": 95,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -807,7 +816,7 @@
       "type": "global-size-variable",
       "label": "radius-lg",
       "value": "8px",
-      "order": 95,
+      "order": 96,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -815,7 +824,7 @@
       "type": "global-size-variable",
       "label": "radius-xl",
       "value": "12px",
-      "order": 96,
+      "order": 97,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -823,7 +832,7 @@
       "type": "global-size-variable",
       "label": "radius-2xl",
       "value": "16px",
-      "order": 97,
+      "order": 98,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -831,7 +840,7 @@
       "type": "global-size-variable",
       "label": "radius-3xl",
       "value": "24px",
-      "order": 98,
+      "order": 99,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -839,7 +848,7 @@
       "type": "global-size-variable",
       "label": "radius-full",
       "value": "9999px",
-      "order": 99,
+      "order": 100,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -847,7 +856,7 @@
       "type": "global-size-variable",
       "label": "radius-input",
       "value": "6px",
-      "order": 100,
+      "order": 101,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -855,7 +864,7 @@
       "type": "global-size-variable",
       "label": "bw-hairline",
       "value": "0.5px",
-      "order": 101,
+      "order": 102,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -863,7 +872,7 @@
       "type": "global-size-variable",
       "label": "bw-thin",
       "value": "1px",
-      "order": 102,
+      "order": 103,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -871,7 +880,7 @@
       "type": "global-size-variable",
       "label": "bw-medium",
       "value": "2px",
-      "order": 103,
+      "order": 104,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -879,7 +888,7 @@
       "type": "global-size-variable",
       "label": "size-icon-sm",
       "value": "0.875rem",
-      "order": 104,
+      "order": 105,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -887,7 +896,7 @@
       "type": "global-size-variable",
       "label": "size-icon",
       "value": "1rem",
-      "order": 105,
+      "order": 106,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -895,7 +904,7 @@
       "type": "global-size-variable",
       "label": "size-icon-lg",
       "value": "1.25rem",
-      "order": 106,
+      "order": 107,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -903,7 +912,7 @@
       "type": "global-size-variable",
       "label": "size-icon-xl",
       "value": "1.5rem",
-      "order": 107,
+      "order": 108,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -911,7 +920,7 @@
       "type": "global-size-variable",
       "label": "target-min",
       "value": "24px",
-      "order": 108,
+      "order": 109,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -919,7 +928,7 @@
       "type": "global-size-variable",
       "label": "target-comfortable",
       "value": "44px",
-      "order": 109,
+      "order": 110,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -927,7 +936,7 @@
       "type": "global-custom-size-variable",
       "label": "density-control-height",
       "value": "calc(2.5rem * 0.9)",
-      "order": 110,
+      "order": 111,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -935,7 +944,7 @@
       "type": "global-size-variable",
       "label": "container-narrow",
       "value": "40rem",
-      "order": 111,
+      "order": 112,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -943,7 +952,7 @@
       "type": "global-size-variable",
       "label": "container-default",
       "value": "80rem",
-      "order": 112,
+      "order": 113,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -951,7 +960,7 @@
       "type": "global-size-variable",
       "label": "container-wide",
       "value": "100%",
-      "order": 113,
+      "order": 114,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -959,7 +968,7 @@
       "type": "global-size-variable",
       "label": "container-prose",
       "value": "65ch",
-      "order": 114,
+      "order": 115,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -967,7 +976,7 @@
       "type": "global-size-variable",
       "label": "w-sm",
       "value": "20rem",
-      "order": 115,
+      "order": 116,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -975,7 +984,7 @@
       "type": "global-size-variable",
       "label": "w-md",
       "value": "24rem",
-      "order": 116,
+      "order": 117,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -983,7 +992,7 @@
       "type": "global-size-variable",
       "label": "w-lg",
       "value": "28rem",
-      "order": 117,
+      "order": 118,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -991,7 +1000,7 @@
       "type": "global-size-variable",
       "label": "w-xl",
       "value": "32rem",
-      "order": 118,
+      "order": 119,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     },
@@ -999,11 +1008,11 @@
       "type": "global-size-variable",
       "label": "grid-min",
       "value": "14rem",
-      "order": 119,
+      "order": 120,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
     }
   },
-  "watermark": 119,
+  "watermark": 120,
   "version": 1
 }

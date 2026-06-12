@@ -1,0 +1,213 @@
+{
+  "version": "0.4",
+  "title": "Services — Three Column Feature Cards",
+  "type": "section",
+  "description": "Services showcase with icon, title, description, and CTA link per service. 3-column layout.",
+  "elements": [
+    {
+      "id": "services-section",
+      "elType": "section",
+      "settings": {
+        "_title": "Services Section",
+        "background_background": "classic",
+        "background_color": "var(--color-surface)",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "20",
+          "bottom": "80",
+          "left": "20",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "services-container",
+          "elType": "container",
+          "settings": {
+            "_title": "Services Container",
+            "layout": "flex",
+            "flex_direction": "column",
+            "gap": {
+              "unit": "px",
+              "size": "64"
+            },
+            "max_width": {
+              "unit": "px",
+              "size": "1200"
+            },
+            "margin": {
+              "unit": "px",
+              "top": "0",
+              "right": "auto",
+              "bottom": "0",
+              "left": "auto"
+            }
+          },
+          "elements": [
+            {
+              "id": "services-header",
+              "elType": "container",
+              "settings": {
+                "_title": "Services Header",
+                "layout": "flex",
+                "flex_direction": "column",
+                "gap": {
+                  "unit": "px",
+                  "size": "16"
+                },
+                "align_items_flex_start": "center",
+                "justify_content_flex_start": "center",
+                "text_align": "center",
+                "max_width": {
+                  "unit": "px",
+                  "size": "600"
+                }
+              },
+              "elements": [
+                {
+                  "id": "services-title",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "_title": "Services Title",
+                    "title": "Our Services",
+                    "header_size": "h2",
+                    "html_tag": "h2",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": "48"
+                    },
+                    "text_color": "var(--color-fg)"
+                  }
+                },
+                {
+                  "id": "services-description",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "_title": "Services Description",
+                    "editor": "<p class=\"t-body-lg\" style=\"color: var(--color-muted); margin: 0;\">Everything you need to build with design system confidence.</p>"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "services-grid",
+              "elType": "container",
+              "settings": {
+                "_title": "Services Grid",
+                "layout": "grid",
+                "grid_columns": {
+                  "size": "3",
+                  "unit": ""
+                },
+                "gap": {
+                  "unit": "px",
+                  "size": "32"
+                },
+                "width": {
+                  "unit": "%",
+                  "size": "100"
+                }
+              },
+              "elements": [
+                {
+                  "id": "service-card-1",
+                  "elType": "container",
+                  "settings": {
+                    "_title": "Service Card 1",
+                    "layout": "flex",
+                    "flex_direction": "column",
+                    "gap": {
+                      "unit": "px",
+                      "size": "20"
+                    },
+                    "align_items_flex_start": "flex-start",
+                    "justify_content_flex_start": "flex-start",
+                    "padding": {
+                      "unit": "px",
+                      "top": "32",
+                      "right": "32",
+                      "bottom": "32",
+                      "left": "32",
+                      "isLinked": false
+                    },
+                    "border_border": "solid",
+                    "border_width": {
+                      "unit": "px",
+                      "top": "1",
+                      "right": "1",
+                      "bottom": "1",
+                      "left": "1"
+                    },
+                    "border_color": "var(--color-border)",
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "8",
+                      "right": "8",
+                      "bottom": "8",
+                      "left": "8"
+                    },
+                    "background_background": "classic",
+                    "background_color": "var(--color-bg)"
+                  },
+                  "elements": [
+                    {
+                      "id": "service-icon-1",
+                      "elType": "widget",
+                      "widgetType": "icon",
+                      "settings": {
+                        "_title": "Service Icon",
+                        "icon": "fas fa-cogs",
+                        "icon_color": "var(--color-accent)",
+                        "icon_size": {
+                          "unit": "px",
+                          "size": "40"
+                        }
+                      }
+                    },
+                    {
+                      "id": "service-title-1",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "_title": "Service Title",
+                        "title": "Design Tokens",
+                        "header_size": "h3",
+                        "html_tag": "h3",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": "20"
+                        },
+                        "text_color": "var(--color-fg)"
+                      }
+                    },
+                    {
+                      "id": "service-description-1",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "settings": {
+                        "_title": "Service Description",
+                        "editor": "<p class=\"t-body-sm\" style=\"color: var(--color-muted); margin: 0;\">Semantic tokens for colors, typography, spacing, and shadows. Machine-generated, WCAG AA compliant.</p>"
+                      }
+                    },
+                    {
+                      "id": "service-link-1",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "settings": {
+                        "_title": "Service Link",
+                        "editor": "<p style=\"margin: 0; margin-top: 8px;\"><a href=\"#\" class=\"link\" style=\"color: var(--color-accent); font-size: 14px; font-weight: 600; text-decoration: none;\">Learn more →</a></p>"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

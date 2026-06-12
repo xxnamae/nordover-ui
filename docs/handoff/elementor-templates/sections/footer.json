@@ -1,0 +1,402 @@
+{
+  "version": "0.4",
+  "title": "Footer — Multi-Column with Links",
+  "type": "section",
+  "description": "Footer with logo, multiple link columns, newsletter signup, social icons, and copyright.",
+  "elements": [
+    {
+      "id": "footer-section",
+      "elType": "section",
+      "settings": {
+        "_title": "Footer Section",
+        "background_background": "classic",
+        "background_color": "var(--color-bg)",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "20",
+          "bottom": "40",
+          "left": "20",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "footer-container",
+          "elType": "container",
+          "settings": {
+            "_title": "Footer Container",
+            "layout": "grid",
+            "grid_columns": {
+              "size": "4",
+              "unit": ""
+            },
+            "gap": {
+              "unit": "px",
+              "size": "48"
+            },
+            "max_width": {
+              "unit": "px",
+              "size": "1200"
+            },
+            "margin": {
+              "unit": "px",
+              "top": "0",
+              "right": "auto",
+              "bottom": "48",
+              "left": "auto"
+            }
+          },
+          "elements": [
+            {
+              "id": "footer-brand",
+              "elType": "container",
+              "settings": {
+                "_title": "Brand Column",
+                "layout": "flex",
+                "flex_direction": "column",
+                "gap": {
+                  "unit": "px",
+                  "size": "16"
+                }
+              },
+              "elements": [
+                {
+                  "id": "footer-logo",
+                  "elType": "widget",
+                  "widgetType": "image",
+                  "settings": {
+                    "_title": "Footer Logo",
+                    "image": {
+                      "url": "https://via.placeholder.com/120x40"
+                    },
+                    "image_size": "medium",
+                    "caption": "Nordover"
+                  }
+                },
+                {
+                  "id": "footer-description",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "_title": "Brand Description",
+                    "editor": "<p class=\"t-body-sm\" style=\"color: var(--color-muted); margin: 0;\">Building the universal design system for every application and website.</p>"
+                  }
+                },
+                {
+                  "id": "footer-social",
+                  "elType": "container",
+                  "settings": {
+                    "_title": "Social Links",
+                    "layout": "flex",
+                    "flex_direction": "row",
+                    "gap": {
+                      "unit": "px",
+                      "size": "12"
+                    }
+                  },
+                  "elements": [
+                    {
+                      "id": "social-link-twitter",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "settings": {
+                        "_title": "Twitter",
+                        "text": "𝕏",
+                        "link": {
+                          "url": "https://twitter.com"
+                        },
+                        "button_type": "secondary",
+                        "size": "sm",
+                        "custom_class": "btn btn-ghost"
+                      }
+                    },
+                    {
+                      "id": "social-link-github",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "settings": {
+                        "_title": "GitHub",
+                        "text": "GitHub",
+                        "link": {
+                          "url": "https://github.com"
+                        },
+                        "button_type": "secondary",
+                        "size": "sm",
+                        "custom_class": "btn btn-ghost"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "footer-column-1",
+              "elType": "container",
+              "settings": {
+                "_title": "Product Links",
+                "layout": "flex",
+                "flex_direction": "column",
+                "gap": {
+                  "unit": "px",
+                  "size": "12"
+                }
+              },
+              "elements": [
+                {
+                  "id": "footer-col1-title",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "_title": "Column Title",
+                    "title": "Product",
+                    "header_size": "h4",
+                    "html_tag": "h4",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": "14"
+                    },
+                    "typography_font_weight": "600",
+                    "text_color": "var(--color-fg)"
+                  }
+                },
+                {
+                  "id": "footer-col1-link1",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "_title": "Link 1",
+                    "editor": "<p style=\"margin: 0;\"><a href=\"#\" class=\"link\" style=\"color: var(--color-muted); text-decoration: none;\">Features</a></p>"
+                  }
+                },
+                {
+                  "id": "footer-col1-link2",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "_title": "Link 2",
+                    "editor": "<p style=\"margin: 0;\"><a href=\"#\" class=\"link\" style=\"color: var(--color-muted); text-decoration: none;\">Pricing</a></p>"
+                  }
+                },
+                {
+                  "id": "footer-col1-link3",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "_title": "Link 3",
+                    "editor": "<p style=\"margin: 0;\"><a href=\"#\" class=\"link\" style=\"color: var(--color-muted); text-decoration: none;\">Docs</a></p>"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "footer-column-2",
+              "elType": "container",
+              "settings": {
+                "_title": "Company Links",
+                "layout": "flex",
+                "flex_direction": "column",
+                "gap": {
+                  "unit": "px",
+                  "size": "12"
+                }
+              },
+              "elements": [
+                {
+                  "id": "footer-col2-title",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "_title": "Column Title",
+                    "title": "Company",
+                    "header_size": "h4",
+                    "html_tag": "h4",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": "14"
+                    },
+                    "typography_font_weight": "600",
+                    "text_color": "var(--color-fg)"
+                  }
+                },
+                {
+                  "id": "footer-col2-link1",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "_title": "Link 1",
+                    "editor": "<p style=\"margin: 0;\"><a href=\"#\" class=\"link\" style=\"color: var(--color-muted); text-decoration: none;\">About</a></p>"
+                  }
+                },
+                {
+                  "id": "footer-col2-link2",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "_title": "Link 2",
+                    "editor": "<p style=\"margin: 0;\"><a href=\"#\" class=\"link\" style=\"color: var(--color-muted); text-decoration: none;\">Blog</a></p>"
+                  }
+                },
+                {
+                  "id": "footer-col2-link3",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "_title": "Link 3",
+                    "editor": "<p style=\"margin: 0;\"><a href=\"#\" class=\"link\" style=\"color: var(--color-muted); text-decoration: none;\">Careers</a></p>"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "footer-column-3",
+              "elType": "container",
+              "settings": {
+                "_title": "Legal Links",
+                "layout": "flex",
+                "flex_direction": "column",
+                "gap": {
+                  "unit": "px",
+                  "size": "12"
+                }
+              },
+              "elements": [
+                {
+                  "id": "footer-col3-title",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "_title": "Column Title",
+                    "title": "Legal",
+                    "header_size": "h4",
+                    "html_tag": "h4",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": "14"
+                    },
+                    "typography_font_weight": "600",
+                    "text_color": "var(--color-fg)"
+                  }
+                },
+                {
+                  "id": "footer-col3-link1",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "_title": "Link 1",
+                    "editor": "<p style=\"margin: 0;\"><a href=\"#\" class=\"link\" style=\"color: var(--color-muted); text-decoration: none;\">Privacy</a></p>"
+                  }
+                },
+                {
+                  "id": "footer-col3-link2",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "_title": "Link 2",
+                    "editor": "<p style=\"margin: 0;\"><a href=\"#\" class=\"link\" style=\"color: var(--color-muted); text-decoration: none;\">Terms</a></p>"
+                  }
+                },
+                {
+                  "id": "footer-col3-link3",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "_title": "Link 3",
+                    "editor": "<p style=\"margin: 0;\"><a href=\"#\" class=\"link\" style=\"color: var(--color-muted); text-decoration: none;\">License</a></p>"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "footer-divider",
+          "elType": "widget",
+          "widgetType": "divider",
+          "settings": {
+            "_title": "Divider",
+            "divider_weight": {
+              "unit": "px",
+              "size": "1"
+            },
+            "divider_color": "var(--color-border)"
+          }
+        },
+        {
+          "id": "footer-bottom",
+          "elType": "container",
+          "settings": {
+            "_title": "Bottom Section",
+            "layout": "flex",
+            "flex_direction": "row",
+            "gap": {
+              "unit": "px",
+              "size": "24"
+            },
+            "max_width": {
+              "unit": "px",
+              "size": "1200"
+            },
+            "margin": {
+              "unit": "px",
+              "top": "0",
+              "right": "auto",
+              "bottom": "0",
+              "left": "auto"
+            },
+            "align_items_flex_start": "center",
+            "justify_content_flex_start": "space-between",
+            "width": {
+              "unit": "%",
+              "size": "100"
+            }
+          },
+          "elements": [
+            {
+              "id": "footer-copyright",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "_title": "Copyright",
+                "editor": "<p class=\"t-body-sm\" style=\"color: var(--color-muted); margin: 0;\">© 2026 Nordover. All rights reserved.</p>"
+              }
+            },
+            {
+              "id": "footer-legal-links",
+              "elType": "container",
+              "settings": {
+                "_title": "Legal Links",
+                "layout": "flex",
+                "flex_direction": "row",
+                "gap": {
+                  "unit": "px",
+                  "size": "24"
+                }
+              },
+              "elements": [
+                {
+                  "id": "footer-legal-link1",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "_title": "Privacy Link",
+                    "editor": "<p style=\"margin: 0;\"><a href=\"#\" class=\"link\" style=\"color: var(--color-muted); font-size: 14px; text-decoration: none;\">Privacy Policy</a></p>"
+                  }
+                },
+                {
+                  "id": "footer-legal-link2",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "_title": "Terms Link",
+                    "editor": "<p style=\"margin: 0;\"><a href=\"#\" class=\"link\" style=\"color: var(--color-muted); font-size: 14px; text-decoration: none;\">Terms of Service</a></p>"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

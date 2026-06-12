@@ -1,0 +1,228 @@
+{
+  "version": "0.4",
+  "title": "Nordover Design System Kit (App Package)",
+  "type": "kit",
+  "description": "Global variables and styling kit for Elementor v4+ with Nordover app tokens (dark/compact/SaaS).",
+  "global_variables": {
+    "colors": {
+      "primary": {
+        "value": "var(--color-accent)",
+        "label": "Primary / Accent"
+      },
+      "secondary": {
+        "value": "var(--color-secondary)",
+        "label": "Secondary"
+      },
+      "success": {
+        "value": "var(--color-success)",
+        "label": "Success"
+      },
+      "warning": {
+        "value": "var(--color-warning)",
+        "label": "Warning"
+      },
+      "error": {
+        "value": "var(--color-error)",
+        "label": "Error"
+      },
+      "info": {
+        "value": "var(--color-info)",
+        "label": "Info"
+      },
+      "fg": {
+        "value": "var(--color-fg)",
+        "label": "Foreground (Text)"
+      },
+      "bg": {
+        "value": "var(--color-bg)",
+        "label": "Background"
+      },
+      "surface": {
+        "value": "var(--color-surface)",
+        "label": "Surface"
+      },
+      "surface-elevated": {
+        "value": "var(--color-surface-elevated)",
+        "label": "Surface Elevated"
+      },
+      "muted": {
+        "value": "var(--color-muted)",
+        "label": "Muted Text"
+      },
+      "border": {
+        "value": "var(--color-border)",
+        "label": "Border"
+      }
+    },
+    "typography": {
+      "display-xl": {
+        "font-size": "48px",
+        "font-weight": "700",
+        "line-height": "1.2",
+        "label": "Display XL"
+      },
+      "display-lg": {
+        "font-size": "40px",
+        "font-weight": "700",
+        "line-height": "1.2",
+        "label": "Display LG"
+      },
+      "heading-2xl": {
+        "font-size": "36px",
+        "font-weight": "700",
+        "line-height": "1.3",
+        "label": "Heading 2XL"
+      },
+      "heading-xl": {
+        "font-size": "32px",
+        "font-weight": "700",
+        "line-height": "1.3",
+        "label": "Heading XL"
+      },
+      "heading-lg": {
+        "font-size": "28px",
+        "font-weight": "700",
+        "line-height": "1.3",
+        "label": "Heading LG"
+      },
+      "heading-md": {
+        "font-size": "24px",
+        "font-weight": "700",
+        "line-height": "1.3",
+        "label": "Heading MD"
+      },
+      "heading-sm": {
+        "font-size": "20px",
+        "font-weight": "700",
+        "line-height": "1.4",
+        "label": "Heading SM"
+      },
+      "heading-xs": {
+        "font-size": "18px",
+        "font-weight": "700",
+        "line-height": "1.4",
+        "label": "Heading XS"
+      },
+      "body-lg": {
+        "font-size": "16px",
+        "font-weight": "400",
+        "line-height": "1.5",
+        "label": "Body LG"
+      },
+      "body-md": {
+        "font-size": "14px",
+        "font-weight": "400",
+        "line-height": "1.5",
+        "label": "Body MD"
+      },
+      "body-sm": {
+        "font-size": "12px",
+        "font-weight": "400",
+        "line-height": "1.4",
+        "label": "Body SM"
+      },
+      "body-xs": {
+        "font-size": "11px",
+        "font-weight": "400",
+        "line-height": "1.4",
+        "label": "Body XS"
+      }
+    },
+    "spacing": {
+      "xs": {
+        "value": "4px",
+        "label": "Extra Small"
+      },
+      "sm": {
+        "value": "8px",
+        "label": "Small"
+      },
+      "md": {
+        "value": "16px",
+        "label": "Medium"
+      },
+      "lg": {
+        "value": "24px",
+        "label": "Large"
+      },
+      "xl": {
+        "value": "32px",
+        "label": "Extra Large"
+      },
+      "2xl": {
+        "value": "48px",
+        "label": "2X Large"
+      },
+      "3xl": {
+        "value": "64px",
+        "label": "3X Large"
+      }
+    },
+    "sizing": {
+      "content-max-width": {
+        "value": "1200px",
+        "label": "Content Max Width"
+      },
+      "sidebar-width": {
+        "value": "280px",
+        "label": "Sidebar Width"
+      },
+      "touch-target-min": {
+        "value": "44px",
+        "label": "Touch Target Min"
+      }
+    },
+    "border-radius": {
+      "none": {
+        "value": "0",
+        "label": "None"
+      },
+      "sm": {
+        "value": "4px",
+        "label": "Small"
+      },
+      "md": {
+        "value": "8px",
+        "label": "Medium"
+      },
+      "lg": {
+        "value": "12px",
+        "label": "Large"
+      },
+      "full": {
+        "value": "9999px",
+        "label": "Full"
+      }
+    },
+    "shadows": {
+      "none": {
+        "value": "none",
+        "label": "None"
+      },
+      "sm": {
+        "value": "var(--shadow-sm)",
+        "label": "Small"
+      },
+      "md": {
+        "value": "var(--shadow-md)",
+        "label": "Medium"
+      },
+      "lg": {
+        "value": "var(--shadow-lg)",
+        "label": "Large"
+      },
+      "xl": {
+        "value": "var(--shadow-xl)",
+        "label": "Extra Large"
+      }
+    }
+  },
+  "settings": {
+    "_title": "Nordover App Kit",
+    "package": "app",
+    "description": "Dark mode, compact SaaS interface, designed for productivity",
+    "color_scheme": "dark",
+    "density": "compact",
+    "notes": "This kit maps all global variables to Nordover app package tokens. Use @layer brand to override token values per-project."
+  }
+}
