@@ -124,6 +124,13 @@ html, body {
   justify-content: center;
 }
 
+/* Collapsed: the narrow rail can't fit mark + chevron on one row, so the
+   chevron wraps below — drop the auto-margin so it centers instead of
+   jamming against the right edge. */
+#collapse:checked ~ .app .app-sidebar .app-sidebar-brand-actions {
+  margin-left: 0;
+}
+
 #collapse:checked ~ .app .app-sidebar .app-sidebar-tagline,
 #collapse:checked ~ .app .app-sidebar .app-sidebar-meta-links,
 #collapse:checked ~ .app .app-nav-group {
@@ -177,6 +184,13 @@ html, body {
   margin-bottom: var(--space-3);
   justify-content: space-between;
   flex-wrap: wrap;
+}
+
+/* Collapse / close controls sit at the end of the brand row. */
+.app-sidebar-brand-actions {
+  display: flex;
+  gap: var(--space-2);
+  margin-left: auto;
 }
 
 .app-sidebar-brand-mark {
