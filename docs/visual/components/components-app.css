@@ -303,7 +303,7 @@
   .app-content {
     flex: 1;
     overflow-y: auto;
-    padding: 0.75rem 0.75rem;
+    padding: var(--space-3);
     background: var(--color-bg);
   }
 
@@ -547,7 +547,7 @@
   @media (max-width: 48rem) /* --bp-desktop */ {
     /* Tighter spacing on mobile */
     .app-content {
-      padding: 0.75rem 0.75rem;
+      padding: var(--space-3);
     }
 
     .cluster {
@@ -873,7 +873,7 @@
   .stepper { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-6); }
   .stepper-step { display: flex; flex-direction: column; align-items: center; flex: 1; position: relative; }
   .stepper-step:not(:last-child)::after {
-    content: ""; position: absolute; top: 1.25rem; inset-inline-start: 50%; inset-inline-end: -50%; height: 2px;
+    content: ""; position: absolute; top: var(--space-5); inset-inline-start: 50%; inset-inline-end: -50%; height: var(--bw-medium);
     background: var(--color-border); z-index: -1;
   }
   .stepper-step.is-active::after { background: var(--color-accent); }
@@ -1012,7 +1012,7 @@
 
   /* Additional foundational patterns */
   .divider { height: 1px; background: var(--color-border); margin: var(--space-3) 0; }
-  .spinner { display: inline-block; width: 1.25rem; height: 1.25rem; border: 2px solid var(--color-border); border-top-color: var(--color-accent); border-radius: 50%; animation: spin var(--duration-base) linear infinite; }
+  .spinner { display: inline-block; width: var(--size-icon-lg); height: var(--size-icon-lg); border: 2px solid var(--color-border); border-top-color: var(--color-accent); border-radius: 50%; animation: spin var(--duration-base) linear infinite; }
   .breadcrumbs { display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-2); font-size: var(--text-sm); }
   .breadcrumb-item { display: flex; align-items: center; }
   .breadcrumb-item::after { content: "•"; margin-inline-start: var(--space-2); color: var(--color-muted); }

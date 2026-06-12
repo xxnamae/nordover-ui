@@ -328,7 +328,7 @@
   .app-content {
     flex: 1;
     overflow-y: auto;
-    padding: 0.75rem 0.75rem;
+    padding: var(--space-3);
     background: var(--color-bg);
   }
 
@@ -1148,7 +1148,7 @@
   .stepper { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-8); }
   .stepper-step { display: flex; flex-direction: column; align-items: center; flex: 1; position: relative; }
   .stepper-step:not(:last-child)::after {
-    content: ""; position: absolute; top: var(--space-5); inset-inline-start: 50%; inset-inline-end: -50%; height: 2px;
+    content: ""; position: absolute; top: var(--space-5); inset-inline-start: 50%; inset-inline-end: -50%; height: var(--bw-medium);
     background: var(--color-border); z-index: -1;
   }
   .stepper-step.is-active::after { background: var(--color-accent); }
