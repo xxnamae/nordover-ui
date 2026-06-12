@@ -96,6 +96,7 @@
     /* === Fluid type-skala (rem-clamp, ratio 1.2 → 1.333) === */
     --text-2xs: 0.65rem;
     --text-xs: 0.75rem;
+    --text-xs-lg: 0.8125rem; /* 13px for body-xs */
     --text-sm: 0.875rem;
     --text-base: 1rem;
     --text-md: clamp(1.0625rem, 1.04rem + 0.11vw, 1.125rem);

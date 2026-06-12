@@ -39,6 +39,13 @@
           "unit": "rem"
         }
       },
+      "xs-lg": {
+        "$type": "dimension",
+        "$value": {
+          "value": 0.8125,
+          "unit": "rem"
+        }
+      },
       "sm": {
         "$type": "dimension",
         "$value": {
