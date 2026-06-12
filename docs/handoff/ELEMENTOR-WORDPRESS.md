@@ -14,7 +14,21 @@ with apps/sites that use the full framework.
 
 ---
 
-## Step 1 — Load the tokens once (site-wide)
+## Quick start — Which version are you using?
+
+| You're using | Path | Effort |
+|---|---|---|
+| **Elementor v3** (older, Classic Editor) | Token paste + manual Global Color/Font mapping | ~30 min setup |
+| **Elementor v4** (new, with Editor V4) | JSON import (automatic) or token paste | ~5 min setup (JSON) or ~30 min (manual) |
+
+**Check your version:** Elementor → Dashboard → About → Version number. Or open
+the editor; if you see a "Variables Manager" or "Global" menu, it's v4.
+
+---
+
+## Elementor v3 — Token paste + manual mapping
+
+### Step 1 — Load the tokens once (site-wide)
 
 **Elementor → Site Settings → Custom CSS** (Pro) or **Appearance → Customize →
 Additional CSS**. Paste the Nordover token block so every page can use
@@ -39,9 +53,7 @@ CSS field. This is the most robust for WordPress hosting.
 
 Either way you now have the full token set available globally.
 
----
-
-## Step 2 — Map the core tokens into Elementor's managers
+### Step 2 — Map the core tokens into Elementor's managers (v3 only)
 
 Elementor has native **Global Colors** and **Global Fonts** (and a Variables
 Manager in v3.33+/Editor V4). Recreate Nordover's semantic names there and set
@@ -95,7 +107,7 @@ Reuse the spacing scale instead of typing pixel values into widgets:
 
 ---
 
-## Step 3 — Use the tokens while building
+### Step 3 — Use the tokens while building (v3 & v4)
 
 Anywhere Elementor exposes a **Custom CSS** box (widget, container, or
 site-wide) you can reference the tokens directly:
@@ -125,6 +137,60 @@ already pulls the Nordover value.
 
 ---
 
+## Elementor v4 — JSON import (recommended)
+
+If you're using **Elementor 3.33+ with Editor V4**, the fastest path is to
+**import a pre-made Variables Manager JSON** that gives you all Nordover tokens
+as native variables. No manual mapping needed.
+
+### Step 1 — Import the variables JSON
+
+1. Go to **Elementor → Dashboard → Kits**
+2. Open your site kit (or create one)
+3. **Tools → Import** (or use WordPress admin **Tools → Import**)
+4. Upload `nordover-elementor-v4-web.json` or `nordover-elementor-v4-app.json`
+   - **v4-web.json** for marketing/editorial sites (airy spacing, large type)
+   - **v4-app.json** for dense app-like dashboards (compact spacing)
+5. After import, **Tools → Regenerate CSS & Data** (Elementor rebuilds the CSS)
+
+All 254 Nordover tokens are now available in every color/typography/size picker.
+
+### Step 2 — Use the variables while building
+
+When you open the editor:
+- **Color picker** → you see *Nordover colors* (color-accent, color-success, etc.)
+- **Typography panel** → you see *Nordover fonts and sizes* (text-base, text-2xl, etc.)
+- **Spacing fields** → you see *Nordover spacing scale* (space-4, space-8, etc.)
+
+Pick from the list instead of typing pixel values.
+
+### What the JSON contains
+
+| Variable type | Examples | Notes |
+|---|---|---|
+| `global-color-variable` | color-accent, color-fg, color-success | Colours resolved to hex (no OKLCH runtime) |
+| `global-font-variable` | font-sans, font-display | Font family names (first in stack) |
+| `global-size-variable` | space-4, space-8, radius-md | Simple pixel/rem values |
+| `global-custom-size-variable` | text-4xl, text-lg | Fluid sizes (keep `clamp()`) |
+
+**Not included in JSON** (use Custom CSS instead):
+- Font weights, line-height, letter-spacing
+- Motion (durations, easings)
+- Shadows, gradients, glass
+- Dark mode overrides
+
+### Regenerate when tokens change
+
+Whenever Nordover's tokens update, regenerate the JSON:
+```bash
+npm run build:elementor  # in the nordover-ui repo
+```
+
+Upload the new JSON to your Elementor kit (re-import replaces old variables).
+CI ensures the JSON stays in sync with the CSS.
+
+---
+
 ## Light / dark
 
 Nordover flips theme via `:root:has(#dark:checked)` (or a `data-theme`
@@ -143,81 +209,28 @@ selector {
 
 ---
 
-## Gotchas
+## Gotchas (both v3 & v4)
 
-- **Custom CSS variables defined in the Customizer's “Additional CSS”** are
-  usable in Elementor Custom CSS fields, but they won't appear inside
-  Elementor's Global managers. Define them once (Step 1) and they cascade.
 - **Don't paste the component CSS** (`components-*.css`) expecting `.btn`/`.card`
   to style Elementor widgets — the widget markup differs. Tokens are the
   contract that travels cleanly.
 - **Keep the token names** as the single source of truth. When the design
-  system updates a value, update it in one place (Step 1) and the whole site
-  follows.
-- Match the package to the project: `tokens-web.css` (airy, editorial) for
-  marketing sites; `tokens-app.css` (compact) only for dashboard-like builds.
-
----
-
-## Native Variables for Editor V4 (Elementor 3.33+/4.x)
-
-If you run **Editor V4**, you don't have to map tokens by hand — Nordover ships
-a ready-made **Variables Manager** import that recreates the whole token set as
-native v4 variables (so they appear in every colour/typography/size picker).
-
-**Files** (generated from the canonical CSS, never hand-edited):
-
-| Package | File |
-|---|---|
-| Web (editorial) | `docs/handoff/nordover-elementor-v4-web.json` |
-| App (dense UI) | `docs/handoff/nordover-elementor-v4-app.json` |
-
-**Import:** Elementor → *Variables Manager* → import the JSON (or drop it into a
-kit and use **Tools → Import**), then **Tools → Regenerate CSS & Data**.
-
-**What you get** — four native variable types, mapped from the tokens:
-
-| Elementor type | From | Example |
-|---|---|---|
-| `global-color-variable` | colours (OKLCH/`color-mix` **resolved to hex**) | `color-accent → #060709` |
-| `global-font-variable` | font stacks (first family) | `font-display → Inter Tight` |
-| `global-size-variable` | simple dimensions | `space-4 → 1rem` |
-| `global-custom-size-variable` | fluid values (**`clamp()` kept intact**) | `text-4xl → clamp(2.25rem, …, 3.5rem)` |
-
-**Regenerate** after any token change: `npm run build:elementor` (CI enforces
-the JSON stays in sync with the CSS, exactly like the DTCG token JSON).
-
-### Honest limitations of the native route
-
-- **Colours are concrete hex.** Elementor v4 colour variables can't hold OKLCH
-  or `color-mix()`, so they're pre-resolved. You lose the runtime-derived
-  relationship (e.g. changing `--color-accent` no longer recomputes
-  `accent-hover`); you get a faithful **snapshot** instead.
-- **No light/dark per variable.** Each variable holds one value, so the export
-  is the **light/base** set. Dark mode still needs the Custom-CSS route (with the
-  `:has(#dark:checked)` block) or a duplicate variable set.
-- **Excluded by design:** weights, line-height/letter-spacing, motion (durations/
-  easings), shadows, gradients and glass — none map to a v4 variable *type*. Use
-  the Custom-CSS paste for those.
-- **`watermark` is best-effort.** Elementor recomputes its internal sync counter
-  on import; the generated value is a placeholder.
-
-> **Which route?** Native variables give the best **editing UX** (real pickers,
-> on-brand by default). The Custom-CSS paste (top of this doc) is the most
-> **faithful** (keeps fluid type, derived colours and dark mode). They're not
-> exclusive — many teams import the variables *and* paste the CSS for the parts
-> variables can't express.
+  system updates a value, update it in one place and the whole site follows.
+- Match the package to the project: `tokens-web.css` or `v4-web.json` (airy,
+  editorial) for marketing sites; `tokens-app.css` or `v4-app.json` (compact)
+  only for dashboard-like builds.
+- **v4 JSON limitations:** colours are pre-resolved hex (no OKLCH runtime), no
+  dark-mode variants per variable, and shadows/motion/glass aren't included.
+  Use Custom CSS paste for those.
 
 ---
 
 ## Summary
 
-1. Load `tokens-web.css` once in Site Settings → Custom CSS (most faithful), **or**
-   import `nordover-elementor-v4-web.json` into the Variables Manager (best UX).
-2. Recreate Nordover's semantic colours/fonts as Elementor Global Colors/Fonts
-   (only needed for the Custom-CSS route).
-3. Build with native Elementor widgets; reference `var(--…)` where you need
-   custom styling.
+| Scenario | Steps | Files |
+|---|---|---|
+| **v3 (Classic Editor)** | 1. Paste tokens CSS<br>2. Map colors/fonts manually<br>3. Build with Elementor widgets | `tokens-web.css` or `tokens-app.css` |
+| **v4 (Editor V4)** | 1. Import JSON into Variables Manager<br>2. Build with Elementor widgets | `nordover-elementor-v4-web.json` or `nordover-elementor-v4-app.json` |
 
 You get Nordover's visual foundation across your WordPress site without
 fighting Elementor's markup — the same tokens your apps and sites use.
