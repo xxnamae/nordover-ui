@@ -1103,14 +1103,29 @@
             </tbody>
           </table>
 
+          <div class="doc-block-label">Tilgjengelighet (a11y)</div>
+          <table class="props-table">
+            <thead><tr><th>Aspekt</th><th>Krav</th><th>Implementering</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Label-binding</strong></td><td>Hver kontroll må ha label</td><td><code>&lt;label for="id"&gt;</code> knyttet til <code>&lt;input id="id"&gt;</code>, eller label wrappet rundt kontrollen</td></tr>
+              <tr><td><strong>Fokus</strong></td><td>Tab-navigering</td><td>Native form-elementer er fokusbare; `:focus-visible` styling inkludert</td></tr>
+              <tr><td><strong>Tastatur-aktivering</strong></td><td>Alle kontroller må fungere med tastatur</td><td>Native HTML inputs (Enter, Space for checkboxes). Switches kan toggles med Space</td></tr>
+              <tr><td><strong>Validering</strong></td><td>Feil må annonseres</td><td>Sett <code>aria-invalid="true"</code> på input og link med <code>aria-describedby="error-id"</code></td></tr>
+              <tr><td><strong>Hjelpetekst</strong></td><td>Veiledning annonseres</td><td><code>.field-help</code> og <code>.field-error</code> via <code>aria-describedby</code> på kontrollen</td></tr>
+              <tr><td><strong>Kontrast</strong></td><td>WCAG AA (4.5:1)</td><td>Label og hjelpetekst møter kontrast-krav; error-farge har 4.8:1 ✓</td></tr>
+              <tr><td><strong>Feltgrupper</strong></td><td>Relaterte radioknapper</td><td>Bruk <code>&lt;fieldset&gt;</code> + <code>&lt;legend&gt;</code> for gruppe av radioer</td></tr>
+              <tr><td><strong>Farge alene</strong></td><td>Ikke bruk bare farge for status</td><td>Kombiner <code>.is-error</code> farge med tekst-melding og <code>aria-invalid</code></td></tr>
+            </tbody>
+          </table>
+
           <div class="doc-a11y">
             <svg class="icon"><use href="#i-info"/></svg>
             <div class="doc-a11y-body">
-              <strong>Accessibility</strong>
+              <strong>Praksis</strong>
               <ul>
-                <li>Every control has a <code>&lt;label&gt;</code> bound by <code>for</code>/<code>id</code> — or wraps the control.</li>
-                <li>On error set <code>aria-invalid="true"</code> and link the message with <code>aria-describedby</code>.</li>
-                <li><code>.field-help</code> / <code>.field-error</code> should also be referenced via <code>aria-describedby</code> so they're announced.</li>
+                <li>Aldri bruk placeholder som eneste label — den forsvinner når brukeren skriver.</li>
+                <li>Hvis du har en switch: kun hvis endringen brukes umiddelbart. Ellers bruk checkbox.</li>
+                <li>Gruppe av relaterte radioer? Vrap i <code>&lt;fieldset&gt;</code> og gi en <code>&lt;legend&gt;</code>.</li>
               </ul>
             </div>
           </div>
@@ -1853,14 +1868,29 @@
             </div>
           </div>
 
+          <div class="doc-block-label">Tilgjengelighet (a11y)</div>
+          <table class="props-table">
+            <thead><tr><th>Aspekt</th><th>Krav</th><th>Implementering</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Interaktive kort</strong></td><td>Fokusbar</td><td>Bruk <code>&lt;a&gt;</code> eller <code>&lt;button&gt;</code> som wrapper når kortet er klikk­bart, ikke <code>&lt;div&gt;</code></td></tr>
+              <tr><td><strong>Fokus</strong></td><td>Tab-navigering</td><td>Native link/button element får `:focus-visible` styling automatisk</td></tr>
+              <tr><td><strong>Tastatur-aktivering</strong></td><td>Enter/Space</td><td>Native links og buttons håndterer detta automatisk</td></tr>
+              <tr><td><strong>Kort-tittel</strong></td><td>Heading level</td><td><code>.card-title</code> skal være en ekte heading (<code>&lt;h2&gt;, &lt;h3&gt;</code> osv.) som passer i sidestruttur</td></tr>
+              <tr><td><strong>Flere knappar</strong></td><td>Unngå flere interaktive elementer</td><td>Ein klar handling per kort. Hvis flere buttons er nødvendig, les tekstmessig på High-level først</td></tr>
+              <tr><td><strong>Seksjonsstruktur</strong></td><td>Overskrifter skal hierarkisk oppbygd</td><td>Hvis kortkolleksjon er en seksjon, start med passende heading-level før kortene</td></tr>
+              <tr><td><strong>Kontrast</strong></td><td>WCAG AA (4.5:1)</td><td>Card-titler og innhold møter kontrastkrav mot bakgrunnsfarge</td></tr>
+              <tr><td><strong>Fokus-rekkefølge</strong></td><td>Logisk Tab-rekkefølge</td><td>Kortene skal være i DOM-orden som reflekterer visuell orden; unnvik <code>tabindex</code></td></tr>
+            </tbody>
+          </table>
+
           <div class="doc-a11y">
             <svg class="icon"><use href="#i-info"/></svg>
             <div class="doc-a11y-body">
-              <strong>Accessibility</strong>
+              <strong>Praksis</strong>
               <ul>
-                <li>For a clickable card, make the wrapper a real <code>&lt;a&gt;</code> or <code>&lt;button&gt;</code> so it's focusable.</li>
-                <li>Use one clear link per card; avoid multiple nested interactive targets.</li>
-                <li><code>.card-title</code> should map to a heading level that fits the page outline.</li>
+                <li>Et interaktivt kort? Gjør hele <code>.card</code> til en <code>&lt;a&gt;</code>; tekst blir automatisk klikkbar.</li>
+                <li>Hva hvis kortet trenger flere ting man kan gjøre? Legg dem i en <code>.card-footer</code> med eksplisitte knappar, ikkje ein stor clickable kort.</li>
+                <li><code>.card-title</code> skal alltid vere eit heading-element (<code>&lt;h2&gt;</code> osv.), ikkje ein <code>&lt;span&gt;</code>.</li>
               </ul>
             </div>
           </div>
@@ -1968,14 +1998,29 @@
           </div>
 
           <!-- Accessibility -->
+          <div class="doc-block-label">Tilgjengelighet (a11y)</div>
+          <table class="props-table">
+            <thead><tr><th>Aspekt</th><th>Krav</th><th>Implementering</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Header-scope</strong></td><td>Skjermleser-assosiasjon</td><td>Bruk <code>&lt;th scope="col"&gt;</code> for kolonne-header og <code>&lt;th scope="row"&gt;</code> for rad-header</td></tr>
+              <tr><td><strong>Sortering</strong></td><td>Sort-tilstand annonsert</td><td>Bruk native <code>aria-sort="ascending|descending|none"</code> på sortable headers; ikkje berre visuelle symbol (▲▼)</td></tr>
+              <tr><td><strong>Valgt rad</strong></td><td>Valg må vere tilgjengelig</td><td>Bruk <code>aria-selected="true"</code> eller <code>aria-checked="true"</code> på valgt rad/checkbox, ikkje berre farge</td></tr>
+              <tr><td><strong>Tall-justering</strong></td><td>Numeriske kolonner klare</td><td><code>.table-numeric</code> høgrer-justerer og bruker tabulare tal; kombinert med semantikk gir tilgang</td></tr>
+              <tr><td><strong>Filtermeny</strong></td><td>Søk og filtrering tilgjengelig</td><td>Søk-input og filter-select skal ha <code>aria-label</code> (tekstmessig merking)</td></tr>
+              <tr><td><strong>Responsiv scroll</strong></td><td>Breie tabellar på mobil</td><td><code>.table-responsive</code> wrapper tillater horisontalt scroll; tabell er ikkje skjult</td></tr>
+              <tr><td><strong>Fokus på sortbar</strong></td><td>Tab-navigering til sortering</td><td>Sortable header cells kan vere knappelignende med <code>role="button"</code> eller ekte knappar</td></tr>
+              <tr><td><strong>Kontrast</strong></td><td>WCAG AA (4.5:1)</td><td>Tabell-tekst, header-bakgrunn, og alternativ-rad-fargar møter kontrastkrav</td></tr>
+            </tbody>
+          </table>
+
           <div class="doc-a11y">
             <svg class="icon"><use href="#i-info"/></svg>
             <div class="doc-a11y-body">
-              <strong>Accessibility</strong>
+              <strong>Praksis</strong>
               <ul>
-                <li>Use real <code>&lt;th&gt;</code> with <code>scope="col"</code>/<code>scope="row"</code> so screen readers announce headers.</li>
-                <li>Sort state lives on <code>aria-sort="ascending|descending"</code> — it's announced natively; never rely on the ▲▼ glyph alone.</li>
-                <li>Selected rows use <code>aria-selected="true"</code>, not colour alone.</li>
+                <li>Aldri <code>&lt;div&gt;</code> som tabell-celle — bruk <code>&lt;td&gt;</code> og <code>&lt;th&gt;</code>.</li>
+                <li>Sortering: Set <code>aria-sort</code> til "ascending" når du initierer, og oppdater det når brukaren sorter på nytt.</li>
+                <li>Hvis tabell er stor: Vurder paginering for performance, men endringar skal ikkje reset fokus.</li>
               </ul>
             </div>
           </div>
@@ -2242,14 +2287,29 @@
             </div>
           </div>
 
+          <div class="doc-block-label">Tilgjengelighet (a11y)</div>
+          <table class="props-table">
+            <thead><tr><th>Aspekt</th><th>Krav</th><th>Implementering</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Dialog-rolle</strong></td><td>Skjermleser-annonsering</td><td>Bruk native <code>&lt;dialog&gt;</code> element eller <code>role="dialog"</code> + <code>aria-modal="true"</code></td></tr>
+              <tr><td><strong>Tittel</strong></td><td>Dialog må ha tittel</td><td>Set <code>aria-labelledby="header-id"</code> som peiker på <code>.modal-header</code> med heading-element</td></tr>
+              <tr><td><strong>Fokus-trapping</strong></td><td>Tab skal ikkje leke ut</td><td>Med JavaScript: trap focus slik at Tab cyklerer innom dialog-innholdet berre. Esc lukka dialogen.</td></tr>
+              <tr><td><strong>Fokus-return</strong></td><td>Fokus til trigger på lukking</td><td>Når dialog lukka, returner fokus til knappen som opna den</td></tr>
+              <tr><td><strong>Bakgrunns-innhald</strong></td><td>Kan ikkje interagera</td><td>Inert backdrop (klikkbar lukking); background-innholdet skal ikkje vere Tab-navigerbar</td></tr>
+              <tr><td><strong>Lukka-knapp</strong></td><td>Tydelig avslutning</td><td><code>&lt;button&gt;</code> i header med <code>aria-label="Close"</code> eller synlig tekst</td></tr>
+              <tr><td><strong>Tastatur-escape</strong></td><td>Esc lukkar</td><td>Esc-tastetilslag skal lukka dialogen (JavaScript)</td></tr>
+              <tr><td><strong>Kontrast</strong></td><td>WCAG AA (4.5:1)</td><td>Dialog-tekst og knapper møter kontrastkrav mot bakgrunn</td></tr>
+            </tbody>
+          </table>
+
           <div class="doc-a11y">
             <svg class="icon"><use href="#i-info"/></svg>
             <div class="doc-a11y-body">
-              <strong>Accessibility</strong>
+              <strong>Praksis</strong>
               <ul>
-                <li>Use <code>&lt;dialog&gt;</code> or <code>role="dialog"</code> + <code>aria-modal="true"</code> with an <code>aria-labelledby</code> pointing at the header.</li>
-                <li>Trap focus while open, return focus to the trigger on close, and close on <kbd class="kbd">Esc</kbd>.</li>
-                <li>The backdrop is inert — clicking it dismisses; background content can't be tabbed to.</li>
+                <li>Aldri åpne ein dialog utan at brukaren trigga det — unngå auto-modals.</li>
+                <li>Fokus-trapping er kritisk: Tab skal aldri leke ut til bakgrunns-innholdet.</li>
+                <li>Esc er standarden for lukking — implementer alltid det.</li>
               </ul>
             </div>
           </div>
@@ -2353,16 +2413,17 @@
             </nav>
           </div>
 
-          <div class="doc-a11y">
-            <svg class="icon"><use href="#i-info"/></svg>
-            <div class="doc-a11y-body">
-              <strong>Accessibility</strong>
-              <ul>
-                <li>Wrap in <code>&lt;nav aria-label="Breadcrumb"&gt;</code>; the last item uses <code>aria-current="page"</code> and isn't a link.</li>
-                <li>Separators are added with CSS so they aren't announced as content.</li>
-              </ul>
-            </div>
-          </div>
+          <div class="doc-block-label">Tilgjengelighet (a11y)</div>
+          <table class="props-table">
+            <thead><tr><th>Aspekt</th><th>Krav</th><th>Implementering</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Nav-landmark</strong></td><td>Skjermleser-merking</td><td><code>&lt;nav class="breadcrumbs" aria-label="Breadcrumb"&gt;</code> identifiserer landmarken</td></tr>
+              <tr><td><strong>Gjeldande side</strong></td><td>Siste element ikkje-link</td><td>Siste `.breadcrumb-item` skal vere `&lt;span&gt;` (ikkje `&lt;a&gt;`) med `aria-current="page"`</td></tr>
+              <tr><td><strong>Skiljetegn</strong></td><td>Ikkje annonsert</td><td>Skiljetegn (/) legga til med CSS `::after`; ikkje tekst-noder som skulle vore annonsert</td></tr>
+              <tr><td><strong>Fokus</strong></td><td>Tab-navigering</td><td>Kvar link i breadcrumbs er Tab-navigerbar; siste element (gjeldande side) ikkje link</td></tr>
+              <tr><td><strong>Kontrast</strong></td><td>WCAG AA (4.5:1)</td><td>Lenker og tekst møter kontrastkrav mot bakgrunn</td></tr>
+            </tbody>
+          </table>
 
           <div class="doc-block-label">Code</div>
           <div class="doc-code">
@@ -2410,17 +2471,20 @@
             <div class="tabs-content" role="tabpanel" id="panel-settings" aria-labelledby="tab-settings" hidden>Settings — preferences and configuration for this object.</div>
           </div>
 
-          <div class="doc-a11y">
-            <svg class="icon"><use href="#i-info"/></svg>
-            <div class="doc-a11y-body">
-              <strong>Accessibility</strong>
-              <ul>
-                <li><code>role="tablist"</code> → <code>role="tab"</code> with <code>aria-selected</code>; panel is <code>role="tabpanel"</code>.</li>
-                <li>Arrow keys move between tabs; the selected tab links to its panel via <code>aria-controls</code>.</li>
-                <li>Selection state is on <code>aria-selected</code> — never colour alone.</li>
-              </ul>
-            </div>
-          </div>
+          <div class="doc-block-label">Tilgjengelighet (a11y)</div>
+          <table class="props-table">
+            <thead><tr><th>Aspekt</th><th>Krav</th><th>Implementering</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Tab-roller</strong></td><td>Semantic struktur</td><td><code>role="tablist"</code> på container, <code>role="tab"</code> på trigger-knapp, <code>role="tabpanel"</code> på innhald</td></tr>
+              <tr><td><strong>Valgt-tilstand</strong></td><td>Skjermleser-annonsering</td><td><code>aria-selected="true|false"</code> på kvar tab; ikkje berre visuell uthevelse</td></tr>
+              <tr><td><strong>Linkering tab→panel</strong></td><td>Assosiering</td><td>Tab har `aria-controls="panel-id"` som peiker på panel-ID</td></tr>
+              <tr><td><strong>Panel-merking</strong></td><td>Linkering panel→tab</td><td>Panel har `aria-labelledby="tab-id"` som peiker tilbake til tab-ID</td></tr>
+              <tr><td><strong>Pil-taste</strong></td><td>Tastatur-navigering</td><td>Med JavaScript: venstre/høgre pil move fokus mellom tabs; Home/End går til første/siste tab</td></tr>
+              <tr><td><strong>Fokus-synlighet</strong></td><td>Tab-navigering</td><td>Native `&lt;button&gt;` element får `:focus-visible` styling automatisk</td></tr>
+              <tr><td><strong>Kontrast</strong></td><td>WCAG AA (4.5:1)</td><td>Valgt og uvalgt tab-tilstand møter kontrastkrav</td></tr>
+              <tr><td><strong>Hidden-panels</strong></td><td>DOM-tilgang</td><td>Panels kan vere `hidden` attributt når ikkje aktive; bruk `hidden` frå HTML ikkje CSS `display:none`</td></tr>
+            </tbody>
+          </table>
 
           <div class="doc-block-label">Code</div>
           <div class="doc-code">
@@ -2453,17 +2517,20 @@
             </div>
           </div>
 
-          <div class="doc-a11y">
-            <svg class="icon"><use href="#i-info"/></svg>
-            <div class="doc-a11y-body">
-              <strong>Accessibility</strong>
-              <ul>
-                <li>The trigger has <code>aria-expanded</code> + <code>aria-controls</code> pointing at the drawer.</li>
-                <li>While open, focus is trapped in the drawer and <kbd class="kbd">Esc</kbd> closes it; the current item uses <code>aria-current="page"</code>.</li>
-                <li>The backdrop is inert and dismisses on click.</li>
-              </ul>
-            </div>
-          </div>
+          <div class="doc-block-label">Tilgjengelighet (a11y)</div>
+          <table class="props-table">
+            <thead><tr><th>Aspekt</th><th>Krav</th><th>Implementering</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Trigger-knapp</strong></td><td>Drawer-kontroll</td><td>Knapp skal ha `aria-expanded="true|false"` og `aria-controls="drawer-id"`</td></tr>
+              <tr><td><strong>Drawer-struktur</strong></td><td>Nav-landmark</td><td>Drawer skal vere `&lt;nav&gt;` eller ha `role="navigation"` og `aria-label` for identifikasjon</td></tr>
+              <tr><td><strong>Fokus-trapping</strong></td><td>Innelukking medan open</td><td>Medan drawer er open: Tab skal ikkje leke ut til bakgrunns-innhald; Esc lukkar drawer</td></tr>
+              <tr><td><strong>Fokus-return</strong></td><td>Fokus ved lukking</td><td>Når drawer lukka: fokus returner til trigger-knappen</td></tr>
+              <tr><td><strong>Gjeldande side</strong></td><td>Marker aktiv item</td><td>Gjeldande nav-item skal ha `aria-current="page"`</td></tr>
+              <tr><td><strong>Lukka-knapp</strong></td><td>Tydelig avslutning</td><td>Header skal ha lukka-knapp med `aria-label="Close menu"` eller synlig tekst</td></tr>
+              <tr><td><strong>Bakgrunns-innhald</strong></td><td>Inert når drawer open</td><td>Bakgrunns-innhald kan ha `inert` attributt eller `aria-hidden="true"` (ikkje begge)</td></tr>
+              <tr><td><strong>Kontrast</strong></td><td>WCAG AA (4.5:1)</td><td>Nav-tekst og linker møter kontrastkrav i drawer</td></tr>
+            </tbody>
+          </table>
 
           <div class="doc-block-label">Code</div>
           <div class="doc-code">
