@@ -1081,7 +1081,7 @@ html, body {
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--color-muted);
-  margin: var(--space-7) 0 var(--space-3);
+  margin: var(--space-7) 0 var(--space-5);
 }
 
 /* "When to use" — two-column usage guidance */
