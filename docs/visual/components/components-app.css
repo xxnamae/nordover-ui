@@ -66,7 +66,7 @@
   .t-body-lg { font-size: var(--text-md); line-height: var(--leading-normal); }
   .t-body {  font-size: var(--text-base); line-height: var(--leading-normal); }
   .t-body-sm { font-size: var(--text-sm); font-weight: var(--fw-body-sm); }
-  .t-eyebrow { font-size: 0.6875rem; font-weight: var(--fw-eyebrow); text-transform: uppercase; letter-spacing: var(--tracking-widest); color: var(--color-muted); }
+  .t-eyebrow { font-size: var(--text-2xs); font-weight: var(--fw-eyebrow); text-transform: uppercase; letter-spacing: var(--tracking-widest); color: var(--color-muted); }
   .t-caption { font-size: 0.6875rem; font-weight: var(--fw-caption); color: var(--color-muted); }
 
   /* A11y utilities */
