@@ -162,6 +162,14 @@
       "caption": {
         "$type": "number",
         "$value": 520
+      },
+      "ui": {
+        "$type": "number",
+        "$value": 510
+      },
+      "ui-strong": {
+        "$type": "number",
+        "$value": 590
       }
     },
     "lineHeight": {
