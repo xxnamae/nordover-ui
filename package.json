@@ -57,6 +57,7 @@
     "build:elementor": "python3 scripts/build_elementor.py",
     "check:elementor": "python3 scripts/build_elementor.py --check",
     "check:contrast": "python3 scripts/check_contrast.py --strict",
+    "check:components": "python3 scripts/check_components.py",
     "gen:theme": "python3 scripts/generate_theme.py",
     "shots": "node scripts/screenshots.cjs",
     "test": "echo \"Error: no test specified\" && exit 1"

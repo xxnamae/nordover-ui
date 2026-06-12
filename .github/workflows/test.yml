@@ -34,3 +34,5 @@ jobs:
         run: python3 scripts/check_contrast.py --strict
       - name: Verify Elementor v4 variables JSON matches CSS source
         run: python3 scripts/build_elementor.py --check
+      - name: Verify component typography contract (.t-* canonical defs unique + token font-weight)
+        run: python3 scripts/check_components.py
