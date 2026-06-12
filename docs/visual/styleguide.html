@@ -878,14 +878,29 @@
             </div>
           </div>
 
+          <div class="doc-block-label">Tilgjengelighet (A11y)</div>
+          <table class="props-table">
+            <thead><tr><th>Aspekt</th><th>Krav</th><th>Implementering</th></tr></thead>
+            <tbody>
+              <tr><td><strong>ARIA-rolle</strong></td><td><code>button</code></td><td>Implisitt på <code>&lt;button&gt;</code>-element. For <code>&lt;a&gt;</code> navigasjon, role="button" hvis nødvendig.</td></tr>
+              <tr><td><strong>Fokus</strong></td><td>Fokusbar via Tab</td><td>Native <code>&lt;button&gt;</code> er fokusbar. <code>:focus-visible</code> styling automatisk.</td></tr>
+              <tr><td><strong>Aktivering</strong></td><td><code>Enter</code> eller <code>Space</code></td><td>Native <code>&lt;button&gt;</code> håndterer begge automatisk.</td></tr>
+              <tr><td><strong>Navn (a11y-navn)</strong></td><td>Skjermleser kan lese</td><td>Synlig tekst ("Lagre", "Slett"). For ikon-knapper: <code>aria-label="Lagre"</code>.</td></tr>
+              <tr><td><strong>State: disabled</strong></td><td>Uinteraktiv + visuelt deaktivert</td><td><code>disabled="disabled"</code> attributt. Fjernes fra tab-rekkefølgen automatisk.</td></tr>
+              <tr><td><strong>State: loading</strong></td><td>Skjermleser varslet</td><td><code>aria-busy="true"</code> mens lasting pågår.</td></tr>
+              <tr><td><strong>Touch target</strong></td><td>Minst 44×44px (WCAG 2.1 AAA)</td><td>Bruk <code>.btn-touch</code> for små/dense UI.</td></tr>
+              <tr><td><strong>Kontrast</strong></td><td>WCAG AA (4.5:1)</td><td>Primary 5.2:1 ✓, Secondary 4.5:1 ✓, Error 5.1:1 ✓</td></tr>
+            </tbody>
+          </table>
+
           <div class="doc-a11y">
             <svg class="icon"><use href="#i-info"/></svg>
             <div class="doc-a11y-body">
-              <strong>Accessibility</strong>
+              <strong>Praksis</strong>
               <ul>
-                <li>Use a real <code>&lt;button&gt;</code> (or <code>&lt;a&gt;</code> for navigation) so keyboard and screen-reader support is free.</li>
-                <li>While loading, set <code>aria-busy="true"</code>; while disabled, the native <code>disabled</code> attribute removes it from the tab order.</li>
-                <li>Icon-only buttons need an <code>aria-label</code>; use <code>.btn-touch</code> to guarantee a 44px target.</li>
+                <li>Bruk alltid semantisk <code>&lt;button&gt;</code> (eller <code>&lt;a&gt;</code> for navigasjon). Dette gir tastatur- og skjermleser-støtte gratis.</li>
+                <li>Knapp-tekst skal være handlingsorientert: "Lagre" ikke "Lagre endringer". Maksimalt 3 ord.</li>
+                <li>Ikon-knapper må ha <code>aria-label</code>. Bruk <code>.btn-touch</code> for garantert 44px mål.</li>
               </ul>
             </div>
           </div>
