@@ -131,7 +131,7 @@
     "e-gv-93c65db": {
       "type": "global-color-variable",
       "label": "gray-50",
-      "value": "#f8fafd",
+      "value": "#f6faff",
       "order": 17,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -140,7 +140,7 @@
     "e-gv-b77b0e4": {
       "type": "global-color-variable",
       "label": "gray-100",
-      "value": "#eff2f5",
+      "value": "#eef2fa",
       "order": 18,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -149,7 +149,7 @@
     "e-gv-0330819": {
       "type": "global-color-variable",
       "label": "gray-200",
-      "value": "#e2e5e8",
+      "value": "#e1e5ed",
       "order": 19,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -158,7 +158,7 @@
     "e-gv-41931f6": {
       "type": "global-color-variable",
       "label": "gray-300",
-      "value": "#d0d3d6",
+      "value": "#cfd3db",
       "order": 20,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -167,7 +167,7 @@
     "e-gv-80ff16d": {
       "type": "global-color-variable",
       "label": "gray-400",
-      "value": "#9c9fa1",
+      "value": "#9b9ea6",
       "order": 21,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -176,7 +176,7 @@
     "e-gv-5b158d7": {
       "type": "global-color-variable",
       "label": "gray-500",
-      "value": "#67696c",
+      "value": "#656970",
       "order": 22,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -185,7 +185,7 @@
     "e-gv-7e9039e": {
       "type": "global-color-variable",
       "label": "gray-600",
-      "value": "#4f5154",
+      "value": "#4e5158",
       "order": 23,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -194,7 +194,7 @@
     "e-gv-284599d": {
       "type": "global-color-variable",
       "label": "gray-700",
-      "value": "#333638",
+      "value": "#32353c",
       "order": 24,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -203,7 +203,7 @@
     "e-gv-b41c2d6": {
       "type": "global-color-variable",
       "label": "gray-800",
-      "value": "#191b1d",
+      "value": "#181b20",
       "order": 25,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -212,7 +212,7 @@
     "e-gv-b64af08": {
       "type": "global-color-variable",
       "label": "gray-900",
-      "value": "#060709",
+      "value": "#05070c",
       "order": 26,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -221,7 +221,7 @@
     "e-gv-e570c3b": {
       "type": "global-color-variable",
       "label": "gray-950",
-      "value": "#010202",
+      "value": "#010204",
       "order": 27,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -230,7 +230,7 @@
     "e-gv-d08c5ab": {
       "type": "global-color-variable",
       "label": "color-bg",
-      "value": "#f8fafd",
+      "value": "#f6faff",
       "order": 28,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -248,7 +248,7 @@
     "e-gv-6287b55": {
       "type": "global-color-variable",
       "label": "color-fg",
-      "value": "#060709",
+      "value": "#05070c",
       "order": 30,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -257,7 +257,7 @@
     "e-gv-f4612af": {
       "type": "global-color-variable",
       "label": "color-muted",
-      "value": "#67696c",
+      "value": "#656970",
       "order": 31,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -266,7 +266,7 @@
     "e-gv-d031107": {
       "type": "global-color-variable",
       "label": "color-subtle",
-      "value": "#eff2f5",
+      "value": "#eef2fa",
       "order": 32,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -275,7 +275,7 @@
     "e-gv-18f6484": {
       "type": "global-color-variable",
       "label": "color-border",
-      "value": "#e2e5e8",
+      "value": "#e1e5ed",
       "order": 33,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -284,7 +284,7 @@
     "e-gv-64f9ccb": {
       "type": "global-color-variable",
       "label": "color-accent",
-      "value": "#653de9",
+      "value": "#5063ca",
       "order": 34,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -302,7 +302,7 @@
     "e-gv-f893780": {
       "type": "global-color-variable",
       "label": "color-accent-hover",
-      "value": "#5432c5",
+      "value": "#4253aa",
       "order": 36,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -311,7 +311,7 @@
     "e-gv-60ad0fd": {
       "type": "global-color-variable",
       "label": "color-accent-active",
-      "value": "#4427a1",
+      "value": "#35428b",
       "order": 37,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -320,7 +320,7 @@
     "e-gv-dcfd825": {
       "type": "global-color-variable",
       "label": "color-focus",
-      "value": "#6825fe",
+      "value": "#4a5ce0",
       "order": 38,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -329,7 +329,7 @@
     "e-gv-b6d8e85": {
       "type": "global-color-variable",
       "label": "color-backdrop",
-      "value": "#06070980",
+      "value": "#05070c80",
       "order": 39,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -401,7 +401,7 @@
     "e-gv-8c23f0a": {
       "type": "global-color-variable",
       "label": "accent-emphasis",
-      "value": "#653de9",
+      "value": "#5063ca",
       "order": 47,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -410,7 +410,7 @@
     "e-gv-b9b3c76": {
       "type": "global-color-variable",
       "label": "on-accent-subtle",
-      "value": "#653de9",
+      "value": "#5063ca",
       "order": 48,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",

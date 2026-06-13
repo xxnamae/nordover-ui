@@ -149,9 +149,10 @@
     --type-label-tracking: var(--tracking-normal);
 
     /* === Nøytral OKLCH-gråskala ===
-       L-axis perceptually evened (mirrors tokens-web). gray-500 held ≤0.52
-       to preserve --color-muted AA contrast; gray-200 kept subtle. */
-    --neutral-h: 250; --neutral-c: 0.005;
+       L-axis perceptually evened. App-pakken bruker en kjølig, lett lilla-tonet
+       nøytral (Linear-referanse: «shades of grey with a purple hue») — hue 265,
+       chroma 0.012. gray-500 held ≤0.52 to preserve --color-muted AA contrast. */
+    --neutral-h: 265; --neutral-c: 0.012;
     --gray-50:  oklch(0.985 var(--neutral-c) var(--neutral-h));
     --gray-100: oklch(0.96  var(--neutral-c) var(--neutral-h));
     --gray-200: oklch(0.92  var(--neutral-c) var(--neutral-h));
@@ -171,11 +172,11 @@
     --color-muted: var(--gray-500);
     --color-subtle: var(--gray-100);
     --color-border: var(--gray-200);
-    --color-accent: oklch(0.52 0.24 285);          /* Brand violet — Linear-inspired, WCAG AA on light bg */
+    --color-accent: oklch(0.54 0.16 272);          /* Brand blue-violet — Linear #5E6AD2-tone; light-mode L held for AA */
     --color-accent-fg: oklch(1 0 0);
     --color-accent-hover: color-mix(in oklch, var(--color-accent) 88%, black);
     --color-accent-active: color-mix(in oklch, var(--color-accent) 76%, black);
-    --color-focus: oklch(0.52 0.28 285);
+    --color-focus: oklch(0.54 0.20 272);
     --color-backdrop: color-mix(in oklch, var(--color-fg) 50%, transparent);  /* modal/drawer backdrop scrim */
 
     /* === Surface elevation via L-axis stepping (Linear/M3 approach) ===
@@ -456,8 +457,8 @@
     --color-muted: var(--gray-400);
     --color-subtle: var(--gray-800);
     --color-border: var(--gray-700);
-    --color-accent: oklch(0.62 0.26 285);          /* Brighter violet for dark mode — WCAG AA on dark bg */
-    --color-focus: oklch(0.62 0.26 285);
+    --color-accent: oklch(0.66 0.16 272);          /* Linear blue-violet, brightened for dark bg — WCAG AA */
+    --color-focus: oklch(0.66 0.20 272);
     --color-accent-fg: oklch(1 0 0);              /* White text on violet in dark mode */
     --color-backdrop: color-mix(in oklch, var(--color-fg) 50%, transparent);  /* modal/drawer backdrop scrim */
     --color-accent-hover: color-mix(in oklch, var(--color-accent) 88%, white);
