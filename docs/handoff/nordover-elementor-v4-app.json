@@ -284,7 +284,7 @@
     "e-gv-64f9ccb": {
       "type": "global-color-variable",
       "label": "color-accent",
-      "value": "#0055dd",
+      "value": "#653de9",
       "order": 34,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -302,7 +302,7 @@
     "e-gv-f893780": {
       "type": "global-color-variable",
       "label": "color-accent-hover",
-      "value": "#0047ba",
+      "value": "#5432c5",
       "order": 36,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -311,7 +311,7 @@
     "e-gv-60ad0fd": {
       "type": "global-color-variable",
       "label": "color-accent-active",
-      "value": "#003999",
+      "value": "#4427a1",
       "order": 37,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -320,7 +320,7 @@
     "e-gv-dcfd825": {
       "type": "global-color-variable",
       "label": "color-focus",
-      "value": "#0046fe",
+      "value": "#6825fe",
       "order": 38,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -383,7 +383,7 @@
     "e-gv-78584c2": {
       "type": "global-color-variable",
       "label": "accent-subtle",
-      "value": "#d8e9fb",
+      "value": "#ececff",
       "order": 45,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -392,7 +392,7 @@
     "e-gv-977c682": {
       "type": "global-color-variable",
       "label": "accent-muted",
-      "value": "#abcef7",
+      "value": "#d2d2ff",
       "order": 46,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -401,7 +401,7 @@
     "e-gv-8c23f0a": {
       "type": "global-color-variable",
       "label": "accent-emphasis",
-      "value": "#0055dd",
+      "value": "#653de9",
       "order": 47,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -410,7 +410,7 @@
     "e-gv-b9b3c76": {
       "type": "global-color-variable",
       "label": "on-accent-subtle",
-      "value": "#0055dd",
+      "value": "#653de9",
       "order": 48,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -428,7 +428,7 @@
     "e-gv-65084dd": {
       "type": "global-color-variable",
       "label": "error-subtle",
-      "value": "#d8ddff",
+      "value": "#ffe7e4",
       "order": 50,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -455,7 +455,7 @@
     "e-gv-7c53eaa": {
       "type": "global-color-variable",
       "label": "success-subtle",
-      "value": "#c7e7f6",
+      "value": "#e1f5e4",
       "order": 53,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -482,7 +482,7 @@
     "e-gv-64feba9": {
       "type": "global-color-variable",
       "label": "warning-subtle",
-      "value": "#c7eff5",
+      "value": "#fff0d4",
       "order": 56,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -509,7 +509,7 @@
     "e-gv-69bf2d3": {
       "type": "global-color-variable",
       "label": "info-subtle",
-      "value": "#c9e3fe",
+      "value": "#e0f1ff",
       "order": 59,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
