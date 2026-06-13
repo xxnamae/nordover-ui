@@ -206,6 +206,7 @@
       <nav class="app-nav-group is-active">
         <a class="app-nav-item" href="#pill-buttons">Pill Buttons</a>
         <a class="app-nav-item" href="#numbered-rows">Numbered Rows</a>
+        <a class="app-nav-item" href="#editorial-prose">Editorial Prose</a>
         <a class="app-nav-item" href="#editorial-frames">Crosshair &amp; Frames</a>
       </nav>
     </div>
@@ -3686,6 +3687,31 @@
     &lt;p class="numbered-text"&gt;Surface the tradeoffs explicitly.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <section class="doc-section" data-pkg="web" id="editorial-prose">
+          <h2 class="doc-section-title">Editorial Prose</h2>
+          <p class="doc-section-desc">Off Menu's emphasis treatment for narrative passages. The body sits at a calm mid-tone; <code>&lt;strong&gt;</code> (or <code>.t-key</code>) promotes a phrase to full ink, and <code>.t-faded</code> lets a trailing thought recede. <code>.t-figure</code> is the small monospaced plate-caption. All tones adapt to light/dark.</p>
+          <div class="chips">
+            <span class="chip">.t-editorial</span><span class="chip">.t-key</span><span class="chip">.t-faded</span><span class="chip">.t-figure</span>
+          </div>
+
+          <div class="doc-block-label">Example</div>
+          <div class="doc-demo">
+            <p class="t-editorial">Ideas can be tested, expanded, and pushed in multiple directions almost immediately. <strong>Possibilities that would normally stay unexplored become part of the process.</strong> The challenge is no longer producing options — <strong>it's knowing which direction deserves to be taken further.</strong> <span class="t-faded">Because when you can build anything, how it feels is, well, everything.</span></p>
+            <p class="t-figure" style="margin-top: var(--space-6);">Fig 0.2 — Emphasis hierarchy</p>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;p class="t-editorial"&gt;
+  Ideas can be tested and pushed in multiple directions.
+  &lt;strong&gt;Possibilities that would stay unexplored become part of the process.&lt;/strong&gt;
+  &lt;span class="t-faded"&gt;Because when you can build anything, how it feels is everything.&lt;/span&gt;
+&lt;/p&gt;
+&lt;p class="t-figure"&gt;Fig 0.2 — Emphasis hierarchy&lt;/p&gt;</pre>
           </div>
         </section>
 

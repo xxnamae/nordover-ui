@@ -1622,6 +1622,15 @@
     .numbered-num { font-size: 1.5rem; }
   }
 
+  /* Editorial prose — Off Menu emphasis treatment. Body sits at a calm mid-tone;
+     key phrases promote to full ink via <strong> (or .t-key); trailing thoughts
+     recede via .t-faded. .t-figure is the small mono plate-caption ("Fig 0.2").
+     All tones are color-mix against --color-bg, so they adapt to light/dark. */
+  .t-editorial { font-family: var(--font-sans); font-size: clamp(1.25rem, 1rem + 1.1vw, 1.75rem); line-height: 1.5; letter-spacing: var(--tracking-heading); color: color-mix(in oklch, var(--color-fg) 56%, var(--color-bg)); max-width: 34rem; text-wrap: pretty; }
+  .t-editorial strong, .t-editorial .t-key { color: var(--color-fg); font-weight: var(--fw-medium); }
+  .t-editorial .t-faded { color: color-mix(in oklch, var(--color-fg) 30%, var(--color-bg)); }
+  .t-figure { display: inline-block; font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: 0.04em; color: var(--color-muted); }
+
   /* Dashed frame — editorial bounding box (sketch / placeholder / aside) */
   .frame-dashed { border: var(--bw-medium) dashed var(--color-border); border-radius: var(--radius-md); padding: clamp(var(--space-5), 3vw, var(--space-8)); }
 
