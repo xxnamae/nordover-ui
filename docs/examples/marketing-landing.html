@@ -51,19 +51,19 @@
   </div>
   <div class="cluster-tight">
     <label for="dark" class="btn btn-ghost btn-sm" style="cursor:pointer;">Tema</label>
-    <a href="#pricing" class="btn btn-primary btn-sm">Kom i gang</a>
+    <a href="#pricing" class="btn btn-primary btn-pill btn-sm">Kom i gang</a>
   </div>
 </nav>
 
 <main class="page">
   <!-- HERO -->
   <header class="ex-hero">
-    <span class="t-eyebrow">Universelt designfundament</span>
+    <span class="t-eyebrow" style="display:inline-flex;align-items:center;gap:var(--space-3);"><span class="crosshair-lg" aria-hidden="true"></span>Universelt designfundament<span class="crosshair-lg" aria-hidden="true"></span></span>
     <h1 class="t-display-lg">Bygg verdensklasse-grensesnitt på minutter, ikke måneder</h1>
     <p class="lede">Tokens og byggesteiner av global toppkvalitet — tilgjengelige, responsive og merkevare-klare fra første linje. Komponer dine egne sider på toppen.</p>
     <div class="cluster" style="justify-content: center;">
-      <a href="#pricing" class="btn btn-primary btn-lg">Start gratis <svg class="icon icon-sm"><use href="#i-arrow-right"/></svg></a>
-      <a href="#features" class="btn btn-secondary btn-lg">Se funksjoner</a>
+      <a href="#pricing" class="btn btn-primary btn-pill btn-lg">Start gratis <svg class="icon icon-sm"><use href="#i-arrow-right"/></svg></a>
+      <a href="#features" class="btn btn-secondary btn-pill btn-lg">Se funksjoner</a>
     </div>
     <div class="ex-logos" style="margin-top: var(--space-10);">
       <span>NORDIC CO</span><span>FJORD</span><span>AURORA</span><span>SAGA LABS</span><span>MIDNATT</span>
@@ -92,6 +92,38 @@
         <h3 class="card-title">Merkevare-klar</h3>
         <p class="card-meta">Bytt tre variabler, få et helt tema. OKLCH gir forutsigbar kontrast i lys og mørk.</p>
       </article>
+    </div>
+  </section>
+
+  <!-- PRINCIPLES (numbered editorial rows + crosshair-frame) -->
+  <section id="principles" class="page-content">
+    <div class="frame-crosshair">
+      <div style="max-width: 40rem; margin: 0 auto var(--space-10); text-align: center;">
+        <span class="t-eyebrow">Prinsippene</span>
+        <h2 class="t-heading-xl" style="margin-top: var(--space-3);">Slik tenker vi</h2>
+      </div>
+      <ol class="numbered-list" style="max-width: 52rem; margin-inline: auto; list-style: none; padding: 0;">
+        <li class="numbered-item">
+          <span class="numbered-num">01</span>
+          <p class="numbered-title">Tenk først</p>
+          <p class="numbered-text">Avveininger synliggjøres eksplisitt. Alle beslutninger er sporbare — ingen dark matter i kodebasen.</p>
+        </li>
+        <li class="numbered-item">
+          <span class="numbered-num">02</span>
+          <p class="numbered-title">Enkelhet alltid</p>
+          <p class="numbered-text">Minimal kode, færre tokens, færre abstraksjoner. Tre like linjer er bedre enn én prematur abstraksjon.</p>
+        </li>
+        <li class="numbered-item">
+          <span class="numbered-num">03</span>
+          <p class="numbered-title">Kirurgiske endringer</p>
+          <p class="numbered-text">Endre kun det som kreves. Opprydding som maskerer den faktiske endringen regnes som teknisk gjeld.</p>
+        </li>
+        <li class="numbered-item">
+          <span class="numbered-num">04</span>
+          <p class="numbered-title">Stabil API</p>
+          <p class="numbered-text">Token-navn og klasse-navn er kontrakter. Brytende endringer krever ADR og tydelig changelog.</p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -145,7 +177,7 @@
     <div class="ex-cta" style="background: var(--color-accent);">
       <h2 class="t-heading-lg">Klar til å bygge?</h2>
       <p style="opacity: 0.85; max-width: 32rem; margin: var(--space-4) auto var(--space-6);">Kom i gang på under ett minutt. Ingen kredittkort.</p>
-      <a href="#" class="btn btn-lg" style="background: var(--color-accent-fg); color: var(--color-accent);">Start gratis nå</a>
+      <a href="#" class="btn btn-pill btn-lg" style="background: var(--color-accent-fg); color: var(--color-accent);">Start gratis nå</a>
     </div>
   </section>
 </main>
