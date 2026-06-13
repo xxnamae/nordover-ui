@@ -39,7 +39,7 @@
   .cluster-tight { gap: var(--gap-tight); }
   .grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(14rem, 100%), 1fr)); gap: var(--gap-component); } /* 14rem = --grid-min */
   .page { display: flex; width: 100%; max-width: 100%; overflow-x: hidden; flex-direction: column; gap: var(--spacing-section); padding-inline: var(--page-padding); }
-  .page-section { padding-block: var(--spacing-section); }
+  .page-section { padding-block: 0; }
   .page-content { max-width: var(--container-default); margin-inline: auto; }
   /* Section — vertical rhythm + container-query context (size + bg variants) */
   .section { container-type: inline-size; container-name: content-section; padding-block: var(--spacing-section); }

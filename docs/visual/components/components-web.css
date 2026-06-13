@@ -26,7 +26,7 @@
   .cluster-tight { gap: var(--gap-tight); }
   .grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr)); gap: var(--gap-component); } /* 16rem = --grid-min */
   .page { display: flex; flex-direction: column; gap: var(--spacing-section); padding-inline: var(--page-padding); width: 100%; max-width: 100%; overflow-x: hidden; }
-  .page-section { padding-block: var(--spacing-section); width: 100%; max-width: 100%; }
+  .page-section { padding-block: 0; width: 100%; max-width: 100%; }
   .page-content { max-width: var(--w-5xl); margin-inline: auto; width: 100%; }
   /* Section — vertical rhythm + container-query context (size + bg variants) */
   .section { container-type: inline-size; container-name: content-section; padding-block: var(--spacing-section); }
