@@ -69,6 +69,26 @@
   --chrome-fw-eyebrow: 600;
 }
 
+/* Dark mode: override all --chrome-* colors for styleguide UI */
+:root:has(#dark:checked) {
+  /* Grayscale palette (dark inverted) */
+  --chrome-gray-50: oklch(0.13 0 0);          /* dark bg canvas */
+  --chrome-gray-100: oklch(0.18 0 0);         /* dark subtle surface */
+  --chrome-gray-200: oklch(0.27 0 0);         /* dark border */
+  --chrome-gray-500: oklch(0.60 0 0);         /* dark muted text */
+  --chrome-gray-900: oklch(0.985 0 0);        /* dark fg text (near-white) */
+
+  /* Semantic chrome colors (dark mode) */
+  --chrome-bg: var(--chrome-gray-50);         /* dark page bg */
+  --chrome-surface: oklch(0.08 0 0);          /* near-black (dark sidebar/cards) */
+  --chrome-fg: var(--chrome-gray-900);        /* near-white foreground text */
+  --chrome-muted: var(--chrome-gray-500);     /* dimmed text in dark */
+  --chrome-subtle: var(--chrome-gray-100);    /* subtle hover/bg in dark */
+  --chrome-border: var(--chrome-gray-200);    /* dividers in dark */
+  --chrome-accent: oklch(0.66 0.16 272);      /* brand violet, brightened for dark */
+  --chrome-accent-fg: oklch(1 0 0);           /* white text on accent in dark */
+}
+
 /* ============================================================
    1. DOCS SHELL — MAIN GRID
    ============================================================ */
