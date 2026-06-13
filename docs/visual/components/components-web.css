@@ -1590,6 +1590,52 @@
     .animate-on-scroll-fade, .animate-on-scroll-slide, .animate-on-scroll-scale { opacity: 1; transform: none; }
   }
 
+  /* ── WEB EDITORIAL BLOCKS (Bolk 4) — web-only identity (Off Menu) ──────
+     App (dense Linear SaaS) does not use these; per the mirroring rule we
+     mirror shared *structure*, not package-specific *identity*. */
+
+  /* Pill buttons — fully-rounded editorial CTA (modifier on .btn) */
+  .btn-pill { border-radius: var(--radius-full); padding-inline: var(--space-6); }
+  .btn-pill.btn-sm { padding-inline: var(--space-5); }
+  .btn-pill.btn-lg { padding-inline: var(--space-7); }
+
+  /* Numbered rows — big display numeral + title + text, hairline-divided.
+     For principle lists, process steps, numbered FAQ. */
+  .numbered-list { display: flex; flex-direction: column; }
+  .numbered-item { display: grid; grid-template-columns: auto 1fr; column-gap: clamp(var(--space-5), 4vw, var(--space-10)); row-gap: var(--space-2); align-items: start; padding: clamp(var(--space-6), 4vw, var(--space-8)) 0; border-top: var(--bw-thin) solid var(--color-border); }
+  .numbered-item:last-child { border-bottom: var(--bw-thin) solid var(--color-border); }
+  .numbered-num { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.75rem, 1.2rem + 2.4vw, 3rem); letter-spacing: var(--tracking-display); line-height: 0.9; color: var(--color-fg); opacity: 0.22; font-variant-numeric: tabular-nums; grid-row: 1 / span 2; }
+  .numbered-title { font-family: var(--font-display); font-weight: 600; font-size: var(--text-xl); letter-spacing: -0.02em; line-height: 1.2; margin: 0; color: var(--color-fg); }
+  .numbered-text { color: var(--color-muted); line-height: 1.6; max-width: 60ch; margin: 0; font-size: var(--text-md); }
+  @media (max-width: 36rem) /* --bp-tablet */ {
+    .numbered-item { column-gap: var(--space-4); }
+    .numbered-num { font-size: 1.5rem; }
+  }
+
+  /* Dashed frame — editorial bounding box (sketch / placeholder / aside) */
+  .frame-dashed { border: var(--bw-medium) dashed var(--color-border); border-radius: var(--radius-md); padding: clamp(var(--space-5), 3vw, var(--space-8)); }
+
+  /* Crosshair — minimalist "+" registration mark (decorative utility) */
+  .crosshair { display: inline-block; width: 0.75rem; height: 0.75rem; flex-shrink: 0; color: var(--color-muted);
+    background: linear-gradient(currentColor, currentColor) center / 100% var(--bw-thin) no-repeat,
+                linear-gradient(currentColor, currentColor) center / var(--bw-thin) 100% no-repeat; }
+  .crosshair-lg { width: 1.25rem; height: 1.25rem; }
+
+  /* Crosshair frame — hairline box with a "+" mark centered on each corner.
+     One ::after paints four corner pluses via a masked background (themeable). */
+  .frame-crosshair { position: relative; border: var(--bw-thin) solid var(--color-border); padding: clamp(var(--space-6), 4vw, var(--space-10)); }
+  .frame-crosshair::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none; color: var(--color-fg);
+    background-color: currentColor;
+    --plus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M6 0v12M0 6h12' stroke='black' stroke-width='1.25'/%3E%3C/svg%3E");
+    -webkit-mask-image: var(--plus), var(--plus), var(--plus), var(--plus);
+    mask-image: var(--plus), var(--plus), var(--plus), var(--plus);
+    -webkit-mask-position: -6px -6px, calc(100% + 6px) -6px, -6px calc(100% + 6px), calc(100% + 6px) calc(100% + 6px);
+    mask-position: -6px -6px, calc(100% + 6px) -6px, -6px calc(100% + 6px), calc(100% + 6px) calc(100% + 6px);
+    -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+    -webkit-mask-size: 12px 12px; mask-size: 12px 12px;
+  }
+
   /* Responsive utilities */
   @media (max-width: 60rem) /* --bp-wide */ {
     .mobile-nav-trigger { display: inline-flex; }

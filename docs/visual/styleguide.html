@@ -204,6 +204,15 @@
       </nav>
     </div>
 
+    <div class="app-sidebar-section-group" data-pkg="web">
+      <button class="app-sidebar-toggle" aria-expanded="true" title="Editorial (Web)"><svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg><span class="app-sidebar-toggle-label">Editorial (Web)</span></button>
+      <nav class="app-nav-group is-active">
+        <a class="app-nav-item" href="#pill-buttons">Pill Buttons</a>
+        <a class="app-nav-item" href="#numbered-rows">Numbered Rows</a>
+        <a class="app-nav-item" href="#editorial-frames">Crosshair &amp; Frames</a>
+      </nav>
+    </div>
+
     <div class="app-sidebar-section-group">
       <button class="app-sidebar-toggle" aria-expanded="true" title="Resources"><svg class="icon" aria-hidden="true"><use href="#i-help"/></svg><span class="app-sidebar-toggle-label">Resources</span></button>
       <nav class="app-nav-group is-active">
@@ -3586,6 +3595,156 @@
     &lt;span class="attachment-size"&gt;2.4 MB&lt;/span&gt;
   &lt;/span&gt;
 &lt;/a&gt;</pre>
+          </div>
+        </section>
+
+        <!-- ============================================================
+             EDITORIAL WEB (Bolk 4) — web-only identity
+             ============================================================ -->
+
+        <section class="doc-section" data-pkg="web" id="pill-buttons">
+          <h2 class="doc-section-title">Pill Buttons</h2>
+          <p class="doc-section-desc">Fully-rounded editorial CTA. A web-only modifier (<code>.btn-pill</code>) on the shared button — the marketing counterpart to the app's tighter rectangular buttons.</p>
+          <div class="chips">
+            <span class="chip">.btn-pill</span><span class="chip">.btn-pill.btn-sm</span><span class="chip">.btn-pill.btn-lg</span>
+          </div>
+
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li>Hero and section CTAs on marketing / editorial pages</li>
+                <li>Softer, friendlier brand voice than the app's rectangular buttons</li>
+                <li>Pairing a filled primary pill with a secondary outline pill</li>
+              </ul>
+            </div>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>Dense app UIs — use the default rectangular <code>.btn</code> radius</li>
+                <li>Toolbars or table actions — pills waste horizontal space</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Example</div>
+          <div class="doc-demo stack">
+            <div class="cluster" style="align-items: center;">
+              <a class="btn btn-primary btn-pill">Get started</a>
+              <a class="btn btn-secondary btn-pill">Documentation</a>
+              <a class="btn btn-ghost btn-pill">Learn more</a>
+            </div>
+            <div class="cluster" style="align-items: center;">
+              <a class="btn btn-primary btn-pill btn-sm">Small</a>
+              <a class="btn btn-primary btn-pill">Default</a>
+              <a class="btn btn-primary btn-pill btn-lg">Large</a>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;a class="btn btn-primary btn-pill"&gt;Get started&lt;/a&gt;
+&lt;a class="btn btn-secondary btn-pill"&gt;Documentation&lt;/a&gt;</pre>
+          </div>
+        </section>
+
+        <section class="doc-section" data-pkg="web" id="numbered-rows">
+          <h2 class="doc-section-title">Numbered Rows</h2>
+          <p class="doc-section-desc">Large display numeral + title + text, separated by hairlines. The editorial block for principle lists, process steps, and numbered FAQ — composes into a "Our principles" or "How it works" section.</p>
+          <div class="chips">
+            <span class="chip">.numbered-list</span><span class="chip">.numbered-item</span><span class="chip">.numbered-num</span>
+            <span class="chip">.numbered-title</span><span class="chip">.numbered-text</span>
+          </div>
+
+          <div class="doc-block-label">Example</div>
+          <div class="doc-demo">
+            <div class="numbered-list" style="width: 100%;">
+              <div class="numbered-item">
+                <span class="numbered-num">01</span>
+                <h3 class="numbered-title">Think first</h3>
+                <p class="numbered-text">Surface the tradeoffs explicitly before writing code. Every decision is traceable.</p>
+              </div>
+              <div class="numbered-item">
+                <span class="numbered-num">02</span>
+                <h3 class="numbered-title">Simplicity first</h3>
+                <p class="numbered-text">Minimal code, fewer tokens, fewer abstractions. The foundation should disappear behind the work.</p>
+              </div>
+              <div class="numbered-item">
+                <span class="numbered-num">03</span>
+                <h3 class="numbered-title">Surgical changes</h3>
+                <p class="numbered-text">Modify only what the task addresses. Avoid speculative cleanup that widens the blast radius.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;div class="numbered-list"&gt;
+  &lt;div class="numbered-item"&gt;
+    &lt;span class="numbered-num"&gt;01&lt;/span&gt;
+    &lt;h3 class="numbered-title"&gt;Think first&lt;/h3&gt;
+    &lt;p class="numbered-text"&gt;Surface the tradeoffs explicitly.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <section class="doc-section" data-pkg="web" id="editorial-frames">
+          <h2 class="doc-section-title">Crosshair & Frames</h2>
+          <p class="doc-section-desc">Minimalist registration-mark utilities. A <code>.crosshair</code> "+" mark, a <code>.frame-dashed</code> sketch box, and a <code>.frame-crosshair</code> hairline box with a "+" centered on each corner — the Off Menu engineering-drawing aesthetic.</p>
+          <div class="chips">
+            <span class="chip">.crosshair</span><span class="chip">.crosshair-lg</span><span class="chip">.frame-dashed</span><span class="chip">.frame-crosshair</span>
+          </div>
+
+          <div class="doc-block-label">Example</div>
+          <div class="doc-demo stack">
+            <div>
+              <h3 class="t-body-sm">Crosshair marks</h3>
+              <div class="cluster" style="align-items: center; gap: var(--space-4);">
+                <span class="crosshair"></span>
+                <span class="crosshair crosshair-lg"></span>
+                <span class="crosshair crosshair-lg" style="color: var(--color-accent);"></span>
+              </div>
+            </div>
+            <div>
+              <h3 class="t-body-sm">Dashed frame</h3>
+              <div class="frame-dashed">
+                <p style="margin: 0; color: var(--color-muted); font-size: var(--text-sm);">A dashed editorial bounding box — for asides, sketches, or placeholder regions.</p>
+              </div>
+            </div>
+            <div>
+              <h3 class="t-body-sm">Crosshair frame</h3>
+              <div class="frame-crosshair">
+                <p style="margin: 0; color: var(--color-fg); font-family: var(--font-display); font-weight: 600; font-size: var(--text-lg); letter-spacing: -0.02em;">Form follows function.</p>
+                <p style="margin: var(--space-2) 0 0; color: var(--color-muted); font-size: var(--text-sm);">Registration marks at each corner — minimal, technical, calm.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>Crosshairs and frames are purely decorative — no semantics, no ARIA needed.</li>
+                <li><code>.frame-crosshair</code> corner marks use <code>mask</code>; they inherit <code>currentColor</code> so they adapt to light/dark automatically.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;span class="crosshair"&gt;&lt;/span&gt;
+
+&lt;div class="frame-dashed"&gt;…&lt;/div&gt;
+
+&lt;div class="frame-crosshair"&gt;
+  &lt;p&gt;Form follows function.&lt;/p&gt;
+&lt;/div&gt;</pre>
           </div>
         </section>
 
