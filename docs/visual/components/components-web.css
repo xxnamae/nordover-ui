@@ -1542,9 +1542,19 @@
 
   /* Label-dot group — compact avatar/label row (shared building block) */
   .label-dot-group { display: inline-flex; isolation: isolate; align-items: center; }
-  .label-dot { display: inline-flex; align-items: center; justify-content: center; width: 1.25rem; height: 1.25rem; border-radius: var(--radius-full); font-size: 0.55rem; font-weight: var(--fw-bold); color: #fff; border: 1.5px solid var(--color-bg); margin-inline-start: -0.375rem; flex-shrink: 0; }
+  .label-dot { display: inline-flex; align-items: center; justify-content: center; width: 1.25rem; height: 1.25rem; border-radius: var(--radius-full); font-size: 0.55rem; font-weight: var(--fw-bold); color: #fff; border: 1.5px solid var(--color-bg); margin-inline-start: -0.375rem; flex-shrink: 0; background: var(--color-accent); }
   .label-dot:first-child { margin-inline-start: 0; }
   .label-dot-overflow { background: var(--color-subtle); color: var(--color-muted); border-color: var(--color-border); font-size: 0.6rem; padding: 0 0.2rem; width: auto; min-width: 1.25rem; }
+  /* Label-dot color variants */
+  .label-dot-teal { background: var(--label-teal); }
+  .label-dot-coral { background: var(--label-coral); }
+  .label-dot-olive { background: var(--label-olive); }
+  .label-dot-yellow { background: var(--label-yellow); }
+  .label-dot-orange { background: var(--label-orange); }
+  .label-dot-lavender { background: var(--label-lavender); }
+  .label-dot-blue { background: var(--label-blue); }
+  .label-dot-slate { background: var(--label-slate); }
+  .label-dot-green { background: var(--label-green); }
 
   /* Toast */
   .toast-viewport { position: fixed; bottom: var(--space-5); inset-inline-end: var(--space-5); display: flex; flex-direction: column; gap: var(--space-2); z-index: var(--z-toast); }
