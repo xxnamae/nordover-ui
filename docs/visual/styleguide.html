@@ -174,6 +174,7 @@
       <nav class="app-nav-group is-active">
         <a class="app-nav-item" href="#breadcrumbs">Breadcrumbs</a>
         <a class="app-nav-item" href="#tabs">Tabs</a>
+        <a class="app-nav-item" href="#segmented">Segmented Control</a>
         <a class="app-nav-item" href="#mobile-nav">Mobile Nav</a>
       </nav>
     </div>
@@ -3024,6 +3025,35 @@
   &lt;button class="tabs-trigger" role="tab" aria-selected="false"&gt;Activity&lt;/button&gt;
 &lt;/div&gt;
 &lt;div class="tabs-content" role="tabpanel"&gt;…&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <section class="doc-section" id="segmented">
+          <h2 class="doc-section-title">Segmented Control</h2>
+          <p class="doc-section-desc">Compact pill-track toggle for switching between 2–4 peer views or modes (Apple HIG / Linear's List ↔ Board switch). The selected segment lifts onto the surface with a hairline shadow. Mark the active segment with <code>[aria-selected]</code> (or <code>.is-selected</code>).</p>
+          <div class="chips"><span class="chip">.segmented</span><span class="chip">.segmented-item</span><span class="chip">.is-selected</span></div>
+
+          <div class="doc-block-label">Example</div>
+          <div class="doc-demo cluster" style="gap: var(--space-5); align-items: center;">
+            <div class="segmented" role="tablist" aria-label="View">
+              <button class="segmented-item" role="tab" aria-selected="true">List</button>
+              <button class="segmented-item" role="tab" aria-selected="false">Board</button>
+              <button class="segmented-item" role="tab" aria-selected="false">Timeline</button>
+            </div>
+            <div class="segmented" role="tablist" aria-label="Range">
+              <button class="segmented-item" role="tab" aria-selected="false">Day</button>
+              <button class="segmented-item" role="tab" aria-selected="true">Week</button>
+              <button class="segmented-item" role="tab" aria-selected="false">Month</button>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;div class="segmented" role="tablist" aria-label="View"&gt;
+  &lt;button class="segmented-item" role="tab" aria-selected="true"&gt;List&lt;/button&gt;
+  &lt;button class="segmented-item" role="tab" aria-selected="false"&gt;Board&lt;/button&gt;
+&lt;/div&gt;</pre>
           </div>
         </section>
 

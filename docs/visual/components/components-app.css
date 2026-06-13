@@ -1242,6 +1242,15 @@
   .tabs-trigger:focus-visible { outline: 2px solid var(--color-focus); outline-offset: -2px; }
   .tabs-content { padding-block: var(--gap-component); }
 
+  /* Segmented control — compact pill-track toggle (Apple HIG / Linear view switch).
+     The selected segment lifts onto --color-surface with a hairline shadow. Supports
+     [aria-selected] and static .is-selected. */
+  .segmented { display: inline-flex; padding: 2px; gap: 2px; background: var(--color-subtle); border-radius: var(--radius-md); }
+  .segmented-item { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-1); padding: var(--space-1) var(--space-3); font-size: var(--text-sm); font-weight: var(--fw-medium); line-height: 1.4; color: var(--color-muted); background: transparent; border: none; border-radius: calc(var(--radius-md) - 2px); cursor: pointer; white-space: nowrap; transition: color var(--duration-fast) var(--ease-out), background var(--duration-fast) var(--ease-out); }
+  .segmented-item:hover { color: var(--color-fg); }
+  .segmented-item[aria-selected="true"], .segmented-item.is-selected { background: var(--color-surface); color: var(--color-fg); box-shadow: var(--shadow-xs); }
+  .segmented-item:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 1px; }
+
   /* Avatar — size scale + overlapping group */
   .avatar { display: inline-flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; border-radius: var(--radius-full); background: var(--color-subtle); color: var(--color-fg); font-weight: var(--fw-ui); font-size: var(--text-sm); overflow: hidden; flex-shrink: 0; user-select: none; }
   .avatar img { width: 100%; height: 100%; object-fit: cover; }
