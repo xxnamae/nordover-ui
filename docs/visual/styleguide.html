@@ -143,6 +143,7 @@
       <button class="app-sidebar-toggle" aria-expanded="true" title="Feedback"><svg class="icon" aria-hidden="true"><use href="#i-bell"/></svg><span class="app-sidebar-toggle-label">Feedback</span></button>
       <nav class="app-nav-group is-active">
         <a class="app-nav-item" href="#badges-alerts">Badges &amp; Alerts</a>
+        <a class="app-nav-item" href="#status-priority">Status &amp; Priority</a>
         <a class="app-nav-item" href="#toast">Toast</a>
         <a class="app-nav-item" href="#loading">Loading &amp; Skeleton</a>
         <a class="app-nav-item" href="#empty-state">Empty State</a>
@@ -165,6 +166,9 @@
         <a class="app-nav-item" href="#modal">Modal</a>
         <a class="app-nav-item" href="#tooltip">Tooltip</a>
         <a class="app-nav-item" href="#menu">Menu</a>
+        <a class="app-nav-item" href="#token-pill">Property Pill</a>
+        <a class="app-nav-item" href="#label-dot-group">Label Dots</a>
+        <a class="app-nav-item" href="#bottom-sheet">Bottom Sheet</a>
       </nav>
     </div>
 
@@ -2482,16 +2486,110 @@
 
         <section class="doc-section" id="menu">
           <h2 class="doc-section-title">Menu</h2>
-          <p class="doc-section-desc">Dropdown surface of actions, with items and separators. Anchor it to a trigger in production.</p>
-          <div class="chips"><span class="chip">.menu-content</span><span class="chip">.menu-item</span><span class="chip">.menu-separator</span></div>
+          <p class="doc-section-desc">Dropdown surface for actions and selections. Supports search, checkmarks, keyboard shortcuts, multiselect, and grouped sections. On mobile, use the <strong>Bottom Sheet</strong> variant.</p>
+          <div class="chips">
+            <span class="chip">.menu-content</span><span class="chip">.menu-item</span><span class="chip">.menu-separator</span>
+            <span class="chip">.menu-search</span><span class="chip">.menu-item-check</span><span class="chip">.menu-item-shortcut</span>
+            <span class="chip">.menu-item-count</span><span class="chip">.menu-group-label</span>
+          </div>
 
-          <div class="doc-block-label">Example</div>
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li>Contextual actions on a selected item (edit, delete, share)</li>
+                <li>Filterable single or multiselect lists (assignee, label, status)</li>
+                <li>Navigation shortcuts with keyboard hints</li>
+              </ul>
+            </div>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>More than ~12 items without search — add <code>.menu-search</code></li>
+                <li>Complex forms — use a modal instead</li>
+                <li>Static single-choice sets where all options are visible — use radio buttons</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Simple actions menu</div>
           <div class="doc-demo">
             <div class="menu-content sg-static-menu" style="max-width: 14rem;" role="menu">
-              <div class="menu-item" role="menuitem" tabindex="0"><svg class="icon icon-sm"><use href="#i-edit"/></svg> Edit</div>
-              <div class="menu-item" role="menuitem" tabindex="-1"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Duplicate</div>
+              <div class="menu-item" role="menuitem" tabindex="0"><svg class="icon icon-sm"><use href="#i-edit"/></svg><span class="menu-item-label">Edit</span></div>
+              <div class="menu-item" role="menuitem" tabindex="-1"><svg class="icon icon-sm"><use href="#i-copy"/></svg><span class="menu-item-label">Duplicate</span></div>
+              <div class="menu-item" role="menuitem" tabindex="-1"><svg class="icon icon-sm"><use href="#i-external"/></svg><span class="menu-item-label">Share</span></div>
               <div class="menu-separator" role="separator"></div>
-              <div class="menu-item" role="menuitem" tabindex="-1" style="color: var(--color-error);"><svg class="icon icon-sm"><use href="#i-trash"/></svg> Delete</div>
+              <div class="menu-item" role="menuitem" tabindex="-1" style="color: var(--color-error);"><svg class="icon icon-sm"><use href="#i-trash"/></svg><span class="menu-item-label">Delete</span></div>
+            </div>
+          </div>
+
+          <div class="doc-block-label">With keyboard shortcuts</div>
+          <div class="doc-demo">
+            <div class="menu-content sg-static-menu" style="max-width: 16rem;" role="menu">
+              <div class="menu-item" role="menuitem" tabindex="0"><svg class="icon icon-sm"><use href="#i-edit"/></svg><span class="menu-item-label">Edit</span><span class="menu-item-shortcut"><kbd class="kbd">E</kbd></span></div>
+              <div class="menu-item" role="menuitem" tabindex="-1"><svg class="icon icon-sm"><use href="#i-copy"/></svg><span class="menu-item-label">Duplicate</span><span class="menu-item-shortcut"><kbd class="kbd">⌘</kbd><kbd class="kbd">D</kbd></span></div>
+              <div class="menu-item" role="menuitem" tabindex="-1"><svg class="icon icon-sm"><use href="#i-link"/></svg><span class="menu-item-label">Copy link</span><span class="menu-item-shortcut"><kbd class="kbd">⌘</kbd><kbd class="kbd">L</kbd></span></div>
+              <div class="menu-separator" role="separator"></div>
+              <div class="menu-item" role="menuitem" tabindex="-1" style="color: var(--color-error);"><svg class="icon icon-sm"><use href="#i-trash"/></svg><span class="menu-item-label">Delete</span><span class="menu-item-shortcut" style="color:inherit;"><kbd class="kbd" style="color:var(--color-error);">⌫</kbd></span></div>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Searchable with checkmarks (multiselect)</div>
+          <div class="doc-demo">
+            <div class="menu-content sg-static-menu" style="max-width: 16rem; overflow: visible;" role="listbox" aria-multiselectable="true">
+              <div class="menu-search">
+                <div class="menu-search-wrap">
+                  <svg class="menu-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  <input type="text" placeholder="Filter labels..." aria-label="Filter labels">
+                </div>
+              </div>
+              <div class="menu-group-label">Labels</div>
+              <div class="menu-item is-checked" role="option" aria-selected="true" tabindex="0">
+                <span class="menu-item-check"><svg class="icon icon-sm"><use href="#i-check"/></svg></span>
+                <span class="label-dot" style="background: #6366f1;"></span>
+                <span class="menu-item-label">Design</span>
+              </div>
+              <div class="menu-item is-checked" role="option" aria-selected="true" tabindex="-1">
+                <span class="menu-item-check"><svg class="icon icon-sm"><use href="#i-check"/></svg></span>
+                <span class="label-dot" style="background: #10b981;"></span>
+                <span class="menu-item-label">Frontend</span>
+              </div>
+              <div class="menu-item" role="option" aria-selected="false" tabindex="-1">
+                <span class="menu-item-check"></span>
+                <span class="label-dot" style="background: #f59e0b;"></span>
+                <span class="menu-item-label">Bug</span>
+                <span class="menu-item-count">4</span>
+              </div>
+              <div class="menu-item" role="option" aria-selected="false" tabindex="-1">
+                <span class="menu-item-check"></span>
+                <span class="label-dot" style="background: #ef4444;"></span>
+                <span class="menu-item-label">Critical</span>
+                <span class="menu-item-count">1</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Grouped sections</div>
+          <div class="doc-demo">
+            <div class="menu-content sg-static-menu" style="max-width: 14rem;" role="menu">
+              <div class="menu-group-label">View</div>
+              <div class="menu-item" role="menuitem" tabindex="0"><svg class="icon icon-sm"><use href="#i-image"/></svg><span class="menu-item-label">Board</span></div>
+              <div class="menu-item" role="menuitem" tabindex="-1"><svg class="icon icon-sm"><use href="#i-file"/></svg><span class="menu-item-label">List</span></div>
+              <div class="menu-separator" role="separator"></div>
+              <div class="menu-group-label">Sort by</div>
+              <div class="menu-item is-checked" role="menuitem" tabindex="-1">
+                <span class="menu-item-check"><svg class="icon icon-sm"><use href="#i-check"/></svg></span>
+                <span class="menu-item-label">Priority</span>
+              </div>
+              <div class="menu-item" role="menuitem" tabindex="-1">
+                <span class="menu-item-check"></span>
+                <span class="menu-item-label">Last updated</span>
+              </div>
+              <div class="menu-item" role="menuitem" tabindex="-1">
+                <span class="menu-item-check"></span>
+                <span class="menu-item-label">Due date</span>
+              </div>
             </div>
           </div>
 
@@ -2501,8 +2599,9 @@
               <strong>Accessibility</strong>
               <ul>
                 <li>Trigger has <code>aria-haspopup="menu"</code> + <code>aria-expanded</code>; the surface is <code>role="menu"</code> with <code>role="menuitem"</code> children.</li>
-                <li>Arrow keys move between items; <kbd class="kbd">Esc</kbd> closes and returns focus to the trigger.</li>
-                <li>Use a separator (<code>role="separator"</code>) to set destructive actions apart.</li>
+                <li>For multiselect: use <code>role="listbox" aria-multiselectable="true"</code> with <code>role="option" aria-selected</code>.</li>
+                <li>Arrow keys navigate items; <kbd class="kbd">Esc</kbd> closes and returns focus to trigger.</li>
+                <li>Keyboard shortcuts in <code>.menu-item-shortcut</code> are visual only — also wire them in JS.</li>
               </ul>
             </div>
           </div>
@@ -2510,10 +2609,270 @@
           <div class="doc-block-label">Code</div>
           <div class="doc-code">
             <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
-            <pre>&lt;div class="menu-content" role="menu"&gt;
-  &lt;button class="menu-item" role="menuitem"&gt;Edit&lt;/button&gt;
+            <pre>&lt;!-- Basic menu --&gt;
+&lt;div class="menu-content" role="menu"&gt;
+  &lt;button class="menu-item" role="menuitem"&gt;
+    &lt;span class="menu-item-label"&gt;Edit&lt;/span&gt;
+    &lt;span class="menu-item-shortcut"&gt;&lt;kbd class="kbd"&gt;E&lt;/kbd&gt;&lt;/span&gt;
+  &lt;/button&gt;
   &lt;div class="menu-separator" role="separator"&gt;&lt;/div&gt;
-  &lt;button class="menu-item" role="menuitem"&gt;Delete&lt;/button&gt;
+  &lt;button class="menu-item" role="menuitem" style="color: var(--color-error);"&gt;
+    &lt;span class="menu-item-label"&gt;Delete&lt;/span&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- Searchable multiselect --&gt;
+&lt;div class="menu-content" role="listbox" aria-multiselectable="true"&gt;
+  &lt;div class="menu-search"&gt;
+    &lt;div class="menu-search-wrap"&gt;
+      &lt;input type="text" placeholder="Filter..." aria-label="Filter options"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div role="option" aria-selected="true" class="menu-item is-checked"&gt;
+    &lt;span class="menu-item-check"&gt;✓&lt;/span&gt;
+    &lt;span class="menu-item-label"&gt;Option A&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <section class="doc-section" id="token-pill">
+          <h2 class="doc-section-title">Property Pill</h2>
+          <p class="doc-section-desc">Compact inline metadata badge — an icon or dot + label combination used to show a property value (status, priority, assignee, label). Often the trigger for a dropdown menu.</p>
+          <div class="chips">
+            <span class="chip">.token-pill</span><span class="chip">.token-pill-icon</span><span class="chip">.token-pill-label</span>
+            <span class="chip">.token-pill-remove</span><span class="chip">.token-pill-count</span>
+            <span class="chip">.token-pill-status</span><span class="chip">.token-pill-priority</span>
+          </div>
+
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li>Property values in a detail sidebar (Status: In Progress)</li>
+                <li>Filter chips in a filter bar</li>
+                <li>Selected values inside a search/filter dropdown</li>
+              </ul>
+            </div>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>Primary actions — use <code>.btn</code> instead</li>
+                <li>Status badges that need clear color semantics — use <code>.badge</code></li>
+                <li>Long text labels — pills are for short property values (≤2 words)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Example</div>
+          <div class="doc-demo stack">
+            <div>
+              <h3 class="t-body-sm">Default property pills</h3>
+              <div class="cluster">
+                <button class="token-pill">
+                  <span class="token-pill-icon"><span class="status-dot is-in-progress" style="width:0.5rem;height:0.5rem;"></span></span>
+                  <span class="token-pill-label">In Progress</span>
+                </button>
+                <button class="token-pill token-pill-priority">
+                  <svg class="token-pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+                  <span class="token-pill-label">High</span>
+                </button>
+                <button class="token-pill">
+                  <span class="token-pill-icon"><div class="avatar avatar-xs" style="width:0.75rem;height:0.75rem;font-size:0.4rem;">A</div></span>
+                  <span class="token-pill-label">Assigned to me</span>
+                </button>
+              </div>
+            </div>
+            <div>
+              <h3 class="t-body-sm">With count badge</h3>
+              <div class="cluster">
+                <button class="token-pill">
+                  <span class="token-pill-label">Labels</span>
+                  <span class="token-pill-count">3</span>
+                </button>
+                <button class="token-pill token-pill-status">
+                  <span class="token-pill-label">In Progress</span>
+                  <span class="token-pill-count">7</span>
+                </button>
+              </div>
+            </div>
+            <div>
+              <h3 class="t-body-sm">With remove button (filter chip)</h3>
+              <div class="cluster">
+                <span class="token-pill">
+                  <span class="label-dot" style="background: #6366f1; width:0.5rem; height:0.5rem;"></span>
+                  <span class="token-pill-label">Design</span>
+                  <button class="token-pill-remove" aria-label="Remove Design filter"><svg class="icon" style="width:0.625rem;height:0.625rem;"><use href="#i-x"/></svg></button>
+                </span>
+                <span class="token-pill">
+                  <span class="status-dot is-done" style="width:0.5rem;height:0.5rem;"></span>
+                  <span class="token-pill-label">Done</span>
+                  <button class="token-pill-remove" aria-label="Remove Done filter"><svg class="icon" style="width:0.625rem;height:0.625rem;"><use href="#i-x"/></svg></button>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;!-- As a trigger (opens dropdown) --&gt;
+&lt;button class="token-pill" aria-haspopup="listbox"&gt;
+  &lt;span class="token-pill-icon"&gt;...&lt;/span&gt;
+  &lt;span class="token-pill-label"&gt;In Progress&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;!-- As a filter chip (removable) --&gt;
+&lt;span class="token-pill"&gt;
+  &lt;span class="token-pill-label"&gt;Design&lt;/span&gt;
+  &lt;button class="token-pill-remove" aria-label="Remove Design filter"&gt;✕&lt;/button&gt;
+&lt;/span&gt;</pre>
+          </div>
+        </section>
+
+        <section class="doc-section" id="label-dot-group">
+          <h2 class="doc-section-title">Label Dots & Avatar Overflow</h2>
+          <p class="doc-section-desc">Compact row of colored circles for labels or people. Overlap when space is tight; show "+N" when count exceeds the display limit.</p>
+          <div class="chips">
+            <span class="chip">.label-dot-group</span><span class="chip">.label-dot</span><span class="chip">.label-dot-overflow</span>
+          </div>
+
+          <div class="doc-block-label">Example</div>
+          <div class="doc-demo stack">
+            <div>
+              <h3 class="t-body-sm">Label dots (3 visible + overflow)</h3>
+              <div class="cluster" style="align-items: center; gap: var(--space-4);">
+                <div class="label-dot-group">
+                  <span class="label-dot" style="background: #6366f1;" title="Design"></span>
+                  <span class="label-dot" style="background: #10b981;" title="Frontend"></span>
+                  <span class="label-dot" style="background: #f59e0b;" title="Bug"></span>
+                  <span class="label-dot label-dot-overflow">+2</span>
+                </div>
+                <div class="label-dot-group">
+                  <div class="avatar avatar-xs" style="width:1.25rem;height:1.25rem;font-size:0.5rem;border:1.5px solid var(--color-bg);">A</div>
+                  <div class="avatar avatar-xs" style="width:1.25rem;height:1.25rem;font-size:0.5rem;border:1.5px solid var(--color-bg);margin-inline-start:-0.375rem;">B</div>
+                  <div class="avatar avatar-xs" style="width:1.25rem;height:1.25rem;font-size:0.5rem;border:1.5px solid var(--color-bg);margin-inline-start:-0.375rem;">C</div>
+                  <span class="label-dot label-dot-overflow" style="margin-inline-start:-0.375rem;">+4</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 class="t-body-sm">In context — issue row metadata</h3>
+              <div style="border: var(--border-card); border-radius: var(--radius-md); padding: var(--space-3) var(--space-4); background: var(--color-surface); display: flex; align-items: center; gap: var(--space-3); max-width: 28rem;">
+                <span class="status-dot is-in-progress"></span>
+                <div style="flex: 1; min-width: 0;">
+                  <div style="font-size: var(--text-sm); font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Design system — Bolk 2 interaction layer</div>
+                </div>
+                <div class="label-dot-group">
+                  <span class="label-dot" style="background: #6366f1;" title="Design"></span>
+                  <span class="label-dot" style="background: #10b981;" title="Frontend"></span>
+                </div>
+                <span class="priority-indicator is-high" style="padding: 0.1rem 0.375rem;">High</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;div class="label-dot-group"&gt;
+  &lt;span class="label-dot" style="background: #6366f1;" title="Design"&gt;&lt;/span&gt;
+  &lt;span class="label-dot" style="background: #10b981;" title="Frontend"&gt;&lt;/span&gt;
+  &lt;span class="label-dot label-dot-overflow"&gt;+3&lt;/span&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <section class="doc-section" id="bottom-sheet">
+          <h2 class="doc-section-title">Bottom Sheet</h2>
+          <p class="doc-section-desc">Mobile-first alternative to dropdown menus. Full-width overlay that slides up from the bottom — replaces popover dropdowns on narrow viewports (&lt;768px). Hidden on desktop.</p>
+          <div class="chips">
+            <span class="chip">.bottom-sheet</span><span class="chip">.bottom-sheet-backdrop</span><span class="chip">.bottom-sheet-handle</span>
+            <span class="chip">.bottom-sheet-header</span><span class="chip">.bottom-sheet-body</span><span class="chip">.is-open</span>
+          </div>
+
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li>Mobile replacement for any <code>.menu-content</code> dropdown</li>
+                <li>Long option lists that need scrolling</li>
+                <li>Searchable / multiselect filters on mobile</li>
+              </ul>
+            </div>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>Desktop — hidden via <code>@media (min-width: 48rem)</code></li>
+                <li>Complex forms that belong in a <code>.modal-dialog</code></li>
+                <li>Critical alerts — use a modal with explicit confirm/cancel</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Static preview (open state)</div>
+          <div class="doc-demo" style="position: relative; min-height: 20rem; overflow: hidden; border-radius: 0.75rem;">
+            <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.35); border-radius: 0.75rem;"></div>
+            <div style="position: absolute; bottom: 0; inset-inline: 0; background: var(--color-surface); border-radius: 0.75rem 0.75rem 0 0; box-shadow: var(--shadow-xl);">
+              <div class="bottom-sheet-handle"></div>
+              <div class="bottom-sheet-header">
+                <span class="bottom-sheet-title">Assign labels</span>
+                <button class="bottom-sheet-close" aria-label="Close"><svg class="icon icon-sm"><use href="#i-x"/></svg></button>
+              </div>
+              <div class="bottom-sheet-body" style="max-height: 14rem; overflow: visible;">
+                <div class="menu-search" style="margin: 0 0 var(--space-2); border-bottom: var(--border-divider); padding-bottom: var(--space-2);">
+                  <div class="menu-search-wrap">
+                    <svg class="menu-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    <input type="text" placeholder="Search labels..." aria-label="Search labels" style="width:100%; font-size:var(--text-sm); padding: var(--space-1) var(--space-2) var(--space-1) var(--space-6); border: var(--border-card); border-radius: var(--radius-sm); background: var(--color-subtle); box-sizing: border-box;">
+                  </div>
+                </div>
+                <button class="menu-item is-checked" style="min-height:2.75rem;" role="option" aria-selected="true">
+                  <span class="menu-item-check"><svg class="icon icon-sm"><use href="#i-check"/></svg></span>
+                  <span class="label-dot" style="background:#6366f1;"></span>
+                  <span class="menu-item-label">Design</span>
+                </button>
+                <button class="menu-item" style="min-height:2.75rem;" role="option" aria-selected="false">
+                  <span class="menu-item-check"></span>
+                  <span class="label-dot" style="background:#10b981;"></span>
+                  <span class="menu-item-label">Frontend</span>
+                </button>
+                <button class="menu-item" style="min-height:2.75rem;" role="option" aria-selected="false">
+                  <span class="menu-item-check"></span>
+                  <span class="label-dot" style="background:#f59e0b;"></span>
+                  <span class="menu-item-label">Bug</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-a11y">
+            <svg class="icon"><use href="#i-info"/></svg>
+            <div class="doc-a11y-body">
+              <strong>Accessibility</strong>
+              <ul>
+                <li>Add <code>role="dialog" aria-modal="true" aria-label="..."</code> to <code>.bottom-sheet</code>.</li>
+                <li>Trap focus inside while open; return focus to trigger when closed.</li>
+                <li>Backdrop click and <kbd class="kbd">Esc</kbd> must close the sheet.</li>
+                <li>Items inside follow the same <code>role="option"</code> or <code>role="menuitem"</code> semantics as menus.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Code</div>
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;div class="bottom-sheet-backdrop is-open"&gt;&lt;/div&gt;
+&lt;div class="bottom-sheet is-open" role="dialog" aria-modal="true" aria-label="Select labels"&gt;
+  &lt;div class="bottom-sheet-handle"&gt;&lt;/div&gt;
+  &lt;div class="bottom-sheet-header"&gt;
+    &lt;span class="bottom-sheet-title"&gt;Select labels&lt;/span&gt;
+    &lt;button class="bottom-sheet-close" aria-label="Close"&gt;✕&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="bottom-sheet-body"&gt;
+    &lt;!-- .menu-item rows here --&gt;
+  &lt;/div&gt;
 &lt;/div&gt;</pre>
           </div>
         </section>
