@@ -774,6 +774,9 @@ html, body {
   border-radius: 1rem;
 }
 .doc-demo > div:not(:last-child) { margin-bottom: var(--space-2); }
+.doc-demo h2,
+.doc-demo h3,
+.doc-demo h4 { margin-bottom: var(--space-4); margin-top: 0; }
 
 /* ============================================================
    14. METADATA + CHIPS
