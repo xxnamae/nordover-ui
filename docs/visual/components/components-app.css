@@ -1348,13 +1348,21 @@
   /* Kbd */
   .kbd { display: inline-flex; align-items: center; justify-content: center; min-width: 1.5rem; padding: 0.125rem var(--space-2); background: var(--color-subtle); border: var(--border-card); border-bottom-width: 2px; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-fg); }
 
-  /* Status Indicators — task/issue status (todo, backlog, in-progress, done, cancelled) */
-  .status-dot { display: inline-flex; align-items: center; justify-content: center; width: 0.625rem; height: 0.625rem; border-radius: var(--radius-full); flex-shrink: 0; }
-  .status-dot.is-todo { background: var(--color-border); }
-  .status-dot.is-backlog { background: var(--color-muted); }
-  .status-dot.is-in-progress { background: var(--color-info); }
+  /* Status Indicators — Linear-style progress glyphs (backlog/todo/in-progress/done/cancelled).
+     Pure-CSS iconography: dashed ring, empty ring, pie-fill ring, filled+check, filled+x.
+     The .status-dot.is-* class contract is unchanged, so every existing usage upgrades in place.
+     The glyph is decorative — status is always paired with a text label. The check/x knockout
+     uses --color-bg so it adapts to light/dark automatically. */
+  .status-dot { position: relative; box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; width: 0.875rem; height: 0.875rem; border-radius: var(--radius-full); flex-shrink: 0; background: transparent; }
+  .status-dot.is-backlog { border: 1.5px dashed var(--color-muted); }
+  .status-dot.is-todo { border: 1.5px solid var(--color-muted); }
+  .status-dot.is-in-progress { border: 1.5px solid var(--color-info); }
+  .status-dot.is-in-progress::before { content: ""; position: absolute; inset: 2.5px; border-radius: var(--radius-full); background: conic-gradient(var(--color-info) 0 65%, transparent 65%); }
   .status-dot.is-done { background: var(--color-success); }
-  .status-dot.is-cancelled { background: var(--color-muted); opacity: 0.5; }
+  .status-dot.is-cancelled { background: var(--color-muted); }
+  .status-dot.is-done::before, .status-dot.is-cancelled::before { content: ""; position: absolute; inset: 0; background: var(--color-bg); -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-position: center; mask-position: center; -webkit-mask-size: 64%; mask-size: 64%; }
+  .status-dot.is-done::before { -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpolyline points='20 6 9 17 4 12' fill='none' stroke='black' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpolyline points='20 6 9 17 4 12' fill='none' stroke='black' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+  .status-dot.is-cancelled::before { -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cline x1='18' y1='6' x2='6' y2='18' stroke='black' stroke-width='3' stroke-linecap='round'/%3E%3Cline x1='6' y1='6' x2='18' y2='18' stroke='black' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cline x1='18' y1='6' x2='6' y2='18' stroke='black' stroke-width='3' stroke-linecap='round'/%3E%3Cline x1='6' y1='6' x2='18' y2='18' stroke='black' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E"); }
 
   /* Priority Indicators — urgency level (urgent, high, medium, low) */
   .priority-indicator { display: inline-flex; align-items: center; gap: var(--space-1); font-size: var(--text-xs); font-weight: var(--fw-medium); padding: 0.25rem 0.5rem; border-radius: var(--radius-sm); }
