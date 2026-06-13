@@ -1578,6 +1578,112 @@
           </div>
         </section>
 
+        <section class="doc-section" id="status-priority">
+          <h2 class="doc-section-title">Status & Priority Indicators</h2>
+          <p class="doc-section-desc">Visual indicators for task/issue state and priority level. Status shows progress (todo → done); priority shows urgency (low → urgent).</p>
+          <div class="chips">
+            <span class="chip">.status-dot</span><span class="chip">.priority-indicator</span><span class="chip">.status-badge</span>
+            <span class="chip">.is-todo</span><span class="chip">.is-backlog</span><span class="chip">.is-in-progress</span>
+            <span class="chip">.is-done</span><span class="chip">.is-cancelled</span><span class="chip">.is-urgent</span>
+            <span class="chip">.is-high</span><span class="chip">.is-medium</span><span class="chip">.is-low</span>
+          </div>
+
+          <div class="doc-block-label">When to use</div>
+          <div class="doc-usage">
+            <div class="doc-usage-col doc-usage-use">
+              <h4><svg class="icon icon-sm"><use href="#i-check"/></svg> Use for</h4>
+              <ul>
+                <li><strong>Status dots</strong> — quick visual cue of task progress in lists</li>
+                <li><strong>Priority indicators</strong> — show urgency without relying on color alone</li>
+                <li>Combine status + priority in detailed views (row metadata)</li>
+              </ul>
+            </div>
+            <div class="doc-usage-col doc-usage-avoid">
+              <h4><svg class="icon icon-sm"><use href="#i-x"/></svg> Avoid for</h4>
+              <ul>
+                <li>Using color alone — always pair with text or clear meaning</li>
+                <li>Mixing status (todo) with semantic color (success) — use consistent naming</li>
+                <li>Overloading with too many states — keep task states ≤5</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="doc-block-label">Example</div>
+          <div class="doc-demo stack">
+            <div>
+              <h3 class="t-body-sm">Status dots (task state)</h3>
+              <div class="cluster" style="align-items: center; gap: 1.5rem;">
+                <div style="display: flex; align-items: center; gap: 0.5rem;"><span class="status-dot is-todo"></span><span class="t-caption">Todo</span></div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;"><span class="status-dot is-backlog"></span><span class="t-caption">Backlog</span></div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;"><span class="status-dot is-in-progress"></span><span class="t-caption">In Progress</span></div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;"><span class="status-dot is-done"></span><span class="t-caption">Done</span></div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;"><span class="status-dot is-cancelled"></span><span class="t-caption">Cancelled</span></div>
+              </div>
+            </div>
+            <div>
+              <h3 class="t-body-sm">Priority indicators</h3>
+              <div class="cluster">
+                <span class="priority-indicator is-urgent">🔴 Urgent</span>
+                <span class="priority-indicator is-high">🟠 High</span>
+                <span class="priority-indicator is-medium">🟡 Medium</span>
+                <span class="priority-indicator is-low">⚪ Low</span>
+              </div>
+            </div>
+            <div>
+              <h3 class="t-body-sm">Status badges (semantic color)</h3>
+              <div class="cluster">
+                <span class="status-badge is-success">Success</span>
+                <span class="status-badge is-error">Error</span>
+                <span class="status-badge is-warning">Warning</span>
+                <span class="status-badge is-info">Info</span>
+                <span class="status-badge is-neutral">Neutral</span>
+              </div>
+            </div>
+            <div>
+              <h3 class="t-body-sm">In context — task list row</h3>
+              <div style="border: var(--border-card); border-radius: var(--radius-md); padding: var(--space-3); background: var(--color-surface); max-width: 24rem;">
+                <div style="display: flex; gap: var(--space-3); align-items: center;">
+                  <span class="status-dot is-in-progress"></span>
+                  <div style="flex: 1; min-width: 0;">
+                    <div style="font-weight: 500; font-size: var(--text-sm); margin-bottom: 0.25rem;">Design system migration</div>
+                    <div style="font-size: var(--text-xs); color: var(--color-muted);">Due tomorrow • 3 days in progress</div>
+                  </div>
+                  <span class="priority-indicator is-high">High</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="doc-block-label">States & meanings</div>
+          <table class="props-table">
+            <thead><tr><th>Class</th><th>Meaning</th><th>Use case</th></tr></thead>
+            <tbody>
+              <tr><td><code>.is-todo</code></td><td>Not started</td><td>Newly created task</td></tr>
+              <tr><td><code>.is-backlog</code></td><td>Planned but not started</td><td>Backlog queue</td></tr>
+              <tr><td><code>.is-in-progress</code></td><td>Currently being worked on</td><td>Active sprint/current work</td></tr>
+              <tr><td><code>.is-done</code></td><td>Completed</td><td>Finished task</td></tr>
+              <tr><td><code>.is-cancelled</code></td><td>Abandoned / not doing</td><td>Rejected or deferred</td></tr>
+              <tr><td colspan="3"><strong>Priority</strong></td></tr>
+              <tr><td><code>.is-urgent</code></td><td>Blocking / critical</td><td>P0, immediate action</td></tr>
+              <tr><td><code>.is-high</code></td><td>Important</td><td>P1, next sprint</td></tr>
+              <tr><td><code>.is-medium</code></td><td>Standard</td><td>P2, normal flow</td></tr>
+              <tr><td><code>.is-low</code></td><td>Nice to have</td><td>P3, backlog</td></tr>
+            </tbody>
+          </table>
+
+          <div class="doc-code">
+            <button class="doc-code-copy" type="button"><svg class="icon icon-sm"><use href="#i-copy"/></svg> Copy</button>
+            <pre>&lt;div style="display: flex; gap: var(--space-3); align-items: center;"&gt;
+  &lt;span class="status-dot is-in-progress"&gt;&lt;/span&gt;
+  &lt;div style="flex: 1;"&gt;
+    &lt;div style="font-weight: 500;"&gt;Task title&lt;/div&gt;
+    &lt;div style="font-size: var(--text-xs); color: var(--color-muted);"&gt;Subtitle&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;span class="priority-indicator is-high"&gt;High&lt;/span&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
         <section class="doc-section" id="toast">
           <h2 class="doc-section-title">Toast</h2>
           <p class="doc-section-desc">Transient confirmation of an action. In production toasts stack in a fixed <code>.toast-viewport</code> and auto-dismiss; shown inline here.</p>
