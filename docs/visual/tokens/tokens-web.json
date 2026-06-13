@@ -11,7 +11,7 @@
       },
       "display": {
         "$type": "other",
-        "$value": "\"Inter Tight\", \"Inter Tight Variable\", \"Inter Tight Fallback\", \"Inter Variable\", system-ui, sans-serif",
+        "$value": "\"Inter Variable\", \"Inter Fallback\", system-ui, sans-serif",
         "$extensions": {
           "com.nordover.cssText": true
         }
@@ -127,15 +127,15 @@
     "weight": {
       "display-xl": {
         "$type": "number",
-        "$value": 380
+        "$value": 440
       },
       "display-lg": {
         "$type": "number",
-        "$value": 400
+        "$value": 470
       },
       "display-md": {
         "$type": "number",
-        "$value": 420
+        "$value": 500
       },
       "heading-lg": {
         "$type": "number",
@@ -248,7 +248,7 @@
       "display": {
         "$type": "dimension",
         "$value": {
-          "value": -0.05,
+          "value": -0.025,
           "unit": "em"
         }
       },

@@ -20,17 +20,11 @@
      Canonical source — styleguide.html links this file for reference.
      ============================================================ */
 
-  /* Light mode overrides (when dark toggle is OFF).
-     surface sits above bg (white cards on a light-gray canvas) so panels
-     read as elevated rather than sunk below the page. */
-  :root:has(#dark:not(:checked)) {
-    --color-bg: oklch(0.975 0 0);
-    --color-surface: oklch(1 0 0);
-    --color-subtle: oklch(0.92 0 0);
-    --color-fg: oklch(0.15 0 0);
-    --color-muted: oklch(0.45 0 0);
-    --color-border: oklch(0.88 0 0);
-  }
+  /* Light mode: inherit the parametric purple-tinted neutral straight from
+     tokens-app.css (:root). We intentionally do NOT re-flatten to pure grey
+     here — Linear keeps the cool/purple hue across the whole ramp in light too,
+     and the gray-50 canvas vs white-card (surface-3) contrast already gives lift.
+     (Previously this block killed the signature tint; that was the bug.) */
 
   /* Fundamental layout primitives */
   .stack { display: flex; flex-direction: column; gap: var(--gap-component); }
@@ -55,9 +49,9 @@
   .icon-lg { width: var(--size-icon-lg); height: var(--size-icon-lg); }
 
   /* Semantic typography classes */
-  .t-display-2xl { font-family: var(--font-display); font-size: var(--text-6xl); font-weight: var(--fw-display-xl); line-height: var(--leading-none); letter-spacing: -0.04em; }
-  .t-display-xl { font-family: var(--font-display); font-size: var(--text-5xl); font-weight: var(--fw-display-xl); line-height: var(--leading-none); letter-spacing: -0.04em; }
-  .t-display-lg { font-family: var(--font-display); font-size: var(--text-4xl); font-weight: var(--fw-display-lg); line-height: 1.1; letter-spacing: -0.03em; }
+  .t-display-2xl { font-family: var(--font-display); font-size: var(--text-6xl); font-weight: var(--fw-display-xl); line-height: var(--leading-none); letter-spacing: var(--tracking-display); }
+  .t-display-xl { font-family: var(--font-display); font-size: var(--text-5xl); font-weight: var(--fw-display-xl); line-height: var(--leading-none); letter-spacing: var(--tracking-display); }
+  .t-display-lg { font-family: var(--font-display); font-size: var(--text-4xl); font-weight: var(--fw-display-lg); line-height: 1.1; letter-spacing: -0.02em; }
   .t-display-md { font-family: var(--font-display); font-size: var(--text-3xl); font-weight: var(--fw-display-md); line-height: var(--leading-tight); letter-spacing: -0.02em; }
   .t-display-sm { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: var(--fw-display-md); line-height: var(--leading-tight); letter-spacing: -0.02em; }
   .t-heading-xl { font-family: var(--font-display); font-size: var(--text-3xl); font-weight: var(--fw-heading-lg); line-height: 1.15; letter-spacing: -0.02em; }

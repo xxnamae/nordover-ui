@@ -31,14 +31,6 @@
     descent-override: 22.5%;
     line-gap-override: 0%;
   }
-  @font-face {
-    font-family: "Inter Tight Fallback";
-    src: local("Arial");
-    size-adjust: 100%;
-    ascent-override: 96%;
-    descent-override: 24%;
-    line-gap-override: 0%;
-  }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
   body {
@@ -48,6 +40,7 @@
     color: var(--color-fg);
     background: var(--color-bg);
     text-wrap: pretty;
+    font-optical-sizing: auto;
     font-variant-numeric: lining-nums;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -90,7 +83,7 @@
   :root {
     /* === Font-stacks (med Inter Fallback for null CLS) === */
     --font-sans: "Inter Variable", "Inter Fallback", system-ui, sans-serif;
-    --font-display: "Inter Tight", "Inter Tight Variable", "Inter Tight Fallback", "Inter Variable", system-ui, sans-serif;  /* shared: Inter Tight display/heading (both packages) */
+    --font-display: "Inter Variable", "Inter Fallback", system-ui, sans-serif;  /* Unified to Inter Variable — one coherent voice (Off Menu/Linear approach, no separate display face) */
     --font-mono: ui-monospace, "SF Mono", "Menlo", "Cascadia Code", monospace;
 
     /* === Fluid type-skala (rem-clamp, ratio 1.2 → 1.333) === */
@@ -110,7 +103,7 @@
     --text-7xl: clamp(3.75rem, 2.68rem + 5.36vw, 7.5rem); /* web-only */
 
     /* === Finkalibrerte vekter (variable font) === */
-    --fw-display-xl: 380; /* web-only */ --fw-display-lg: 400; /* web-only */ --fw-display-md: 420; /* web-only */
+    --fw-display-xl: 440; /* web-only */ --fw-display-lg: 470; /* web-only */ --fw-display-md: 500; /* web-only */  /* Inter editorial display — medium, Off Menu-grade (heavier than Inter Tight needed) */
     --fw-heading-lg: 440; --fw-heading-md: 480; --fw-heading-sm: 500; /* web-only */
     --fw-ui: 500; /* app-only */ --fw-ui-strong: 590; /* app-only */
     --fw-body: 400; /* web-only */ --fw-body-sm: 520; --fw-eyebrow: 600; --fw-caption: 520;
@@ -124,7 +117,7 @@
     --tracking-tighter: -0.04em; --tracking-tight: -0.02em;
     --tracking-normal: 0; --tracking-wide: 0.01em; --tracking-widest: 0.08em;
     /* Role-level tracking (Apple/M3 optical sizing — Inter Tight optimized) */
-    --tracking-display: -0.05em;   /* tettere for display (Inter Tight tåler det) */
+    --tracking-display: -0.025em;  /* Inter Variable editorial display tightness (Off Menu-grade) */
     --tracking-heading: -0.015em;  /* subtil tightning for headline */
     --tracking-title: -0.01em;
 

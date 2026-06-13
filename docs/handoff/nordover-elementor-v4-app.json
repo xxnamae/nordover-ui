@@ -11,7 +11,7 @@
     "e-gv-6f226f8": {
       "type": "global-font-variable",
       "label": "font-display",
-      "value": "Inter Tight",
+      "value": "Inter Variable",
       "order": 2,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00"
@@ -338,7 +338,7 @@
     "e-gv-e0c6d4d": {
       "type": "global-color-variable",
       "label": "surface-1",
-      "value": "#f8f8f8",
+      "value": "#f6faff",
       "order": 40,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -347,7 +347,7 @@
     "e-gv-b191d3b": {
       "type": "global-color-variable",
       "label": "surface-2",
-      "value": "#fcfcfc",
+      "value": "#f8fdff",
       "order": 41,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -365,7 +365,7 @@
     "e-gv-dafffa5": {
       "type": "global-color-variable",
       "label": "surface-4",
-      "value": "#fcfcfc",
+      "value": "#ffffff",
       "order": 43,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -374,7 +374,7 @@
     "e-gv-da860ea": {
       "type": "global-color-variable",
       "label": "surface-5",
-      "value": "#f8f8f8",
+      "value": "#ffffff",
       "order": 44,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",

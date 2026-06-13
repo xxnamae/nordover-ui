@@ -11,7 +11,7 @@
       },
       "display": {
         "$type": "other",
-        "$value": "\"Inter Tight\", \"Inter Tight Variable\", \"Inter Tight Fallback\", \"Inter Variable\", system-ui, sans-serif",
+        "$value": "\"Inter Variable\", \"Inter Fallback\", system-ui, sans-serif",
         "$extensions": {
           "com.nordover.cssText": true
         }
@@ -136,15 +136,15 @@
       },
       "display-xl": {
         "$type": "number",
-        "$value": 420
+        "$value": 510
       },
       "display-lg": {
         "$type": "number",
-        "$value": 440
+        "$value": 520
       },
       "display-md": {
         "$type": "number",
-        "$value": 460
+        "$value": 530
       },
       "heading-lg": {
         "$type": "number",
@@ -248,7 +248,7 @@
       "display": {
         "$type": "dimension",
         "$value": {
-          "value": -0.04,
+          "value": -0.022,
           "unit": "em"
         }
       },
@@ -334,9 +334,9 @@
       "$value": {
         "colorSpace": "oklch",
         "components": [
-          0.98,
-          0.0,
-          0.0
+          0.985,
+          0.012,
+          265.0
         ]
       },
       "$extensions": {
@@ -357,9 +357,9 @@
       "$value": {
         "colorSpace": "oklch",
         "components": [
-          0.99,
-          0.0,
-          0.0
+          0.992,
+          0.012,
+          265.0
         ]
       },
       "$extensions": {
@@ -403,7 +403,7 @@
       "$value": {
         "colorSpace": "oklch",
         "components": [
-          0.99,
+          1.0,
           0.0,
           0.0
         ]
@@ -426,7 +426,7 @@
       "$value": {
         "colorSpace": "oklch",
         "components": [
-          0.98,
+          1.0,
           0.0,
           0.0
         ]
