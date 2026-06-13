@@ -766,13 +766,14 @@ html, body {
 .doc-demo {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: var(--space-6);
   padding: var(--space-6);
   margin-bottom: var(--space-6);
   background: var(--chrome-bg);
   border: 1px solid var(--chrome-border);
   border-radius: 1rem;
 }
+.doc-demo > div:not(:last-child) { margin-bottom: var(--space-2); }
 
 /* ============================================================
    14. METADATA + CHIPS
@@ -1219,7 +1220,7 @@ html, body {
   position: absolute;
   inset-block-start: 0;
   inset-inline: 0;
-  height: 3px;
+  height: 1px;
   z-index: 2;
 }
 .doc-card.is-do::before { background: var(--color-success); }
