@@ -2197,8 +2197,9 @@
 
         <section class="doc-section" id="data-display">
           <h2 class="doc-section-title">Data Display</h2>
-          <p class="doc-section-desc">Avatars, pagination, keyboard keys, and dividers.</p>
+          <p class="doc-section-desc">Stat/KPI blocks, avatars, pagination, keyboard keys, and dividers.</p>
           <div class="chips">
+            <span class="chip">.stat</span><span class="chip">.stat-group</span><span class="chip">.stat-label</span><span class="chip">.stat-value</span><span class="chip">.stat-trend</span>
             <span class="chip">.avatar</span><span class="chip">.avatar-group</span><span class="chip">.pagination</span>
             <span class="chip">.pagination-btn</span><span class="chip">.pagination-dot</span><span class="chip">.pagination-item</span>
             <span class="chip">.kbd</span><span class="chip">.divider</span>
@@ -2226,6 +2227,16 @@
 
           <div class="doc-block-label">Example</div>
           <div class="doc-demo stack">
+            <div>
+              <h3 class="t-body-sm">Stat / KPI — value, label, trend delta</h3>
+              <div class="stat-group" style="max-width: 42rem;">
+                <div class="stat"><span class="stat-label">Total Revenue</span><span class="stat-value">$156,392</span><span class="stat-trend is-up">18.2% vs 30d</span></div>
+                <div class="stat"><span class="stat-label">Total Members</span><span class="stat-value">10,247</span><span class="stat-trend is-up">7.9%</span></div>
+                <div class="stat"><span class="stat-label">Membership</span><span class="stat-value">$81,120</span><span class="stat-trend is-flat">0.0%</span></div>
+                <div class="stat"><span class="stat-label">PPV Revenue</span><span class="stat-value">$7,800</span><span class="stat-trend is-down">4.2%</span></div>
+              </div>
+            </div>
+            <div class="divider"></div>
             <div>
               <h3 class="t-body-sm">Avatars</h3>
               <div class="cluster" style="align-items: center;">
