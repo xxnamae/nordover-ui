@@ -149,6 +149,14 @@
         "$type": "number",
         "$value": 500
       },
+      "ui": {
+        "$type": "number",
+        "$value": 500
+      },
+      "ui-strong": {
+        "$type": "number",
+        "$value": 590
+      },
       "body": {
         "$type": "number",
         "$value": 400

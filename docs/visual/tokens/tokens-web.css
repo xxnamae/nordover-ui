@@ -96,10 +96,10 @@
     /* === Fluid type-skala (rem-clamp, ratio 1.2 → 1.333) === */
     --text-2xs: 0.65rem;
     --text-xs: 0.75rem;
-    --text-xs-lg: 0.8125rem; /* 13px for body-xs */
+    --text-xs-lg: 0.8125rem; /* web-only: 13px for body-xs */
     --text-sm: 0.875rem;
     --text-base: 1rem;
-    --text-md: clamp(1.0625rem, 1.04rem + 0.11vw, 1.125rem);
+    --text-md: clamp(1.0625rem, 1.04rem + 0.11vw, 1.125rem); /* web-only */
     --text-lg: clamp(1.125rem, 1.089rem + 0.18vw, 1.25rem);
     --text-xl: clamp(1.25rem, 1.18rem + 0.36vw, 1.5rem);
     --text-2xl: clamp(1.5rem, 1.36rem + 0.71vw, 2rem);
@@ -110,8 +110,9 @@
     --text-7xl: clamp(3.75rem, 2.68rem + 5.36vw, 7.5rem); /* web-only */
 
     /* === Finkalibrerte vekter (variable font) === */
-    --fw-display-xl: 380; /* web-only */ --fw-display-lg: 400; --fw-display-md: 420; /* web-only */
+    --fw-display-xl: 380; /* web-only */ --fw-display-lg: 400; /* web-only */ --fw-display-md: 420; /* web-only */
     --fw-heading-lg: 440; --fw-heading-md: 480; --fw-heading-sm: 500; /* web-only */
+    --fw-ui: 500; /* app-only */ --fw-ui-strong: 590; /* app-only */
     --fw-body: 400; /* web-only */ --fw-body-sm: 520; --fw-eyebrow: 600; --fw-caption: 520;
     --fw-normal: 400; --fw-medium: 500; --fw-semibold: 600; --fw-bold: 700;
 
