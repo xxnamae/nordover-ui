@@ -143,7 +143,7 @@
       <button class="app-sidebar-toggle" aria-expanded="true" title="Feedback"><svg class="icon" aria-hidden="true"><use href="#i-bell"/></svg><span class="app-sidebar-toggle-label">Feedback</span></button>
       <nav class="app-nav-group is-active">
         <a class="app-nav-item" href="#badges-alerts">Badges &amp; Alerts</a>
-        <a class="app-nav-item" href="#status-priority">Status &amp; Priority</a>
+        <a class="app-nav-item" data-pkg="app" href="#status-priority">Status &amp; Priority</a>
         <a class="app-nav-item" href="#toast">Toast</a>
         <a class="app-nav-item" href="#loading">Loading &amp; Skeleton</a>
         <a class="app-nav-item" href="#empty-state">Empty State</a>
@@ -166,9 +166,9 @@
         <a class="app-nav-item" href="#modal">Modal</a>
         <a class="app-nav-item" href="#tooltip">Tooltip</a>
         <a class="app-nav-item" href="#menu">Menu</a>
-        <a class="app-nav-item" href="#token-pill">Property Pill</a>
-        <a class="app-nav-item" href="#label-dot-group">Label Dots</a>
-        <a class="app-nav-item" href="#bottom-sheet">Bottom Sheet</a>
+        <a class="app-nav-item" data-pkg="app" href="#token-pill">Property Pill</a>
+        <a class="app-nav-item" data-pkg="app" href="#label-dot-group">Label Dots</a>
+        <a class="app-nav-item" data-pkg="app" href="#bottom-sheet">Bottom Sheet</a>
       </nav>
     </div>
 
@@ -181,7 +181,7 @@
       </nav>
     </div>
 
-    <div class="app-sidebar-section-group">
+    <div class="app-sidebar-section-group" data-pkg="app">
       <button class="app-sidebar-toggle" aria-expanded="true" title="Composite Blocks"><svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg><span class="app-sidebar-toggle-label">Composite Blocks</span></button>
       <nav class="app-nav-group is-active">
         <a class="app-nav-item" href="#command-bar">Command Bar</a>
@@ -1596,7 +1596,7 @@
           </div>
         </section>
 
-        <section class="doc-section" id="status-priority">
+        <section class="doc-section" data-pkg="app" id="status-priority">
           <h2 class="doc-section-title">Status & Priority Indicators</h2>
           <p class="doc-section-desc">Visual indicators for task/issue state and priority level. Status shows progress (todo → done); priority shows urgency (low → urgent).</p>
           <div class="chips">
@@ -2650,7 +2650,7 @@
           </div>
         </section>
 
-        <section class="doc-section" id="token-pill">
+        <section class="doc-section" data-pkg="app" id="token-pill">
           <h2 class="doc-section-title">Property Pill</h2>
           <p class="doc-section-desc">Compact inline metadata badge — an icon or dot + label combination used to show a property value (status, priority, assignee, label). Often the trigger for a dropdown menu.</p>
           <div class="chips">
@@ -2745,7 +2745,7 @@
           </div>
         </section>
 
-        <section class="doc-section" id="label-dot-group">
+        <section class="doc-section" data-pkg="app" id="label-dot-group">
           <h2 class="doc-section-title">Label Dots & Avatar Overflow</h2>
           <p class="doc-section-desc">Compact row of colored circles for labels or people. Overlap when space is tight; show "+N" when count exceeds the display limit.</p>
           <div class="chips">
@@ -2798,7 +2798,7 @@
           </div>
         </section>
 
-        <section class="doc-section" id="bottom-sheet">
+        <section class="doc-section" data-pkg="app" id="bottom-sheet">
           <h2 class="doc-section-title">Bottom Sheet</h2>
           <p class="doc-section-desc">Mobile-first alternative to dropdown menus. Full-width overlay that slides up from the bottom — replaces popover dropdowns on narrow viewports (&lt;768px). Hidden on desktop.</p>
           <div class="chips">
@@ -3046,7 +3046,7 @@
              COMPOSITE BLOCKS (Bolk 3)
              ============================================================ -->
 
-        <section class="doc-section" id="command-bar">
+        <section class="doc-section" data-pkg="app" id="command-bar">
           <h2 class="doc-section-title">Command Bar</h2>
           <p class="doc-section-desc">Global search and action palette triggered by <kbd class="kbd">⌘</kbd><kbd class="kbd">K</kbd>. Searches across the entire product — issues, pages, actions, navigation.</p>
           <div class="chips">
@@ -3148,7 +3148,7 @@
           </div>
         </section>
 
-        <section class="doc-section" id="filter-bar">
+        <section class="doc-section" data-pkg="app" id="filter-bar">
           <h2 class="doc-section-title">Filter Bar</h2>
           <p class="doc-section-desc">Horizontal row of filter chips + sort/group controls. Allows scoping a list view without navigating away.</p>
           <div class="chips">
@@ -3200,7 +3200,7 @@
           </div>
         </section>
 
-        <section class="doc-section" id="list-row">
+        <section class="doc-section" data-pkg="app" id="list-row">
           <h2 class="doc-section-title">List Row</h2>
           <p class="doc-section-desc">Versatile row for issue lists, task boards, and data tables. Composes status dot + title + metadata + aside actions in a scannable horizontal layout.</p>
           <div class="chips">
@@ -3282,7 +3282,7 @@
           </div>
         </section>
 
-        <section class="doc-section" id="field-row">
+        <section class="doc-section" data-pkg="app" id="field-row">
           <h2 class="doc-section-title">Field Row (Property Sidebar)</h2>
           <p class="doc-section-desc">Label + value pairs for a property inspector or detail sidebar. Each row shows a property name on the left and an editable/clickable value on the right.</p>
           <div class="chips">
@@ -3352,7 +3352,7 @@
           </div>
         </section>
 
-        <section class="doc-section" id="activity-feed">
+        <section class="doc-section" data-pkg="app" id="activity-feed">
           <h2 class="doc-section-title">Activity Feed</h2>
           <p class="doc-section-desc">Chronological log of changes and comments on an entity. Combines system events (status changes, assignments) with user comments in one scrollable timeline.</p>
           <div class="chips">
@@ -3428,7 +3428,7 @@
           </div>
         </section>
 
-        <section class="doc-section" id="comment-composer">
+        <section class="doc-section" data-pkg="app" id="comment-composer">
           <h2 class="doc-section-title">Comment Composer</h2>
           <p class="doc-section-desc">Textarea + formatting toolbar + submit. Used at the bottom of activity feeds for adding comments or updates.</p>
           <div class="chips">
@@ -3473,7 +3473,7 @@
           </div>
         </section>
 
-        <section class="doc-section" id="toolbar">
+        <section class="doc-section" data-pkg="app" id="toolbar">
           <h2 class="doc-section-title">Toolbar</h2>
           <p class="doc-section-desc">Grouped icon-button strip for text editors, action bars, and contextual panels. Groups are separated by dividers; active state shows the current toggle.</p>
           <div class="chips">
@@ -3532,7 +3532,7 @@
           </div>
         </section>
 
-        <section class="doc-section" id="attachment">
+        <section class="doc-section" data-pkg="app" id="attachment">
           <h2 class="doc-section-title">Attachment</h2>
           <p class="doc-section-desc">File reference chip used inside comments, activity feed items, or any content area. Shows icon, filename, filesize, and optional remove button.</p>
           <div class="chips">
@@ -3793,12 +3793,33 @@
 // Package switcher — swaps BOTH the token and component stylesheets so the
 // preview matches each package exactly (typography scale, density, control
 // sizes). Class contracts are identical; only the values differ.
+//
+// Package-scoped sections (model A, ADR 2026-06-13): app and web are two
+// divergent design systems sharing a token foundation. Blocks that belong to
+// only one domain (app: command bar / issue list / status; web: pill buttons /
+// numbered editorial rows / crosshair) carry data-pkg="app|web". The switcher
+// hides non-matching sections and their nav links so each package shows only
+// its real building blocks. Untagged = shared (visible in both).
+function applyPackageVisibility(pkg) {
+  document.querySelectorAll('[data-pkg]').forEach(el => {
+    const owners = el.getAttribute('data-pkg').split(/\s+/);
+    el.hidden = !owners.includes(pkg);
+  });
+}
+
 document.querySelectorAll('input[name="package"]').forEach(radio => {
   radio.addEventListener('change', function() {
     document.getElementById('token-stylesheet').href = `./tokens/tokens-${this.value}.css`;
     document.getElementById('component-stylesheet').href = `./components/components-${this.value}.css`;
+    applyPackageVisibility(this.value);
     renderElementorExport(this.value);
   });
+});
+
+// Reflect the default-checked package on load (app), so web-only sections start hidden.
+document.addEventListener('DOMContentLoaded', function() {
+  const checked = document.querySelector('input[name="package"]:checked');
+  applyPackageVisibility(checked ? checked.value : 'app');
 });
 
 // Elementor / WordPress export — fetch the currently selected token file and
