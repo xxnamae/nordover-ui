@@ -1109,19 +1109,19 @@
   .icon-muted { color: var(--color-muted); }
   .icon-subtle { opacity: 0.5; }
   .icon-spin { animation: spin var(--duration-slow-base) linear infinite; }
-  .icon-pulse { animation: pulse var(--duration-base) ease-in-out infinite; }
-  .icon-bounce { animation: bounce var(--duration-base) ease-in-out infinite; }
+  .icon-pulse { animation: pulse var(--duration-slow-base) ease-in-out infinite; }
+  .icon-bounce { animation: bounce var(--duration-slow-base) ease-in-out infinite; }
 
   /* Motion utilities */
-  .fade-in { animation: fadeIn var(--duration-slow) var(--ease-out); }
-  .fade-out { animation: fadeOut var(--duration-fast) var(--ease-out); }
-  .slide-in-up { animation: slideInUp var(--duration-slow) var(--ease-out); }
-  .slide-in-down { animation: slideInDown var(--duration-slow) var(--ease-out); }
-  .slide-in-left { animation: slideInLeft var(--duration-slow) var(--ease-out); }
-  .slide-in-right { animation: slideInRight var(--duration-slow) var(--ease-out); }
-  .scale-in { animation: scaleIn var(--duration-slow) var(--ease-spring); }
-  .scale-out { animation: scaleOut var(--duration-fast) var(--ease-out); }
-  .bounce-in { animation: bounceIn var(--duration-base) var(--ease-spring); }
+  .fade-in { animation: fadeIn var(--duration-slow-base) var(--ease-out); }
+  .fade-out { animation: fadeOut var(--duration-moderate) var(--ease-out); }
+  .slide-in-up { animation: slideInUp var(--duration-slow-base) var(--ease-out); }
+  .slide-in-down { animation: slideInDown var(--duration-slow-base) var(--ease-out); }
+  .slide-in-left { animation: slideInLeft var(--duration-slow-base) var(--ease-out); }
+  .slide-in-right { animation: slideInRight var(--duration-slow-base) var(--ease-out); }
+  .scale-in { animation: scaleIn var(--duration-slow-base) var(--ease-spring); }
+  .scale-out { animation: scaleOut var(--duration-moderate) var(--ease-out); }
+  .bounce-in { animation: bounceIn var(--duration-slow-base) var(--ease-spring); }
 
   /* Transition utilities */
   .transition-fast { transition: all var(--duration-fast) var(--ease-out); }
