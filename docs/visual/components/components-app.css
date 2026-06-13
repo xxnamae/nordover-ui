@@ -846,7 +846,7 @@
   .date-picker-nav { cursor: pointer; padding: var(--space-1); border-radius: var(--radius-sm); background: transparent; border: none; font-size: var(--text-sm); transition: background var(--duration-fast) var(--ease-out); }
   .date-picker-nav:hover { background: var(--color-subtle); }
   .date-picker-weekdays { display: grid; grid-template-columns: repeat(7, 1fr); gap: var(--space-1); margin-bottom: var(--space-2); }
-  .date-picker-weekday { text-align: center; font-size: var(--text-xs); font-weight: var(--fw-semibold); color: var(--color-muted); }
+  .date-picker-weekday { text-align: center; font-size: var(--text-xs); font-weight: var(--fw-semibold); color: var(--color-muted); display: flex; align-items: center; justify-content: center; aspect-ratio: 1; }
   .date-picker-days { display: grid; grid-template-columns: repeat(7, 1fr); gap: var(--space-1); }
   .date-picker-day {
     aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
@@ -1211,7 +1211,7 @@
 
   /* Gradient border — futuristic glow edge for cards/panels/inputs. */
   .gradient-border {
-    border: var(--bw-medium) solid transparent;
+    border: var(--bw-thin) solid transparent;
     background:
       linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
       linear-gradient(135deg, var(--color-accent), color-mix(in oklch, var(--color-accent) 55%, white)) border-box;
