@@ -97,6 +97,8 @@
 <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="2" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="1.5"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
 <symbol id="i-heart-fill" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" fill="currentColor"/></symbol>
+<symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l2.4 6.6L21 12l-6.6 2.4L12 21l-2.4-6.6L3 12l6.6-2.4z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-send" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polygon points="22 2 15 22 11 13 2 9 22 2" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 </defs></svg>
 
 <label for="nav" class="mobile-backdrop" aria-hidden="true"></label>
@@ -2855,6 +2857,201 @@ document.querySelectorAll('.app-sidebar-toggle').forEach(btn => {
 
 <!-- Optional behaviour layer (tabs / modal / menu / drawer) — the same file consumers ship -->
 <script src="./behaviors/nordover.js"></script>
+
+<!-- ── AI Assistant Panel ─────────────────────────────────────────── -->
+<button class="ai-fab" id="ai-fab" aria-label="Åpne AI-assistent og Clamp-kalkulator">
+  <svg class="icon"><use href="#i-sparkle"/></svg>
+</button>
+
+<div class="ai-panel" id="ai-panel" role="dialog" aria-labelledby="ai-panel-title" aria-modal="true">
+  <div class="ai-panel-header">
+    <svg class="icon" style="color:var(--chrome-accent);width:1rem;height:1rem;flex-shrink:0"><use href="#i-sparkle"/></svg>
+    <span class="ai-panel-title" id="ai-panel-title">Nordover Assistent</span>
+    <button class="ai-panel-close" id="ai-panel-close" aria-label="Lukk panel">
+      <svg class="icon"><use href="#i-x"/></svg>
+    </button>
+  </div>
+  <div class="ai-tabs" role="tablist" aria-label="Assistent-faner">
+    <button class="ai-tab is-active" id="tab-ask" role="tab" aria-selected="true" aria-controls="panel-ask">Spør</button>
+    <button class="ai-tab" id="tab-clamp" role="tab" aria-selected="false" aria-controls="panel-clamp">Clamp-kalk.</button>
+  </div>
+
+  <div class="ai-tab-panel is-active" id="panel-ask" role="tabpanel" aria-labelledby="tab-ask">
+    <div class="ai-chat-messages" id="ai-chat-messages">
+      <div class="ai-chat-msg is-assistant">Hei! Jeg kan svare på spørsmål om Nordover — farger, typografi, spacing, komponenter, tokens og mer. Hva lurer du på?</div>
+    </div>
+    <div class="ai-chat-input-row">
+      <textarea class="ai-chat-input" id="ai-chat-input" placeholder="Spør om systemet…" rows="1" aria-label="Skriv spørsmål her"></textarea>
+      <button class="ai-chat-send" id="ai-chat-send" aria-label="Send spørsmål">
+        <svg class="icon"><use href="#i-send"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="ai-tab-panel" id="panel-clamp" role="tabpanel" aria-labelledby="tab-clamp">
+    <div class="ai-clamp">
+      <div class="ai-clamp-grid">
+        <div class="ai-clamp-field">
+          <label for="clamp-min-size">Min størrelse (px)</label>
+          <input type="number" id="clamp-min-size" value="16" min="1" max="200">
+        </div>
+        <div class="ai-clamp-field">
+          <label for="clamp-max-size">Max størrelse (px)</label>
+          <input type="number" id="clamp-max-size" value="24" min="1" max="200">
+        </div>
+        <div class="ai-clamp-field">
+          <label for="clamp-min-vw">Min viewport (px)</label>
+          <input type="number" id="clamp-min-vw" value="480" min="1" max="4000">
+        </div>
+        <div class="ai-clamp-field">
+          <label for="clamp-max-vw">Max viewport (px)</label>
+          <input type="number" id="clamp-max-vw" value="1280" min="1" max="4000">
+        </div>
+      </div>
+      <div class="ai-clamp-result">
+        <code id="clamp-output">clamp(1rem, 0.875rem + 0.25vw, 1.5rem)</code>
+        <button class="ai-clamp-copy" id="clamp-copy" aria-label="Kopier clamp-verdi">
+          <svg class="icon"><use href="#i-copy"/></svg>
+        </button>
+      </div>
+      <p class="ai-clamp-hint">Verdiene skalerer lineært mellom viewportene. Rems er basert på 16px rot-font. Juster tallene — resultatet oppdateres live.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var KB = [
+    { tags: ['accent','farge','color','lilla','fiolett','brand'], q: 'Hva er accent-fargen?', a: 'Accent-fargen er brand-fiolett: <code>oklch(0.52 0.24 285)</code> (token: <code>--color-accent</code>). I mørk modus brukes en lysere variant for kontrast. Aldri bytt accent-fargen på prosjektnivå — den er en del av Nordover-identiteten.' },
+    { tags: ['spacing','space','padding','margin','gap','avstand'], q: 'Hvordan fungerer spacing-systemet?', a: 'Nordover bruker en 4px-basert skala: <code>--space-1</code>=4px, <code>--space-2</code>=8px, <code>--space-3</code>=12px, <code>--space-4</code>=16px, <code>--space-6</code>=24px, <code>--space-8</code>=32px, <code>--space-12</code>=48px. Bruk alltid tokens — aldri hardkodede px-verdier.' },
+    { tags: ['app','web','pakke','package','tema','theme','mørk','lys'], q: 'Hva er forskjellen på App- og Web-pakken?', a: '<b>App-pakken</b> (<code>tokens-app.css</code> + <code>components-app.css</code>) er for SaaS og tette grensesnitt — mørk bakgrunn. <b>Web-pakken</b> (<code>tokens-web.css</code> + <code>components-web.css</code>) er for marketing/editorial — lys bakgrunn. Begge deler samme komponentklasser og token-navn.' },
+    { tags: ['button','knapp','btn'], q: 'Hvilke knappetyper finnes?', a: 'Bruk <code>.btn</code> med variant-modifier: <code>.btn-primary</code>, <code>.btn-secondary</code>, <code>.btn-ghost</code>, <code>.btn-error</code> (destruktiv). Størrelser: <code>.btn-sm</code>, (default), <code>.btn-lg</code>. Tilstander: <code>.is-loading</code>, <code>[disabled]</code>. Ikon-knapper: <code>.btn-icon</code>.' },
+    { tags: ['form','input','felt','field','select','textarea','checkbox','radio'], q: 'Hvordan bygger jeg skjemaer?', a: 'Pakk hvert felt i <code>.form-field</code>. Bruk <code>.form-label</code>, <code>.form-input</code> / <code>.form-select</code> / <code>.form-textarea</code>, og <code>.form-hint</code> for hjelpetekst. Feil: legg til <code>.is-error</code> på <code>.form-field</code> og bruk <code>.form-error</code>.' },
+    { tags: ['typografi','typography','font','skrift','tekst','heading','overskrift'], q: 'Hvilke skrifttyper brukes?', a: '<b>Inter Variable</b> (<code>--font-sans</code>) er brødtekst og UI-tekst. <b>Inter Tight</b> (<code>--font-display</code>) er overskrifter og display-tekst. Semantiske klasser: <code>.t-heading-1</code>–<code>.t-heading-4</code>, <code>.t-body</code>, <code>.t-caption</code>. Skala: <code>--text-xs</code> (11px) → <code>--text-5xl</code> (48px).' },
+    { tags: ['breakpoint','responsiv','mobile','tablet','desktop','viewport'], q: 'Hvilke breakpoints brukes?', a: 'Offisielle QA-breakpoints: <b>Mobil</b> &lt;480px · <b>Nettbrett</b> 768–1024px · <b>Desktop</b> &gt;1024px. Alle komponenter skal fungere på alle tre. CSS bruker <code>@media (min-width: 48rem)</code> og <code>@media (min-width: 64rem)</code> internt.' },
+    { tags: ['status','suksess','advarsel','feil','info','success','warning','error'], q: 'Hva er status-fargene?', a: 'Fire semantiske statuser: <code>success</code> (grønn), <code>warning</code> (gul/oransje), <code>error</code> (rød), <code>info</code> (blå). Tokens: <code>--color-success</code>, <code>--color-warning</code>, <code>--color-error</code>, <code>--color-info</code>. Brukes konsekvent i badges, alerts, validering og knapper.' },
+    { tags: ['mørk','dark','mode','darkmode','tema'], q: 'Hvordan fungerer mørk modus?', a: 'Mørk modus aktiveres med <code>[data-theme="dark"]</code> på <code>&lt;html&gt;</code>. App-pakken er mørk som standard. Token-verdiene bytter automatisk via CSS-variabler — ingen klasse-bytter på enkelt-komponenter.' },
+    { tags: ['border-radius','rounding','radius','avrunding','hjørne'], q: 'Hva er border-radius-verdiene?', a: 'Skala: <code>--radius-sm</code>=4px, <code>--radius-md</code>=8px, <code>--radius-lg</code>=12px, <code>--radius-xl</code>=16px, <code>--radius-2xl</code>=24px, <code>--radius-full</code>=9999px. De fleste komponenter bruker <code>--radius-md</code>. Knapper bruker <code>--radius-md</code>.' },
+    { tags: ['shadow','skygge','box-shadow','elevation'], q: 'Brukes skygger i Nordover?', a: 'Minimal. Nordover følger Linear-inspirert flat estetikk — skygger erstattes primært av border og bakgrunnskontrast. Tokens <code>--shadow-sm/-md/-lg</code> finnes, men brukes sparsomt. Modal har lett skygge. Seksjons-kort har ingen skygge.' },
+    { tags: ['clamp','fluid','responsiv','størrelse','flytende'], q: 'Hva er clamp() og hvordan brukes det?', a: '<code>clamp(min, preferred, max)</code> lar en verdi skalere mellom to viewports. Formelen: slope = (maxPx − minPx) / (maxVw − minVw), intercept = minPx − slope × minVw. Bruk Clamp-kalk.-fanen for å generere riktig CSS automatisk.' },
+    { tags: ['badge','tag','etikett','chip'], q: 'Hvordan bruker jeg badges?', a: 'Bruk <code>.badge</code> med variant: <code>.badge-success</code>, <code>.badge-warning</code>, <code>.badge-error</code>, <code>.badge-info</code>, <code>.badge-neutral</code>. Størrelser: <code>.badge-sm</code>, (default), <code>.badge-lg</code>. Outline-stil: <code>.badge-outline</code>.' },
+    { tags: ['alert','melding','banner','notification','varsel'], q: 'Hvordan lager jeg alerts?', a: 'Bruk <code>.alert</code> med <code>.alert-success</code>, <code>.alert-warning</code>, <code>.alert-error</code>, eller <code>.alert-info</code>. Innhold: <code>.alert-icon</code>, <code>.alert-title</code>, <code>.alert-body</code>. Lukkes ved å fjerne elementet med JS.' },
+    { tags: ['card','kort','container','panel'], q: 'Hvordan bruker jeg card-komponenten?', a: 'Bruk <code>.card</code> som wrapper. Inni: <code>.card-header</code>, <code>.card-body</code>, <code>.card-footer</code>. Modifier: <code>.card-flat</code> (ingen border), <code>.card-interactive</code> (hover-effekt). Cards bruker <code>--radius-lg</code> og en subtle border.' },
+    { tags: ['accordion','kollaps','ekspander','detalj'], q: 'Hvordan fungerer accordion?', a: 'Bruk <code>&lt;details class="accordion-item"&gt;</code> + <code>&lt;summary class="accordion-trigger"&gt;</code> + <code>&lt;div class="accordion-content"&gt;</code>. Grupper i <code>.accordion</code>. Start utvidet med <code>open</code>-attributtet.' },
+    { tags: ['modal','dialog','overlay','popup'], q: 'Hvordan bruker jeg modal?', a: 'Bruk <code>&lt;dialog class="modal"&gt;</code> med <code>.modal-header</code>, <code>.modal-body</code>, <code>.modal-footer</code>. Åpne med <code>dialog.showModal()</code>; lukk med <code>dialog.close()</code>. Bruk alltid <code>aria-labelledby</code> og <code>aria-describedby</code>.' },
+    { tags: ['tabs','faner','tabpanel','navigasjon'], q: 'Hvordan bruker jeg tabs?', a: 'Bruk <code>.tabs</code> wrapper med <code>[role="tablist"]</code>. Fane-elementer: <code>.tab</code> + <code>[role="tab"]</code> + <code>aria-controls</code>. Panel-elementer: <code>[role="tabpanel"]</code>. Aktiv fane: <code>.is-active</code> + <code>aria-selected="true"</code>.' },
+    { tags: ['layout','grid','flex','container','wrapper'], q: 'Hvilke layout-primitiver finnes?', a: 'Nordover leverer: <code>.container</code> (sentrert, max-bredde), <code>.grid</code> + <code>.grid-cols-{n}</code>, <code>.flex</code> + <code>.items-*</code> + <code>.justify-*</code>, <code>.stack</code> (vertikal flex med gap), <code>.cluster</code> (horisontal flex med wrap).' },
+    { tags: ['token','variabel','css variable','custom property','json','dtcg'], q: 'Hvordan bruker jeg design-tokens?', a: 'Import riktig pakke: <code>@import "tokens-app.css"</code> eller <code>@import "tokens-web.css"</code>. Bruk alltid tokens fra <code>--color-*</code>, <code>--space-*</code>, <code>--text-*</code>, <code>--radius-*</code>. DTCG JSON genereres via <code>npm run build:tokens</code> — aldri rediger JSON manuelt.' },
+    { tags: ['tilgjengelighet','accessibility','a11y','wcag','aria','kontrast'], q: 'Hvordan sikres tilgjengelighet?', a: 'Nordover krever WCAG AA-kontrast på alle fargetokens. Bruk alltid semantisk HTML og ARIA der det trengs. Alle interaktive komponenter har fokus-stiler. Skjemaelementer har alltid <code>&lt;label&gt;</code>. Bruk <code>.sr-only</code> for skjermleser-bare tekst.' }
+  ];
+
+  var fab      = document.getElementById('ai-fab');
+  var panel    = document.getElementById('ai-panel');
+  var closeBtn = document.getElementById('ai-panel-close');
+  var tabAsk   = document.getElementById('tab-ask');
+  var tabClamp = document.getElementById('tab-clamp');
+  var panelAsk = document.getElementById('panel-ask');
+  var panelClamp = document.getElementById('panel-clamp');
+  var messages = document.getElementById('ai-chat-messages');
+  var input    = document.getElementById('ai-chat-input');
+  var sendBtn  = document.getElementById('ai-chat-send');
+  var clampMinSize = document.getElementById('clamp-min-size');
+  var clampMaxSize = document.getElementById('clamp-max-size');
+  var clampMinVw   = document.getElementById('clamp-min-vw');
+  var clampMaxVw   = document.getElementById('clamp-max-vw');
+  var clampOutput  = document.getElementById('clamp-output');
+  var clampCopy    = document.getElementById('clamp-copy');
+
+  fab.addEventListener('click', function () { panel.classList.toggle('is-open'); });
+  closeBtn.addEventListener('click', function () { panel.classList.remove('is-open'); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') panel.classList.remove('is-open'); });
+
+  function activateTab(tab, pnl) {
+    [tabAsk, tabClamp].forEach(function (t) { t.classList.remove('is-active'); t.setAttribute('aria-selected', 'false'); });
+    [panelAsk, panelClamp].forEach(function (p) { p.classList.remove('is-active'); });
+    tab.classList.add('is-active');
+    tab.setAttribute('aria-selected', 'true');
+    pnl.classList.add('is-active');
+  }
+  tabAsk.addEventListener('click', function () { activateTab(tabAsk, panelAsk); });
+  tabClamp.addEventListener('click', function () { activateTab(tabClamp, panelClamp); });
+
+  function addMsg(text, role) {
+    var div = document.createElement('div');
+    div.className = 'ai-chat-msg is-' + role;
+    div.innerHTML = text;
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function answer(query) {
+    var q = query.toLowerCase();
+    var matches = KB.filter(function (entry) {
+      return entry.tags.some(function (tag) { return q.includes(tag); }) ||
+        q.split(/\s+/).some(function (word) {
+          return word.length > 3 && (entry.q.toLowerCase().includes(word) || entry.a.toLowerCase().includes(word));
+        });
+    });
+    if (!matches.length) {
+      return 'Beklager, fant ingenting om det. Prøv f.eks. «spacing», «farger», «knapper», «modal», «tokens» eller «tilgjengelighet».';
+    }
+    return matches.slice(0, 2).map(function (m) {
+      return '<b>' + m.q + '</b><br>' + m.a;
+    }).join('<hr>');
+  }
+
+  function handleSend() {
+    var text = input.value.trim();
+    if (!text) return;
+    addMsg(text, 'user');
+    input.value = '';
+    setTimeout(function () { addMsg(answer(text), 'assistant'); }, 280);
+  }
+
+  sendBtn.addEventListener('click', handleSend);
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSend(); }
+  });
+
+  function calcClamp() {
+    var minPx = parseFloat(clampMinSize.value) || 16;
+    var maxPx = parseFloat(clampMaxSize.value) || 24;
+    var minVw = parseFloat(clampMinVw.value)   || 480;
+    var maxVw = parseFloat(clampMaxVw.value)   || 1280;
+    var base  = 16;
+
+    if (minVw >= maxVw || minPx >= maxPx) {
+      clampOutput.textContent = '— Sjekk at max > min for begge';
+      return;
+    }
+
+    var slope     = (maxPx - minPx) / (maxVw - minVw);
+    var intercept = minPx - slope * minVw;
+    var minRem    = +(minPx / base).toFixed(4);
+    var maxRem    = +(maxPx / base).toFixed(4);
+    var intRem    = +(intercept / base).toFixed(4);
+    var slopeVw   = +(slope * 100).toFixed(4);
+
+    clampOutput.textContent = 'clamp(' + minRem + 'rem, ' + intRem + 'rem + ' + slopeVw + 'vw, ' + maxRem + 'rem)';
+  }
+
+  [clampMinSize, clampMaxSize, clampMinVw, clampMaxVw].forEach(function (el) {
+    el.addEventListener('input', calcClamp);
+  });
+  calcClamp();
+
+  clampCopy.addEventListener('click', function () {
+    var val = clampOutput.textContent;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(val).catch(function () {});
+    }
+    clampCopy.setAttribute('aria-label', 'Kopiert!');
+    setTimeout(function () { clampCopy.setAttribute('aria-label', 'Kopier clamp-verdi'); }, 1500);
+  });
+}());
+</script>
 
 </body>
 </html>
