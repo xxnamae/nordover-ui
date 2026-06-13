@@ -25,7 +25,7 @@
   --sidebar-width: 18rem;
   --sidebar-width-collapsed: 5rem;
   --topbar-height: 3.5rem;
-  --breakpoint-desktop: 48rem;
+  --breakpoint-desktop: 64rem;
 }
 
 /* ============================================================
@@ -131,7 +131,7 @@ html, body {
   isolation: isolate;
 }
 
-@media (min-width: 48rem) /* --bp-desktop (var() not allowed in media queries) */ {
+@media (min-width: 64rem) /* --bp-desktop (var() not allowed in media queries) */ {
   .app {
     display: block; /* sidebar is fixed; main is offset by margin-left */
   }
@@ -162,7 +162,7 @@ html, body {
 }
 
 /* Desktop: sidebar is truly fixed full-height; main content is offset by its width */
-@media (min-width: 48rem) /* --bp-desktop (var() not allowed in media queries) */ {
+@media (min-width: 64rem) /* --bp-desktop (var() not allowed in media queries) */ {
   .app-sidebar {
     position: fixed;
     left: 0;
@@ -412,7 +412,7 @@ html, body {
   flex-shrink: 0;
 }
 
-@media (max-width: calc(48rem - 1px)) /* --bp-desktop (var() not allowed in media queries) */ {
+@media (max-width: calc(64rem - 1px)) /* --bp-desktop (var() not allowed in media queries) */ {
   .app-sidebar-close {
     display: flex;
     align-items: center;
@@ -443,7 +443,7 @@ html, body {
   overflow-x: clip;
 }
 
-@media (min-width: 48rem) /* --bp-desktop (var() not allowed in media queries) */ {
+@media (min-width: 64rem) /* --bp-desktop (var() not allowed in media queries) */ {
   .app-main {
     margin-left: var(--sidebar-width);
     width: calc(100% - var(--sidebar-width));
@@ -495,7 +495,7 @@ html, body {
   transition: color var(--duration-fast) var(--ease-out);
 }
 
-@media (min-width: 48rem) /* --bp-desktop (var() not allowed in media queries) */ {
+@media (min-width: 64rem) /* --bp-desktop (var() not allowed in media queries) */ {
   .hamburger {
     display: none;
   }
@@ -528,7 +528,7 @@ html, body {
   justify-content: center;
 }
 
-@media (min-width: 48rem) /* --bp-desktop (var() not allowed in media queries) */ {
+@media (min-width: 64rem) /* --bp-desktop (var() not allowed in media queries) */ {
   .collapse-toggle {
     display: flex;
   }
@@ -598,7 +598,7 @@ html, body {
   overflow-y: auto;
 }
 
-@media (max-width: calc(48rem - 1px)) /* --bp-desktop (var() not allowed in media queries) */ {
+@media (max-width: calc(64rem - 1px)) /* --bp-desktop (var() not allowed in media queries) */ {
   .app-content {
     padding: var(--space-5) var(--space-3) var(--space-8);
   }
@@ -632,7 +632,7 @@ html, body {
   backdrop-filter: blur(4px);
 }
 
-@media (max-width: calc(48rem - 1px)) /* --bp-desktop (var() not allowed in media queries) */ {
+@media (max-width: calc(64rem - 1px)) /* --bp-desktop (var() not allowed in media queries) */ {
   #nav:checked ~ .mobile-backdrop {
     display: block;
   }
@@ -652,7 +652,7 @@ html, body {
   overflow: hidden;
 }
 
-@media (min-width: 48rem) /* --bp-desktop */ {
+@media (min-width: 64rem) /* --bp-desktop */ {
   .doc-hero {
     padding: var(--space-12) var(--space-10);
   }
