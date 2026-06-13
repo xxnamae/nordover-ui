@@ -310,16 +310,6 @@
     --duration-slow-base: 700ms; --duration-slow: 800ms; --duration-slower: 1000ms;
     --ease-out: cubic-bezier(0.2, 0, 0, 1);
     --ease-spring: cubic-bezier(0.2, 0.8, 0.2, 1);
-    /* Emphasized pair (M3-parity): decelerate on enter, accelerate on exit */
-    --ease-emphasized: cubic-bezier(0.3, 0, 0, 1);
-    --ease-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);   /* enter — eases to rest */
-    --ease-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);   /* exit — eases away */
-    /* True spring physics (overshoot) for signature interactions */
-    --ease-spring-physics: linear(0, 0.006, 0.025 2.8%, 0.101 6.1%, 0.539 18.9%, 0.721, 0.849, 0.937, 0.991, 1.02, 1.03, 1.017, 1.003, 0.998, 1);
-    /* Named motion presets (Apple-parity): smooth=no overshoot, snappy=slight, bouncy=visible */
-    --motion-smooth: var(--duration-base) var(--ease-out);
-    --motion-snappy: var(--duration-fast) var(--ease-spring);
-    --motion-bouncy: var(--duration-slow-base) var(--ease-spring-physics);
 
     /* === Mikrobevegelse (interaktiv press/løft — tokenisert kontrakt) ===
        Liten av hensikt (≤1px / ≤2%): tactile feedback uten å forstyrre. Den
