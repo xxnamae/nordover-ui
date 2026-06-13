@@ -580,7 +580,17 @@ html, body {
 
 @media (max-width: calc(48rem - 1px)) /* --bp-desktop (var() not allowed in media queries) */ {
   .app-content {
-    padding: var(--space-5) var(--space-4) var(--space-8);
+    padding: var(--space-5) var(--space-3) var(--space-8);
+  }
+}
+
+@media (max-width: 36rem) /* --bp-tablet */ {
+  .app-content {
+    padding: var(--space-4) var(--space-3) var(--space-6);
+  }
+
+  .app-topbar {
+    padding: 0 var(--space-3);
   }
 }
 
@@ -613,13 +623,26 @@ html, body {
    ============================================================ */
 
 .doc-hero {
-  padding: var(--space-12) var(--space-10);
+  padding: var(--space-8) var(--space-6);
   margin-bottom: var(--space-8);
   background: linear-gradient(150deg, var(--chrome-subtle) 0%, var(--chrome-surface) 75%);
   border: 1px solid var(--chrome-border);
   border-radius: 1.5rem;
   position: relative;
   overflow: hidden;
+}
+
+@media (min-width: 48rem) /* --bp-desktop */ {
+  .doc-hero {
+    padding: var(--space-12) var(--space-10);
+  }
+}
+
+@media (max-width: 36rem) /* --bp-tablet */ {
+  .doc-hero {
+    padding: var(--space-5) var(--space-4);
+    margin-bottom: var(--space-6);
+  }
 }
 
 .doc-hero::before {
@@ -650,7 +673,7 @@ html, body {
 
 .doc-hero-title {
   font-family: "Inter Tight", "Inter Tight Variable", "Inter Tight Fallback", "Inter Variable", system-ui, sans-serif;
-  font-size: 3rem;
+  font-size: clamp(1.75rem, 1rem + 4vw, 3rem);
   font-weight: 440;
   letter-spacing: -0.02em;
   line-height: 1.2;
