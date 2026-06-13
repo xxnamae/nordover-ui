@@ -51,7 +51,7 @@
   --chrome-muted: var(--chrome-gray-500);     /* dimmed text */
   --chrome-subtle: var(--chrome-gray-100);    /* subtle hover/bg */
   --chrome-border: var(--chrome-gray-200);    /* dividers */
-  --chrome-accent: oklch(0.50 0.22 260);      /* brand blue */
+  --chrome-accent: oklch(0.52 0.24 285);      /* brand violet */
   --chrome-accent-fg: oklch(1 0 0);           /* white on accent */
 
   /* Typography (app-scale fixed values) */
@@ -725,19 +725,18 @@ html, body {
 
 .doc-section {
   scroll-margin-top: var(--space-12);
-  padding: var(--space-8);
-  margin-bottom: var(--space-8);
+  padding: var(--space-6);
+  margin-bottom: var(--space-5);
   background: var(--chrome-surface);
   border: 1px solid var(--chrome-border);
-  border-radius: 1.25rem;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  border-radius: 0.75rem;
 }
 
 .doc-section-title {
   font-family: "Inter Tight", "Inter Tight Variable", "Inter Tight Fallback", "Inter Variable", system-ui, sans-serif;
-  font-size: 1.875rem;
-  font-weight: 540;
-  letter-spacing: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   line-height: 1.2;
   color: var(--chrome-fg);
   margin-bottom: var(--space-2);
@@ -748,7 +747,7 @@ html, body {
   color: var(--chrome-muted);
   line-height: 1.6;
   max-width: 68ch;
-  margin-bottom: var(--space-7);
+  margin-bottom: var(--space-5);
 }
 
 .doc-sub {
