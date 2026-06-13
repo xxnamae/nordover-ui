@@ -391,7 +391,7 @@
     "e-gv-78584c2": {
       "type": "global-color-variable",
       "label": "accent-subtle",
-      "value": "#dcdcdd",
+      "value": "#ececff",
       "order": 46,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -400,7 +400,7 @@
     "e-gv-977c682": {
       "type": "global-color-variable",
       "label": "accent-muted",
-      "value": "#aaaaab",
+      "value": "#d2d2ff",
       "order": 47,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -436,7 +436,7 @@
     "e-gv-65084dd": {
       "type": "global-color-variable",
       "label": "error-subtle",
-      "value": "#ffd8d4",
+      "value": "#ffe7e4",
       "order": 51,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -463,7 +463,7 @@
     "e-gv-7c53eaa": {
       "type": "global-color-variable",
       "label": "success-subtle",
-      "value": "#d6ebda",
+      "value": "#e1f5e4",
       "order": 54,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -490,7 +490,7 @@
     "e-gv-64feba9": {
       "type": "global-color-variable",
       "label": "warning-subtle",
-      "value": "#f7e6d0",
+      "value": "#fff0d4",
       "order": 57,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",
@@ -517,7 +517,7 @@
     "e-gv-69bf2d3": {
       "type": "global-color-variable",
       "label": "info-subtle",
-      "value": "#d1e6fc",
+      "value": "#e0f1ff",
       "order": 60,
       "created_at": "2026-06-10 00:00:00",
       "updated_at": "2026-06-10 00:00:00",

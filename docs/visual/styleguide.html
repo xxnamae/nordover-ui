@@ -296,68 +296,83 @@
 
         <section class="doc-section" id="getting-started">
           <h2 class="doc-section-title">Getting Started — Elementor Integration</h2>
-          <p class="doc-section-desc">Use Nordover in your WordPress site. Two paths: Elementor v3 (manual setup) or v4 (automatic). Pick your version below. Or explore <a href="../handoff/ELEMENTOR-TEMPLATE-LIBRARY.md" style="color: var(--color-accent); text-decoration: underline;">pre-built template sections &amp; components</a>.</p>
+          <p class="doc-section-desc">Use Nordover in your WordPress site. Pick a path below — v3 for manual control, v4 for one-click import.</p>
 
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); margin-bottom: var(--space-8);">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); margin-bottom: var(--space-6);">
+
             <!-- V3 Path -->
-            <div style="border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6); background: var(--color-surface);">
-              <h3 style="margin-bottom: var(--space-3); font-size: var(--text-lg); font-weight: 600;">Elementor v3 (Classic Editor)</h3>
-              <p style="color: var(--color-muted); margin-bottom: var(--space-4); font-size: var(--text-sm);">Manual mapping — 30 min setup</p>
-
-              <div class="doc-block-label" style="margin-top: 0;">1 · Download the token file</div>
-              <div class="cluster" style="gap: var(--space-2); margin-bottom: var(--space-2);">
-                <a class="btn" href="./tokens/tokens-web.css" download><svg class="icon"><use href="#i-download"/></svg> <strong>Web tokens</strong></a>
-                <a class="btn btn-secondary" href="./tokens/tokens-app.css" download><svg class="icon"><use href="#i-download"/></svg> App tokens</a>
+            <div style="border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-5); background: var(--color-surface); display: flex; flex-direction: column; gap: var(--space-5);">
+              <div>
+                <p class="doc-block-label" style="margin: 0 0 var(--space-1);">Elementor v3</p>
+                <h3 style="margin: 0 0 var(--space-1); font-size: var(--text-base); font-weight: 600;">Classic Editor</h3>
+                <p style="color: var(--color-muted); font-size: var(--text-xs); margin: 0;">Manual mapping — ~30 min</p>
               </div>
-              <p class="t-caption" style="margin-bottom: var(--space-4);"><strong>Web:</strong> airy spacing + large fluid type (marketing). <strong>App:</strong> compact spacing + denser type (dashboard). Or copy the flattened, paste-ready block from <a href="#docs" style="color: var(--color-accent);">Documentation</a> below.</p>
 
-              <div class="doc-block-label">2 · Steps</div>
-              <ol style="font-size: var(--text-sm); color: var(--color-fg); margin: 0; padding-left: var(--space-6); line-height: 1.8;">
-                <li style="margin-bottom: var(--space-2);"><strong>Paste the tokens:</strong> open the downloaded file and copy its <code style="background: var(--color-subtle); padding: 2px 4px; border-radius: 2px;">:root { … }</code> block into <em>Site Settings → Custom CSS</em></li>
-                <li style="margin-bottom: var(--space-2);"><strong>Map colors:</strong> Dashboard → Global Colors, create each one with <code style="background: var(--color-subtle); padding: 2px 4px; border-radius: 2px;">var(--color-*)</code></li>
-                <li style="margin-bottom: var(--space-2);"><strong>Map fonts:</strong> Global Fonts, reference <code style="background: var(--color-subtle); padding: 2px 4px; border-radius: 2px;">--font-sans</code>, <code style="background: var(--color-subtle); padding: 2px 4px; border-radius: 2px;">--font-display</code></li>
-                <li><strong>Build:</strong> use Elementor widgets; add <code style="background: var(--color-subtle); padding: 2px 4px; border-radius: 2px;">var(--space-4)</code>, <code style="background: var(--color-subtle); padding: 2px 4px; border-radius: 2px;">var(--radius-md)</code> in Custom CSS fields</li>
-              </ol>
+              <div>
+                <p class="doc-block-label" style="margin: 0 0 var(--space-2);">1 · Download tokens</p>
+                <div class="cluster" style="gap: var(--space-2);">
+                  <a class="btn btn-secondary" href="./tokens/tokens-web.css" download><svg class="icon"><use href="#i-download"/></svg> Web tokens</a>
+                  <a class="btn btn-secondary" href="./tokens/tokens-app.css" download><svg class="icon"><use href="#i-download"/></svg> App tokens</a>
+                </div>
+              </div>
+
+              <div>
+                <p class="doc-block-label" style="margin: 0 0 var(--space-2);">2 · Steps</p>
+                <ol style="font-size: var(--text-xs); color: var(--color-fg); margin: 0; padding-left: var(--space-4); line-height: 1.7; display: flex; flex-direction: column; gap: var(--space-2);">
+                  <li><strong>Paste tokens</strong> — copy <code>:root { … }</code> into <em>Site Settings → Custom CSS</em></li>
+                  <li><strong>Map colors</strong> — Dashboard → Global Colors using <code>var(--color-*)</code></li>
+                  <li><strong>Map fonts</strong> — Global Fonts, reference <code>--font-sans</code>, <code>--font-display</code></li>
+                  <li><strong>Build</strong> — add <code>var(--space-4)</code>, <code>var(--radius-md)</code> in widget Custom CSS</li>
+                </ol>
+              </div>
             </div>
 
             <!-- V4 Path -->
-            <div style="border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6); background: var(--color-surface);">
-              <h3 style="margin-bottom: var(--space-3); font-size: var(--text-lg); font-weight: 600;">Elementor v4 (Editor V4) <span style="font-size: 0.8rem; color: var(--color-success); font-weight: 500;">⭐ Recommended</span></h3>
-              <p style="color: var(--color-muted); margin-bottom: var(--space-4); font-size: var(--text-sm);">JSON import — 5 min setup</p>
-
-              <div class="doc-block-label" style="margin-top: 0;">1 · Download the variables file</div>
-              <div class="cluster" style="gap: var(--space-2); margin-bottom: var(--space-2);">
-                <a class="btn btn-primary" href="../handoff/nordover-elementor-v4-web.json" download><svg class="icon"><use href="#i-download"/></svg> <strong>Web kit</strong></a>
-                <a class="btn btn-secondary" href="../handoff/nordover-elementor-v4-app.json" download><svg class="icon"><use href="#i-download"/></svg> App kit</a>
+            <div style="border: 1px solid var(--color-accent); border-radius: var(--radius-lg); padding: var(--space-5); background: var(--color-surface); display: flex; flex-direction: column; gap: var(--space-5);">
+              <div>
+                <p class="doc-block-label" style="margin: 0 0 var(--space-1); color: var(--color-accent);">Elementor v4 · Recommended</p>
+                <h3 style="margin: 0 0 var(--space-1); font-size: var(--text-base); font-weight: 600;">Editor V4</h3>
+                <p style="color: var(--color-muted); font-size: var(--text-xs); margin: 0;">JSON import — ~5 min</p>
               </div>
-              <p class="t-caption" style="margin-bottom: var(--space-4);">All 254 tokens become native Elementor variables. <strong>Web:</strong> airy (marketing). <strong>App:</strong> compact (dashboard).</p>
 
-              <div class="doc-block-label">2 · Steps</div>
-              <ol style="font-size: var(--text-sm); color: var(--color-fg); margin: 0; padding-left: var(--space-6); line-height: 1.8;">
-                <li style="margin-bottom: var(--space-2);"><strong>Import:</strong> Dashboard → Kits → Tools → Import (or drag the file in)</li>
-                <li style="margin-bottom: var(--space-2);"><strong>Regenerate:</strong> Tools → Regenerate CSS &amp; Data</li>
-                <li><strong>Build:</strong> tokens now appear in every color / typography / sizing picker automatically</li>
-              </ol>
+              <div>
+                <p class="doc-block-label" style="margin: 0 0 var(--space-2);">1 · Download kit</p>
+                <div class="cluster" style="gap: var(--space-2);">
+                  <a class="btn btn-primary" href="../handoff/nordover-elementor-v4-web.json" download><svg class="icon"><use href="#i-download"/></svg> Web kit</a>
+                  <a class="btn btn-secondary" href="../handoff/nordover-elementor-v4-app.json" download><svg class="icon"><use href="#i-download"/></svg> App kit</a>
+                </div>
+                <p class="t-caption" style="margin: var(--space-2) 0 0;">All tokens become native Elementor variables — colors, type, sizing.</p>
+              </div>
+
+              <div>
+                <p class="doc-block-label" style="margin: 0 0 var(--space-2);">2 · Steps</p>
+                <ol style="font-size: var(--text-xs); color: var(--color-fg); margin: 0; padding-left: var(--space-4); line-height: 1.7; display: flex; flex-direction: column; gap: var(--space-2);">
+                  <li><strong>Import</strong> — Dashboard → Kits → Tools → Import (or drag the file in)</li>
+                  <li><strong>Regenerate</strong> — Tools → Regenerate CSS &amp; Data</li>
+                  <li><strong>Build</strong> — tokens appear in every color / typography / sizing picker</li>
+                </ol>
+              </div>
             </div>
+
           </div>
 
-          <div class="doc-a11y">
+          <div class="doc-a11y" style="margin-bottom: var(--space-5);">
             <svg class="icon"><use href="#i-info"/></svg>
             <div class="doc-a11y-body">
-              <strong>Which package — web or app?</strong>
+              <strong>Web or App package?</strong>
               <ul>
-                <li><strong>web</strong> (<code>tokens-web.css</code> / <code>v4-web.json</code>) → marketing / editorial sites: airy spacing, large fluid type</li>
-                <li><strong>app</strong> (<code>tokens-app.css</code> / <code>v4-app.json</code>) → dashboard-like builds: compact spacing, denser type</li>
+                <li><strong>web</strong> → marketing / editorial: airy spacing, large fluid type</li>
+                <li><strong>app</strong> → dashboard / SaaS: compact spacing, denser type</li>
               </ul>
             </div>
           </div>
 
-          <div class="doc-block-label">Good to know (both versions)</div>
-          <ul style="font-size: var(--text-sm); color: var(--color-fg); line-height: 1.8; padding-left: var(--space-6); margin: 0;">
-            <li style="margin-bottom: var(--space-2);"><strong>Tokens travel, components don't.</strong> Elementor widgets generate their own markup, so the <code style="background: var(--color-subtle); padding: 2px 4px; border-radius: 2px;">.btn</code> / <code style="background: var(--color-subtle); padding: 2px 4px; border-radius: 2px;">.card</code> classes rarely land on the right element. Adopt the <em>tokens</em> — they drop cleanly into Global Colors, Fonts, and any <code style="background: var(--color-subtle); padding: 2px 4px; border-radius: 2px;">var(--…)</code> reference.</li>
-            <li style="margin-bottom: var(--space-2);"><strong>v4 JSON limits:</strong> colours are pre-resolved hex (no OKLCH runtime); shadows, motion, and dark-mode variants aren't included — add those via Custom CSS using the token block from <a href="#docs" style="color: var(--color-accent);">Documentation</a>.</li>
-            <li style="margin-bottom: var(--space-2);"><strong>Light / dark:</strong> for a marketing site, pick one mode. For a dark section, wrap it and swap <code style="background: var(--color-subtle); padding: 2px 4px; border-radius: 2px;">--color-bg</code> / <code style="background: var(--color-subtle); padding: 2px 4px; border-radius: 2px;">--color-fg</code> locally.</li>
-            <li><strong>When tokens change:</strong> re-download and re-import the file; the new values replace the old ones everywhere.</li>
+          <div class="doc-block-label">Good to know</div>
+          <ul style="font-size: var(--text-sm); color: var(--color-fg); line-height: 1.7; padding-left: var(--space-5); margin: 0; display: flex; flex-direction: column; gap: var(--space-2);">
+            <li><strong>Tokens travel, components don't.</strong> Elementor generates its own markup — adopt the <em>tokens</em> via Global Colors, Fonts, and <code>var(--…)</code> references.</li>
+            <li><strong>v4 JSON limits:</strong> colors are pre-resolved hex; shadows and dark-mode aren't included — add via Custom CSS using the token block in <a href="#docs" style="color: var(--color-accent);">Documentation</a>.</li>
+            <li><strong>Light / dark:</strong> for marketing sites pick one mode; for dark sections swap <code>--color-bg</code> / <code>--color-fg</code> locally.</li>
+            <li><strong>Token updates:</strong> re-download and re-import — new values replace old ones everywhere.</li>
           </ul>
         </section>
 

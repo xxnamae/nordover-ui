@@ -438,24 +438,48 @@
       }
     },
     "accent-subtle": {
-      "$type": "other",
-      "$value": "color-mix(in oklch, var(--color-accent) 12%, var(--color-bg))",
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.95,
+          0.03,
+          285.0
+        ]
+      },
       "$extensions": {
-        "com.nordover.cssText": true,
         "com.nordover.dark": {
-          "$value": "color-mix(in oklch, var(--color-accent) 12%, var(--color-bg))",
-          "cssText": true
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.22,
+              0.05,
+              285.0
+            ]
+          }
         }
       }
     },
     "accent-muted": {
-      "$type": "other",
-      "$value": "color-mix(in oklch, var(--color-accent) 30%, var(--color-bg))",
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.88,
+          0.07,
+          285.0
+        ]
+      },
       "$extensions": {
-        "com.nordover.cssText": true,
         "com.nordover.dark": {
-          "$value": "color-mix(in oklch, var(--color-accent) 30%, var(--color-bg))",
-          "cssText": true
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.3,
+              0.1,
+              285.0
+            ]
+          }
         }
       }
     },
@@ -920,9 +944,9 @@
       "$value": {
         "colorSpace": "oklch",
         "components": [
-          0.5,
-          0.22,
-          260.0
+          0.52,
+          0.24,
+          285.0
         ]
       },
       "$extensions": {
@@ -930,9 +954,9 @@
           "$value": {
             "colorSpace": "oklch",
             "components": [
-              0.55,
-              0.25,
-              260.0
+              0.62,
+              0.26,
+              285.0
             ]
           }
         }
@@ -953,7 +977,7 @@
           "$value": {
             "colorSpace": "oklch",
             "components": [
-              0.0,
+              1.0,
               0.0,
               0.0
             ]
@@ -988,9 +1012,9 @@
       "$value": {
         "colorSpace": "oklch",
         "components": [
-          0.5,
+          0.52,
           0.28,
-          260.0
+          285.0
         ]
       },
       "$extensions": {
@@ -998,9 +1022,9 @@
           "$value": {
             "colorSpace": "oklch",
             "components": [
-              0.6,
-              0.2,
-              260.0
+              0.62,
+              0.26,
+              285.0
             ]
           }
         }
@@ -1042,9 +1066,25 @@
     },
     "error-subtle": {
       "$type": "color",
-      "$value": "color-mix(in oklch, var(--error) 22%, var(--color-bg))",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.95,
+          0.03,
+          25.0
+        ]
+      },
       "$extensions": {
-        "com.nordover.cssText": true
+        "com.nordover.dark": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.22,
+              0.05,
+              25.0
+            ]
+          }
+        }
       }
     },
     "error-strong": {
@@ -1083,9 +1123,25 @@
     },
     "success-subtle": {
       "$type": "color",
-      "$value": "color-mix(in oklch, var(--success) 22%, var(--color-bg))",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.95,
+          0.03,
+          150.0
+        ]
+      },
       "$extensions": {
-        "com.nordover.cssText": true
+        "com.nordover.dark": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.22,
+              0.05,
+              150.0
+            ]
+          }
+        }
       }
     },
     "success-strong": {
@@ -1124,9 +1180,25 @@
     },
     "warning-subtle": {
       "$type": "color",
-      "$value": "color-mix(in oklch, var(--warning) 24%, var(--color-bg))",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.96,
+          0.04,
+          80.0
+        ]
+      },
       "$extensions": {
-        "com.nordover.cssText": true
+        "com.nordover.dark": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.23,
+              0.05,
+              80.0
+            ]
+          }
+        }
       }
     },
     "warning-strong": {
@@ -1165,9 +1237,25 @@
     },
     "info-subtle": {
       "$type": "color",
-      "$value": "color-mix(in oklch, var(--info) 22%, var(--color-bg))",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.95,
+          0.03,
+          250.0
+        ]
+      },
       "$extensions": {
-        "com.nordover.cssText": true
+        "com.nordover.dark": {
+          "$value": {
+            "colorSpace": "oklch",
+            "components": [
+              0.22,
+              0.05,
+              250.0
+            ]
+          }
+        }
       }
     },
     "info-strong": {

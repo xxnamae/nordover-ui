@@ -170,11 +170,11 @@
     --color-muted: var(--gray-500);
     --color-subtle: var(--gray-100);
     --color-border: var(--gray-200);
-    --color-accent: oklch(0.50 0.22 260);          /* Brand blue — WCAG AA på lys bg (4.95) og med hvit tekst (5.17) */
+    --color-accent: oklch(0.52 0.24 285);          /* Brand violet — Linear-inspired, WCAG AA on light bg */
     --color-accent-fg: oklch(1 0 0);
     --color-accent-hover: color-mix(in oklch, var(--color-accent) 88%, black);
     --color-accent-active: color-mix(in oklch, var(--color-accent) 76%, black);
-    --color-focus: oklch(0.50 0.28 260);
+    --color-focus: oklch(0.52 0.28 285);
     --color-backdrop: color-mix(in oklch, var(--color-fg) 50%, transparent);  /* modal/drawer backdrop scrim */
 
     /* === Surface elevation via L-axis stepping (Linear/M3 approach) ===
@@ -187,24 +187,24 @@
     --surface-5: oklch(0.98 0 0);   /* = surface-1 (return to base) */
 
     /* === Accent tier (branded primary path — additive) === */
-    --accent-subtle: color-mix(in oklch, var(--color-accent) 12%, var(--color-bg));
-    --accent-muted: color-mix(in oklch, var(--color-accent) 30%, var(--color-bg));
+    --accent-subtle: oklch(0.95 0.03 285);
+    --accent-muted: oklch(0.88 0.07 285);
     --accent-emphasis: var(--color-accent);
     --on-accent: var(--color-accent-fg);
     --on-accent-subtle: var(--color-accent);
 
     /* === Semantiske tripletter (subtle / base / strong) === */
     --error: oklch(0.62 0.22 25);
-    --error-subtle: color-mix(in oklch, var(--error) 22%, var(--color-bg));
+    --error-subtle: oklch(0.95 0.03 25);
     --error-strong: color-mix(in oklch, var(--error) 70%, black);
     --success: oklch(0.64 0.16 150);
-    --success-subtle: color-mix(in oklch, var(--success) 22%, var(--color-bg));
+    --success-subtle: oklch(0.95 0.03 150);
     --success-strong: color-mix(in oklch, var(--success) 62%, black);
     --warning: oklch(0.74 0.16 75);
-    --warning-subtle: color-mix(in oklch, var(--warning) 24%, var(--color-bg));
+    --warning-subtle: oklch(0.96 0.04 80);
     --warning-strong: color-mix(in oklch, var(--warning) 68%, black);
     --info: oklch(0.62 0.19 250);
-    --info-subtle: color-mix(in oklch, var(--info) 22%, var(--color-bg));
+    --info-subtle: oklch(0.95 0.03 250);
     --info-strong: color-mix(in oklch, var(--info) 65%, black);
     --color-error: var(--error);
     --color-success: var(--success);
@@ -455,9 +455,9 @@
     --color-muted: var(--gray-400);
     --color-subtle: var(--gray-800);
     --color-border: var(--gray-700);
-    --color-accent: oklch(0.55 0.25 260);
-    --color-focus: oklch(0.60 0.20 260);          /* Brand blue lighter — WCAG AA på mørk bg (5.63), lysere enn light-mode accent for synlighet */
-    --color-accent-fg: oklch(0 0 0);              /* Black text on bright accent in dark mode */
+    --color-accent: oklch(0.62 0.26 285);          /* Brighter violet for dark mode — WCAG AA on dark bg */
+    --color-focus: oklch(0.62 0.26 285);
+    --color-accent-fg: oklch(1 0 0);              /* White text on violet in dark mode */
     --color-backdrop: color-mix(in oklch, var(--color-fg) 50%, transparent);  /* modal/drawer backdrop scrim */
     --color-accent-hover: color-mix(in oklch, var(--color-accent) 88%, white);
     --color-accent-active: color-mix(in oklch, var(--color-accent) 76%, white);
@@ -471,16 +471,20 @@
     --surface-4: oklch(0.24 var(--neutral-c) var(--neutral-h));  /* +0.03 L (stronger elevation) */
     --surface-5: oklch(0.27 var(--neutral-c) var(--neutral-h));  /* +0.03 L (maximum elevation) */
 
-    /* Accent tier — re-mix against dark --color-bg for correct contrast */
-    --accent-subtle: color-mix(in oklch, var(--color-accent) 12%, var(--color-bg));
-    --accent-muted: color-mix(in oklch, var(--color-accent) 30%, var(--color-bg));
+    /* Accent tier — explicit dark-bg values for correct violet tint */
+    --accent-subtle: oklch(0.22 0.05 285);
+    --accent-muted: oklch(0.30 0.10 285);
     --on-accent: var(--color-accent-fg);
     --on-accent-subtle: var(--color-accent);
 
     --error: oklch(0.72 0.20 25);
+    --error-subtle: oklch(0.22 0.05 25);
     --success: oklch(0.74 0.15 150);
+    --success-subtle: oklch(0.22 0.05 150);
     --warning: oklch(0.82 0.15 75);
+    --warning-subtle: oklch(0.23 0.05 80);
     --info: oklch(0.72 0.17 250);
+    --info-subtle: oklch(0.22 0.05 250);
 
     /* -strong mikser mot HVITT i dark — ellers mørk-på-mørk på subtle-bg. Speiler tokens-web.css. */
     --error-strong: color-mix(in oklch, var(--error) 70%, white);

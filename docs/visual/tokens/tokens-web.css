@@ -190,24 +190,24 @@
     --surface-5: var(--color-surface);
 
     /* === Accent tier (branded primary path — additive) === */
-    --accent-subtle: color-mix(in oklch, var(--color-accent) 12%, var(--color-bg));
-    --accent-muted: color-mix(in oklch, var(--color-accent) 30%, var(--color-bg));
+    --accent-subtle: oklch(0.95 0.03 285);
+    --accent-muted: oklch(0.88 0.07 285);
     --accent-emphasis: var(--color-accent);
     --on-accent: var(--color-accent-fg);
     --on-accent-subtle: var(--color-accent);
 
     /* === Semantiske tripletter (subtle / base / strong) === */
     --error: oklch(0.57 0.22 25);
-    --error-subtle: color-mix(in oklch, var(--error) 20%, var(--color-bg));
+    --error-subtle: oklch(0.95 0.03 25);
     --error-strong: color-mix(in oklch, var(--error) 75%, black);
     --success: oklch(0.60 0.16 150);
-    --success-subtle: color-mix(in oklch, var(--success) 20%, var(--color-bg));
+    --success-subtle: oklch(0.95 0.03 150);
     --success-strong: color-mix(in oklch, var(--success) 70%, black);
     --warning: oklch(0.70 0.16 75);
-    --warning-subtle: color-mix(in oklch, var(--warning) 22%, var(--color-bg));
+    --warning-subtle: oklch(0.96 0.04 80);
     --warning-strong: color-mix(in oklch, var(--warning) 72%, black);
     --info: oklch(0.58 0.19 250);
-    --info-subtle: color-mix(in oklch, var(--info) 20%, var(--color-bg));
+    --info-subtle: oklch(0.95 0.03 250);
     --info-strong: color-mix(in oklch, var(--info) 68%, black);
     /* Bakoverkompatible aliaser (tidligere navnerom) */
     --color-error: var(--error);
@@ -445,17 +445,21 @@
     --surface-4: oklch(0.24 var(--neutral-c) var(--neutral-h));
     --surface-5: oklch(0.27 var(--neutral-c) var(--neutral-h));
 
-    /* Accent tier — re-mix against dark --color-bg for correct contrast */
-    --accent-subtle: color-mix(in oklch, var(--color-accent) 12%, var(--color-bg));
-    --accent-muted: color-mix(in oklch, var(--color-accent) 30%, var(--color-bg));
+    /* Accent tier — explicit dark-bg values for correct violet tint */
+    --accent-subtle: oklch(0.22 0.05 285);
+    --accent-muted: oklch(0.30 0.10 285);
     --on-accent: var(--color-accent-fg);
     --on-accent-subtle: var(--color-accent);
 
     /* Funksjonelle farger lysere i dark for kontrast */
     --error: oklch(0.70 0.20 25);
+    --error-subtle: oklch(0.22 0.05 25);
     --success: oklch(0.72 0.15 150);
+    --success-subtle: oklch(0.22 0.05 150);
     --warning: oklch(0.80 0.15 75);
+    --warning-subtle: oklch(0.23 0.05 80);
     --info: oklch(0.72 0.17 250);
+    --info-subtle: oklch(0.22 0.05 250);
 
     /* -strong må mikse mot HVITT i dark (mot svart i light) — ellers
        blir sterk tekst mørk-på-mørk på subtle-bakgrunn. Paritetskritisk. */
