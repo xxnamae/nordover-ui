@@ -1258,7 +1258,7 @@ html, body {
   content: counter(anatomy);
   position: absolute;
   left: 0;
-  top: 0;
+  top: 0.125rem;
   width: var(--space-5);
   height: var(--space-5);
   display: flex;
