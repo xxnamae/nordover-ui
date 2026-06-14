@@ -1450,7 +1450,7 @@
     border: var(--bw-thin) solid transparent;
     background:
       linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
-      linear-gradient(135deg, var(--color-accent), color-mix(in oklch, var(--color-accent) 55%, white)) border-box;
+      linear-gradient(135deg, color-mix(in oklch, var(--color-accent) 38%, var(--color-border)), var(--color-border)) border-box;
   }
   .gradient-border-glow {
     box-shadow:

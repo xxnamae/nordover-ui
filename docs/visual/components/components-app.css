@@ -1193,7 +1193,7 @@
     border: var(--bw-thin) solid transparent;
     background:
       linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
-      linear-gradient(135deg, var(--color-accent), color-mix(in oklch, var(--color-accent) 55%, white)) border-box;
+      linear-gradient(135deg, color-mix(in oklch, var(--color-accent) 38%, var(--color-border)), var(--color-border)) border-box;
   }
   .gradient-border-glow {
     box-shadow:
@@ -1310,7 +1310,7 @@
   .token-pill:is(button, a):focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
   .token-pill-icon { width: 0.75rem; height: 0.75rem; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
   .token-pill-label { line-height: 1.2; }
-  .token-pill-count { font-size: 0.65rem; font-weight: var(--fw-bold); background: color-mix(in oklch, var(--color-fg) 12%, transparent); border-radius: var(--radius-full); padding: 0 0.3rem; line-height: 1.5; }
+  .token-pill-count { font-size: 0.6rem; font-weight: var(--fw-bold); background: color-mix(in oklch, var(--color-fg) 10%, transparent); border-radius: var(--radius-full); padding: 0.05rem 0.32rem; line-height: 1.4; margin-inline-start: 0.25rem; }
   .token-pill-remove { display: flex; align-items: center; justify-content: center; width: 0.875rem; height: 0.875rem; border-radius: var(--radius-full); margin-inline-start: 0.125rem; color: var(--color-muted); transition: background var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out); cursor: pointer; border: none; background: none; padding: 0; }
   .token-pill-remove:hover { background: color-mix(in oklch, var(--color-error) 15%, transparent); color: var(--color-error); }
   /* Semantic pill variants */
