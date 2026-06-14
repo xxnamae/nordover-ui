@@ -96,6 +96,7 @@
     --text-4xl: 2.25rem;    /* 36px */
     --text-5xl: 3rem;       /* 48px */
     --text-6xl: 3.75rem;    /* 60px — hero display-2xl (compact app scale) */
+    --text-7xl: 4.5rem;     /* 72px — display-3xl, most ambitious app hero (still restrained) */
 
     /* === Vekter === */
     --fw-normal: 400; --fw-medium: 500; --fw-semibold: 600; --fw-bold: 700;

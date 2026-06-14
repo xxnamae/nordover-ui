@@ -115,6 +115,13 @@
           "value": 3.75,
           "unit": "rem"
         }
+      },
+      "7xl": {
+        "$type": "dimension",
+        "$value": {
+          "value": 4.5,
+          "unit": "rem"
+        }
       }
     },
     "weight": {
