@@ -1484,7 +1484,7 @@
 
   /* Activity Feed / Timeline */
   .activity-feed { display: flex; flex-direction: column; gap: 0; }
-  .activity-item { display: flex; gap: var(--space-3); padding: var(--space-3) 0; position: relative; }
+  .activity-item { display: flex; gap: var(--space-3); padding: var(--space-4) 0; position: relative; }
   .activity-item::before { content: ""; position: absolute; left: calc(1rem - 0.5px); top: 3rem; bottom: 0; width: 1px; background: var(--color-border); }
   .activity-item:last-child::before { display: none; }
   .activity-icon { width: 2rem; height: 2rem; border-radius: var(--radius-full); background: var(--color-subtle); border: var(--border-card); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--color-muted); z-index: 1; }
@@ -1493,7 +1493,7 @@
   .activity-actor { font-size: var(--text-sm); font-weight: var(--fw-medium); color: var(--color-fg); }
   .activity-action { font-size: var(--text-sm); color: var(--color-muted); }
   .activity-time { font-size: var(--text-xs); color: var(--color-muted); margin-inline-start: auto; white-space: nowrap; }
-  .activity-content { font-size: var(--text-sm); color: var(--color-fg); line-height: 1.6; }
+  .activity-content { font-size: var(--text-sm); color: var(--color-fg); line-height: 1.6; max-width: 60ch; }
   .activity-content p { margin: 0 0 var(--space-1); }
 
   /* Comment Composer */
