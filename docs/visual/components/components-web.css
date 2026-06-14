@@ -1338,7 +1338,7 @@
   .accordion-header:hover { background: var(--color-subtle); }
   .accordion-icon { transition: transform var(--duration-base) var(--ease-out); }
   .accordion-item.is-open .accordion-icon { transform: rotate(180deg); }
-  .accordion-content { padding: 0 var(--space-4) var(--space-4); color: var(--color-muted); line-height: var(--leading-relaxed); }
+  .accordion-content { padding: var(--space-2) var(--space-4) var(--space-5); color: var(--color-muted); line-height: var(--leading-relaxed); }
   .accordion-content.hidden { display: none; }
 
   /* ============================================================
