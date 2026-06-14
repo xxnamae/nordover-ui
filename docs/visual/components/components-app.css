@@ -1276,10 +1276,10 @@
   .stat-value { font-size: var(--text-3xl); font-weight: var(--fw-semibold); line-height: 1; letter-spacing: var(--tracking-display); color: var(--color-fg); font-variant-numeric: tabular-nums; }
   .stat-trend { display: inline-flex; align-items: center; gap: 0.15rem; font-size: var(--text-xs); font-weight: var(--fw-medium); font-variant-numeric: tabular-nums; --stat-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 19V5M6 11l6-6 6 6' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
   .stat-trend::before { content: ""; width: 0.85em; height: 0.85em; flex-shrink: 0; background: currentColor; -webkit-mask: var(--stat-arrow) center / contain no-repeat; mask: var(--stat-arrow) center / contain no-repeat; }
-  .stat-trend.is-up { color: var(--color-success); }
-  .stat-trend.is-down { color: var(--color-error); }
+  .stat-trend.is-up { color: color-mix(in oklch, var(--color-success) 68%, var(--color-fg)); }
+  .stat-trend.is-down { color: color-mix(in oklch, var(--color-error) 68%, var(--color-fg)); }
   .stat-trend.is-down::before { transform: rotate(180deg); }
-  .stat-trend.is-flat { color: var(--color-muted); --stat-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12h14' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E"); }
+  .stat-trend.is-flat { color: color-mix(in oklch, var(--color-muted) 55%, var(--color-fg)); --stat-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12h14' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E"); }
 
   /* Tooltip — pure CSS (hover / focus-within for static demo) */
   .tooltip { position: relative; display: inline-flex; }
