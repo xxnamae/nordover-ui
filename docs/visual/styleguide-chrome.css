@@ -1050,8 +1050,6 @@ html, body {
 .type-sample {
   margin-bottom: var(--space-5);
   padding-bottom: var(--space-4);
-  padding-left: var(--space-4);
-  border-left: var(--bw-medium) solid var(--color-accent);
 }
 
 .type-label {
@@ -1291,7 +1289,9 @@ html, body {
   content: counter(anatomy);
   position: absolute;
   left: 0;
-  top: 0.125rem;
+  /* Center the badge on the FIRST line of text: the badge is taller than the
+     line box, so offset by half the difference (line-height is 1.5em here). */
+  top: calc((1.5em - var(--space-5)) / 2);
   width: var(--space-5);
   height: var(--space-5);
   display: flex;
@@ -1314,8 +1314,6 @@ html, body {
   background: var(--chrome-subtle);
   border: 1px solid var(--chrome-border);
   margin-bottom: var(--space-3);
-  /* inset edge follows the rounded corners (matches shipped .alert) */
-  box-shadow: inset 3px 0 0 0 #0ea5e9;
 }
 .doc-a11y .icon { color: var(--chrome-accent); flex-shrink: 0; margin-top: 0.1rem; }
 .doc-a11y-body { font-size: var(--chrome-text-xs); color: var(--chrome-fg); line-height: 1.55; }

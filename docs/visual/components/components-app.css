@@ -398,17 +398,12 @@
     font-size: var(--text-xs);
     line-height: 1.4;
     color: var(--color-fg);
-    box-shadow: inset 1px 0 0 0 var(--color-border);
   }
   .alert-icon { flex-shrink: 0; width: 1.25rem; height: 1.25rem; color: var(--color-muted); }
 
-  .alert-success { box-shadow: inset 1px 0 0 0 var(--color-success); }
   .alert-success .alert-icon { color: var(--color-success); }
-  .alert-error { box-shadow: inset 1px 0 0 0 var(--color-error); }
   .alert-error .alert-icon { color: var(--color-error); }
-  .alert-warning { box-shadow: inset 1px 0 0 0 var(--color-warning); }
   .alert-warning .alert-icon { color: var(--color-warning); }
-  .alert-info { box-shadow: inset 1px 0 0 0 var(--color-info); }
   .alert-info .alert-icon { color: var(--color-info); }
 
   /* Pagination */
@@ -1356,13 +1351,10 @@
 
   /* Toast */
   .toast-viewport { position: fixed; bottom: var(--space-5); inset-inline-end: var(--space-5); display: flex; flex-direction: column; gap: var(--space-2); z-index: var(--z-toast); }
-  .toast { position: relative; display: flex; align-items: flex-start; gap: var(--space-3); background: var(--surface-4); border-radius: var(--radius-md); box-shadow: var(--shadow-lg); padding: var(--space-3) var(--space-4); min-width: 18rem; max-width: 24rem; box-shadow: var(--shadow-lg), inset 1px 0 0 0 var(--color-border); }
+  .toast { position: relative; display: flex; align-items: flex-start; gap: var(--space-3); background: var(--surface-4); border-radius: var(--radius-md); box-shadow: var(--shadow-lg); padding: var(--space-3) var(--space-4); min-width: 18rem; max-width: 24rem; }
   @media (prefers-reduced-motion: no-preference) { .toast { animation: toast-in var(--duration-base) var(--ease-spring); } }
   @keyframes toast-in { from { opacity: 0; transform: translateX(1rem); } to { opacity: 1; transform: translateX(0); } }
-  .toast-success { box-shadow: var(--shadow-lg), inset 1px 0 0 0 var(--color-success); }
-  .toast-error { box-shadow: var(--shadow-lg), inset 1px 0 0 0 var(--color-error); }
-  .toast-warning { box-shadow: var(--shadow-lg), inset 1px 0 0 0 var(--color-warning); }
-  .toast-info { box-shadow: var(--shadow-lg), inset 1px 0 0 0 var(--color-info); }
+  /* Toast status is carried by the colored icon (.icon-success etc.) — no left edge. */
 
   /* Tag variants — extend the existing .tag (tag-input context), never rename */
   .tag-solid { background: var(--color-accent); color: var(--on-accent); }
