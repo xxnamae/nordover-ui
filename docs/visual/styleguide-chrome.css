@@ -437,10 +437,6 @@ html, body {
   display: flex;
   flex-direction: column;
   min-width: 0;
-  /* clip (not hidden) stops page-level horizontal overflow — which pushed the
-     sticky topbar wider than the viewport and shoved the theme toggle off-screen
-     — without creating a scroll container that would break position:sticky. */
-  overflow-x: clip;
 }
 
 @media (min-width: 64rem) /* --bp-desktop (var() not allowed in media queries) */ {
@@ -469,7 +465,7 @@ html, body {
   gap: var(--space-3);
   height: var(--topbar-height);
   padding: 0 var(--space-6);
-  background: rgba(255, 255, 255, 0.8);
+  background: color-mix(in oklch, var(--chrome-surface) 82%, transparent);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--chrome-border);
   flex-shrink: 0;
@@ -593,9 +589,14 @@ html, body {
 
 .app-content {
   flex: 1;
+  min-width: 0;
+  min-height: 0;
   padding: var(--space-8) var(--space-6) var(--space-10);
   background: var(--chrome-bg);
+  /* The app shell is viewport-height; this region is the scroll container, so the
+     topbar above it stays pinned. Clip is kept here (not on .app-main) too. */
   overflow-y: auto;
+  overflow-x: clip;
 }
 
 @media (max-width: calc(64rem - 1px)) /* --bp-desktop (var() not allowed in media queries) */ {
