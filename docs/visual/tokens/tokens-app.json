@@ -335,7 +335,7 @@
         "colorSpace": "oklch",
         "components": [
           0.985,
-          0.012,
+          0.004,
           265.0
         ]
       },
@@ -345,7 +345,7 @@
             "colorSpace": "oklch",
             "components": [
               0.13,
-              0.012,
+              0.004,
               265.0
             ]
           }
@@ -358,7 +358,7 @@
         "colorSpace": "oklch",
         "components": [
           0.992,
-          0.012,
+          0.004,
           265.0
         ]
       },
@@ -368,7 +368,7 @@
             "colorSpace": "oklch",
             "components": [
               0.17,
-              0.012,
+              0.004,
               265.0
             ]
           }
@@ -391,7 +391,7 @@
             "colorSpace": "oklch",
             "components": [
               0.21,
-              0.012,
+              0.004,
               265.0
             ]
           }
@@ -414,7 +414,7 @@
             "colorSpace": "oklch",
             "components": [
               0.24,
-              0.012,
+              0.004,
               265.0
             ]
           }
@@ -437,7 +437,7 @@
             "colorSpace": "oklch",
             "components": [
               0.27,
-              0.012,
+              0.004,
               265.0
             ]
           }
@@ -842,7 +842,7 @@
       },
       "c": {
         "$type": "number",
-        "$value": 0.012
+        "$value": 0.004
       }
     },
     "gray": {
@@ -852,7 +852,7 @@
           "colorSpace": "oklch",
           "components": [
             0.985,
-            0.012,
+            0.004,
             265.0
           ]
         }
@@ -863,7 +863,7 @@
           "colorSpace": "oklch",
           "components": [
             0.96,
-            0.012,
+            0.004,
             265.0
           ]
         }
@@ -874,7 +874,7 @@
           "colorSpace": "oklch",
           "components": [
             0.92,
-            0.012,
+            0.004,
             265.0
           ]
         }
@@ -885,7 +885,7 @@
           "colorSpace": "oklch",
           "components": [
             0.865,
-            0.012,
+            0.004,
             265.0
           ]
         }
@@ -896,7 +896,7 @@
           "colorSpace": "oklch",
           "components": [
             0.7,
-            0.012,
+            0.004,
             265.0
           ]
         }
@@ -907,7 +907,7 @@
           "colorSpace": "oklch",
           "components": [
             0.52,
-            0.012,
+            0.004,
             265.0
           ]
         }
@@ -918,7 +918,7 @@
           "colorSpace": "oklch",
           "components": [
             0.435,
-            0.012,
+            0.004,
             265.0
           ]
         }
@@ -929,7 +929,7 @@
           "colorSpace": "oklch",
           "components": [
             0.33,
-            0.012,
+            0.004,
             265.0
           ]
         }
@@ -940,7 +940,7 @@
           "colorSpace": "oklch",
           "components": [
             0.22,
-            0.012,
+            0.004,
             265.0
           ]
         }
@@ -951,7 +951,7 @@
           "colorSpace": "oklch",
           "components": [
             0.13,
-            0.012,
+            0.004,
             265.0
           ]
         }
@@ -962,7 +962,7 @@
           "colorSpace": "oklch",
           "components": [
             0.08,
-            0.012,
+            0.004,
             265.0
           ]
         }

@@ -152,8 +152,10 @@
     /* === Nøytral OKLCH-gråskala ===
        L-axis perceptually evened. App-pakken bruker en kjølig, lett lilla-tonet
        nøytral (Linear-referanse: «shades of grey with a purple hue») — hue 265,
-       chroma 0.012. gray-500 held ≤0.52 to preserve --color-muted AA contrast. */
-    --neutral-h: 265; --neutral-c: 0.012;
+       chroma dialled down to 0.004 so surfaces read as true neutral grey (the
+       0.012 purple tint bled visibly into subtle fills — alerts, table zebra,
+       badges). gray-500 held ≤0.52 to preserve --color-muted AA contrast. */
+    --neutral-h: 265; --neutral-c: 0.004;
     --gray-50:  oklch(0.985 var(--neutral-c) var(--neutral-h));
     --gray-100: oklch(0.96  var(--neutral-c) var(--neutral-h));
     --gray-200: oklch(0.92  var(--neutral-c) var(--neutral-h));
