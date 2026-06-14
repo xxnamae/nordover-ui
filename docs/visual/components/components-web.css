@@ -86,7 +86,7 @@
     grid-template-rows: auto 1fr;
     min-height: 100vh;
     max-width: 100%;
-    overflow-x: hidden;
+    overflow-x: clip;
     background: var(--color-bg);
     color: var(--color-fg);
     transition: background-color var(--duration-moderate), color var(--duration-moderate);
@@ -1697,8 +1697,8 @@
     .date-picker-calendar { width: 100vw; max-width: 20rem; left: 50%; transform: translateX(-50%); }
   }
   @media (max-width: 36rem) /* --bp-tablet */ {
-    html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
-    .app, .app-main { width: 100%; max-width: 100%; overflow-x: hidden; }
+    html, body { width: 100%; max-width: 100%; overflow-x: clip; }
+    .app, .app-main { width: 100%; max-width: 100%; overflow-x: clip; }
     .page { padding-inline: var(--space-3); width: 100%; max-width: 100%; overflow-x: hidden; }
     .page-section, .page-content { width: 100%; max-width: 100%; }
     .app-topbar-title { font-size: var(--text-sm); font-weight: var(--fw-semibold); }
