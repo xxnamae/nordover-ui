@@ -56,10 +56,13 @@
     "check:tokens": "python3 scripts/build_tokens.py --check",
     "build:elementor": "python3 scripts/build_elementor.py",
     "check:elementor": "python3 scripts/build_elementor.py --check",
+    "build:derived": "npm run build:tokens && npm run build:elementor",
     "check:contrast": "python3 scripts/check_contrast.py --strict",
     "check:components": "python3 scripts/check_components.py",
+    "check:all": "npm run check:tokens && npm run check:elementor && npm run check:contrast && npm run check:components",
     "gen:theme": "python3 scripts/generate_theme.py",
     "shots": "node scripts/screenshots.cjs",
+    "prepare": "git config core.hooksPath .githooks || true",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
