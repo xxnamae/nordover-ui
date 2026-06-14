@@ -1189,7 +1189,7 @@
   .card-interactive { border: var(--border-card); cursor: pointer; transition: transform var(--duration-base) var(--ease-out), box-shadow var(--duration-base) var(--ease-out), border-color var(--duration-fast) var(--ease-out); }
   .card-interactive:hover { transform: translateY(-2px); box-shadow: var(--shadow-card-hover); border-color: var(--color-muted); }
   .card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-2); }
-  .card-title { font-size: var(--text-base); font-weight: var(--fw-ui-strong); line-height: var(--leading-snug); }
+  .card-title { font-size: var(--text-lg); font-weight: var(--fw-ui-strong); line-height: var(--leading-snug); }
   .card-meta { font-size: var(--text-sm); color: var(--color-muted); line-height: var(--leading-normal); }
   /* App uses compact padding (--space-3); web uses editorial padding (--space-4).
      This reflects package philosophy: app is dense/SaaS, web is airy/editorial. */
